@@ -1,0 +1,110 @@
+.sec-pad{
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+@media only screen and (max-width:480px) {
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.about-bg {
+    background-image: url(../images/banner/banner-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*    float: left;*/
+    width: 100%;
+    padding: 75px 0;
+/*    z-index: 1;
+    position: relative;*/
+}
+.about-bg:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.67;
+    z-index: -1;
+
+}
+.rl-banner {
+    float: left;
+    width: 100%;
+}
+.rl-banner h2 {
+    color: #fff;
+    font-size: 30px;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+.rl-banner h2.tp {
+    text-transform: uppercase;
+}
+.rl-banner ul li {
+    display: inline-block;
+    position: relative;
+    padding-right: 15px;
+}
+.rl-banner ul li a {
+    color: #fff;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.rl-banner ul li span.active {
+    color: #e2ab76;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.rl-banner ul li:before {
+    content: '/';
+    position: absolute;
+    right: 0;
+    color: #fff;
+}
+.rl-banner ul li:last-child:before {
+    display: none;
+}
+/*more */
+.more-items{
+    border: 1px solid ;
+   
+    box-shadow: 5px 5px #bed4c7;
+    margin-bottom: 15px;
+}
+.more-items img{
+    width: 50px; 
+    height: 50px;
+    float:left;
+   
+}
+.more-items p{
+  padding-left:60px; 
+  font-size: 12px;
+}
+.more-items h5{
+    color:#0dce38;
+    
+}
+ .text-box{
+                float: left;
+                width: 100%;
+                background: #fff;
+                border: #0dce38 solid 1px;
+                padding: 10px 10px 10px 20px;
+                box-sizing: border-box;
+                box-shadow: 5px 5px #8bde9d33;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                margin: 15px 0 0 0px;
+                position: relative;
+                z-index: 99;
+            }
+            .text-box.title{
+                margin-top: 10px;
+            }
