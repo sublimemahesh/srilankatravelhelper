@@ -44,7 +44,7 @@
             </div>
             <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
@@ -139,7 +139,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="item-image-wrapper">
+                            <div class="single-items">
+                                <div class="iteminfo text-center">
+                                    <img src="images/user-avatar.jpg"  alt="">
+                                    <h2>Tom Jasan</h2>
+                                    <p>Easy Polo Black Edition </p>
+                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
+                                </div>
+                                <div class="item-overlay">
+                                    <div class="overlay-content">
+                                        <h2>Tom Jasan</h2>
+                                        <p>Easy Polo Black Edition </p>
+                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="item-image-wrapper">
+                            <div class="single-items">
+                                <div class="iteminfo text-center">
+                                    <img src="images/user-avatar.jpg"  alt="">
+                                    <h2>Tom Jasan</h2>
+                                    <p>Easy Polo Black Edition </p>
+                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
+                                </div>
+                                <div class="item-overlay">
+                                    <div class="overlay-content">
+                                        <h2>Tom Jasan</h2>
+                                        <p>Easy Polo Black Edition </p>
+                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="item-image-wrapper">
                             <div class="single-items">
                                 <div class="iteminfo text-center">
