@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-       
-        <link rel="stylesheet" href="css/style.css">
-        <link href="css/custom.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
-<!--        <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
-        <style>
+<head>
+ <!-- Basic Page Needs
+    ================================================== -->
+    <title>Sri Lanka Travel Helper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/colors/main.css" id="colors">
+<!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
+ <style>
             .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
             .single-items {position: relative;}
             .iteminfo {position: relative;}
@@ -27,7 +30,8 @@
             .overlay-content {bottom: 0;position: absolute; bottom: 0; text-align: center; width: 100%;}
             .iteminfo img {    width: 100%;}
         </style>
-    </head>
+</head>
+
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
@@ -41,8 +45,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
+            </div><!--
+-->            <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="item-image-wrapper">
@@ -198,7 +202,7 @@
                     </div>
                 </div>
             </div>
-            <!--responsive-->
+<!--            responsive-->
             <div class="container padding-top-35 visible-sm visible-xs">
                 <div class="row">
                     <div class="col-sm-12">
@@ -242,10 +246,10 @@
             <?php include './footer.php'; ?>
         </div>
     </body>
+    <!-- Scripts
+     ================================================== -->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
-    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>
     <script type="text/javascript" src="scripts/slick.min.js"></script>
     <script type="text/javascript" src="scripts/rangeslider.min.js"></script>
@@ -255,6 +259,7 @@
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+
 
 </html>
 

@@ -2,17 +2,21 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <!-- Basic Page Needs
+           ================================================== -->
+        <title>Sri Lanka Travel Helper</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- CSS
+           ================================================== -->
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <!--        <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
-    </head>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container about-bg ">
+            <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner">
                         <h2 class="tp">Destination</h2>
@@ -23,74 +27,109 @@
                     </div>
                 </div>
             </div>
-            <div class="container padding-top-35">
+            <div class="container margin-top-70">
                 <div class="row">
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
-                    <div class="category-box-container col-md-4">
-                        <a href="" class="destination-box">
-                            <img src="images/destination/6.jpg"  alt=""/>
-                            <div class="category-box-content" >
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="destination-view-page.php" class="listing-item-container">
+                            <div class="listing-item">
+                                <img src="images/destination/whild-life.jpg" alt="">
+                                <div class="listing-item-content">
+                                    <span class="tag" style="background: #0dce38!important">View</span>
+                                    <h3>Burger House</h3>
+                                    <span>2726 Shinn Street, New York</span>
+                                    <div class="star-rating" data-rating="5.0">
+                                        <div class="rating-counter">(31 reviews)</div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-                        <a href="destination-view-page.php"><span class="category-box-btn">Browse</span></a>
-                    </div>  
+                    </div>
                 </div>
             </div>
             <?php include './footer.php'; ?>
         </div>
     </body>
+
+
+    <!-- Scripts
+     ================================================== -->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>
     <script type="text/javascript" src="scripts/slick.min.js"></script>
