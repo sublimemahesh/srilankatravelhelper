@@ -5387,7 +5387,7 @@ a.rate-review:hover {
 .pagination .current,
 .pagination ul li a:hover,
 .pagination-next-prev ul li a:hover {
-    background-color: #f2f2f2;
+    background-color: #0dce38;
     color: #333
 }
 
@@ -9762,7 +9762,7 @@ section.fullwidth .listing-item-container.list-layout,
 }
 
 .listing-item-content span {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 300;
     display: inline-block;
     color: rgba(255, 255, 255, .7)
@@ -9924,9 +9924,9 @@ section.fullwidth .listing-item-container.list-layout,
     margin: 0;
 
     float: left;
-    margin-right: 4px;
+/*    margin-right: 4px;*/
     position: relative;
-    top:-62px;
+/*    top:-90px;*/
 }
 
 .rating-counter {
