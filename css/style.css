@@ -6191,8 +6191,35 @@ span.blog-item-tag {
     left: 32px;
     z-index: 110
 }
+span#blog-item-tag {
+    text-transform: uppercase;
+    font-size: 9.7px;
+    letter-spacing: 2.5px;
+/*    font-weight: 60;
+    background: #66676b;*/
+    border-radius: 50px;
+    padding: 5px 16px;
+    line-height: 20px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 9px;
+    position: absolute;
+    top: 170px;
+/*    left: 32px;*/
+/*    z-index: 110*/
+}
 
 .blog-post-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .9
+}
+#blog-post-tags {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -9943,6 +9970,13 @@ section.fullwidth .listing-item-container.list-layout,
     font-size: 15px;
 
 }
+#rating-counter-tour {
+    color: #fff;
+    padding-left: 5px;
+    display: inline-block;
+    font-size: 15px;
+
+}
 
 .star-rating-fa{
     margin-top: -30px;
@@ -9950,6 +9984,13 @@ section.fullwidth .listing-item-container.list-layout,
     position: relative;
     color: #f5cf00;
     padding-right: 10px;
+}
+#star-rating-fa{
+    margin: 17px 10px 10px 10px;
+    z-index: 9;
+    position: relative;
+    color: #f5cf00;
+    padding-right: 4px;
 }
 
 .driver-name{

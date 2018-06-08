@@ -131,7 +131,7 @@
              <div class="padding-top-10" >
                                         <hr  >
                                         <h3 class="headline">Name of Tour Packages</h3>
-                                        <hr  >
+                                        <hr >
                                         <p>Morbi convallis bibendum urna ut viverra. 
                                             Maecenas quis consequat libero, a feugiat eros. 
                                             Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
