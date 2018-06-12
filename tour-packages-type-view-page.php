@@ -208,7 +208,7 @@
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -238,11 +238,12 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -272,11 +273,12 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -306,11 +308,12 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -340,11 +343,12 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -374,11 +378,12 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <span>View</span>
+                                <a href="tour-packages-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -408,6 +413,7 @@
                             </div>
                         </div>
                     </div>
+                 
                 </div>
                 <div class="row">
                     <div class=" col-md-12  ">
