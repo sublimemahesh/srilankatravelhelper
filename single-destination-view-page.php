@@ -171,6 +171,38 @@
                                 </div>
             </div>
 </div>
+            <div class="container">
+                <div class="col-md-4">
+                    
+                </div>
+                    <div class="col-md-8">
+                        <div class="col-md-2">
+                            <img src="images/reviews-avatar.jpg" alt=""/>
+                            <h4>Name</h4>
+                        </div>  
+                        <div class="col-md-7">
+                            <h3>Title</h3>
+                            <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
+                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                        </div>  
+                        <div class="col-md-3">
+                            <div class="package-ratings-review">
+                                    <ul class="two-column">
+                                        <li>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <p>27 Reviews</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>  
+                </div>
+            </div>
             <?php include './footer.php'; ?>
         </div>
 <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>-->
