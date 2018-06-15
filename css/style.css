@@ -15461,6 +15461,9 @@ h4 span.headline-detail {
 .padding-left-100 {
     padding-left: 100px!important
 }
+.padding-left-200 {
+    padding-left: 200px!important
+}
 
 @media(max-width:1600px) {
     .category-box-btn {
