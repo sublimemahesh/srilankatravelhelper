@@ -437,7 +437,7 @@
                             </nav>
                         </div>
                     </div>
-                </div>
+                </div>w
             </div>
         </section><!-- single popular destination  end-->
 

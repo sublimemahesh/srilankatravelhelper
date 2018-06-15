@@ -9958,7 +9958,14 @@ section.fullwidth .listing-item-container.list-layout,
 
 .rating-counter {
     color: #888;
-    padding-left: 5px;
+    padding-left: 10px;
+    display: inline-block;
+    font-size: 15px;
+
+}
+#rating-counter {
+    color: #888;
+    padding-left: 92px;
     display: inline-block;
     font-size: 15px;
 
@@ -16432,4 +16439,14 @@ div.layout-style {
 }
 #driver .parallax-overlay{
     display: none !important;
+}
+.profile-driver{
+    width: 50%;
+    margin-top: -60px;
+    border: solid white 2px;
+    z-index: 99999;
+    position: relative;
+    align-content: center;
+    margin-left:57px;
+/*    margin-right:70px;*/
 }
