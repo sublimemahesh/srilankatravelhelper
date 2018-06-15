@@ -205,6 +205,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -237,9 +238,10 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -272,9 +274,10 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -307,9 +310,10 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -342,9 +346,10 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -377,9 +382,10 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                     <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="tour-packages-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
@@ -412,18 +418,20 @@
                                 <a href="#">Book Now</a>
                             </div>
                         </div>
+                        </a>
                     </div>
-                 
                 </div>
                 <div class="row">
-                    <div class=" col-md-12  ">
+                    <div class=" col-md-12 padding-left-200 padding-right-45 ">
                         <!-- Pagination -->
                         <div class="pagination-container margin-top-20 margin-bottom-40">
                             <nav class="pagination">
                                 <ul>
                                     <li><a href="#" class="current-page">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
+                                    <li><a href="#" class="current-page">2</a></li>
+                                    <li><a href="#" class="current-page">3</a></li>
+                                    <li><a href="#" class="current-page">4</a></li>
+                                    <li><a href="#" class="current-page">5</a></li>
                                     <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
                                 </ul>
                             </nav>
