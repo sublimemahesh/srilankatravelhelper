@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
         <style>
-            .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
+/*            .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
             .single-items {position: relative;}
             .iteminfo {position: relative;}
             .iteminfo h2 {color: #0dce38;font-size: 24px; font-weight: 700;}
@@ -28,7 +28,7 @@
             .choose ul li a {color: #B3AFA8;font-size: 13px;padding-left: 0;padding-right: 0;}
             .single-items:hover .item-overlay {display: block;  height: 100%;  background: #0dce3899;}
             .overlay-content {bottom: 0;position: absolute; bottom: 0; text-align: center; width: 100%;}
-            .iteminfo img {    width: 100%;}
+            .iteminfo img {    width: 100%;}*/
         </style>
     </head>
 
@@ -70,7 +70,7 @@
                                     <div class="driver-name text-left"> 
                                         Driver Name
                                     </div>
-                                    <div class="star-rating-fa text-right"> 
+                                    <div class="star-rating-fa text-right" style="padding-right: 10px !important;"> 
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>

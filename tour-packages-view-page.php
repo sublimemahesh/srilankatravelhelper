@@ -18,17 +18,8 @@
     <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
   <style>
 
-            /* Demo styles */
-            html,body{background:#222;margin:0;}
-            body{border-top:4px solid #000;}
-            .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:100%;margin:20px auto;}
-            h1{font-size:12px;font-weight:normal;color:#ddd;margin:0;}
-            p{margin:0 0 20px}
-            a {color:#22BCB9;text-decoration:none;}
-            .cred{margin-top:20px;font-size:11px;}
-
             /* This rule is read by Galleria to define the gallery height: */
-            #galleria{height:320px}
+                        #galleria{height:480px}
 
         </style>
 </head>
