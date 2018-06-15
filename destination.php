@@ -37,7 +37,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0" style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0" style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3>Burger House</h3>
                                     <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0">
+                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
                                 </div>

@@ -386,94 +386,7 @@
                             </div>	
                         </div>	
                         <div class="col-md-8 ">
-                            <div class="reviws-section col-md-12">
-                                <div class="col-md-2 img-section">
-                                    <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
-                                    <h4 class="center reviews-title">Name</h4>
-                                </div>  
-                                <div class="col-md-7">
-                                    <h4 class=" reviews-title">Title</h4>
-                                    <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                                </div>  
-                                <div class="col-md-3 star-section">
-                                    <div class="package-ratings-review">
-
-                                        <ul class="two-column">
-                                            <div class="reviews-item1 ">
-                                                <li>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
-                                                </li>
-                                                <div class="like-icon-section">
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon "></span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </ul>
-
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="reviws-section col-md-12">
-                                <div class="col-md-2 img-section">
-                                    <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
-                                    <h4 class="center reviews-title">Name</h4>
-                                </div>  
-                                <div class="col-md-7">
-                                    <h4 class=" reviews-title">Title</h4>
-                                    <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                                </div>  
-                                <div class="col-md-3 star-section">
-                                    <div class="package-ratings-review">
-
-                                        <ul class="two-column">
-                                            <div class="reviews-item1 ">
-                                                <li>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
-                                                </li>
-                                                <div class="like-icon-section">
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon "></span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </ul>
-
-                                    </div>
-                                </div>  
-                            </div>
+                           
                             <div class="reviws-section col-md-12">
                                 <div class="col-md-2 img-section">
                                     <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
@@ -483,9 +396,14 @@
                                     <h4 class=" reviews-title">Title</h4>
                                     <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
                                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                                </div>  
+                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Read more...
+                                        </a></p>
+                                    <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
+                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                                        </p>
+                                </div> 
+
                                 <div class="col-md-3 star-section">
                                     <div class="package-ratings-review">
 
@@ -519,6 +437,9 @@
 
                                     </div>
                                 </div>  
+                            </div>
+                            <div >
+        
                             </div>
                         </div>
 
