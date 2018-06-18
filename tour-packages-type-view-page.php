@@ -56,18 +56,19 @@
             }
             .single-package-carasoul .package-location span {
                 background: #37b721 none repeat scroll 0 0;
-                bottom: 0;
+                bottom: 10px;
                 color: #ffffff;
                 font-size: 20px;
                 font-weight: 600;
                 height: 40px;
-                left: 0;
+                left:10px;
                 line-height: 43px;
                 position: absolute;
                 text-align: center;
                 transition: all 0.3s ease-in-out 0s;
                 width: 100px;
                 z-index: 99;
+                border-radius: 21px;
             }
             .single-package-carasoul .package-details {
                 background: #ffffff;
@@ -288,7 +289,7 @@
                                     <h4>Dubai – All Stunning Places</h4>
                                     <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
                                     <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
+                                        <p>Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
                                     </div>
                                 </div>
                                 <div class="package-ratings-review">
@@ -324,7 +325,7 @@
                                     <h4>Dubai – All Stunning Places</h4>
                                     <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
                                     <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
+                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
                                     </div>
                                 </div>
                                 <div class="package-ratings-review">
@@ -360,7 +361,7 @@
                                     <h4>Dubai – All Stunning Places</h4>
                                     <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
                                     <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
+                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
                                     </div>
                                 </div>
                                 <div class="package-ratings-review">
@@ -396,7 +397,7 @@
                                     <h4>Dubai – All Stunning Places</h4>
                                     <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
                                     <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
+                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
                                     </div>
                                 </div>
                                 <div class="package-ratings-review">
@@ -437,7 +438,7 @@
                             </nav>
                         </div>
                     </div>
-                </div>w
+                </div>
             </div>
         </section><!-- single popular destination  end-->
 

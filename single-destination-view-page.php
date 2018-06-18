@@ -20,7 +20,7 @@
 
 
             /* This rule is read by Galleria to define the gallery height: */
-                       #galleria{height:480px}
+            #galleria{height:480px}
 
             /*reviews*/
             .img-section img{
@@ -40,6 +40,7 @@
             .reviews-title{
                 margin-top:10px;
                 font-family: 'Courgette', cursive;
+                margin-left: 10px;
             }
             .reviews-description{
                 font-family: 'Courgette', cursive;
@@ -135,9 +136,25 @@
             .rating-breakdown{
 
                 border-radius:3%;
-                padding: 1% 1% 1% 1%;
+                /*                padding: 1% 1% 1% 1%;*/
 
             }
+            .read-more-reviews{
+                color: #0dce38;
+                text-decoration: none;
+            }
+            .read-more-reviews:hover{
+                color: #0dce38;
+                text-decoration: none;
+            }
+            .more-reviews-item1 li{
+                color:#f5cf00;
+                list-style-type: none;
+                margin-bottom: 10px;
+                font-size: 8px;
+
+            }
+
         </style>
     </head>
     <body>
@@ -258,26 +275,66 @@
                     <div class="col-md-3" >
                         <div>
                             <h3 class="headline text-center" >More Destination</h3>
-                        </div> <div  class="col-md-12 more-items" >
-                            <h5  class="text-center headline">   Morb onvallis . </h5>
-                            <img  src="images/reviews-avatar.jpg"  class="img-circle" alt=""/>
-                            <p class="text-justify"  >Morbiconvallis convallis bibendum  </p> </div>
-                        <div  class="col-md-12 more-items" >
-                            <h5  class="text-center headline">   Morb onvallis . </h5>
-                            <img  src="images/reviews-avatar.jpg"  class="img-circle" alt=""/>
-                            <p class="text-justify"  >Morbiconvallis convallis bibendum  </p> </div>
-                        <div  class="col-md-12 more-items" >
-                            <h5  class="text-center headline">   Morb onvallis . </h5>
-                            <img  src="images/reviews-avatar.jpg"  class="img-circle" alt=""/>
-                            <p class="text-justify"  >Morbiconvallis convallis bibendum  </p> </div>
-                        <div  class="col-md-12 more-items" >
-                            <h5  class="text-center headline">   Morb onvallis . </h5>
-                            <img  src="images/reviews-avatar.jpg"  class="img-circle" alt=""/>
-                            <p class="text-justify"  >Morbiconvallis convallis bibendum  </p> </div>
-                        <div  class="col-md-12 more-items" >
-                            <h5  class="text-center headline">   Morb onvallis . </h5>
-                            <img  src="images/reviews-avatar.jpg"  class="img-circle" alt=""/>
-                            <p class="text-justify"  >Morbiconvallis convallis bibendum  </p> </div>
+                        </div> 
+                        <div  class="col-md-12 col-xs-12 more-items" >
+                            <h5  class="text-center headline">Morb onvallis . </h5>
+                            <div class="col-md-5 col-xs-5 more-items-image">
+                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
+                                
+                            </div>
+                            <div class="col-md-7 col-xs-7">
+                                <p   >Morbiconvallis convallisbibendum..  </p>
+                                  <div class="more-reviews-item1">
+                                    <li>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-md-12 col-xs-12 more-items" >
+                            <h5  class="text-center headline">Morb onvallis . </h5>
+                            <div class="col-md-5 col-xs-5 more-items-image">
+                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
+                                
+                            </div>
+                            <div class="col-md-7 col-xs-7">
+                                <p   >Morbiconvallis convallisbibendum..  </p>
+                                  <div class="more-reviews-item1">
+                                    <li>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-md-12 col-xs-12 more-items" >
+                            <h5  class="text-center headline">Morb onvallis . </h5>
+                            <div class="col-md-5 col-xs-5 more-items-image">
+                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
+                                
+                            </div>
+                            <div class="col-md-7 col-xs-7">
+                                <p   >Morbiconvallis convallisbibendum..  </p>
+                                  <div class="more-reviews-item1">
+                                    <li>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                      
+                     
                     </div>
                 </div>
             </div>
@@ -288,150 +345,153 @@
                         <h3 class="headline ">Reviews(3,090)</h3>
                         <hr>
                         <div class="col-md-4 rating-breakdown">
-                            <div class="col-md-12 rating-block">
-
-                                <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
+                            <div class="row">
+                                <div class="col-md-12  rating-block">
+                                    <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-md-12" style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
-                                 border: 1px solid #F7F7F0;border-radius: 3%; ">
+                            <div class="row">
+                                <div class="col-md-12 " style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
+                                     border: 1px solid #F7F7F0;border-radius: 3%; ">
 
-                                <div class="pull-left" >
-                                    <div class="pull-left" style="width:35px; line-height:1;">
-                                        <div style="height:9px; margin:5px 0;">5 <span class="fa fa-star"></span></div>
-                                    </div>
-                                    <div class="pull-left" style="width:180px;">
-                                        <div class="progress" style="height:9px; margin:8px 0;">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
+                                    <div class="pull-left" >
+                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                            <div style="height:9px; margin:5px 0;">5 <span class="fa fa-star"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="pull-right" style="margin-left:10px;">1</div>
-                                </div>
-                                <div class="pull-left">
-                                    <div class="pull-left" style="width:35px; line-height:1;">
-                                        <div style="height:9px; margin:5px 0;">4 <span class="fa fa-star"></span></div>
-                                    </div>
-                                    <div class="pull-left" style="width:180px;">
-                                        <div class="progress" style="height:9px; margin:8px 0;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pull-right" style="margin-left:10px;">1</div>
-                                </div>
-                                <div class="pull-left">
-                                    <div class="pull-left" style="width:35px; line-height:1;">
-                                        <div style="height:9px; margin:5px 0;">3 <span class="fa fa-star"></span></div>
-                                    </div>
-                                    <div class="pull-left" style="width:180px;">
-                                        <div class="progress" style="height:9px; margin:8px 0;">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pull-right" style="margin-left:10px;">0</div>
-                                </div>
-                                <div class="pull-left">
-                                    <div class="pull-left" style="width:35px; line-height:1;">
-                                        <div style="height:9px; margin:5px 0;">2 <span class="fa fa-star"></span></div>
-                                    </div>
-                                    <div class="pull-left" style="width:180px;">
-                                        <div class="progress" style="height:9px; margin:8px 0;">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pull-right" style="margin-left:10px;">0</div>
-                                </div>
-                                <div class="pull-left">
-                                    <div class="pull-left" style="width:35px; line-height:1;">
-                                        <div style="height:9px; margin:5px 0;">1 <span class="fa fa-star"></span></div>
-                                    </div>
-                                    <div class="pull-left" style="width:180px;">
-                                        <div class="progress" style="height:9px; margin:8px 0;">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pull-right" style="margin-left:10px;">0</div>
-                                </div>
-                            </div>	
-                        </div>	
-                        <div class="col-md-8 ">
-                           
-                            <div class="reviws-section col-md-12">
-                                <div class="col-md-2 img-section">
-                                    <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
-                                    <h4 class="center reviews-title">Name</h4>
-                                </div>  
-                                <div class="col-md-7">
-                                    <h4 class=" reviews-title">Title</h4>
-                                    <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Read more...
-                                        </a></p>
-                                    <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                        </p>
-                                </div> 
-
-                                <div class="col-md-3 star-section">
-                                    <div class="package-ratings-review">
-
-                                        <ul class="two-column">
-                                            <div class="reviews-item1 ">
-                                                <li>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
-                                                </li>
-                                                <div class="like-icon-section">
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon "></span>
-                                                    </div>
+                                        <div class="pull-left" style="width:180px;">
+                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
                                                 </div>
-
-
                                             </div>
-                                        </ul>
-
+                                        </div>
+                                        <div class="pull-right" style="margin-left:10px;">1</div>
                                     </div>
-                                </div>  
+                                    <div class="pull-left">
+                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                            <div style="height:9px; margin:5px 0;">4 <span class="fa fa-star"></span></div>
+                                        </div>
+                                        <div class="pull-left" style="width:180px;">
+                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin-left:10px;">1</div>
+                                    </div>
+                                    <div class="pull-left">
+                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                            <div style="height:9px; margin:5px 0;">3 <span class="fa fa-star"></span></div>
+                                        </div>
+                                        <div class="pull-left" style="width:180px;">
+                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                    </div>
+                                    <div class="pull-left">
+                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                            <div style="height:9px; margin:5px 0;">2 <span class="fa fa-star"></span></div>
+                                        </div>
+                                        <div class="pull-left" style="width:180px;">
+                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                    </div>
+                                    <div class="pull-left">
+                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                            <div style="height:9px; margin:5px 0;">1 <span class="fa fa-star"></span></div>
+                                        </div>
+                                        <div class="pull-left" style="width:180px;">
+                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="reviws-section">
+                                <div class="row">
+                                    <div class="col-md-2 img-section">
+                                        <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
+                                        <h4 class="center reviews-title">Name</h4>
+                                    </div>  
+                                    <div class="col-md-7">
+                                        <h4 class=" reviews-title">Title</h4>
+                                        <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
+                                            Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                                            <a class="read-more-reviews"  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                Read more...
+                                            </a></p>
+                                        <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
+                                            Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                                        </p>
+                                    </div> 
+                                    <div class="col-md-3 star-section">
+                                        <div class="package-ratings-review">
+
+                                            <ul class="two-column">
+                                                <div class="reviews-item1 ">
+                                                    <li>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
+                                                    </li>
+                                                    <div class="like-icon-section">
+                                                        <div class="col-md-4 like-icon-section-pd">
+                                                            <span class="like-icon"></span>
+                                                        </div>
+                                                        <div class="col-md-4 like-icon-section-pd">
+                                                            <span class="like-icon"></span>
+                                                        </div>
+                                                        <div class="col-md-4 like-icon-section-pd">
+                                                            <span class="like-icon "></span>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </ul>
+
+                                        </div>
+                                    </div> 
+                                </div>
                             </div>
                             <div >
-        
+
                             </div>
                         </div>
 
