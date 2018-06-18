@@ -22,7 +22,7 @@
                         <li><a class="current" href="index.php">Home</a>
 
                         </li>
-                        <li><a href="destination.php">Destinations</a>
+                        <li><a href="destination-type.php">Destinations</a>
 
                         </li>
 

@@ -206,11 +206,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -242,11 +242,11 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -278,11 +278,11 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -314,11 +314,11 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -350,11 +350,11 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
@@ -386,11 +386,11 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php">
                         <div class="single-package-carasoul">
                             <div class="package-location">
                                 <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-view-page.php"> <span>View</span></a>
+                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">

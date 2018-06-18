@@ -91,7 +91,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
@@ -121,7 +121,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
@@ -152,7 +152,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
@@ -183,7 +183,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
@@ -213,7 +213,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
@@ -242,7 +242,7 @@
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="single-destination-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">

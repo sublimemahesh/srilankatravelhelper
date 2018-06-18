@@ -45,7 +45,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="destination-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php" class="listing-item-container">
                             <div class="listing-item">
                                 <img src="images/destination/whild-life.jpg" alt="">
                                 <div class="listing-item-content">
@@ -60,7 +60,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="destination-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php" class="listing-item-container">
                             <div class="listing-item">
                                 <img src="images/destination/whild-life.jpg" alt="">
                                 <div class="listing-item-content">
@@ -75,7 +75,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="destination-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php" class="listing-item-container">
                             <div class="listing-item">
                                 <img src="images/destination/whild-life.jpg" alt="">
                                 <div class="listing-item-content">
@@ -90,7 +90,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="destination-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php" class="listing-item-container">
                             <div class="listing-item">
                                 <img src="images/destination/whild-life.jpg" alt="">
                                 <div class="listing-item-content">
@@ -105,7 +105,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="destination-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php" class="listing-item-container">
                             <div class="listing-item">
                                 <img src="images/destination/whild-life.jpg" alt="">
                                 <div class="listing-item-content">
