@@ -211,9 +211,9 @@
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
                     <div class="col-md-3" >
-                        <img src="images/side-banner/side-banner.jpg" alt=""/>
-                        <img src="images/side-banner/gemma-says-relax.jpg" alt=""/>
-<!--                        <div class="driver-profile-section" >
+
+
+                        <div class="driver-profile-section" >
                             <div class="listing-item">
                                 <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
                             </div>
@@ -255,12 +255,10 @@
                                 </div>
                             </div>
                         </div>
-                                                <div class="padding-top-20"></div>
-                                                <div class="contact-details-driver">
-                                                    <li><span><i class="fa fa-home"></i>Sublime Holdings ,Galle Road,Galle</span></li>
-                                                    <li><span><i class="fa fa-envelope"></i>sublime@gamil.com</span></li>
-                                                    <li><span><i class="fa fa-phone"></i>(+94)0377478938</span></li>
-                                                </div>-->
+                        <div class="padding-top-20"></div>
+                        <div class="">
+                            <img src="images/side-banner/side-banner.jpg" alt=""/>
+                        </div>
 
                     </div>
                     <div class="col-md-9">
@@ -360,7 +358,7 @@
 
                 </div>
             </div>
-   
+
             <div class="container padding-bottom-35">
                 <div class="row">
                     <div class="col-md-12">
@@ -519,7 +517,7 @@
                 </div>
 
             </div>
-                     <section class="fullwidth  padding-top-45 padding-bottom-45" >
+            <section class="fullwidth  padding-top-45 padding-bottom-45" >
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
