@@ -87,6 +87,7 @@ $destinations = $DESTINATION->all();
                                                             <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                             <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
                                                             <a href="view-tour-sub-section.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-indent-left arrange-btn"></button></a>
+                                                            <a href="create-destination-type-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
                                                         </div>
                                                     </div>
                                                 </div>

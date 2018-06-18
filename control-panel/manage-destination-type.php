@@ -106,6 +106,7 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                                                         <a href="manage-destination-type.php?id=<?php echo $destination['id']; ?>"> 
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <?php
