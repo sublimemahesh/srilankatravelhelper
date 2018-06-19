@@ -87,9 +87,6 @@ if (isset($_POST['edit-tour-type'])) {
     }
 
     $DESTINATION_TYPE = new DestinationType($_POST['id']);
-    
-    
-
     $DESTINATION_TYPE->id = $_POST['id'];
     $DESTINATION_TYPE->name = $_POST['name'];
     $DESTINATION_TYPE->picture_name = $_POST['oldImageName'];
@@ -98,8 +95,8 @@ if (isset($_POST['edit-tour-type'])) {
     $VALID = new Validator();
     $VALID->check($DESTINATION_TYPE, [
         'name' => ['required' => TRUE],
-        'image_name' => ['required' => TRUE],
-        'sort' => ['required' => TRUE]
+        'image_name' => ['required' => TRUE]
+//        'sort' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {

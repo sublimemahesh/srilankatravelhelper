@@ -94,7 +94,7 @@ class DestinationType {
         return $db->readQuery($query);
     }
 
-    public function GetTourTypeById($id) {
+    public function GetDestinationTypeById($id) {
 
         $query = "SELECT * FROM `destination_type` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
 

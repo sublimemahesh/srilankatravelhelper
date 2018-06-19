@@ -4,10 +4,10 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 include_once(dirname(__FILE__) . '/../auth.php');
 
 if (isset($_POST['add-tour-type'])) {
-    $DESTINATION_TYPE = new DestinationType(NULL);
+    $DESTINATION_TYPE_PHOTOS = new DestinationTypePhotos(NULL);
     $VALID = new Validator();
-
-    $DESTINATION_TYPE->caption = filter_input(INPUT_POST, 'caption');
+    $DESTINATION_TYPE_PHOTOS->type_id = $_POST['type_id'];
+    $DESTINATION_TYPE_PHOTOS->caption = $_POST['caption'];
 
     $dir_dest = '../../upload/destination-photos/';
 
@@ -31,15 +31,15 @@ if (isset($_POST['add-tour-type'])) {
         }
     }
 
-    $DESTINATION_TYPE->image_name = $imgName;
+    $DESTINATION_TYPE_PHOTOS->image_name = $imgName;
 
-    $VALID->check($DESTINATION_TYPE, [
+    $VALID->check($DESTINATION_TYPE_PHOTOS, [
         'caption' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {
-        $DESTINATION_TYPE->create();
+        $DESTINATION_TYPE_PHOTOS->create();
 
         if (!isset($_SESSION)) {
             session_start();
@@ -86,24 +86,24 @@ if (isset($_POST['edit-tour-type'])) {
         }
     }
 
-    $DESTINATION_TYPE = new DestinationType($_POST['id']);
-    
-    
+    $DESTINATION_TYPE_PHOTOS = new DestinationTypePhotos($_POST['id']);
 
-    $DESTINATION_TYPE->id = $_POST['id'];
-    $DESTINATION_TYPE->caption = $_POST['caption'];
-    $DESTINATION_TYPE->picture_name = $_POST['oldImageName'];
-    $DESTINATION_TYPE->sort = $_POST['sort'];
+
+
+    $DESTINATION_TYPE_PHOTOS->id = $_POST['id'];
+    $DESTINATION_TYPE_PHOTOS->caption = $_POST['caption'];
+    $DESTINATION_TYPE_PHOTOS->picture_name = $_POST['oldImageName'];
+    $DESTINATION_TYPE_PHOTOS->sort = $_POST['sort'];
 
     $VALID = new Validator();
-    $VALID->check($DESTINATION_TYPE, [
-        'caption' => ['required' => TRUE],
+    $VALID->check($DESTINATION_TYPE_PHOTOS, [
+//        'caption' => ['required' => TRUE],
         'image_name' => ['required' => TRUE],
         'sort' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {
-        $DESTINATION_TYPE->update();
+        $DESTINATION_TYPE_PHOTOS->update();
 
         if (!isset($_SESSION)) {
             session_start();
@@ -128,7 +128,7 @@ if (isset($_POST['save-data'])) {
     foreach ($_POST['sort'] as $key => $img) {
         $key = $key + 1;
 
-        $TOUR_SUB = DestinationType::arrange($key, $img);
+        $TOUR_SUB = DestinationTypePhotos::arrange($key, $img);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

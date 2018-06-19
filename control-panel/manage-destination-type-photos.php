@@ -2,13 +2,9 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-
-$DESTINATION = new Destination(NULL);
+$DESTINATION_TYPE_PHOTOS = new DestinationTypePhotos(NULL);
 $destinations = NULL;
-$destinations = $DESTINATION->all();
+$destinations = $DESTINATION_TYPE_PHOTOS->all();
 
 ?>
 ﻿<!DOCTYPE html>
@@ -65,7 +61,7 @@ $destinations = $DESTINATION->all();
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>
-                                        <a href="create-destination.php">
+                                        <a href="manage-destination-type-photos.php">
                                             <i class="material-icons">add</i> 
                                         </a>
                                     </li>
@@ -77,21 +73,20 @@ $destinations = $DESTINATION->all();
                                     <div class="row clearfix">
                                         <?php
                                         foreach ($destinations as $key => $destination) {
-                                            $DESTINATION_TYPE = new DestinationType($destination['type']);
+                                            $DESTINATION_TYPE_PHOTOS = new DestinationTypePhotos($destination['type_id']);
                                             if (count($destination) > 0) {
                                                 ?>
                                                 <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
                                                     <div class="photo-img-container">
-                                                        <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                        <img src="../upload/destination-photos/<?php echo $destination['image_name']; ?>" class="img-responsive ">
                                                     </div>
                                                     <div class="img-caption">
-                                                        <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                        <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
+<!--                                                        <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
+                                                        <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE_PHOTOS->name; ?></p>  -->
                                                         <div class="d">
                                                             <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                             <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
                                                             <a href="view-tour-sub-section.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                            <a href="create-destination-type-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
                                                         </div>
                                                     </div>
                                                 </div>

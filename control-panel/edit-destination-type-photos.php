@@ -1,21 +1,20 @@
-<?php
+﻿<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . './auth.php');
+include_once(dirname(__FILE__) . '/auth.php');
 
+$id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
 }
-$DESTINATION_TYPE_PHOTOS_OBJ = new DestinationTypePhotos(NULL);
-
-?>
-
-<!DOCTYPE html>
+$DESTINATION_TYPE_PHOTOS = new DestinationTypePhotos($id);
+?> 
+﻿<!DOCTYPE html>
 <html> 
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination Type - www.srilankatourism.travel</title>
+        <title>Edit Tour Type - www.srilankatourism.travel</title>
+
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -32,9 +31,6 @@ $DESTINATION_TYPE_PHOTOS_OBJ = new DestinationTypePhotos(NULL);
         <!-- Animation Css -->
         <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
-        <!-- Sweet Alert Css -->
-        <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-
         <!-- Custom Css -->
         <link href="css/style.css" rel="stylesheet">
 
@@ -45,30 +41,34 @@ $DESTINATION_TYPE_PHOTOS_OBJ = new DestinationTypePhotos(NULL);
     <body class="theme-red">
         <?php
         include './navigation-and-header.php';
-        ?> 
+        ?>
+
         <section class="content">
             <div class="container-fluid"> 
+                <!-- Body Copy -->
                 <?php
                 $vali = new Validator();
 
                 $vali->show_message();
                 ?>
-                <!-- Vertical Layout -->
+
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Add New Destination type</h2>
+                                <h2>Edit Destination Type Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="#">
+                                        <a href="manage-destination-type.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
                                 </ul>
+
                             </div>
-                            <div class="body">
-                                <form class="form-horizontal"  method="post" action="post-and-get/destination-photos.php" enctype="multipart/form-data"> 
+                            <div class="body row">
+                                <form class="form-horizontal col-sm-9 col-md-9" method="post" action="post-and-get/destination-type.php" enctype="multipart/form-data"> 
+
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="caption">Caption</label>
@@ -76,65 +76,39 @@ $DESTINATION_TYPE_PHOTOS_OBJ = new DestinationTypePhotos(NULL);
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" id="caption" class="form-control" placeholder="Enter Tour Type" autocomplete="off" name="caption" required="TRUE">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Picture</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
-                                            <div class="form-group form-float">
-                                                <div class="form-line">
-                                                    <input type="file" id="picture_name" class="form-control" name="picture_name"  required="true">
+                                                    <input type="text" id="caption" class="form-control" placeholder="Enter name" value="<?php echo $DESTINATION_TYPE_PHOTOS->caption; ?>"  name="caption"  >
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" name="type_id"  value="<?php echo $id; ?>"/>
-                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add tour type"/>
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="picture_name">Image</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="file" id="image" class="form-control" value="<?php echo $DESTINATION_TYPE_PHOTOS->image_name; ?>"  name="picture_name">
+                                                    <img src="../upload/destination-photos/<?php echo $DESTINATION_TYPE_PHOTOS->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr/>
+
+                                    <div class="row clearfix">
+                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                            <input type="hidden" id="id" value="<?php echo $DESTINATION_TYPE_PHOTOS->id; ?>" name="id"/>
+                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>
+                                            <input type="hidden" id="oldImageName" value="<?php echo $DESTINATION_TYPE_PHOTOS->image_name; ?>" name="oldImageName"/>
+                                            <input type="hidden" id="sort" value="<?php echo $DESTINATION_TYPE_PHOTOS->sort; ?>" name="sort"/>
+                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="edit-tour-type" value="submit">Save Changes</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- #END# Vertical Layout -->
-                <div class="row clearfix">
-                    <?php
-                         $DESTINATION_TYPE_PHOTOS = $DESTINATION_TYPE_PHOTOS_OBJ->getDestinationByDestinationTypePhotos($id);
-                    foreach ($DESTINATION_TYPE_PHOTOS as $key => $destination) {
-                 
-                        if (count($destination) > 0) {
-                            ?>
-                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                <div class="photo-img-container">
-                                    <img src="../upload/destination-photos/<?php echo $destination['image_name']; ?>" class="img-responsive ">
-                                </div>
-                                <div class="img-caption">
-                                    <div class="d">
-                                        <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                        <a href="edit-destination-type-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                        <a href="view-tour-sub-section.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        } else {
-                            ?> 
-                            <b style="padding-left: 15px;">No packages in the database.</b> 
-                            <?php
-                        }
-                    }
-                    ?> 
-
                 </div>
 
             </div>
