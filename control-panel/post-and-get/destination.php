@@ -10,7 +10,7 @@ if (isset($_POST['create'])) {
     $DESTINATION->type = $_POST['type'];
     $DESTINATION->name = $_POST['name'];
     $DESTINATION->short_description = $_POST['short_description'];
-      $DESTINATION->description = $_POST['description'];
+    $DESTINATION->description = $_POST['description'];
 
     $dir_dest = '../../upload/destination/';
     $dir_dest_thumb = '../../upload/destination/thumb/';
@@ -91,7 +91,6 @@ if (isset($_POST['update'])) {
     $dir_dest_thumb = '../../upload/destination/thumb/';
 
     $handle = new Upload($_FILES['picture_name']);
-
     $imgName = null;
 
     if ($handle->uploaded) {
@@ -172,10 +171,10 @@ if (isset($_POST['update'])) {
 
 if (isset($_POST['save-data'])) {
 
-    foreach ($_POST['sort'] as $key => $img) {
+    foreach ($_POST['sort'] as $key => $destination) {
         $key = $key + 1;
 
-        $DESTINATION = TourPackage::arrange($key, $img);
+        $DESTINATION = Destination::arrange($key, $destination);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

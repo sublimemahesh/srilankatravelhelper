@@ -1,9 +1,9 @@
 <?php
 
-class DestinationTypePhotos {
+class DestinationPhotos {
 
     public $id;
-    public $type_id;
+    public $destination;
     public $caption;
     public $image_name;
     public $sort;
@@ -11,14 +11,14 @@ class DestinationTypePhotos {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`type_id`,`image_name`,`caption`,`sort` FROM `destination_photos` WHERE `id`=". $id."";
+            $query = "SELECT `id`,`destination`,`image_name`,`caption`,`sort` FROM `destination_photo` WHERE `id`=". $id."";
 
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
 
             $this->id = $result['id'];
-            $this->type_id = $result['type_id'];
+            $this->destination = $result['destination'];
             $this->image_name = $result['image_name'];
             $this->caption = $result['caption'];
             $this->sort = $result['sort'];
@@ -29,8 +29,8 @@ class DestinationTypePhotos {
 
     public function create() {
 
-        $query = "INSERT INTO `destination_photos` (`type_id`,`image_name`,`caption`,`sort`) VALUES  ('"
-                . $this->type_id . "', '"
+        $query = "INSERT INTO `destination_photo` (`destination`,`image_name`,`caption`,`sort`) VALUES  ('"
+                . $this->destination . "', '"
                 . $this->image_name . "', '"
                 . $this->caption . "', '"
                 . $this->sort . "')";
@@ -50,7 +50,7 @@ class DestinationTypePhotos {
 
     public function all() {
 
-        $query = "SELECT * FROM `destination_photos` ORDER BY sort ASC";
+        $query = "SELECT * FROM `destination_photo` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -64,7 +64,7 @@ class DestinationTypePhotos {
 
     public function update() {
 
-        $query = "UPDATE  `destination_photos` SET "
+        $query = "UPDATE  `destination_photo` SET "
                    . "`image_name` ='" . $this->image_name . "', "
                 . "`caption` ='" . $this->caption . "', "
              
@@ -86,17 +86,16 @@ class DestinationTypePhotos {
 
        unlink(Helper::getSitePath() . "upload/destination-photos/" . $this->image_name);
 
-      $query = 'DELETE FROM `destination_photos` WHERE id="' . $this->id . '"';
+      $query = 'DELETE FROM `destination_photo` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
       return $db->readQuery($query);
    }
 
-    public function getDestinationByDestinationTypePhotos($id)  {
+    public function getDestinationByDestinationPhotos($id)  {
 
-        $query = "SELECT * FROM `destination_photos` WHERE `type_id` = '" . $id . "' ORDER BY `sort` ASC";
-
+        $query = "SELECT * FROM `destination_photo` WHERE `destination` = '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
@@ -111,14 +110,14 @@ class DestinationTypePhotos {
     }
 
     public function arrange($key, $img) {
-        $query = "UPDATE `destination_photos` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `destination_photo` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
-  public function getDestinationTypePhotosById($id) {
+  public function getDestinationPhotosById($id) {
 
-        $query = "SELECT * FROM `destination_photos` WHERE `type_id`= '" . $id . "' ORDER BY queue ASC";
+        $query = "SELECT * FROM `destination_photo` WHERE `destination`= '" . $id . "' ORDER BY queue ASC";
 
         $db = new Database();
 
