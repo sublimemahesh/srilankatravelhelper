@@ -109,15 +109,16 @@ class Destination {
 
 //    public function deletePhotos() {
 //
-//        $TOUR_SUB_PHOTO = new TourSubSectionPhoto(NULL);
+////        $TOUR_SUB_PHOTO = new TourSubSectionPhoto(NULL);
+//        $TOUR_SUB_PHOTO = new DestinationTypePhotos(NULL);
 //
-//        $allPhotos = $TOUR_SUB_PHOTO->getTourSubSectionPhotosById($this->id);
+//        $allPhotos = $TOUR_SUB_PHOTO->getDestinationTypePhotosById($this->id);
 //
 //        foreach ($allPhotos as $photo) {
 //
 //            $IMG = $TOUR_SUB_PHOTO->image_name = $photo["image_name"];
-//            unlink(Helper::getSitePath() . "upload/tour-package/sub-section/gallery/" . $IMG);
-//            unlink(Helper::getSitePath() . "upload/tour-package/sub-section/gallery/thumb/" . $IMG);
+//            unlink(Helper::getSitePath() . "upload/destination-photos/" . $IMG);
+////            unlink(Helper::getSitePath() . "upload/destination-photos/" . $IMG);
 //
 //            $TOUR_SUB_PHOTO->id = $photo["id"];
 //            $TOUR_SUB_PHOTO->delete();

@@ -69,6 +69,7 @@ $types = $DESTINATION_TYPE->all();
                                                     <select class="form-control place-select1 show-tick" autocomplete="off" type="text" id="type" name="type" required="TRUE">
                                                         <option value=""> -- Please Select -- </option>
                                                         <?php foreach ($types as $type) {
+                                                            
                                                             ?>
                                                             <option value="<?php echo $type['id']; ?>" <?php
                                                             if ($DESTINATION->type === $type['id']) {
@@ -108,8 +109,8 @@ $types = $DESTINATION_TYPE->all();
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">                                                                        
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" value="<?php echo $DESTINATION->image_name; ?>"  name="image">
-                                                    <img src="../upload/destination/thumb/<?php echo $DESTINATION->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
+                                                    <input type="file" id="image" class="form-control" value="<?php echo $DESTINATION->image_name; ?>"  name="picture_name">
+                                                    <img src="../upload/destination/thumb/<?php echo $DESTINATION->image_name; ?>" id="picture_name" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
                                                 </div>
                                             </div>
                                         </div>

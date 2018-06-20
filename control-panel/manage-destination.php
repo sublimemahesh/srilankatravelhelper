@@ -77,8 +77,9 @@ $destinations = $DESTINATION->all();
                                     <div class="row clearfix">
                                         <?php
                                         foreach ($destinations as $key => $destination) {
+                                    
                                             $DESTINATION_TYPE = new DestinationType($destination['type']);
-                                            if (count($destination) > 0) {
+                                              if (count($destination) > 0) {
                                                 ?>
                                                 <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
                                                     <div class="photo-img-container">
@@ -88,10 +89,10 @@ $destinations = $DESTINATION->all();
                                                         <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
                                                         <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
                                                         <div class="d">
-                                                            <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                             <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                            <a href="view-tour-sub-section.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                            <a href="create-destination-type-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+<!--                                                            <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>-->
+                                                            <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -146,7 +147,7 @@ $destinations = $DESTINATION->all();
 
         <!-- Demo Js -->
         <script src="js/demo.js"></script>
-        <script src="delete/js/tour-package.js" type="text/javascript"></script>
+        <script src="delete/js/destination.js" type="text/javascript"></script>
     </body>
 
 </html> 
