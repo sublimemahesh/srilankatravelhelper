@@ -135,6 +135,7 @@ $types = $DESTINATION_TYPE->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
+                                             <input type="hidden" name="type"  value="<?php echo $id; ?>"/>
                                             <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="Add Destination"/>
                                         </div>
                                     </div>

@@ -100,7 +100,7 @@ class Destination {
 //        $this->deletePhotos();
         unlink(Helper::getSitePath() . "upload/destination/" . $this->image_name);
 
-        $query = 'DELETE FROM `tour_package` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `destination` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
@@ -133,9 +133,23 @@ class Destination {
         return $result;
     }
 
-    public function getTourPackagesByTourType($type) {
+    public function getDestinationByDestinationType($id) {
 
-        $query = "SELECT * FROM `tour_package` WHERE `tour_type`= $type";
+        $query = "SELECT * FROM `destination` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+      public function getDestinationById($id) {
+
+        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY queue ASC";
 
         $db = new Database();
 

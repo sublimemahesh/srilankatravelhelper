@@ -90,7 +90,7 @@ if (isset($_POST['update'])) {
     $dir_dest = '../../upload/destination/';
     $dir_dest_thumb = '../../upload/destination/thumb/';
 
-    $handle = new Upload($_FILES['image']);
+    $handle = new Upload($_FILES['picture_name']);
 
     $imgName = null;
 

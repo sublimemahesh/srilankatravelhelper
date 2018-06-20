@@ -1,11 +1,11 @@
-﻿<?php
+<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $DESTINATION_TYPE = new DestinationType(NULL)
-?> 
-﻿<!DOCTYPE html>
-<html> 
+?>
+¿<!DOCTYPE html>
+<html>
     <head>
         <meta charset="UTF-8" >
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" >
@@ -41,7 +41,7 @@ $DESTINATION_TYPE = new DestinationType(NULL)
         include './navigation-and-header.php';
         ?>
         <section class="content">
-            <div class="container-fluid"> 
+            <div class="container-fluid">
                 <?php
                 $vali = new Validator();
 
@@ -58,7 +58,7 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                                 <ul class="header-dropdown">
                                     <li>
                                         <a href="create-destination-type.php">
-                                            <i class="material-icons">add</i> 
+                                            <i class="material-icons">add</i>
                                         </a>
                                     </li>
                                 </ul>
@@ -70,14 +70,14 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name</th> 
+                                                <th>Name</th>
                                                 <th>Options</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name</th> 
+                                                <th>Name</th>
                                                 <th>Options</th>
                                             </tr>
                                         </tfoot>
@@ -88,29 +88,29 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                                                 $key++
                                                 ?>
                                                 <tr id="row_<?php echo $destination['id']; ?>">
-                                                    <td><?php echo $key ?></td> 
-                                                    <td><?php echo $destination['name']; ?></td> 
-                                                    <td>  
+                                                    <td><?php echo $key ?></td>
+                                                    <td><?php echo $destination['name']; ?></td>
+                                                    <td> 
 
                                                         <a href="edit-destination-type.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
 
 
-                                                        |  
+                                                        | 
 
-                                                        <a href="#" > 
+                                                        <a href="#" >
                                                             <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $destination['id']; ?>"></button>
                                                         </a>
 
                                                         |
 
-                                                        <a href="manage-destination-type.php?id=<?php echo $destination['id']; ?>"> 
+                                                        <a href="manage-destination-type.php?id=<?php echo $destination['id']; ?>">
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 <?php
                                             }
-                                            ?>   
+                                            ?>  
                                         </tbody>
                                     </table>
                                 </div>
@@ -159,4 +159,5 @@ $DESTINATION_TYPE = new DestinationType(NULL)
         <script src="delete/js/destination-type.js" type="text/javascript"></script>
     </body>
 
-</html> 
+</html>
+
