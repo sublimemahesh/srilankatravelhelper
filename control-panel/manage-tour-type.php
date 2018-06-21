@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$DESTINATION_TYPE = new DestinationType(NULL)
+$TOUR_TYPE = new TourType(NULL)
 ?>
 ¿<!DOCTYPE html>
 <html>
@@ -84,31 +84,31 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                                         <tbody>
 
                                             <?php
-                                            foreach ($DESTINATION_TYPE->all() as $key => $destination_type) {
+                                            foreach ($TOUR_TYPE->all() as $key => $tour_type) {
                                                 $key++
                                                 ?>
-                                                <tr id="row_<?php echo $destination_type['id']; ?>">
+                                                <tr id="row_<?php echo $tour_type['id']; ?>">
                                                     <td><?php echo $key ?></td>
-                                                    <td><?php echo $destination_type['name']; ?></td>
+                                                    <td><?php echo $tour_type['name']; ?></td>
                                                     <td> 
 
-                                                        <a href="edit-destination-type.php?id=<?php echo $destination_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="edit-destination-type.php?id=<?php echo $tour_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
 
 
                                                         | 
 
                                                         <a href="#" >
-                                                            <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $destination_type['id']; ?>"></button>
+                                                            <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $tour_type['id']; ?>"></button>
                                                         </a>
 
                                                         |
 
-                                                        <a href="arrange-destination-type.php?id=<?php echo $destination_type['id']; ?>">
+                                                        <a href="arrange-destination-type.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
                                                         |
 
-                                                        <a href="create-destination.php?id=<?php echo $destination_type['id']; ?>">
+                                                        <a href="create-destination.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-flag destination-btn"></button>
                                                         </a>
                                                     </td>

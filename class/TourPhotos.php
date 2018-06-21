@@ -1,29 +1,26 @@
 <?php
 
-/**
- * Description of TourTypes
- *
- * @author U s E r ¨
- */
-class DestinationType {
+class TourPhotos {
 
     public $id;
-    public $name;
+    public $tour_package;
+    public $caption;
     public $image_name;
     public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`image_name`,`sort` FROM `destination_type` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`tour_packages`,`image_name`,`caption`,`sort` FROM `tour_photos` WHERE `id`=". $id."";
 
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
 
             $this->id = $result['id'];
-            $this->name = $result['name'];
+            $this->tour_package = $result['tour_package'];
             $this->image_name = $result['image_name'];
+            $this->caption = $result['caption'];
             $this->sort = $result['sort'];
 
             return $this;
@@ -32,9 +29,10 @@ class DestinationType {
 
     public function create() {
 
-        $query = "INSERT INTO `destination_type` (`name`,`image_name`,`sort`) VALUES  ('"
-                . $this->name . "', '"
+        $query = "INSERT INTO `tour_photos` (`tour_package`,`image_name`,`caption`,`sort`) VALUES  ('"
+                . $this->tour_package . "', '"
                 . $this->image_name . "', '"
+                . $this->caption . "', '"
                 . $this->sort . "')";
 
         $db = new Database();
@@ -52,7 +50,7 @@ class DestinationType {
 
     public function all() {
 
-        $query = "SELECT * FROM `destination_type` ORDER BY sort ASC";
+        $query = "SELECT * FROM `tour_photos` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -66,9 +64,9 @@ class DestinationType {
 
     public function update() {
 
-        $query = "UPDATE  `destination_type` SET "
-                . "`name` ='" . $this->name . "', "
-                . "`image_name` ='" . $this->image_name . "', "
+        $query = "UPDATE  `tour_photos` SET "
+                   . "`image_name` ='" . $this->image_name . "', "
+                . "`caption` ='" . $this->caption . "', "             
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -85,22 +83,24 @@ class DestinationType {
 
     public function delete() {
 
-        unlink(Helper::getSitePath() . "upload/destination-type/" . $this->image_name);
-      
-        $query = 'DELETE FROM `destination_type` WHERE id="' . $this->id . '"';
+       unlink(Helper::getSitePath() . "upload/tour_photos/" . $this->image_name);
+
+      $query = 'DELETE FROM `tour_photos` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
-        return $db->readQuery($query);
-    }
+      return $db->readQuery($query);
+   }
 
-    public function GetDestinationTypeById($id) {
+    public function getTourPhotosByTourPackages($id)  {
 
-        $query = "SELECT * FROM `destination_type` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `tour_photos` WHERE `tour_package` = '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
         $result = $db->readQuery($query);
+        
+        
         $array_res = array();
 
         while ($row = mysql_fetch_array($result)) {
@@ -110,11 +110,24 @@ class DestinationType {
         return $array_res;
     }
 
-    public function arrange($key, $img) {
-        $query = "UPDATE `destination_type` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+    public function arrange($key, $tour_package) {
+        $query = "UPDATE `tour_photos` SET `sort` = '" . $key . "'  WHERE id = '" . $tour_package . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
+  public function getTourPhotosById($id) {
 
+        $query = "SELECT * FROM `tour_photos` WHERE `tour_package`= '" . $id . "' ORDER BY `sort` ASC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
 }
