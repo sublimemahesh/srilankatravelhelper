@@ -125,10 +125,10 @@ if (isset($_POST['edit-tour-type'])) {
 
 if (isset($_POST['save-data'])) {
 
-    foreach ($_POST['sort'] as $key => $img) {
+    foreach ($_POST['sort'] as $key => $destination) {
         $key = $key + 1;
 
-        $TOUR_SUB = DestinationPhotos::arrange($key, $img);
+      $DESTINATION_PHOTOS = DestinationPhotos::arrange($key, $destination);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

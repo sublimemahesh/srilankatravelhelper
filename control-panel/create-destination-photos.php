@@ -103,19 +103,21 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                 <div class="row clearfix">
                                     <?php
                                     $DESTINATION_PHOTOS = $DESTINATION_PHOTOS_OBJ->getDestinationByDestinationPhotos($id);
-                                    foreach ($DESTINATION_PHOTOS as $key => $destination) {
+                                 
+                                    foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
 
-                                        if (count($destination) > 0) {
+                                        if (count($destination_photos) > 0) {
                                             ?>
-                                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                            <div class="col-md-3"  id="div<?php echo $destination_photos['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/destination-photos/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                    <img src="../upload/destination-photos/<?php echo $destination_photos['image_name']; ?>" class="img-responsive ">
                                                 </div>
                                                 <div class="img-caption">
                                                     <div class="d">
-                                                        <a href="#"  class="delete-destination-photos" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                        <a href="edit-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                        <a href="arrange-destination-photos.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                      
+                                                        <a href="#"  class="delete-destination-photos" data-id="<?php echo $destination_photos['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn delete-destination-photos"></button></a>
+                                                        <a href="edit-destination-photos.php?id=<?php echo $destination_photos['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="arrange-destination-photos.php?id=<?php echo $id; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,7 +156,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
 
         <!-- Waves Effect Plugin Js -->
         <script src="plugins/node-waves/waves.js"></script>
-
+        <script src="plugins/sweetalert/sweetalert.min.js"></script>
         <!-- Custom Js -->
         <script src="js/admin.js"></script>
 

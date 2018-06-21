@@ -326,7 +326,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="arrange-destination.php">
+                                    <a href="arrange-destination-type.php">
                                         <i class="material-icons">compare_arrows</i>
                                         <span>Arrange</span>
                                     </a>

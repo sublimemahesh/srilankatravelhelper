@@ -2,9 +2,10 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$DESTINATION_PHOTOS = new DestinationPhotos(NULL);
-$destinations = NULL;
-$destinations = $DESTINATION_PHOTOS->all();
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+$DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
 
 ?>
 ﻿<!DOCTYPE html>
@@ -62,6 +63,7 @@ $destinations = $DESTINATION_PHOTOS->all();
                                 <ul class="header-dropdown">
                                     <li>
                                         <a href="manage-destination-photos.php">
+                                             <input type="hidden" name="destination"  value="<?php echo $id; ?>"/>
                                             <i class="material-icons">add</i> 
                                         </a>
                                     </li>
@@ -70,36 +72,36 @@ $destinations = $DESTINATION_PHOTOS->all();
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <div class="row clearfix">
-                                        <?php
-                                        foreach ($destinations as $key => $destination) {
-                                            $DESTINATION_PHOTOS = new DestinationPhotos($destination['destination']);
-                                            if (count($destination) > 0) {
-                                                ?>
-                                                <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                                    <div class="photo-img-container">
-                                                        <img src="../upload/destination-photos/<?php echo $destination['image_name']; ?>" class="img-responsive ">
-                                                    </div>
-                                                    <div class="img-caption">
-<!--                                                        <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                        <p class="maxlinetitle">Type : <?php echo $DESTINATION_PHOTOS->name; ?></p>  -->
-                                                        <div class="d">
-                                                            <a href="#"  class="delete-destination-photos" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                            <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                            <a href="view-tour-sub-section.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                        </div>
+                                         <div class="row clearfix">
+                                    <?php
+                                    $DESTINATION_PHOTOS = $DESTINATION_PHOTOS_OBJ->getDestinationByDestinationPhotos($id);
+                                    foreach ($DESTINATION_PHOTOS as $key => $destination) {
+
+                                        if (count($destination) > 0) {
+                                            ?>
+                                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                                <div class="photo-img-container">
+                                                    <img src="../upload/destination-photos/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                </div>
+                                                <div class="img-caption">
+                                                    <div class="d">
+                                                      
+                                                        <a href="#"  class="delete-destination-photos" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                        <a href="edit-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="arrange-destination-photos.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
                                                     </div>
                                                 </div>
-                                                <?php
-                                            } else {
-                                                ?> 
-                                                <b style="padding-left: 15px;">No packages in the database.</b> 
-                                                <?php
-                                            }
+                                            </div>
+                                            <?php
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No packages in the database.</b> 
+                                            <?php
                                         }
-                                        ?> 
+                                    }
+                                    ?> 
 
-                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

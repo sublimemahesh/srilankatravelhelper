@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.delete-destination-photos').click(function () {
+       
 
         var id = $(this).attr("data-id");
 
@@ -23,13 +24,13 @@ $(document).ready(function () {
 
                         swal({
                             title: "Deleted!",
-                            text: "Tour type has been deleted.",
+                            text: "Destination Photo has been deleted.",
                             type: 'success',
                             timer: 2000,
                             showConfirmButton: false
                         });
 
-                        $('#row_' + id).remove();
+                        $('#div' + id).remove();
 
                     }
                 }

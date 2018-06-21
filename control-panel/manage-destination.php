@@ -91,7 +91,7 @@ $destinations = $DESTINATION->all();
                                                         <div class="d">
                                                             <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                             <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-<!--                                                            <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>-->
+                                                            <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
                                                             <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
                                                         </div>
                                                     </div>
