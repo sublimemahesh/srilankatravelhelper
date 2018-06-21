@@ -1,38 +1,32 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of Tour_dates_photos
+ * Description of TourTypes
  *
- * @author Suharshana DsW
+ * @author U s E r ¨
  */
-class TourDatePhoto {
+class TourType {
 
     public $id;
-    public $tour_date;
+    public $name;
+    public $short_description;
     public $image_name;
-    public $caption;
-    public $queue;
+    public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`tour_date`,`image_name`,`caption`,`queue` FROM `tour_date_photo` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`short_description`,`image_name`,`sort` FROM `tour_type` WHERE `id`=" . $id;
 
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
 
             $this->id = $result['id'];
-            $this->tour_date = $result['tour_date'];
+            $this->name = $result['name'];
+            $this->short_description= $result['short_description'];
             $this->image_name = $result['image_name'];
-            $this->caption = $result['caption'];
-            $this->queue = $result['queue'];
+            $this->sort = $result['sort'];
 
             return $this;
         }
@@ -40,11 +34,11 @@ class TourDatePhoto {
 
     public function create() {
 
-        $query = "INSERT INTO `tour_date_photo` (`tour_date`,`image_name`,`caption`,`queue`) VALUES  ('"
-                . $this->tour_date . "','"
+        $query = "INSERT INTO `tour_type` (`name`,`short_description`,`image_name`,`sort`) VALUES  ('"
+                . $this->name . "', '"
+                . $this->short_description . "', '"
                 . $this->image_name . "', '"
-                . $this->caption . "', '"
-                . $this->queue . "')";
+                . $this->sort . "')";
 
         $db = new Database();
 
@@ -61,7 +55,7 @@ class TourDatePhoto {
 
     public function all() {
 
-        $query = "SELECT * FROM `tour_date_photo` ORDER BY queue ASC";
+        $query = "SELECT * FROM `tour_type` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -75,11 +69,11 @@ class TourDatePhoto {
 
     public function update() {
 
-        $query = "UPDATE  `tour_date_photo` SET "
-                . "`tour_date` ='" . $this->tour_date . "', "
+        $query = "UPDATE  `tour_type` SET "
+                . "`name` ='" . $this->name . "', "
+                . "`short_description` ='" . $this->short_description . "', "
                 . "`image_name` ='" . $this->image_name . "', "
-                . "`caption` ='" . $this->caption . "', "
-                . "`queue` ='" . $this->queue . "' "
+                . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
@@ -95,16 +89,18 @@ class TourDatePhoto {
 
     public function delete() {
 
-        $query = 'DELETE FROM `tour_date_photo` WHERE id="' . $this->id . '"';
+        unlink(Helper::getSitePath() . "upload/tour_type/" . $this->image_name);
+      
+        $query = 'DELETE FROM `tour_type` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
         return $db->readQuery($query);
     }
 
-    public function getTourDatePhotosById($tour_date) {
+    public function GetTourTypeById($id) {
 
-        $query = "SELECT * FROM `tour_date_photo` WHERE `tour_date`= $tour_date ORDER BY queue ASC";
+        $query = "SELECT * FROM `tour_type` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
@@ -114,11 +110,12 @@ class TourDatePhoto {
         while ($row = mysql_fetch_array($result)) {
             array_push($array_res, $row);
         }
+
         return $array_res;
     }
 
     public function arrange($key, $img) {
-        $query = "UPDATE `tour_date_photo` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `tour_type` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;

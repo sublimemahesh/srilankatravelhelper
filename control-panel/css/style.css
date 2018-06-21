@@ -8110,6 +8110,13 @@ html.ie11 .bs-searchbox .form-control {
     border-radius: 3px;
     border: 0;
 }
+.destination-btn{
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #449d44;
+    border-radius: 3px;
+    border: 0;
+}
 
 .arrange-container{
     margin-left: -18px;

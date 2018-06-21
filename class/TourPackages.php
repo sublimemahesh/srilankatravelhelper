@@ -5,11 +5,12 @@
  *
  * @author official
  */
-class Destination {
+class TourPackages {
 
     public $id;
     public $type;
     public $name;
+    public $price;
     public $image_name;
     public $short_description;
     public $description;
@@ -18,7 +19,7 @@ class Destination {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`type`,`name`,`image_name`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`type`,`name`,`price`,`short_description`,`description`,`image_name`,`sort` FROM `tour_packages` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -27,9 +28,10 @@ class Destination {
             $this->id = $result['id'];
             $this->type = $result['type'];
             $this->name = $result['name'];
-            $this->image_name = $result['image_name'];
+            $this->price = $result['price'];
             $this->short_description = $result['short_description'];
             $this->description = $result['description'];
+            $this->image_name = $result['image_name'];
             $this->sort = $result['sort'];
 
             return $this;
@@ -38,7 +40,7 @@ class Destination {
 
     public function create() {
 
-        $query = "INSERT INTO `destination` (`type`,`name`,`image_name`,`short_description`,`description`,`sort`) VALUES  ('"
+        $query = "INSERT INTO `tour_packages` (`type`,`name`,`price`,`short_description`,`description`,`image_name`,`sort`) VALUES  ('"
                 . $this->type . "', '"
                 . $this->name . "', '"
                 . $this->image_name . "', '"
@@ -61,7 +63,7 @@ class Destination {
 
     public function all() {
 
-        $query = "SELECT * FROM `destination` ORDER BY sort ASC";
+        $query = "SELECT * FROM `tour_packages` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -75,12 +77,13 @@ class Destination {
 
     public function update() {
 
-        $query = "UPDATE  `destination` SET "
+        $query = "UPDATE  `tour_packages` SET "
                 . "`type` ='" . $this->type . "', "
                 . "`name` ='" . $this->name . "', "
-                . "`image_name` ='" . $this->image_name . "', "
+                . "`price` ='" . $this->price . "', "
                 . "`short_description` ='" . $this->short_description . "', "
                 . "`description` ='" . $this->description . "', "
+                . "`image_name` ='" . $this->image_name . "', "
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -98,9 +101,9 @@ class Destination {
     public function delete() {
 //
 //        $this->deletePhotos();
-        unlink(Helper::getSitePath() . "upload/destination/" . $this->image_name);
+        unlink(Helper::getSitePath() . "upload/tour_packages/" . $this->image_name);
 
-        $query = 'DELETE FROM `destination` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `tour_packages` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
@@ -128,29 +131,29 @@ class Destination {
 
 
     public function arrange($key, $img) {
-        $query = "UPDATE `destination` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `tour_packages` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
 
-    public function getDestinationByDestinationType($id) {
+//    public function getDestinationByDestinationType($id) {
+//
+//        $query = "SELECT * FROM `destination` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
+//
+//        $db = new Database();
+//
+//        $result = $db->readQuery($query);
+//        $array_res = array();
+//
+//        while ($row = mysql_fetch_array($result)) {
+//            array_push($array_res, $row);
+//        }
+//        return $array_res;
+//    }
+    public function getTourPackagesById($id) {
 
-        $query = "SELECT * FROM `destination` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
-
-        $db = new Database();
-
-        $result = $db->readQuery($query);
-        $array_res = array();
-
-        while ($row = mysql_fetch_array($result)) {
-            array_push($array_res, $row);
-        }
-        return $array_res;
-    }
-      public function getDestinationById($id) {
-
-        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `tour_packages` WHERE `type`= $id ORDER BY `sort` ASC";
 
         $db = new Database();
 

@@ -296,18 +296,24 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="create-destination.php">
+                            <a href="create-destination-type.php">
                                 <i class="material-icons">add</i>
                                 <span>Add New</span>
                             </a>
                         </li>
                         <li>
-                            <a href="manage-destination.php">
+                            <a href="manage-destination-type.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
                         </li>
-                        <li>
+                         <li>
+                                    <a href="arrange-destination-type.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+<!--                        <li>
                             <a href="javascript:void(0);" class="menu-toggle">
                                 <i class="material-icons">chevron_right</i>
                                 <span>Destination Type</span>
@@ -332,7 +338,86 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">map</i>
+                        <span>Tour Packages</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-tour-type.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
                         </li>
+                        <li>
+                            <a href="manage-tour-type.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                         <li>
+                                    <a href="arrange-destination-type.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">map</i>
+                        <span>Drivers</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-destination-type.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-destination-type.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                         <li>
+                                    <a href="arrange-destination-type.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+<!--                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">chevron_right</i>
+                                <span>Destination Type</span>
+                            </a>
+                            <ul class="ml-menu">
+                                <li>
+                                    <a href="create-destination-type.php">
+                                        <i class="material-icons">add</i>
+                                        <span>Add New</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="manage-destination-type.php">
+                                        <i class="material-icons">list</i>
+                                        <span>Manage</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="arrange-destination-type.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>-->
                     </ul>
                 </li>
             </ul>
