@@ -66,8 +66,7 @@ class DestinationPhotos {
 
         $query = "UPDATE  `destination_photo` SET "
                    . "`image_name` ='" . $this->image_name . "', "
-                . "`caption` ='" . $this->caption . "', "
-             
+                . "`caption` ='" . $this->caption . "', "             
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -100,6 +99,8 @@ class DestinationPhotos {
         $db = new Database();
 
         $result = $db->readQuery($query);
+        
+        
         $array_res = array();
 
         while ($row = mysql_fetch_array($result)) {
@@ -109,15 +110,15 @@ class DestinationPhotos {
         return $array_res;
     }
 
-    public function arrange($key, $img) {
-        $query = "UPDATE `destination_photo` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+    public function arrange($key, $destination) {
+        $query = "UPDATE `destination_photo` SET `sort` = '" . $key . "'  WHERE id = '" . $destination . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
   public function getDestinationPhotosById($id) {
 
-        $query = "SELECT * FROM `destination_photo` WHERE `destination`= '" . $id . "' ORDER BY queue ASC";
+        $query = "SELECT * FROM `destination_photo` WHERE `destination`= '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
