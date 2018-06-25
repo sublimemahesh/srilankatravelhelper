@@ -4,7 +4,7 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if (isset($_POST['create'])) {
 
-    $TOUR_PACKAGE = new TourPackage(NULL);
+    $TOUR_PACKAGE = new TourPackages(NULL);
     $VALID = new Validator();
 
     $TOUR_PACKAGE->title = mysql_real_escape_string($_POST['title']);

@@ -57,7 +57,7 @@ $TOUR_TYPE = TourType::all();
                                                             <div class="col-md-3" style="list-style: none;">
                                                                 <li class="ui-state-default">
                                                                     <span class="number-class">(<?php echo $key + 1; ?>)</span><br />
-                                                                    <img src="../upload/tour-type/<?php echo $img["picture_name"]; ?>" id="image" class="view-arrange-img img img-responsive img-thumbnail" name="picture_name" alt="image">
+                                                                    <img src="../upload/tour-type/<?php echo $img["image_name"]; ?>" id="image" class="view-arrange-img img img-responsive img-thumbnail" name="picture_name" alt="image">
                                                                     <div><?php echo $img["name"]; ?></div>
                                                                     <input type="hidden" name="sort[]"  value="<?php echo $img["id"]; ?>" class="sort-input"/>
 
@@ -106,6 +106,7 @@ $TOUR_TYPE = TourType::all();
 
         <script src="plugins/jquery-ui/jquery-ui.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+        
         <script>
             tinymce.init({
                 selector: "#description",

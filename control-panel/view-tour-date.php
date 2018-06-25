@@ -4,8 +4,10 @@ include_once(dirname(__FILE__) . '/auth.php');
 $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+ 
 }
-$TOUR_PACKAGE = new TourPackage($id)
+$TOUR_DATE = new TourDate($id);
+
 ?> 
 <!DOCTYPE html>
 
@@ -81,7 +83,7 @@ $TOUR_PACKAGE = new TourPackage($id)
 
 
                                     <div class="col-md-12"> 
-                                        <input type="hidden" id="id" value="<?php echo $TOUR_PACKAGE->id; ?>" name="id"/>
+                                        <input type="hidden" id="id" value="<?php echo $TOUR_DATE->id; ?>" name="id"/>
                                         <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
                                     </div>
 

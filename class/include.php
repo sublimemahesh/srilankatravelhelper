@@ -11,6 +11,8 @@ include_once(dirname(__FILE__) . '/Message.php');
 include_once(dirname(__FILE__) . '/TourPackages.php');
 include_once(dirname(__FILE__) . '/TourType.php');
 include_once(dirname(__FILE__) . '/TourPhotos.php');
+include_once(dirname(__FILE__) . '/TourDate.php');
+include_once(dirname(__FILE__) . '/TourDatePhoto.php');
 include_once(dirname(__FILE__) . '/Comments.php');
 include_once(dirname(__FILE__) . '/Slider.php');
 include_once(dirname(__FILE__) . '/Page.php');

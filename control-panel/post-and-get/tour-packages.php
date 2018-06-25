@@ -4,7 +4,7 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if (isset($_POST['create'])) {
 
-    $TOUR_PACKAGE = new Destination(NULL);
+    $TOUR_PACKAGE = new TourPackages(NULL);
     $VALID = new Validator();
 
     $TOUR_PACKAGE->type = $_POST['type'];
@@ -13,8 +13,8 @@ if (isset($_POST['create'])) {
     $TOUR_PACKAGE->short_description = $_POST['short_description'];
     $TOUR_PACKAGE->description = $_POST['description'];
 
-    $dir_dest = '../../upload/tour_package/';
-    $dir_dest_thumb = '../../upload/tour_package/thumb/';
+    $dir_dest = '../../upload/tour-package/';
+    $dir_dest_thumb = '../../upload/tour-package/thumb/';
 
     $handle = new Upload($_FILES['image_name']);
 
@@ -89,8 +89,8 @@ if (isset($_POST['create'])) {
 }
 
 if (isset($_POST['update'])) {
-    $dir_dest = '../../upload/tour_package/';
-    $dir_dest_thumb = '../../upload/tour_package/thumb/';
+    $dir_dest = '../../upload/tour-package/';
+    $dir_dest_thumb = '../../upload/tour-spackage/thumb/';
 
     $handle = new Upload($_FILES['picture_name']);
     $imgName = null;
@@ -131,7 +131,7 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $TOUR_PACKAGE = new Destination($_POST['id']);
+    $TOUR_PACKAGE = new TourPackages($_POST['id']);
 
     $TOUR_PACKAGE->image_name = $_POST['oldImageName'];
     $TOUR_PACKAGE->type = $_POST['type'];
@@ -178,7 +178,7 @@ if (isset($_POST['save-data'])) {
     foreach ($_POST['sort'] as $key => $tour_package) {
         $key = $key + 1;
 
-        $TOUR_PACKAGE = Destination::arrange($key, $tour_package);
+        $TOUR_PACKAGE = TourPackages::arrange($key, $tour_package);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
