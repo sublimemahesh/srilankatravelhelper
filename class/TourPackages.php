@@ -102,7 +102,7 @@ class TourPackages {
     public function delete() {
 //
         $this->deletePhotos();
-        unlink(Helper::getSitePath() . "upload/tour_packages/" . $this->image_name);
+        unlink(Helper::getSitePath() . "upload/tour-package/" . $this->image_name);
 
         $query = 'DELETE FROM `tour_packages` WHERE id="' . $this->id . '"';
 
@@ -121,8 +121,8 @@ class TourPackages {
         foreach ($allPhotos as $photo) {
 
             $IMG = $TOUR_SUB_PHOTO->image_name = $photo["image_name"];
-            unlink(Helper::getSitePath() . "upload/tour-packages/date/" . $IMG);
-//            unlink(Helper::getSitePath() . "upload/destination-photos/" . $IMG);
+            unlink(Helper::getSitePath() . "upload/tour-package/date/" . $IMG);
+            unlink(Helper::getSitePath() . "upload/tour-package/thumb/" . $IMG);
 
             $TOUR_SUB_PHOTO->id = $photo["id"];
             $TOUR_SUB_PHOTO->delete();
