@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$TOUR_PACKAGE = new TourPackage(NULL);
+$TOUR_PACKAGE = new TourPackages(NULL);
 ?>
 <!DOCTYPE html>
 <html> 

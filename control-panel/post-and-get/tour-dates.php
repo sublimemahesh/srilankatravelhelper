@@ -71,7 +71,7 @@ if (isset($_POST['create'])) {
         $VALID->addError("Your data was saved successfully", 'success');
         $_SESSION['ERRORS'] = $VALID->errors();
 
-         header("location: ../view-tour-date.php?id=" .$TOUR_DATE->id);
+         header("location: ../view-tour-date.php?id=" .$TOUR_DATE->package);
     } else {
 
         if (!isset($_SESSION)) {

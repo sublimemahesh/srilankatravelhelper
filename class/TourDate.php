@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of package_dates
+ * Description of tour_dates
  *
  * @author Suharshana DsW
  */
@@ -23,7 +23,7 @@ class TourDate {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`package`,`title`,`image_name`,`description`,`sort` FROM `package_date` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`package`,`title`,`image_name`,`description`,`sort` FROM `tour_date` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -42,7 +42,7 @@ class TourDate {
 
     public function create() {
 
-        $query = "INSERT INTO `package_date` (`package`,`title`,`image_name`,`description`,`sort`) VALUES  ('"
+        $query = "INSERT INTO `tour_date` (`package`,`title`,`image_name`,`description`,`sort`) VALUES  ('"
                 . $this->package . "','"
                 . $this->title . "','"
                 . $this->image_name . "', '"
@@ -64,7 +64,7 @@ class TourDate {
 
     public function all() {
 
-        $query = "SELECT * FROM `package_date` ORDER BY sort ASC";
+        $query = "SELECT * FROM `tour_date` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -78,7 +78,7 @@ class TourDate {
 
     public function update() {
 
-        $query = "UPDATE  `package_date` SET "
+        $query = "UPDATE  `tour_date` SET "
                 . "`package` ='" . $this->package . "', "
                 . "`title` ='" . $this->title . "', "
                 . "`image_name` ='" . $this->image_name . "', "
@@ -99,9 +99,9 @@ class TourDate {
 
     public function delete() {
 
-        $this->deleteDatesPhotos();
+//        $this->deleteDatesPhotos();
 
-        $query = 'DELETE FROM `package_date` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `tour_date` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
@@ -125,9 +125,9 @@ class TourDate {
 //        }
 //    }
 
-    public function getTourDatesById($package) {
+    public function getTourDatesById($id) {
 
-        $query = "SELECT * FROM `package_date` WHERE `package`= $package ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `tour_date` WHERE `package`= $id ORDER BY `sort` ASC";
 
         $db = new Database();
 
@@ -141,7 +141,7 @@ class TourDate {
     }
     
        public function arrange($key, $img) {
-        $query = "UPDATE `package_date` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `tour_date` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;

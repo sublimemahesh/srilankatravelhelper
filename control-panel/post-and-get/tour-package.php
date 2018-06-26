@@ -7,14 +7,14 @@ if (isset($_POST['create'])) {
     $TOUR_PACKAGE = new TourPackages(NULL);
     $VALID = new Validator();
 
-    $TOUR_PACKAGE->title = mysql_real_escape_string($_POST['title']);
+    $TOUR_PACKAGE->name = mysql_real_escape_string($_POST['name']);
     $TOUR_PACKAGE->price = mysql_real_escape_string($_POST['price']);
     $TOUR_PACKAGE->short_description = mysql_real_escape_string($_POST['short_description']);
     $TOUR_PACKAGE->description = mysql_real_escape_string($_POST['description']);
 
     $dir_dest = '../../upload/tour-package/';
 
-    $handle = new Upload($_FILES['image']);
+    $handle = new Upload($_FILES['image_name']);
 
     $imgName = null;
 
@@ -37,7 +37,7 @@ if (isset($_POST['create'])) {
     $TOUR_PACKAGE->image_name = $imgName;
 
     $VALID->check($TOUR_PACKAGE, [
-        'title' => ['required' => TRUE],
+        'name' => ['required' => TRUE],
         'price' => ['required' => TRUE],
         'short_description' => ['required' => TRUE],
         'description' => ['required' => TRUE],
@@ -76,7 +76,7 @@ if (isset($_POST['create'])) {
 if (isset($_POST['update'])) {
     $dir_dest = '../../upload/tour-package/';
 
-    $handle = new Upload($_FILES['image']);
+    $handle = new Upload($_FILES['image_name']);
 
     $imgName = null;
 
@@ -98,10 +98,10 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $TOUR_PACKAGE = new TourPackage($_POST['id']);
+    $TOUR_PACKAGE = new TourPackages($_POST['id']);
 
     $TOUR_PACKAGE->image_name = $_POST['oldImageName'];
-    $TOUR_PACKAGE->title = mysql_real_escape_string($_POST['title']);
+    $TOUR_PACKAGE->name = mysql_real_escape_string($_POST['name']);
     $TOUR_PACKAGE->price = mysql_real_escape_string($_POST['price']);
     $TOUR_PACKAGE->short_description = mysql_real_escape_string($_POST['short_description']);
     $TOUR_PACKAGE->description = mysql_real_escape_string($_POST['description']);
@@ -110,7 +110,7 @@ if (isset($_POST['update'])) {
     $VALID = new Validator();
 
     $VALID->check($TOUR_PACKAGE, [
-        'title' => ['required' => TRUE],
+        'name' => ['required' => TRUE],
         'price' => ['required' => TRUE],
         'short_description' => ['required' => TRUE],
         'description' => ['required' => TRUE],
@@ -145,7 +145,7 @@ if (isset($_POST['save-data'])) {
     foreach ($_POST['sort'] as $key => $img) {
         $key = $key + 1;
         
-        $TOUR_PACKAGE = TourPackage::arrange($key, $img);
+        $TOUR_PACKAGE = TourPackages::arrange($key, $img);
         
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

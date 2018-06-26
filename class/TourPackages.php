@@ -44,7 +44,7 @@ class TourPackages {
                 . $this->type . "', '"
                 . $this->name . "', '"
                 . $this->price . "', '"
-              . $this->short_description . "', '"
+                . $this->short_description . "', '"
                 . $this->description . "', '"
                 . $this->image_name . "', '"
                 . $this->sort . "')";

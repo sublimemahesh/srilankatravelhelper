@@ -5,7 +5,7 @@ include_once(dirname(__FILE__) . '/../../auth.php');
 
 if ($_POST['option'] == 'delete') {
 
-    $TOUR_PACKAGE = new TourPackage($_POST['id']);
+    $TOUR_PACKAGE = new TourPackages($_POST['id']);
   
     $result =  $TOUR_PACKAGE->delete();
 

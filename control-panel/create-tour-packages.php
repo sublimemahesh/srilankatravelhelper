@@ -181,8 +181,8 @@ $types = $TOUR_TYPE->all();
         <!--                                                        <p class="maxlinetitle">Type : <?php echo $TOUR_PACKAGE_TYPE->name; ?></p>  -->
                                                     <div class="d">
                                                         <a href="#"  class="delete-tour_package" data-id="<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                        <a href="edit-tour_package.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                        <a href="arrange-tour_package.php?id=<?php echo $tour_package['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                        <a href="edit-tour-package.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="arrange-tour-package.php?id=<?php echo $tour_package['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
                                                         <a href="view-tour-date.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-time arrange-btn"></button> </a>
                                                     
                                                     </div>
