@@ -101,7 +101,7 @@ class TourPackages {
 
     public function delete() {
 //
-//        $this->deletePhotos();
+        $this->deletePhotos();
         unlink(Helper::getSitePath() . "upload/tour_packages/" . $this->image_name);
 
         $query = 'DELETE FROM `tour_packages` WHERE id="' . $this->id . '"';
@@ -111,23 +111,23 @@ class TourPackages {
         return $db->readQuery($query);
     }
 
-//    public function deletePhotos() {
-//
-////        $TOUR_SUB_PHOTO = new TourSubSectionPhoto(NULL);
-//        $TOUR_SUB_PHOTO = new DestinationTypePhotos(NULL);
-//
-//        $allPhotos = $TOUR_SUB_PHOTO->getDestinationTypePhotosById($this->id);
-//
-//        foreach ($allPhotos as $photo) {
-//
-//            $IMG = $TOUR_SUB_PHOTO->image_name = $photo["image_name"];
+    public function deletePhotos() {
+
+//        $TOUR_SUB_PHOTO = new TourSubSectionPhoto(NULL);
+        $TOUR_SUB_PHOTO = new TourDate(NULL);
+
+        $allPhotos = $TOUR_SUB_PHOTO->getTourDatesById($this->id);
+
+        foreach ($allPhotos as $photo) {
+
+            $IMG = $TOUR_SUB_PHOTO->image_name = $photo["image_name"];
+            unlink(Helper::getSitePath() . "upload/tour-packages/date/" . $IMG);
 //            unlink(Helper::getSitePath() . "upload/destination-photos/" . $IMG);
-////            unlink(Helper::getSitePath() . "upload/destination-photos/" . $IMG);
-//
-//            $TOUR_SUB_PHOTO->id = $photo["id"];
-//            $TOUR_SUB_PHOTO->delete();
-//        }
-//    }
+
+            $TOUR_SUB_PHOTO->id = $photo["id"];
+            $TOUR_SUB_PHOTO->delete();
+        }
+    }
 
 
 
