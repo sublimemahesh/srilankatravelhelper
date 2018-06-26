@@ -1,12 +1,13 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-$id = '';
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
  
 }
-$TOUR_DATE = new TourDate($id);
+$TOUR_DATE = new TourDate(null);
+$TOUR_DATES = $TOUR_DATE->getTourDatesById($id);
 
 ?> 
 <!DOCTYPE html>
@@ -83,7 +84,7 @@ $TOUR_DATE = new TourDate($id);
 
 
                                     <div class="col-md-12"> 
-                                        <input type="hidden" id="id" value="<?php echo $TOUR_DATE->id; ?>" name="id"/>
+                                         <input type="hidden" name="package"  value="<?php echo $id; ?>"/>
                                         <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
                                     </div>
 
@@ -92,9 +93,9 @@ $TOUR_DATE = new TourDate($id);
                                 </div>
                                 <div class="row clearfix">
                                     <?php
-                                    $TOUR_DATE = TourDate::getTourDatesById($id);
-                                    if (count($TOUR_DATE) > 0) {
-                                        foreach ($TOUR_DATE as $key => $tour_date) {
+                               
+                                    if (count( $TOUR_DATES) > 0) {
+                                        foreach ( $TOUR_DATES as $key => $tour_date) {
                                             ?>
                                             <div class="col-md-3" id="div<?php echo $tour_date['id']; ?>">
                                                 <div class="photo-img-container">

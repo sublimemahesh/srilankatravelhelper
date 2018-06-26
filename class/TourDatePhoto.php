@@ -17,12 +17,12 @@ class TourDatePhoto {
     public $tour_date;
     public $image_name;
     public $caption;
-    public $queue;
+    public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`tour_date`,`image_name`,`caption`,`queue` FROM `tour_date_photo` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`tour_date`,`image_name`,`caption`,`sort` FROM `tour_date_photo` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -32,7 +32,7 @@ class TourDatePhoto {
             $this->tour_date = $result['tour_date'];
             $this->image_name = $result['image_name'];
             $this->caption = $result['caption'];
-            $this->queue = $result['queue'];
+            $this->sort = $result['sort'];
 
             return $this;
         }
@@ -40,11 +40,11 @@ class TourDatePhoto {
 
     public function create() {
 
-        $query = "INSERT INTO `tour_date_photo` (`tour_date`,`image_name`,`caption`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `tour_date_photo` (`tour_date`,`image_name`,`caption`,`sort`) VALUES  ('"
                 . $this->tour_date . "','"
                 . $this->image_name . "', '"
                 . $this->caption . "', '"
-                . $this->queue . "')";
+                . $this->sort . "')";
 
         $db = new Database();
 
@@ -61,7 +61,7 @@ class TourDatePhoto {
 
     public function all() {
 
-        $query = "SELECT * FROM `tour_date_photo` ORDER BY queue ASC";
+        $query = "SELECT * FROM `tour_date_photo` ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -79,7 +79,7 @@ class TourDatePhoto {
                 . "`tour_date` ='" . $this->tour_date . "', "
                 . "`image_name` ='" . $this->image_name . "', "
                 . "`caption` ='" . $this->caption . "', "
-                . "`queue` ='" . $this->queue . "' "
+                . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
@@ -102,9 +102,9 @@ class TourDatePhoto {
         return $db->readQuery($query);
     }
 
-    public function getTourDatePhotosById($tour_date) {
+    public function getTourDatePhotosById($id) {
 
-        $query = "SELECT * FROM `tour_date_photo` WHERE `tour_date`= $tour_date ORDER BY queue ASC";
+        $query = "SELECT * FROM `tour_date_photo` WHERE `tour_date`= $id ORDER BY sort ASC";
 
         $db = new Database();
 
@@ -118,7 +118,7 @@ class TourDatePhoto {
     }
 
     public function arrange($key, $img) {
-        $query = "UPDATE `tour_date_photo` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `tour_date_photo` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;

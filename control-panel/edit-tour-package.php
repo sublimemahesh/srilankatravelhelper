@@ -6,7 +6,7 @@ $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
-$TOUR_PACKAGE = new TourPackage($id);
+$TOUR_PACKAGE = new TourPackages($id);
 ?> 
 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ $TOUR_PACKAGE = new TourPackage($id);
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="title" class="form-control"  value="<?php echo $TOUR_PACKAGE->title; ?>"  name="title"  required="TRUE">
+                                                <input type="text" id="title" class="form-control"  value="<?php echo $TOUR_PACKAGE->name; ?>"  name="name"  required="TRUE">
                                                 <label class="form-label">Title</label>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@ $TOUR_PACKAGE = new TourPackage($id);
                                     <div class="col-md-12">                                       
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="file" id="image" class="form-control" value="<?php echo $TOUR_PACKAGE->image_name; ?>"  name="image">
+                                                <input type="file" id="image" class="form-control" value="<?php echo $TOUR_PACKAGE->image_name; ?>"  name="image_name">
                                                 <img src="../upload/tour-package/<?php echo $TOUR_PACKAGE->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
