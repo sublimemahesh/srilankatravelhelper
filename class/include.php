@@ -20,6 +20,7 @@ include_once(dirname(__FILE__) . '/Banner.php');
 include_once(dirname(__FILE__) . '/DestinationType.php');
 include_once(dirname(__FILE__) . '/Destination.php');
 include_once(dirname(__FILE__) . '/DestinationPhotos.php');
+include_once(dirname(__FILE__) . '/Driver.php');
 
 function dd($data) {
     var_dump($data);
