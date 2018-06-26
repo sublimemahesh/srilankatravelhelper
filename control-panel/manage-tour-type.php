@@ -92,7 +92,7 @@ $TOUR_TYPE = new TourType(NULL)
                                                     <td><?php echo $tour_type['name']; ?></td>
                                                     <td> 
 
-                                                        <a href="edit-destination-type.php?id=<?php echo $tour_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="edit-tour-type.php?id=<?php echo $tour_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
 
 
                                                         | 
@@ -103,12 +103,12 @@ $TOUR_TYPE = new TourType(NULL)
 
                                                         |
 
-                                                        <a href="arrange-destination-type.php?id=<?php echo $tour_type['id']; ?>">
+                                                        <a href="arrange-tour-type.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
                                                         |
 
-                                                        <a href="create-destination.php?id=<?php echo $tour_type['id']; ?>">
+                                                        <a href="create-tour-packages.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-flag destination-btn"></button>
                                                         </a>
                                                     </td>

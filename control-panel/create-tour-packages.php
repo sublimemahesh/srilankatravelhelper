@@ -9,12 +9,12 @@ if (isset($_GET['id'])) {
 }
 
 
-$DESTINATION = new Destination(NULL);
-$DESTINATIONS = $DESTINATION->getDestinationById($id);
+$TOUR_PACKAGE = new TourPackages(NULL);
+$TOUR_PACKAGES = $TOUR_PACKAGE->getTourPackagesById($id);
 
 
-$DESTINATION_TYPE = new DestinationType(NULL);
-$types = $DESTINATION_TYPE->all();
+$TOUR_TYPE = new TourType(NULL);
+$types = $TOUR_TYPE->all();
 ?>
 <!DOCTYPE html>
 <html> 
@@ -60,15 +60,15 @@ $types = $DESTINATION_TYPE->all();
                                 <h2>Add New Destination</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination.php">
+                                        <a href="manage-tour_package.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="body">
-                                <form class="form-horizontal"  method="post" action="post-and-get/destination.php" enctype="multipart/form-data"> 
-                                    <div class="row clearfix">
+                                <form class="form-horizontal"  method="post" action="post-and-get/tour-packages.php" enctype="multipart/form-data"> 
+<!--                                    <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="tourtype">Destination Type</label>
                                         </div>
@@ -87,7 +87,7 @@ $types = $DESTINATION_TYPE->all();
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div> -->
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -97,6 +97,18 @@ $types = $DESTINATION_TYPE->all();
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="text" id="name" class="form-control" placeholder="Enter name" autocomplete="off" name="name" required="TRUE">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="name">Price</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" id="name" class="form-control" placeholder="Enter name" autocomplete="off" name="price" required="TRUE">
                                                 </div>
                                             </div>
                                         </div>
@@ -156,22 +168,23 @@ $types = $DESTINATION_TYPE->all();
                             <div class="body">
                                 <div class="row clearfix">
                                     <?php
-                                    foreach ($DESTINATIONS as $key => $destination) {
+                                    foreach ($TOUR_PACKAGES as $key => $tour_package) {
 
-                                        if (count($destination) > 0) {
+                                        if (count($tour_package) > 0) {
                                             ?>
-                                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                            <div class="col-md-3"  id="div<?php echo $tour_package['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                    <img src="../upload/tour-package/thumb/<?php echo $tour_package['image_name']; ?>" class="img-responsive ">
                                                 </div>
                                                 <div class="img-caption">
-                                                    <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-        <!--                                                        <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  -->
+                                                    <p class="maxlinetitle">Name : <?php echo $tour_package['name']; ?></p>  
+        <!--                                                        <p class="maxlinetitle">Type : <?php echo $TOUR_PACKAGE_TYPE->name; ?></p>  -->
                                                     <div class="d">
-                                                        <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                        <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                        <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                        <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+                                                        <a href="#"  class="delete-tour_package" data-id="<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                        <a href="edit-tour_package.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="arrange-tour_package.php?id=<?php echo $tour_package['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                        <a href="view-tour-date.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-time arrange-btn"></button> </a>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,7 +228,7 @@ $types = $DESTINATION_TYPE->all();
 
         <!-- Demo Js -->
         <script src="js/demo.js"></script>
-        <script src="delete/js/destination.js" type="text/javascript"></script>
+        <script src="delete/js/tour_package.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script>
             tinymce.init({

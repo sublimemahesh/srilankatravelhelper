@@ -43,9 +43,10 @@ class TourPackages {
         $query = "INSERT INTO `tour_packages` (`type`,`name`,`price`,`short_description`,`description`,`image_name`,`sort`) VALUES  ('"
                 . $this->type . "', '"
                 . $this->name . "', '"
-                . $this->image_name . "', '"
-                . $this->short_description . "', '"
+                . $this->price . "', '"
+              . $this->short_description . "', '"
                 . $this->description . "', '"
+                . $this->image_name . "', '"
                 . $this->sort . "')";
 
         $db = new Database();

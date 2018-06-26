@@ -7,7 +7,7 @@ if (isset($_POST['create'])) {
     $TOUR_DATE = new TourDate(NULL);
     $VALID = new Validator();
 
-    $TOUR_DATE->tour = $_POST['id'];
+    $TOUR_DATE->package = $_POST['package'];
     $TOUR_DATE->title = mysql_real_escape_string($_POST['title']);
     $TOUR_DATE->description = mysql_real_escape_string($_POST['description']);
 
@@ -71,7 +71,7 @@ if (isset($_POST['create'])) {
         $VALID->addError("Your data was saved successfully", 'success');
         $_SESSION['ERRORS'] = $VALID->errors();
 
-         header("location: ../view-tour-date-photos.php?id=" .$TOUR_DATE->id);
+         header("location: ../view-tour-date.php?id=" .$TOUR_DATE->id);
     } else {
 
         if (!isset($_SESSION)) {
