@@ -21,7 +21,7 @@ $types = $TOUR_TYPE->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination - www.srilankatourism.travel</title>
+        <title>Add New Tour Package - www.srilankatourism.travel</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -68,9 +68,9 @@ $types = $TOUR_TYPE->all();
                             </div>
                             <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/tour-packages.php" enctype="multipart/form-data"> 
-<!--                                    <div class="row clearfix">
+                                    <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="tourtype">Destination Type</label>
+                                            <label for="tourtype">Tour Type</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group place-select">
@@ -87,7 +87,7 @@ $types = $TOUR_TYPE->all();
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div> 
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
