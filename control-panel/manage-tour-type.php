@@ -57,7 +57,7 @@ $TOUR_TYPE = new TourType(NULL)
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>
-                                        <a href="create-destination-type.php">
+                                        <a href="create-tour-type.php">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </li>
@@ -103,14 +103,14 @@ $TOUR_TYPE = new TourType(NULL)
 
                                                         |
 
-                                                        <a href="arrange-tour-type.php?id=<?php echo $tour_type['id']; ?>">
+<!--                                                        <a href="arrange-tour-type.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
                                                         |
 
                                                         <a href="create-tour-packages.php?id=<?php echo $tour_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-flag destination-btn"></button>
-                                                        </a>
+                                                        </a>-->
                                                     </td>
                                                 </tr>
                                                 <?php

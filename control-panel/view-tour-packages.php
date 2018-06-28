@@ -4,13 +4,13 @@ include_once(dirname(__FILE__) . './auth.php');
 
 
 
-//if (isset($_GET['id'])) {
-//    $id = $_GET['id'];
-//}
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
 
 
 $TOUR_PACKAGE = new TourPackages(NULL);
-//$TOUR_PACKAGES = $TOUR_PACKAGE->getTourPackagesById($id);
+$TOUR_PACKAGES = $TOUR_PACKAGE->getTourPackagesById($id);
 
 
 $TOUR_TYPE = new TourType(NULL);
@@ -60,13 +60,13 @@ $types = $TOUR_TYPE->all();
                                 <h2>Add New Tour Packages</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-tour-package.php">
+                                        <a href="manage-tour_package.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="body">
+<!--                            <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/tour-packages.php" enctype="multipart/form-data"> 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -158,14 +158,14 @@ $types = $TOUR_TYPE->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" name="id"  value="<?php echo $id; ?>"/>
+                                            <input type="hidden" name="type"  value="<?php echo $id; ?>"/>
                                             <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="Add Destination"/>
                                         </div>
                                     </div>
                                     <hr/>
                                 </form>
-                            </div>
-<!--                            <div class="body">
+                            </div>-->
+                            <div class="body">
                                 <div class="row clearfix">
                                     <?php
                                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
@@ -178,7 +178,7 @@ $types = $TOUR_TYPE->all();
                                                 </div>
                                                 <div class="img-caption">
                                                     <p class="maxlinetitle">Name : <?php echo $tour_package['name']; ?></p>  
-                                                                <p class="maxlinetitle">Type : <?php echo $TOUR_PACKAGE_TYPE->name; ?></p>  
+        <!--                                                        <p class="maxlinetitle">Type : <?php echo $TOUR_PACKAGE_TYPE->name; ?></p>  -->
                                                     <div class="d">
                                                         <a href="#"  class="delete-tour-package" data-id="<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                         <a href="edit-tour-package.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
@@ -198,7 +198,7 @@ $types = $TOUR_TYPE->all();
                                     ?> 
 
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
 
                     </div>

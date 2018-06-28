@@ -54,7 +54,7 @@ include_once(dirname(__FILE__) . './auth.php');
                                 <h2>Add New Tour type</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination-type.php">
+                                        <a href="manage-tour-type.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -101,7 +101,8 @@ include_once(dirname(__FILE__) . './auth.php');
 
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add tour type"/>
+                                           
+                                           <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add tour type"/>
                                         </div>
                                     </div>
                                     <hr/>

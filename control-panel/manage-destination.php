@@ -1,47 +1,39 @@
-﻿<?php
+<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-
-$DESTINATION = new Destination(NULL);
-$destinations = NULL;
-$destinations = $DESTINATION->all();
-
+$DESTINATION_TYPE = new DestinationType(NULL)
 ?>
-﻿<!DOCTYPE html>
+¿<!DOCTYPE html>
 <html>
-
     <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Destination - srilankatravelhelper</title>
+        <meta charset="UTF-8" >
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" >
+        <title>Manage Destination Type - srilankatravelhelper</title>
         <!-- Favicon-->
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" >
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" >
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" >
 
         <!-- Bootstrap Core Css -->
-        <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet" >
 
         <!-- Waves Effect Css -->
-        <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+        <link href="plugins/node-waves/waves.css" rel="stylesheet" >
 
         <!-- Animation Css -->
-        <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+        <link href="plugins/animate-css/animate.css" rel="stylesheet">
 
         <!-- JQuery DataTable Css -->
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-        <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+        <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet"  >
         <!-- Custom Css -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" >
 
         <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-        <link href="css/themes/all-themes.css" rel="stylesheet" />
+        <link href="css/themes/all-themes.css" rel="stylesheet"  >
     </head>
 
     <body class="theme-red">
@@ -49,69 +41,91 @@ $destinations = $DESTINATION->all();
         include './navigation-and-header.php';
         ?>
         <section class="content">
-            <div class="container-fluid"> 
+            <div class="container-fluid">
                 <?php
                 $vali = new Validator();
 
                 $vali->show_message();
                 ?>
-                <!-- Manage Tour Package -->
+                <!-- Manage tour -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Destination
+                                    Manage Destination Types
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>
-                                        <a href="create-destination.php">
-                                            <i class="material-icons">add</i> 
+                                        <a href="create-destination-type.php">
+                                            <i class="material-icons">add</i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="body">
-                                <!--                                <div class="table-responsive">-->
+                                <!-- <div class="table-responsive">-->
                                 <div>
-                                    <div class="row clearfix">
-                                        <?php
-                                        foreach ($destinations as $key => $destination) {
-                                    
-                                            $DESTINATION_TYPE = new DestinationType($destination['type']);
-                                              if (count($destination) > 0) {
+                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Options</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Options</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                            <?php
+                                            foreach ($DESTINATION_TYPE->all() as $key => $destination_type) {
+                                                $key++
                                                 ?>
-                                                <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                                    <div class="photo-img-container">
-                                                        <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
-                                                    </div>
-                                                    <div class="img-caption">
-                                                        <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                        <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
-                                                        <div class="d">
-                                                            <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                            <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                            <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                            <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            } else {
-                                                ?> 
-                                                <b style="padding-left: 15px;">No packages in the database.</b> 
+                                                <tr id="row_<?php echo $destination_type['id']; ?>">
+                                                    <td><?php echo $key ?></td>
+                                                    <td><?php echo $destination_type['name']; ?></td>
+                                                    <td> 
+
+                                                        <a href="edit-destination-type.php?id=<?php echo $destination_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+
+
+                                                        | 
+
+                                                        <a href="#" >
+                                                            <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $destination_type['id']; ?>"></button>
+                                                        </a>
+
+                                                        |
+
+                                                        <a href="arrange-destination-type.php?id=<?php echo $destination_type['id']; ?>">
+                                                            <button class="glyphicon glyphicon-random arrange-btn"></button>
+                                                        </a>
+                                                        |
+
+                                                        <a href="view-destination.php?id=<?php echo $destination_type['id']; ?>">
+                                                            <button class="glyphicon glyphicon-flag destination-btn"></button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                                 <?php
                                             }
-                                        }
-                                        ?> 
-
-                                    </div>
+                                            ?>  
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Manage District -->
+
         </section>
 
         <!-- Jquery Core Js -->
@@ -147,7 +161,8 @@ $destinations = $DESTINATION->all();
 
         <!-- Demo Js -->
         <script src="js/demo.js"></script>
-        <script src="delete/js/destination.js" type="text/javascript"></script>
+        <script src="delete/js/destination-type.js" type="text/javascript"></script>
     </body>
 
-</html> 
+</html>
+
