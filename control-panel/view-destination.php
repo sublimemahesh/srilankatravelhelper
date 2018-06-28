@@ -4,17 +4,17 @@ include_once(dirname(__FILE__) . './auth.php');
 
 
 
-//if (isset($_GET['id'])) {
-//    $id = $_GET['id'];
-//}
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
 
 
 $DESTINATION = new Destination(NULL);
-//$DESTINATIONS = $DESTINATION->getDestinationById($id);
+$DESTINATIONS = $DESTINATION->getDestinationById($id);
 
 
-//$DESTINATION_TYPE = new DestinationType(NULL);
-//$types = $DESTINATION_TYPE->all();
+$DESTINATION_TYPE = new DestinationType(NULL);
+$types = $DESTINATION_TYPE->all();
 ?>
 <!DOCTYPE html>
 <html> 
@@ -80,7 +80,7 @@ $DESTINATION = new Destination(NULL);
                                                 </div>
                                                 <div class="img-caption">
                                                     <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                                <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
+<!--                                                                <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  -->
                                                     <div class="d">
                                                         <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
                                                         <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
