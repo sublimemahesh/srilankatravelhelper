@@ -1,4 +1,6 @@
-
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+?>
 <!DOCTYPE html>
 <head>
 
@@ -13,7 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
 
 </head>
 
@@ -121,78 +123,32 @@
                 </div>
             </div>
         </div>
+
         <!-- Categories Carousel -->
         <div class="fullwidth-carousel-container margin-bottom-50 ">
             <div class="fullwidth-slick-carousel category-carousel">
-                <!-- Item -->
-                <div class="fw-carousel-item">
-                    <div class="category-box-container half">
-                        <a href="#" class="category-box" data-background-image="images/destination/Whale-watching.jpg">
-                            <div class="category-box-content">
-                                <h3>Whale Watching</h3>
-                                <span>64 views</span>
-                            </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                    <div class="category-box-container half">
-                        <a href="#" class="category-box" data-background-image="images/destination/river.jpg">
-                            <div class="category-box-content">
-                                <h3>River Safari</h3>
-                                <span>14 views</span>
-                            </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="fw-carousel-item">
-                    <div class="category-box-container">
-                        <a href="#" class="category-box" data-background-image="images/destination/cycling1.jpg">
-                            <div class="category-box-content">
-                                <h3>Cycling</h3>
-                                <span>67 views</span>
-                            </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="fw-carousel-item">
-                    <div class="category-box-container">
-                        <a href="#" class="category-box" data-background-image="images/destination/whild-life.jpg">
-                            <div class="category-box-content">
-                                <h3>Whildlife Safari </h3>
-                                <span>27 views</span>
-                            </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                </div>
+                <?php
+                $DESTINATIONS = DestinationType::all();
+                foreach ($DESTINATIONS as $key => $destination) {
+                    if ($key < 6) {
+                        ?>
 
-                <!-- Item -->
-                <div class="fw-carousel-item">
-                    <div class="category-box-container">
-                        <a href="#" class="category-box" data-background-image="images/destination/6.jpg">
-                            <div class="category-box-content">
-                                <h3>Surfings</h3>
-                                <span>22 views</span>
+                        <div class="fw-carousel-item">
+                            <div class="category-box-container">
+                                <a href="destination-type-view-page.php?id=<?php echo $destination['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination['image_name']; ?>">
+                                    <div class="category-box-content">
+                                        <h3><?php echo $destination['name']; ?></h3>
+                                        <span>67 views</span>
+                                    </div>
+                                    <span class="category-box-btn"> Browse</span>
+                                </a>
                             </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="fw-carousel-item">
-                    <div class="category-box-container">
-                        <a href="#" class="category-box" data-background-image="images/destination/diving.jpg">
-                            <div class="category-box-content">
-                                <h3>
-                                    Diving & Snorkeling </h3>
-                                <span>130 views</span>
-                            </div>
-                            <span class="category-box-btn">Browse</span>
-                        </a>
-                    </div>
-                </div>
-
+                        </div>
+        <!--                    <img src="upload/destination-type/-109984423_191093156483_1530173407_n.jpg">-->
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
         <!-- Categories Carousel / End -->
@@ -241,79 +197,40 @@
                 </div>
                 <div class="row">
                     <!-- Blog Post Item -->
-                    <div class="col-md-4">
-                        <a href="#" class="blog-compact-item-container">
-                            <div class="blog-compact-item">
-                                <img src="images/tour/Best-of-Sri-Lanka-Galle-Galle-Fort-1.jpg" alt="">
-                                <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                <div class="blog-compact-item-content">
-                                    <ul class="blog-post-tags">
-                                        <li><div class="star-rating-fa text-right"> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <div class="rating-counter-tour">(160 reviews)</div><br/>
-                                            </div></li>
-                                    </ul>
-                                    <h3>Galle City</h3>
-                                    <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                </div>
+                    <?php
+                    $TOUR_TYPES = TourType::all();
+                    foreach ($TOUR_TYPES as $key => $tour_type) {
+                        if ($key < 3) {
+                            ?>
+                            <div class="col-md-4">
+                                <a href="tour-packages-type.php?=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
+                                    <div class="blog-compact-item">
+                                        <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
+                                        <span class="blog-item-tag" style="background: #0dce38!important">View</span>
+                                        <div class="blog-compact-item-content">
+                                            <ul class="blog-post-tags">
+                                                <li><div class="star-rating-fa text-right"> 
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <div class="rating-counter-tour">(160 reviews)</div><br/>
+                                                    </div></li>
+                                            </ul>
+                                            <h3><?php echo $tour_type['name']; ?></h3>
+                                            <p><?php echo substr($tour_type['short_description'], 0, 150) . '...'; ?></p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Blog post Item / End -->
-                    <!-- Blog Post Item -->
-                    <div class="col-md-4">
-                        <a href="#" class="blog-compact-item-container">
-                            <div class="blog-compact-item">
-                                <img src="images/tour/3.jpg" alt="">
-                                <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                <div class="blog-compact-item-content">
-                                    <ul class="blog-post-tags">
-                                        <li><div class="star-rating-fa text-right"> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <div class="rating-counter-tour">(30 reviews)</div><br/>
-                                            </div></li>
-                                    </ul>
-                                    <h3>Kandy City</h3>
-                                    <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Blog post Item / End -->
-                    <!-- Blog Post Item -->
-                    <div class="col-md-4">
-                        <a href="#" class="blog-compact-item-container">
-                            <div class="blog-compact-item">
-                                <img src="images/tour/4.jpg" alt="">
-                                <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                <div class="blog-compact-item-content">
-                                    <ul class="blog-post-tags">
-                                        <li><div class="star-rating-fa text-right"> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <div class="rating-counter-tour">(25 reviews)</div><br/>
-                                            </div></li>
-                                    </ul>
-                                    <h3>Sigiriya Rock Fortress</h3>
-                                    <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            <?php
+                        }
+                    }
+                    ?>
+
                     <!-- Blog post Item / End -->
                     <div class="col-md-12 centered-content">
                         <a href="#" class="button border margin-top-10">View More</a>
@@ -405,146 +322,50 @@
                     <div class="col-md-12">
                         <div class="simple-slick-carousel dots-nav">
 
-                            <!-- Listing Item -->
-                            <div class="carousel-item">
-                                <a href="#" class="listing-item-container">
+                            <?php
+                            $DRIVERS = Driver::all();
+                            foreach ($DRIVERS as $key => $driver) {
+                                if ($key < 6) {
+                                    ?>
+                                    <div class="carousel-item">
+                                        <a href="drivers-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
-                                    </div>
+                                            <div class="listing-item">
+                                                <img src="upload/banner-image/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                            </div>
 
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
+                                            <div class="img-pad"> 
+                                                <img src="upload/driver/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                                <!--                                        
+                                                                                        <div class="star-rating " data-rating="4.5"> 
+                                                                                            <div class="rating-counter">(12 reviews)</div><br/>
+                                                
+                                                                                        </div>-->
 
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
+                                            </div>
+                                            <div class="driver-name text-left"> 
+                                                <?php echo $driver['name']; ?>
+                                            </div>
+                                            <div class="star-rating-fa text-right"> 
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <div class="rating-counter">(12 reviews)</div><br/>
+                                            </div>
 
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
+                                            <div style="margin-top: 15px;padding-bottom: 7px;">
+                                                <p class="text-center " id="">
+                                                    <?php echo substr($driver['short_description'], 0, 150) . '...'; ?>
+                                                </p>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-2.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-3.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-4.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+                                    <?php
+                                }
+                            }
+                            ?>    
                         </div>
                     </div>
                 </div>
