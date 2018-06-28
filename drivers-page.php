@@ -1,3 +1,6 @@
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+?>
 <!DOCTYPE html>
 
 <html>
@@ -51,15 +54,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Listing Item -->
+                                              <?php
+                $DRIVERS = Driver::all();
+                foreach ($DRIVERS as $driver) {
+                  
+                        ?>
                             <div class=" col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
+                                <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
                                     <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
+                                        <img src="upload/banner-image/<?php echo $driver['banner_image']; ?>" alt=""> 
                                     </div>
 
                                     <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
+                                        <img src="upload/driver/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
                                         <!--                                        
                                                                                 <div class="star-rating " data-rating="4.5"> 
                                                                                     <div class="rating-counter">(12 reviews)</div><br/>
@@ -68,7 +76,7 @@
 
                                     </div>
                                     <div class="driver-name text-left"> 
-                                        Driver Name
+                                     <?php echo $driver['name']; ?>
                                     </div>
                                     <div class="star-rating-fa text-right" style="padding-right: 10px !important;"> 
                                         <i class="fa fa-star"></i>
@@ -81,184 +89,14 @@
 
                                     <div style="margin-top: 15px;padding-bottom: 7px;">
                                         <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
+                                            <?php echo $driver['description']; ?>
                                         </p>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-2.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class=" col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-3.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class=" col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-2.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class=" col-md-4">
-                                <a href="drivers-view-page.php" class="listing-item-container">
-
-                                    <div class="listing-item">
-                                        <img src="images/drivers/banner/driver-banner-3.jpg" alt=""> 
-                                    </div>
-
-                                    <div class="img-pad"> 
-                                        <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
-
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        Driver Name
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+                          <?php 
+                                        }
+                          ?>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,9 @@
- 
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$id = $_GET["id"];
+
+// $TOUR_DATE_PHOTOS  = new TourDatePhoto($id);
+?>
 <!DOCTYPE html>
 <head>
     <!-- Basic Page Needs
@@ -156,7 +161,7 @@
         .item1{
             padding-bottom: 100px;
         }
-      
+
     </style>
 </head>
 <body>
@@ -177,67 +182,34 @@
         <div class="container padding-bottom-45 padding-top-45">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="item1">
-                        <div class="padding-top-10" >
-                            <hr  >
-                            <h3 class="headline">O1 Day Tour -Galle Fort</h3>
-                            <hr >
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                        </div>
-                        <div class="image-row">
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
 
-                        </div>
-                    </div>
                     <div class="item1">
                         <div class="padding-top-10">
-                            <hr  >
-                            <h3 class="headline">O2 Day Tour-Galle City</h3>
-                            <hr >
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                        </div>
-                        <div class="image-row">
+                            <?php
+                            $TOUR_DATE = TourDate::getTourDatesById($id);
+                            foreach ($TOUR_DATE as $key => $tour_date) {
+                                ?>
+                                <hr  >
+                                <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
+                                <hr >
+                                <p><?php echo $tour_date['description']; ?></p>
 
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
-                            <div  class="col-md-3">
-                                <a class="example-image-link" href="images/destination/6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/destination/6.jpg" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                            </div>
+                                <div class="image-row padding-bottom-100">
+                                    <?php
+                                    $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
+                                    foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
+                                        ?>
+                                        <div  class="col-md-3">
+                                            <a class="example-image-link" href="upload/tour-package/date/gallery/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="upload/tour-package/date/gallery/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
 
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
 
                     </div>

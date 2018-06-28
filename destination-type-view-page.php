@@ -1,4 +1,9 @@
-       
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$id = $_GET["id"];
+
+$DESTINATION = new Destination($id);
+?>  
 <!DOCTYPE html>
 <head>
     <!-- Basic Page Needs
@@ -87,15 +92,19 @@
                     <div class="row margin-bottom-25">
                     </div>
                     <div class="row">
-
+  <?php
+                                        $DESTINATIONS = Destination::getDestinationById($id);
+                                        foreach ($DESTINATIONS as $key => $destination) {
+                                          
+                                                ?>
                         <!-- Listing Item -->
                         <div class="col-lg-12 col-md-12">
                             <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
+                                <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>" class="listing-item">
 
                                     <!-- Image -->
                                     <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
+                                        <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt="">
                                         <span class="tag"style="background: #0dce38!important" >View </span>
                                     </div>
 
@@ -104,8 +113,8 @@
                                       
 
                                         <div class="listing-item-inner">
-                                            <h3>Tom's Restaurant </h3>
-                                            <span>964 School Street, New York</span>
+                                            <h3><?php echo $destination['name']; ?></h3>
+                                            <span><?php echo $destination['short_description']; ?></span>
                                             <div class="star-rating" data-rating="3.5">
                                                 <div class="rating-counter">(12 reviews)</div>
                                             </div>
@@ -117,157 +126,10 @@
                             </div>
                         </div>
                         <!-- Listing Item / End -->
-
-                        <!-- Listing Item -->
-                        <div class="col-lg-12 col-md-12">
-                            <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
-
-                                    <!-- Image -->
-                                    <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
-                                        <span class="tag" style="background: #0dce38!important">view</span>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="listing-item-content">
-
-                                        <div class="listing-item-inner">
-                                            <h3>Sticky Band</h3>
-                                            <span>Bishop Avenue, New York</span>
-                                            <div class="star-rating" data-rating="5.0">
-                                                <div class="rating-counter">(23 reviews)</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="like-icon"></span>
-
-                                       
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Listing Item / End -->
-
-                        <!-- Listing Item -->
-                        <div class="col-lg-12 col-md-12">
-                            <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
-
-                                    <!-- Image -->
-                                    <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
-                                        <span class="tag" style="background: #0dce38!important">view</span>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="listing-item-content">
-
-                                        <div class="listing-item-inner">
-                                            <h3>Hotel Govendor</h3>
-                                            <span>778 Country Street, New York</span>
-                                            <div class="star-rating" data-rating="2.0">
-                                                <div class="rating-counter">(17 reviews)</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="like-icon"></span>
-
-                                        
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Listing Item / End -->
-
-                        <!-- Listing Item -->
-                        <div class="col-lg-12 col-md-12">
-                            <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
-
-                                    <!-- Image -->
-                                    <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
-                                        <span class="tag" style="background: #0dce38!important">veiw</span>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="listing-item-content">
-                                        
-
-                                        <div class="listing-item-inner">
-                                            <h3>Burger House </h3>
-                                            <span>2726 Shinn Street, New York</span>
-                                            <div class="star-rating" data-rating="5.0">
-                                                <div class="rating-counter">(31 reviews)</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Listing Item / End -->
-
-                        <!-- Listing Item -->
-                        <div class="col-lg-12 col-md-12">
-                            <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
-
-                                    <!-- Image -->
-                                    <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
-                                        <span class="tag" style="background: #0dce38!important">view</span>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="listing-item-content">
-
-                                        <div class="listing-item-inner">
-                                            <h3>Airport</h3>
-                                            <span>1512 Duncan Avenue, New York</span>
-                                            <div class="star-rating" data-rating="3.5">
-                                                <div class="rating-counter">(46 reviews)</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Listing Item / End -->
-
-                        <!-- Listing Item -->
-                        <div class="col-lg-12 col-md-12">
-                            <div class="listing-item-container list-layout">
-                                <a href="destination-type-one-item-view-page.php" class="listing-item">
-
-                                    <!-- Image -->
-                                    <div class="listing-item-image">
-                                        <img src="images/tour/1.jpg" alt="">
-                                        <span class="tag" style="background: #0dce38!important">view</span>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="listing-item-content">
-                                      
-
-                                        <div class="listing-item-inner">
-                                            <h3>Think Coffee</h3>
-                                            <span>215 Terry Lane, New York</span>
-                                            <div class="star-rating" data-rating="5.0">
-                                                <div class="rating-counter">(31 reviews)</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Listing Item / End -->
+           <?php
+                                          
+                                        }
+                                        ?>
                     </div>
                     <!-- Pagination -->
                     <div class="clearfix"></div>

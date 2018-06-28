@@ -1,3 +1,9 @@
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$id = $_GET["id"];
+
+$TOUR_PACKAGES = new TourPackages($id);
+?> 
 <!DOCTYPE html>
 
 <html>
@@ -205,16 +211,21 @@
         <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
             <div class="container">
                 <div class="row">
+                      <?php
+                                        $TOUR_PACKAGES = TourPackages::getTourPackagesById($id);
+                                        foreach ($TOUR_PACKAGES as $key => $tour_package) {
+                                          
+                                                ?>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
+                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id'];?>">
                         <div class="single-package-carasoul">
                             <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
+                                <img src="upload/tour-package/<?php echo $tour_package['image_name'];?>" alt="">
+                                <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id'];?>"> <span>View</span></a>
                             </div>
                             <div class="package-details">
                                 <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
+                                    <h4><?php echo $tour_package['name'];?></h4>
                                     <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
                                     <div class="details">
                                         <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
@@ -241,186 +252,9 @@
                         </div>
                         </a>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
-                                    <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
-                                    </div>
-                                </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
-                                    <div class="details">
-                                        <p>Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
-                                    </div>
-                                </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
-                                    <div class="details">
-                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
-                                    </div>
-                                </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
-                                    <div class="details">
-                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
-                                    </div>
-                                </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="images/tour/3.jpg" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4>Dubai – All Stunning Places</h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
-                                    <div class="details">
-                                        <p> Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
-                                    </div>
-                                </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                        </a>
-                    </div>
+                  <?php 
+                                        }
+                  ?>
                 </div>
                 <div class="row">
                     <div class=" col-md-12 padding-left-200 padding-right-45 ">

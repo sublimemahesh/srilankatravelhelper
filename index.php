@@ -128,16 +128,16 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <div class="fullwidth-carousel-container margin-bottom-50 ">
             <div class="fullwidth-slick-carousel category-carousel">
                 <?php
-                $DESTINATIONS = DestinationType::all();
-                foreach ($DESTINATIONS as $key => $destination) {
+                $DESTINATION_TYPES = DestinationType::all();
+                foreach ( $DESTINATION_TYPES as $key => $destination_type) {
                     if ($key < 6) {
                         ?>
 
                         <div class="fw-carousel-item">
                             <div class="category-box-container">
-                                <a href="destination-type-view-page.php?id=<?php echo $destination['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination['image_name']; ?>">
+                                <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
                                     <div class="category-box-content">
-                                        <h3><?php echo $destination['name']; ?></h3>
+                                        <h3><?php echo $destination_type['name']; ?></h3>
                                         <span>67 views</span>
                                     </div>
                                     <span class="category-box-btn"> Browse</span>
