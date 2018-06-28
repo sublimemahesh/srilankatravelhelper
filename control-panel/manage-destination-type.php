@@ -9,7 +9,7 @@ $DESTINATION_TYPE = new DestinationType(NULL)
     <head>
         <meta charset="UTF-8" >
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" >
-        <title>Manage Tour Type - www.srilankatourism.travel</title>
+        <title>Manage Destination Type - srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon" >
 
@@ -53,7 +53,7 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Tour Types
+                                    Manage Destination Types
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>

@@ -13,7 +13,7 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Edit Tour Type - www.srilankatourism.travel</title>
+        <title>Edit Tour Type - srilankatravelhelper</title>
 
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -56,7 +56,7 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Edit Driver Type Photos</h2>
+                                <h2>Edit Driver  Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="#">

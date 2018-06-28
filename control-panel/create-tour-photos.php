@@ -13,7 +13,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New tour Photos - www.srilankatourism.travel</title>
+        <title>Add New Tour Photos - srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
