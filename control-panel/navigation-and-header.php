@@ -408,13 +408,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="manage-driver.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
                         </li>
                          <li>
-                                    <a href="#">
+                             <a href="arrange-driver.php">
                                         <i class="material-icons">compare_arrows</i>
                                         <span>Arrange</span>
                                     </a>

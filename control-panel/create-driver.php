@@ -105,7 +105,7 @@ $DRIVER = $DRIVERS->all();
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Picture</label>
+                                            <label for="picture_name">Cover Photo</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
                                             <div class="form-group form-float">
@@ -117,7 +117,7 @@ $DRIVER = $DRIVERS->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Picture</label>
+                                            <label for="picture_name">Profile</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
                                             <div class="form-group form-float">
@@ -166,37 +166,7 @@ $DRIVER = $DRIVERS->all();
                                     <hr/>
                                 </form>
                                 
-                                <div class="row clearfix">
-                                    <?php
-                                    
-                                    foreach ($DRIVER as $key => $driver) {
-
-                                        if (count($DRIVER) > 0) {
-                                            ?>
-                                            <div class="col-md-3"  id="div<?php echo $driver['id']; ?>">
-                                                <div class="photo-img-container">
-                                                    <img src="../upload/driver/<?php echo $driver['image_name']; ?>" class="img-responsive ">
-                                                </div>
-                                                <div class="img-caption">
-                                                    <p class="maxlinetitle">Name : <?php echo $driver['name']; ?></p>  
-<!--                                                                <p class="maxlinetitle">Type : <?php echo $DRIVER_TYPE->name; ?></p>  
-                                                    <div class="d">-->
-                                                        <a href="#"  class="delete-driver" data-id="<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                        <a href="edit-driver.php?id=<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                        <a href="arrange-driver.php?id=<?php echo $driver['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                        <a href="create-driver-photos.php?id=<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                        } else {
-                                            ?> 
-                                            <b style="padding-left: 15px;">No packages in the database.</b> 
-                                            <?php
-                                        }
-                                    }
-                                    ?> 
-
+                             
                                 
                             </div>
                           

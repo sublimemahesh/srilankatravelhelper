@@ -80,11 +80,13 @@ class Driver {
     public function update() {
 
         $query = "UPDATE  `driver` SET "
-                . "`type` ='" . $this->type . "', "
+//                . "`type` ='" . $this->type . "', "
                 . "`name` ='" . $this->name . "', "
-                . "`image_name` ='" . $this->image_name . "', "
+                
                 . "`short_description` ='" . $this->short_description . "', "
                 . "`description` ='" . $this->description . "', "
+                . "`image_name` ='" . $this->image_name . "', "
+                . "`banner_image` ='" . $this->banner_image . "', "
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 

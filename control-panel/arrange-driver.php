@@ -1,17 +1,15 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-$id = $_GET['id'];
 
- $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
-
+$DRIVER= new Driver(NULL);
 ?>
 <!DOCTYPE html>
 <html> 
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title></title>
+        <title>Tour Package</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -37,7 +35,7 @@ $id = $_GET['id'];
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Arrange Destination</h2>
+                                <h2>Arrange Driver</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="#">
@@ -47,24 +45,24 @@ $id = $_GET['id'];
                                 </ul>
                             </div>
                             <div class="body">
-                                <form method="post" action="post-and-get/destination-photos.php" class="form-horizontal" >
+                                <form method="post" action="post-and-get/driver.php" class="form-horizontal" >
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-12 arrange-container">
                                                 <ul id="sortable">
-                                                 <?php
-                                                    if (count($DESTINATION_PHOTOS) > 0) {
-                                                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                                                    <?php
+                                                    if (count($DRIVER->all()) > 0) {
+                                                        foreach ($DRIVER->all() as $key => $driver) {
                                                             ?>
                                                             <div class="col-md-3" style="list-style: none;">
                                                                 <li class="ui-state-default">
                                                                     <span class="number-class">(<?php echo $key + 1; ?>)</span>
-                                                                    <img class="img-responsive" src="../upload/destination-photos/<?php echo $destination_photos["image_name"]; ?>" alt=""/>
-                                                                    
-                                                                    <input type="hidden" name="sort[]"  value="<?php echo $destination_photos["id"]; ?>" class="sort-input"/>
+                                                                    <img class="img-responsive" src="../upload/driver/<?php echo $driver["image_name"]; ?>" alt=""/>
+                                                                    <input type="hidden" name="sort[]"  value="<?php echo $driver["id"]; ?>" class="sort-input"/>
 
                                                                 </li>
                                                             </div>
+
                                                             <?php
                                                         }
                                                     } else {
@@ -75,7 +73,6 @@ $id = $_GET['id'];
                                                 </ul>  
                                                 <div class="row">
                                                     <div class="col-sm-12 text-center" style="margin-top: 19px;">
-                                                        
                                                         <input type="submit" class="btn btn-info" id="btn-submit" value="Save Images" name="save-data">
                                                     </div>
                                                 </div>
