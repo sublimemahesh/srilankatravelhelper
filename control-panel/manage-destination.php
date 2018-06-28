@@ -2,14 +2,14 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$DESTINATION_TYPE = new DestinationType(NULL)
+$DESTINATION = new DestinationType(NULL)
 ?>
 ¿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" >
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" >
-        <title>Manage Destination Type - srilankatravelhelper</title>
+        <title>Manage Tour Type - srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon" >
 
@@ -53,11 +53,11 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Destination Types
+                                    Manage Destination
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>
-                                        <a href="create-destination-type.php">
+                                        <a href="create-destination.php">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </li>
@@ -65,60 +65,35 @@ $DESTINATION_TYPE = new DestinationType(NULL)
                             </div>
                             <div class="body">
                                 <!-- <div class="table-responsive">-->
-                                <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            foreach ($DESTINATION_TYPE->all() as $key => $destination_type) {
-                                                $key++
+                                <div class="row clearfix">
+                                        <?php
+                                        $DESTINATION = DestinationType::all();
+                                        if (count($DESTINATION) > 0) {
+                                            foreach ($DESTINATION as $key => $destination) {
                                                 ?>
-                                                <tr id="row_<?php echo $destination_type['id']; ?>">
-                                                    <td><?php echo $key ?></td>
-                                                    <td><?php echo $destination_type['name']; ?></td>
-                                                    <td> 
-
-                                                        <a href="edit-destination-type.php?id=<?php echo $destination_type['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-
-
-                                                        | 
-
-                                                        <a href="#" >
-                                                            <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $destination_type['id']; ?>"></button>
-                                                        </a>
-
-                                                        |
-
-                                                        <a href="arrange-destination-type.php?id=<?php echo $destination_type['id']; ?>">
-                                                            <button class="glyphicon glyphicon-random arrange-btn"></button>
-                                                        </a>
-                                                        |
-
-                                                        <a href="view-destination.php?id=<?php echo $destination_type['id']; ?>">
-                                                            <button class="glyphicon glyphicon-flag destination-btn"></button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <a href="view-destination.php?id=<?php echo $destination['id']; ?>">    <img src="../upload/destination-type/<?php echo $destination['image_name']; ?>" class="img-responsive "></a>
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <a href="view-destination.php?id=<?php echo $destination['id']; ?>">        <p class="maxlinetitle "><?php echo $destination['name']; ?>     
+                                                      </p> </a>
+                                                        <div class="d">
+<!--                                                            <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-tour-package.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-tour-package.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            -->
+                                                       </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>  
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No packages in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>  
                             </div>
                         </div>
                     </div>

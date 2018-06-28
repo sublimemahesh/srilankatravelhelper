@@ -103,14 +103,14 @@ $DESTINATION_TYPE = new DestinationType(NULL)
 
                                                         |
 
-                                                        <a href="arrange-destination-type.php?id=<?php echo $destination_type['id']; ?>">
+<!--                                                        <a href="arrange-destination-type.php?id=<?php echo $destination_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-random arrange-btn"></button>
                                                         </a>
                                                         |
 
                                                         <a href="create-destination.php?id=<?php echo $destination_type['id']; ?>">
                                                             <button class="glyphicon glyphicon-flag destination-btn"></button>
-                                                        </a>
+                                                        </a>-->
                                                     </td>
                                                 </tr>
                                                 <?php
