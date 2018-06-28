@@ -1,3 +1,6 @@
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+?>
 <!DOCTYPE html>
 
 <html>
@@ -32,10 +35,15 @@
             <section class="fullwidth   padding-top-45 padding-bottom-45" data-background-color="#fff">
                 <div class="container">
                     <div class="row">
+                                <?php
+                $TOUR_TYPES = TourType::all();
+                foreach ($TOUR_TYPES as $tour_type) {
+                  
+                        ?>
                         <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
+                            <a href="tour-packages-type-view-page.php?id=<?php echo $tour_type['id'];?>" class="blog-compact-item-container">
                                 <div class="blog-compact-item">
-                                    <img src="images/tour/Best-of-Sri-Lanka-Galle-Galle-Fort-1.jpg" alt="">
+                                    <img src="upload/tour-type/<?php echo $tour_type['image_name'];?>" alt="">
                                     <span class="blog-item-tag" style="background: #0dce38!important">View</span>
                                     <div class="blog-compact-item-content">
                                         <ul class="blog-post-tags">
@@ -56,120 +64,10 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
-                                <div class="blog-compact-item">
-                                    <img src="images/tour/3.jpg" alt="">
-                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                    <div class="blog-compact-item-content">
-                                        <ul class="blog-post-tags">
-                                            <li><div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter-tour">(30 reviews)</div><br/>
-                                                </div></li>
-                                        </ul>
-                                        <h3>Ancient Tour </h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
-                                <div class="blog-compact-item">
-                                    <img src="images/tour/4.jpg" alt="">
-                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                    <div class="blog-compact-item-content">
-                                        <ul class="blog-post-tags">
-                                            <li><div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter-tour">(25 reviews)</div><br/>
-                                                </div></li>
-                                        </ul>
-                                        <h3>Heritage Tour</h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
-                                <div class="blog-compact-item">
-                                    <img src="images/tour/Best-of-Sri-Lanka-Galle-Galle-Fort-1.jpg" alt="">
-                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                    <div class="blog-compact-item-content">
-                                        <ul class="blog-post-tags">
-                                            <li><div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter-tour">(160 reviews)</div><br/>
-                                                </div></li>
-                                        </ul>
-                                        <h3>Cultural Tour</h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
-                                <div class="blog-compact-item">
-                                    <img src="images/tour/3.jpg" alt="">
-                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                    <div class="blog-compact-item-content">
-                                        <ul class="blog-post-tags">
-                                            <li><div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter-tour">(30 reviews)</div><br/>
-                                                </div></li>
-                                        </ul>
-                                        <h3>Beach Tour</h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="tour-packages-type-view-page.php" class="blog-compact-item-container">
-                                <div class="blog-compact-item">
-                                    <img src="images/tour/4.jpg" alt="">
-                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                    <div class="blog-compact-item-content">
-                                        <ul class="blog-post-tags">
-                                            <li><div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter-tour">(25 reviews)</div><br/>
-                                                </div></li>
-                                        </ul>
-                                        <h3>Whildlife Tour</h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                <?php 
+                
+                }
+                ?> 
                     </div>
                 </div>
             </section>

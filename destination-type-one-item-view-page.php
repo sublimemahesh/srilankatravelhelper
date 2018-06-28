@@ -1,3 +1,9 @@
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$id = $_GET["id"];
+
+$DESTINATION_PHOTOS = new DestinationPhotos($id);
+?> 
 <!DOCTYPE html>
 
 <html>
@@ -181,79 +187,23 @@
                     <div class="col-md-9">
                         <div class=" content">
                             <div id="galleria">
-                                <a href="images/tour/3.jpg">
+                                 <?php
+                                        $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
+                                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                                          
+                                                ?>
+                                <a href="upload/destination-photos/<?php  echo $destination_photos['image_name']; ?>">
                                     <img 
-                                        src="images/tour/3.jpg",
+                                        src="upload/destination-photos/<?php  echo $destination_photos['image_name']; ?>",
                                         data-big="images/tour/3.jpg"
                                         data-title="Biandintz eta zaldiak"
                                         data-description="Horses on Bianditz mountain, in Navarre, Spain."
                                         >
                                 </a>
-                                <a href="images/tour/1.jpg">
-                                    <img 
-                                        src="images/tour/1.jpg",
-                                        data-big="images/tour/1.jpg"
-                                        data-title="Athabasca Rail"
-                                        data-description="The Athabasca River railroad track at the mouth of Brulé Lake in Alberta, Canada."
-                                        >
-                                </a>
-                                <a href="images/tour/4.jpg">
-                                    <img 
-                                        src="images/tour/4.jpg",
-                                        data-big="images/tour/4.jpg"
-                                        data-title="Back-scattering crepuscular rays"
-                                        data-description="Picture of the day on Wikimedia Commons 26 September 2010."
-                                        >
-                                </a>
-                                <a href="images/tour/galle-fort.jpg">
-                                    <img 
-                                        src="images/tour/galle-fort.jpg",
-                                        data-big="images/tour/galle-fort.jpg"
-                                        data-title="Interior convento"
-                                        data-description="Interior view of Yuriria Convent, founded in 1550."
-                                        >
-                                </a>
-                                <a href="images/tour/3.jpg">
-                                    <img 
-                                        src="images/tour/3.jpg",
-                                        data-big="images/tour/3.jpg"
-                                        data-title="Biandintz eta zaldiak"
-                                        data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                        >
-                                </a>
-                                <a href="images/tour/1.jpg">
-                                    <img 
-                                        src="images/tour/1.jpg",
-                                        data-big="images/tour/1.jpg"
-                                        data-title="Athabasca Rail"
-                                        data-description="The Athabasca River railroad track at the mouth of Brulé Lake in Alberta, Canada."
-                                        >
-                                </a>
-                                <a href="images/tour/4.jpg">
-                                    <img 
-                                        src="images/tour/4.jpg",
-                                        data-big="images/tour/4.jpg"
-                                        data-title="Back-scattering crepuscular rays"
-                                        data-description="Picture of the day on Wikimedia Commons 26 September 2010."
-                                        >
-                                </a>
-                                <a href="images/tour/galle-fort.jpg">
-                                    <img 
-                                        src="images/tour/galle-fort.jpg",
-                                        data-big="images/tour/galle-fort.jpg"
-                                        data-title="Interior convento"
-                                        data-description="Interior view of Yuriria Convent, founded in 1550."
-                                        >
-                                </a>
-
-                                <a href="images/banner/banner-2.jpg">
-                                    <img 
-                                        src="images/banner/banner-2.jpg",
-                                        data-big="images/banner/banner-2.jpg"
-                                        data-title="Interior convento"
-                                        data-description="Interior view of Yuriria Convent, founded in 1550."
-                                        >
-                                </a>
+                                <?php 
+                                        }
+                                ?>
+                              
 
                             </div>
                         </div>

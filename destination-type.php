@@ -1,3 +1,6 @@
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+?>
 <!DOCTYPE html>
 
 <html>
@@ -29,14 +32,19 @@
             </div>
             <div class="container margin-top-70">
                 <div class="row">
+                      <?php
+                $DESTINATION_TYPES = DestinationType::all();
+                foreach ($DESTINATION_TYPES as $destination_type) {
+                  
+                        ?>
                     <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
+                        <a href="destination-type-view-page.php?id=<?php echo $destination_type['id'];?>" class="listing-item-container">
                             <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
+                                <img src="upload/destination-type/<?php echo $destination_type['image_name'];?>" alt="">
                                 <div class="listing-item-content">
                                     <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
+                                    <h3><?php echo $destination_type['name'];?></h3>
+<!--                                    <span><?php echo $destination_type['description'];?></span>-->
                                     <div class="star-rating" data-rating="5.0" style="padding: 15px 0px !important;">
                                         <div class="rating-counter">(31 reviews)</div>
                                     </div>
@@ -44,81 +52,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0" style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="images/destination/whild-life.jpg" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3>Burger House</h3>
-                                    <span>2726 Shinn Street, New York</span>
-                                    <div class="star-rating" data-rating="5.0"  style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    
+                          <?php
+                    
+                }
+                ?>
                 </div>
             </div>
             <?php include './footer.php'; ?>
