@@ -296,24 +296,24 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="create-destination-type.php">
+                            <a href="create-destination.php">
                                 <i class="material-icons">add</i>
                                 <span>Add New</span>
                             </a>
                         </li>
                         <li>
-                            <a href="manage-destination-type.php">
+                            <a href="manage-destination.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
                         </li>
                          <li>
-                                    <a href="arrange-destination-type.php">
+                                    <a href="arrange-destination.php">
                                         <i class="material-icons">compare_arrows</i>
                                         <span>Arrange</span>
                                     </a>
                                 </li>
-<!--                        <li>
+                        <li>
                             <a href="javascript:void(0);" class="menu-toggle">
                                 <i class="material-icons">chevron_right</i>
                                 <span>Destination Type</span>
@@ -338,7 +338,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>-->
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -368,7 +368,7 @@
                                   <li>
                             <a href="javascript:void(0);" class="menu-toggle">
                                 <i class="material-icons">chevron_right</i>
-                                <span>Tour Packages Type</span>
+                                <span>Tour Type</span>
                             </a>
                             <ul class="ml-menu">
                                 <li>
@@ -384,7 +384,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="arrange-destination-type.php">
+                                    <a href="arrange-tour-type.php">
                                         <i class="material-icons">compare_arrows</i>
                                         <span>Arrange</span>
                                     </a>
