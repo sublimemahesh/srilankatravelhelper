@@ -17,7 +17,7 @@ $types = $DRIVER_TYPE->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Destination - www.srilankatourism.travel</title>
+        <title>Manage Driver - www.srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -104,7 +104,7 @@ $types = $DRIVER_TYPE->all();
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Image</label>
+                                            <label for="picture_name">Profile</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">                                                                        
                                             <div class="form-group">
@@ -117,7 +117,7 @@ $types = $DRIVER_TYPE->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Image</label>
+                                            <label for="picture_name">Cover Photo</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">                                                                        
                                             <div class="form-group">
