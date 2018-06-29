@@ -16,6 +16,38 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
     <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
+    
+<!--        <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+     animate css 
+    <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
+     Button Hover animate css 
+    <link href="slider css/hover-min.css" rel="stylesheet" type="text/css"/>
+     jquery-ui.min css 
+    <link href="slider css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/meanmenu.min.css" rel="stylesheet" type="text/css"/>
+     meanmenu css 
+    <link href="slider css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/slick.css" rel="stylesheet" type="text/css"/>
+     slick css 
+    <link href="slider css/chosen.min.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/jquery-customselect.css" rel="stylesheet" type="text/css"/>
+     chosen.min
+  
+     font-awesome css 
+    <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
+     magnific Css -->
+  
+    <!-- Revolution Slider -->
+    <link href="slider css/revolution_layers.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="slider css/revolution_settings.css" rel="stylesheet" type="text/css"/>
+    <!-- custome css -->
+    <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
+<!--     responsive css 
+    <link href="slider css/responsive.css" rel="stylesheet" type="text/css"/>
+     modernizr css 
+    <script src="slider css/modernizr-2.8.3.min.js" type="text/javascript"></script>-->
 
 </head>
 
@@ -26,10 +58,12 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <!-- Header Container
         ================================================== -->
         <?php include './header.php'; ?>
+        <?php include './slider.php'; ?>
+         
         <!-- Header Container / End -->
         <!-- Banner
                ================================================== -->
-        <div class="main-search-container dark-overlay">
+<!--        <div class="main-search-container dark-overlay">
             <div class="main-search-inner">
                 <div class="container">
                     <div class="row">
@@ -67,15 +101,19 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </div>
-            <!-- Video -->
+             Video 
             <div class="video-container">
                 <video poster="images/main-search-video-poster.jpg" loop autoplay muted>
                     <source src="images/main-search-video.mp4" type="video/mp4">
                 </video>
             </div>
-        </div>
+
+               
+        </div>-->
+ <?php include './slider.php'; ?>
+    
         <!-- Info Section -->
-        <div class="container ">
+        <div class="container margin-top-45 ">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="headline centered margin-top-45">
@@ -389,6 +427,65 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+    
+    
+       <!-- jquery latest version -->
+    <script src="slider css/jquery-3.2.0.min.js" type="text/javascript"></script>
+<!--     bootstrap js 
+    <script src="slider css/bootstrap.min.js" type="text/javascript"></script>
+     owl.carousel js 
+    <script src="slider css/owl.carousel.min.js" type="text/javascript"></script>
+     slick js 
+    <script src="slider css/slick.min.js" type="text/javascript"></script>
+     meanmenu js 
+    <script src="slider css/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="slider css/jquery.meanmenu.min.js" type="text/javascript"></script>
+     jquery-ui js 
+    <script src="slider css/wow.min.js" type="text/javascript"></script>
+     wow js 
+    <script src="slider css/jquery.counterup.min.js" type="text/javascript"></script>
+     counter js 
+    <script src="slider css/jquery.counterup.min.js" type="text/javascript"></script>
+     Countdown js 
+    
+     waypoints js 
+    <script src="slider css/jquery.waypoints.min.js" type="text/javascript"></script>
+     Isotope js 
+    <script src="slider css/isotope.pkgd.min.js" type="text/javascript"></script>
+     magnific js 
+    <script src="slider css/jquery.magnific-popup.min.js" type="text/javascript"></script>
+     Image loaded js 
+    <script src="slider css/imagesloaded.pkgd.min.js" type="text/javascript"></script>-->
+    <!-- chossen js -->
+    <script src="slider-css/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="slider-css/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+    <script src="slider-css/jquery.themepunch.tools.min.js" type="text/javascript"></script>
+    <!-- Revolution Extensions -->
+    
+    <script src="slider-css/revolution.extension.actions.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.carousel.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.kenburn.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.layeranimation.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.migration.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.navigation.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.parallax.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.slideanims.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.extension.video.min.js" type="text/javascript"></script>
+    <script src="slider-css/revolution.js" type="text/javascript"></script>
+<!--    <script src="slider-css/custom.js" type="text/javascript"></script>-->
+<!--     Jquery plugin 
+    <script src="slider css/plugins.js" type="text/javascript"></script>
+     select2 js plugin 
+      <script src="slider css/select2.min.js" type="text/javascript"></script>
+      <script src="slider css/colors.js" type="text/javascript"></script>
+     Jquery plugin 
+    <script src="slider css/customselect.js" type="text/javascript"></script>
+     main js 
+    
+-->
+    
+    
+    
 
 </body>
 </html>
