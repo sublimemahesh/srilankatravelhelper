@@ -38,7 +38,7 @@ $DESTINATION = new Destination($id);
                 </div>
             </div>
         </div>
-          <div class="container padding-top-45 ">
+          <div class="container padding-top-45  padding-bottom-45">
             <div class="row">
                 <!-- Sidebar
               ================================================== -->

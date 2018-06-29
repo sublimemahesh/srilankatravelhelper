@@ -184,8 +184,13 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
 
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
+                   
                     <div class="col-md-9">
-                        <div class=" content">
+                                         <?php
+                    $DESTINATIONS = Destination::getDestinationByDestinationType($id);
+                    foreach ($DESTINATIONS as $key => $destination) {
+                        ?>
+                     <div class=" content">
                             <div id="galleria">
                                  <?php
                                         $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
@@ -208,32 +213,39 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                             </div>
                         </div>
                         <div class="padding-top-10" >
+                  
                             <hr  >
-                            <h3 class="headline">Name of destination</h3>
+                            <h3 class="headline"><?php echo $destination['name'];?></h3>
                             <hr  >
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                            <p>
+                                <?php echo $destination['description'];?>
+                                
+                            </p> 
+                    
                         </div>
+                                  <?php 
+                    }
+                    
+                    ?>
                     </div>
                     <div class="col-md-3" >
                         <div>
                             <h3 class="headline text-center" >More Destination</h3>
                         </div> 
+                           <?php
+                                    $DESTINATIONS = Destination::all();
+                                    foreach ($DESTINATIONS as $key => $destination) {
+                                        if ($key < 7) {
+                                            ?>
                         <div  class="col-md-12 col-xs-12 more-items" >
-                            <h5  class="text-center headline">Morb onvallis . </h5>
+                            <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id'];?>">
+                            <h5  class="text-center headline"><?php echo $destination['name'];?></h5>
                             <div class="col-md-5 col-xs-5 more-items-image">
-                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
+                                <img  src="upload/destination/thumb/<?php echo $destination['image_name'];?>"  class="img-circle" alt=""/>
                                 
                             </div>
                             <div class="col-md-7 col-xs-7">
-                                <p   >Morbiconvallis convallisbibendum..  </p>
+                                <p   ><?php echo substr($destination['short_description'], 0, 12) . '...';?></p>
                                   <div class="more-reviews-item1">
                                     <li>
                                         <i class="fa fa-star"></i>
@@ -244,48 +256,16 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                                     </li>
                                 </div>
                             </div>
+                            </a>
                         </div>
-                        <div  class="col-md-12 col-xs-12 more-items" >
-                            <h5  class="text-center headline">Morb onvallis . </h5>
-                            <div class="col-md-5 col-xs-5 more-items-image">
-                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
-                                
-                            </div>
-                            <div class="col-md-7 col-xs-7">
-                                <p   >Morbiconvallis convallisbibendum..  </p>
-                                  <div class="more-reviews-item1">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div  class="col-md-12 col-xs-12 more-items" >
-                            <h5  class="text-center headline">Morb onvallis . </h5>
-                            <div class="col-md-5 col-xs-5 more-items-image">
-                                <img  src="images/user-profile-avatar.jpg"  class="img-circle" alt=""/>
-                                
-                            </div>
-                            <div class="col-md-7 col-xs-7">
-                                <p   >Morbiconvallis convallisbibendum..  </p>
-                                  <div class="more-reviews-item1">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                      
+                
+                      <?php 
+                                    }}
+                                    
+                      ?>
                      
                     </div>
+                  
                 </div>
             </div>
             <div class="container padding-bottom-35">
