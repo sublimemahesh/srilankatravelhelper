@@ -58,8 +58,8 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                                     <div class="rating-counter-tour">(160 reviews)</div><br/>
                                                 </div></li>
                                         </ul>
-                                        <h3>Heritage Tour</h3>
-                                        <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
+                                        <h3><?php echo $tour_type['name'];?></h3>
+                                        <p><?php echo substr($tour_type['short_description'], 0, 155) . '...';?></p>
                                     </div>
                                 </div>
                             </a>
