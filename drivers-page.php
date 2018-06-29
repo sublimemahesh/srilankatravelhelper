@@ -59,7 +59,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                 foreach ($DRIVERS as $driver) {
                   
                         ?>
-                            <div class=" col-md-4">
+                            <div class=" col-md-4 ">
                                 <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
                                     <div class="listing-item">
@@ -87,7 +87,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         <div class="rating-counter">(12 reviews)</div><br/>
                                     </div>
 
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
+                                    <div style="margin-top: 15px;padding-bottom: 7px;padding-left:5px; padding-right: 5px; ">
                                         <p class="text-center " id="">
                                             <?php echo $driver['description']; ?>
                                         </p>
