@@ -1,0 +1,125 @@
+/*============ Template Introduction=====================
+Template Name: Trabble - Tour, Travel & Travel Agency Template
+Version: 1.0
+Author: SylTheme
+Template URI: http://getnajmul.com/theme/trabble
+License URI: http://getnajmul.com
+Tags: 	hotel, resort, tour, tourism, tourist, tours website, travel, traveler, traveling, traveling websites, rest, Travelo, vacation.
+================================================================*/
+/*		Table of contents
+================================================================
+01. Base Styles here
+02. Header css here / header
+03. Slider css here
+04. Tab-search-area section
+05. Popular packajge section css 
+06. Counter  section css
+07. popular destination strat section css
+08. Choose us strat section css
+09. Blog section css
+10  Testimonial css here
+11  Incredible place section css
+12  Subscribe area section css
+13  Partner area section css
+14  Footer area section css
+15  Scrool to top section css
+
+16  Home version 2 Slider area section css
+17  Home version 2 Tabedsearch section css
+18  Home version 2 welcome section css
+19  Home version 2 welcome  section css
+20  Home version 2 tour-package section css
+21. Home version 2 popular destination section css
+22. Home version 2 discount section css
+23. Home version 2 offer  section css
+24. Home version 2 blog section css
+25  Home version 2 subscribe section css
+26  Home version 2 gallery section css
+27. Home version 3 hdeader  section css
+28. home version 3 herounit section css
+29. why choose travelser section css
+30. discount & deal section css
+31. Video section css
+32. online shop section css
+33. thailand-trip section css 
+34. Testimonial two section css
+
+35. Home version 4 header top section 
+36. Home version 4 slider section start
+37. Home version 4 tabbased search section start here
+38. Home version 4 popular package section start
+39. Home version 4 discount package 4 section start
+40. Home version 4 top destination section start
+41. Home version 4 counter section
+42. Home version 4 hotel section start
+43. Home version partner 2 section start
+44. Home version 4 footer section start
+45. Home version 5 slider section start
+46. Home version 5 slider section start
+
+47. Home version 5 discount section 
+78. Home version 5 Our Hottest tours section
+79. Home version 5 testimonial 5 section
+50. Home version 5 recomended hotel section
+51. Home version 5 discount 5 hotel section
+52. Home version 5 blog hotel section start
+53. blog version 1 section start
+54. single Package section start
+56. contact section start here
+57. Blog single version one
+
+
+/*home version two */
+/*===================================================== 16.home version 2 Slider area section css goes here =======================================================*/
+ .index-2 .header-top-area {
+     background: #2c3035;
+}
+ .index-2 .header-bottom-area {
+     background: #ffffff;
+}
+ .index-2 .header-bottom-area li a {
+     color: #727272;
+}
+ .index-2 .header-bottom-area .main-menu > li ul.dropdown {
+     top: 100% !important;
+}
+ .slider-area-2 .image-overlay, .slider-area-3 .image-overlay {
+     height: 100%;
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+     z-index: 1;
+}
+ .slider-area-2 .image-overlay:before, .slider-area-2 .image-overlay:after, .slider-area-3 .image-overlay:before, .slider-area-3 .image-overlay:after {
+     background: rgba(55, 183, 33, 0.2);
+     content: "";
+     height: 100%;
+     left: 0;
+     opacity: 0.69;
+     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=69)";
+     position: absolute;
+     top: 0;
+     -webkit-transition: all 0.3s ease 0s;
+     transition: all 0.3s ease 0s;
+     width: 100%;
+     z-index: -1;
+}
+ .slider-area-2 .tparrows, .slider-area-3 .tparrows {
+     background: #37b721 !important;
+     transition: all ease-in-out 0.3s !important;
+     width: 53px !important;
+     height: 53px !important;
+     border-radius: 4px !important;
+}
+ .slider-area-2 .tparrows:before, .slider-area-3 .tparrows:before {
+     line-height: 53px !important;
+     font-size: 20px;
+}
+ .slider-area-2 .tparrows:hover, .slider-area-3 .tparrows:hover {
+     background: #f17b37 !important;
+}
+/* .slider-area-2 span, .slider-area-3 span {
+     font-size: 25px !important;
+     font-weight: 500 !important;
+}*/

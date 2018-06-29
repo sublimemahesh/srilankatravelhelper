@@ -15518,7 +15518,8 @@ h4 span.headline-detail {
         font-size: 50px
     }
     .main-search-container {
-        height: 600px
+        height: 600px;
+        background: none;
     }
 }
 
@@ -15703,7 +15704,8 @@ h4 span.headline-detail {
         padding: 0 5%
     }
     .main-search-inner {
-        transform: translate(0, -51%)
+/*        transform: translate(0, -51%)*/
+padding-top: 50px;
     }
     a.dashboard-responsive-nav-trigger {
         width: 90%;
