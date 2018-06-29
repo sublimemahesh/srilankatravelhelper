@@ -12,7 +12,7 @@
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
 <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
-
+<link href="contact-form/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <!-- Wrapper -->
@@ -38,10 +38,10 @@
                     <div class="sidebar-textbox">
                         <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>
                         <ul class="contact-details">
-                            <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>(123) 123-456 </span></li>
-                            <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>(123) 123-456 </span></li>
-                            <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.example.com</a></span></li>
-                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#"><span class="__cf_email__" data-cfemail="e28d84848b8187a2879a838f928e87cc818d8f">[email&#160;protected]</span></a></span></li>
+                            <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>+94 71 666 7557 </span></li>
+                            <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>info@sublime.lk</span></li>
+                            <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.srilankatravelhelper.com</a></span></li>
+                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">info@sublime.lk</a></span></li>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     <section id="contact">
                         <h4 class="headline margin-bottom-35">Contact Form</h4>
                         <div id="contact-message"></div> 
-                        <form method="post" action="http://www.vasterad.com/themes/listeo_updated/contact.php" name="contactform" id="contactform" autocomplete="on">
+<!--                        <form method="post" action="http://www.vasterad.com/themes/listeo_updated/contact.php" name="contactform" id="contactform" autocomplete="on">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div>
@@ -69,7 +69,61 @@
                                 <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
                             </div>
                             <input type="submit" class="button border with-icon submit" id="submit" value="Submit Message" />
-                        </form>
+                        </form>-->
+ <div class="contact-form">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <input type="text" name="txtFullName" id="txtFullName" class="form-control input-validater" placeholder="Your Name">
+                                        <span id="spanFullName" ></span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <input type="text" name="txtEmail" id="txtEmail" class="form-control input-validater"  placeholder="E-mail">
+                                        <span id="spanEmail" ></span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <input type="text" name="txtCountry"  id="txtCountry" class="form-control input-validater"  placeholder="Your Country">
+                                        <span id="spanCountry" ></span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <input type="text" name="txtPhone" id="txtPhone" class="form-control input-validater" placeholder="Contact number">
+                                    </div>
+
+                                    <div class="col-sm-12 col-xs-12">
+                                        <input type="text" name="txtSubject"  id="txtSubject" class="form-control input-validater" placeholder="subject">
+                                        <span id="spanSubject" ></span>
+
+                                        <textarea name="txtMessage"  id="txtMessage" rows="6" class="form-control" placeholder="write message here"></textarea>
+                                        <span id="spanMessage" ></span>
+
+                                        <div class="row form-group">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <br>
+                                                <label for="comment">Security Code:</label>
+                                                <span id="star">*</span> 
+                                                <input type="text" name="captchacode" id="captchacode" class="form-control input-validater" placeholder="Enter the security code >> ">
+                                                <span id="capspan" ></span> 
+                                            </div>   
+                                            <div class="col-sm-6 col-xs-12"> 
+                                                <?php include("./contact-form/captchacode-widget.php"); ?> 
+                                            </div>  
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="col-sm-4">
+                                                    <div class="div-check" >
+                                                        <img src="contact-form/img/checking.gif" id="checking"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8 text-right">
+
+                                                </div> 
+                                            </div>
+                                        </div> 
+
+                                        <button type="submit" id="btnSubmit" class="button border with-icon submit">SEND YOUR MESSAGE</button>
+                                        <div id="dismessage" align="center"></div>
+                                    </div>
+                                </div>
+                            </div>
                     </section>
                 </div>
             </div>
@@ -91,6 +145,6 @@
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
-
+    <script src="contact-form/scripts.js" type="text/javascript"></script>
 </body>
 </html>
