@@ -63,11 +63,11 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                 <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
                                     <div class="listing-item">
-                                        <img src="upload/banner-image/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                        <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
                                     </div>
 
                                     <div class="img-pad"> 
-                                        <img src="upload/driver/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                        <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
                                         <!--                                        
                                                                                 <div class="star-rating " data-rating="4.5"> 
                                                                                     <div class="rating-counter">(12 reviews)</div><br/>
