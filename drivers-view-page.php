@@ -216,96 +216,96 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
             </div>
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
-                    <div class="col-md-3" >
+                    <?php
+                    $DRIVER = Driver::getDriverByDriverType($id);
+                    foreach ($DRIVER as $key => $driver) {
+                        ?>
+
+                        <div class="col-md-3" >
 
 
-                        <div class="driver-profile-section" >
-                            <div class="listing-item">
-                                <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
-                            </div>
-                            <div class="img-pad "> 
-                                <img src="images/user-avatar.jpg" class="img-circle profile-driver "/>
-                            </div> 
-                            <div class="profile-description ">
-                                <h3> libero, a feugiat eros.</h3>
-                            </div>
-                            <div class="driver-rating">
-                                <div class="star-rating-driver text-right"> 
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
+                            <div class="driver-profile-section" >
+
+                                <div class="listing-item">
+                                    <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
                                 </div>
-                                <div id="rating-counter">(12 reviews)
+                                <div class="img-pad "> 
+                                    <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle profile-driver "/>
+                                </div> 
+                                <div class="profile-description ">
+                                    <h3><?php echo $driver['name']; ?></h3>
                                 </div>
-                            </div>
-                            <div class="profile-description ">
-                                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                    Nunc ut lacinia tortor morbi ultricies</p>
-                            </div>
-                            <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <span><i class="fa fa-facebook-square item-fa1"></i></span>
+                                <div class="driver-rating">
+                                    <div class="star-rating-driver text-right"> 
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
                                     </div>
-                                    <div class="col-md-3">
-                                        <span><i class="fa fa-whatsapp item-fa2"></i></span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <span><i class="fa fa-twitter-square item-fa3"></i></span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <span><i class="fa fa-skype item-fa4"></i></span>
+                                    <div id="rating-counter">(12 reviews)
                                     </div>
                                 </div>
+                                <div class="profile-description ">
+                                    <p><?php echo substr($driver['short_description'], 0, 155) . '...'; ?></p>
+                                </div>
+                                <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <span><i class="fa fa-facebook-square item-fa1"></i></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span><i class="fa fa-whatsapp item-fa2"></i></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span><i class="fa fa-twitter-square item-fa3"></i></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span><i class="fa fa-skype item-fa4"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="padding-top-20"></div>
+                            <div class="">
+                                <img src="images/side-banner/side-banner.jpg" alt=""/>
+                            </div>
+
+                        </div>
+                        <div class="col-md-9">
+                            <div class=" content">
+                                <div id="galleria">
+                                    <?php
+                                    $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosById($id);
+                                    foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
+                                        ?>
+                                        <a href="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>">
+                                            <img 
+                                                src="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>",
+                                                data-big="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                                data-title="Biandintz eta zaldiak"
+                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                                >
+                                        </a>
+
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="padding-top-10" >
+                                <hr  >
+                                <h3 class="headline"><?php echo $driver['name']; ?></h3>
+                                <hr  >
+                                <p><?php echo $driver['description']; ?></p>
                             </div>
                         </div>
-                        <div class="padding-top-20"></div>
-                        <div class="">
-                            <img src="images/side-banner/side-banner.jpg" alt=""/>
-                        </div>
-
-                    </div>
-                    <div class="col-md-9">
-                        <div class=" content">
-                            <div id="galleria">
-                                  <?php
-                                        $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosById($id);
-                                        foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
-                                          
-                                                ?>
-                                <a href="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>">
-                                    <img 
-                                        src="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>",
-                                        data-big="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>"
-                                        data-title="Biandintz eta zaldiak"
-                                        data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                        >
-                                </a>
-                             
-<?php 
-                                        }
-?>
-                            </div>
-                        </div>
-                        <div class="padding-top-10" >
-                            <hr  >
-                            <h3 class="headline">Driver Profile </h3>
-                            <hr  >
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                            <p>Morbi convallis bibendum urna ut viverra. 
-                                Maecenas quis consequat libero, a feugiat eros. 
-                                Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-                        </div>
-                    </div>
-
+                        <?php
+                    }
+                    ?>
                 </div>
+
             </div>
 
             <div class="container padding-bottom-35">
@@ -476,151 +476,57 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                                 <hr>
                             </h3>
                         </div>
+                         <?php
+                                    $DRIVERS = Driver::all();
+                                    foreach ($DRIVERS as $key => $driver) {
+                                        if ($key < 5) {
+                                            ?>
                         <div class="col-md-12">
                             <div class="simple-slick-carousel dots-nav">
+                                <div class="carousel-item ">
+                                   
+                                            <a href="#" class="listing-item-container">
 
-                                <!-- Listing Item -->
-                                <div class="carousel-item">
-                                    <a href="#" class="listing-item-container">
+                                                <div class="listing-item">
+                                                    <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                                </div>
 
-                                        <div class="listing-item">
-                                            <img src="images/drivers/banner/driver-banner-1.jpg" alt=""> 
-                                        </div>
+                                                <div class="img-pad"> 
+                                                    <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                                    <!--                                        
+                                                                                            <div class="star-rating " data-rating="4.5"> 
+                                                                                                <div class="rating-counter">(12 reviews)</div><br/>
+                                                    
+                                                                                            </div>-->
 
-                                        <div class="img-pad"> 
-                                            <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                            <!--                                        
-                                                                                    <div class="star-rating " data-rating="4.5"> 
-                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                            
-                                                                                    </div>-->
+                                                </div>
+                                                <div class="driver-name text-left"> 
+                                                    <?php echo $driver['name']; ?>
+                                                </div>
+                                                <div class="star-rating-fa text-right"> 
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <div class="rating-counter">(12 reviews)</div><br/>
+                                                </div>
 
-                                        </div>
-                                        <div class="driver-name text-left"> 
-                                            Driver Name
-                                        </div>
-                                        <div class="star-rating-fa text-right"> 
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                        </div>
-
-                                        <div style="margin-top: 15px;padding-bottom: 7px;">
-                                            <p class="text-center " id="">
-                                                Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                            </p>
-                                        </div>
-                                    </a>
+                                                <div style="margin-top: 15px;padding-bottom: 7px;">
+                                                    <p class="text-center " id="">
+                                                        <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                     
                                 </div>
-                                <div class="carousel-item">
-                                    <a href="#" class="listing-item-container">
 
-                                        <div class="listing-item">
-                                            <img src="images/drivers/banner/driver-banner-2.jpg" alt=""> 
-                                        </div>
-
-                                        <div class="img-pad"> 
-                                            <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                            <!--                                        
-                                                                                    <div class="star-rating " data-rating="4.5"> 
-                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                            
-                                                                                    </div>-->
-
-                                        </div>
-                                        <div class="driver-name text-left"> 
-                                            Driver Name
-                                        </div>
-                                        <div class="star-rating-fa text-right"> 
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                        </div>
-
-                                        <div style="margin-top: 15px;padding-bottom: 7px;">
-                                            <p class="text-center " id="">
-                                                Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#" class="listing-item-container">
-
-                                        <div class="listing-item">
-                                            <img src="images/drivers/banner/driver-banner-3.jpg" alt=""> 
-                                        </div>
-
-                                        <div class="img-pad"> 
-                                            <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                            <!--                                        
-                                                                                    <div class="star-rating " data-rating="4.5"> 
-                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                            
-                                                                                    </div>-->
-
-                                        </div>
-                                        <div class="driver-name text-left"> 
-                                            Driver Name
-                                        </div>
-                                        <div class="star-rating-fa text-right"> 
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                        </div>
-                                        <div style="margin-top: 15px;padding-bottom: 7px;">
-                                            <p class="text-center " id="">
-                                                Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="#" class="listing-item-container">
-
-                                        <div class="listing-item">
-                                            <img src="images/drivers/banner/driver-banner-4.jpg" alt=""> 
-                                        </div>
-
-                                        <div class="img-pad"> 
-                                            <img src="images/user-avatar.jpg" class="img-circle driver-list"/>
-                                            <!--                                        
-                                                                                    <div class="star-rating " data-rating="4.5"> 
-                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                            
-                                                                                    </div>-->
-
-                                        </div>
-                                        <div class="driver-name text-left"> 
-                                            Driver Name
-                                        </div>
-                                        <div class="star-rating-fa text-right"> 
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                        </div>
-
-                                        <div style="margin-top: 15px;padding-bottom: 7px;">
-                                            <p class="text-center " id="">
-                                                Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
                         </div>
+                               <?php
+                                        }
+                                    }
+                                    ?>
                     </div>
                 </div>
             </section>
