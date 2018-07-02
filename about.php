@@ -62,26 +62,24 @@
                         <div class="pricing-container margin-top-30">
                             <div class="plan">
                                 <div class="plan-price">
-                                    <h3>Basic</h3>
-                                    <span class="value">Free</span>
-                                    <span class="period">Free of charge one standard listing active for 30 days</span>
+                                    <h3>Vission</h3>
+                                    
+                                    <span class="period">Free of charge one standard listing active for 30 days Free of charge one standard listing active for 30 day</span>
                                 </div>
                             </div>
                             <div class="plan featured">
-                                <div class="listing-badge">
-                                    <span class="featured">Featured</span>
-                                </div>
+                              
                                 <div class="plan-price">
-                                    <h3>Extended</h3>
-                                    <span class="value">$9.99</span>
-                                    <span class="period">One time fee for one listing, highlighted in the search results</span>
+                                    <h3>Mission</h3>
+                                    
+                                    <span class="period">One time fee for one listing, highlighted in the search resultsOne time fee for one listing, highlighted in the search results</span>
                                 </div>
                             </div>
                             <div class="plan">
                                 <div class="plan-price">
-                                    <h3>Professional</h3>
-                                    <span class="value">$19.99</span>
-                                    <span class="period">Monthly subscription for unlimited listings and availability</span>
+                                    <h3>Strenghts</h3>
+                                   
+                                    <span class="period">Monthly subscription for unlimited listings and availabilityMonthly subscription for unlimited listings and availability</span>
                                 </div>
                             </div>
                         </div>
