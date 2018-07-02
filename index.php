@@ -34,14 +34,14 @@ include_once(dirname(__FILE__) . '/class/include.php');
          chosen.min
       
          font-awesome css 
-        <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+-->        <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
         <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
          magnific Css -->
 
     <!-- Revolution Slider -->
-    <link href="slider css/revolution_layers.css" rel="stylesheet" type="text/css"/>
-    <link href="slider css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
-    <link href="slider css/revolution_settings.css" rel="stylesheet" type="text/css"/>
+    <link href="slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>
+    <link href="slider-css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
     <!-- custome css -->
     <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
     <!--     responsive css 

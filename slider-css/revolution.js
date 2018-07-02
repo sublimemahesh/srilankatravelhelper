@@ -52,7 +52,7 @@ $(document).ready(function () {
     gridheight:650,
     /* Navigation arrows and bullets */
     	navigation: {
-     
+   
             arrows: {
          
                 enable: true,
@@ -79,7 +79,7 @@ $(document).ready(function () {
 //                     h_align: 'right',
 //                     v_align: 'center',
 //                     h_offset: 50,
-//                     v_offset: 0
+//                     v_offset: 50
 //                 }
             }
         },

@@ -99,7 +99,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                         </div>
                     </div>
                 </div>
-                <!--        </section>
+                        </section><!--
                             <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
                                 <div class="row">
                                     <div class="col-sm-3">
