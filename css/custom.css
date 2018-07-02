@@ -91,7 +91,9 @@
 .headline-more-items h5{
     font-size: 22px!important;
     font-weight: 400;
+    text-decoration: none;
 }
+
 .more-items h5{
     color:#0dce38;
  font-size: 18px;
@@ -112,4 +114,8 @@
 }
 .text-box.title{
     margin-top: 10px;
+}
+.decoration:hover{
+    text-decoration: none;
+    
 }

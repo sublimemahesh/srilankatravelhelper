@@ -219,35 +219,35 @@ $id = $_GET["id"];
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
                     <?php
-                                    $TOUR_PACKAGES = TourPackages::all();
-                                    foreach ($TOUR_PACKAGES as $key => $tour_package) {
-                                        if ($key < 7) {
-                                            ?>
-                    <div  class="col-md-12 col-xs-12 more-items" >
-                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id'];?>">
-                        <h5  class="text-center headline"><?php echo $tour_package['name'];?></h5>
-                        <div class="col-md-5 col-xs-5 more-items-image">
-                            <img  src="upload/tour-package/thumb/<?php echo $tour_package['image_name'];?>"  class="img-circle" alt=""/>
+                    $TOUR_PACKAGES = TourPackages::all();
+                    foreach ($TOUR_PACKAGES as $key => $tour_package) {
+                        if ($key < 7) {
+                            ?>
+                            <div  class="col-md-12 col-xs-12 more-items" >
+                                <a class="decoration" href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                                    <h5  class="text-center "><?php echo $tour_package['name']; ?></h5>
+                                    <div class="col-md-5 col-xs-5 more-items-image">
+                                        <img  src="upload/tour-package/thumb/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
 
-                        </div>
-                        <div class="col-md-7 col-xs-7">
-                            <p   ><?php echo substr($tour_package['short_description'], 0, 12) . '...';?></p>
-                            <div class="more-reviews-item1">
-                                <li>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </li>
+                                    </div>
+                                    <div class="col-md-7 col-xs-7">
+                                        <p   ><?php echo substr($tour_package['short_description'], 0, 12) . '...'; ?></p>
+                                        <div class="more-reviews-item1">
+                                            <li>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                         </a>
-                    </div>
-                   <?php 
-                                    }}
-                                    
-                      ?>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>

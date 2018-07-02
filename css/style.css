@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "bootstrap-grid.css";
 @import "icons.css";
-@import "plugins/revolutionslider.css";
+/*@import "plugins/revolutionslider.css";*/
 @import 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700';
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:500,600,700';
 input,
@@ -1825,7 +1825,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 }
 
 .main-search-input {
-    margin-top: 50px;
+    margin-top: 40px;
     border-radius: 50px;
     width: 100%;
     background-color: #fff;
@@ -6195,8 +6195,8 @@ span#blog-item-tag {
     text-transform: uppercase;
     font-size: 9.7px;
     letter-spacing: 2.5px;
-/*    font-weight: 60;
-    background: #66676b;*/
+    /*    font-weight: 60;
+        background: #66676b;*/
     border-radius: 50px;
     padding: 5px 16px;
     line-height: 20px;
@@ -6205,8 +6205,8 @@ span#blog-item-tag {
     margin-bottom: 9px;
     position: absolute;
     top: 170px;
-/*    left: 32px;*/
-/*    z-index: 110*/
+    /*    left: 32px;*/
+    /*    z-index: 110*/
 }
 
 .blog-post-tags {
@@ -9951,9 +9951,9 @@ section.fullwidth .listing-item-container.list-layout,
     margin: 0;
 
     float: left;
-/*    margin-right: 4px;*/
+    /*    margin-right: 4px;*/
     position: relative;
-/*    top:-90px;*/
+    /*    top:-90px;*/
 }
 
 .rating-counter {
@@ -15704,8 +15704,8 @@ h4 span.headline-detail {
         padding: 0 5%
     }
     .main-search-inner {
-/*        transform: translate(0, -51%)*/
-padding-top: 50px;
+        transform: translate(0, -63%);
+/*        padding-top:10px;*/
     }
     a.dashboard-responsive-nav-trigger {
         width: 90%;
@@ -15749,9 +15749,9 @@ padding-top: 50px;
     .main-search-input-item {
         border-color: transparent
     }
-    .main-search-input button.button {
+/*    .main-search-input button.button {
         margin-top: 10px
-    }
+    }*/
     .main-search-input-item {
         margin-bottom: 10px
     }
@@ -15768,10 +15768,10 @@ padding-top: 50px;
     .main-search-input input,
     .main-search-input input:focus {
         padding: 0 20px;
-        height: 55px;
+        height: 47px;
         line-height: 55px;
-        border-radius: 4px;
-        background: #fff;
+        border-radius: 30px;
+        background: #e0e0e0b3;
         border: 1px solid #e0e0e0;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08)
     }
@@ -15782,7 +15782,7 @@ padding-top: 50px;
         padding: 0 20px
     }
     .gray-style .main-search-input-item.location a {
-        background: #fff
+        background: #e0e0e0b3;
     }
     .gray-style .main-search-input-item .chosen-single {
         border-bottom: 1px solid #e0e0e0;
@@ -16450,5 +16450,5 @@ div.layout-style {
     position: relative;
     align-content: center;
     margin-left:57px;
-/*    margin-right:70px;*/
+    /*    margin-right:70px;*/
 }
