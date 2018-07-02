@@ -18,7 +18,7 @@ $TOUR_PACKAGES = new TourPackages($id);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
 
         <style>
