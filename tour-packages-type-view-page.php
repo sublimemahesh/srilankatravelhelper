@@ -56,6 +56,7 @@ $TOUR_PACKAGES = new TourPackages($id);
                 overflow: hidden;
                 position: relative;
                 margin-bottom: 30px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
             }
             .single-package-carasoul .package-location {
                 position: relative;
@@ -136,11 +137,11 @@ $TOUR_PACKAGES = new TourPackages($id);
                 color: #727272;
             }
             .single-package-carasoul .package-long-btn {
-                background: #37b721 none repeat scroll 0 0;
+                background: #5ef94680 none repeat scroll 0 0;
                 display: block;
                 width: 100%;
                 text-align: center;
-                padding: 15px 0;
+                padding: 27px 0;
                 position: absolute;
                 bottom: -63px;
                 opacity: 0;
@@ -150,7 +151,7 @@ $TOUR_PACKAGES = new TourPackages($id);
                 font-size: 17px;
                 font-weight: 500;
             }
-            .single-package-carasoul .package-long-btn a {
+            .single-package-carasoul .package-long-btn  {
                 color: #ffffff;
                 text-transform: uppercase;
             }
@@ -226,9 +227,9 @@ $TOUR_PACKAGES = new TourPackages($id);
                             <div class="package-details">
                                 <div class="package-places">
                                     <h4><?php echo $tour_package['name'];?></h4>
-                                    <span> <i class="fa fa-clock-o"></i> 4Days, 5Nights Stay</span>
+                                    <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price'];?></span>
                                     <div class="details">
-                                        <p><span>Included</span>: Flight Facility, 5 Star Hotel, Sightseeing, Transfers, Meals.</p>
+                                        <p><?php echo substr($tour_package['description'],0,93);?></p>
                                     </div>
                                 </div>
                                 <div class="package-ratings-review">
@@ -247,7 +248,7 @@ $TOUR_PACKAGES = new TourPackages($id);
                                 </div>
                             </div>
                             <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#">Book Now</a>
+                                <a href="#"></a>
                             </div>
                         </div>
                         </a>
