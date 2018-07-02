@@ -18,7 +18,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors"> 
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
