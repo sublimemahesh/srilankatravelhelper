@@ -17,21 +17,21 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
         <style>
-/*            .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
-            .single-items {position: relative;}
-            .iteminfo {position: relative;}
-            .iteminfo h2 {color: #0dce38;font-size: 24px; font-weight: 700;}
-            .item-overlay {background:  #0dce3899 ;top: 0; display: none;height: 0;position: absolute;-webkit-transition: height 500ms ease 0s;transition: height 500ms ease 0s;width: 100%;display: block;}
-            .overlay-content { bottom: 0;  position: absolute; bottom: 0; text-align: center; width: 100%;}
-            .item-overlay h2 {color: #fff;font-size: 24px; font-weight: 700;}
-            .item-overlay p {font-size: 16px;font-weight: 400; color: #fff;}
-
-            .item-overlay, .add-to-cart {background: #fff; border: 0 none; border-radius: 0; color: #0dce38;font-size: 15px;margin-bottom: 25px;}
-            .choose { border-top: 1px solid #F7F7F0;}
-            .choose ul li a {color: #B3AFA8;font-size: 13px;padding-left: 0;padding-right: 0;}
-            .single-items:hover .item-overlay {display: block;  height: 100%;  background: #0dce3899;}
-            .overlay-content {bottom: 0;position: absolute; bottom: 0; text-align: center; width: 100%;}
-            .iteminfo img {    width: 100%;}*/
+            /*            .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
+                        .single-items {position: relative;}
+                        .iteminfo {position: relative;}
+                        .iteminfo h2 {color: #0dce38;font-size: 24px; font-weight: 700;}
+                        .item-overlay {background:  #0dce3899 ;top: 0; display: none;height: 0;position: absolute;-webkit-transition: height 500ms ease 0s;transition: height 500ms ease 0s;width: 100%;display: block;}
+                        .overlay-content { bottom: 0;  position: absolute; bottom: 0; text-align: center; width: 100%;}
+                        .item-overlay h2 {color: #fff;font-size: 24px; font-weight: 700;}
+                        .item-overlay p {font-size: 16px;font-weight: 400; color: #fff;}
+            
+                        .item-overlay, .add-to-cart {background: #fff; border: 0 none; border-radius: 0; color: #0dce38;font-size: 15px;margin-bottom: 25px;}
+                        .choose { border-top: 1px solid #F7F7F0;}
+                        .choose ul li a {color: #B3AFA8;font-size: 13px;padding-left: 0;padding-right: 0;}
+                        .single-items:hover .item-overlay {display: block;  height: 100%;  background: #0dce3899;}
+                        .overlay-content {bottom: 0;position: absolute; bottom: 0; text-align: center; width: 100%;}
+                        .iteminfo img {    width: 100%;}*/
         </style>
     </head>
 
@@ -54,49 +54,48 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Listing Item -->
-                                              <?php
-                $DRIVERS = Driver::all();
-                foreach ($DRIVERS as $driver) {
-                  
-                        ?>
-                            <div class=" col-md-4 ">
-                                <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+                            <?php
+                            $DRIVERS = Driver::all();
+                            foreach ($DRIVERS as $driver) {
+                                ?>
+                                <div class=" col-md-4 ">
+                                    <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
-                                    <div class="listing-item">
-                                        <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
-                                    </div>
+                                        <div class="listing-item">
+                                            <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                        </div>
 
-                                    <div class="img-pad"> 
-                                        <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
+                                        <div class="img-pad"> 
+                                            <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                            <!--                                        
+                                                                                    <div class="star-rating " data-rating="4.5"> 
+                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
+                                            
+                                                                                    </div>-->
 
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                     <?php echo $driver['name']; ?>
-                                    </div>
-                                    <div class="star-rating-fa text-right" style="padding-right: 10px !important;"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                    </div>
+                                        </div>
+                                        <div class="driver-name text-left"> 
+                                            <?php echo $driver['name']; ?>
+                                        </div>
+                                        <div class="star-rating-fa text-right" style="padding-right: 10px !important;"> 
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <div class="rating-counter">(12 reviews)</div><br/>
+                                        </div>
 
-                                    <div style="margin-top: 15px;padding-bottom: 7px;padding-left:5px; padding-right: 5px; ">
-                                        <p class="text-center " id="">
-                                            <?php echo $driver['description']; ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                          <?php 
-                                        }
-                          ?>
+                                        <div style="margin-top: 15px;padding-bottom: 7px;padding-left:5px; padding-right: 5px; ">
+                                            <p class="text-center " id="">
+                                                <?php echo $driver['description']; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
