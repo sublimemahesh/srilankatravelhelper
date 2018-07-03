@@ -198,6 +198,13 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                 /*                padding: 1% 1% 1% 1%;*/
 
             }
+            .more-reviews-item1 li{
+                color:#f5cf00;
+                list-style-type: none;
+                margin-bottom: 10px;
+                font-size: 11px !important;
+
+            }
         </style>
     <body>
         <div id="wrapper">
@@ -476,57 +483,43 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                                 <hr>
                             </h3>
                         </div>
-                         <?php
-                                    $DRIVERS = Driver::all();
-                                    foreach ($DRIVERS as $key => $driver) {
-                                        if ($key < 5) {
-                                            ?>
+
                         <div class="col-md-12">
-                            <div class="simple-slick-carousel dots-nav">
-                                <div class="carousel-item ">
-                                   
-                                            <a href="#" class="listing-item-container">
-
-                                                <div class="listing-item">
-                                                    <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                            <div class="simple-fw-slick-carousel dots-nav">
+                                <?php
+                                $DRIVERS = Driver::all();
+                                foreach ($DRIVERS as $key => $driver) {
+                                    if ($key < 5) {
+                                        ?>
+                                        <div  class="col-md-3 col-xs-12 more-items " style="margin-right:10px;">
+                                            <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>">
+                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $driver['name']; ?></h5>
+                                                <div class="col-md-5 col-xs-5 more-items-image">
+                                                    <img  src="upload/driver/thumb/<?php echo $driver['image_name']; ?>"  class="img-circle" alt=""/>
+                                                    <div class="more-reviews-item1">
+                                                        <li>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($driver['short_description'], 0, 65) . '...'; ?></p>
                                                 </div>
 
-                                                <div class="img-pad"> 
-                                                    <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
-                                                    <!--                                        
-                                                                                            <div class="star-rating " data-rating="4.5"> 
-                                                                                                <div class="rating-counter">(12 reviews)</div><br/>
-                                                    
-                                                                                            </div>-->
 
-                                                </div>
-                                                <div class="driver-name text-left"> 
-                                                    <?php echo $driver['name']; ?>
-                                                </div>
-                                                <div class="star-rating-fa text-right"> 
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                                </div>
-
-                                                <div style="margin-top: 15px;padding-bottom: 7px;">
-                                                    <p class="text-center " id="">
-                                                        <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
-                                                    </p>
-                                                </div>
                                             </a>
-                                     
-                                </div>
-
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
-                               <?php
-                                        }
-                                    }
-                                    ?>
+
                     </div>
                 </div>
             </section>

@@ -16,10 +16,10 @@ $id = $_GET["id"];
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    
-    <link href="css/set1.css" rel="stylesheet" type="text/css"/>
-    <link href="lib/owl/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-    <link href="lib/owl/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>
+<!--    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    -->
+<!--    <link href="css/set1.css" rel="stylesheet" type="text/css"/>-->
+<!--    <link href="lib/owl/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/owl/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>-->
     <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
     <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
@@ -142,18 +142,17 @@ $id = $_GET["id"];
             font-size:13px;
         }
         .rating-breakdown{
-
             border-radius:3%;
             /*                padding: 1% 1% 1% 1%;*/
 
         }
-        .more-reviews-item1 li{
-            color:#f5cf00;
-            list-style-type: none;
-            margin-bottom: 10px;
-            font-size: 8px;
+       .more-reviews-item1 li{
+                color:#f5cf00;
+                list-style-type: none;
+                margin-bottom: 10px;
+                 font-size: 10px !important;
 
-        }
+            }
         .image-row{
             padding-bottom: 10px;
             padding-top: 10px;
@@ -223,27 +222,29 @@ $id = $_GET["id"];
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         if ($key < 7) {
                             ?>
-                            <div  class="col-md-12 col-xs-12 more-items" >
-                                <a class="decoration" href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
-                                    <h5  class="text-center "><?php echo $tour_package['name']; ?></h5>
-                                    <div class="col-md-5 col-xs-5 more-items-image">
-                                        <img  src="upload/tour-package/thumb/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
+                             <div  class="col-md-12 col-xs-12 more-items" >
+                                 <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $tour_package['name']; ?></h5>
+                                                <div class="col-md-5 col-xs-5 more-items-image">
+                                                    <img  src="upload/tour-package/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
+                                                    <div class="more-reviews-item1">
+                                                        <li>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($tour_package['short_description'], 0, 65) . '...'; ?></p>
+                                                </div>
 
-                                    </div>
-                                    <div class="col-md-7 col-xs-7">
-                                        <p   ><?php echo substr($tour_package['short_description'], 0, 12) . '...'; ?></p>
-                                        <div class="more-reviews-item1">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </li>
+
+                                            </a>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
+
                             <?php
                         }
                     }
