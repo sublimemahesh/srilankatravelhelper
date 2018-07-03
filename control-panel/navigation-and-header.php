@@ -447,6 +447,58 @@
                         </li>-->
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">map</i>
+                        <span>Comments</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-comment.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-comments.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                         <li>
+                             <a href="arrange-comments.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+<!--                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">chevron_right</i>
+                                <span>Destination Type</span>
+                            </a>
+                            <ul class="ml-menu">
+                                <li>
+                                    <a href="create-destination-type.php">
+                                        <i class="material-icons">add</i>
+                                        <span>Add New</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="manage-destination-type.php">
+                                        <i class="material-icons">list</i>
+                                        <span>Manage</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="arrange-destination-type.php">
+                                        <i class="material-icons">compare_arrows</i>
+                                        <span>Arrange</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->
