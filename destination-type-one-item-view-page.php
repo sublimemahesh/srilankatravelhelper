@@ -18,7 +18,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors"> 
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <!--                <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
@@ -157,7 +157,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                 color:#f5cf00;
                 list-style-type: none;
                 margin-bottom: 10px;
-                font-size: 8px;
+                 font-size: 11px !important;
 
             }
 
@@ -184,88 +184,91 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
 
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
-                   
+
                     <div class="col-md-9">
-                                         <?php
-                    $DESTINATIONS = Destination::getDestinationByDestinationType($id);
-                    foreach ($DESTINATIONS as $key => $destination) {
-                        ?>
-                     <div class=" content">
-                            <div id="galleria">
-                                 <?php
-                                        $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
-                                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
-                                          
-                                                ?>
-                                <a href="upload/destination-photos/<?php  echo $destination_photos['image_name']; ?>">
-                                    <img 
-                                        src="upload/destination-photos/<?php  echo $destination_photos['image_name']; ?>",
-                                        data-big="images/tour/3.jpg"
-                                        data-title="Biandintz eta zaldiak"
-                                        data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                        >
-                                </a>
-                                <?php 
-                                        }
-                                ?>
-                              
+                        <?php
+                        $DESTINATIONS = Destination::getDestinationByDestinationType($id);
+                        foreach ($DESTINATIONS as $key => $destination) {
+                            ?>
+                            <div class=" content">
+                                <div id="galleria">
+                                    <?php
+                                    $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
+                                    foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                                        ?>
+                                        <a href="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>">
+                                            <img 
+                                                src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>",
+                                                data-big="images/tour/3.jpg"
+                                                data-title="Biandintz eta zaldiak"
+                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                                >
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
+
+
+                                </div>
+                            </div>
+                            <div class="padding-top-10" >
+
+                                <hr  >
+                                <h3 class="headline"><?php echo $destination['name']; ?></h3>
+                                <hr  >
+                                <p>
+                                    <?php echo $destination['description']; ?>
+
+                                </p> 
 
                             </div>
-                        </div>
-                        <div class="padding-top-10" >
-                  
-                            <hr  >
-                            <h3 class="headline"><?php echo $destination['name'];?></h3>
-                            <hr  >
-                            <p>
-                                <?php echo $destination['description'];?>
-                                
-                            </p> 
-                    
-                        </div>
-                                  <?php 
-                    }
-                    
-                    ?>
+                            <?php
+                        }
+                        ?>
                     </div>
-                    <div class="col-md-3" >
+                    <div class="col-md-3 " >
                         <div>
                             <h3 class="headline text-center" >More Destination</h3>
                         </div> 
-                           <?php
-                                    $DESTINATIONS = Destination::all();
-                                    foreach ($DESTINATIONS as $key => $destination) {
-                                        if ($key < 7) {
-                                            ?>
-                        <div  class="col-md-12 col-xs-12 more-items" >
-                            <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id'];?>">
-                            <h5  class="text-center headline"><?php echo $destination['name'];?></h5>
-                            <div class="col-md-5 col-xs-5 more-items-image">
-                                <img  src="upload/destination/thumb/<?php echo $destination['image_name'];?>"  class="img-circle" alt=""/>
-                                
-                            </div>
-                            <div class="col-md-7 col-xs-7">
-                                <p   ><?php echo substr($destination['short_description'], 0, 12) . '...';?></p>
-                                  <div class="more-reviews-item1">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                
-                      <?php 
-                                    }}
-                                    
-                      ?>
+                        <div class="row margin-left-4 ">
                      
+                                <?php
+                                $DESTINATIONS = Destination::all();
+                                foreach ($DESTINATIONS as $key => $destination) {
+                                    if ($key < 7) {
+                                        ?>
+
+                                        <div  class="col-md-12 col-xs-12 more-items" >
+                                            <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
+                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
+                                                <div class="col-md-5 col-xs-5 more-items-image">
+                                                    <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
+                                                    <div class="more-reviews-item1">
+                                                        <li>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
+                                                </div>
+
+
+                                            </a>
+                                        </div>
+
+                                        <?php
+                                    }
+                                }
+                                ?>
+                          
+                        </div>
                     </div>
-                  
+
                 </div>
             </div>
             <div class="container padding-bottom-35">

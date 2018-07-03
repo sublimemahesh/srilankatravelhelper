@@ -49,57 +49,64 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </div>
-            <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Listing Item -->
+            
+                <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
+            <div class="container">
+                <div class="row">
+                  
+                
+                        
+
                             <?php
                             $DRIVERS = Driver::all();
-                            foreach ($DRIVERS as $driver) {
-                                ?>
-                                <div class=" col-md-4 ">
-                                    <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+                            foreach ($DRIVERS as $key => $driver) {
+                               
+                                    ?>
+                                    <div class="col-md-4">
+                                        <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
-                                        <div class="listing-item">
-                                            <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
-                                        </div>
+                                            <div class="listing-item">
+                                                <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                            </div>
 
-                                        <div class="img-pad"> 
-                                            <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
-                                            <!--                                        
-                                                                                    <div class="star-rating " data-rating="4.5"> 
-                                                                                        <div class="rating-counter">(12 reviews)</div><br/>
-                                            
-                                                                                    </div>-->
+                                            <div class="img-pad"> 
+                                                <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                                <!--                                        
+                                                                                        <div class="star-rating " data-rating="4.5"> 
+                                                                                            <div class="rating-counter">(12 reviews)</div><br/>
+                                                
+                                                                                        </div>-->
 
-                                        </div>
-                                        <div class="driver-name text-left"> 
-                                            <?php echo $driver['name']; ?>
-                                        </div>
-                                        <div class="star-rating-fa text-right" style="padding-right: 10px !important;"> 
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                        </div>
+                                            </div>
+                                            <div class="driver-name text-left"> 
+                                                <?php echo $driver['name']; ?>
+                                            </div>
+                                            <div class="star-rating-fa text-right"> 
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <div class="rating-counter">(12 reviews)</div><br/>
+                                            </div>
 
-                                        <div style="margin-top: 15px;padding-bottom: 7px;padding-left:5px; padding-right: 5px; ">
-                                            <p class="text-center " id="">
-                                                <?php echo $driver['description']; ?>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
+                                            <div style="margin-top: 15px;padding-bottom: 7px;">
+                                                <p class="text-center " id="">
+                                                    <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                            
+                            ?>    
+
+                 
                 </div>
-                        </section><!--
+            </div>
+        </section>
+            <!--
                             <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
                                 <div class="row">
                                     <div class="col-sm-3">
