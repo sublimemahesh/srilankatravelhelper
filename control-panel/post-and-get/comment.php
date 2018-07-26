@@ -7,10 +7,10 @@ if (isset($_POST['create'])) {
     $COMMENT = new Comments(NULL);
     $VALID = new Validator();
 
-    $COMMENT->name = mysql_real_escape_string($_POST['name']);
-    $COMMENT->title = mysql_real_escape_string($_POST['title']);
-    $COMMENT->comment = mysql_real_escape_string($_POST['comment']);
-    $COMMENT->is_active = mysql_real_escape_string($_POST['active']);
+    $COMMENT->name = $_POST['name'];
+    $COMMENT->title = $_POST['title'];
+    $COMMENT->comment = $_POST['comment'];
+    $COMMENT->is_active = $_POST['active'];
 
     $dir_dest = '../../upload/comments/';
 
@@ -94,10 +94,10 @@ if (isset($_POST['update'])) {
     $COMMENT = new Comments($_POST['id']);
 
     $COMMENT->image_name = $_POST['oldImageName'];
-    $COMMENT->name = mysql_real_escape_string($_POST['name']);
-    $COMMENT->title = mysql_real_escape_string($_POST['title']);
-    $COMMENT->comment = mysql_real_escape_string($_POST['comment']);
-    $COMMENT->is_active = mysql_real_escape_string($_POST['active']);
+    $COMMENT->name = $_POST['name'];
+    $COMMENT->title = $_POST['title'];
+    $COMMENT->comment =$_POST['comment'];
+    $COMMENT->is_active = $_POST['active'];
 
     $VALID = new Validator();
     $VALID->check($COMMENT, [
