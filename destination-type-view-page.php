@@ -47,21 +47,21 @@ $DESTINATION_TYPE = new DestinationType($id);
                 <div class="col-lg-3 col-md-4">
                     <div class="boxed-widget opening-hours margin-top-35">
 
-                        <h3><i class="fa fa-check"></i><?php echo $DESTINATION_TYPE->name?></h3>
+                        <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name?></h3>
                         <ul>
                               <?php
                                         $DESTINATIONS = Destination::getDestinationById($id);
                                         foreach ($DESTINATIONS as $key => $destination) {
                                           
                                                 ?>
-                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"];?>"><?php echo $destination["name"]; ?></a></li>
+                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"];?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
                          <?php 
                                         }
                          ?>
 
                         </ul>
                     </div>
-                   s
+                 
                 </div>
                 <!-- Sidebar / End -->
                 <div class="col-lg-9 col-md-8 padding-right-30">
