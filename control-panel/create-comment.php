@@ -2,11 +2,9 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$id = '';
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-$COMMENT = new Comments($id);
+
+$COMMENT = new Comments(NULL);
+
 ?> 
 
 <!DOCTYPE html>
@@ -45,7 +43,7 @@ $COMMENT = new Comments($id);
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Edit Comment
+                                  Create Comment
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
@@ -60,7 +58,7 @@ $COMMENT = new Comments($id);
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" value="<?php echo $COMMENT->name; ?>">
+                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" >
                                                 <label class="form-label">Name</label>
                                             </div>
                                         </div>
@@ -68,7 +66,7 @@ $COMMENT = new Comments($id);
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="title" class="form-control" placeholder="Enter title" autocomplete="off" name="title" value="<?php echo $COMMENT->title; ?>">
+                                                <input type="text" id="title" class="form-control"  autocomplete="off" name="title" >
                                                 <label class="form-label">Title</label>
                                             </div>
                                         </div>
@@ -78,7 +76,6 @@ $COMMENT = new Comments($id);
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input type="file" id="image" class="form-control" name="image">
-                                                <img src="../upload/comments/<?php echo $COMMENT->image_name; ?>" id="image" class="view-edit-img-comments img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +83,7 @@ $COMMENT = new Comments($id);
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <label for="Comment">Comment</label>
                                         <div class="form-line">
-                                            <textarea id="description" name="comment" class="form-control" rows="5"><?php echo $COMMENT->comment; ?></textarea> 
+                                            <textarea id="description" name="comment" class="form-control" rows="5"></textarea> 
                                         </div>
 
                                     </div>
