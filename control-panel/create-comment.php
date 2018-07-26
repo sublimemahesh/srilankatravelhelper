@@ -1,12 +1,7 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-
-
-$COMMENT = new Comments(NULL);
-
-?> 
-
+?>
 <!DOCTYPE html>
 <html> 
     <head>
@@ -42,9 +37,7 @@ $COMMENT = new Comments(NULL);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>
-                                  Create Comment
-                                </h2>
+                                <h2>Create Comments</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="manage-comments.php">
@@ -54,11 +47,11 @@ $COMMENT = new Comments(NULL);
                                 </ul>
                             </div>
                             <div class="body">
-                                <form class="form-horizontal" method="post" action="post-and-get/comment.php" enctype="multipart/form-data"> 
+                                <form class="form-horizontal"  method="post" action="post-and-get/comment.php" enctype="multipart/form-data"> 
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" >
+                                                <input type="text" id="name" class="form-control"  autocomplete="off" name="name" required="true">
                                                 <label class="form-label">Name</label>
                                             </div>
                                         </div>
@@ -66,7 +59,7 @@ $COMMENT = new Comments(NULL);
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="title" class="form-control"  autocomplete="off" name="title" >
+                                                <input type="text" id="title" class="form-control"  autocomplete="off" name="title" required="true">
                                                 <label class="form-label">Title</label>
                                             </div>
                                         </div>
@@ -75,7 +68,7 @@ $COMMENT = new Comments(NULL);
                                     <div class="col-md-12">                                       
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="file" id="image" class="form-control" name="image">
+                                                <input type="file" id="image" class="form-control" name="image"  required="true">
                                             </div>
                                         </div>
                                     </div>
@@ -84,24 +77,12 @@ $COMMENT = new Comments(NULL);
                                         <label for="Comment">Comment</label>
                                         <div class="form-line">
                                             <textarea id="description" name="comment" class="form-control" rows="5"></textarea> 
+                                           <input type="hidden" value="1" name="active" />
                                         </div>
 
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input class="filled-in chk-col-pink" type="checkbox" <?php
-                                            if ($COMMENT->is_active == 1) {
-                                                echo 'checked';
-                                            }
-                                            ?> name="active" value="1" id="rememberme" />
-                                            <label for="rememberme">Activate</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input type="hidden" id="oldImageName" value="<?php echo $COMMENT->image_name; ?>" name="oldImageName"/>
-                                        <input type="hidden" id="id" value="<?php echo $COMMENT->id; ?>" name="id"/>
-            <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
+                                    <div class="col-md-12"> 
+                                        <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
                                     </div>
                                     <div class="row clearfix">  </div>
                                     <hr/>
@@ -110,7 +91,10 @@ $COMMENT = new Comments(NULL);
                         </div>
                     </div>
                 </div>
+
+
                 <!-- #END# Vertical Layout -->
+
             </div>
         </section>
 
