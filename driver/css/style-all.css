@@ -228,3 +228,67 @@ a:hover {
 .dropdown {
     background: transparent;
 }
+.driver-photos img {
+    width: 198px;
+}
+.photo-img-container {
+    width: auto;
+    height: auto;
+    padding: 10px 0 5px 0;
+}
+.img-caption {
+    width: auto;
+    height: auto;
+    padding-bottom: 5px;
+}
+.edit-btn {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #1087dd;
+    border-radius: 3px;
+    border: 0;
+}
+.delete-btn {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #E13300;
+    border-radius: 3px;
+    border: 0;
+}
+.arrange-btn {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #449d44;
+    border-radius: 3px;
+    border: 0;
+}
+.maxlinetitle {
+    width: 100%;
+    height: auto;
+    color: #333;
+    font-size: 16px;
+    text-align: left;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.header-dropdown {
+    position: absolute;
+    top: 31px;
+    right: 38px;
+    list-style: none;
+}
+.header-dropdown i {
+    font-size: 20px;
+    color: #fff;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.header-dropdown li {
+    display: inline-block;
+}

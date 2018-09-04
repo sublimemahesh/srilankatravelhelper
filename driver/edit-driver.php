@@ -145,34 +145,6 @@ if (isset($_GET['id'])) {
         <script src="js/add-driver.js" type="text/javascript"></script>
 
         <script>
-            $(document).ready(function () {
-                var message = $('#msg').val();
-                var msgid = $('#msg').attr('msgid');
-
-                if (message.length > 35) {
-                    $('.error-msg1').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-
-                } else {
-                    $('.error-msg').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-                }
-
-                if (msgid == 15) {
-                    $('#signin-form').removeClass('hidden');
-                    $('#signup-form').addClass('hidden');
-                    $('.login-box').addClass('login-box5');
-                    $('.login-box').removeClass('login-box4');
-                    $('.login-link1').removeClass('hidden');
-                    $('.login-link').addClass('hidden');
-
-                    $('#sign-up').click(function () {
-                        $('.login-box').addClass('login-box4');
-                        $('.login-box').removeClass('login-box5');
-                    });
-                }
-            });
-
             $(window).load(function () {
                 var contentheight = $(window).height();
                 var navigationheight = $(window).height() - 75;
