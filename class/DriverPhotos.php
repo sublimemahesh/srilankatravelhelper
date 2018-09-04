@@ -11,7 +11,7 @@ class DriverPhotos {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`driver`,`image_name`,`caption`,`sort` FROM `driver_photos` WHERE `id`=". $id."";
+            $query = "SELECT `id`,`driver`,`image_name`,`caption`,`sort` FROM `driver_photos` WHERE `id`=" . $id . "";
 
             $db = new Database();
 
@@ -65,9 +65,8 @@ class DriverPhotos {
     public function update() {
 
         $query = "UPDATE  `driver_photos` SET "
-                   . "`image_name` ='" . $this->image_name . "', "
-                . "`caption` ='" . $this->caption . "', "             
-                . "`sort` ='" . $this->sort . "' "
+                . "`image_name` ='" . $this->image_name . "', "
+                . "`caption` ='" . $this->caption . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
@@ -83,24 +82,22 @@ class DriverPhotos {
 
     public function delete() {
 
-       unlink(Helper::getSitePath() . "upload/driver-photos/" . $this->image_name);
-
-      $query = 'DELETE FROM `driver_photos` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `driver_photos` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
-      return $db->readQuery($query);
-   }
+        return $db->readQuery($query);
+    }
 
-    public function getDriverByDriverPhotos($id)  {
+    public function getDriverPhotosByDriver($id) {
 
         $query = "SELECT * FROM `driver_photos` WHERE `driver` = '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
         $result = $db->readQuery($query);
-        
-        
+
+
         $array_res = array();
 
         while ($row = mysql_fetch_array($result)) {
@@ -116,7 +113,8 @@ class DriverPhotos {
         $result = $db->readQuery($query);
         return $result;
     }
-  public function getDriverPhotosById($id) {
+
+    public function getDriverPhotosById($id) {
 
         $query = "SELECT * FROM `driver_photos` WHERE `driver`= '" . $id . "' ORDER BY `sort` ASC";
 
@@ -130,4 +128,5 @@ class DriverPhotos {
         }
         return $array_res;
     }
+
 }
