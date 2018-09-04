@@ -2,12 +2,12 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . './auth.php');
 
-$DRIVER = new Drivers($_SESSION['id']);
+$VISITOR = new Visitor($_SESSION['id']);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Profile || Driver DashBoard</title>
+        <title>Profile || Visitor DashBoard</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
@@ -48,13 +48,13 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                                 <div class="prof-img">
                                     <?php
-                                    if ($DRIVER->profile_picture) {
+                                    if ($VISITOR->profile_picture) {
                                         ?>
-                                        <img src="../upload/drivers/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
+                                        <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?> " alt=""/>
                                         <?php
                                     } else {
                                         ?>
-                                        <img src="../upload/drivers/driver.png" alt=""/>
+                                        <img src="../upload/visitor/visitor.png" alt=""/>
                                         <?php
                                     }
                                     ?>
@@ -63,13 +63,10 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                                 <ul class="list-group">
 
-                                    <li class="list-group-item">Name : <?php echo $DRIVER->name; ?></li>
-                                    <li class="list-group-item">Email :<?php echo $DRIVER->email; ?></li>
-                                    <li class="list-group-item">Address :<?php echo $DRIVER->address; ?></li>
-                                    <li class="list-group-item">Contact Number :<?php echo $DRIVER->contact_number; ?></li>
-                                    <li class="list-group-item">NIC Number :<?php echo $DRIVER->nic_number; ?></li>
-                                    <li class="list-group-item">Driving Licence Number :<?php echo $DRIVER->driving_licence_number; ?></li>
-                                    <li class="list-group-item">Date of Birth :<?php echo $DRIVER->dob; ?></li>
+                                    <li class="list-group-item">Name : <?php echo $VISITOR->name; ?></li>
+                                    <li class="list-group-item">Email :<?php echo $VISITOR->email; ?></li>
+                                    <li class="list-group-item">Address :<?php echo $VISITOR->address; ?></li>
+                                    <li class="list-group-item">Contact Number :<?php echo $VISITOR->contact_number; ?></li>
                                 </ul> 
                             </div>
                         </div>
@@ -77,7 +74,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                     <div class="col-md-3">
                         <ul class="list-group prof-details">
                             <a href="profile.php"><li class="list-group-item active"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
-                            <a href="edit-driver.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>
+                            <a href="edit-visitor.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>
                             <a href="change-password.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-key"></i></div><div class="pro-nav">Change Password</div></li></a>
                             <a href="post-and-get/logout.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-lock"></i></div><div class="pro-nav">Sign Out</div></li></a>
                         </ul> 
@@ -95,7 +92,7 @@ $DRIVER = new Drivers($_SESSION['id']);
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
+        <script src="js/add-visitor.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function () {

@@ -4,7 +4,7 @@ include_once '../class/include.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Driver DashBoard</title>
+        <title>Visitor DashBoard</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -81,7 +81,7 @@ include_once '../class/include.php';
                                 <input type="button" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
                                 <input type="hidden" name="save" value="save"/>
                             </form>
-                            <form id="signin-form" class="hidden" method="post" action="post-and-get/driver.php">
+                            <form id="signin-form" class="hidden" method="post" action="post-and-get/visitor.php">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
@@ -167,7 +167,7 @@ include_once '../class/include.php';
                                 <input type="button" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
                                 <input type="hidden" name="save" value="save"/>
                             </form>
-                            <form id="signin-form" class="hidden" method="post" action="post-and-get/driver.php">
+                            <form id="signin-form" class="hidden" method="post" action="post-and-get/visitor.php">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
@@ -212,7 +212,7 @@ include_once '../class/include.php';
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
+        <script src="js/add-visitor.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function () {
