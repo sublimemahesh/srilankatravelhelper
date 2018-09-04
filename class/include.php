@@ -23,6 +23,7 @@ include_once(dirname(__FILE__) . '/DestinationPhotos.php');
 include_once(dirname(__FILE__) . '/Driver.php');
 include_once(dirname(__FILE__) . '/Drivers.php');
 include_once(dirname(__FILE__) . '/DriverPhotos.php');
+include_once(dirname(__FILE__) . '/Visitor.php');
 
 function dd($data) {
     var_dump($data);

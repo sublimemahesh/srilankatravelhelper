@@ -2,15 +2,26 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . './auth.php');
 
-$DRIVER = new Drivers($_SESSION['id']);
+$VISITOR = new visitor($_SESSION['id']);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Profile || Driver DashBoard</title>
+        <title>Change Password || Visitor DashBoard</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
+        <style>
+            @media(max-width:576px) {
+                .content {
+                    height: 931px;
+                }
+                .navigation {
+                    height: 329px;
+                }
+            }
+        </style>
+        
     </head>
     <body>
         <div class="wrapper">
@@ -21,6 +32,8 @@ $DRIVER = new Drivers($_SESSION['id']);
                 <?php
                 include './navigation.php';
                 ?>
+
+
                 <div class="col-md-9">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
@@ -42,43 +55,35 @@ $DRIVER = new Drivers($_SESSION['id']);
                     <div class="col-md-9">
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                                My Profile
+                                Change Password
                             </div>
                             <div class="panel-body">
-
-                                <div class="prof-img">
-                                    <?php
-                                    if ($DRIVER->profile_picture) {
-                                        ?>
-                                        <img src="../upload/drivers/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <img src="../upload/drivers/driver.png" alt=""/>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-
-
-                                <ul class="list-group">
-
-                                    <li class="list-group-item">Name : <?php echo $DRIVER->name; ?></li>
-                                    <li class="list-group-item">Email :<?php echo $DRIVER->email; ?></li>
-                                    <li class="list-group-item">Address :<?php echo $DRIVER->address; ?></li>
-                                    <li class="list-group-item">Contact Number :<?php echo $DRIVER->contact_number; ?></li>
-                                    <li class="list-group-item">NIC Number :<?php echo $DRIVER->nic_number; ?></li>
-                                    <li class="list-group-item">Driving Licence Number :<?php echo $DRIVER->driving_licence_number; ?></li>
-                                    <li class="list-group-item">Date of Birth :<?php echo $DRIVER->dob; ?></li>
-                                </ul> 
+                                <form method="post" action="post-and-get/change-password.php">
+                                    <div class="row form-data">
+                                        <label>Current Password</label>
+                                        <input type="password" name="currentpw" class="form-control" placeholder="Current Password"  value="" required="TRUE">
+                                    </div>
+                                    <div class="row form-data">
+                                        <label>New Password</label>
+                                        <input type="password" name="newpw" class="form-control" placeholder="New Password"  value="" required="TRUE">
+                                    </div>
+                                    <div class="row form-data">
+                                        <label>Confirm Password</label>
+                                        <input type="password" name="confirmpw" class="form-control" placeholder="Confirm Password"  value="" required="TRUE">
+                                    </div>
+                                    <div class="row form-data">
+                                        <input type="hidden" name="id" value="<?php echo $VISITOR->id; ?>" />
+                                        <input type="submit" name="changepassword" id="changepassword" class="btn btn-lg btn-green" value="Change Password" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <ul class="list-group prof-details">
-                            <a href="profile.php"><li class="list-group-item active"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
-                            <a href="edit-driver.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>
-                            <a href="change-password.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-key"></i></div><div class="pro-nav">Change Password</div></li></a>
+                            <a href="profile.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
+                            <a href="edit-visitor.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>
+                            <a href="change-password.php"><li class="list-group-item active"><div class="pro-icon"><i class="fa fa-key"></i></div><div class="pro-nav">Change Password</div></li></a>
                             <a href="post-and-get/logout.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-lock"></i></div><div class="pro-nav">Sign Out</div></li></a>
                         </ul> 
                     </div>
@@ -95,7 +100,7 @@ $DRIVER = new Drivers($_SESSION['id']);
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
+        <script src="js/add-visitor.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function () {
