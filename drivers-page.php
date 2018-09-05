@@ -58,7 +58,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                         
 
                             <?php
-                            $DRIVERS = Driver::all();
+                            $DRIVERS = Drivers::all();
                             foreach ($DRIVERS as $key => $driver) {
                                
                                     ?>
@@ -66,11 +66,19 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
                                             <div class="listing-item">
-                                                <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                                <?php
+                                                foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
+                                                    if ($key == 0) {
+                                                        ?>
+                                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                        <?php
+                                                    }
+                                                }
+                                                ?> 
                                             </div>
 
                                             <div class="img-pad"> 
-                                                <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                                <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
                                                 <!--                                        
                                                                                         <div class="star-rating " data-rating="4.5"> 
                                                                                             <div class="rating-counter">(12 reviews)</div><br/>
