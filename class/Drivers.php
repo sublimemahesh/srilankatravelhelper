@@ -23,6 +23,8 @@ class Drivers {
     public $driving_licence_number;
     public $dob;
     public $profile_picture;
+    public $short_description;
+    public $description;
     public $username;
     public $password;
     public $resetCode;
@@ -43,6 +45,8 @@ class Drivers {
                     . "`driving_licence_number`,"
                     . "`dob`,"
                     . "`profile_picture`,"
+                    . "`short_description`,"
+                    . "`description`,"
                     . "`username`,"
                     . "`password`,"
                     . "`resetCode`,"
@@ -64,6 +68,8 @@ class Drivers {
             $this->driving_licence_number = $result['driving_licence_number'];
             $this->dob = $result['dob'];
             $this->profile_picture = $result['profile_picture'];
+            $this->short_description = $result['short_description'];
+            $this->description = $result['description'];
             $this->username = $result['username'];
             $this->password = $result['password'];
             $this->resetCode = $result['resetCode'];
@@ -124,7 +130,9 @@ class Drivers {
                 . "`nic_number` ='" . $this->nic_number . "', "
                 . "`driving_licence_number` ='" . $this->driving_licence_number . "', "
                 . "`dob` ='" . $this->dob . "', "
-                . "`profile_picture` ='" . $this->profile_picture . "' "
+                . "`profile_picture` ='" . $this->profile_picture . "', "
+                . "`short_description` ='" . $this->short_description . "', "
+                . "`description` ='" . $this->description . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();

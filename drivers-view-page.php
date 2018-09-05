@@ -1,8 +1,9 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
 $id = $_GET["id"];
+$DRIVER = new Drivers($id);
 
-$DRIVER_PHOTOS = new DriverPhotos($id);
+$DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
 ?> 
 <!DOCTYPE html>
 
@@ -212,35 +213,38 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
             <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner">
-                        <h2 class="tp">Drivers</h2>
+                        <h2 class="tp"><?php echo $DRIVER->name; ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
                             <li><span class="active">Drivers</span></li>
-                            <li><span class="active">Driver Name</span></li>
+                            <li><span class="active"><?php echo $DRIVER->name; ?></span></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
-                    <?php
-                    $DRIVER = Driver::getDriverByDriverType($id);
-                    foreach ($DRIVER as $key => $driver) {
-                        ?>
-
                         <div class="col-md-3" >
 
 
                             <div class="driver-profile-section" >
 
                                 <div class="listing-item">
-                                    <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                    <?php
+                                    foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                        if ($key == 0) {
+                                            ?>
+                                            <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
                                 </div>
                                 <div class="img-pad "> 
-                                    <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle profile-driver "/>
+                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
                                 </div> 
                                 <div class="profile-description ">
-                                    <h3><?php echo $driver['name']; ?></h3>
+                                    <h3><?php echo $DRIVER->name; ?></h3>
                                 </div>
                                 <div class="driver-rating">
                                     <div class="star-rating-driver text-right"> 
@@ -254,7 +258,7 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                                     </div>
                                 </div>
                                 <div class="profile-description ">
-                                    <p><?php echo substr($driver['short_description'], 0, 155) . '...'; ?></p>
+                                    <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
                                 </div>
                                 <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
                                     <div class="row">
@@ -284,13 +288,12 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                             <div class=" content">
                                 <div id="galleria">
                                     <?php
-                                    $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosById($id);
                                     foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
                                         ?>
-                                        <a href="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>">
+                                        <a href="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>">
                                             <img 
-                                                src="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>",
-                                                data-big="upload/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                                src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>",
+                                                data-big="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
                                                 data-title="Biandintz eta zaldiak"
                                                 data-description="Horses on Bianditz mountain, in Navarre, Spain."
                                                 >
@@ -303,14 +306,11 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                             </div>
                             <div class="padding-top-10" >
                                 <hr  >
-                                <h3 class="headline"><?php echo $driver['name']; ?></h3>
+                                <h3 class="headline"><?php echo $DRIVER->name; ?></h3>
                                 <hr  >
-                                <p><?php echo $driver['description']; ?></p>
+                                <p><?php echo $DRIVER->description; ?></p>
                             </div>
                         </div>
-                        <?php
-                    }
-                    ?>
                 </div>
 
             </div>
@@ -415,19 +415,18 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
 
                             <div class="reviws-section col-md-12">
                                 <div class="col-md-2 img-section">
-                                    <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
-                                    <h4 class="center reviews-title">Name</h4>
+                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle"  alt=""/>
+                                    <!--<h4 class="center reviews-title">Name</h4>-->
                                 </div>  
                                 <div class="col-md-7">
-                                    <h4 class=" reviews-title">Title</h4>
-                                    <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <h4 class=" reviews-title"><?php echo $DRIVER->name; ?></h4>
+                                    <p class="reviews-description"><?php echo substr($DRIVER->short_description,0,155). '...'; ?></p>
+<!--                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                             Read more...
                                         </a></p>
                                     <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
                                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                    </p>
+                                    </p>-->
                                 </div> 
 
                                 <div class="col-md-3 star-section">
@@ -487,7 +486,7 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                         <div class="col-md-12">
                             <div class="simple-fw-slick-carousel dots-nav">
                                 <?php
-                                $DRIVERS = Driver::all();
+                                $DRIVERS = Drivers::all();
                                 foreach ($DRIVERS as $key => $driver) {
                                     if ($key < 5) {
                                         ?>
@@ -495,7 +494,7 @@ $DRIVER_PHOTOS = new DriverPhotos($id);
                                             <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $driver['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image">
-                                                    <img  src="upload/driver/thumb/<?php echo $driver['image_name']; ?>"  class="img-circle" alt=""/>
+                                                    <img  src="upload/drivers/<?php echo $driver['profile_picture']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
                                                         <li>
                                                             <i class="fa fa-star"></i>

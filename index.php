@@ -34,9 +34,9 @@ include_once(dirname(__FILE__) . '/class/include.php');
          chosen.min
       
          font-awesome css 
--->        <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
-        <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
-         magnific Css -->
+    -->        <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
+            <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
+             magnific Css -->
 
     <!-- Revolution Slider -->
     <link href="slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>
@@ -302,24 +302,22 @@ include_once(dirname(__FILE__) . '/class/include.php');
                 <div class="fullwidth-carousel-container ">
                     <div class="testimonial-carousel testimonials">
 
-                           <?php
-                    $COMMENTS = Comments::all();
-                    foreach ($COMMENTS as $key => $comment) {
-                       
+                        <?php
+                        $COMMENTS = Comments::all();
+                        foreach ($COMMENTS as $key => $comment) {
                             ?>
-                        <div class="fw-carousel-review">
-                            <div class="testimonial-box">
-                                <div class="testimonial"><?php echo $comment["comment"] ?></div>
+                            <div class="fw-carousel-review">
+                                <div class="testimonial-box">
+                                    <div class="testimonial"><?php echo $comment["comment"] ?></div>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="upload/comments/<?php echo $comment["image_name"] ?>" alt="">
+                                    <h4><?php echo $comment["name"] ?><span><?php echo $comment["title"] ?></span></h4>
+                                </div>
                             </div>
-                            <div class="testimonial-author">
-                                <img src="upload/comments/<?php echo $comment["image_name"] ?>" alt="">
-                                <h4><?php echo $comment["name"] ?><span><?php echo $comment["title"] ?></span></h4>
-                            </div>
-                        </div>
-             <?php
+                            <?php
                         }
-                    
-                    ?>
+                        ?>
 
                     </div>
                 </div>
@@ -348,7 +346,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                         <div class="simple-slick-carousel dots-nav">
 
                             <?php
-                            $DRIVERS = Driver::all();
+                            $DRIVERS = Drivers::all();
                             foreach ($DRIVERS as $key => $driver) {
                                 if ($key < 6) {
                                     ?>
@@ -356,11 +354,20 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         <a href="drivers-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
 
                                             <div class="listing-item">
-                                                <img src="upload/banner-image/thumb/<?php echo $driver['banner_image']; ?>" alt=""> 
+                                                <?php
+                                                foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
+                                                    if ($key == 0) {
+                                                        ?>
+                                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
                                             </div>
 
                                             <div class="img-pad"> 
-                                                <img src="upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-circle driver-list"/>
+                                                <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
                                                 <!--                                        
                                                                                         <div class="star-rating " data-rating="4.5"> 
                                                                                             <div class="rating-counter">(12 reviews)</div><br/>
