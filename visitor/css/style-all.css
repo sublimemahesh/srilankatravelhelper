@@ -66,12 +66,14 @@ and open the template in the editor.
 }
 .pro-details {
     text-align: center;
+    
 }
 .pro-details p {
     margin-bottom: 0px;
 }
-.driver-name {
+.driver-name1 {
     color: #0000ff;
+    font-size: 14px;
 }
 .navigation-list {
     margin-top: 20px;
@@ -208,13 +210,13 @@ a:hover {
 .dropdown-toggle:hover {
     color: #00a1ab;
     font-size: 28px;
-    
+
 }
 .nav > li > a:hover {
     background: transparent;
 }
 .dropdown-menu {
-  position: relative;  
+    position: relative;  
 }
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
     background-color: transparent;
@@ -291,4 +293,145 @@ a:hover {
 }
 .header-dropdown li {
     display: inline-block;
+}
+
+#myInput {
+
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 95%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+.searchbutton {
+    content: 'images/searchicon.png';
+    background: #007fff;
+    width: 5%;
+    float: right;
+    height: 49px;
+    padding: 13px;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #eee;
+}
+.listing-item-container {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, .08);
+    background-color: #fff;
+    background: #fff;
+}
+.listing-item-container {
+    background-color: #f6f6f6;
+    display: block;
+    /*height: 100%;*/
+    width: 100%;
+    border-radius: 4px;
+    transform: translate3d(0, 0, 0);
+    transition: transform .3s;
+    margin-bottom: 30px;
+}
+.listing-item {
+    overflow: hidden;
+}
+.listing-item {
+    background: #ccc;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-radius: 4px 4px 0 0;
+    /*height: 100%;*/
+    display: block;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 100;
+    cursor: pointer;
+}
+.listing-item img {
+    object-fit: cover;
+    /*height: 100%;*/
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+.img-pad {
+    padding-left: 16px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+.driver-list {
+    width: 22%;
+    margin-top: -80px;
+    border: solid white 2px;
+    z-index: 99999;
+    position: relative;
+}
+.driver-profile .driver-name {
+    position: absolute;
+    margin-top: -92px;
+    left: 150px;
+    z-index: 9999999;
+    color: #fff;
+    font-weight: 600;
+    font-size: 26px;
+}
+.star-rating-fa {
+    margin-top: -30px;
+    z-index: 9;
+    position: relative;
+    color: #f5cf00;
+    padding-right: 10px;
+}
+.review-add-section h2 {
+    font-size: 28px;
+    color: #00a1ab;
+}
+.review {
+    text-align: center;
+    font-size: 36px;
+}
+.visitor-review {
+    color: #f5cf00;
+}
+.review-black-star li{
+    display: inline;
+}
+.review-black-star {
+    list-style-type: none;
+}
+.review-black-star {
+    position:relative;
+    width:100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align:center;
+}
+
+.star {
+    position:relative;
+    display:inline-block;
+    width:12%;
+    max-width:180px;
+    margin: 0 auto;
+    padding: 0px 10px 0px 10px;
 }

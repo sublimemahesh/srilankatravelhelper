@@ -33,7 +33,6 @@ class Drivers {
 
     public function __construct($id) {
         if ($id) {
-
             $query = "SELECT "
                     . "`id`,"
                     . "`createdAt`,"

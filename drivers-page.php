@@ -49,71 +49,83 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </div>
-            
-                <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
-            <div class="container">
-                <div class="row">
-                  
-                
-                        
 
-                            <?php
-                            $DRIVERS = Drivers::all();
-                            foreach ($DRIVERS as $key => $driver) {
-                               
-                                    ?>
-                                    <div class="col-md-4">
-                                        <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+            <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
+                <div class="container">
+                    <div class="row">
 
-                                            <div class="listing-item">
+
+
+
+                        <?php
+                        $DRIVERS = Drivers::all();
+                        foreach ($DRIVERS as $key => $driver) {
+                            ?>
+                            <div class="col-md-4">
+                                <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+
+                                    <div class="listing-item">
+                                        <?php
+                                        foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
+                                            if ($key == 0) {
+                                                ?>
+                                                <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                                 <?php
-                                                foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
-                                                    if ($key == 0) {
-                                                        ?>
-                                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                                        <?php
-                                                    }
-                                                }
-                                                ?> 
-                                            </div>
-
-                                            <div class="img-pad"> 
-                                                <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
-                                                <!--                                        
-                                                                                        <div class="star-rating " data-rating="4.5"> 
-                                                                                            <div class="rating-counter">(12 reviews)</div><br/>
-                                                
-                                                                                        </div>-->
-
-                                            </div>
-                                            <div class="driver-name text-left"> 
-                                                <?php echo $driver['name']; ?>
-                                            </div>
-                                            <div class="star-rating-fa text-right"> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <div class="rating-counter">(12 reviews)</div><br/>
-                                            </div>
-
-                                            <div style="margin-top: 15px;padding-bottom: 7px;">
-                                                <p class="text-center " id="">
-                                                    <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
-                                                </p>
-                                            </div>
-                                        </a>
+                                            }
+                                        }
+                                        ?> 
                                     </div>
-                                    <?php
-                                }
-                            
-                            ?>    
 
-                 
+                                    <div class="img-pad"> 
+                                        <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
+                                        <!--                                        
+                                                                                <div class="star-rating " data-rating="4.5"> 
+                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
+                                        
+                                                                                </div>-->
+
+                                    </div>
+                                    <div class="driver-name text-left"> 
+                                        <?php echo $driver['name']; ?>
+                                    </div>
+                                    <div class="star-rating-fa text-right"> 
+                                        <?php
+                                        $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+
+                                        $divider = $REVIEWS['count'];
+                                        $sum = $REVIEWS['sum'];
+
+                                        $stars = $sum / $divider;
+
+                                        for ($i = 1; $i <= $stars; $i++) {
+                                            ?>
+                                            <i class="fa fa-star"></i>
+                                            <?php
+                                        }
+                                        for ($j = $i; $j <= 5; $j++) {
+                                            ?>
+                                            <i class="fa fa-star-o"></i>
+                                            <?php
+                                        }
+                                        ?>
+                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                    </div>
+
+                                    <div style="margin-top: 15px;padding-bottom: 7px;">
+                                        <p class="text-center " id="">
+                                            <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php
+                        }
+                        ?>    
+
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
             <!--
                             <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
                                 <div class="row">
@@ -312,7 +324,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     </div>
                                 </div>
                             </div>-->
-                <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts
