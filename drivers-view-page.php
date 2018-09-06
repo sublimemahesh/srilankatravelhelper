@@ -4,6 +4,13 @@ $id = $_GET["id"];
 $DRIVER = new Drivers($id);
 
 $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
+
+$REVIEWS = DriverReviews::getTotalReviewsOfDriver($DRIVER->id);
+
+$divider = $REVIEWS['count'];
+$sum = $REVIEWS['sum'];
+
+$stars = $sum / $divider;
 ?> 
 <!DOCTYPE html>
 
@@ -224,93 +231,100 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
             </div>
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
-                        <div class="col-md-3" >
+                    <div class="col-md-3" >
 
 
-                            <div class="driver-profile-section" >
+                        <div class="driver-profile-section" >
 
-                                <div class="listing-item">
-                                    <?php
-                                    foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
-                                        if ($key == 0) {
-                                            ?>
-                                            <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                            <?php
-                                        }
-                                    }
-                                    ?> 
-                                </div>
-                                <div class="img-pad "> 
-                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
-                                </div> 
-                                <div class="profile-description ">
-                                    <h3><?php echo $DRIVER->name; ?></h3>
-                                </div>
-                                <div class="driver-rating">
-                                    <div class="star-rating-driver text-right"> 
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div id="rating-counter">(12 reviews)
-                                    </div>
-                                </div>
-                                <div class="profile-description ">
-                                    <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
-                                </div>
-                                <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <span><i class="fa fa-facebook-square item-fa1"></i></span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span><i class="fa fa-whatsapp item-fa2"></i></span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span><i class="fa fa-twitter-square item-fa3"></i></span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span><i class="fa fa-skype item-fa4"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="padding-top-20"></div>
-                            <div class="">
-                                <img src="images/side-banner/side-banner.jpg" alt=""/>
-                            </div>
-
-                        </div>
-                        <div class="col-md-9">
-                            <div class=" content">
-                                <div id="galleria">
-                                    <?php
-                                    foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
+                            <div class="listing-item">
+                                <?php
+                                foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                    if ($key == 0) {
                                         ?>
-                                        <a href="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>">
-                                            <img 
-                                                src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>",
-                                                data-big="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
-                                                data-title="Biandintz eta zaldiak"
-                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                                >
-                                        </a>
-
+                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                        <?php
+                                    }
+                                }
+                                ?> 
+                            </div>
+                            <div class="img-pad "> 
+                                <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
+                            </div> 
+                            <div class="profile-description ">
+                                <h3><?php echo $DRIVER->name; ?></h3>
+                            </div>
+                            <div class="driver-rating">
+                                <div class="star-rating-driver text-right"> 
+                                    <?php
+                                    for ($i = 1; $i <= $stars; $i++) {
+                                        ?>
+                                        <i class="fa fa-star"></i>
+                                        <?php
+                                    }
+                                    for ($j = $i; $j <= 5; $j++) {
+                                        ?>
+                                        <i class="fa fa-star-o"></i>
                                         <?php
                                     }
                                     ?>
                                 </div>
+                                <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                </div>
                             </div>
-                            <div class="padding-top-10" >
-                                <hr  >
-                                <h3 class="headline"><?php echo $DRIVER->name; ?></h3>
-                                <hr  >
-                                <p><?php echo $DRIVER->description; ?></p>
+                            <div class="profile-description ">
+                                <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
+                            </div>
+                            <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <span><i class="fa fa-facebook-square item-fa1"></i></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span><i class="fa fa-whatsapp item-fa2"></i></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span><i class="fa fa-twitter-square item-fa3"></i></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span><i class="fa fa-skype item-fa4"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="padding-top-20"></div>
+                        <div class="">
+                            <img src="images/side-banner/side-banner.jpg" alt=""/>
+                        </div>
+
+                    </div>
+                    <div class="col-md-9">
+                        <div class=" content">
+                            <div id="galleria">
+                                <?php
+                                foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
+                                    ?>
+                                    <a href="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>">
+                                        <img 
+                                            src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>",
+                                            data-big="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                            data-title="Biandintz eta zaldiak"
+                                            data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                            >
+                                    </a>
+
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
+                        <div class="padding-top-10" >
+                            <hr  >
+                            <h3 class="headline"><?php echo $DRIVER->name; ?></h3>
+                            <hr  >
+                            <p><?php echo $DRIVER->description; ?></p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -319,7 +333,7 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
-                        <h3 class="headline ">Reviews(3,090)</h3>
+                        <h3 class="headline ">Reviews(<?php echo $sum; ?>)</h3>
                         <hr>
                         <div class="col-md-4 rating-breakdown">
                             <div class="col-md-12 rating-block">
@@ -420,13 +434,13 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
                                 </div>  
                                 <div class="col-md-7">
                                     <h4 class=" reviews-title"><?php echo $DRIVER->name; ?></h4>
-                                    <p class="reviews-description"><?php echo substr($DRIVER->short_description,0,155). '...'; ?></p>
-<!--                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Read more...
-                                        </a></p>
-                                    <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                    </p>-->
+                                    <p class="reviews-description"><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
+                                    <!--                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                                Read more...
+                                                                            </a></p>
+                                                                        <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
+                                                                            Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                                                                        </p>-->
                                 </div> 
 
                                 <div class="col-md-3 star-section">
@@ -435,14 +449,21 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
                                         <ul class="two-column">
                                             <div class="reviews-item1 ">
                                                 <li>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                 </li>
                                                 <li>
-                                                    <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
+                                                    <p class="count-reviews" style="color:#000 !important;"><?php echo $sum; ?> Reviews</p>
                                                 </li>
                                                 <div class="like-icon-section">
                                                     <div class="col-md-4 like-icon-section-pd">
@@ -497,11 +518,25 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
                                                     <img  src="upload/drivers/<?php echo $driver['profile_picture']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
                                                         <li>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                            $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+
+                                                            $divider = $REVIEWS['count'];
+                                                            $sum = $REVIEWS['sum'];
+
+                                                            $stars = $sum / $divider;
+
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </li>
                                                     </div>
                                                 </div>

@@ -14,7 +14,7 @@
 
     </div>
     <div class="pro-details">
-        <p class="driver-name"><?php echo $VISITOR->name; ?></p>
+        <p class="driver-name1"><?php echo $VISITOR->name; ?></p>
         <p><?php echo $VISITOR->email; ?></p>
     </div>
     <div class="navigation-list">
@@ -38,13 +38,13 @@
                 </div>
             </div>
         </a>
-        <a href="manage-photos.php">
+        <a href="manage-reviews.php">
             <div class="nav1">
                 <div class="icon-box">
                     <i class="fa fa-male" id="differ-icon"></i>
                 </div>
                 <div class="icon-text">
-                    Manage Photos
+                    Manage Reviews
                 </div>
             </div>
         </a>

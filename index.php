@@ -379,12 +379,27 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                                 <?php echo $driver['name']; ?>
                                             </div>
                                             <div class="star-rating-fa text-right"> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <div class="rating-counter">(12 reviews)</div><br/>
+                                                <?php
+                                                $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+
+                                                $divider = $REVIEWS['count'];
+                                                $sum = $REVIEWS['sum'];
+
+                                                $stars = $sum / $divider;
+                                                
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                                ?>
+
+                                                <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
                                             </div>
 
                                             <div style="margin-top: 15px;padding-bottom: 7px;">
