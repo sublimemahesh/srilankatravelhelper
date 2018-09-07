@@ -92,10 +92,10 @@ class Visitor {
         } else {
             $this->id = $result['id'];
             $this->setAuthToken($result['id']);
-            $this->setLastLogin($this->id);
+//            $this->setLastLogin($this->id);
 
             $visitor = $this->__construct($this->id);
-
+            
             $this->setUserSession($visitor);
 
             return $visitor;
@@ -215,7 +215,7 @@ class Visitor {
             session_start();
         }
 
-        $_SESSION["id"] = $visitor['id'];
+        $_SESSION["id"] = $visitor["id"];
         $_SESSION["name"] = $visitor['name'];
         $_SESSION["email"] = $visitor['email'];
         $_SESSION["address"] = $visitor['address'];
@@ -223,8 +223,8 @@ class Visitor {
         $_SESSION["profile_picture"] = $visitor['profile_picture'];
         $_SESSION["isActive"] = $visitor['isActive'];
         $_SESSION["authToken"] = $visitor['authToken'];
-        $_SESSION["lastLogin"] = $visitor['lastLogin'];
         $_SESSION["username"] = $visitor['username'];
+        
     }
 
     private function setAuthToken($id) {

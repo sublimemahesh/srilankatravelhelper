@@ -1,4 +1,4 @@
-<div class="navigation col-md-3">
+<div class="navigation col-md-3 col-sm-3">
     <div class="profile-img">
         <?php
         if ($VISITOR->profile_picture) {

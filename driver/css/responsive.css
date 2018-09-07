@@ -1,0 +1,147 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 6, 2018, 5:00:21 PM
+    Author     : User
+*/
+
+@media (max-width: 576px) {
+    .logo-header a img {
+        height: 50px;
+    }
+    .header {
+        text-align: center;
+        height: 109px;
+    }
+    .header-topic {
+        text-align: left;
+        padding-left: 0px;
+    }
+    .header-topic h2 {
+        font-size: 21px;
+        margin: 0px;
+    }
+    .nav .navbar-nav {
+        top: -31px;
+    }
+    .navbar-nav .open .dropdown-menu {
+        background: #fff;
+    }
+    .profile-img img {
+        margin-top: 20px;
+    }
+    .profile-img {
+        margin: 0px auto 10px;
+    }
+    .navigation {
+        height: 422px;
+    }
+    .dropdown {
+        top: -40px;
+    }
+    .searchbutton {
+        width: 15%;
+        padding: 13px 5px;
+    }
+    #myInput {
+        width: 85%;
+    }
+    .star-rating-fa {
+        margin-top: -30px;
+        padding-right: 47px;
+    }
+    .driver-list {
+        width: 35%;
+        margin-top: -24px;
+    }
+    .driver-profile .driver-name {
+        margin-top: -60px;
+        left: 89px;
+        font-size: 16px;
+    }
+    .review-add-section h2 {
+        font-size: 22px;
+        color: #00a1ab;
+    }
+    .review {
+        text-align: center;
+        font-size: 30px;
+    }
+    .star1 {
+        width: 34px;
+    }
+    .review-black-star {
+        position: relative;
+        width: 100%;
+        margin: 0 0px;
+        padding: 0px;
+        text-align: center;
+    }
+    #add-review {
+        margin-top: 15px;
+    }
+    .star {
+        width: 20%;
+    }
+    
+    .list-group-item {
+        padding: 5px 10px;
+        height: 50px;
+    }
+    .profile-panel {
+        margin: 0px 0px 20px;
+    }
+    .content {
+        height: auto;
+    }
+    .header-dropdown {
+        top: 12px;
+    }
+    #sortable {
+        margin-left: -35px;
+    }
+    .navigation.col-sm-3 {
+        padding: 0px 0px;
+    }
+}
+
+@media(min-width:577px) and (max-width:990px) {
+
+    .nav1 {
+        width: 209px;
+        margin: 10px 0px;
+        height: 60px;
+    }
+    .icon-text {
+        width: 139px;
+        padding: 20px 5px;
+    }
+    .profile-panel {
+        margin: 20px 0px;
+    }
+    .col-sm-3 {
+        padding: 0px;
+    }
+    .navigation.col-sm-3 {
+        padding: 0px 15px;
+    }
+    .pro-icon {
+        float: left;
+        margin: 0px 5px 0px 0px;
+    }
+    .list-group-item {
+        padding: 5px 0px 5px 5px;
+    }
+    .pro-nav {
+        padding: 5px 4px;
+        font-weight: 600;
+    }
+    .dropdown.open {
+        margin-top: -60px;
+    }
+
+
+}

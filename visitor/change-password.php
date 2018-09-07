@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . './auth.php');
+include_once(dirname(__FILE__) . '/auth.php');
 
 $VISITOR = new visitor($_SESSION['id']);
 ?>
@@ -11,16 +11,8 @@ $VISITOR = new visitor($_SESSION['id']);
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
-        <style>
-            @media(max-width:576px) {
-                .content {
-                    height: 931px;
-                }
-                .navigation {
-                    height: 329px;
-                }
-            }
-        </style>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        
         
     </head>
     <body>
@@ -34,7 +26,7 @@ $VISITOR = new visitor($_SESSION['id']);
                 ?>
 
 
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-3">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -52,7 +44,7 @@ $VISITOR = new visitor($_SESSION['id']);
                         $vali->show_message();
                         ?>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-9">
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
                                 Change Password
@@ -79,7 +71,7 @@ $VISITOR = new visitor($_SESSION['id']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <ul class="list-group prof-details">
                             <a href="profile.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
                             <a href="edit-visitor.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>
@@ -131,11 +123,18 @@ $VISITOR = new visitor($_SESSION['id']);
                 }
             });
             $(window).load(function () {
-                var contentheight = $(window).height();
-                var navigationheight = $(window).height() - 75;
+                var width = $(window).width();
 
-                $('.content').css('height', contentheight);
-                $('.navigation').css('height', navigationheight);
+                if (width > 576) {
+                    var contentheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
+
+                    $('.content').css('height', contentheight);
+                    $('.navigation').css('height', navigationheight);
+                } else {
+                    var contentheight = $(window).height();
+                    $('.content').css('height', contentheight);
+                }
             });
         </script>
     </body>

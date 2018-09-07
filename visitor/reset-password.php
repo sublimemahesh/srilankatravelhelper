@@ -22,8 +22,8 @@ include_once '../class/include.php';
             <div class="content">
                 <div class="parallax">
 
-                    <div class="box">
-                        <div class="description-box">
+                    <div class="box col-md-8 col-md-offset-2 col-xs-12">
+                        <div class="description-box col-md-6 col-xs-12">
                             <div class="logo">
                                 <img src="../images/logo/log-1.png" alt=""/>
                             </div>
@@ -51,7 +51,7 @@ include_once '../class/include.php';
                             </div>
 
                         </div>
-                        <div class="login-box login-box3">
+                        <div class="login-box login-box3 col-md-6 col-xs-12">
 
                             <form id="send-email-form" class="" action="post-and-get/change-password.php" method="POST">
 
@@ -108,14 +108,27 @@ include_once '../class/include.php';
         <script src="js/add-driver.js" type="text/javascript"></script>
 
         <script>
-            $(document).ready(function() {
-               var message = $('#msg').val();
-               
-               if(message.length > 35) {
-                   $('.error-msg1').removeClass('hidden');
-               } else {
-                   $('.error-msg').removeClass('hidden');
-               }
+            $(document).ready(function () {
+                var message = $('#msg').val();
+
+                if (message.length > 35) {
+                    $('.error-msg1').removeClass('hidden');
+                } else {
+                    $('.error-msg').removeClass('hidden');
+                }
+            });
+
+            $(window).load(function () {
+                var width = $(window).width();
+
+                if (width > 576) {
+                    var contentheight = $(window).height() - 200;
+
+                    $('.content').css('height', contentheight);
+                } else {
+                    var contentheight = $(window).height() - 218;
+                    $('.content').css('height', contentheight);
+                }
             });
         </script>
 
