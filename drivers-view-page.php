@@ -338,22 +338,23 @@ $stars = $sum / $divider;
                         <div class="col-md-4 rating-breakdown">
                             <div class="col-md-12 rating-block">
 
-                                <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
+                                <h2 class="bold padding-bottom-7"><?php echo $sum; ?> <small>/ <?php echo 5 * $divider; ?></small></h2>
+                                <?php
+                                for ($i = 1; $i <= $stars; $i++) {
+                                    ?>
+                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <?php
+                                }
+                                for ($j = $i; $j <= 5; $j++) {
+                                    ?>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <div class="col-md-12" style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
                                  border: 1px solid #F7F7F0;border-radius: 3%; ">

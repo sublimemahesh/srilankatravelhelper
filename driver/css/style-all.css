@@ -208,13 +208,13 @@ a:hover {
 .dropdown-toggle:hover {
     color: #00a1ab;
     font-size: 28px;
-    
+
 }
 .nav > li > a:hover {
     background: transparent;
 }
 .dropdown-menu {
-  position: relative;  
+    position: relative;  
 }
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
     background-color: transparent;
@@ -292,3 +292,10 @@ a:hover {
 .header-dropdown li {
     display: inline-block;
 }
+
+@media(max-width:576px) {
+
+    
+
+}
+

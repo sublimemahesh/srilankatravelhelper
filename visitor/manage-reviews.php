@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . './auth.php');
+include_once(dirname(__FILE__) . '/auth.php');
 
 $VISITOR = new Visitor($_SESSION['id']);
 //$DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
@@ -13,10 +13,7 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
-        <style>
-
-            
-        </style>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -27,7 +24,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-9">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -45,7 +42,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                         $vali->show_message();
                         ?>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
@@ -66,23 +63,23 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                 </ul>
 
-                                <div class="col-md-8 col-md-offset-2 driver-profile">
+                                <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 driver-profile">
 
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
-                                <div class="col-md-12 review-add-section hidden">
+                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section hidden">
                                     <h2>Add Review for <span id="driver-name"></span></h2>
-                                    <div class="review col-md-2 col-md-offset-5">
+                                    <div class="review col-md-2 col-sm-12 col-xs-12 col-md-offset-5">
                                         <span class="visitor-review">0</span> / 5
                                     </div>
                                     <div class="col-md-5"></div>
-                                    <div class="col-md-12 review-black-star">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 review-black-star">
 
                                     </div>
                                     <input type="hidden" id="visitorid" value="<?php echo $VISITOR->id; ?>" />
                                     <input type="hidden" id="reviewid" value="" />
-                                    <div class="row col-md-12 text-center">
+                                    <div class="row col-md-12 col-sm-12 col-xs-12 text-center">
                                         <button class="btn btn-green" id="add-review" review="">Send Review</button>
                                     </div>
                                 </div>
@@ -106,17 +103,7 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="delete/js/driver-photo.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/reviews.js" type="text/javascript"></script>
-
-        <script>
-                                    $(document).ready(function () {
-                                        var contentheight = $(window).height() + 175;
-                                        var navigationheight = $(window).height() + 100;
-
-                                        $('.content').css('height', contentheight);
-                                        $('.navigation').css('height', navigationheight);
-                                    });
-        </script>
-
+        
         <script>
             function myFunction() {
 
@@ -151,14 +138,31 @@ $VISITOR = new Visitor($_SESSION['id']);
                     html1 += '<div class="star" number="' + k + '"  onClick="reviews(' + k + ')"><a><img class="star1" src="images/black.png" alt=""/></a></div>';
                 }
 
-                
+
                 $('.visitor-review').text(star_number);
-                $('#add-review').attr('review',star_number);
+                $('#add-review').attr('review', star_number);
 
 
                 $('.review-black-star').empty();
                 $('.review-black-star').append(html1);
             }
+
+
+
+            $(window).load(function () {
+                var width = $(window).width();
+
+                if (width > 576) {
+                    var contentheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
+
+                    $('.content').css('height', contentheight);
+                    $('.navigation').css('height', navigationheight);
+                } else {
+                    var contentheight = $(window).height() + 500;
+                    $('.content').css('height', contentheight);
+                }
+            });
         </script>
         <script src="js/add-review.js" type="text/javascript"></script>
     </body>

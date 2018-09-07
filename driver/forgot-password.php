@@ -22,8 +22,8 @@ include_once '../class/include.php';
             <div class="content">
                 <div class="parallax">
 
-                    <div class="box">
-                        <div class="description-box">
+                    <div class="box col-md-8 col-md-offset-2 col-xs-12">
+                        <div class="description-box col-md-6 col-xs-12">
                             <div class="logo">
                                 <img src="../images/logo/log-1.png" alt=""/>
                             </div>
@@ -51,7 +51,7 @@ include_once '../class/include.php';
                             </div>
 
                         </div>
-                        <div class="login-box login-box2">
+                        <div class="login-box login-box2 col-md-6 col-xs-12">
 
                             <form id="send-email-form" class="" action="post-and-get/reset-password.php" method="POST">
 

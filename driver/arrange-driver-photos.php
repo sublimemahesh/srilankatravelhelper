@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . './auth.php');
+include_once(dirname(__FILE__) . '/auth.php');
 
 $DRIVER = new Drivers($_SESSION['id']);
 $id = '';
@@ -16,7 +16,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
-
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -28,7 +28,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-9">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -46,7 +46,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
                         $vali->show_message();
                         ?>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12">
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
@@ -67,7 +67,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
                                             if (count($DRIVERPHOTOS) > 0) {
                                                 foreach ($DRIVERPHOTOS as $key => $img) {
                                                     ?>
-                                                    <div class="col-md-3" style="list-style: none;">
+                                                    <div class="col-md-3 col-sm-4" style="list-style: none;">
                                                         <li class="ui-state-default">
                                                             <span class="number-class">(<?php echo $key + 1; ?>)</span>
                                                             <img class="img-responsive" src="../upload/drivers/driver-photos/thumb1/<?php echo $img["image_name"]; ?>" alt=""/>
@@ -109,11 +109,18 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
         <script src="js/add-driver.js" type="text/javascript"></script>
         <script>
             $(window).load(function () {
-                var contentheight = $(window).height();
-                var navigationheight = $(window).height() - 75;
+                var width = $(window).width();
 
-                $('.content').css('height', contentheight);
-                $('.navigation').css('height', navigationheight);
+                if (width > 576) {
+                    var contentheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
+
+                    $('.content').css('height', contentheight);
+                    $('.navigation').css('height', navigationheight);
+                } else {
+                    var contentheight = $(window).height();
+                    $('.content').css('height', contentheight);
+                }
             });
         </script>
         <script>
