@@ -43,7 +43,7 @@ include_once '../class/include.php';
                             </div>
                             <div class="login-link">
                                 <h2>Already have an account?</h2>
-                                <a href="#"><h1 id="sign-in">Sign In</h1></a>
+                                <a href="./"><h1 id="sign-in">Sign In</h1></a>
                             </div>
                             <div class="login-link1 hidden">
                                 <!--                                <h2>Already have an account?</h2>-->
