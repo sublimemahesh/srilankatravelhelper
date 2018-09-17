@@ -102,6 +102,7 @@ include_once '../class/include.php';
                                 <input type="text" name="username" id="username" class="form-control" placeholder="User Name" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
+                                <h4><a href="forgot-password.php">Forgotten Password?</a></h4>
                             </form>
 
                         </div>
