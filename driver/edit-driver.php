@@ -25,6 +25,7 @@ if (isset($_GET['id'])) {
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     </head>
     <body>
@@ -38,24 +39,24 @@ if (isset($_GET['id'])) {
                 ?>
                 <div class="col-md-9 col-sm-9">
                     <div class="top-bott20 m-l-25 m-r-15">
-                            <?php
-                            if (isset($_GET['message'])) {
+                        <?php
+                        if (isset($_GET['message'])) {
 
-                                $MESSAGE = New Message($_GET['message']);
-                                ?>
-                                <div class="alert alert-<?php echo $MESSAGE->status; ?>" role = "alert">
-                                    <?php echo $MESSAGE->description; ?>
-                                </div>
-                                <?php
-                            }
-                            
-                            $vali = new Validator();
-
-                            $vali->show_message();
+                            $MESSAGE = New Message($_GET['message']);
                             ?>
-                        </div>
+                            <div class="alert alert-<?php echo $MESSAGE->status; ?>" role = "alert">
+                                <?php echo $MESSAGE->description; ?>
+                            </div>
+                            <?php
+                        }
+
+                        $vali = new Validator();
+
+                        $vali->show_message();
+                        ?>
+                    </div>
                     <div class="col-md-9 col-sm-9">
-                        
+
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
                                 Edit <?php
@@ -113,6 +114,14 @@ if (isset($_GET['id'])) {
                                         <input type="text" name="dob" id="dob" class="form-control" placeholder="Enter Date of Birth" value="<?php echo $DRIVER->dob; ?>" />
                                     </div>
                                     <div class="row form-data">
+                                        <label>Short Description</label>
+                                        <input type="text" name="short_description" id="short_description" class="form-control" placeholder="Enter Short Description" value="<?php echo $DRIVER->short_description; ?>" />
+                                    </div>
+                                    <div class="row form-data">
+                                        <label>Description</label>
+                                        <textarea id="description" name="description" class="form-control" rows="5"><?php echo $DRIVER->description ?></textarea>
+                                    </div>
+                                    <div class="row form-data">
                                         <input type="hidden" name="id" value="<?php echo $DRIVER->id; ?>" />
                                         <input type="hidden" name="oldImageName" value="<?php echo $DRIVER->profile_picture; ?>" />
                                         <input type="submit" name="update" id="update" class="btn btn-lg btn-green" value="Save Data" />
@@ -139,12 +148,46 @@ if (isset($_GET['id'])) {
         </div>
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-driver.js" type="text/javascript"></script>
-
+        <script src="plugins/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script>
+            tinymce.init({
+                selector: "#description",
+                // ===========================================
+                // INCLUDE THE PLUGIN
+                // ===========================================
+
+                plugins: [
+                    "advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table contextmenu paste"
+                ],
+                // ===========================================
+                // PUT PLUGIN'S BUTTON on the toolbar
+                // ===========================================
+
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                // ===========================================
+                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                // ===========================================
+
+                relative_urls: false
+
+            });
+
+
+        </script>
+        <script>
+            $(function () {
+                $("#dob").datepicker({
+                    changeMonth: true,
+                    changeYear: true
+                });
+            });
             $(window).load(function () {
                 var width = $(window).width();
 

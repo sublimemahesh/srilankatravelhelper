@@ -33,6 +33,9 @@ if (isset($_POST['update'])) {
     $DRIVER->nic_number = filter_input(INPUT_POST, 'nic_number');
     $DRIVER->driving_licence_number = filter_input(INPUT_POST, 'driving_licence_number');
     $DRIVER->dob = filter_input(INPUT_POST, 'dob');
+    $DRIVER->short_description = filter_input(INPUT_POST, 'short_description');
+    $DRIVER->description = filter_input(INPUT_POST, 'description');
+    
 
 
     $dir_dest = '../../upload/drivers/';
@@ -71,7 +74,7 @@ if (isset($_POST['update'])) {
         }
     }
     
-    $DRIVER->profile_picture = $img;
+    $DRIVER->profile_picture = $imgName;
     
 
 

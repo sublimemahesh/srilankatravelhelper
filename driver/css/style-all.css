@@ -143,8 +143,8 @@ and open the template in the editor.
     padding-top: 7px; 
 }
 .list-group-item {
-    padding: 5px 15px;
-    height: 42px;
+    padding: 10px 15px;
+    height: auto;
 }
 .pro-nav {
     padding: 5px 5px;
@@ -293,9 +293,4 @@ a:hover {
     display: inline-block;
 }
 
-@media(max-width:576px) {
-
-    
-
-}
 
