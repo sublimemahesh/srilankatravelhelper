@@ -65,13 +65,15 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                                 <ul class="list-group">
 
-                                    <li class="list-group-item">Name : <?php echo $DRIVER->name; ?></li>
-                                    <li class="list-group-item">Email :<?php echo $DRIVER->email; ?></li>
-                                    <li class="list-group-item">Address :<?php echo $DRIVER->address; ?></li>
-                                    <li class="list-group-item">Contact Number :<?php echo $DRIVER->contact_number; ?></li>
-                                    <li class="list-group-item">NIC Number :<?php echo $DRIVER->nic_number; ?></li>
-                                    <li class="list-group-item">Driving Licence Number :<?php echo $DRIVER->driving_licence_number; ?></li>
-                                    <li class="list-group-item">Date of Birth :<?php echo $DRIVER->dob; ?></li>
+                                    <li class="list-group-item"><b>Name :</b> <?php echo $DRIVER->name; ?></li>
+                                    <li class="list-group-item"><b>Email :</b><?php echo $DRIVER->email; ?></li>
+                                    <li class="list-group-item"><b>Address :</b><?php echo $DRIVER->address; ?></li>
+                                    <li class="list-group-item"><b>Contact Number :</b><?php echo $DRIVER->contact_number; ?></li>
+                                    <li class="list-group-item"><b>NIC Number :</b><?php echo $DRIVER->nic_number; ?></li>
+                                    <li class="list-group-item"><b>Driving Licence Number :</b><?php echo $DRIVER->driving_licence_number; ?></li>
+                                    <li class="list-group-item"><b>Date of Birth :</b><?php echo $DRIVER->dob; ?></li>
+                                    <li class="list-group-item"><b>Short Description :</b><br /><?php echo $DRIVER->short_description; ?></li>
+                                    <li class="list-group-item"><b>Description :</b><br /><?php echo $DRIVER->description; ?></li>
                                 </ul> 
                             </div>
                         </div>
