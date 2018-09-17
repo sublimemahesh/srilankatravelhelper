@@ -42,7 +42,7 @@ and open the template in the editor.
     .dropdown {
         top: -40px;
     }
-    .searchbutton {
+    .searchbutton, .searchbutton2, .searchbutton3 {
         width: 15%;
         padding: 13px 5px;
     }
@@ -58,8 +58,8 @@ and open the template in the editor.
         margin-top: -24px;
     }
     .driver-profile .driver-name {
-        margin-top: -60px;
-        left: 89px;
+        margin-top: -82px;
+        left: 110px;
         font-size: 16px;
     }
     .review-add-section h2 {
@@ -86,7 +86,7 @@ and open the template in the editor.
     .star {
         width: 20%;
     }
-    
+
     .list-group-item {
         padding: 5px 10px;
         height: 50px;
@@ -142,6 +142,19 @@ and open the template in the editor.
     .dropdown.open {
         margin-top: -60px;
     }
-
-
+    #myInput {
+        width: 92%;
+    }
+    .searchbutton, .searchbutton2, .searchbutton3 {
+        width: 8%;
+    }
+    .driver-profile .driver-name {
+        left: 165px;
+    }
+    .star {
+        width: 19%;
+    }
+    .icon-text1 {
+        padding: 10px 5px;
+    }
 }

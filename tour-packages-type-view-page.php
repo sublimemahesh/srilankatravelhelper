@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__) . '/class/include.php');
 $id = $_GET["id"];
 
-$TOUR_PACKAGES = new TourPackages($id);
+$TOUR_TYPE = new TourType($id);
 ?> 
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@ $TOUR_PACKAGES = new TourPackages($id);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
 
         <style>
@@ -203,7 +203,7 @@ $TOUR_PACKAGES = new TourPackages($id);
                     <ul>
                         <li><a href="./">Home</a></li>
                         <li><span class="active">Tour Packages</span></li>
-                        <li><span class="active">Tour Packages Name</span></li>
+                        <li><span class="active"><?php echo $TOUR_TYPE->name; ?></span></li>
                     </ul>
                 </div>
             </div>
@@ -212,68 +212,74 @@ $TOUR_PACKAGES = new TourPackages($id);
         <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
             <div class="container">
                 <div class="row">
-                      <?php
-                                        $TOUR_PACKAGES = TourPackages::getTourPackagesById($id);
-                                        foreach ($TOUR_PACKAGES as $key => $tour_package) {
-                                          
-                                                ?>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id'];?>">
-                        <div class="single-package-carasoul">
-                            <div class="package-location">
-                                <img src="upload/tour-package/<?php echo $tour_package['image_name'];?>" alt="">
-                                <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id'];?>"> <span>View</span></a>
-                            </div>
-                            <div class="package-details">
-                                <div class="package-places">
-                                    <h4><?php echo $tour_package['name'];?></h4>
-                                    <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price'];?></span>
-                                    <div class="details">
-                                        <p><?php echo substr($tour_package['description'],0,93);?></p>
+                    <?php
+                    $TOUR_PACKAGES = TourPackages::getTourPackagesById($id);
+                    foreach ($TOUR_PACKAGES as $key => $tour_package) {
+                        ?>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                                <div class="single-package-carasoul">
+                                    <div class="package-location">
+                                        <img src="upload/tour-package/<?php echo $tour_package['image_name']; ?>" alt="">
+                                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>"> <span>View</span></a>
+                                    </div>
+                                    <div class="package-details">
+                                        <div class="package-places">
+                                            <h4><?php echo $tour_package['name']; ?></h4>
+                                            <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price']; ?></span>
+                                            <div class="details">
+                                                <p><?php echo substr($tour_package['description'], 0, 93); ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="package-ratings-review">
+                                            <ul class="two-column">
+                                                <li>
+                                                    <?php
+                                                    $REVIEWS = Reviews::getTotalReviewsOfTour($tour_package['id']);
+
+                                                    $divider = $REVIEWS['count'];
+                                                    $sum = $REVIEWS['sum'];
+
+                                                    if ($divider == 0) {
+                                                        for ($j = 1; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                        $sum = 0;
+                                                    } else {
+                                                        $stars = $sum / $divider;
+
+                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                        }
+                                                        for ($j = $i; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </li>
+                                                <li>
+                                                    <p>(<?php echo $sum; ?> Reviews)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="package-long-btn hvr-shutter-out-horizontal">
+                                        <a href="#"></a>
                                     </div>
                                 </div>
-                                <div class="package-ratings-review">
-                                    <ul class="two-column">
-                                        <li>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <p>(27 Reviews)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="package-long-btn hvr-shutter-out-horizontal">
-                                <a href="#"></a>
-                            </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
-                  <?php 
-                                        }
-                  ?>
+                        <?php
+                    }
+                    ?>
                 </div>
-                <div class="row">
-                    <div class=" col-md-12 padding-left-200 padding-right-45 ">
-                        <!-- Pagination -->
-                        <div class="pagination-container margin-top-20 margin-bottom-40">
-                            <nav class="pagination">
-                                <ul>
-                                    <li><a href="#" class="current-page">1</a></li>
-                                    <li><a href="#" class="current-page">2</a></li>
-                                    <li><a href="#" class="current-page">3</a></li>
-                                    <li><a href="#" class="current-page">4</a></li>
-                                    <li><a href="#" class="current-page">5</a></li>
-                                    <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section><!-- single popular destination  end-->
 

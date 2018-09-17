@@ -1,8 +1,8 @@
-<div class="header col-md-12">
-    <div class="logo-header col-md-2">
+<div class="header col-md-12 col-sm-12">
+    <div class="logo-header col-md-2 col-sm-2">
         <a href="../"><img src="../images/logo/log-1.png" alt=""/></a>
     </div>
-    <div class="header-topic col-md-8">
+    <div class="header-topic col-md-8 col-sm-8">
         <h2>Visitor Dashboard</h2>
     </div>
     <ul class="nav navbar-nav">

@@ -248,14 +248,35 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         <div class="blog-compact-item-content">
                                             <ul class="blog-post-tags">
                                                 <li><div class="star-rating-fa text-right"> 
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <div class="rating-counter-tour">(160 reviews)</div><br/>
+                                                        <?php
+                                                        $REVIEWS = Reviews::getTotalReviewsOfTourType($tour_type['id']);
+
+                                                        $divider = $REVIEWS['count'];
+                                                        $sum = $REVIEWS['sum'];
+
+                                                        if ($divider == 0) {
+                                                            for ($j = 1; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            $sum = 0;
+                                                        } else {
+                                                            $stars = $sum / $divider;
+
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
                                                     </div></li>
                                             </ul>
                                             <h3><?php echo $tour_type['name']; ?></h3>
@@ -380,22 +401,31 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                             </div>
                                             <div class="star-rating-fa text-right"> 
                                                 <?php
-                                                $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+                                                $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
 
                                                 $divider = $REVIEWS['count'];
                                                 $sum = $REVIEWS['sum'];
 
-                                                $stars = $sum / $divider;
-                                                
-                                                for ($i = 1; $i <= $stars; $i++) {
-                                                    ?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php
-                                                }
-                                                for ($j = $i; $j <= 5; $j++) {
-                                                    ?>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <?php
+                                                if ($divider == 0) {
+                                                    for ($j = 1; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    $sum = 0;
+                                                } else {
+                                                    $stars = $sum / $divider;
+
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
                                                 }
                                                 ?>
 
