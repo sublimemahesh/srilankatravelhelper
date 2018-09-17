@@ -1,7 +1,14 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
 $id = $_GET["id"];
+$TOUR = new TourPackages($id);
+$TOUR_TYPE = new TourType($TOUR->type);
+$REVIEWS = Reviews::getTotalReviewsOfTour($id);
 
+$divider1 = $REVIEWS['count'];
+$sum1 = $REVIEWS['sum'];
+
+$stars1 = $sum1 / $divider1;
 // $TOUR_DATE_PHOTOS  = new TourDatePhoto($id);
 ?>
 <!DOCTYPE html>
@@ -16,10 +23,10 @@ $id = $_GET["id"];
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    -->
-<!--    <link href="css/set1.css" rel="stylesheet" type="text/css"/>-->
-<!--    <link href="lib/owl/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-    <link href="lib/owl/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    -->
+    <!--    <link href="css/set1.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href="lib/owl/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+        <link href="lib/owl/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>-->
     <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
     <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
@@ -146,13 +153,13 @@ $id = $_GET["id"];
             /*                padding: 1% 1% 1% 1%;*/
 
         }
-       .more-reviews-item1 li{
-                color:#f5cf00;
-                list-style-type: none;
-                margin-bottom: 10px;
-                 font-size: 10px !important;
+        .more-reviews-item1 li{
+            color:#f5cf00;
+            list-style-type: none;
+            margin-bottom: 10px;
+            font-size: 10px !important;
 
-            }
+        }
         .image-row{
             padding-bottom: 10px;
             padding-top: 10px;
@@ -173,6 +180,8 @@ $id = $_GET["id"];
                     <ul>
                         <li><a href="./">Home</a></li>
                         <li><span class="active">Tour Packages</span></li>
+                        <li><span class="active"><?php echo $TOUR_TYPE->name; ?></span></li>
+                        <li><span class="active"><?php echo $TOUR->name; ?></span></li>
                     </ul>
                 </div>
             </div>
@@ -222,28 +231,51 @@ $id = $_GET["id"];
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         if ($key < 7) {
                             ?>
-                             <div  class="col-md-12 col-xs-12 more-items" >
-                                 <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
-                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $tour_package['name']; ?></h5>
-                                                <div class="col-md-5 col-xs-5 more-items-image">
-                                                    <img  src="upload/tour-package/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
-                                                    <div class="more-reviews-item1">
-                                                        <li>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </li>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7 col-xs-7">
-                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($tour_package['short_description'], 0, 65) . '...'; ?></p>
-                                                </div>
+                            <div  class="col-md-12 col-xs-12 more-items" >
+                                <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                                    <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $tour_package['name']; ?></h5>
+                                    <div class="col-md-5 col-xs-5 more-items-image">
+                                        <img  src="upload/tour-package/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
+                                        <div class="more-reviews-item1">
+                                            <li>
+                                                <?php
+                                                $REVIEWS = Reviews::getTotalReviewsOfTour($tour_package['id']);
 
+                                                $divider = $REVIEWS['count'];
+                                                $sum = $REVIEWS['sum'];
 
-                                            </a>
+                                                if ($divider == 0) {
+                                                    for ($j = 1; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    $sum = 0;
+                                                } else {
+                                                    $stars = $sum / $divider;
+
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </li>
                                         </div>
+                                    </div>
+                                    <div class="col-md-7 col-xs-7">
+                                        <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($tour_package['short_description'], 0, 65) . '...'; ?></p>
+                                    </div>
+
+
+                                </a>
+                            </div>
 
                             <?php
                         }
@@ -257,27 +289,28 @@ $id = $_GET["id"];
             <div class="row">
                 <div class="col-md-12">
                     <hr>
-                    <h3 class="headline ">Reviews(3,090)</h3>
+                    <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                     <hr>
                     <div class="col-md-4 rating-breakdown">
                         <div class="col-md-12 rating-block">
 
-                            <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                <span class="fa fa-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                <span class="fa fa-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                <span class="fa fa-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                <span class="fa fa-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                <span class="fa fa-star" aria-hidden="true"></span>
-                            </button>
+                            <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
+                            <?php
+                            for ($i = 1; $i <= $stars1; $i++) {
+                                ?>
+                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                </button>
+                                <?php
+                            }
+                            for ($j = $i; $j <= 5; $j++) {
+                                ?>
+                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                </button>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <div class="col-md-12" style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
                              border: 1px solid #F7F7F0;border-radius: 3%; ">
@@ -486,7 +519,6 @@ $id = $_GET["id"];
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true,
                 animateOut: true,
-
             });
         });
     </script>

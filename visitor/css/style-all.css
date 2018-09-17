@@ -305,7 +305,7 @@ a:hover {
     border: 1px solid #ddd;
     margin-bottom: 12px;
 }
-.searchbutton {
+.searchbutton, .searchbutton2, .searchbutton3 {
     content: 'images/searchicon.png';
     background: #007fff;
     width: 5%;
@@ -392,6 +392,10 @@ a:hover {
     left: 150px;
     z-index: 9999999;
     color: #fff;
+    font-weight: 600;
+    font-size: 26px;
+}
+.tour-name, .destination-name {
     font-weight: 600;
     font-size: 26px;
 }

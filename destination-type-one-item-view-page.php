@@ -1,8 +1,16 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
 $id = $_GET["id"];
+$DESTINATION = new Destination($id);
+//$DESTINATION_PHOTOS = new DestinationPhotos($id);
+$DESTINATION_TYPE = new DestinationType($DESTINATION->type);
 
-$DESTINATION_PHOTOS = new DestinationPhotos($id);
+$REVIEWS = Reviews::getTotalReviewsOfDestination($id);
+
+$divider1 = $REVIEWS['count'];
+$sum1 = $REVIEWS['sum'];
+
+$stars1 = $sum1 / $divider1;
 ?> 
 <!DOCTYPE html>
 
@@ -157,7 +165,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                 color:#f5cf00;
                 list-style-type: none;
                 margin-bottom: 10px;
-                 font-size: 11px !important;
+                font-size: 11px !important;
 
             }
 
@@ -173,8 +181,8 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                         <ul>
                             <li><a href="./">Home</a></li>
                             <li><span class="active">Destination</span></li>
-                            <li><span class="active">Destination View</span></li>
-                            <li><span class="active">Destination Name</span></li>
+                            <li><span class="active"><?php echo $DESTINATION_TYPE->name; ?></span></li>
+                            <li><span class="active"><?php echo $DESTINATION->name; ?></span></li>
                         </ul>
                     </div>
                 </div>
@@ -186,86 +194,102 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                 <div class="row">
 
                     <div class="col-md-9">
-                        <?php
-                        $DESTINATIONS = Destination::getDestinationByDestinationType($id);
-                        foreach ($DESTINATIONS as $key => $destination) {
-                            ?>
-                            <div class=" content">
-                                <div id="galleria">
-                                    <?php
-                                    $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
-                                    foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
-                                        ?>
-                                        <a href="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>">
-                                            <img 
-                                                src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>",
-                                                data-big="images/tour/3.jpg"
-                                                data-title="Biandintz eta zaldiak"
-                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                                >
-                                        </a>
-                                        <?php
-                                    }
+                        <div class=" content">
+                            <div id="galleria">
+                                <?php
+                                $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
+                                foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
                                     ?>
-
-
-                                </div>
-                            </div>
-                            <div class="padding-top-10" >
-
-                                <hr  >
-                                <h3 class="headline"><?php echo $destination['name']; ?></h3>
-                                <hr  >
-                                <p>
-                                    <?php echo $destination['description']; ?>
-
-                                </p> 
+                                    <a href="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>">
+                                        <img 
+                                            src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>",
+                                            data-big="images/tour/3.jpg"
+                                            data-title="Biandintz eta zaldiak"
+                                            data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                            >
+                                    </a>
+                                    <?php
+                                }
+                                ?>
 
                             </div>
-                            <?php
-                        }
-                        ?>
+                        </div>
+                        <div class="padding-top-10" >
+
+                            <hr  >
+                            <h3 class="headline"><?php echo $DESTINATION->name; ?></h3>
+                            <hr  >
+                            <p>
+                                <?php echo $DESTINATION->description; ?>
+
+                            </p> 
+
+                        </div>
                     </div>
                     <div class="col-md-3 " >
                         <div>
                             <h3 class="headline text-center" >More Destination</h3>
                         </div> 
                         <div class="row margin-left-4 ">
-                     
-                                <?php
-                                $DESTINATIONS = Destination::all();
-                                foreach ($DESTINATIONS as $key => $destination) {
-                                    if ($key < 7) {
-                                        ?>
 
-                                        <div  class="col-md-12 col-xs-12 more-items" >
-                                            <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
-                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
-                                                <div class="col-md-5 col-xs-5 more-items-image">
-                                                    <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
-                                                    <div class="more-reviews-item1">
-                                                        <li>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </li>
-                                                    </div>
+                            <?php
+                            $DESTINATIONS = Destination::all();
+                            foreach ($DESTINATIONS as $key => $destination) {
+                                if ($key < 7) {
+                                    ?>
+
+                                    <div  class="col-md-12 col-xs-12 more-items" >
+                                        <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
+                                            <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
+                                            <div class="col-md-5 col-xs-5 more-items-image">
+                                                <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
+                                                <div class="more-reviews-item1">
+                                                    <li>
+                                                        <?php
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDestination($destination['id']);
+
+                                                        $divider = $REVIEWS['count'];
+                                                        $sum = $REVIEWS['sum'];
+
+                                                        if ($divider == 0) {
+                                                            for ($j = 1; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            $sum = 0;
+                                                        } else {
+                                                            $stars = $sum / $divider;
+
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </li>
+                                                    </li>
                                                 </div>
-                                                <div class="col-md-7 col-xs-7">
-                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
-                                                </div>
+                                            </div>
+                                            <div class="col-md-7 col-xs-7">
+                                                <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
+                                            </div>
 
 
-                                            </a>
-                                        </div>
+                                        </a>
+                                    </div>
 
-                                        <?php
-                                    }
+                                    <?php
                                 }
-                                ?>
-                          
+                            }
+                            ?>
+
                         </div>
                     </div>
 
@@ -275,27 +299,28 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
-                        <h3 class="headline ">Reviews(3,090)</h3>
+                        <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                         <hr>
                         <div class="col-md-4 rating-breakdown">
                             <div class="row">
                                 <div class="col-md-12  rating-block">
-                                    <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
+                                    <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
+                                    <?php
+                                    for ($i = 1; $i <= $stars1; $i++) {
+                                        ?>
+                                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                        </button>
+                                        <?php
+                                    }
+                                    for ($j = $i; $j <= 5; $j++) {
+                                        ?>
+                                        <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                        </button>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="row">

@@ -44,7 +44,27 @@
                     <i class="fa fa-male" id="differ-icon"></i>
                 </div>
                 <div class="icon-text">
-                    Manage Reviews
+                    Driver Reviews
+                </div>
+            </div>
+        </a>
+        <a href="manage-tour-package-reviews.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-male" id="differ-icon"></i>
+                </div>
+                <div class="icon-text icon-text1">
+                    Tour Package Reviews
+                </div>
+            </div>
+        </a>
+        <a href="manage-destination-reviews.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-male" id="differ-icon"></i>
+                </div>
+                <div class="icon-text icon-text1">
+                    Destination Reviews
                 </div>
             </div>
         </a>

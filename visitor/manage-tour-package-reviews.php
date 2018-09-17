@@ -3,18 +3,35 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $VISITOR = new Visitor($_SESSION['id']);
-//$DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Manage Driver Reviews || Visitor DashBoard</title>
+        <title>Manage Tour Package Reviews || Visitor DashBoard</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .star-rating-fa {
+                left: 345px;
+            }
+            @media (max-width: 576px) {
+
+                .star-rating-fa {
+                    left: 0px;
+                    margin-top: 6px;
+                    text-align: left;
+                }
+            }
+            @media(min-width:577px) and (max-width:990px) {
+                .star-rating-fa {
+                    left: -5px;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="wrapper">
@@ -47,30 +64,30 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                                Add Reviews for Drivers 
+                                Add Reviews for Tour Packages
                             </div>
                             <div class="panel-body">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for driver.." title="Type in a name">
-                                <div class="searchbutton"><img src="images/searchicon.png" alt=""/></div>
-                                <input type="hidden" id="driverid" name="id" value="" />
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for tour packages.." title="Type in a name">
+                                <div class="searchbutton2"><img src="images/searchicon.png" alt=""/></div>
+                                <input type="hidden" id="tourid" name="id" value="" />
                                 <ul id="myUL" class="hidden">
                                     <?php
-                                    foreach (Drivers::all() as $driver) {
+                                    foreach (TourPackages::all() as $tour) {
                                         ?>
-                                        <li class="driver" driverid="<?php echo $driver['id']; ?>"><a href="#"><?php echo $driver['name']; ?></a></li>
+                                        <li class="tour" tourid="<?php echo $tour['id']; ?>"><a href="#"><?php echo $tour['name']; ?></a></li>
                                         <?php
                                     }
                                     ?>
 
                                 </ul>
 
-                                <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 driver-profile">
+                                <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 tour-profile">
 
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
                                 <div class="col-md-12 col-sm-12 col-xs-12 review-add-section hidden">
-                                    <h2>Add Review for <span id="driver-name"></span></h2>
+                                    <h2>Add Review for <span id="tour-name"></span></h2>
                                     <div class="review col-md-2 col-sm-12 col-xs-12 col-md-offset-5">
                                         <span class="visitor-review">0</span> / 5
                                     </div>
@@ -99,9 +116,6 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
-        <script src="delete/js/driver-photo.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/reviews.js" type="text/javascript"></script>
         
@@ -148,14 +162,17 @@ $VISITOR = new Visitor($_SESSION['id']);
                 $('.review-black-star').append(html1);
             }
 
-
+            $('#myInput').click(function() {
+               $('.tour-profile').addClass('hidden'); 
+               $('.review-add-section').addClass('hidden'); 
+            });
 
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height() + 175;
-                    var navigationheight = $(window).height() + 100;
+                    var contentheight = $(window).height()+ 300;
+                    var navigationheight = $(window).height() + 225;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
@@ -164,7 +181,9 @@ $VISITOR = new Visitor($_SESSION['id']);
                     $('.content').css('height', contentheight);
                 }
             });
+            
+            
         </script>
-        <script src="js/add-review.js" type="text/javascript"></script>
+        <script src="js/add-tour-review.js" type="text/javascript"></script>
     </body>
 </html>

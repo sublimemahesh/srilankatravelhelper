@@ -45,8 +45,37 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     <span class="tag" style="background: #0dce38!important">View</span>
                                     <h3><?php echo $destination_type['name'];?></h3>
 <!--                                    <span><?php echo $destination_type['description'];?></span>-->
-                                    <div class="star-rating" data-rating="5.0" style="padding: 15px 0px !important;">
-                                        <div class="rating-counter">(31 reviews)</div>
+                                    <div class="star-rating" style="padding: 15px 0px !important;">
+                                        <?php
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDestinationType($destination_type['id']);
+
+                                                        $divider = $REVIEWS['count'];
+                                                        $sum = $REVIEWS['sum'];
+
+                                                        if ($divider == 0) {
+                                                            for ($j = 1; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            $sum = 0;
+                                                        } else {
+                                                            $stars = $sum / $divider;
+
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                        
+                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
                                     </div>
                                 </div>
                             </div>

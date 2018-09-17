@@ -13,6 +13,7 @@ $VISITOR = new Visitor($_SESSION["id"]);
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
