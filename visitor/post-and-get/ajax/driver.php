@@ -14,7 +14,7 @@ if ($_POST['option'] === 'GETDRIVERDETAILS') {
 if ($_POST['option'] === 'GETDRIVERPHOTOS') {
     
     $photos = DriverPhotos::getDriverPhotosByDriver($_POST['id']);
-
+    
     foreach ($photos as $key=>$photo) {
         if($key == 0) {
             $img = $photo['image_name'];

@@ -5,7 +5,7 @@ $DRIVER = new Drivers($id);
 
 $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
 
-$REVIEWS = DriverReviews::getTotalReviewsOfDriver($DRIVER->id);
+$REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
 
 $divider = $REVIEWS['count'];
 $sum = $REVIEWS['sum'];
@@ -213,6 +213,12 @@ $stars = $sum / $divider;
                 font-size: 11px !important;
 
             }
+            .review-carousel .slick-slide {
+                width: 700px;
+            }
+            a:hover {
+                text-decoration: none;
+            }
         </style>
     <body>
         <div id="wrapper">
@@ -306,7 +312,7 @@ $stars = $sum / $divider;
                                     ?>
                                     <a href="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>">
                                         <img 
-                                            src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>",
+                                            src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
                                             data-big="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
                                             data-title="Biandintz eta zaldiak"
                                             data-description="Horses on Bianditz mountain, in Navarre, Spain."
@@ -427,69 +433,70 @@ $stars = $sum / $divider;
                             </div>	
                         </div>	
                         <div class="col-md-8 ">
+                            <div class="reviws-section">
+                                <div class="review-carousel testimonials">
+                                    <?php
+                                    foreach (Reviews::getReviewsByDriver($DRIVER->id) as $review) {
+                                        $VISITOR = new Visitor($review['visitor']);
+                                        ?>
+                                        <div class="col-md-12">
 
-                            <div class="reviws-section col-md-12">
-                                <div class="col-md-2 img-section">
-                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle"  alt=""/>
-                                    <!--<h4 class="center reviews-title">Name</h4>-->
-                                </div>  
-                                <div class="col-md-7">
-                                    <h4 class=" reviews-title"><?php echo $DRIVER->name; ?></h4>
-                                    <p class="reviews-description"><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
-                                    <!--                                        <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                                                Read more...
-                                                                            </a></p>
-                                                                        <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                                                            Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                                                        </p>-->
-                                </div> 
+                                            <div class="col-md-2 img-section">
+                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                            </div>  
+                                            <div class="col-md-7">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
 
-                                <div class="col-md-3 star-section">
-                                    <div class="package-ratings-review">
 
-                                        <ul class="two-column">
-                                            <div class="reviews-item1 ">
-                                                <li>
-                                                    <?php
-                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                        ?>
-                                                        <i class="fa fa-star"></i>
-                                                        <?php
-                                                    }
-                                                    for ($j = $i; $j <= 5; $j++) {
-                                                        ?>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </li>
-                                                <li>
-                                                    <p class="count-reviews" style="color:#000 !important;"><?php echo $sum; ?> Reviews</p>
-                                                </li>
-                                                <div class="like-icon-section">
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon"></span>
-                                                    </div>
-                                                    <div class="col-md-4 like-icon-section-pd">
-                                                        <span class="like-icon "></span>
-                                                    </div>
+                                            </div> 
+                                            <div class="col-md-3 star-section">
+                                                <div class="package-ratings-review">
+                                                    <ul class="two-column">
+                                                        <div class="reviews-item1 ">
+                                                            <li>
+                                                                <?php
+                                                                $stars = $review['reviews'];
+                                                                for ($i = 1; $i <= $stars; $i++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <?php
+                                                                }
+                                                                for ($j = $i; $j <= 5; $j++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </li>
+                                                            <li>
+                                                                <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                            </li>
+                                                            <div class="like-icon-section">
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon "></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ul>
                                                 </div>
+                                            </div> 
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
 
-
-                                            </div>
-                                        </ul>
-
-                                    </div>
-                                </div>  
+                                </div>
                             </div>
-                            <div >
-
+                            <div class="review-button">
+                                <a href="view-all-reviews.php?driver=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -520,22 +527,31 @@ $stars = $sum / $divider;
                                                     <div class="more-reviews-item1">
                                                         <li>
                                                             <?php
-                                                            $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+                                                            $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
 
                                                             $divider = $REVIEWS['count'];
                                                             $sum = $REVIEWS['sum'];
 
-                                                            $stars = $sum / $divider;
+                                                            if ($divider == 0) {
+                                                                for ($j = 1; $j <= 5; $j++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <?php
+                                                                }
+                                                                $sum = 0;
+                                                            } else {
+                                                                $stars = $sum / $divider;
 
-                                                            for ($i = 1; $i <= $stars; $i++) {
-                                                                ?>
-                                                                <i class="fa fa-star"></i>
-                                                                <?php
-                                                            }
-                                                            for ($j = $i; $j <= 5; $j++) {
-                                                                ?>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <?php
+                                                                for ($i = 1; $i <= $stars; $i++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <?php
+                                                                }
+                                                                for ($j = $i; $j <= 5; $j++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <?php
+                                                                }
                                                             }
                                                             ?>
                                                         </li>
@@ -573,6 +589,7 @@ $stars = $sum / $divider;
                 Galleria.run('#galleria');
 
             });
+
         </script>
         <!-- Scripts
          ================================================== -->
