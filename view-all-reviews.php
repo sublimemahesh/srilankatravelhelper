@@ -15,7 +15,7 @@ if (isset($_GET["driver"])) {
     $REVIEWS = Reviews::getTotalReviewsOfTour($tour);
 } elseif (isset($_GET["destination"])) {
     $destination = $_GET["destination"];
-    $DESTINATION = new Drivers($destination);
+    $DESTINATION = new Destination($destination);
     $REVIEWS = Reviews::getTotalReviewsOfDestination($destination);
 }
 
@@ -364,7 +364,7 @@ $stars = $sum / $divider;
                             <div class="driver-profile-section" >
 
                                 <div class="listing-item">
-                                    <img src="upload/destination/thumb/<?php echo $TOUR->image_name; ?>" alt="">
+                                    <img src="upload/destination/thumb/<?php echo $DESTINATION->image_name; ?>" alt="">
                                 </div> 
                                 <div class="profile-description ">
                                     <h3><?php echo $DESTINATION->name; ?></h3>

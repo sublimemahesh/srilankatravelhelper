@@ -1,6 +1,25 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . '/auth.php');
+$id = '';
+$loop = '';
+if (isset($_GET['destination'])) {
+    $id = $_GET['destination'];
+    $loop = 1;
+    $Destination = new Destination($id);
+}
+if (isset($_GET['l'])) {
+    $loop = $_GET['l'];
+}
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!Visitor::authenticate()) {
+    if ($_GET['back'] === 'destinationreview') {
+        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-destination-reviews.php?destination=' . $id;
+    }
+    redirect('index.php?message=24');
+}
 
 $VISITOR = new Visitor($_SESSION['id']);
 ?>
@@ -69,7 +88,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                             <div class="panel-body">
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for destination.." title="Type in a name">
                                 <div class="searchbutton3"><img src="images/searchicon.png" alt=""/></div>
-                                <input type="hidden" id="destinationid" name="id" value="" />
+                                <input type="hidden" id="destinationid" name="id" value="<?php
+                                if (isset($_GET['destination'])) {
+                                    echo $Destination->id;
+                                };
+                                ?>" />
                                 <ul id="myUL" class="hidden">
                                     <?php
                                     foreach (Destination::all() as $destination) {
@@ -82,12 +105,66 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 </ul>
 
                                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 destination-profile">
+                                    <?php
+                                    if ($id) {
+                                        ?>
+                                        <div class="listing-item">
+                                            <img src="../upload/destination/thumb/<?php echo $Destination->image_name; ?>" alt="">
+                                        </div>
+                                        <div class="tour-name text-left">
+                                            <?php echo $Destination->name; ?>
+                                        </div>
+                                        <div class="row">
+                                            <div class="star-rating-fa text-right col-md-5">
+                                                <?php
+                                                $REVIEWS = Reviews::getTotalReviewsOfDestination($Destination->id);
 
+                                                $divider = $REVIEWS['count'];
+                                                $sum = $REVIEWS['sum'];
+
+                                                if ($divider == 0) {
+                                                    for ($j = 1; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    $sum = 0;
+                                                } else {
+                                                    $stars = $sum / $divider;
+
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br>
+                                            </div>
+                                            <div class="col-md-7"></div>
+                                        </div>
+                                        <div style="margin-top: 0px;padding-bottom: 7px; text-align: center;">
+                                            <p class="text-center " id="">
+                                                <?php echo $Destination->short_description; ?>
+                                            </p>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
-                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section hidden">
-                                    <h2>Add Review for <span id="destination-name"></span></h2>
+                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section">
+                                    <h2>Add Review for <span id="destination-name"><?php
+                                            if (isset($_GET['destination'])) {
+                                                echo $Destination->name;
+                                            };
+                                            ?></span></h2>
                                     <div class="review col-md-2 col-sm-12 col-xs-12 col-md-offset-5">
                                         <span class="visitor-review">0</span> / 5
                                     </div>
@@ -106,7 +183,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                     </div>
 
                 </div>
-
+                <input type="hidden" id="get_destination" value="<?php echo $id; ?>" />
+                <input type="hidden" id="loop" value="<?php echo $loop; ?>" />
             </div>
             <?php
             include './footer.php';
@@ -183,6 +261,21 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     });
 
 
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#myInput').click(function () {
+
+                    var loop = $('#loop').val();
+
+                    if (loop == 1) {
+                        window.location.replace('http://localhost/srilankatravelhelper/visitor/manage-destination-reviews.php?l=0');
+                    } else {
+                        return true;
+                    }
+
+                });
+            });
         </script>
         <script src="js/add-destination-review.js" type="text/javascript"></script>
     </body>
