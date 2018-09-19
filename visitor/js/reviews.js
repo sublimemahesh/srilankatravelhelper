@@ -1,19 +1,7 @@
 $(document).ready(function () {
+
     $('.review-add-section').addClass('hidden');
-    $('#myInput').click(function () {
-        
-        var loop = $('#loop').val();
-
-        if (loop == 1) {
-            window.location.replace('http://localhost/srilankatravelhelper/visitor/manage-reviews.php?l=0');
-        } else {
-            return true;
-        }
-          
-    });
-
     $('.driver').click(function () {
-
         var name = $(this).text();
         var id = $(this).attr('driverid');
         $('#myInput').val(name);
@@ -542,6 +530,52 @@ $(document).ready(function () {
                 $('.review-black-star').append(star);
 
 
+
+            }
+        });
+    }
+    
+    var get_tour = $('#get_tour').val();
+    if (get_tour != '') {
+        var visitor = $('#visitorid').val();
+
+        $.ajax({
+            url: "post-and-get/ajax/review.php",
+            cache: false,
+            dataType: "json",
+            type: "POST",
+            data: {
+                tour: get_tour,
+                visitor: visitor,
+                option: 'CHECKTOUR'
+            },
+            success: function (review) {
+                $('.review-add-section').removeClass('hidden');
+                if (!review) {
+                    $('.visitor-review').text(0);
+                    var i, star = '';
+
+                    for (i = 1; i <= 5; i++) {
+                        star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                    }
+                } else {
+                    $('#reviewid').val(review.id);
+                    $('.visitor-review').text(review.reviews);
+
+
+                    var i, j, star_number, star = '';
+                    star_number = review.reviews;
+
+                    for (i = 1; i <= star_number; i++) {
+                        star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/yellow.png" alt=""/></a></div>';
+                    }
+                    for (j = i; j <= 5; j++) {
+                        star += '<div class="star" number="' + j + '" onClick="reviews(' + j + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                    }
+                }
+
+                $('.review-black-star').empty();
+                $('.review-black-star').append(star);
 
             }
         });

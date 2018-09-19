@@ -2,16 +2,22 @@
 include_once(dirname(__FILE__) . '/class/include.php');
 
 $driver = '';
+$tour = '';
+$destination = '';
 if (isset($_GET["driver"])) {
     $driver = $_GET["driver"];
+    $DRIVER = new Drivers($driver);
+    $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($driver);
+    $REVIEWS = Reviews::getTotalReviewsOfDriver($driver);
+} elseif (isset($_GET["tour"])) {
+    $tour = $_GET["tour"];
+    $TOUR = new TourPackages($tour);
+    $REVIEWS = Reviews::getTotalReviewsOfTour($tour);
+} elseif (isset($_GET["destination"])) {
+    $destination = $_GET["destination"];
+    $DESTINATION = new Drivers($destination);
+    $REVIEWS = Reviews::getTotalReviewsOfDestination($destination);
 }
-
-$DRIVER = new Drivers($driver);
-
-
-$DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($driver);
-
-$REVIEWS = Reviews::getTotalReviewsOfDriver($driver);
 
 $divider = $REVIEWS['count'];
 $sum = $REVIEWS['sum'];
@@ -37,8 +43,6 @@ $stars = $sum / $divider;
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
         <style>
-
-
             /* This rule is read by Galleria to define the gallery height: */
             #galleria{height:480px}
             /*driver*/
@@ -242,6 +246,18 @@ $stars = $sum / $divider;
                                 <li><span class="active">Drivers</span></li>
                                 <li><span class="active"><?php echo $DRIVER->name; ?></span></li>
                                 <?php
+                            } elseif ($tour) {
+                                ?>
+                                <li><a href="./">Home</a></li>
+                                <li><span class="active">Tour Packages</span></li>
+                                <li><span class="active"><?php echo $TOUR->name; ?></span></li>
+                                <?php
+                            } elseif ($destination) {
+                                ?>
+                                <li><a href="./">Home</a></li>
+                                <li><span class="active">Destinations</span></li>
+                                <li><span class="active"><?php echo $DESTINATION->name; ?></span></li>
+                                <?php
                             }
                             ?>
 
@@ -253,54 +269,139 @@ $stars = $sum / $divider;
                 <div class="row">
                     <div class="col-md-3" >
 
+                        <?php
+                        if ($driver) {
+                            ?>
+                            <div class="driver-profile-section" >
 
-                        <div class="driver-profile-section" >
-
-                            <div class="listing-item">
-                                <?php
-                                foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
-                                    if ($key == 0) {
-                                        ?>
-                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                        <?php
-                                    }
-                                }
-                                ?> 
-                            </div>
-                            <div class="img-pad "> 
-                                <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
-                            </div> 
-                            <div class="profile-description ">
-                                <h3><?php echo $DRIVER->name; ?></h3>
-                            </div>
-                            <div class="driver-rating">
-                                <div class="star-rating-driver text-right"> 
+                                <div class="listing-item">
                                     <?php
-                                    for ($i = 1; $i <= $stars; $i++) {
-                                        ?>
-                                        <i class="fa fa-star"></i>
-                                        <?php
+                                    foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                        if ($key == 0) {
+                                            ?>
+                                            <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                            <?php
+                                        }
                                     }
-                                    for ($j = $i; $j <= 5; $j++) {
-                                        ?>
-                                        <i class="fa fa-star-o"></i>
+                                    ?> 
+                                </div>
+                                <div class="img-pad "> 
+                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
+                                </div> 
+                                <div class="profile-description ">
+                                    <h3><?php echo $DRIVER->name; ?></h3>
+                                </div>
+                                <div class="driver-rating">
+                                    <div class="star-rating-driver text-right"> 
                                         <?php
-                                    }
-                                    ?>
+                                        for ($i = 1; $i <= $stars; $i++) {
+                                            ?>
+                                            <i class="fa fa-star"></i>
+                                            <?php
+                                        }
+                                        for ($j = $i; $j <= 5; $j++) {
+                                            ?>
+                                            <i class="fa fa-star-o"></i>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    </div>
                                 </div>
-                                <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                <div class="profile-description ">
+                                    <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
                                 </div>
-                            </div>
-                            <div class="profile-description ">
-                                <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
-                            </div>
-                            <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
-                                <div class="row text-center">
-                                    <a href="visitor/manage-reviews.php?driver=<?php echo $driver; ?>&back=driverreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
+                                    <div class="row text-center">
+                                        <a href="visitor/manage-reviews.php?driver=<?php echo $driver; ?>&back=driverreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
+                            </div>
+                            <?php
+                        } elseif ($tour) {
+                            ?>
+                            <div class="driver-profile-section" >
+
+                                <div class="listing-item">
+                                    <img src="upload/tour-package/thumb/<?php echo $TOUR->image_name; ?>" alt="">
+                                </div> 
+                                <div class="profile-description ">
+                                    <h3><?php echo $TOUR->name; ?></h3>
+                                </div>
+                                <div class="driver-rating">
+                                    <div class="star-rating-driver text-right"> 
+                                        <?php
+                                        for ($i = 1; $i <= $stars; $i++) {
+                                            ?>
+                                            <i class="fa fa-star"></i>
+                                            <?php
+                                        }
+                                        for ($j = $i; $j <= 5; $j++) {
+                                            ?>
+                                            <i class="fa fa-star-o"></i>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    </div>
+                                </div>
+                                <div class="profile-description ">
+                                    <p><?php echo substr($TOUR->short_description, 0, 155) . '...'; ?></p>
+                                </div>
+                                <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
+                                    <div class="row text-center">
+                                        <a href="visitor/manage-tour-package-reviews.php?tour=<?php echo $tour; ?>&back=tourreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <?php
+                        } elseif ($destination) {
+                            ?>
+                            <div class="driver-profile-section" >
+
+                                <div class="listing-item">
+                                    <img src="upload/destination/thumb/<?php echo $TOUR->image_name; ?>" alt="">
+                                </div> 
+                                <div class="profile-description ">
+                                    <h3><?php echo $DESTINATION->name; ?></h3>
+                                </div>
+                                <div class="driver-rating">
+                                    <div class="star-rating-driver text-right"> 
+                                        <?php
+                                        for ($i = 1; $i <= $stars; $i++) {
+                                            ?>
+                                            <i class="fa fa-star"></i>
+                                            <?php
+                                        }
+                                        for ($j = $i; $j <= 5; $j++) {
+                                            ?>
+                                            <i class="fa fa-star-o"></i>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    </div>
+                                </div>
+                                <div class="profile-description ">
+                                    <p><?php echo substr($DESTINATION->short_description, 0, 155) . '...'; ?></p>
+                                </div>
+                                <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
+                                    <div class="row text-center">
+                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $destination; ?>&back=destinationreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+
                         <div class="padding-top-20"></div>
                         <div class="">
                             <img src="images/side-banner/side-banner.jpg" alt=""/>
@@ -312,6 +413,7 @@ $stars = $sum / $divider;
 
                             <div class="">
                                 <?php
+                            if ($driver) {
                                 foreach (Reviews::getReviewsByDriver($DRIVER->id) as $review) {
                                     $VISITOR = new Visitor($review['visitor']);
                                     ?>
@@ -367,7 +469,120 @@ $stars = $sum / $divider;
                                     </div>
                                     <?php
                                 }
-                                ?>
+                            } elseif ($tour) {
+                                foreach (Reviews::getReviewsByTour($TOUR->id) as $review) {
+                                    $VISITOR = new Visitor($review['visitor']);
+                                    ?>
+                                    <div class="reviws-section">
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-2 img-section">
+                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                            </div>  
+                                            <div class="col-md-7">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+
+
+                                            </div> 
+                                            <div class="col-md-3 star-section">
+                                                <div class="package-ratings-review">
+                                                    <ul class="two-column">
+                                                        <div class="reviews-item1 ">
+                                                            <li>
+                                                                <?php
+                                                                $stars = $review['reviews'];
+                                                                for ($i = 1; $i <= $stars; $i++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <?php
+                                                                }
+                                                                for ($j = $i; $j <= 5; $j++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </li>
+                                                            <li>
+                                                                <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                            </li>
+                                                            <div class="like-icon-section">
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon "></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            } elseif ($destination) {
+                                foreach (Reviews::getReviewsByDestination($DESTINATION->id) as $review) {
+                                    $VISITOR = new Visitor($review['visitor']);
+                                    ?>
+                                    <div class="reviws-section">
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-2 img-section">
+                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                            </div>  
+                                            <div class="col-md-7">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+
+
+                                            </div> 
+                                            <div class="col-md-3 star-section">
+                                                <div class="package-ratings-review">
+                                                    <ul class="two-column">
+                                                        <div class="reviews-item1 ">
+                                                            <li>
+                                                                <?php
+                                                                $stars = $review['reviews'];
+                                                                for ($i = 1; $i <= $stars; $i++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <?php
+                                                                }
+                                                                for ($j = $i; $j <= 5; $j++) {
+                                                                    ?>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </li>
+                                                            <li>
+                                                                <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                            </li>
+                                                            <div class="like-icon-section">
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon"></span>
+                                                                </div>
+                                                                <div class="col-md-4 like-icon-section-pd">
+                                                                    <span class="like-icon "></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
 
                             </div>
                         </div>
