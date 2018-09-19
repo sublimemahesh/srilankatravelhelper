@@ -8,7 +8,6 @@ if (isset($_GET['driver'])) {
     $id = $_GET['driver'];
     $loop = 1;
     $Driver = new Drivers($id);
-    
 }
 if (isset($_GET['l'])) {
     $loop = $_GET['l'];
@@ -18,21 +17,13 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!Visitor::authenticate()) {
-    if($_GET['back'] === 'driverreview') {
+    if ($_GET['back'] === 'driverreview') {
         $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-reviews.php?driver=' . $id;
-        
     }
     redirect('index.php?message=24');
 }
-//if (!isset($_SESSION["login"])) {
-//    $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-reviews.php?driver=' . $id;
-//    redirect('index.php');
-//}
-
-
 
 $VISITOR = new Visitor($_SESSION['id']);
-//$DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
 ?>
 <html>
     <head>
@@ -81,7 +72,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                             <div class="panel-body">
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for driver.." title="Type in a name">
                                 <div class="searchbutton"><img src="images/searchicon.png" alt=""/></div>
-                                <input type="hidden" id="driverid" name="id" value="<?php if (isset($_GET['driver'])) {echo $Driver->id; }; ?>" />
+                                <input type="hidden" id="driverid" name="id" value="<?php
+                                if (isset($_GET['driver'])) {
+                                    echo $Driver->id;
+                                };
+                                ?>" />
                                 <ul id="myUL" class="hidden">
                                     <?php
                                     foreach (Drivers::all() as $driver) {
@@ -166,7 +161,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
                                 <div class="col-md-12 col-sm-12 col-xs-12 review-add-section">
-                                    <h2>Add Review for <span id="driver-name"><?php if (isset($_GET['driver'])) {echo $Driver->name; }; ?></span></h2>
+                                    <h2>Add Review for <span id="driver-name"><?php
+                                            if (isset($_GET['driver'])) {
+                                                echo $Driver->name;
+                                            };
+                                            ?></span></h2>
                                     <div class="review col-md-2 col-sm-12 col-xs-12 col-md-offset-5">
                                         <span class="visitor-review">0</span> / 5
                                     </div>
@@ -260,10 +259,25 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             var contentheight = $(window).height() + 500;
                                             $('.content').css('height', contentheight);
                                         }
-                                        
-                                        
-                                        
+
+
+
                                     });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#myInput').click(function () {
+
+                    var loop = $('#loop').val();
+
+                    if (loop == 1) {
+                        window.location.replace('http://localhost/srilankatravelhelper/visitor/manage-reviews.php?l=0');
+                    } else {
+                        return true;
+                    }
+
+                });
+            });
         </script>
         <script src="js/add-review.js" type="text/javascript"></script>
     </body>

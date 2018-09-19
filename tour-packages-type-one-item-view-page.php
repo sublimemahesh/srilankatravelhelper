@@ -9,7 +9,6 @@ $divider1 = $REVIEWS['count'];
 $sum1 = $REVIEWS['sum'];
 
 $stars1 = $sum1 / $divider1;
-// $TOUR_DATE_PHOTOS  = new TourDatePhoto($id);
 ?>
 <!DOCTYPE html>
 <head>
@@ -23,18 +22,10 @@ $stars1 = $sum1 / $divider1;
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-    <!--    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    -->
-    <!--    <link href="css/set1.css" rel="stylesheet" type="text/css"/>-->
-    <!--    <link href="lib/owl/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-        <link href="lib/owl/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>-->
-    <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
     <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
     <style>
-
-        /* This rule is read by Galleria to define the gallery height: */
-        #galleria{height:480px}
-        #galleria1{height:480px}
 
         /*reviews*/
         .img-section img{
@@ -166,6 +157,9 @@ $stars1 = $sum1 / $divider1;
         }
         .item1{
             padding-bottom: 100px;
+        }
+        a:hover {
+            text-decoration: none;
         }
 
     </style>
@@ -383,60 +377,68 @@ $stars1 = $sum1 / $divider1;
                         </div>	
                     </div>	
                     <div class="col-md-8 ">
+                        <div class="reviws-section">
+                            <div class="review-carousel testimonials">
+                                <?php
+                                foreach (Reviews::getReviewsByTour($TOUR->id) as $review) {
+                                    $VISITOR = new Visitor($review['visitor']);
+                                    ?>
+                                    <div class="col-md-12">
 
-                        <div class="reviws-section col-md-12">
-                            <div class="col-md-2 img-section">
-                                <img src="images/reviews-avatar.jpg" class="img-circle"  alt=""/>
-                                <h4 class="center reviews-title">Name</h4>
-                            </div>  
-                            <div class="col-md-7">
-                                <h4 class=" reviews-title">Title</h4>
-                                <p class="reviews-description">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                    Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                    <a  data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        Read more...
-                                    </a></p>
-                                <p class="collapse reviews-description" id="item1" >Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros.
-                                    Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                                </p>
-                            </div> 
+                                        <div class="col-md-2 img-section">
+                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                        </div>  
+                                        <div class="col-md-7">
+                                            <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
 
-                            <div class="col-md-3 star-section">
-                                <div class="package-ratings-review">
 
-                                    <ul class="two-column">
-                                        <div class="reviews-item1 ">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <p class="count-reviews" style="color:#000 !important;">27 Reviews</p>
-                                            </li>
-                                            <div class="like-icon-section">
-                                                <div class="col-md-4 like-icon-section-pd">
-                                                    <span class="like-icon"></span>
-                                                </div>
-                                                <div class="col-md-4 like-icon-section-pd">
-                                                    <span class="like-icon"></span>
-                                                </div>
-                                                <div class="col-md-4 like-icon-section-pd">
-                                                    <span class="like-icon "></span>
-                                                </div>
+                                        </div> 
+                                        <div class="col-md-3 star-section">
+                                            <div class="package-ratings-review">
+                                                <ul class="two-column">
+                                                    <div class="reviews-item1 ">
+                                                        <li>
+                                                            <?php
+                                                            $stars = $review['reviews'];
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </li>
+                                                        <li>
+                                                            <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                        </li>
+                                                        <div class="like-icon-section">
+                                                            <div class="col-md-4 like-icon-section-pd">
+                                                                <span class="like-icon"></span>
+                                                            </div>
+                                                            <div class="col-md-4 like-icon-section-pd">
+                                                                <span class="like-icon"></span>
+                                                            </div>
+                                                            <div class="col-md-4 like-icon-section-pd">
+                                                                <span class="like-icon "></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ul>
                                             </div>
+                                        </div> 
+                                    </div>
+                                    <?php
+                                }
+                                ?>
 
-
-                                        </div>
-                                    </ul>
-
-                                </div>
-                            </div>  
+                            </div>
                         </div>
-                        <div >
-
+                        <div class="review-button">
+                            <a href="view-all-reviews.php?tour=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
                         </div>
                     </div>
 
@@ -446,25 +448,7 @@ $stars1 = $sum1 / $divider1;
         </div>
         <?php include './footer.php'; ?>
     </div>
-    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>-->
     <script src="scripts/jquery_2.2.4.js" type="text/javascript"></script>
-    <!-- load Galleria -->
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.3/galleria.min.js"></script>-->
-<!--    <script src="scripts/galleria_1.5.3.min.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.3/themes/classic/galleria.classic.min.js"></script>
-    <script src="scripts/galleria_1.5.3_galleria.classic.min.js" type="text/javascript"></script>
-    <script>
-        $(function () {
-            Galleria.run('#galleria');
-
-        });
-    </script>
-    <script>
-        $(function () {
-            Galleria.run('#galleria1');
-
-        });
-    </script>-->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
