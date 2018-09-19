@@ -324,6 +324,26 @@
                 }
             }]
         });
+        $('.review-carousel').slick({
+            centerMode: false,
+            centerPadding: '0px',
+            slidesToShow: 1,
+            dots: true,
+            arrows: false,
+            responsive: [{
+                breakpoint: 1025,
+                settings: {
+                    centerPadding: '10px',
+                    slidesToShow: 1,
+                }
+            }, {
+                breakpoint: 767,
+                settings: {
+                    centerPadding: '10px',
+                    slidesToShow: 1
+                }
+            }]
+        });
         $('.listing-slider').slick({
             centerMode: true,
             centerPadding: '20%',

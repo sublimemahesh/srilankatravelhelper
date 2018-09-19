@@ -90,22 +90,31 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     </div>
                                     <div class="star-rating-fa text-right"> 
                                         <?php
-                                        $REVIEWS = DriverReviews::getTotalReviewsOfDriver($driver['id']);
+                                        $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
 
                                         $divider = $REVIEWS['count'];
                                         $sum = $REVIEWS['sum'];
 
-                                        $stars = $sum / $divider;
+                                        if ($divider == 0) {
+                                            for ($j = 1; $j <= 5; $j++) {
+                                                ?>
+                                                <i class="fa fa-star-o"></i>
+                                                <?php
+                                            }
+                                            $sum = 0;
+                                        } else {
+                                            $stars = $sum / $divider;
 
-                                        for ($i = 1; $i <= $stars; $i++) {
-                                            ?>
-                                            <i class="fa fa-star"></i>
-                                            <?php
-                                        }
-                                        for ($j = $i; $j <= 5; $j++) {
-                                            ?>
-                                            <i class="fa fa-star-o"></i>
-                                            <?php
+                                            for ($i = 1; $i <= $stars; $i++) {
+                                                ?>
+                                                <i class="fa fa-star"></i>
+                                                <?php
+                                            }
+                                            for ($j = $i; $j <= 5; $j++) {
+                                                ?>
+                                                <i class="fa fa-star-o"></i>
+                                                <?php
+                                            }
                                         }
                                         ?>
                                         <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
@@ -126,205 +135,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </section>
-            <!--
-                            <div class="container padding-top-45 padding-bottom-15 hidden-sm hidden-xs">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                                <div class="item-overlay">
-                                                    <div class="overlay-content">
-                                                        <h2>Tom Jasan</h2>
-                                                        <p>Easy Polo Black Edition </p>
-                                                        <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            responsive
-                            <div class="container padding-top-35 visible-sm visible-xs">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="item-image-wrapper">
-                                            <div class="single-items">
-                                                <div class="iteminfo text-center">
-                                                    <img src="images/user-avatar.jpg"  alt="">
-                                                    <h2>Tom Jasan</h2>
-                                                    <p>Easy Polo Black Edition </p>
-                                                    <a href="drivers-view-page.php" class="button border with-icon add-to-cart"><i class="fa fa-plus-square"></i>View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
-<?php include './footer.php'; ?>
+            <?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts

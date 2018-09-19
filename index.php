@@ -470,31 +470,6 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
     <!-- jquery latest version -->
     <script src="slider css/jquery-3.2.0.min.js" type="text/javascript"></script>
-    <!--     bootstrap js 
-        <script src="slider css/bootstrap.min.js" type="text/javascript"></script>
-         owl.carousel js 
-        <script src="slider css/owl.carousel.min.js" type="text/javascript"></script>
-         slick js 
-        <script src="slider css/slick.min.js" type="text/javascript"></script>
-         meanmenu js 
-        <script src="slider css/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="slider css/jquery.meanmenu.min.js" type="text/javascript"></script>
-         jquery-ui js 
-        <script src="slider css/wow.min.js" type="text/javascript"></script>
-         wow js 
-        <script src="slider css/jquery.counterup.min.js" type="text/javascript"></script>
-         counter js 
-        <script src="slider css/jquery.counterup.min.js" type="text/javascript"></script>
-         Countdown js 
-        
-         waypoints js 
-        <script src="slider css/jquery.waypoints.min.js" type="text/javascript"></script>
-         Isotope js 
-        <script src="slider css/isotope.pkgd.min.js" type="text/javascript"></script>
-         magnific js 
-        <script src="slider css/jquery.magnific-popup.min.js" type="text/javascript"></script>
-         Image loaded js 
-        <script src="slider css/imagesloaded.pkgd.min.js" type="text/javascript"></script>-->
     <!-- chossen js -->
     <script src="slider-css/chosen.jquery.min.js" type="text/javascript"></script>
     <script src="slider-css/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
@@ -511,20 +486,6 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <script src="slider-css/revolution.extension.slideanims.min.js" type="text/javascript"></script>
     <script src="slider-css/revolution.extension.video.min.js" type="text/javascript"></script>
     <script src="slider-css/revolution.js" type="text/javascript"></script>
-<!--    <script src="slider-css/custom.js" type="text/javascript"></script>-->
-    <!--     Jquery plugin 
-        <script src="slider css/plugins.js" type="text/javascript"></script>
-         select2 js plugin 
-          <script src="slider css/select2.min.js" type="text/javascript"></script>
-          <script src="slider css/colors.js" type="text/javascript"></script>
-         Jquery plugin 
-        <script src="slider css/customselect.js" type="text/javascript"></script>
-         main js 
-        
-    -->
-
-
-
 
 </body>
 </html>

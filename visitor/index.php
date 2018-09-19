@@ -1,5 +1,16 @@
 <?php
+
 include_once '../class/include.php';
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+$back_url = '';
+if (isset($_SESSION["back_url"])) {
+    $back_url = $_SESSION["back_url"];
+}
+
 ?>
 <html>
     <head>
@@ -103,6 +114,8 @@ include_once '../class/include.php';
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
                                 <h4><a href="forgot-password.php">Forgotten Password?</a></h4>
+                                
+                                <input type="hidden" class="form-control"  name="back_url" value="<?php echo $back_url ?>">
                             </form>
 
                         </div>

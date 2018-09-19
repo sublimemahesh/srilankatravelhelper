@@ -1,6 +1,35 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . '/auth.php');
+//include_once(dirname(__FILE__) . '/auth.php');
+
+$id = '';
+$loop = '';
+if (isset($_GET['driver'])) {
+    $id = $_GET['driver'];
+    $loop = 1;
+    $Driver = new Drivers($id);
+    
+}
+if (isset($_GET['l'])) {
+    $loop = $_GET['l'];
+}
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!Visitor::authenticate()) {
+    if($_GET['back'] === 'driverreview') {
+        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-reviews.php?driver=' . $id;
+        
+    }
+    redirect('index.php?message=24');
+}
+//if (!isset($_SESSION["login"])) {
+//    $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-reviews.php?driver=' . $id;
+//    redirect('index.php');
+//}
+
+
 
 $VISITOR = new Visitor($_SESSION['id']);
 //$DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
@@ -52,7 +81,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                             <div class="panel-body">
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for driver.." title="Type in a name">
                                 <div class="searchbutton"><img src="images/searchicon.png" alt=""/></div>
-                                <input type="hidden" id="driverid" name="id" value="" />
+                                <input type="hidden" id="driverid" name="id" value="<?php if (isset($_GET['driver'])) {echo $Driver->id; }; ?>" />
                                 <ul id="myUL" class="hidden">
                                     <?php
                                     foreach (Drivers::all() as $driver) {
@@ -64,13 +93,80 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                 </ul>
 
+                                <div class="reviewsbydriver">
+
+                                </div>
+
                                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 driver-profile">
+
+                                    <?php
+                                    if ($id) {
+                                        ?>
+                                        <div class="listing-item">
+                                            <?php
+                                            foreach (DriverPhotos::getDriverPhotosByDriver($Driver->id) as $key => $photo) {
+                                                if ($key == 0) {
+                                                    ?>
+                                                    <img src="../upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="img-pad">
+                                            <img src="../upload/drivers/<?php echo $Driver->profile_picture; ?>" class="img-circle driver-list">
+                                        </div>
+                                        <div class="driver-name text-left">
+                                            <?php echo $Driver->name; ?>
+                                        </div>
+                                        <div class="row">
+                                            <div class="star-rating-fa text-right col-md-5">
+                                                <?php
+                                                $REVIEWS = Reviews::getTotalReviewsOfDriver($Driver->id);
+
+                                                $divider = $REVIEWS['count'];
+                                                $sum = $REVIEWS['sum'];
+
+                                                if ($divider == 0) {
+                                                    for ($j = 1; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    $sum = 0;
+                                                } else {
+                                                    $stars = $sum / $divider;
+
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br>
+                                            </div>
+                                            <div class="col-md-7"></div>
+                                        </div>
+                                        <div style="margin-top: 0px;padding-bottom: 7px; text-align: center;">
+                                            <p class="text-center " id="">
+                                                <?php echo $Driver->short_description; ?>
+                                            </p>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
 
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
-                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section hidden">
-                                    <h2>Add Review for <span id="driver-name"></span></h2>
+                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section">
+                                    <h2>Add Review for <span id="driver-name"><?php if (isset($_GET['driver'])) {echo $Driver->name; }; ?></span></h2>
                                     <div class="review col-md-2 col-sm-12 col-xs-12 col-md-offset-5">
                                         <span class="visitor-review">0</span> / 5
                                     </div>
@@ -89,7 +185,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                     </div>
 
                 </div>
-
+                <input type="hidden" id="get_driver" value="<?php echo $id; ?>" />
+                <input type="hidden" id="loop" value="<?php echo $loop; ?>" />
             </div>
             <?php
             include './footer.php';
@@ -104,66 +201,69 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="delete/js/driver-photo.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/reviews.js" type="text/javascript"></script>
-        
+
         <script>
-            function myFunction() {
+                                    function myFunction() {
 
-                $('#myUL').removeClass('hidden');
+                                        $('#myUL').removeClass('hidden');
 
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-            function reviews(s) {
+                                        var input, filter, ul, li, a, i;
+                                        input = document.getElementById("myInput");
+                                        filter = input.value.toUpperCase();
+                                        ul = document.getElementById("myUL");
+                                        li = ul.getElementsByTagName("li");
+                                        for (i = 0; i < li.length; i++) {
+                                            a = li[i].getElementsByTagName("a")[0];
+                                            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                                li[i].style.display = "";
+                                            } else {
+                                                li[i].style.display = "none";
+                                            }
+                                        }
+                                    }
+                                    function reviews(s) {
 
-                var html1 = '';
-                var j, k;
-                var star_number = s;
+                                        var html1 = '';
+                                        var j, k;
+                                        var star_number = s;
 
-                for (j = 1; j <= star_number; j++) {
+                                        for (j = 1; j <= star_number; j++) {
 
-                    html1 += '<div class="star" number="' + j + '" onClick="reviews(' + j + ')" ><a><img class="star1" src="images/yellow.png" alt=""/></a></div>';
-                }
+                                            html1 += '<div class="star" number="' + j + '" onClick="reviews(' + j + ')" ><a><img class="star1" src="images/yellow.png" alt=""/></a></div>';
+                                        }
 
-                for (k = j; k <= 5; k++) {
-                    html1 += '<div class="star" number="' + k + '"  onClick="reviews(' + k + ')"><a><img class="star1" src="images/black.png" alt=""/></a></div>';
-                }
-
-
-                $('.visitor-review').text(star_number);
-                $('#add-review').attr('review', star_number);
+                                        for (k = j; k <= 5; k++) {
+                                            html1 += '<div class="star" number="' + k + '"  onClick="reviews(' + k + ')"><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                                        }
 
 
-                $('.review-black-star').empty();
-                $('.review-black-star').append(html1);
-            }
+                                        $('.visitor-review').text(star_number);
+                                        $('#add-review').attr('review', star_number);
+
+
+                                        $('.review-black-star').empty();
+                                        $('.review-black-star').append(html1);
+                                    }
 
 
 
-            $(window).load(function () {
-                var width = $(window).width();
+                                    $(window).load(function () {
+                                        var width = $(window).width();
 
-                if (width > 576) {
-                    var contentheight = $(window).height() + 175;
-                    var navigationheight = $(window).height() + 100;
+                                        if (width > 576) {
+                                            var contentheight = $(window).height() + 175;
+                                            var navigationheight = $(window).height() + 100;
 
-                    $('.content').css('height', contentheight);
-                    $('.navigation').css('height', navigationheight);
-                } else {
-                    var contentheight = $(window).height() + 500;
-                    $('.content').css('height', contentheight);
-                }
-            });
+                                            $('.content').css('height', contentheight);
+                                            $('.navigation').css('height', navigationheight);
+                                        } else {
+                                            var contentheight = $(window).height() + 500;
+                                            $('.content').css('height', contentheight);
+                                        }
+                                        
+                                        
+                                        
+                                    });
         </script>
         <script src="js/add-review.js" type="text/javascript"></script>
     </body>
