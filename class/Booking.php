@@ -15,11 +15,12 @@ class Booking {
     public $start_date;
     public $end_date;
     public $message;
+    public $status;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`date_time_booked`,`tour_package`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message` FROM `booking` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`date_time_booked`,`tour_package`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`,`status` FROM `booking` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -35,6 +36,7 @@ class Booking {
             $this->start_date = $result['start_date'];
             $this->end_date = $result['end_date'];
             $this->message = $result['message'];
+            $this->status = $result['status'];
 
             return $this;
         }
@@ -43,8 +45,10 @@ class Booking {
     public function create() {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
+        
+        $status = 'active';
 
-        $query = "INSERT INTO `booking` (`date_time_booked`,`tour_package`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`) VALUES  ('"
+        $query = "INSERT INTO `booking` (`date_time_booked`,`tour_package`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`,`status`) VALUES  ('"
                 . $createdAt . "', '"
                 . $this->tour_package . "', '"
                 . $this->visitor . "', '"
@@ -53,7 +57,8 @@ class Booking {
                 . $this->driver . "', '"
                 . $this->start_date . "', '"
                 . $this->end_date . "', '"
-                . $this->message . "')";
+                . $this->message . "', '"
+                . $status . "')";
 
         $db = new Database();
 
@@ -116,9 +121,24 @@ class Booking {
         return $db->readQuery($query);
     }
 
-    public function getBookingsByDriver($driver) {
+    public function getActiveBookingsByDriver($driver) {
 
-        $query = "SELECT * FROM `booking` WHERE `driver`= $driver ORDER BY `date_time_booked` ASC";
+        $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` like 'active' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+    
+    public function getCanceledBookingsByDriver($driver) {
+
+        $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` = 'canceled' ORDER BY `date_time_booked` DESC";
 
         $db = new Database();
 
@@ -144,5 +164,22 @@ class Booking {
             array_push($array_res, $row);
         }
         return $array_res;
+    }
+    
+    public function cancelBooking() {
+
+        $query = "UPDATE  `booking` SET "
+                . "`status` ='canceled' "
+                . "WHERE `id` = '" . $this->id . "'";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return $this->__construct($this->id);
+        } else {
+            return FALSE;
+        }
     }
 }
