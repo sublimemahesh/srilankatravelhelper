@@ -12,6 +12,15 @@ and open the template in the editor.
 @media (max-width: 576px) {
 
     .navigation {
-        height: 554px;
+        height: 625px;
+    }
+    .manage-box {
+        margin: 52px 0px 53px;
+    }
+    .view-booking-details .row {
+        height: 55px;
+    }
+    .view-booking-details .row.msg {
+        height: auto;
     }
 }

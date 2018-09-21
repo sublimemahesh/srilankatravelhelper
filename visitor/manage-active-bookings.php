@@ -2,17 +2,18 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$DRIVER = new Drivers($_SESSION['id']);
+$VISITOR = new Visitor($_SESSION['id']);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Manage Bookings || Driver DashBoard</title>
+        <title>Manage Bookings || Visitor DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="plugins/datatables-responsive/dataTables.responsive.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -56,7 +57,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                 <th>ID</th>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
-                                                <th>Visitor</th>
+                                                <th>Driver</th>
                                                 <th>Tour Package</th>
                                                 <th>Option</th>
                                             </tr>
@@ -66,7 +67,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                 <th>ID</th>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
-                                                <th>Visitor</th>
+                                                <th>Driver</th>
                                                 <th>Tour Package</th>
                                                 <th>Option</th>
                                             </tr>
@@ -75,8 +76,8 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                                             <?php
                                             $i = 0;
-                                            foreach (Booking::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
-                                                $VISITOR = new Visitor($booking['visitor']);
+                                            foreach (Booking::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
+                                                $DRIVER = new Drivers($booking['driver']);
                                                 $TOUR = new TourPackages($booking['tour_package']);
                                                 
                                                 $i++;
@@ -86,10 +87,11 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                     <td><?php echo $booking['id']; ?></td> 
                                                     <td><?php echo $booking['date_time_booked']; ?></td> 
                                                   
-                                                    <td><?php echo $VISITOR->name; ?></td> 
+                                                    <td><?php echo $DRIVER->name; ?></td> 
                                                     <td><?php echo $TOUR->name; ?></td> 
                                                     <td> 
                                                         <a href="view-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
+                                                        <a href="edit-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
                                                         <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
                                                             <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
                                                         </a>  

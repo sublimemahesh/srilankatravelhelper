@@ -68,5 +68,15 @@
                 </div>
             </div>
         </a>
+        <a href="manage-bookings.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-male" id="differ-icon"></i>
+                </div>
+                <div class="icon-text">
+                    My Bookings
+                </div>
+            </div>
+        </a>
     </div>
 </div>

@@ -90,12 +90,8 @@ class Booking {
     public function update() {
 
         $query = "UPDATE  `booking` SET "
-                . "`date_time_booked` ='" . $this->date_time_booked . "', "
-                . "`tour_package` ='" . $this->tour_package . "', "
-                . "`visitor` ='" . $this->visitor . "', "
                 . "`no_of_adults` ='" . $this->no_of_adults . "', "
                 . "`no_of_children` ='" . $this->no_of_children . "', "
-                . "`driver` ='" . $this->driver . "', "
                 . "`start_date` ='" . $this->start_date . "', "
                 . "`end_date` ='" . $this->end_date . "', "
                 . "`message` ='" . $this->message . "' "
@@ -151,9 +147,24 @@ class Booking {
         return $array_res;
     }
     
-    public function getBookingsByVisitor($visitor) {
+    public function getActiveBookingsByVisitor($visitor) {
 
-        $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor ORDER BY `date_time_booked` ASC";
+        $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor AND `status` like 'active' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+    
+    public function getCanceledBookingsByVisitor($visitor) {
+
+        $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor AND `status` = 'canceled' ORDER BY `date_time_booked` DESC";
 
         $db = new Database();
 
