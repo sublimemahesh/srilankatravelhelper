@@ -140,13 +140,17 @@ $DRIVER = new Drivers($_SESSION['id']);
 //                    $('.content').css('height', contentheight);
                 }
 
-                
+
 
             });
-            $(document).ready(function() {
-                setTimeout(function () {
-                    $('.table').css('width','228px');
-                }, 1000);
+            $(document).ready(function () {
+                var width = $(window).width();
+
+                if (width < 576) {
+                    setTimeout(function () {
+                        $('.table').css('width', '228px');
+                    }, 1000);
+                }
             });
         </script>
     </body>
