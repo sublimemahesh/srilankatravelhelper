@@ -450,6 +450,28 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">map</i>
+                        <span>Bookings</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="manage-active-bookings.php">
+                                <i class="material-icons">list</i>
+                                <span>Active Bookings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-canceled-bookings.php">
+                                <i class="material-icons">list</i>
+                                <span>Canceled Bookings</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                                          
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">map</i>
                         <span>Comments</span>
                     </a>
                     <ul class="ml-menu">
