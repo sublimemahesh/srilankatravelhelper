@@ -25,6 +25,8 @@ include_once(dirname(__FILE__) . '/Drivers.php');
 include_once(dirname(__FILE__) . '/DriverPhotos.php');
 include_once(dirname(__FILE__) . '/Visitor.php');
 include_once(dirname(__FILE__) . '/Reviews.php');
+include_once(dirname(__FILE__) . '/City.php');
+include_once(dirname(__FILE__) . '/Booking.php');
 
 function dd($data) {
     var_dump($data);

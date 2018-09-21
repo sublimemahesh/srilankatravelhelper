@@ -17,26 +17,26 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
     <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
 
-    <!--        <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-         animate css 
-        <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
-         Button Hover animate css 
-        <link href="slider css/hover-min.css" rel="stylesheet" type="text/css"/>
-         jquery-ui.min css 
-        <link href="slider css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-        <link href="slider css/meanmenu.min.css" rel="stylesheet" type="text/css"/>
-         meanmenu css 
-        <link href="slider css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-        <link href="slider css/slick.css" rel="stylesheet" type="text/css"/>
-         slick css 
-        <link href="slider css/chosen.min.css" rel="stylesheet" type="text/css"/>
-        <link href="slider css/jquery-customselect.css" rel="stylesheet" type="text/css"/>
-         chosen.min
-      
-         font-awesome css 
-    -->        <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
-            <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
-             magnific Css -->
+    <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!--         animate css 
+            <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
+             Button Hover animate css 
+            <link href="slider css/hover-min.css" rel="stylesheet" type="text/css"/>
+             jquery-ui.min css 
+            <link href="slider css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+            <link href="slider css/meanmenu.min.css" rel="stylesheet" type="text/css"/>
+             meanmenu css 
+            <link href="slider css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+            <link href="slider css/slick.css" rel="stylesheet" type="text/css"/>
+             slick css 
+            <link href="slider css/chosen.min.css" rel="stylesheet" type="text/css"/>
+            <link href="slider css/jquery-customselect.css" rel="stylesheet" type="text/css"/>
+             chosen.min-->
+
+    <!--font-awesome css--> 
+    <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
+    <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
+     magnific Css -->
 
     <!-- Revolution Slider -->
     <link href="slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>

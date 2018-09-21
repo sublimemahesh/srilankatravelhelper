@@ -103,7 +103,7 @@ $stars1 = $sum1 / $divider1;
         .rating-block{
             background-color:#F7F7F0;
             border:1px solid #F7F7F0;
-            padding:7% 12% 7% 12%;
+            padding: 10% 12% 11% 12%;
             border-radius:3%;
         }
         .bold{
@@ -161,6 +161,17 @@ $stars1 = $sum1 / $divider1;
         a:hover {
             text-decoration: none;
         }
+        @media(max-width:576px) {
+            .reviws-section {
+                height: auto;
+                margin-top: 20px;
+            }
+            .star-section {
+                border-top: 2px solid #e3d9d9;
+                border-left: 0px;
+                height: auto;
+            }
+        }
 
     </style>
 </head>
@@ -213,8 +224,11 @@ $stars1 = $sum1 / $divider1;
                             }
                             ?>
                         </div>
-
+                        
                     </div>
+                    <div class="review-button">
+                            <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
+                        </div>
                 </div>
                 <div class="col-md-3" >
                     <div>
@@ -306,75 +320,75 @@ $stars1 = $sum1 / $divider1;
                             }
                             ?>
                         </div>
-                        <div class="col-md-12" style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
-                             border: 1px solid #F7F7F0;border-radius: 3%; ">
-
-                            <div class="pull-left" >
-                                <div class="pull-left" style="width:35px; line-height:1;">
-                                    <div style="height:9px; margin:5px 0;">5 <span class="fa fa-star"></span></div>
-                                </div>
-                                <div class="pull-left" style="width:180px;">
-                                    <div class="progress" style="height:9px; margin:8px 0;">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right" style="margin-left:10px;">1</div>
-                            </div>
-                            <div class="pull-left">
-                                <div class="pull-left" style="width:35px; line-height:1;">
-                                    <div style="height:9px; margin:5px 0;">4 <span class="fa fa-star"></span></div>
-                                </div>
-                                <div class="pull-left" style="width:180px;">
-                                    <div class="progress" style="height:9px; margin:8px 0;">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right" style="margin-left:10px;">1</div>
-                            </div>
-                            <div class="pull-left">
-                                <div class="pull-left" style="width:35px; line-height:1;">
-                                    <div style="height:9px; margin:5px 0;">3 <span class="fa fa-star"></span></div>
-                                </div>
-                                <div class="pull-left" style="width:180px;">
-                                    <div class="progress" style="height:9px; margin:8px 0;">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right" style="margin-left:10px;">0</div>
-                            </div>
-                            <div class="pull-left">
-                                <div class="pull-left" style="width:35px; line-height:1;">
-                                    <div style="height:9px; margin:5px 0;">2 <span class="fa fa-star"></span></div>
-                                </div>
-                                <div class="pull-left" style="width:180px;">
-                                    <div class="progress" style="height:9px; margin:8px 0;">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right" style="margin-left:10px;">0</div>
-                            </div>
-                            <div class="pull-left">
-                                <div class="pull-left" style="width:35px; line-height:1;">
-                                    <div style="height:9px; margin:5px 0;">1 <span class="fa fa-star"></span></div>
-                                </div>
-                                <div class="pull-left" style="width:180px;">
-                                    <div class="progress" style="height:9px; margin:8px 0;">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right" style="margin-left:10px;">0</div>
-                            </div>
-                        </div>	
+                        <!--                        <div class="col-md-12" style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
+                                                     border: 1px solid #F7F7F0;border-radius: 3%; ">
+                        
+                                                    <div class="pull-left" >
+                                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                                            <div style="height:9px; margin:5px 0;">5 <span class="fa fa-star"></span></div>
+                                                        </div>
+                                                        <div class="pull-left" style="width:180px;">
+                                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right" style="margin-left:10px;">1</div>
+                                                    </div>
+                                                    <div class="pull-left">
+                                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                                            <div style="height:9px; margin:5px 0;">4 <span class="fa fa-star"></span></div>
+                                                        </div>
+                                                        <div class="pull-left" style="width:180px;">
+                                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right" style="margin-left:10px;">1</div>
+                                                    </div>
+                                                    <div class="pull-left">
+                                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                                            <div style="height:9px; margin:5px 0;">3 <span class="fa fa-star"></span></div>
+                                                        </div>
+                                                        <div class="pull-left" style="width:180px;">
+                                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                                    </div>
+                                                    <div class="pull-left">
+                                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                                            <div style="height:9px; margin:5px 0;">2 <span class="fa fa-star"></span></div>
+                                                        </div>
+                                                        <div class="pull-left" style="width:180px;">
+                                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                                    </div>
+                                                    <div class="pull-left">
+                                                        <div class="pull-left" style="width:35px; line-height:1;">
+                                                            <div style="height:9px; margin:5px 0;">1 <span class="fa fa-star"></span></div>
+                                                        </div>
+                                                        <div class="pull-left" style="width:180px;">
+                                                            <div class="progress" style="height:9px; margin:8px 0;">
+                                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pull-right" style="margin-left:10px;">0</div>
+                                                    </div>
+                                                </div>	-->
                     </div>	
                     <div class="col-md-8 ">
                         <div class="reviws-section">
@@ -438,7 +452,7 @@ $stars1 = $sum1 / $divider1;
                             </div>
                         </div>
                         <div class="review-button">
-                            <a href="view-all-reviews.php?tour=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                            <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
                         </div>
                     </div>
 
