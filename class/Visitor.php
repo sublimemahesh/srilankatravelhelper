@@ -167,6 +167,7 @@ class Visitor {
 
             return TRUE;
         }
+        dd($result);
     }
 
     public function logOut() {

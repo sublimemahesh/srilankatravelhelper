@@ -18,6 +18,7 @@ class Drivers {
     public $name;
     public $email;
     public $address;
+    public $city;
     public $contact_number;
     public $nic_number;
     public $driving_licence_number;
@@ -39,6 +40,7 @@ class Drivers {
                     . "`name`,"
                     . "`email`,"
                     . "`address`,"
+                    . "`city`,"
                     . "`contact_number`,"
                     . "`nic_number`,"
                     . "`driving_licence_number`,"
@@ -62,6 +64,7 @@ class Drivers {
             $this->name = $result['name'];
             $this->email = $result['email'];
             $this->address = $result['address'];
+            $this->city = $result['city'];
             $this->contact_number = $result['contact_number'];
             $this->nic_number = $result['nic_number'];
             $this->driving_licence_number = $result['driving_licence_number'];
@@ -125,6 +128,7 @@ class Drivers {
                 . "`name` ='" . $this->name . "', "
                 . "`email` ='" . $this->email . "', "
                 . "`address` ='" . $this->address . "', "
+                . "`city` ='" . $this->city . "', "
                 . "`contact_number` ='" . $this->contact_number . "', "
                 . "`nic_number` ='" . $this->nic_number . "', "
                 . "`driving_licence_number` ='" . $this->driving_licence_number . "', "
@@ -433,5 +437,20 @@ class Drivers {
         } else {
             return FALSE;
         }
+    }
+    
+    public function getDriverByCity($city) {
+
+        $query = "SELECT * FROM `drivers` WHERE `city` = '" . $city . "' ORDER BY `id` ASC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
     }
 }

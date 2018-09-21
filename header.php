@@ -6,7 +6,7 @@
             <div class="left-side">
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="#"><img src="images/logo/log-1.png" alt=""></a>
+                    <a href="./"><img src="images/logo/log-1.png" alt=""></a>
                 </div>
                 <!-- Mobile Navigation -->
                 <div class="mmenu-trigger">
@@ -19,7 +19,7 @@
                 <!-- Main Navigation -->
                 <nav id="navigation" class="style-1">
                     <ul id="responsive">
-                        <li><a class="current" href="index.php">Home</a>
+                        <li><a class="current" href="./">Home</a>
 
                         </li>
                         <li><a href="destination-type.php">Destinations</a>
@@ -33,7 +33,7 @@
                         <li><a href="about.php">About</a>
                         <li><a href="contact.php">Contact</a>
                         </li>
-                        <li><a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a></li>
+                        <li><a href="visitor/"><i class="sl sl-icon-login"></i> Sign In</a></li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>

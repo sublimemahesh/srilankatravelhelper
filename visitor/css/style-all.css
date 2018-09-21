@@ -334,6 +334,7 @@ a:hover {
 #myUL li a:hover:not(.header) {
     background-color: #eee;
 }
+
 .listing-item-container {
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, .08);
     background-color: #fff;

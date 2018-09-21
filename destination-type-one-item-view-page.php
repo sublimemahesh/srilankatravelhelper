@@ -107,7 +107,7 @@ $stars1 = $sum1 / $divider1;
             .rating-block{
                 background-color:#F7F7F0;
                 border:1px solid #F7F7F0;
-                padding:7% 12% 7% 12%;
+                padding: 10% 12% 11% 12%;
                 border-radius:3%;
             }
             .bold{
@@ -166,6 +166,17 @@ $stars1 = $sum1 / $divider1;
             }
             a:hover {
                 text-decoration: none;
+            }
+            @media(max-width:576px) {
+                .reviws-section {
+                    height: auto;
+                    margin-top: 20px;
+                }
+                .star-section {
+                    border-top: 2px solid #e3d9d9;
+                    border-left: 0px;
+                    height: auto;
+                }
             }
 
         </style>
@@ -323,7 +334,7 @@ $stars1 = $sum1 / $divider1;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 " style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
+<!--                                <div class="col-md-12 " style="background:#9d9d9d;margin-top: 20px;padding: 7% 12% 7% 12%;background-color: #F7F7F0;
                                      border: 1px solid #F7F7F0;border-radius: 3%; ">
 
                                     <div class="pull-left" >
@@ -391,7 +402,7 @@ $stars1 = $sum1 / $divider1;
                                         </div>
                                         <div class="pull-right" style="margin-left:10px;">0</div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="col-md-8 ">
