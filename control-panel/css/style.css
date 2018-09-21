@@ -8125,3 +8125,14 @@ html.ie11 .bs-searchbox .form-control {
 #CDSWIDSSP{
     width:100% !important;
 }
+.title {
+    font-weight: 600;
+}
+.view-booking-details .row {
+    height: 31px;
+    font-size: 16px;
+}
+.view-booking-details .btn1 {
+    margin-top: 20px;
+    text-align: right;
+}

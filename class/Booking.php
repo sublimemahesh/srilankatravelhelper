@@ -177,6 +177,36 @@ class Booking {
         return $array_res;
     }
     
+    public function getActiveBookings() {
+
+        $query = "SELECT * FROM `booking` WHERE `status` like 'active' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+    
+    public function getCanceledBookings() {
+
+        $query = "SELECT * FROM `booking` WHERE `status` = 'canceled' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+    
     public function cancelBooking() {
 
         $query = "UPDATE  `booking` SET "
