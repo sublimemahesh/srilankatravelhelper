@@ -15,7 +15,7 @@ if (isset($_GET["tour"])) {
 
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'booking') {
-        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/booking.php?tour=' . $tour;
+        $_SESSION["back_url"] = 'http://travelhelper.galle.website/booking.php?tour=' . $tour;
     }
     redirect('visitor/index.php?message=24');
 }
