@@ -42,34 +42,26 @@ if (isset($_POST['update'])) {
     $handle = new Upload($_FILES['image']);
 
     if ($_POST ["oldImageName"]) {
-        $img = $_POST ["oldImageName"];
+        $imgName = $_POST ["oldImageName"];
+
     } else {
-        $img = Helper::randamId();
-    }
+        $imgName = null;
 
-
-
-    if ($handle->uploaded) {
-        $handle->image_resize = true;
-        $handle->file_new_name_body = TRUE;
-        $handle->file_overwrite = TRUE;
-        if ($_POST ["oldImageName"]) {
-            $handle->file_new_name_ext = FALSE;
-        } else {
+        if ($handle->uploaded) {
+            $handle->image_resize = true;
             $handle->file_new_name_ext = 'jpg';
-        }
+            $handle->image_ratio_crop = 'C';
+            $handle->file_new_name_body = Helper::randamId();
+            $handle->image_x = 300;
+            $handle->image_y = 300;
 
-        $handle->image_ratio_crop = 'C';
-        $handle->file_new_name_body = $img;
-        $handle->image_watermark = '../../images/watermark/watermark.png';
-        $handle->image_x = 300;
-        $handle->image_y = 300;
+            $handle->Process($dir_dest);
 
-        $handle->Process($dir_dest);
-
-        if ($handle->processed) {
-            $info = getimagesize($handle->file_dst_pathname);
-            $imgName = $handle->file_dst_name;
+            if ($handle->processed) {
+                $info = getimagesize($handle->file_dst_pathname);
+                $imgName = $handle->file_dst_name;
+                
+            }
         }
     }
 

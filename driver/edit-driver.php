@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
 } else {
     $DRIVER = new Drivers($_SESSION['id']);
 }
+$CITY = new City($DRIVER->city);
 ?>
 <html>
     <head>
@@ -96,6 +97,21 @@ if (isset($_GET['id'])) {
                                     <div class="row form-data">
                                         <label>Address</label>
                                         <input type="text" name="address" id="address" class="form-control" placeholder="Enter Address" value="<?php echo $DRIVER->address; ?>" />
+                                    </div>
+                                    <div class="row form-data">
+                                        <label>City</label>
+                                        <input type="text" name="city" id="city" onkeyup="myFunction()" class="form-control" placeholder="Enter City" value="<?php echo $CITY->name; ?>" />
+                                        <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />
+                                        <ul id="myUL" class="hidden">
+                                            <?php
+                                            foreach (City::all() as $city) {
+                                                ?>
+                                                <li class="cityli" cityid="<?php echo $city['id']; ?>"><a href="#"><?php echo $city['name']; ?></a></li>
+                                                <?php
+                                            }
+                                            ?>
+
+                                        </ul>
                                     </div>
                                     <div class="row form-data">
                                         <label>Contact Number</label>
@@ -201,6 +217,33 @@ if (isset($_GET['id'])) {
                     var contentheight = $(window).height();
                     $('.content').css('height', contentheight);
                 }
+            });
+
+            function myFunction() {
+
+                $('#myUL').removeClass('hidden');
+
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("city");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+            $('.cityli').click(function () {
+                var name = $(this).text();
+                var id = $(this).attr('cityid');
+                $('#city').val(name);
+                $('#cityid').val(id);
+                $('#myUL').addClass('hidden');
+
             });
         </script>
     </body>
