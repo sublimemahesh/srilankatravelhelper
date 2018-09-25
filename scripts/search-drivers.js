@@ -1,7 +1,7 @@
 $(document).ready(function (e) {
     $('#cityid').val('');
     $('.searchbutton').click(function () {
-        alert(111);
+        
         $('.select-driver').empty();
         var id = $('#cityid').val();
         var city = $('#myInput').val();

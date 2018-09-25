@@ -3,6 +3,7 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $DRIVER = new Drivers($_SESSION['id']);
+$CITY = new City($DRIVER->city);
 
 ?>
 <html>
@@ -68,6 +69,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                     <li class="list-group-item"><b>Name :</b> <?php echo $DRIVER->name; ?></li>
                                     <li class="list-group-item"><b>Email :</b><?php echo $DRIVER->email; ?></li>
                                     <li class="list-group-item"><b>Address :</b><?php echo $DRIVER->address; ?></li>
+                                    <li class="list-group-item"><b>City :</b><?php echo $CITY->name; ?></li>
                                     <li class="list-group-item"><b>Contact Number :</b><?php echo $DRIVER->contact_number; ?></li>
                                     <li class="list-group-item"><b>NIC Number :</b><?php echo $DRIVER->nic_number; ?></li>
                                     <li class="list-group-item"><b>Driving Licence Number :</b><?php echo $DRIVER->driving_licence_number; ?></li>
