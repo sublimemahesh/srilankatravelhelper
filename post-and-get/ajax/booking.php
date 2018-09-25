@@ -15,8 +15,21 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $BOOKING->message = $_POST['message'];
     
     $result = $BOOKING->create();
+    
+    if($result) {
+        $sendvisitoremail = $BOOKING->sendBookingConfirmationEmailToVisitor($result->id);
+        $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($result->id);
+        $sendadminemail = $BOOKING->sendBookingConfirmationEmailToAdmin($result->id);
+        
+        if($sendvisitoremail && $senddriveremail && $sendadminemail) {
+            $res = 'TRUE';
+        } else {
+            $res = 'FALSE';
+        }
+    }
+    
 
 
     header('Content-type: application/json');
-    echo json_encode($result);
+    echo json_encode($res);
 }
