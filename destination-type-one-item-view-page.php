@@ -419,7 +419,7 @@ $stars1 = $sum1 / $divider1;
                                             </div>  
                                             <div class="col-md-7">
                                                 <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-
+                                                <p><?php echo $review['message']; ?></p>
 
                                             </div> 
                                             <div class="col-md-3 star-section">

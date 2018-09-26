@@ -18,7 +18,8 @@ if (!isset($_SESSION)) {
 }
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'driverreview') {
-        $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-reviews.php?driver=' . $id;
+//        $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-reviews.php?driver=' . $id;
+        $_SESSION["back_url"] = 'http://localhost/visitor/manage-reviews.php?driver=' . $id;
     }
     redirect('index.php?message=24');
 }
@@ -173,6 +174,9 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     <div class="col-md-12 col-sm-12 col-xs-12 review-black-star">
 
                                     </div>
+                                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 review-msg">
+                                        <textarea name="message" id="message" class="form-control"></textarea>
+                                    </div>
                                     <input type="hidden" id="visitorid" value="<?php echo $VISITOR->id; ?>" />
                                     <input type="hidden" id="reviewid" value="" />
                                     <div class="row col-md-12 col-sm-12 col-xs-12 text-center">
@@ -195,9 +199,6 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
-        <script src="delete/js/driver-photo.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/reviews.js" type="text/javascript"></script>
 
@@ -250,8 +251,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         var width = $(window).width();
 
                                         if (width > 576) {
-                                            var contentheight = $(window).height() + 175;
-                                            var navigationheight = $(window).height() + 100;
+                                            var contentheight = $(window).height() + 225;
+                                            var navigationheight = $(window).height() + 150;
 
                                             $('.content').css('height', contentheight);
                                             $('.navigation').css('height', navigationheight);

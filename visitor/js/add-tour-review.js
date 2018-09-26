@@ -1,11 +1,13 @@
 $(document).ready(function () {
     $('#add-review').click(function () {
-        var tour, visitor, review, id;
+        var tour, visitor, review, id, message;
 
         id = $('#reviewid').val();
         tour = $('#tourid').val();
         visitor = $('#visitorid').val();
         review = $(this).attr('review');
+        message = $('#message').val();
+        
 
         if (!id) {
             $.ajax({
@@ -17,6 +19,7 @@ $(document).ready(function () {
                     tour: tour,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'ADDTOURREVIEW'
                 },
                 success: function (result) {
@@ -44,6 +47,7 @@ $(document).ready(function () {
                     tour: tour,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'UPDATETOURREVIEW'
                 },
                 success: function (result) {

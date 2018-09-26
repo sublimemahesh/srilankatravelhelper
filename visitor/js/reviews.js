@@ -55,6 +55,8 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
+                    $('#message').text(review.message);
+
 
 
                     var i, j, star_number, star = '';
@@ -200,7 +202,7 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
-
+                    $('#message').text(review.message);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -358,7 +360,7 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
-
+                    $('#message').text(review.message);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -513,7 +515,7 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
-
+                    $('#message').text(review.message);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -561,7 +563,7 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
-
+                    $('#message').text(review.message);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -607,7 +609,7 @@ $(document).ready(function () {
                 } else {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
-
+                    $('#message').text(review.message);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;

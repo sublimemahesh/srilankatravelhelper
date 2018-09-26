@@ -53,7 +53,7 @@ class Drivers {
                     . "`resetCode`,"
                     . "`authToken`,"
                     . "`isActive`"
-                    . " FROM `drivers` WHERE `id`=" . $id;
+                    . " FROM `driver` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -88,7 +88,7 @@ class Drivers {
 
         $createdAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `drivers` (`createdAt`,`name`,`email`,`username`,`password`) VALUES  ('"
+        $query = "INSERT INTO `driver` (`createdAt`,`name`,`email`,`username`,`password`) VALUES  ('"
                 . $createdAt . "', '"
                 . $this->name . "', '"
                 . $this->email . "', '"
@@ -110,7 +110,7 @@ class Drivers {
 
     public function all() {
 
-        $query = "SELECT * FROM `drivers` ORDER BY id ASC";
+        $query = "SELECT * FROM `driver` ORDER BY id ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -124,7 +124,7 @@ class Drivers {
 
     public function update() {
 
-        $query = "UPDATE  `drivers` SET "
+        $query = "UPDATE  `driver` SET "
                 . "`name` ='" . $this->name . "', "
                 . "`email` ='" . $this->email . "', "
                 . "`address` ='" . $this->address . "', "
@@ -152,7 +152,7 @@ class Drivers {
     public function delete() {
         unlink(Helper::getSitePath() . "upload/drivers/" . $this->profile_picture);
 
-        $query = 'DELETE FROM `drivers` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `driver` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
@@ -180,7 +180,7 @@ class Drivers {
 
 
     public function arrange($key, $img) {
-        $query = "UPDATE `drivers` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `driver` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
@@ -188,7 +188,7 @@ class Drivers {
 
     public function getDriverByDriverType($id) {
 
-        $query = "SELECT * FROM `drivers` WHERE `id` = '" . $id . "' ORDER BY `id` ASC";
+        $query = "SELECT * FROM `driver` WHERE `id` = '" . $id . "' ORDER BY `id` ASC";
 
         $db = new Database();
 
@@ -203,7 +203,7 @@ class Drivers {
 
     public function getDriverById($id) {
 
-        $query = "SELECT * FROM `drivers` WHERE `type`= $id ORDER BY `id` ASC";
+        $query = "SELECT * FROM `driver` WHERE `type`= $id ORDER BY `id` ASC";
 
         $db = new Database();
 
@@ -218,7 +218,7 @@ class Drivers {
 
     public function checkEmail($email) {
 
-        $query = "SELECT `email` FROM `drivers` WHERE `email`= '" . $email . "'";
+        $query = "SELECT `email` FROM `driver` WHERE `email`= '" . $email . "'";
 
         $db = new Database();
 
@@ -233,7 +233,7 @@ class Drivers {
     
     public function login($username, $password) {
 
-        $query = "SELECT `id`,`name`,`email`,`profile_picture` FROM `drivers` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
+        $query = "SELECT `id`,`name`,`email`,`profile_picture` FROM `driver` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
 
         $db = new Database();
 
@@ -257,7 +257,7 @@ class Drivers {
 
         $authToken = md5(uniqid(rand(), true));
 
-        $query = "UPDATE `drivers` SET `authToken` ='" . $authToken . "' WHERE `id`='" . $id . "'";
+        $query = "UPDATE `driver` SET `authToken` ='" . $authToken . "' WHERE `id`='" . $id . "'";
 
         $db = new Database();
 
@@ -288,7 +288,7 @@ class Drivers {
 
         $rand = rand(10000, 99999);
 
-        $query = "UPDATE  `drivers` SET "
+        $query = "UPDATE  `driver` SET "
                 . "`resetCode` ='" . $rand . "' "
                 . "WHERE `email` = '" . $email . "'";
 
@@ -307,7 +307,7 @@ class Drivers {
 
         if ($email) {
 
-            $query = "SELECT `email`,`resetCode` FROM `drivers` WHERE `email`= '" . $email . "'";
+            $query = "SELECT `email`,`resetCode` FROM `driver` WHERE `email`= '" . $email . "'";
 
             $db = new Database();
 
@@ -322,7 +322,7 @@ class Drivers {
     
     public function SelectResetCode($code) {
 
-        $query = "SELECT `id` FROM `drivers` WHERE `resetCode`= '" . $code . "'";
+        $query = "SELECT `id` FROM `driver` WHERE `resetCode`= '" . $code . "'";
 
         $db = new Database();
 
@@ -340,7 +340,7 @@ class Drivers {
 
         $enPass = md5($password);
 
-        $query = "UPDATE  `drivers` SET "
+        $query = "UPDATE  `driver` SET "
                 . "`password` ='" . $enPass . "' "
                 . "WHERE `resetCode` = '" . $code . "'";
 
@@ -372,7 +372,7 @@ class Drivers {
             $authToken = $_SESSION["authToken"];
         }
 
-        $query = "SELECT `id` FROM `drivers` WHERE `id`= '" . $id . "' AND `authToken`= '" . $authToken . "'";
+        $query = "SELECT `id` FROM `driver` WHERE `id`= '" . $id . "' AND `authToken`= '" . $authToken . "'";
 
         $db = new Database();
 
@@ -407,7 +407,7 @@ class Drivers {
 
         $enPass = md5($password);
 
-        $query = "SELECT `id` FROM `drivers` WHERE `id`= '" . $id . "' AND `password`= '" . $enPass . "'";
+        $query = "SELECT `id` FROM `driver` WHERE `id`= '" . $id . "' AND `password`= '" . $enPass . "'";
 
         $db = new Database();
 
@@ -424,7 +424,7 @@ class Drivers {
 
         $enPass = md5($password);
 
-        $query = "UPDATE  `drivers` SET "
+        $query = "UPDATE  `driver` SET "
                 . "`password` ='" . $enPass . "' "
                 . "WHERE `id` = '" . $id . "'";
 
@@ -441,7 +441,7 @@ class Drivers {
     
     public function getDriverByCity($city) {
 
-        $query = "SELECT * FROM `drivers` WHERE `city` = '" . $city . "' ORDER BY `id` ASC";
+        $query = "SELECT * FROM `driver` WHERE `city` = '" . $city . "' ORDER BY `id` ASC";
 
         $db = new Database();
 

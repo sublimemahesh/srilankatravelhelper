@@ -1,11 +1,12 @@
 $(document).ready(function () {
     $('#add-review').click(function () {
-        var destination, visitor, review, id;
+        var destination, visitor, review, id, message;
 
         id = $('#reviewid').val();
         destination = $('#destinationid').val();
         visitor = $('#visitorid').val();
         review = $(this).attr('review');
+        message = $('#message').val();
 
         if (!id) {
             $.ajax({
@@ -17,6 +18,7 @@ $(document).ready(function () {
                     destination: destination,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'ADDDESTINATIONREVIEW'
                 },
                 success: function (result) {
@@ -44,6 +46,7 @@ $(document).ready(function () {
                     destination: destination,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'UPDATEDESTINATIONREVIEW'
                 },
                 success: function (result) {
