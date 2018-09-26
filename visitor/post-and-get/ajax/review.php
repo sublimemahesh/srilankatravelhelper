@@ -10,6 +10,7 @@ if ($_POST['option'] === 'ADDREVIEW') {
     $REVIEW->driver = $_POST['driver'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->create();
 
@@ -25,6 +26,7 @@ if ($_POST['option'] === 'ADDTOURREVIEW') {
     $REVIEW->tour = $_POST['tour'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->create();
 
@@ -40,6 +42,7 @@ if ($_POST['option'] === 'ADDDESTINATIONREVIEW') {
     $REVIEW->destination = $_POST['destination'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->create();
 
@@ -55,6 +58,7 @@ if ($_POST['option'] === 'UPDATEREVIEW') {
     $REVIEW->driver = $_POST['driver'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->update();
 
@@ -70,6 +74,7 @@ if ($_POST['option'] === 'UPDATETOURREVIEW') {
     $REVIEW->tour = $_POST['tour'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->update();
 
@@ -85,6 +90,7 @@ if ($_POST['option'] === 'UPDATEDESTINATIONREVIEW') {
     $REVIEW->destination = $_POST['destination'];
     $REVIEW->visitor = $_POST['visitor'];
     $REVIEW->reviews = $_POST['reviews'];
+    $REVIEW->message = $_POST['message'];
     
     $result = $REVIEW->update();
 

@@ -173,6 +173,7 @@ and open the template in the editor.
     background: #00a1ab;
     border: 1px solid #00a1ab;
     color: #fff;
+    margin-top: 20px;
 }
 .list-group-item:last-child {
     margin-bottom: 0;

@@ -16,7 +16,8 @@ if (!isset($_SESSION)) {
 }
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'destinationreview') {
-        $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-destination-reviews.php?destination=' . $id;
+//        $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-destination-reviews.php?destination=' . $id;
+        $_SESSION["back_url"] = 'http://localhost/visitor/manage-destination-reviews.php?destination=' . $id;
     }
     redirect('index.php?message=24');
 }
@@ -171,6 +172,9 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     <div class="col-md-5"></div>
                                     <div class="col-md-12 col-sm-12 col-xs-12 review-black-star">
 
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 review-msg">
+                                        <textarea name="message" id="message" class="form-control"></textarea>
                                     </div>
                                     <input type="hidden" id="visitorid" value="<?php echo $VISITOR->id; ?>" />
                                     <input type="hidden" id="reviewid" value="" />

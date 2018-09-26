@@ -299,6 +299,7 @@ $stars = $sum / $divider;
                                 </div> 
                                 <div class="profile-description ">
                                     <h3><?php echo $DRIVER->name; ?></h3>
+                                    
                                 </div>
                                 <div class="driver-rating">
                                     <div class="star-rating-driver text-right"> 
@@ -434,7 +435,7 @@ $stars = $sum / $divider;
                                                 </div>  
                                                 <div class="col-md-7">
                                                     <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-
+                                                     <p><?php echo $review['message']; ?></p>
 
                                                 </div> 
                                                 <div class="col-md-3 star-section">
@@ -490,7 +491,7 @@ $stars = $sum / $divider;
                                                 </div>  
                                                 <div class="col-md-7">
                                                     <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-
+                                                    <p><?php echo $review['message']; ?></p>
 
                                                 </div> 
                                                 <div class="col-md-3 star-section">
@@ -546,7 +547,7 @@ $stars = $sum / $divider;
                                                 </div>  
                                                 <div class="col-md-7">
                                                     <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-
+                                                    <p><?php echo $review['message']; ?></p>
 
                                                 </div> 
                                                 <div class="col-md-3 star-section">

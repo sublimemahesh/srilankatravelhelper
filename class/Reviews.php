@@ -19,12 +19,13 @@ class Reviews {
     public $destination;
     public $visitor;
     public $reviews;
+    public $message;
     public $reviewedAt;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`driver`, `tour`, `destination`, `visitor`,`reviews`,`reviewedAt` FROM `reviews` WHERE `id`=" . $id . "";
+            $query = "SELECT `id`,`driver`, `tour`, `destination`, `visitor`,`reviews`,`message`,`reviewedAt` FROM `reviews` WHERE `id`=" . $id . "";
 
             $db = new Database();
 
@@ -36,6 +37,7 @@ class Reviews {
             $this->destination = $result['destination'];
             $this->visitor = $result['visitor'];
             $this->reviews = $result['reviews'];
+            $this->message = $result['message'];
             $this->reviewedAt = $result['reviewedAt'];
 
             return $this;
@@ -47,12 +49,13 @@ class Reviews {
         date_default_timezone_set('Asia/Colombo');
         $reviewedAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `reviews` (`driver`,`tour`,`destination`,`visitor`,`reviews`,`reviewedAt`) VALUES  ('"
+        $query = "INSERT INTO `reviews` (`driver`,`tour`,`destination`,`visitor`,`reviews`,`message`,`reviewedAt`) VALUES  ('"
                 . $this->driver . "', '"
                 . $this->tour . "', '"
                 . $this->destination . "', '"
                 . $this->visitor . "', '"
                 . $this->reviews . "', '"
+                . $this->message . "', '"
                 . $reviewedAt . "')";
 
         $db = new Database();
@@ -90,6 +93,7 @@ class Reviews {
         $query = "UPDATE  `reviews` SET "
                 . "`visitor` ='" . $this->visitor . "', "
                 . "`reviews` ='" . $this->reviews . "', "
+                . "`message` ='" . $this->message . "', "
                 . "`reviewedAt` ='" . $reviewedAt . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 

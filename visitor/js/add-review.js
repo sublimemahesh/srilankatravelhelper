@@ -1,11 +1,12 @@
 $(document).ready(function () {
     $('#add-review').click(function () {
-        var driver, visitor, review, id;
+        var driver, visitor, review, id, message;
 
         id = $('#reviewid').val();
         driver = $('#driverid').val();
         visitor = $('#visitorid').val();
         review = $(this).attr('review');
+        message = $('#message').val();
 
         if (!id) {
             $.ajax({
@@ -17,6 +18,7 @@ $(document).ready(function () {
                     driver: driver,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'ADDREVIEW'
                 },
                 success: function (result) {
@@ -43,6 +45,7 @@ $(document).ready(function () {
                     driver: driver,
                     visitor: visitor,
                     reviews: review,
+                    message: message,
                     option: 'UPDATEREVIEW'
                 },
                 success: function (result) {
