@@ -231,6 +231,21 @@ class Drivers {
         }
     }
     
+    public function checkUserName($username) {
+
+        $query = "SELECT `email`,`username` FROM `driver` WHERE `username`= '" . $username . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            return $result;
+        }
+    }
+    
     public function login($username, $password) {
 
         $query = "SELECT `id`,`name`,`email`,`profile_picture` FROM `driver` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";

@@ -275,6 +275,21 @@ class Visitor {
             return $result;
         }
     }
+    
+    public function checkUserName($username) {
+
+        $query = "SELECT `email`,`username` FROM `visitor` WHERE `username`= '" . $username . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            return $result;
+        }
+    }
 
     public function GenarateCode($email) {
 

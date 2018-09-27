@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
-    $('.review-add-section').addClass('hidden');
+
+    setTimeout(function () {
+        $('.review-add-section').addClass('hidden');
+    }, 1000);
+
+
+    
     $('.driver').click(function () {
         var name = $(this).text();
         var id = $(this).attr('driverid');
@@ -56,7 +62,7 @@ $(document).ready(function () {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
-
+                    $('#add-review').attr('review', review.reviews);
 
 
                     var i, j, star_number, star = '';
@@ -203,6 +209,7 @@ $(document).ready(function () {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
+                    $('#add-review').attr('review', review.reviews);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -361,6 +368,7 @@ $(document).ready(function () {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
+                    $('#add-review').attr('review', review.reviews);
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
