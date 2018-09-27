@@ -10,37 +10,37 @@ if ($_POST['save']) {
 
     if (empty($_POST['name'])) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter your name.";
+        $response['message'] = "1";
         echo json_encode($response);
         exit();
     } else if (empty($_POST['email'])) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter your email.";
+        $response['message'] = "2";
         echo json_encode($response);
         exit();
     } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter valid email.";
+        $response['message'] = "3";
         echo json_encode($response);
         exit();
     } else if (empty($_POST['username'])) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter user name.";
+        $response['message'] = "4";
         echo json_encode($response);
         exit();
     } else if (empty($_POST['password'])) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter the password.";
+        $response['message'] = "5";
         echo json_encode($response);
         exit();
     } else if (empty($_POST['cpassword'])) {
         $response['status'] = 'error';
-        $response['message'] = "Please enter the confirm password.";
+        $response['message'] = "6";
         echo json_encode($response);
         exit();
     } else if ($_POST['password'] !== $_POST['cpassword']) {
         $response['status'] = 'error1';
-        $response['message'] = "Your password and confirm password does not match.";
+        $response['message'] = "7";
         echo json_encode($response);
         exit();
     } else {
@@ -52,29 +52,38 @@ if ($_POST['save']) {
             echo json_encode($response);
             exit();
         } else {
+            $checkusername = $DRIVERS->checkUserName($_POST['username']);
 
-            $DRIVERS = new Drivers(NULL);
-
-
-            $pw = md5($_POST['password']);
-            $email = $_POST['email'];
-//            $cemail = $_POST['cnfemail'];
-
-            $DRIVERS->name = filter_input(INPUT_POST, 'name');
-            $DRIVERS->email = $email;
-            $DRIVERS->username = filter_input(INPUT_POST, 'username');
-            $DRIVERS->password = $pw;
-            $DRIVERS->create();
-
-            if ($DRIVERS->id) {
-                $DRIVERS->login($DRIVERS->username, $DRIVERS->password);
-                $response['status'] = 'success';
-                echo json_encode($response);
-            } else {
-                $response['status'] = 'error';
-                $response['message'] = "Oops. Something went wrong, Please try again.";
+            if ($checkusername) {
+                $response['status'] = 'error1';
+                $response['message'] = "8";
                 echo json_encode($response);
                 exit();
+            } else {
+
+                $DRIVERS = new Drivers(NULL);
+
+
+                $pw = md5($_POST['password']);
+                $email = $_POST['email'];
+//            $cemail = $_POST['cnfemail'];
+
+                $DRIVERS->name = filter_input(INPUT_POST, 'name');
+                $DRIVERS->email = $email;
+                $DRIVERS->username = filter_input(INPUT_POST, 'username');
+                $DRIVERS->password = $pw;
+                $DRIVERS->create();
+
+                if ($DRIVERS->id) {
+                    $DRIVERS->login($DRIVERS->username, $DRIVERS->password);
+                    $response['status'] = 'success';
+                    echo json_encode($response);
+                } else {
+                    $response['status'] = 'error';
+                    $response['message'] = "Oops. Something went wrong, Please try again.";
+                    echo json_encode($response);
+                    exit();
+                }
             }
         }
     }
