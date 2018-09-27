@@ -76,6 +76,31 @@ class Visitor {
             return FALSE;
         }
     }
+    
+    public function all() {
+
+        $query = "SELECT * FROM `visitor` ORDER BY id ASC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
+    
+    public function delete() {
+        
+        unlink(Helper::getSitePath() . "upload/visitor/" . $this->profile_picture);
+
+        $query = 'DELETE FROM `visitor` WHERE id="' . $this->id . '"';
+
+        $db = new Database();
+
+        return $db->readQuery($query);
+    }
 
     public function login($username, $password) {
 
@@ -191,14 +216,12 @@ class Visitor {
 
         $query = "UPDATE  `visitor` SET "
                 . "`name` ='" . $this->name . "', "
-                . "`username` ='" . $this->username . "', "
                 . "`email` ='" . $this->email . "', "
                 . "`address` ='" . $this->address . "', "
                 . "`contact_number` ='" . $this->contact_number . "', "
-                . "`profile_picture` ='" . $this->profile_picture . "', "
-                . "`isActive` ='" . $this->isActive . "' "
+                . "`profile_picture` ='" . $this->profile_picture . "' "
                 . "WHERE `id` = '" . $this->id . "'";
-
+        
         $db = new Database();
 
         $result = $db->readQuery($query);

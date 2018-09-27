@@ -19,7 +19,7 @@ if (!isset($_SESSION)) {
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'driverreview') {
         $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-reviews.php?driver=' . $id;
-//        $_SESSION["back_url"] = 'http://localhost/visitor/manage-reviews.php?driver=' . $id;
+//        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/manage-reviews.php?driver=' . $id;
     }
     redirect('index.php?message=24');
 }
@@ -273,7 +273,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                     var loop = $('#loop').val();
 
                     if (loop == 1) {
-                        window.location.replace('http://localhost/srilankatravelhelper/visitor/manage-reviews.php?l=0');
+//                        window.location.replace('http://localhost/srilankatravelhelper/visitor/manage-reviews.php?l=0');
                         window.location.replace('http://travelhelper.galle.website/visitor/manage-reviews.php?l=0');
                     } else {
                         return true;

@@ -42,8 +42,27 @@ if (isset($_POST['update'])) {
     $handle = new Upload($_FILES['image']);
 
     if ($_POST ["oldImageName"]) {
-        $imgName = $_POST ["oldImageName"];
+        $img = $_POST ["oldImageName"];
+        $imgName = null;
 
+        if ($handle->uploaded) {
+            $handle->image_resize = true;
+            $handle->file_new_name_body = TRUE;
+            $handle->file_overwrite = TRUE;
+            $handle->file_new_name_ext = FALSE;
+            $handle->image_ratio_crop = 'C';
+            $handle->file_new_name_body = $img;
+            $handle->image_x = 300;
+            $handle->image_y = 300;
+
+            $handle->Process($dir_dest);
+            
+            if ($handle->processed) {
+                $info = getimagesize($handle->file_dst_pathname);
+                $imgName = $handle->file_dst_name;
+            }
+        }
+        $VISITOR->profile_picture = $img;
     } else {
         $imgName = null;
 
@@ -60,13 +79,10 @@ if (isset($_POST['update'])) {
             if ($handle->processed) {
                 $info = getimagesize($handle->file_dst_pathname);
                 $imgName = $handle->file_dst_name;
-                
             }
         }
+        $VISITOR->profile_picture = $imgName;
     }
-
-    $VISITOR->profile_picture = $img;
-
 
 
     $VALID = new Validator();
