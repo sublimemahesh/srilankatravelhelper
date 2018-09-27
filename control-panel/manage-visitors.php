@@ -6,9 +6,9 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 
-$DRIVER = new Drivers(NULL);
-$drivers = NULL;
-$drivers = $DRIVER->all();
+$VISITOR = new Visitor(NULL);
+$visitors = NULL;
+$visitors = $VISITOR->all();
 
 ?>
 ﻿<!DOCTYPE html>
@@ -17,7 +17,7 @@ $drivers = $DRIVER->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Driver - srilankatravelhelper</title>
+        <title>Manage Visitors - srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -61,38 +61,31 @@ $drivers = $DRIVER->all();
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Driver
+                                    Manage Visitors
                                 </h2>
                                 <ul class="header-dropdown">
-                                    <li>
-                                        <a href="create-driver.php">
-                                            <i class="material-icons">add</i> 
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
-                              
                                     <div class="row clearfix">
                                         <?php
-                                        foreach ($drivers as $key => $driver) {
+                                        foreach ($visitors as $key => $visitor) {
                                     
-                                            $DRIVER= new Driver($driver['id']);
-                                              if (count($driver) > 0) {
+                                            $VISITOR= new Visitor($visitor['id']);
+                                              if (count($visitor) > 0) {
                                                 ?>
-                                                <div class="col-md-3"  id="div<?php echo $driver['id']; ?>">
+                                                <div class="col-md-3"  id="div<?php echo $visitor['id']; ?>">
                                                     <div class="photo-img-container">
-                                                        <img src="../upload/driver/thumb/<?php echo $driver['image_name']; ?>" class="img-responsive ">
+                                                        <img src="../upload/visitor/<?php echo $visitor['profile_picture']; ?>" class="img-responsive ">
                                                     </div>
                                                     <div class="img-caption">
-                                                        <p class="maxlinetitle">Name : <?php echo $driver['name']; ?></p>  
-<!--                                                        <p class="maxlinetitle">Type : <?php echo $DRIVER_TYPE->name; ?></p>  -->
+                                                        <p class="maxlinetitle">Name : <?php echo $visitor['name']; ?></p>
                                                         <div class="d">
-                                                            <a href="#"  class="delete-driver" data-id="<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                            <a href="edit-driver.php?id=<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                            <a href="arrange-driver.php?id=<?php echo $driver['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                            <a href="create-driver-photos.php?id=<?php echo $driver['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+<!--                                                            <a href="#"  class="delete-visitor" data-id="<?php echo $visitor['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-visitor.php?id=<?php echo $visitor['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>-->
+                                                            <a href="view-visitor.php?id=<?php echo $visitor['id']; ?>"> <button class="glyphicon glyphicon-eye-open edit-btn"></button></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -147,7 +140,7 @@ $drivers = $DRIVER->all();
 
         <!-- Demo Js -->
         <script src="js/demo.js"></script>
-        <script src="delete/js/driver.js" type="text/javascript"></script>
+        <script src="delete/js/visitor.js" type="text/javascript"></script>
     </body>
 
 </html> 

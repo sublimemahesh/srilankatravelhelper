@@ -1,12 +1,24 @@
 $(document).ready(function () {
+    var get_driver = $('#get_driver').val();
+    var get_tour = $('#get_tour').val();
+    var get_destination = $('#get_destination').val();
+
+    if (get_driver === '') {
+        
+        setTimeout(function () {
+            $('.review-add-section').addClass('hidden');
+        }, 1000);
+    } else {
+        setTimeout(function () {
+            $('.review-add-section').removeClass('hidden');
+        }, 1000);
+    }
 
 
-    setTimeout(function () {
-        $('.review-add-section').addClass('hidden');
-    }, 1000);
 
 
-    
+
+
     $('.driver').click(function () {
         var name = $(this).text();
         var id = $(this).attr('driverid');
@@ -497,7 +509,7 @@ $(document).ready(function () {
     });
 
 
-    var get_driver = $('#get_driver').val();
+
     if (get_driver != '') {
         var visitor = $('#visitorid').val();
 
@@ -545,8 +557,9 @@ $(document).ready(function () {
         });
     }
 
-    var get_tour = $('#get_tour').val();
+
     if (get_tour != '') {
+
         var visitor = $('#visitorid').val();
 
         $.ajax({
@@ -591,8 +604,9 @@ $(document).ready(function () {
         });
     }
 
-    var get_destination = $('#get_destination').val();
+
     if (get_destination != '') {
+
         var visitor = $('#visitorid').val();
 
         $.ajax({
