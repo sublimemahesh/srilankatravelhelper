@@ -402,21 +402,9 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="create-driver.php">
-                                <i class="material-icons">add</i>
-                                <span>Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-driver.php">
+                            <a href="manage-drivers.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="arrange-driver.php">
-                                <i class="material-icons">compare_arrows</i>
-                                <span>Arrange</span>
                             </a>
                         </li>
                         
