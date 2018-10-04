@@ -10,7 +10,7 @@ if (isset($_POST['signin'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $password = md5(filter_var($_POST['password'], FILTER_SANITIZE_STRING));
     $back = $_POST['back_url'];
-
+    
     if ($VISITOR->login($username, $password)) {
         if (empty($back)) {
             header('Location: ../profile.php?message=5');

@@ -61,6 +61,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                         <?php
                         $DRIVERS = Drivers::all();
                         foreach ($DRIVERS as $key => $driver) {
+                            
                             ?>
                             <div class="col-md-4">
                                 <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
@@ -70,7 +71,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
                                             if ($key == 0) {
                                                 ?>
-                                                <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                                 <?php
                                             }
                                         }
@@ -78,7 +79,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     </div>
 
                                     <div class="img-pad"> 
-                                        <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
+                                        <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
                                         <!--                                        
                                                                                 <div class="star-rating " data-rating="4.5"> 
                                                                                     <div class="rating-counter">(12 reviews)</div><br/>

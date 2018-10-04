@@ -258,14 +258,14 @@ $stars = $sum / $divider;
                                 foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
                                     if ($key == 0) {
                                         ?>
-                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                        <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                         <?php
                                     }
                                 }
                                 ?> 
                             </div>
                             <div class="img-pad "> 
-                                <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
+                                <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
                             </div> 
                             <div class="profile-description ">
                                 <h3><?php echo $DRIVER->name; ?></h3>
@@ -321,10 +321,10 @@ $stars = $sum / $divider;
                                 <?php
                                 foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
                                     ?>
-                                    <a href="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>">
+                                    <a href="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>">
                                         <img 
-                                            src="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
-                                            data-big="upload/drivers/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                            src="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                            data-big="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
                                             data-title="Biandintz eta zaldiak"
                                             data-description="Horses on Bianditz mountain, in Navarre, Spain."
                                             >
@@ -534,7 +534,7 @@ $stars = $sum / $divider;
                                             <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $driver['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image">
-                                                    <img  src="upload/drivers/<?php echo $driver['profile_picture']; ?>"  class="img-circle" alt=""/>
+                                                    <img  src="upload/driver/<?php echo $driver['profile_picture']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
                                                         <li>
                                                             <?php

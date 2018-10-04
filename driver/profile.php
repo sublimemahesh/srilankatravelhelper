@@ -53,11 +53,11 @@ $CITY = new City($DRIVER->city);
                                     <?php
                                     if ($DRIVER->profile_picture) {
                                         ?>
-                                        <img src="../upload/drivers/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
+                                        <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
                                         <?php
                                     } else {
                                         ?>
-                                        <img src="../upload/drivers/driver.png" alt=""/>
+                                        <img src="../upload/driver/driver.png" alt=""/>
                                         <?php
                                     }
                                     ?>

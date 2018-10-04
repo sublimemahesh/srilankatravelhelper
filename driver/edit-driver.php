@@ -11,6 +11,8 @@ if (isset($_GET['id'])) {
     $DRIVER = new Drivers($_SESSION['id']);
 }
 $CITY = new City($DRIVER->city);
+
+
 ?>
 <html>
     <head>
@@ -74,11 +76,11 @@ $CITY = new City($DRIVER->city);
                                         <?php
                                         if ($DRIVER->profile_picture) {
                                             ?>
-                                            <img src="../upload/drivers/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
+                                            <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
                                             <?php
                                         } else {
                                             ?>
-                                            <img src="../upload/drivers/driver.png" alt=""/>
+                                            <img src="../upload/driver/driver.png" alt=""/>
                                             <?php
                                         }
                                         ?>
@@ -201,7 +203,8 @@ $CITY = new City($DRIVER->city);
             $(function () {
                 $("#dob").datepicker({
                     changeMonth: true,
-                    changeYear: true
+                    changeYear: true,
+                    dateFormat: 'yy-m-d'
                 });
             });
             $(window).load(function () {

@@ -65,9 +65,9 @@ class User {
 
     public function login($username, $password) {
 
-        $enPass = md5($password);
-        $query = "SELECT `id`,`name`,`email`,`createdAt`,`isActive`,`lastLogin`,`username` FROM `user` WHERE `username`= '" . $username . "' AND `password`= '" . $enPass . "'";
-
+        
+        $query = "SELECT `id`,`name`,`email`,`createdAt`,`isActive`,`lastLogin`,`username` FROM `user` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
+        
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
@@ -168,6 +168,7 @@ class User {
         unset($_SESSION["authToken"]);
         unset($_SESSION["lastLogin"]);
         unset($_SESSION["username"]);
+        unset($_SESSION["position"]);
 
         return TRUE;
     }
@@ -205,6 +206,7 @@ class User {
         $_SESSION["authToken"] = $user['authToken'];
         $_SESSION["lastLogin"] = $user['lastLogin'];
         $_SESSION["username"] = $user['username'];
+        $_SESSION["position"] = 'admin';
     }
 
     private function setAuthToken($id) {

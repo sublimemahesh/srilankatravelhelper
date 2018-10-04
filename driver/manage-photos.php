@@ -77,7 +77,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
                                     ?>
                                     <div class="col-md-3 col-sm-4" id="div<?php echo $photo['id']; ?>">
                                         <div class="photo-img-container">
-                                            <img src="../upload/drivers/driver-photos/thumb1/<?php echo $photo['image_name']; ?>" class="img-responsive ">
+                                            <img src="../upload/driver/driver-photos/thumb1/<?php echo $photo['image_name']; ?>" class="img-responsive ">
                                         </div>
                                         <div class="img-caption">
                                             <p class="maxlinetitle"><?php echo $photo['caption']; ?></p>

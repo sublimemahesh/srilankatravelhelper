@@ -5,7 +5,7 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 $USER = new User(NULL);
 
 $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+$password = md5(filter_var($_POST['password'], FILTER_SANITIZE_STRING));
 
 
 if (empty($username) || empty($password)) {

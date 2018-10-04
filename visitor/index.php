@@ -4,12 +4,19 @@ include_once '../class/include.php';
 if (!isset($_SESSION)) {
     session_start();
 }
+//unset($_SESSION["back_url"]);
 
 
 $back_url = '';
 if (isset($_SESSION["back_url"])) {
     $back_url = $_SESSION["back_url"];
-}
+} 
+//else if(isset($_GET['back'])) {
+//    $back_url = $_GET['back'];
+// 
+//}
+   
+
 
 ?>
 <html>
@@ -112,10 +119,11 @@ if (isset($_SESSION["back_url"])) {
                                 <h3>ALREADY A MEMBER?</h3>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="User Name" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                                <input type="hidden" class="form-control"  name="back_url" value="<?php echo $back_url; ?>">
                                 <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
                                 <h4><a href="forgot-password.php">Forgotten Password?</a></h4>
                                 
-                                <input type="hidden" class="form-control"  name="back_url" value="<?php echo $back_url ?>">
+                                
                             </form>
 
                         </div>
@@ -174,7 +182,17 @@ if (isset($_SESSION["back_url"])) {
             $(window).load(function () {
                 var width = $(window).width();
 
-                if (width > 576) {
+                if(width > 900 ) {
+                    
+                    var contentheight = $(window).height()  - 200;
+
+                    $('.content').css('height', contentheight);
+                } else if(width > 760 ) {
+                    
+                    var contentheight = $(window).height() - 200;
+
+                    $('.content').css('height', contentheight);
+                } else if (width > 576) {
                     var contentheight = $(window).height() - 200;
 
                     $('.content').css('height', contentheight);

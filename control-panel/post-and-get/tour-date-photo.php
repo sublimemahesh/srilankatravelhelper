@@ -8,7 +8,7 @@ if (isset($_POST['create'])) {
     $VALID = new Validator();
 
    $TOUR_DATE_PHOTO->tour_date = $_POST['id'];
-   $TOUR_DATE_PHOTO->caption = mysql_real_escape_string($_POST['caption']);
+   $TOUR_DATE_PHOTO->caption =$_POST['caption'];
 
     $dir_dest = '../../upload/tour-package/date/gallery/';
     $dir_dest_thumb = '../../upload/tour-package/date/gallery/thumb/';
@@ -129,7 +129,7 @@ if (isset($_POST['update'])) {
    $TOUR_DATE_PHOTO = new TourDatePhoto($_POST['id']);
 
    $TOUR_DATE_PHOTO->image_name = $_POST['oldImageName'];
-   $TOUR_DATE_PHOTO->caption = filter_input(INPUT_POST, 'caption');
+   $TOUR_DATE_PHOTO->caption = $_POST['caption'];
 
     $VALID = new Validator();
     $VALID->check($TOUR_DATE_PHOTO, [

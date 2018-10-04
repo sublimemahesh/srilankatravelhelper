@@ -163,12 +163,22 @@ include_once '../class/include.php';
             $(window).load(function () {
                 var width = $(window).width();
 
-                if (width > 576) {
-                    var contentheight = $(window).height()-200;
+                if(width > 900 ) {
+                    
+                    var contentheight = $(window).height()  - 200;
+
+                    $('.content').css('height', contentheight);
+                } else if(width > 760 ) {
+                    
+                    var contentheight = $(window).height() - 200;
+
+                    $('.content').css('height', contentheight);
+                } else if (width > 576) {
+                    var contentheight = $(window).height() - 200;
 
                     $('.content').css('height', contentheight);
                 } else {
-                    var contentheight = $(window).height()-218;
+                    var contentheight = $(window).height() - 218;
                     $('.content').css('height', contentheight);
                 }
             });

@@ -68,7 +68,7 @@ $DRIVERPHOTO = new DriverPhotos($id);
                                     <div class="row form-data">
                                         <label>Image</label>
                                         <input type="file" name="image" id="image" />
-                                        <img src="../upload/drivers/driver-photos/thumb1/<?php echo $DRIVERPHOTO->image_name; ?>" class="img-responsive img-thumbnail">
+                                        <img src="../upload/driver/driver-photos/thumb1/<?php echo $DRIVERPHOTO->image_name; ?>" class="img-responsive img-thumbnail">
                                     </div>
                                     <div class="row form-data">
                                         <input type="hidden" name="id" value="<?php echo $DRIVERPHOTO->id; ?>" />
