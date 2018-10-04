@@ -17,7 +17,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
     <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
 
-    <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="slider-css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!--         animate css 
             <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
              Button Hover animate css 
@@ -379,7 +379,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                                 foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
                                                     if ($key == 0) {
                                                         ?>
-                                                        <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                        <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                                         <?php
                                                     }
                                                 }
@@ -388,7 +388,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                             </div>
 
                                             <div class="img-pad"> 
-                                                <img src="upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
+                                                <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
                                                 <!--                                        
                                                                                         <div class="star-rating " data-rating="4.5"> 
                                                                                             <div class="rating-counter">(12 reviews)</div><br/>

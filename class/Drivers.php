@@ -249,7 +249,7 @@ class Drivers {
     public function login($username, $password) {
 
         $query = "SELECT `id`,`name`,`email`,`profile_picture` FROM `driver` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
-
+        
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
@@ -297,6 +297,7 @@ class Drivers {
         $_SESSION["email"] = $driver->email;
         $_SESSION["profile_picture"] = $driver->profile_picture;
         $_SESSION["authToken"] = $driver->authToken;
+        $_SESSION["position"] = "driver";
     }
     
     public function GenarateCode($email) {
@@ -412,6 +413,7 @@ class Drivers {
         unset($_SESSION["email"]);
         unset($_SESSION["profile_picture"]);
         unset($_SESSION["authToken"]);
+        unset($_SESSION["position"]);
         unset($_SESSION["login"]);
         
 

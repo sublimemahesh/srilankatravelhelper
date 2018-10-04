@@ -24,3 +24,8 @@ and open the template in the editor.
         height: auto;
     }
 }
+@media (min-width: 760px) and (max-width: 900px) {
+    .parallax {
+        min-height: 1100px;
+    }
+}

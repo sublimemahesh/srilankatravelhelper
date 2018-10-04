@@ -10,9 +10,9 @@ if (isset($_POST['create-photo'])) {
     $DRIVER_PHOTOS->driver = $_POST['driver'];
     $DRIVER_PHOTOS->caption = $_POST['caption'];
 
-    $dir_dest = '../../upload/drivers/driver-photos/';
-    $dir_dest_thumb = '../../upload/drivers/driver-photos/thumb/';
-    $dir_dest_thumb1 = '../../upload/drivers/driver-photos/thumb1/';
+    $dir_dest = '../../upload/driver/driver-photos/';
+    $dir_dest_thumb = '../../upload/driver/driver-photos/thumb/';
+    $dir_dest_thumb1 = '../../upload/driver/driver-photos/thumb1/';
 
     $handle = new Upload($_FILES['image']);
     $img = Helper::randamId();
@@ -104,9 +104,9 @@ if (isset($_POST['create-photo'])) {
 
 if (isset($_POST['edit-photo'])) {
 
-    $dir_dest = '../../upload/drivers/driver-photos/';
-    $dir_dest_thumb = '../../upload/drivers/driver-photos/thumb/';
-    $dir_dest_thumb1 = '../../upload/drivers/driver-photos/thumb1/';
+    $dir_dest = '../../upload/driver/driver-photos/';
+    $dir_dest_thumb = '../../upload/driver/driver-photos/thumb/';
+    $dir_dest_thumb1 = '../../upload/driver/driver-photos/thumb1/';
 
     $handle = new Upload($_FILES['image']);
 

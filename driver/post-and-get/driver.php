@@ -39,10 +39,10 @@ if (isset($_POST['update'])) {
 
 
 
-    $dir_dest = '../../upload/drivers/';
+    $dir_dest = '../../upload/driver/';
 
     $handle = new Upload($_FILES['image']);
-
+    
     if ($_POST ["oldImageName"]) {
         $img = $_POST ["oldImageName"];
         $imgName = null;
@@ -64,7 +64,7 @@ if (isset($_POST['update'])) {
                 $imgName = $handle->file_dst_name;
             }
         }
-        $VISITOR->profile_picture = $img;
+        $DRIVER->profile_picture = $img;
     } else {
         $imgName = null;
 
@@ -82,10 +82,11 @@ if (isset($_POST['update'])) {
                 $info = getimagesize($handle->file_dst_pathname);
                 $imgName = $handle->file_dst_name;
             }
+            
+            
         }
-        $VISITOR->profile_picture = $imgName;
+        $DRIVER->profile_picture = $imgName;
     }
-
 
 
     $VALID = new Validator();

@@ -192,7 +192,7 @@ class Visitor {
 
             return TRUE;
         }
-        dd($result);
+        
     }
 
     public function logOut() {
@@ -208,6 +208,7 @@ class Visitor {
         unset($_SESSION["authToken"]);
         unset($_SESSION["lastLogin"]);
         unset($_SESSION["username"]);
+        unset($_SESSION["position"]);
 
         return TRUE;
     }
@@ -248,6 +249,7 @@ class Visitor {
         $_SESSION["isActive"] = $visitor['isActive'];
         $_SESSION["authToken"] = $visitor['authToken'];
         $_SESSION["username"] = $visitor['username'];
+        $_SESSION["position"] = 'visitor';
         
     }
 

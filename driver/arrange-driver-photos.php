@@ -70,7 +70,7 @@ $DRIVERPHOTOS = DriverPhotos::getDriverPhotosByDriver($DRIVER->id);
                                                     <div class="col-md-3 col-sm-4" style="list-style: none;">
                                                         <li class="ui-state-default">
                                                             <span class="number-class">(<?php echo $key + 1; ?>)</span>
-                                                            <img class="img-responsive" src="../upload/drivers/driver-photos/thumb1/<?php echo $img["image_name"]; ?>" alt=""/>
+                                                            <img class="img-responsive" src="../upload/driver/driver-photos/thumb1/<?php echo $img["image_name"]; ?>" alt=""/>
                                                             <input type="hidden" name="sort[]"  value="<?php echo $img["id"]; ?>" class="sort-input"/>
 
                                                         </li>

@@ -26,6 +26,9 @@ include_once(dirname(__FILE__) . '/Visitor.php');
 include_once(dirname(__FILE__) . '/Reviews.php');
 include_once(dirname(__FILE__) . '/City.php');
 include_once(dirname(__FILE__) . '/Booking.php');
+include_once(dirname(__FILE__) . '/BlogQuestion.php');
+include_once(dirname(__FILE__) . '/BlogAnswer.php');
+include_once(dirname(__FILE__) . '/BlogComment.php');
 
 function dd($data) {
     var_dump($data);

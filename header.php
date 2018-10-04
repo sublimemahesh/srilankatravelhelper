@@ -32,6 +32,7 @@
                         <li><a href="drivers-page.php">Drivers</a>
                         <li><a href="about.php">About</a>
                         <li><a href="contact.php">Contact</a>
+                        <li><a href="blog.php">Blog</a>
                         </li>
                         <li><a href="visitor/"><i class="sl sl-icon-login"></i> Sign In</a></li>
                     </ul>
