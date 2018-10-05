@@ -1,5 +1,7 @@
 $(document).ready(function () {
+
     $('#comment-btn-submit').click(function () {
+
 
         var answer, comment, position, positionid;
 
@@ -7,8 +9,8 @@ $(document).ready(function () {
         comment = $('#comment').val();
         position = $('#position').val();
         positionid = $('#positionid').val();
-        
-        if(!positionid || positionid.length == '') {
+
+        if (!positionid || positionid.length == '') {
             $("#login").modal('show');
             return false;
         }

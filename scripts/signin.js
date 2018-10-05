@@ -1,10 +1,30 @@
 $(document).ready(function () {
+    
+    $('#nav-signup').click(function () {
+        $('#tab-signin').addClass('hidden');
+        $('#tab-signup').removeClass('hidden');
+        $('#nav-signin').removeClass('active');
+        $('#nav-signup').addClass('active');
+        $('#signin').addClass('hidden');
+        $('#signup').removeClass('hidden');
+    });
+    $('#nav-signin').click(function () {
+        $('#tab-signin').removeClass('hidden');
+        $('#tab-signup').addClass('hidden');
+        $('#nav-signin').addClass('active');
+        $('#nav-signup').removeClass('active');
+        $('#signin').removeClass('hidden');
+        $('#signup').addClass('hidden');
+    });
+    
+    
     $('#signin').click(function () {
 
-        var username, password;
+        var username, password, position;
 
         username = $('#un').val();
         password = $('#pw').val();
+        position = $('#ps').val();
 
         $.ajax({
             url: "post-and-get/ajax/signin.php",
@@ -14,17 +34,28 @@ $(document).ready(function () {
             data: {
                 username: username,
                 password: password,
+                position: position,
                 option: 'SIGNIN'
             },
             success: function (result) {
 
-                $('#visitor').val(result.id);
-                $('#username').val('');
-                $('#password').val('');
-                $("#login").modal('hide');
-                $("#btn-submit").click();
-
-
+                if (result.status === 'success') {
+                    $('#positionid').val(result.positionid);
+                    $('#position').val(result.position);
+                    $('#ps').val('');
+                    $('#username').val('');
+                    $('#password').val('');
+                    $("#login").modal('hide');
+                    $("#btn-submit").click();
+                } else {
+                    swal({
+                        title: "Error!",
+                        text: "Please try again...",
+                        type: 'error',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }
             }
         });
     });

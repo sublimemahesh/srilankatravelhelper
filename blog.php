@@ -1,14 +1,22 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 $id = '';
+$position = '';
+$positionid = '';
 if (isset($_SESSION["id"])) {
     $id = $_SESSION["id"];
 }
+if (isset($_SESSION['position'])) {
+    $position = $_SESSION['position'];
+}
+if (isset($_SESSION['id'])) {
+    $positionid = $_SESSION['id'];
+}
 
 $COUNT = BlogQuestion::getQuestionsCount();
-
-
 ?>
 <html>
     <head>
@@ -75,14 +83,25 @@ $COUNT = BlogQuestion::getQuestionsCount();
 
                         <?php
                         foreach (BlogQuestion::all() as $question) {
-                            $VISITOR = new Visitor($question['visitor']);
+                            if ($question['position'] === 'visitor') {
+                                $POSITION = new Visitor($question['position_id']);
+                            } elseif ($question['position'] === 'driver') {
+                                $POSITION = new Drivers($question['position_id']);
+                            }
+
                             $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
                             ?>
                             <div class="">
                                 <div class="question col-md-12 col-xs-12">
                                     <div class="answers-count col-md-1 col-xs-3">
-                                        <h2><?php echo $COUNTANSWERS['count'];?></h2>
-                                        <h6><?php if($COUNTANSWERS['count'] == 1) {echo 'Answer';} else {echo 'Answers'; };?></h6>
+                                        <h2><?php echo $COUNTANSWERS['count']; ?></h2>
+                                        <h6><?php
+                                            if ($COUNTANSWERS['count'] == 1) {
+                                                echo 'Answer';
+                                            } else {
+                                                echo 'Answers';
+                                            };
+                                            ?></h6>
                                     </div>
                                     <div class="description col-md-9 col-xs-9">
                                         <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
@@ -99,10 +118,11 @@ $COUNT = BlogQuestion::getQuestionsCount();
                                             asked 25min ago
                                         </div>
                                         <div class="col-md-12">
-                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt=""/>
+                                            <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
                                         </div>
                                         <div class="col-md-12">
-                                            <?php echo $VISITOR->name; ?>
+                                            <?php echo $question['position']; ?><br />
+                                            <?php echo $POSITION->name; ?>
                                         </div>
                                     </div>
 
@@ -120,8 +140,9 @@ $COUNT = BlogQuestion::getQuestionsCount();
                             <div class="panel panel-default">
 
                                 <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject"/>
-                                <textarea class="form-control" name="question" id="question" required placeholder="Enter Question"></textarea>
-                                <input type="hidden" name="visitor" id="visitor" value="<?php echo $id; ?>"/>
+                                <textarea class="form-control" name="question" id="qu" required placeholder="Enter Question"></textarea>
+                                <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
+                                <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
                                 <input type="submit" class="btn btn-heading" name="btn-submit" id="btn-submit" value="POST"/>
 
                             </div>
@@ -143,16 +164,40 @@ $COUNT = BlogQuestion::getQuestionsCount();
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Add Your Comment</h4>
+                            <h4 class="modal-title">Please Login First To Continue</h4>
                         </div>
                         <div class="modal-body">
-                            <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
-                            <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
-                            <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
+                            <div class="col-md-6"><a href="#" class="signin active" id="nav-signin">Sign In</a></div>
+                            <div class="col-md-6"><a href="#" class="signup" id="nav-signup">Sign Up</a></div>
+
+                            <div id="tab-signin">
+                                <select id="ps">
+                                    <option value="">Select Your Position</option>
+                                    <option value="visitor">Visitor</option>
+                                    <option value="driver">Driver</option>
+                                </select>
+                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
+                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
+                            </div>
+                            <div id="tab-signup" class="hidden">
+                                <select id="pos">
+                                    <option value="">Select Your Position</option>
+                                    <option value="visitor">Visitor</option>
+                                    <option value="driver">Driver</option>
+                                </select>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" />
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
+                                <input type="text" name="username" id="un1" class="form-control" placeholder="User Name" />
+                                <input type="password" name="password" id="pw1" class="form-control" placeholder="Password" />
+                                <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
+                            </div>
+
+
 
                         </div>
                         <div class="modal-footer">
-                            <!--<input type="submit" class="btn btn-heading" name="btn-submit" id="comment-btn-submit" value="POST"/>-->
+                            <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
+                            <input type="submit" id="signup" name="signup" class="signup-btn hidden" value="SIGN UP" />
                         </div>
                     </div>
 
@@ -180,6 +225,34 @@ $COUNT = BlogQuestion::getQuestionsCount();
         <script src="scripts/add-question.js" type="text/javascript"></script>
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/signin.js" type="text/javascript"></script>
+        <script src="scripts/signup.js" type="text/javascript"></script>
+        <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+        <script>
+            tinymce.init({
+                selector: "#qu",
+                // ===========================================
+                // INCLUDE THE PLUGIN
+                // ===========================================
 
+                plugins: [
+                    "advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table contextmenu paste"
+                ],
+                // ===========================================
+                // PUT PLUGIN'S BUTTON on the toolbar
+                // ===========================================
+
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                // ===========================================
+                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                // ===========================================
+
+                relative_urls: false
+
+            });
+
+
+        </script>
     </body>
 </html>

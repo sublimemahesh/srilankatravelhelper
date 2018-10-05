@@ -16,13 +16,14 @@ class BlogQuestion {
     public $id;
     public $subject;
     public $question;
-    public $visitor;
+    public $position;
+    public $position_id;
     public $askedAt;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`subject`,`question`,`visitor`,`askedAt` FROM `blog_question` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`subject`,`question`,`position`,`position_id`,`askedAt` FROM `blog_question` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -31,7 +32,8 @@ class BlogQuestion {
             $this->id = $result['id'];
             $this->subject = $result['subject'];
             $this->question = $result['question'];
-            $this->visitor = $result['visitor'];
+            $this->position = $result['position'];
+            $this->position_id = $result['position_id'];
             $this->askedAt = $result['askedAt'];
 
             return $this;
@@ -42,10 +44,11 @@ class BlogQuestion {
         date_default_timezone_set('Asia/Colombo');
         $askedAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `blog_question` (`subject`,`question`,`visitor`,`askedAt`) VALUES  ('"
+        $query = "INSERT INTO `blog_question` (`subject`,`question`,`position`,`position_id`,`askedAt`) VALUES  ('"
                 . $this->subject . "', '"
                 . $this->question . "', '"
-                . $this->visitor . "', '"
+                . $this->position . "', '"
+                . $this->position_id . "', '"
                 . $askedAt . "')";
 
         $db = new Database();
@@ -80,7 +83,8 @@ class BlogQuestion {
         $query = "UPDATE  `blog_question` SET "
                 . "`subject` ='" . $this->subject . "', "
                 . "`question` ='" . $this->question . "', "
-                . "`visitor` ='" . $this->visitor . "', "
+                . "`position` ='" . $this->position . "', "
+                . "`position_id` ='" . $this->position_id . "', "
                 . "`askedAt` ='" . $this->askedAt . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 

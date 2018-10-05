@@ -1,12 +1,14 @@
 $(document).ready(function () {
     $('#btn-submit').click(function () {
-        var subject, question, visitor;
+        alert(111);
+        var subject, question, position, positionid;
 
         subject = $('#subject').val();
-        question = $('#question').val();
-        visitor = $('#visitor').val();
+        question = tinyMCE.activeEditor.getContent();
+        position = $('#position').val();
+        positionid = $('#positionid').val();
         
-        if(!visitor || visitor.length == '') {
+        if(!positionid || positionid.length == '') {
             $("#login").modal('show');
             return false;
         }
@@ -17,9 +19,10 @@ $(document).ready(function () {
             dataType: "json",
             type: "POST",
             data: {
-                visitor: visitor,
                 subject: subject,
                 question: question,
+                position: position,
+                positionid: positionid,
                 option: 'ADDQUESTION'
             },
             success: function (result) {
@@ -40,8 +43,8 @@ $(document).ready(function () {
                         showConfirmButton: false
                     });
                     $('#subject').val('');
-                    $('#question').val('');
-                    
+//                    $('#question').text('');
+                    tinyMCE.activeEditor.setContent('');
                 }
 
 
