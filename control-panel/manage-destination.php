@@ -66,34 +66,36 @@ $DESTINATION = new DestinationType(NULL)
                             <div class="body">
                                 <!-- <div class="table-responsive">-->
                                 <div class="row clearfix">
-                                        <?php
-                                        $DESTINATION = DestinationType::all();
-                                        if (count($DESTINATION) > 0) {
-                                            foreach ($DESTINATION as $key => $destination) {
-                                                ?>
-                                                <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                                    <div class="photo-img-container">
-                                                        <a href="view-destination.php?id=<?php echo $destination['id']; ?>">    <img src="../upload/destination-type/<?php echo $destination['image_name']; ?>" class="img-responsive "></a>
-                                                    </div>
-                                                    <div class="img-caption">
-                                                        <a href="view-destination.php?id=<?php echo $destination['id']; ?>">        <p class="maxlinetitle "><?php echo $destination['name']; ?>     
-                                                      </p> </a>
-                                                        <div class="d">
-<!--                                                            <a href="#"  class="delete-tour-package" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                            <a href="edit-tour-package.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                            <a href="arrange-tour-package.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                            -->
-                                                       </div>
-                                                    </div>
+                                    <?php
+                                    $DEST = DestinationType::all();
+                                    if (count($DEST) > 0) {
+                                        foreach ($DEST as $key => $destination) {
+                                            ?>
+                                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                                <div class="photo-img-container">
+                                                    <a href="view-destination.php?id=<?php echo $destination['id']; ?>">    
+                                                        <img src="../upload/destination-type/<?php echo $destination['image_name']; ?>" class="img-responsive "></a>
                                                 </div>
-                                                <?php
-                                            }
-                                        } else {
-                                            ?> 
-                                            <b style="padding-left: 15px;">No packages in the database.</b> 
-                                        <?php } ?> 
+                                                <div class="img-caption">
+                                                    <a href="view-destination.php?id=<?php echo $destination['id']; ?>">        
+                                                        <p class="maxlinetitle "><?php echo $destination['name']; ?>     
+                                                        </p> </a>
+<!--                                                    <div class="d">
+                                                        <a href="#"  class="delete-destination-type" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                        <a href="edit-destination-type.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="arrange-destination-type.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
 
-                                    </div>  
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                            <?php
+                                        }
+                                    } else {
+                                        ?> 
+                                        <b style="padding-left: 15px;">No packages in the database.</b> 
+                                    <?php } ?> 
+
+                                </div>  
                             </div>
                         </div>
                     </div>

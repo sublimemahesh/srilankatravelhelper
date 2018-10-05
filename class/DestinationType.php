@@ -96,7 +96,7 @@ class DestinationType {
 
     public function GetDestinationTypeById($id) {
 
-        $query = "SELECT * FROM `destination_type` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `destination_type` WHERE `id` = '" . $id . "'";
 
         $db = new Database();
 
