@@ -80,6 +80,7 @@
 }
 .question {
     margin-bottom: 10px;
+    text-align: justify;
 }
 .qu-description {
     font-size: 12px;
@@ -113,7 +114,9 @@
     padding-right: 0px;
 }
 .asked-by img {
-    width: 60px;
+    width: 75px;
+    border: 1px solid black;
+    border-radius: 45px;
 }
 .hr.col-md-12 {
     padding-left: 0px;
@@ -174,6 +177,13 @@ input[type="submit"] {
 .modal-body a.active {
     color:#b0d133;
 }
+.view-qu.col-md-2 {
+    padding-left: 0px;
+    padding-right: 25px;
+}
+.comment-p{
+    text-align: justify;
+}
 @media(max-width: 1000px) {
     .container {
         width: 100%
@@ -181,11 +191,11 @@ input[type="submit"] {
 }
 @media(max-width: 600px) {
     .blog.col-md-12 {
-       padding-right: 0px;
-       padding-left: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
     .answer.col-md-12 {
-       padding-right: 0px;
-       padding-left: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 }
