@@ -1,12 +1,14 @@
 $(document).ready(function () {
+    
+    
     $('#btn-submit').click(function () {
         var question, answer, position, positionid;
 
         question = $('#question').val();
-        answer = $('#ans').val();
+        answer = tinyMCE.activeEditor.getContent();
         position = $('#position').val();
         positionid = $('#positionid').val();
-        alert(answer);
+        
         if(!positionid || positionid.length == '') {
             $("#login").modal('show');
             return false;
@@ -41,7 +43,7 @@ $(document).ready(function () {
                         timer: 2000,
                         showConfirmButton: false
                     });
-                    $('#answer').val('');
+                    tinyMCE.activeEditor.setContent('');
                 }
 
 

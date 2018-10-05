@@ -3,7 +3,9 @@ include_once(dirname(__FILE__) . '/class/include.php');
 $id = '';
 $position = '';
 $positionid = '';
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
@@ -15,7 +17,11 @@ if (isset($_SESSION['id'])) {
 }
 
 $Question = new BlogQuestion($id);
-$VISITOR = new Visitor($Question->visitor);
+if ($Question->position === 'visitor') {
+    $POSITION = new Visitor($Question->position_id);
+} elseif ($Question->position === 'driver') {
+    $POSITION = new Drivers($Question->position_id);
+}
 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
 ?>
 <html>
@@ -79,13 +85,13 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
 
                             <div class="view-qu asked-by col-md-4 col-md-offset-8">
                                 <div class="col-md-4">
-                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt=""/>
+                                    <img src="upload/<?php echo $Question->position; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
                                 </div>
                                 <div class="col-md-8 time-ago">
                                     <div class="time-ago">
                                         asked 25min ago
                                     </div>
-                                    <?php echo $VISITOR->name; ?>
+                                    <?php echo $POSITION->name; ?>
                                 </div>
                             </div>
 
@@ -177,7 +183,7 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                                             if ($answer['position'] === 'admin') {
                                                                 echo 'Travel Helper Team';
                                                             } else {
-                                                                echo $POSITION->name;
+                                                                echo $POSITION1->name;
                                                             };
                                                             ?> </span> <span class="commented-at">25min ago</span> </p> 
 
@@ -247,12 +253,6 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                             }
                         }
                         ?>
-
-
-
-                        <!--                        <div class="hr col-md-12">
-                                                    <hr class="main-divider" />
-                                                </div>-->
                         <div class="answer-form">
                             <h3>Your Answer</h3>
                             <div class="panel panel-default">
@@ -260,7 +260,7 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                 <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
                                 <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
                                 <input type="hidden" name="question" id="question" value="<?php echo $id; ?>"/>
-                                <input type="submit" class="btn btn-heading" name="btn-submit" id="btn-submit" value="POST"/>
+                                <input type="submit" class="btn btn-heading add-answer" name="btn-submit" id="btn-submit" value="POST"/>
 
                             </div>
 
@@ -303,20 +303,39 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                             <h4 class="modal-title">Please Login First To Continue</h4>
                         </div>
                         <div class="modal-body">
-                            <select id="ps">
-                                <option value="">Select Your Position</option>
-                                <option value="admin">Admin</option>
-                                <option value="visitor">Visitor</option>
-                                <option value="driver">Driver</option>
-                            </select>
-                            <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
-                            <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
-                            <input type="submit" id="signin-with-position" name="signin" class="signup-btn" value="SIGN IN" />
-                            <input type="submit" id="signin-in-comment" name="signin" class="signup-btn hidden" value="SIGN IN" />
+                            <div class="col-md-6"><a href="#" class="signin active" id="nav-signin">Sign In</a></div>
+                            <div class="col-md-6"><a href="#" class="signup" id="nav-signup">Sign Up</a></div>
+
+                            <div id="tab-signin">
+                                <select id="ps">
+                                    <option value="">Select Your Position</option>
+                                    <option value="visitor">Visitor</option>
+                                    <option value="driver">Driver</option>
+                                </select>
+                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
+                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
+                            </div>
+                            <div id="tab-signup" class="hidden">
+                                <select id="pos">
+                                    <option value="">Select Your Position</option>
+                                    <option value="visitor">Visitor</option>
+                                    <option value="driver">Driver</option>
+                                </select>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" />
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
+                                <input type="text" name="username" id="un1" class="form-control" placeholder="User Name" />
+                                <input type="password" name="password" id="pw1" class="form-control" placeholder="Password" />
+                                <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
+                            </div>
+
+
 
                         </div>
                         <div class="modal-footer">
-                            <!--<input type="submit" class="btn btn-heading" name="btn-submit" id="comment-btn-submit" value="POST"/>-->
+                            <input type="submit" id="signin-with-position" name="signin" class="signup-btn" value="SIGN IN" />
+                            <input type="submit" id="signin-in-comment" name="signin" class="signup-btn hidden" value="SIGN IN" />
+                            <input type="submit" id="signup-answer" name="signup" class="signup-btn hidden" value="SIGN UP" />
+                            <input type="submit" id="signup-comment" name="signup" class="signup-btn hidden" value="SIGN UP" />
                         </div>
                     </div>
 
@@ -346,6 +365,7 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="scripts/add-comment.js" type="text/javascript"></script>
         <script src="scripts/signin.js" type="text/javascript"></script>
+        <script src="scripts/signup.js" type="text/javascript"></script>
         <script>
             tinymce.init({
                 selector: "#ans",
@@ -382,6 +402,45 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                     $('#modalanswer').val(answer);
                     $('#signin-with-position').addClass('hidden');
                     $('#signin-in-comment').removeClass('hidden');
+
+                    $('#nav-signup').click(function () {
+                        $('#tab-signin').addClass('hidden');
+                        $('#tab-signup').removeClass('hidden');
+                        $('#nav-signin').removeClass('active');
+                        $('#nav-signup').addClass('active');
+                        $('#signin-in-comment').addClass('hidden');
+                        $('#signup-comment').removeClass('hidden');
+                    });
+                    $('#nav-signin').click(function () {
+                        $('#tab-signin').removeClass('hidden');
+                        $('#tab-signup').addClass('hidden');
+                        $('#nav-signin').addClass('active');
+                        $('#nav-signup').removeClass('active');
+                        $('#signin-in-comment').removeClass('hidden');
+                        $('#signup-comment').addClass('hidden');
+                    });
+                });
+                $('.add-answer').click(function () {
+                    
+                    $('#signin-with-position').removeClass('hidden');
+                    $('#signin-in-comment').addClass('hidden');
+
+                    $('#nav-signup').click(function () {
+                        $('#tab-signin').addClass('hidden');
+                        $('#tab-signup').removeClass('hidden');
+                        $('#nav-signin').removeClass('active');
+                        $('#nav-signup').addClass('active');
+                        $('#signin-with-position').addClass('hidden');
+                        $('#signup-answer').removeClass('hidden');
+                    });
+                    $('#nav-signin').click(function () {
+                        $('#tab-signin').removeClass('hidden');
+                        $('#tab-signup').addClass('hidden');
+                        $('#nav-signin').addClass('active');
+                        $('#nav-signup').removeClass('active');
+                        $('#signin-with-position').removeClass('hidden');
+                        $('#signup-answer').addClass('hidden');
+                    });
                 });
 
 

@@ -151,6 +151,9 @@ input[type="submit"] {
 .answer-form #btn-submit {
     margin-top: 20px;
 }
+.qu-form #btn-submit {
+    margin-top: 20px;
+}
 .view-qu .time-ago {
     font-size: 12px;
     line-height: 22px;
@@ -158,6 +161,18 @@ input[type="submit"] {
 .company-logo {
     text-align: right;
     margin-top: 10px;
+}
+.modal-body .col-md-6 {
+    text-align: center;
+    font-size: 15px;
+    color:#ccc;
+    margin-bottom: 20px;
+}
+.modal-body a {
+    color:#ccc;
+}
+.modal-body a.active {
+    color:#b0d133;
 }
 @media(max-width: 1000px) {
     .container {

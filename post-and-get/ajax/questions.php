@@ -8,7 +8,8 @@ if ($_POST['option'] === 'ADDQUESTION') {
 
     $QUESTIONS->subject = $_POST['subject'];
     $QUESTIONS->question = $_POST['question'];
-    $QUESTIONS->visitor = $_POST['visitor'];
+    $QUESTIONS->position = $_POST['position'];
+    $QUESTIONS->position_id = $_POST['positionid'];
 
     $result = $QUESTIONS->create();
 
