@@ -17,6 +17,7 @@ if (isset($_SESSION['id'])) {
 }
 
 $COUNT = BlogQuestion::getQuestionsCount();
+$UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
 ?>
 <html>
     <head>
@@ -55,11 +56,14 @@ $COUNT = BlogQuestion::getQuestionsCount();
             <div class="container  padding-top-45">
 
                 <div class="col-md-12">
-                    <div class="blog col-md-9 col-xs-12">
+                    <div class="blog col-md-12 col-xs-12">
                         <div class="blog-top-heading">
                             <div class="row">
-                                <div class="topic">
+                                <div class="topic topic-all" id="">
                                     <h3>All Questions</h3>
+                                </div>
+                                <div class="topic topic-unanswered" id="">
+                                    <h3>Unanswered Questions</h3>
                                 </div>
                                 <div class="ask-btn">
                                     <a href="#qu-form" class="btn btn-heading" id="ask-btn">Ask Question</a>
@@ -67,12 +71,27 @@ $COUNT = BlogQuestion::getQuestionsCount();
                             </div>
 
                             <div class="row">
-                                <div class="topic">
-                                    <h4><?php echo $COUNT['count']; ?> Questions</h4>
+                                <div class="topic topic-all" id="">
+                                    <h4><?php echo $COUNT['count']; ?> Question<?php
+                                        if ($COUNT['count'] == 1) {
+                                            echo '';
+                                        } else {
+                                            echo 's';
+                                        }
+                                        ?></h4>
+                                </div>
+                                <div class="topic topic-unanswered" id="">
+                                    <h4><?php echo $UNANSWEREDQUCOUNT['count']; ?> Question<?php
+                                        if ($UNANSWEREDQUCOUNT['count'] == 1) {
+                                            echo '';
+                                        } else {
+                                            echo 's';
+                                        }
+                                        ?></h4>
                                 </div>
                                 <div class="nav">
-                                    <a href="#" class="btn btn-default active" id="ask-btn">Newest</a>
-                                    <a href="#" class="btn btn-default" id="ask-btn">Unanswered</a>
+                                    <a href="#" class="btn btn-default newest-btn" id="ask-btn">Newest</a>
+                                    <a href="#" class="btn btn-default unanswered-btn" id="ask-btn">Unanswered</a>
                                 </div>
 
                             </div>
@@ -80,66 +99,132 @@ $COUNT = BlogQuestion::getQuestionsCount();
                                 <hr class="main-divider" />
                             </div>
                         </div>
-
-                        <?php
-                        foreach (BlogQuestion::all() as $question) {
-                            if ($question['position'] === 'visitor') {
-                                $POSITION = new Visitor($question['position_id']);
-                            } elseif ($question['position'] === 'driver') {
-                                $POSITION = new Drivers($question['position_id']);
-                            }
-
-                            $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
-                            ?>
-                            <div class="">
-                                <div class="question col-md-12 col-xs-12">
-                                    <div class="answers-count col-md-1 col-xs-3">
-                                        <h2><?php echo $COUNTANSWERS['count']; ?></h2>
-                                        <h6><?php
-                                            if ($COUNTANSWERS['count'] == 1) {
-                                                echo 'Answer';
-                                            } else {
-                                                echo 'Answers';
-                                            };
-                                            ?></h6>
-                                    </div>
-                                    <div class="description col-md-9 col-xs-9">
-                                        <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
-                                        <span class="qu-description"><?php
-                                            if (strlen($question['question']) > 225) {
-                                                echo substr($question['question'], 0, 225) . '...';
-                                            } else {
-                                                echo $question['question'];
-                                            }
-                                            ?></span>
-                                    </div>
-                                    <div class="asked-by col-md-2 col-xs-12">
-                                        <div class="col-md-12 time-ago">
-                                            asked 25min ago
-                                        </div>
-                                        <div class="col-md-12">
-                                            <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <?php echo $question['position']; ?><br />
-                                            <?php echo $POSITION->name; ?>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="hr col-md-12 col-xs-12">
-                                    <hr class="main-divider" />
-                                </div>
-                            </div>
+                        <div class="" id="all">
                             <?php
-                        }
-                        ?>
+                            foreach (BlogQuestion::all() as $question) {
+                                if ($question['position'] === 'visitor') {
+                                    $POSITION = new Visitor($question['position_id']);
+                                } elseif ($question['position'] === 'driver') {
+                                    $POSITION = new Drivers($question['position_id']);
+                                }
+                                $result = getAskedTime($question['askedAt']);
 
+                                $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
+                                ?>
+                                <div class="">
+                                    <div class="question col-md-12 col-xs-12">
+                                        <div class="answers-count <?php
+                                        if ($COUNTANSWERS['count'] > 0) {
+                                            echo 'active';
+                                        } else {
+                                            echo '';
+                                        };
+                                        ?> col-md-1 col-xs-3">
+                                            <h2><?php echo $COUNTANSWERS['count']; ?></h2>
+                                            <h6><?php
+                                                if ($COUNTANSWERS['count'] == 1) {
+                                                    echo 'Answer';
+                                                } else {
+                                                    echo 'Answers';
+                                                };
+                                                ?></h6>
+                                        </div>
+                                        <div class="description col-md-9 col-xs-9">
+                                            <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
+                                            <span class="qu-description"><?php
+                                                if (strlen($question['question']) > 225) {
+                                                    echo substr($question['question'], 0, 225) . '...';
+                                                } else {
+                                                    echo $question['question'];
+                                                }
+                                                ?></span>
+                                        </div>
+                                        <div class="asked-by col-md-2 col-xs-12">
+                                            
+                                            <div class="col-md-12">
+                                                <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                            </div>
+                                            <div class="col-md-12 time-ago">
+                                                asked <?php echo $result; ?>
+                                            </div>
+                                            <div class="col-md-12 asked-by-blog">
+                                                <?php echo $POSITION->name; ?><br />
+                                                <?php echo $question['position']; ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="hr col-md-12 col-xs-12">
+                                        <hr class="main-divider" />
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="" id="unanswered">
+                            <?php
+                            foreach (BlogQuestion::getUnansweredQuestions() as $question) {
+                                if ($question['position'] === 'visitor') {
+                                    $POSITION = new Visitor($question['position_id']);
+                                } elseif ($question['position'] === 'driver') {
+                                    $POSITION = new Drivers($question['position_id']);
+                                }
+
+                                $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
+
+                                $result = getAskedTime($question['askedAt']);
+                                ?>
+                                <div class="">
+                                    <div class="question col-md-12 col-xs-12">
+                                        <div class="answers-count col-md-1 col-xs-3">
+                                            <h2><?php echo $COUNTANSWERS['count']; ?></h2>
+                                            <h6><?php
+                                                if ($COUNTANSWERS['count'] == 1) {
+                                                    echo 'Answer';
+                                                } else {
+                                                    echo 'Answers';
+                                                };
+                                                ?></h6>
+                                        </div>
+                                        <div class="description col-md-9 col-xs-9">
+                                            <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
+                                            <span class="qu-description"><?php
+                                                if (strlen($question['question']) > 225) {
+                                                    echo substr($question['question'], 0, 225) . '...';
+                                                } else {
+                                                    echo $question['question'];
+                                                }
+                                                ?></span>
+                                        </div>
+                                        <div class="asked-by col-md-2 col-xs-12">
+                                            
+                                            <div class="col-md-12">
+                                                <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                            </div>
+                                            <div class="col-md-12 time-ago">
+                                                asked <?php echo $result; ?>
+                                            </div>
+                                            <div class="col-md-12 asked-by-blog">
+                                                <?php echo $POSITION->name; ?><br />
+                                                <?php echo $question['position']; ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="hr col-md-12 col-xs-12">
+                                        <hr class="main-divider" />
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
                         <div class="qu-form" id="qu-form">
                             <h3>Ask A Question</h3>
                             <div class="panel panel-default">
 
-                                <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject"/>
+                                <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject" autocomplete="off"/>
                                 <textarea class="form-control" name="question" id="qu" required placeholder="Enter Question"></textarea>
                                 <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
                                 <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
@@ -176,8 +261,8 @@ $COUNT = BlogQuestion::getQuestionsCount();
                                     <option value="visitor">Visitor</option>
                                     <option value="driver">Driver</option>
                                 </select>
-                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
-                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
+                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value=""  autocomplete="off"/>
+                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value="" autocomplete="off"/>
                             </div>
                             <div id="tab-signup" class="hidden">
                                 <select id="pos">
@@ -185,15 +270,12 @@ $COUNT = BlogQuestion::getQuestionsCount();
                                     <option value="visitor">Visitor</option>
                                     <option value="driver">Driver</option>
                                 </select>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" />
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
-                                <input type="text" name="username" id="un1" class="form-control" placeholder="User Name" />
-                                <input type="password" name="password" id="pw1" class="form-control" placeholder="Password" />
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" autocomplete="off" />
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" autocomplete="off" />
+                                <input type="text" name="username" id="un1" class="form-control" placeholder="User Name" autocomplete="off" />
+                                <input type="password" name="password" id="pw1" class="form-control" placeholder="Password" autocomplete="off" />
                                 <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
                             </div>
-
-
-
                         </div>
                         <div class="modal-footer">
                             <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
@@ -203,6 +285,68 @@ $COUNT = BlogQuestion::getQuestionsCount();
 
                 </div>
             </div> 
+            <?php
+
+            function getAskedTime($datetime) {
+
+                date_default_timezone_set('Asia/Colombo');
+                $today = new DateTime(date("Y-m-d"));
+                $todaytime = new DateTime(date("H:i:s"));
+
+                $arr = explode(' ', $datetime);
+                $date1 = new DateTime(date($arr[0]));
+                $time1 = new DateTime(date($arr[1]));
+
+                $date = $today->diff($date1);
+                $datediff = $date->format('%a');
+
+                if ($datediff == 0) {
+
+                    $time = $todaytime->diff($time1);
+                    $timediff = $time->format('%h:%i:%s');
+                    $arr1 = explode(':', $timediff);
+                    if ($arr1[0] == 0) {
+                        $diff = $arr1[1] . ' min ago';
+                    } else {
+                        if ($arr1[0] == 1) {
+                            $diff = $arr1[0] . ' hour ago';
+                        } else {
+                            $diff = $arr1[0] . ' hours ago';
+                        }
+                    }
+                } elseif ($datediff == 1 && $time1 > $todaytime) {
+                    $t = $todaytime->diff($time1);
+                    $timediff1 = $t->format('%h:%i:%s');
+                    $time3 = new DateTime('24:00:00');
+                    $time = $time3->diff($timediff1);
+                    $timediff = $time->format('%h:%i:%s');
+                    $arr1 = explode(':', $timediff);
+                    $diff = $arr1[0] . ' hours ago';
+                } elseif ($datediff == 1 && $time1 < $todaytime) {
+                    $diff = $datediff . ' day ago';
+                } elseif ($datediff > 30) {
+                    $month = round($datediff / 30);
+                    
+                    if ($month >= 12) {
+                        
+                        $year = round($month / 12);
+                        if ($year == 1) {
+                            $diff = $year . ' year ago';
+                        } else {
+                            $diff = $year . ' years ago';
+                        }
+                        
+                    } elseif ($month == 1) {
+                        $diff = $month . ' month ago';
+                    } else {
+                        $diff = $month . ' months ago';
+                    }
+                }
+                return $diff;
+
+            }
+            ?>
+
             <?php include './footer.php'; ?>
             <!-- Back To Top Button -->
             <div id="backtotop"><a href="#"></a></div>
@@ -227,6 +371,7 @@ $COUNT = BlogQuestion::getQuestionsCount();
         <script src="scripts/signin.js" type="text/javascript"></script>
         <script src="scripts/signup.js" type="text/javascript"></script>
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+        <script src="scripts/blog.js" type="text/javascript"></script>
         <script>
             tinymce.init({
                 selector: "#qu",

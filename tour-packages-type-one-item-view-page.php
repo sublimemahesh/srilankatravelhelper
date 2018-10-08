@@ -8,7 +8,12 @@ $REVIEWS = Reviews::getTotalReviewsOfTour($id);
 $divider1 = $REVIEWS['count'];
 $sum1 = $REVIEWS['sum'];
 
-$stars1 = $sum1 / $divider1;
+if ($divider1 == 0) {
+    $sum1 = 0;
+    $stars1 = 0;
+} else {
+    $stars1 = $sum1 / $divider1;
+}
 ?>
 <!DOCTYPE html>
 <head>
@@ -37,7 +42,7 @@ $stars1 = $sum1 / $divider1;
             /*                border: 1px solid #000;*/
             background:#F7F7F0;
             border-radius:3%;
-            padding: 1% 1% 1% 1%;
+            padding: 0;
             margin-bottom: 20px;
             width: 100%;
 
@@ -224,11 +229,11 @@ $stars1 = $sum1 / $divider1;
                             }
                             ?>
                         </div>
-                        
+
                     </div>
                     <div class="review-button">
-                            <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
-                        </div>
+                        <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
+                    </div>
                 </div>
                 <div class="col-md-3" >
                     <div>
@@ -243,7 +248,7 @@ $stars1 = $sum1 / $divider1;
                                 <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
                                     <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $tour_package['name']; ?></h5>
                                     <div class="col-md-5 col-xs-5 more-items-image">
-                                        <img  src="upload/tour-package/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
+                                        <img  src="upload/tour-package/thumb1/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
                                         <div class="more-reviews-item1">
                                             <li>
                                                 <?php

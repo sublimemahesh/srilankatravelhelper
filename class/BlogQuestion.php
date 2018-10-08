@@ -66,7 +66,21 @@ class BlogQuestion {
 
     public function all() {
 
-        $query = "SELECT * FROM `blog_question` ORDER BY askedAt ASC";
+        $query = "SELECT * FROM `blog_question` ORDER BY askedAt DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
+    
+    public function getUnansweredQuestions() {
+
+        $query = "SELECT * FROM `blog_question` WHERE `id` not in (SELECT distinct(`question`) AS `answered_question` FROM `blog_answer`) ORDER BY `askedAt` DESC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -111,7 +125,16 @@ class BlogQuestion {
     public function getQuestionsCount() {
 
         $query = "SELECT count(id) AS 'count' FROM `blog_question`";
-//        dd($query);
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+    public function getUnansweredQuestionsCount() {
+
+        $query = "SELECT count(`id`) AS `count` FROM `blog_question` WHERE `id` not in (SELECT distinct(`question`) AS `answered_question` FROM `blog_answer`)";
+
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));

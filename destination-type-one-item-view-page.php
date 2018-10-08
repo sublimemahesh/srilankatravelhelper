@@ -42,7 +42,7 @@ $stars1 = $sum1 / $divider1;
                 /*                border: 1px solid #000;*/
                 background:#F7F7F0;
                 border-radius:3%;
-                padding: 1% 1% 1% 1%;
+                padding:0;
                 margin-bottom: 20px;
                 width: 100%;
 

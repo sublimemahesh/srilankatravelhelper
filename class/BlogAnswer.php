@@ -66,7 +66,7 @@ class BlogAnswer {
 
     public function all() {
 
-        $query = "SELECT * FROM `blog_answer` ORDER BY answeredAt ASC";
+        $query = "SELECT * FROM `blog_answer` ORDER BY answeredAt DESC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
