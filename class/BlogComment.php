@@ -66,7 +66,7 @@ class BlogComment {
 
     public function all() {
 
-        $query = "SELECT * FROM `blog_comment` ORDER BY commentedAt ASC";
+        $query = "SELECT * FROM `blog_comment` ORDER BY commentedAt DESC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();

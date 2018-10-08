@@ -50,6 +50,8 @@
     margin: 10px 0px;
     border: 1px solid #00a1ab;
     padding: 0px;
+    width: 80px;
+    height: 80px;
 }
 .answers-count.active {
     margin: 10px 0px;
@@ -59,12 +61,12 @@
 }
 .answers-count h2, .answers-count h6 {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-bottom: 5px;
 }
 .answers-count.active h2, .answers-count.active h6 {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-bottom: 5px;
     color: #fff;
 }
@@ -108,6 +110,8 @@
     padding-right: 0px;
     text-align: center;
     font-size: 12px;
+    line-height: 17px;
+    margin-top: 5px;
 }
 .asked-by.col-md-2 {
     padding-left: 15px;
@@ -159,7 +163,8 @@ input[type="submit"] {
 }
 .view-qu .time-ago {
     font-size: 12px;
-    line-height: 22px;
+    line-height: 17px;
+    margin-top: 3px;
 }
 .company-logo {
     text-align: right;
@@ -173,6 +178,11 @@ input[type="submit"] {
 }
 .modal-body a {
     color:#ccc;
+}
+.asked-by .asked-by-blog {
+    line-height: 17px;
+    margin-top: 0px;
+    color: #ccc;
 }
 .modal-body a.active {
     color:#b0d133;
@@ -190,12 +200,25 @@ input[type="submit"] {
     }
 }
 @media(max-width: 600px) {
-    .blog.col-md-12 {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
+    
     .answer.col-md-12 {
         padding-right: 0px;
         padding-left: 0px;
+    }
+    .answers-count {
+        width: 60px;
+        height: 80px;
+    }
+    .view-qu.col-xs-2 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .container .col-md-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .blog.col-md-12 {
+        padding-right: 15px;
+        padding-left: 15px;
     }
 }

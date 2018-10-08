@@ -23,6 +23,8 @@ if ($Question->position === 'visitor') {
     $POSITION = new Drivers($Question->position_id);
 }
 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
+
+$askedAt = getAskedTime($Question->askedAt);
 ?>
 <html>
     <head>
@@ -62,7 +64,7 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
             </div>
             <div class="container  padding-top-45">
 
-                <div class="col-md-12">
+                <div class="">
                     <div class="blog col-md-12">
                         <div class="blog-top-heading">
                             <div class="row">
@@ -79,18 +81,19 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                         </div>
 
                         <div class="col-md-12">
-                            <div class="view-qu asked-by col-md-2">
+                            <div class="view-qu asked-by col-md-2 col-xs-2">
                                 <div class="col-md-12">
                                     <img src="upload/<?php echo $Question->position; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
                                 </div>
                                 <div class="col-md-12 time-ago">
                                     <div class="time-ago">
-                                        asked 25min ago
+                                        asked <?php echo $askedAt; ?>
                                     </div>
-                                    <?php echo $POSITION->name; ?>
+                                    <?php echo $POSITION->name; ?><br />
+                                    <?php echo $Question->position; ?>
                                 </div>
                             </div>
-                            <div class="question col-md-10">
+                            <div class="question col-md-10 col-xs-10">
                                 <?php echo $Question->question; ?>
                             </div>
 
@@ -122,42 +125,28 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                 } elseif ($answer['position'] === 'admin') {
                                     $POSITION = new User($answer['position_id']);
                                 }
-
+                                $answeredAt = getAskedTime($answer['answeredAt']);
                                 $commentCount = BlogComment::getCommentCountByAnswers($answer['id']);
 //                            dd($commentCount['count']);
                                 if ($commentCount['count'] > 0) {
                                     ?>
                                     <div class="">
                                         <div class="answer col-md-12">
-                                            <div class="view-qu asked-by col-md-2">
-
-                                                <?php
-                                                if ($answer['position'] === 'admin') {
-                                                    ?>
-                                                    <div class="col-md-12 company-logo">
-                                                        <img src="images/logo/log-1.png" alt=""/>
-                                                    </div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <div class="col-md-12">
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
-
+                                            <div class="view-qu asked-by col-md-2 hidden-xs">
+                                                <div class="col-md-12">
+                                                    <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                                </div>
 
                                                 <div class="col-md-12 time-ago">
                                                     <div class="time-ago">
-                                                        answered 25min ago
+                                                        answered <?php echo $answeredAt; ?>
                                                     </div>
                                                     <?php
                                                     if ($answer['position'] === 'admin') {
                                                         echo 'Travel Helper Team';
                                                     } else {
-                                                        echo $answer['position'] . '<br />';
-                                                        echo $POSITION->name;
+                                                        echo $POSITION->name . '<br />';
+                                                        echo $answer['position'];
                                                     };
                                                     ?>
 
@@ -166,7 +155,27 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                             <div class="question col-md-10">
                                                 <p><?php echo $answer['answer']; ?></p>
                                             </div>
-                                            <div class="hr col-md-11 col-md-offset-1">
+                                            <div class="view-qu asked-by col-md-2 col-xs-7 col-xs-offset-5 hidden-lg hidden-md- hidden-sm">
+                                                <div class="col-md-12">
+                                                    <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                                </div>
+
+                                                <div class="col-md-12 time-ago">
+                                                    <div class="time-ago">
+                                                        answered <?php echo $answeredAt; ?>
+                                                    </div>
+                                                    <?php
+                                                    if ($answer['position'] === 'admin') {
+                                                        echo 'Travel Helper Team';
+                                                    } else {
+                                                        echo $POSITION->name . '<br />';
+                                                        echo $answer['position'];
+                                                    };
+                                                    ?>
+
+                                                </div>
+                                            </div>
+                                            <div class="hr col-md-11 col-md-offset-1 col-xs-12">
                                                 <hr class="main-divider" />
                                             </div>
                                             <?php
@@ -176,29 +185,30 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                                 } elseif ($comment['position'] === 'driver') {
                                                     $POSITION1 = new Drivers($comment['position_id']);
                                                 }
+                                                $commentedAt = getAskedTime($comment['commentedAt']);
                                                 ?>
                                                 <div class="">
                                                     <div class="comment col-md-10 col-md-offset-2">
                                                         <div class="comment-p col-md-9">
                                                             <p><?php echo $comment['comment']; ?></p>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-3 col-md-offset-0 col-xs-7 col-xs-offset-5">
                                                             <div class="view-qu asked-by">
                                                                 <div class="col-md-12">
                                                                     <img src="upload/<?php echo $comment['position']; ?>/<?php echo $POSITION1->profile_picture; ?>" alt=""/>
                                                                 </div>
                                                                 <div class="col-md-12 time-ago">
                                                                     <div class="time-ago">
-                                                                        answered 25min ago
+                                                                        commented <?php echo $commentedAt; ?>
                                                                     </div>
                                                                     <?php
-                                                                        echo $comment['position'] . '<br />';
-                                                                        echo $POSITION1->name;
+                                                                    echo $POSITION1->name . '<br />';
+                                                                    echo $comment['position'];
                                                                     ?>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="hr col-md-12">
+                                                        <div class="hr col-md-12 col-xs-12">
                                                             <hr class="main-divider" />
                                                         </div>
                                                     </div>
@@ -222,38 +232,40 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                     <div class="">
                                         <div class="answer col-md-12">
 
-                                            <div class="view-qu asked-by col-md-2">
-                                                <?php
-                                                if ($answer['position'] === 'admin') {
-                                                    ?>
-                                                    <div class="col-md-12 company-logo">
-                                                        <img src="images/logo/log-1.png" alt=""/>
-                                                    </div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <div class="col-md-12">
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
+                                            <div class="view-qu asked-by col-md-2 hidden-xs">
+
+                                                <div class="col-md-12">
+                                                    <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                                </div>
+
                                                 <div class="col-md-12 time-ago">
                                                     <div class="time-ago">
                                                         answered 25min ago
                                                     </div>
                                                     <?php
-                                                    if ($answer['position'] === 'admin') {
-                                                        echo 'Travel Helper Team';
-                                                    } else {
-                                                        echo $answer['position'] . '<br />';
-                                                        echo $POSITION->name;
-                                                    };
+                                                    echo $POSITION->name . '<br />';
+                                                    echo $answer['position'];
                                                     ?>
                                                 </div>
                                             </div>
                                             <div class="question col-md-10">
                                                 <p><?php echo $answer['answer']; ?></p>
+                                            </div>
+                                            <div class="view-qu asked-by col-md-2 col-xs-7 col-xs-offset-5 hidden-lg hidden-md- hidden-sm">
+                                                <div class="col-md-12">
+                                                    <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                                </div>
+
+                                                <div class="col-md-12 time-ago">
+                                                    <div class="time-ago">
+                                                        answered <?php echo $answeredAt; ?>
+                                                    </div>
+                                                    <?php
+                                                    echo $POSITION->name . '<br />';
+                                                    echo $answer['position'];
+                                                    ?>
+
+                                                </div>
                                             </div>
                                             <div class="comment-btn col-md-2">
                                                 <a href="#"  class="add-comment" answer="<?php echo $answer['id']; ?>">Add a comment</a>
@@ -272,9 +284,9 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                             <h3>Your Answer</h3>
                             <div class="panel panel-default">
                                 <textarea class="form-control" name="answer" id="ans" required placeholder="Enter Your Answer"></textarea>
-                                <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
-                                <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
-                                <input type="hidden" name="question" id="question" value="<?php echo $id; ?>"/>
+                                <input type="hidden" name="position" id="position" value="<?php echo $position; ?>" autocomplete="off"/>
+                                <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>" autocomplete="off"/>
+                                <input type="hidden" name="question" id="question" value="<?php echo $id; ?>" autocomplete="off"/>
                                 <input type="submit" class="btn btn-heading add-answer" name="btn-submit" id="btn-submit" value="POST"/>
 
                             </div>
@@ -327,8 +339,8 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
                                     <option value="visitor">Visitor</option>
                                     <option value="driver">Driver</option>
                                 </select>
-                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" />
-                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value=""/>
+                                <input type="text" name="username" id="un" class="form-control" placeholder="User Name" value="" autocomplete="off" />
+                                <input type="password" name="password" id="pw" class="form-control" placeholder="Password" value="" autocomplete="off"/>
                             </div>
                             <div id="tab-signup" class="hidden">
                                 <select id="pos">
@@ -356,6 +368,67 @@ $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($Question->id);
 
                 </div>
             </div>
+            <?php
+
+            function getAskedTime($datetime) {
+
+                date_default_timezone_set('Asia/Colombo');
+                $today = new DateTime(date("Y-m-d"));
+                $todaytime = new DateTime(date("H:i:s"));
+
+                $arr = explode(' ', $datetime);
+                $date1 = new DateTime(date($arr[0]));
+                $time1 = new DateTime(date($arr[1]));
+
+                $date = $today->diff($date1);
+                $datediff = $date->format('%a');
+
+                if ($datediff == 0) {
+
+                    $time = $todaytime->diff($time1);
+                    $timediff = $time->format('%h:%i:%s');
+                    $arr1 = explode(':', $timediff);
+                    if ($arr1[0] == 0) {
+                        $diff = $arr1[1] . ' min ago';
+                    } elseif ($arr1[0] == 1) {
+
+                        $diff = $arr1[0] . ' hour ago';
+                    } else {
+                        $diff = $arr1[0] . ' hours ago';
+                    }
+                } elseif ($datediff == 1 && $time1 > $todaytime) {
+                    $t = $todaytime->diff($time1);
+                    $timediff1 = $t->format('%h:%i:%s');
+                    $time3 = new DateTime('24:00:00');
+                    $time = $time3->diff($timediff1);
+                    $timediff = $time->format('%h:%i:%s');
+                    $arr1 = explode(':', $timediff);
+                    $diff = $arr1[0] . ' hours ago';
+                } elseif ($datediff == 1 && $time1 < $todaytime) {
+                    $diff = $datediff . ' day ago';
+                } elseif ($datediff > 30) {
+                    $month = round($datediff / 30);
+
+                    if ($month >= 12) {
+
+                        $year = round($month / 12);
+                        if ($year == 1) {
+                            $diff = $year . ' year ago';
+                        } else {
+                            $diff = $year . ' years ago';
+                        }
+                    } elseif ($month == 1) {
+                        $diff = $month . ' month ago';
+                    } else {
+                        $diff = $month . ' months ago';
+                    }
+                } else {
+                    $diff = $datediff . ' days ago';
+                }
+
+                return $diff;
+            }
+            ?>
             <?php include './footer.php'; ?>
             <!-- Back To Top Button -->
             <div id="backtotop"><a href="#"></a></div>

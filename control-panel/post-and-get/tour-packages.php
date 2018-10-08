@@ -29,8 +29,8 @@ if (isset($_POST['create'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $img;
-        $handle->image_x = 640;
-        $handle->image_y = 620;
+        $handle->image_x = 900;
+        $handle->image_y = 500;
 
         $handle->Process($dir_dest);
 
@@ -46,7 +46,7 @@ if (isset($_POST['create'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $img;
-        $handle->image_x = 370;
+        $handle->image_x = 570;
         $handle->image_y = 310;
 
         $handle->Process($dir_dest_thumb);
@@ -62,8 +62,8 @@ if (isset($_POST['create'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $img;
-        $handle->image_x = 570;
-        $handle->image_y = 310;
+        $handle->image_x = 300;
+        $handle->image_y = 300;
 
         $handle->Process($dir_dest_thumb1);
 
@@ -120,8 +120,8 @@ if (isset($_POST['update'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
-        $handle->image_x = 640;
-        $handle->image_y = 620;
+        $handle->image_x = 900;
+        $handle->image_y = 500;
 
         $handle->Process($dir_dest);
 
@@ -136,7 +136,7 @@ if (isset($_POST['update'])) {
             $handle->file_new_name_ext = FALSE;
             $handle->image_ratio_crop = 'C';
             $handle->file_new_name_body = $_POST ["oldImageName"];
-            $handle->image_x = 370;
+            $handle->image_x = 570;
             $handle->image_y = 310;
 
 
@@ -153,8 +153,8 @@ if (isset($_POST['update'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
-        $handle->image_x = 570;
-        $handle->image_y = 310;
+        $handle->image_x = 300;
+        $handle->image_y = 300;
 
 
         $handle->Process($dir_dest_thumb1);
