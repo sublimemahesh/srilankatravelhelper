@@ -40,7 +40,7 @@ $id = $_GET['id'];
                                 <h2>Arrange Destination</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="#">
+                                        <a href="create-destination-photos.php?id=<?php echo $DESTINATION_PHOTOS->destination; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>

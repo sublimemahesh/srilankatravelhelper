@@ -11,7 +11,7 @@ class DestinationPhotos {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`destination`,`image_name`,`caption`,`sort` FROM `destination_photo` WHERE `id`=". $id."";
+            $query = "SELECT `id`,`destination`,`image_name`,`caption`,`sort` FROM `destination_photo` WHERE `id`=" . $id . "";
 
             $db = new Database();
 
@@ -65,8 +65,8 @@ class DestinationPhotos {
     public function update() {
 
         $query = "UPDATE  `destination_photo` SET "
-                   . "`image_name` ='" . $this->image_name . "', "
-                . "`caption` ='" . $this->caption . "', "             
+                . "`image_name` ='" . $this->image_name . "', "
+                . "`caption` ='" . $this->caption . "', "
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -83,24 +83,24 @@ class DestinationPhotos {
 
     public function delete() {
 
-       unlink(Helper::getSitePath() . "upload/destination-photos/" . $this->image_name);
+        unlink(Helper::getSitePath() . "upload/destination-photos/" . $this->image_name);
 
-      $query = 'DELETE FROM `destination_photo` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `destination_photo` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
-      return $db->readQuery($query);
-   }
+        return $db->readQuery($query);
+    }
 
-    public function getDestinationByDestinationPhotos($id)  {
+    public function getDestinationByDestinationPhotos($id) {
 
         $query = "SELECT * FROM `destination_photo` WHERE `destination` = '" . $id . "' ORDER BY `sort` ASC";
 
         $db = new Database();
 
         $result = $db->readQuery($query);
-        
-        
+
+
         $array_res = array();
 
         while ($row = mysql_fetch_array($result)) {
@@ -116,7 +116,8 @@ class DestinationPhotos {
         $result = $db->readQuery($query);
         return $result;
     }
-  public function getDestinationPhotosById($id) {
+
+    public function getDestinationPhotosById($id) {
 
         $query = "SELECT * FROM `destination_photo` WHERE `destination`= '" . $id . "' ORDER BY `sort` ASC";
 
@@ -130,4 +131,5 @@ class DestinationPhotos {
         }
         return $array_res;
     }
+
 }
