@@ -51,7 +51,7 @@ $types = $DESTINATION_TYPE->all();
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination.php">
+                                        <a href="view-destination.php?id=<?php echo $DESTINATION->type; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>

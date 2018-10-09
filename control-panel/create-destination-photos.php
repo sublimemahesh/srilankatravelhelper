@@ -5,6 +5,7 @@ include_once(dirname(__FILE__) . './auth.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
+$DESTINATION = new Destination($id);
 $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
 ?>
 
@@ -13,29 +14,22 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination Photos -srilankatravelhelper</title>
+        <title>Add New Destination Photos - srilankatravelhelper</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
         <!-- Bootstrap Core Css -->
         <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
         <!-- Waves Effect Css -->
         <link href="plugins/node-waves/waves.css" rel="stylesheet" />
-
         <!-- Animation Css -->
         <link href="plugins/animate-css/animate.css" rel="stylesheet" />
-
         <!-- Sweet Alert Css -->
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-
         <!-- Custom Css -->
         <link href="css/style.css" rel="stylesheet">
-
         <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
         <link href="css/themes/all-themes.css" rel="stylesheet" />
     </head>
@@ -59,7 +53,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                 <h2>Add New Destination Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="#">
+                                        <a href="view-destination.php?id=<?php echo $DESTINATION->type; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -95,14 +89,14 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
                                             <input type="hidden" name="destination"  value="<?php echo $id; ?>"/>
-                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add tour type"/>
+                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add destination photo"/>
                                         </div>
                                     </div>
                                     <hr/>
                                 </form>
                                 <div class="row clearfix">
                                     <?php
-                                    $DESTINATION_PHOTOS = $DESTINATION_PHOTOS_OBJ->getDestinationByDestinationPhotos($id);
+                                    $DESTINATION_PHOTOS = $DESTINATION_PHOTOS_OBJ->getDestinationPhotosById($id);
                                  
                                     foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
 
@@ -110,7 +104,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                             ?>
                                             <div class="col-md-3"  id="div<?php echo $destination_photos['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/destination-photos/<?php echo $destination_photos['image_name']; ?>" class="img-responsive ">
+                                                    <img src="../upload/destination-photos/thumb/<?php echo $destination_photos['image_name']; ?>" class="img-responsive ">
                                                 </div>
                                                 <div class="img-caption">
                                                     <div class="d">

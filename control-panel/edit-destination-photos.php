@@ -59,7 +59,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                                 <h2>Edit Destination Type Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination-type.php">
+                                        <a href="create-destination-photos.php?id=<?php echo $DESTINATION_PHOTOS->destination; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -90,7 +90,7 @@ $DESTINATION_PHOTOS = new DestinationPhotos($id);
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="file" id="image" class="form-control" value="<?php echo $DESTINATION_PHOTOS->image_name; ?>"  name="picture_name">
-                                                    <img src="../upload/destination-photos/<?php echo $DESTINATION_PHOTOS->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
+                                                    <img src="../upload/destination-photos/thumb/<?php echo $DESTINATION_PHOTOS->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
                                                 </div>
                                             </div>
                                         </div>

@@ -38,7 +38,7 @@ $DESTINATION = new Destination(NULL);
                                 <h2>Arrange Destination</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="#">
+                                        <a href="view-destination.php?id=<?php echo $DESTINATION->type; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
