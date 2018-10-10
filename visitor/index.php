@@ -4,19 +4,10 @@ include_once '../class/include.php';
 if (!isset($_SESSION)) {
     session_start();
 }
-//unset($_SESSION["back_url"]);
-
-
 $back_url = '';
 if (isset($_SESSION["back_url"])) {
     $back_url = $_SESSION["back_url"];
 } 
-//else if(isset($_GET['back'])) {
-//    $back_url = $_GET['back'];
-// 
-//}
-   
-
 
 ?>
 <html>
@@ -54,7 +45,7 @@ if (isset($_SESSION["back_url"])) {
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>
 
-                                <a href="#"><i class="fa fa-facebook icons"></i></a>
+                                <a href="#" id="fb-login"><i class="fa fa-facebook icons"></i></a>
                                 <a href="#"><i class="fa fa-twitter icons"></i></a>
                                 <a href="#"><i class="fa fa-google-plus icons"></i></a>
 
@@ -149,7 +140,7 @@ if (isset($_SESSION["back_url"])) {
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-visitor.js" type="text/javascript"></script>
-
+        <script src="js/fb-login-scripts.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
                 var message = $('#msg').val();

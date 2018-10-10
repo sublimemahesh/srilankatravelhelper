@@ -36,7 +36,7 @@ include_once '../class/include.php';
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>
 
-                                <a href="#"><i class="fa fa-facebook icons"></i></a>
+                                <a href="#" id="fb-login"><i class="fa fa-facebook icons"></i></a>
                                 <a href="#"><i class="fa fa-twitter icons"></i></a>
                                 <a href="#"><i class="fa fa-google-plus icons"></i></a>
 
@@ -128,7 +128,7 @@ include_once '../class/include.php';
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-driver.js" type="text/javascript"></script>
-
+        <script src="js/fb-login-scripts.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
                 var message = $('#msg').val();

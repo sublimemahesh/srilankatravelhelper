@@ -107,6 +107,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                 } elseif ($question['position'] === 'driver') {
                                     $POSITION = new Drivers($question['position_id']);
                                 }
+                                
                                 $result = getAskedTime($question['askedAt']);
 
                                 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
@@ -288,6 +289,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <?php
 
             function getAskedTime($datetime) {
+                
 
                 date_default_timezone_set('Asia/Colombo');
                 $today = new DateTime(date("Y-m-d"));
@@ -315,6 +317,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                         }
                     }
                 } elseif ($datediff == 1 && $time1 > $todaytime) {
+                    
                     $t = $todaytime->diff($time1);
                     $timediff1 = $t->format('%h:%i:%s');
                     $time3 = new DateTime('24:00:00');

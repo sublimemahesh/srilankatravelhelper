@@ -14,13 +14,14 @@ if (isset($_POST['add-tour-type'])) {
 
     $handle = new Upload($_FILES['picture_name']);
 
+    $img = Helper::randamId();
     $imgName = null;
 
     if ($handle->uploaded) {
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
-        $handle->file_new_name_body = Helper::randamId();
+        $handle->file_new_name_body = $img;
         $handle->image_x = 900;
         $handle->image_y = 500;
 
@@ -34,7 +35,7 @@ if (isset($_POST['add-tour-type'])) {
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
-        $handle->file_new_name_body = Helper::randamId();
+        $handle->file_new_name_body = $img;
         $handle->image_x = 330;
         $handle->image_y = 320;
 
