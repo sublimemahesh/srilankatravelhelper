@@ -21,6 +21,7 @@ class Visitor {
     public $profile_picture;
     public $createdAt;
     public $isActive;
+    public $facebookID;
     public $authToken;
     public $lastLogin;
     public $username;
@@ -30,7 +31,7 @@ class Visitor {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`authToken`,`lastLogin`,`username`,`resetCode` FROM `visitor` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`facebookID`,`authToken`,`lastLogin`,`username`,`resetCode` FROM `visitor` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -44,6 +45,7 @@ class Visitor {
             $this->profile_picture = $result['profile_picture'];
             $this->createdAt = $result['createdAt'];
             $this->isActive = $result['isActive'];
+            $this->facebookID = $result['facebookID'];
             $this->lastLogin = $result['lastLogin'];
             $this->username = $result['username'];
             $this->authToken = $result['authToken'];
@@ -385,6 +387,71 @@ class Visitor {
             return TRUE;
         } else {
             return FALSE;
+        }
+    }
+    
+    public function isFbIdIsEx($visitorID) {
+
+        $query = "SELECT * FROM `visitor` WHERE `facebookID` = '" . $visitorID . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if ($result === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function createByFB($name, $email, $picture, $visitorID, $password) {
+        date_default_timezone_set('Asia/Colombo');
+
+        $createdAt = date('Y-m-d H:i:s');
+
+        $query = "INSERT INTO `visitor` (`createdAt`,`name`,`email`,`profile_picture`,`facebookID`,`password`) VALUES  ('" . $createdAt . "','" . $name . "', '" . $email . "', '" . $picture . "', '" . $visitorID . "', '" . $password . "')";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        $last_id = mysql_insert_id();
+
+        if ($result) {
+
+            $this->loginByFB($visitorID, $password);
+
+            return $this->__construct($last_id);
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function loginByFB($visitorID, $password) {
+
+        $query = "SELECT * FROM `visitor` WHERE `facebookID`= '" . $visitorID . "' AND `password`= '" . $password . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            $this->id = $result['id'];
+            $visitor = $this->__construct($this->id);
+
+            if (!isset($_SESSION)) {
+                session_start();
+                session_unset($_SESSION);
+            }
+
+            $_SESSION["login"] = TRUE;
+
+            $_SESSION["id"] = $visitor->id;
+
+            return TRUE;
         }
     }
 

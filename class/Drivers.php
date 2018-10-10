@@ -470,4 +470,70 @@ class Drivers {
         }
         return $array_res;
     }
+    
+    public function isFbIdIsEx($visitorID) {
+
+        $query = "SELECT * FROM `driver` WHERE `facebookID` = '" . $visitorID . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if ($result === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function createByFB($name, $email, $picture, $driverID, $password) {
+        date_default_timezone_set('Asia/Colombo');
+
+        $createdAt = date('Y-m-d H:i:s');
+
+        $query = "INSERT INTO `driver` (`createdAt`,`name`,`email`,`profile_picture`,`facebookID`,`password`) VALUES  ('" . $createdAt . "','" . $name . "', '" . $email . "', '" . $picture . "', '" . $driverID . "', '" . $password . "')";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        $last_id = mysql_insert_id();
+
+        if ($result) {
+
+            $this->loginByFB($visitorID, $password);
+
+            return $this->__construct($last_id);
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function loginByFB($driverID, $password) {
+
+        $query = "SELECT * FROM `driver` WHERE `facebookID`= '" . $driverID . "' AND `password`= '" . $password . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            $this->id = $result['id'];
+            $visitor = $this->__construct($this->id);
+
+            if (!isset($_SESSION)) {
+                session_start();
+                session_unset($_SESSION);
+            }
+
+            $_SESSION["login"] = TRUE;
+
+            $_SESSION["id"] = $visitor->id;
+
+            return TRUE;
+        }
+    }
+    
 }
