@@ -205,7 +205,7 @@ $stars1 = $sum1 / $divider1;
 
                     <div class="col-md-9">
                         <div class=" content">
-                            <div id="galleria">
+<!--                            <div id="galleria">
                                 <?php
                                 $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
                                 foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
@@ -222,6 +222,31 @@ $stars1 = $sum1 / $divider1;
                                 }
                                 ?>
 
+                            </div>-->
+                            
+                            <div class="col-md-12">
+                                <div class="large_photo_wrapper taller_box">
+                                    <a href="images/destination/cycling1.jpg">
+                                        <img src="images/destination/cycling1.jpg" alt="" class=""/>
+                                    </a>
+                                </div>
+                                <div class="mini_mosaic_wrapper taller_box">
+                                    <div>
+                                        <a href="images/destination/cycling1.jpg">
+                                            <img src="images/destination/cycling1.jpg" alt=""/>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="images/destination/cycling1.jpg">
+                                            <img src="images/destination/cycling1.jpg" alt=""/>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="images/destination/cycling1.jpg">
+                                            <img src="images/destination/cycling1.jpg" alt=""/>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="padding-top-10" >
