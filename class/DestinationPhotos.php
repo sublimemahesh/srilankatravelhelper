@@ -94,8 +94,8 @@ class DestinationPhotos {
 
     public function getDestinationByDestinationPhotos($id) {
 
-        $query = "SELECT * FROM `destination_photo` WHERE `destination` = '" . $id . "' ORDER BY `sort` ASC";
-
+        $query = "SELECT * FROM `destination_photo` WHERE `destination` = '" . $id . "' ORDER BY `id` ASC";
+        
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -108,6 +108,17 @@ class DestinationPhotos {
         }
 
         return $array_res;
+    }
+
+    public function countDestinationPhotosByDestination($id) {
+
+        $query = "SELECT count(`id`) AS `count` FROM `destination_photo` WHERE `destination` = '" . $id . "' ORDER BY `id` ASC";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        return $result;
     }
 
     public function arrange($key, $destination) {

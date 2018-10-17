@@ -11,6 +11,7 @@ if (isset($_POST['add-tour-type'])) {
 
     $dir_dest = '../../upload/destination-photos/';
     $dir_dest_thumb = '../../upload/destination-photos/thumb/';
+    $dir_dest_thumb1 = '../../upload/destination-photos/thumb1/';
 
     $handle = new Upload($_FILES['picture_name']);
 
@@ -22,11 +23,11 @@ if (isset($_POST['add-tour-type'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $img;
-        $handle->image_x = 900;
-        $handle->image_y = 500;
+        $handle->image_x = 960;
+        $handle->image_y = 640;
 
         $handle->Process($dir_dest);
-        
+
 
         if ($handle->processed) {
             $info = getimagesize($handle->file_dst_pathname);
@@ -40,6 +41,19 @@ if (isset($_POST['add-tour-type'])) {
         $handle->image_y = 320;
 
         $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $img;
+        $handle->image_x = 245;
+        $handle->image_y = 145;
+
+        $handle->Process($dir_dest_thumb1);
 
         if ($handle->processed) {
             $info = getimagesize($handle->file_dst_pathname);
@@ -80,6 +94,7 @@ if (isset($_POST['edit-tour-type'])) {
 
     $dir_dest = '../../upload/destination-photos/';
     $dir_dest_thumb = '../../upload/destination-photos/thumb/';
+    $dir_dest_thumb1 = '../../upload/destination-photos/thumb1/';
 
     $handle = new Upload($_FILES['picture_name']);
 
@@ -92,8 +107,8 @@ if (isset($_POST['edit-tour-type'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
-        $handle->image_x = 900;
-        $handle->image_y = 500;
+        $handle->image_x = 960;
+        $handle->image_y = 640;
 
         $handle->Process($dir_dest);
 
@@ -111,7 +126,23 @@ if (isset($_POST['edit-tour-type'])) {
         $handle->image_y = 320;
 
         $handle->Process($dir_dest_thumb);
-        
+
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $_POST ["oldImageName"];
+        $handle->image_x = 245;
+        $handle->image_y = 145;
+
+        $handle->Process($dir_dest_thumb1);
+
 
         if ($handle->processed) {
             $info = getimagesize($handle->file_dst_pathname);
@@ -161,7 +192,7 @@ if (isset($_POST['save-data'])) {
     foreach ($_POST['sort'] as $key => $destination) {
         $key = $key + 1;
 
-      $DESTINATION_PHOTOS = DestinationPhotos::arrange($key, $destination);
+        $DESTINATION_PHOTOS = DestinationPhotos::arrange($key, $destination);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
