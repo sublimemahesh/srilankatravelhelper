@@ -16,7 +16,6 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-    <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
 
     <link href="slider-css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!--         animate css 

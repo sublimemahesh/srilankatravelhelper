@@ -129,8 +129,6 @@ class TourPackages {
         }
     }
 
-
-
     public function arrange($key, $img) {
         $query = "UPDATE `tour_packages` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
@@ -138,20 +136,6 @@ class TourPackages {
         return $result;
     }
 
-//    public function getDestinationByDestinationType($id) {
-//
-//        $query = "SELECT * FROM `destination` WHERE `id` = '" . $id . "' ORDER BY `sort` ASC";
-//
-//        $db = new Database();
-//
-//        $result = $db->readQuery($query);
-//        $array_res = array();
-//
-//        while ($row = mysql_fetch_array($result)) {
-//            array_push($array_res, $row);
-//        }
-//        return $array_res;
-//    }
     public function getTourPackagesById($id) {
 
         $query = "SELECT * FROM `tour_packages` WHERE `type`= $id ORDER BY `sort` ASC";
@@ -165,6 +149,104 @@ class TourPackages {
             array_push($array_res, $row);
         }
         return $array_res;
+    }
+
+    public function getTourPackagesByIdForPagination($id, $pageLimit, $setLimit) {
+        $query = "SELECT * FROM `tour_packages` WHERE `type`= $id LIMIT " . $pageLimit . " , " . $setLimit . "";
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
+    public function showPaginationOfTour($id, $per_page, $page) {
+
+        $page_url = "?";
+        $query = "SELECT COUNT(*) as totalCount FROM `tour_packages` WHERE `type`= '" . $id . "' ORDER BY `sort` ASC";
+
+
+        $rec = mysql_fetch_array(mysql_query($query));
+
+        $total = $rec['totalCount'];
+
+        $adjacents = "2";
+
+        $page = ($page == 0 ? 1 : $page);
+        $start = ($page - 1) * $per_page;
+
+        $prev = $page - 1;
+        $next = $page + 1;
+        $setLastpage = ceil($total / $per_page);
+        $lpm1 = $setLastpage - 1;
+
+        $setPaginate = "";
+        if ($setLastpage > 1) {
+            $setPaginate .= "<ul class='setPaginate'>";
+            $setPaginate .= "<li class='setPage'>Page $page of $setLastpage</li>";
+            if ($setLastpage < 7 + ($adjacents * 2)) {
+                for ($counter = 1; $counter <= $setLastpage; $counter++) {
+                    if ($counter == $page)
+                        $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
+                    else
+                        $setPaginate .= "<li><a href='{$page_url}page=$counter&id=$id'>$counter</a></li>";
+                }
+            }
+            elseif ($setLastpage > 5 + ($adjacents * 2)) {
+                if ($page < 1 + ($adjacents * 2)) {
+                    for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++) {
+                        if ($counter == $page)
+                            $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
+                        else
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&id=$id'>$counter</a></li>";
+                    }
+                    $setPaginate .= "<li class='dot'>...</li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&id=$id'>$lpm1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&id=$id'>$setLastpage</a></li>";
+                }
+                elseif ($setLastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
+                    $setPaginate .= "<li><a href='{$page_url}page=1&&id=$id'>1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=2&id=$id'>2</a></li>";
+                    $setPaginate .= "<li class='dot'>...</li>";
+                    for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
+                        if ($counter == $page)
+                            $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
+                        else
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&&id=$id'>$counter</a></li>";
+                    }
+                    $setPaginate .= "<li class='dot'>..</li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&&id=$id'>$lpm1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&&id=$id'>$setLastpage</a></li>";
+                }
+                else {
+                    $setPaginate .= "<li><a href='{$page_url}page=1&id=$id'>1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=2&id=$id'>2</a></li>";
+                    $setPaginate .= "<li class='dot'>..</li>";
+                    for ($counter = $setLastpage - (2 + ($adjacents * 2)); $counter <= $setLastpage; $counter++) {
+                        if ($counter == $page)
+                            $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
+                        else
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&id=$id'>$counter</a></li>";
+                    }
+                }
+            }
+
+            if ($page < $counter - 1) {
+                $setPaginate .= "<li><a href='{$page_url}page=$next&id=$id'>Next</a></li>";
+                $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&id=$id'>Last</a></li>";
+            } else {
+                $setPaginate .= "<li><a class='current_page'>Next</a></li>";
+                $setPaginate .= "<li><a class='current_page'>Last</a></li>";
+            }
+
+            $setPaginate .= "</ul>\n";
+        }
+
+        echo $setPaginate;
     }
 
 }

@@ -4,6 +4,17 @@ $id = $_GET["id"];
 
 $DESTINATION = new Destination($id);
 $DESTINATION_TYPE = new DestinationType($id);
+
+/* set page numbers */
+if (isset($_GET["page"])) {
+    $page = (int) $_GET["page"];
+} else {
+    $page = 1;
+}
+$setLimit = 10;
+
+$pageLimit = ($page * $setLimit) - $setLimit;
+
 ?>  
 <!DOCTYPE html>
 <head>
@@ -68,10 +79,11 @@ $DESTINATION_TYPE = new DestinationType($id);
                     <div class="row margin-bottom-25">
                     </div>
                     <div class="row">
-<?php
-$DESTINATIONS = Destination::getDestinationById($id);
-foreach ($DESTINATIONS as $key => $destination) {
-    ?>
+                        <?php
+                        $DESTINATIONS = Destination::getDestinationByIdForPagination($id, $pageLimit, $setLimit);
+
+                        foreach ($DESTINATIONS as $key => $destination) {
+                            ?>
                             <!-- Listing Item -->
                             <div class="col-lg-12 col-md-12">
                                 <div class="listing-item-container list-layout">
@@ -129,9 +141,9 @@ foreach ($DESTINATIONS as $key => $destination) {
                                 </div>
                             </div>
                             <!-- Listing Item / End -->
-    <?php
-}
-?>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <!-- Pagination -->
                     <div class="clearfix"></div>
@@ -139,14 +151,7 @@ foreach ($DESTINATIONS as $key => $destination) {
                         <div class="col-md-12">
                             <!-- Pagination -->
                             <div class="pagination-container margin-top-20 margin-bottom-40">
-                                <nav class="pagination">
-                                    <ul>
-                                        <li><a href="#" class="current-page">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-                                    </ul>
-                                </nav>
+                                <?php Destination::showPaginationOfDestination($id, $setLimit, $page); ?>
                             </div>
                         </div>
                     </div>
@@ -158,7 +163,7 @@ foreach ($DESTINATIONS as $key => $destination) {
 
             </div>
         </div>
-<?php include './footer.php'; ?>
+        <?php include './footer.php'; ?>
     </div>
 </body>
 <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
