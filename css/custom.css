@@ -404,6 +404,9 @@
     text-decoration: none;
     cursor: pointer;
 }
+.para{
+    text-align: justify;
+}
 
 @media(max-width:576px) {
     .reviws-section {
