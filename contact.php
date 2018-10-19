@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 <head>
- <!-- Basic Page Needs
-    ================================================== -->
+    <!-- Basic Page Needs
+       ================================================== -->
     <title>Sri Lanka Travel Helper</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
- <!-- CSS
-    ================================================== -->
+    <!-- CSS
+       ================================================== -->
+    <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
-<link href="contact-form/style.css" rel="stylesheet" type="text/css"/>
+    <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
+    <link href="contact-form/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <!-- Wrapper -->
@@ -49,81 +50,81 @@
                     <section id="contact">
                         <h4 class="headline margin-bottom-35">Contact Form</h4>
                         <div id="contact-message"></div> 
-<!--                        <form method="post" action="http://www.vasterad.com/themes/listeo_updated/contact.php" name="contactform" id="contactform" autocomplete="on">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div>
-                                        <input name="name" type="text" id="name" placeholder="Your Name" required="required" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div>
-                                        <input name="email" type="email" id="email" placeholder="Email Address" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <input name="subject" type="text" id="subject" placeholder="Subject" required="required" />
-                            </div>
-                            <div>
-                                <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
-                            </div>
-                            <input type="submit" class="button border with-icon submit" id="submit" value="Submit Message" />
-                        </form>-->
- <div class="contact-form">
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <input type="text" name="txtFullName" id="txtFullName" class="form-control input-validater" placeholder="Your Name">
-                                        <span id="spanFullName" ></span>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12">
-                                        <input type="text" name="txtEmail" id="txtEmail" class="form-control input-validater"  placeholder="E-mail">
-                                        <span id="spanEmail" ></span>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12">
-                                        <input type="text" name="txtCountry"  id="txtCountry" class="form-control input-validater"  placeholder="Your Country">
-                                        <span id="spanCountry" ></span>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12">
-                                        <input type="text" name="txtPhone" id="txtPhone" class="form-control input-validater" placeholder="Contact number">
-                                    </div>
-
-                                    <div class="col-sm-12 col-xs-12">
-                                        <input type="text" name="txtSubject"  id="txtSubject" class="form-control input-validater" placeholder="subject">
-                                        <span id="spanSubject" ></span>
-
-                                        <textarea name="txtMessage"  id="txtMessage" rows="6" class="form-control" placeholder="write message here"></textarea>
-                                        <span id="spanMessage" ></span>
-
-                                        <div class="row form-group">
-                                            <div class="col-sm-6 col-xs-12">
-                                                <br>
-                                                <label for="comment">Security Code:</label>
-                                                <span id="star">*</span> 
-                                                <input type="text" name="captchacode" id="captchacode" class="form-control input-validater" placeholder="Enter the security code >> ">
-                                                <span id="capspan" ></span> 
-                                            </div>   
-                                            <div class="col-sm-6 col-xs-12"> 
-                                                <?php include("./contact-form/captchacode-widget.php"); ?> 
-                                            </div>  
-
-                                            <div class="col-xs-12 col-sm-6">
-                                                <div class="col-sm-4">
-                                                    <div class="div-check" >
-                                                        <img src="contact-form/img/checking.gif" id="checking"/>
+                        <!--                        <form method="post" action="http://www.vasterad.com/themes/listeo_updated/contact.php" name="contactform" id="contactform" autocomplete="on">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div>
+                                                                <input name="name" type="text" id="name" placeholder="Your Name" required="required" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div>
+                                                                <input name="email" type="email" id="email" placeholder="Email Address" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                    <div>
+                                                        <input name="subject" type="text" id="subject" placeholder="Subject" required="required" />
+                                                    </div>
+                                                    <div>
+                                                        <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
+                                                    </div>
+                                                    <input type="submit" class="button border with-icon submit" id="submit" value="Submit Message" />
+                                                </form>-->
+                        <div class="contact-form">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="text" name="txtFullName" id="txtFullName" class="form-control input-validater" placeholder="Your Name">
+                                    <span id="spanFullName" ></span>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="text" name="txtEmail" id="txtEmail" class="form-control input-validater"  placeholder="E-mail">
+                                    <span id="spanEmail" ></span>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="text" name="txtCountry"  id="txtCountry" class="form-control input-validater"  placeholder="Your Country">
+                                    <span id="spanCountry" ></span>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="text" name="txtPhone" id="txtPhone" class="form-control input-validater" placeholder="Contact number">
+                                </div>
+
+                                <div class="col-sm-12 col-xs-12">
+                                    <input type="text" name="txtSubject"  id="txtSubject" class="form-control input-validater" placeholder="subject">
+                                    <span id="spanSubject" ></span>
+
+                                    <textarea name="txtMessage"  id="txtMessage" rows="6" class="form-control" placeholder="write message here"></textarea>
+                                    <span id="spanMessage" ></span>
+
+                                    <div class="row form-group">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <br>
+                                            <label for="comment">Security Code:</label>
+                                            <span id="star">*</span> 
+                                            <input type="text" name="captchacode" id="captchacode" class="form-control input-validater" placeholder="Enter the security code >> ">
+                                            <span id="capspan" ></span> 
+                                        </div>   
+                                        <div class="col-sm-6 col-xs-12"> 
+                                            <?php include("./contact-form/captchacode-widget.php"); ?> 
+                                        </div>  
+
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="col-sm-4">
+                                                <div class="div-check" >
+                                                    <img src="contact-form/img/checking.gif" id="checking"/>
                                                 </div>
-                                                <div class="col-sm-8 text-right">
-
-                                                </div> 
                                             </div>
-                                        </div> 
+                                            <div class="col-sm-8 text-right">
 
-                                        <button type="submit" id="btnSubmit" class="button border with-icon submit">SEND YOUR MESSAGE</button>
-                                        <div id="dismessage" align="center"></div>
-                                    </div>
+                                            </div> 
+                                        </div>
+                                    </div> 
+
+                                    <button type="submit" id="btnSubmit" class="button border with-icon submit">SEND YOUR MESSAGE</button>
+                                    <div id="dismessage" align="center"></div>
                                 </div>
                             </div>
+                        </div>
                     </section>
                 </div>
             </div>

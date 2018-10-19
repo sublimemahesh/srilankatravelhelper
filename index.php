@@ -12,6 +12,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
     <!-- CSS
     ================================================== -->
+    <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">

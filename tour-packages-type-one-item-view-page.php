@@ -24,6 +24,7 @@ if ($divider1 == 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS
        ================================================== -->
+    <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
