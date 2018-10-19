@@ -325,7 +325,7 @@ if (isset($_GET['album'])) {
                             <div class="row margin-left-4 ">
 
                                 <?php
-                                $DESTINATIONS = Destination::all();
+                                $DESTINATIONS = Destination::getDestinationById($DESTINATION->type);
                                 foreach ($DESTINATIONS as $key => $destination) {
                                     if ($key < 7) {
                                         ?>
