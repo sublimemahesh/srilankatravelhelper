@@ -1,5 +1,14 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+
+/* set page numbers */
+if (isset($_GET["page"])) {
+    $page = (int) $_GET["page"];
+} else {
+    $page = 1;
+}
+$setLimit = 12;
+$pageLimit = ($page * $setLimit) - $setLimit;
 ?>
 <!DOCTYPE html>
 
@@ -16,24 +25,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <!--    <link href="assets/css/base.css" rel="stylesheet" type="text/css"/>-->
-        <style>
-            /*            .item-image-wrapper {border: 1px solid #696969; overflow: hidden;margin-bottom: 30px;box-shadow: 3px 3px 5px 6px #ccc;}
-                        .single-items {position: relative;}
-                        .iteminfo {position: relative;}
-                        .iteminfo h2 {color: #0dce38;font-size: 24px; font-weight: 700;}
-                        .item-overlay {background:  #0dce3899 ;top: 0; display: none;height: 0;position: absolute;-webkit-transition: height 500ms ease 0s;transition: height 500ms ease 0s;width: 100%;display: block;}
-                        .overlay-content { bottom: 0;  position: absolute; bottom: 0; text-align: center; width: 100%;}
-                        .item-overlay h2 {color: #fff;font-size: 24px; font-weight: 700;}
-                        .item-overlay p {font-size: 16px;font-weight: 400; color: #fff;}
-            
-                        .item-overlay, .add-to-cart {background: #fff; border: 0 none; border-radius: 0; color: #0dce38;font-size: 15px;margin-bottom: 25px;}
-                        .choose { border-top: 1px solid #F7F7F0;}
-                        .choose ul li a {color: #B3AFA8;font-size: 13px;padding-left: 0;padding-right: 0;}
-                        .single-items:hover .item-overlay {display: block;  height: 100%;  background: #0dce3899;}
-                        .overlay-content {bottom: 0;position: absolute; bottom: 0; text-align: center; width: 100%;}
-                        .iteminfo img {    width: 100%;}*/
-        </style>
+
     </head>
 
     <body>
@@ -54,14 +46,9 @@ include_once(dirname(__FILE__) . '/class/include.php');
             <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
-
-
-
-
                         <?php
-                        $DRIVERS = Drivers::all();
+                        $DRIVERS = Drivers::getDriversForPagination($pageLimit, $setLimit);
                         foreach ($DRIVERS as $key => $driver) {
-                            
                             ?>
                             <div class="col-md-4">
                                 <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
@@ -80,11 +67,6 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
                                     <div class="img-pad"> 
                                         <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
-                                        <!--                                        
-                                                                                <div class="star-rating " data-rating="4.5"> 
-                                                                                    <div class="rating-counter">(12 reviews)</div><br/>
-                                        
-                                                                                </div>-->
 
                                     </div>
                                     <div class="driver-name text-left"> 
@@ -135,6 +117,17 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
 
                     </div>
+                    <!-- Pagination -->
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <!-- Pagination -->
+                            <div class="pagination-container margin-top-20 margin-bottom-40">
+                                <?php Drivers::showPaginationOfDrivers($setLimit, $page); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination / End -->
                 </div>
             </section>
             <?php include './footer.php'; ?>

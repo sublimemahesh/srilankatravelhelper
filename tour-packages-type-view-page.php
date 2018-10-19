@@ -3,6 +3,15 @@ include_once(dirname(__FILE__) . '/class/include.php');
 $id = $_GET["id"];
 
 $TOUR_TYPE = new TourType($id);
+
+/* set page numbers */
+if (isset($_GET["page"])) {
+    $page = (int) $_GET["page"];
+} else {
+    $page = 1;
+}
+$setLimit = 10;
+$pageLimit = ($page * $setLimit) - $setLimit;
 ?> 
 <!DOCTYPE html>
 
@@ -214,7 +223,7 @@ $TOUR_TYPE = new TourType($id);
             <div class="container">
                 <div class="row">
                     <?php
-                    $TOUR_PACKAGES = TourPackages::getTourPackagesById($id);
+                    $TOUR_PACKAGES = TourPackages::getTourPackagesByIdForPagination($id, $pageLimit, $setLimit);
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         ?>
                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -280,7 +289,14 @@ $TOUR_TYPE = new TourType($id);
                     }
                     ?>
                 </div>
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Pagination -->
+                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                            <?php TourPackages::showPaginationOfTour($id, $setLimit, $page); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section><!-- single popular destination  end-->
 

@@ -407,7 +407,48 @@
 .para{
     text-align: justify;
 }
+ul.setPaginate {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    font: 12px 'Tahoma';
+    list-style-type: none;
+}
+ul.setPaginate li.setPage {
+    padding: 15px 10px;
+    font-size: 14px;
+}
+ul.setPaginate li {
+    float: left;
+    margin: 0px;
+        margin-left: 0px;
+    padding: 0px;
+    margin-left: 5px;
+    color: #000;
+}
+ul.setPaginate li a {
 
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cccccc;
+    display: inline-block;
+    font: 15px/25px Arial,Helvetica,sans-serif;
+    margin: 5px 3px 0 0;
+    text-align: center;
+    color: black;
+    display: block;
+    text-decoration: none;
+    padding: 5px 8px;
+
+}
+ul.setPaginate li a:hover, ul.setPaginate li a.current_page {
+    background: none repeat scroll 0 0 #0d92e1;
+    border: 1px solid #000000;
+    color: #ffffff;
+    text-decoration: none;
+}
+ul.setPaginate li.dot {
+    padding: 3px 0;
+}
 @media(max-width:576px) {
     .reviws-section {
         height: auto;
@@ -457,6 +498,6 @@
 }
 
 @media(max-width:996px) {
-    
+
 }
 

@@ -251,16 +251,16 @@ if (isset($_GET['album'])) {
                                         if ($key === 0) {
                                             ?>
                                             <div class="large_photo_wrapper taller_box">
-                                                <a href="?id=1&album=true">
+                                                <a href="?id=<?php echo $id; ?>&album=true">
                                                     <img src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>" alt="" class=""/>
 
                                                 </a>
-                                                <a href="?id=1&album=true">
+                                                <a href="?id=<?php echo $id; ?>&album=true">
                                                     <div class="caption" >
                                                         <span><i class="fa fa-camera" ></i>All photos (<?php echo $count['count']; ?>)</span>
                                                     </div>
                                                 </a>
-                                                <a href="?id=1&album=true">
+                                                <a href="?id=<?php echo $id; ?>&album=true">
                                                     <div class="full-view hidden" >
                                                         <span><i class="fa fa-expand" ></i>Full View</span>
                                                     </div>
@@ -279,10 +279,10 @@ if (isset($_GET['album'])) {
                                             if ($key <> 0 && $key < 4) {
                                                 ?>
                                                 <div class="mini-img">
-                                                    <a href="?id=1&album=true">
+                                                    <a href="?id=<?php echo $id; ?>&album=true">
                                                         <img src="upload/destination-photos/thumb1/<?php echo $destination_photos['image_name']; ?>" alt=""/>
                                                     </a>
-                                                    <a href="?id=1&album=true">
+                                                    <a href="?id=<?php echo $id; ?>&album=true">
                                                         <div class="viewmoreimgs" >
                                                             <?php
                                                             if ($countofmoreimgs == 0) {
