@@ -88,7 +88,7 @@ foreach ($DESTINATIONS as $key => $destination) {
 
                                             <div class="listing-item-inner">
                                                 <h3><?php echo $destination['name']; ?></h3>
-                                                <span><?php echo $destination['short_description']; ?></span>
+                                                <span class="para"><?php echo $destination['short_description']; ?></span>
                                                 <div class="star-rating">
                                                     <?php
                                                     $REVIEWS = Reviews::getTotalReviewsOfDestination($destination['id']);
