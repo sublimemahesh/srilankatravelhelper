@@ -28,6 +28,7 @@ if (isset($_GET['album'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
            ================================================== -->
+        <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors"> 
@@ -312,7 +313,7 @@ if (isset($_GET['album'])) {
                                 <hr  >
                                 <h3 class="headline"><?php echo $DESTINATION->name; ?></h3>
                                 <hr  >
-                                <p>
+                                <p class="para">
                                     <?php echo $DESTINATION->description; ?>
                                 </p> 
 
