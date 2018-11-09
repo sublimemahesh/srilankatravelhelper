@@ -36,9 +36,12 @@ include_once '../class/include.php';
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>
 
-                                <a href="#" id="fb-login"><i class="fa fa-facebook icons"></i></a>
-                                <a href="#"><i class="fa fa-twitter icons"></i></a>
-                                <a href="#"><i class="fa fa-google-plus icons"></i></a>
+                                <fb:login-button 
+                                    scope="public_profile,email"
+                                    onlogin="checkLoginState();">
+                                </fb:login-button>
+<!--                                <a href="#"><i class="fa fa-twitter icons"></i></a>
+                                <a href="#"><i class="fa fa-google-plus icons"></i></a>-->
 
                             </div>
                             <div class="login-link">
@@ -163,13 +166,13 @@ include_once '../class/include.php';
             $(window).load(function () {
                 var width = $(window).width();
 
-                if(width > 900 ) {
-                    
-                    var contentheight = $(window).height()  - 200;
+                if (width > 900) {
+
+                    var contentheight = $(window).height() - 200;
 
                     $('.content').css('height', contentheight);
-                } else if(width > 760 ) {
-                    
+                } else if (width > 760) {
+
                     var contentheight = $(window).height() - 200;
 
                     $('.content').css('height', contentheight);
@@ -182,6 +185,95 @@ include_once '../class/include.php';
                     $('.content').css('height', contentheight);
                 }
             });
+        </script>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '323453645115752',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v3.2'
+                });
+                FB.AppEvents.logPageView();
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function checkLoginState() {
+
+
+                var userID;
+                var accessToken;
+                var expiresIn;
+                var signedRequest;
+                var status;
+                var name;
+                var email;
+                var picture;
+
+                FB.login(function (response) {
+                    if (response.authResponse) {
+                        accessToken = response.authResponse.accessToken;
+                        expiresIn = response.authResponse.expiresIn;
+                        signedRequest = response.authResponse.signedRequest;
+                        status = response.status;
+                        FB.api('/me?fields=id,name,email,permissions,picture', function (response) {
+                            userID = response.id;
+                            name = response.name;
+                            email = response.email;
+                            picture = "https://graph.facebook.com/v2.12/" + userID + "/picture?height=250&width=250&access_token" + accessToken;
+
+                            $.ajax({
+                                url: "post-and-get/ajax/fb-login.php",
+                                type: "POST",
+                                data: {
+                                    userID: userID,
+                                    name: name,
+                                    email: email,
+                                    picture: picture,
+                                    accessToken: accessToken,
+                                    expiresIn: expiresIn,
+                                    signedRequest: signedRequest,
+                                    status: status,
+                                    driverLogin: '1'
+                                },
+                                dataType: "JSON",
+                                success: function (result) {
+
+                                    if (result.message === 'success-log') {
+
+                                        if (result.back === '') {
+                                            window.location.replace("profile.php?message=5");
+                                        } else {
+                                            window.location = result.back;
+                                        }
+
+                                    } else if (result.message === 'success-cre') {
+                                        if (result.back === '') {
+                                            window.location.replace('profile.php?message=22');
+                                        } else {
+                                            window.location = result.back;
+                                        }
+
+                                    }
+                                }
+                            });
+
+
+                        });
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                }, {scope: 'public_profile,email'});
+            }
         </script>
     </body>
 </html>

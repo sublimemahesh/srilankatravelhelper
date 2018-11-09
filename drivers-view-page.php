@@ -266,7 +266,23 @@ $stars = $sum / $divider;
                                 ?> 
                             </div>
                             <div class="img-pad "> 
-                                <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
+                                <?php
+                                                if (empty($DRIVER->profile_picture)) {
+                                                    ?>
+                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                } else {
+                                                    if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                        ?>
+                                                        <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                             </div> 
                             <div class="profile-description ">
                                 <h3><?php echo $DRIVER->name; ?></h3>

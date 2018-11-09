@@ -65,9 +65,24 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                         ?> 
                                     </div>
 
-                                    <div class="img-pad"> 
-                                        <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
-
+                                    <div class="img-pad">
+                                        <?php
+                                        if (empty($driver['profile_picture'])) {
+                                            ?>
+                                            <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                            <?php
+                                        } else {
+                                            if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
+                                                ?>
+                                                <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                     <div class="driver-name text-left"> 
                                         <?php echo $driver['name']; ?>

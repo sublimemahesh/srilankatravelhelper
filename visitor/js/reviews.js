@@ -4,7 +4,7 @@ $(document).ready(function () {
     var get_destination = $('#get_destination').val();
 
     if (get_driver === '') {
-        
+
         setTimeout(function () {
             $('.review-add-section').addClass('hidden');
         }, 1000);
@@ -119,8 +119,15 @@ $(document).ready(function () {
 
                                 divider = total.count;
                                 sum = total.sum;
+                                
+                                if(sum) {
+                                    stars = sum / divider;
+                                } else {
+                                    sum = 0;
+                                    stars = 0;
+                                }
 
-                                stars = sum / divider;
+                                
 
                                 for (i = 1; i <= stars; i++) {
                                     html1 += '<i class="fa fa-star"></i>';
@@ -141,13 +148,23 @@ $(document).ready(function () {
                                     },
                                     success: function (photo) {
                                         var html = '';
+                                        var html2 = '';
 
+                                        if (result.profile_picture == '') {
+                                            html2 = '<img src="../upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>';
+                                        } else {
+                                            if (result.facebookID && result.profile_picture.substring(0, 5) === "https") {
+                                                html2 = '<img src="' + result.profile_picture + '"  alt="Profile Picture" class="img-circle driver-list"/>';
+                                            } else {
+                                                html2 = ' <img src="../upload/driver/"' + result.profile_picture + '"  alt="Profile Picture" class="img-circle driver-list"/>';
+                                            }
+                                        }
 
                                         html += '<div class="listing-item">';
-                                        html += '<img src="../upload/drivers/driver-photos/thumb/' + photo + '" alt="">';
+                                        html += '<img src="../upload/driver/driver-photos/thumb/' + photo + '" alt="">';
                                         html += '</div>';
                                         html += '<div class="img-pad">';
-                                        html += '<img src="../upload/drivers/' + result.profile_picture + '" class="img-circle driver-list">';
+                                        html += html2;
                                         html += '</div>';
                                         html += '<div class="driver-name text-left">';
                                         html += result.name;
@@ -155,7 +172,7 @@ $(document).ready(function () {
                                         html += '<div class="row">';
                                         html += '<div class="star-rating-fa text-right col-md-5">';
                                         html += html1;
-                                        html += '<div class="rating-counter">(' + total.sum + ' reviews)</div><br>';
+                                        html += '<div class="rating-counter">(' + sum + ' reviews)</div><br>';
                                         html += '</div>';
                                         html += '<div class="col-md-7"></div>';
                                         html += '</div>';
@@ -164,8 +181,6 @@ $(document).ready(function () {
                                         html += result.short_description;
                                         html += '</p>';
                                         html += '</div>';
-
-
 
 
                                         $('.driver-profile').append(html);
@@ -431,7 +446,7 @@ $(document).ready(function () {
                                     }
 
                                     html += '<div class="listing-item">';
-                                    html += '<img src="../upload/destination/thumb/' + result.image_name + '" alt="">';
+                                    html += '<img src="../upload/destination/thumb1/' + result.image_name + '" alt="">';
                                     html += '</div>';
                                     html += '<div class="destination-name text-left">';
                                     html += result.name;
@@ -470,7 +485,7 @@ $(document).ready(function () {
 
 
                                     html += '<div class="listing-item">';
-                                    html += '<img src="../upload/destination/thumb/' + result.image_name + '" alt="">';
+                                    html += '<img src="../upload/destination/thumb1/' + result.image_name + '" alt="">';
                                     html += '</div>';
                                     html += '<div class="destination-name text-left">';
                                     html += result.name;

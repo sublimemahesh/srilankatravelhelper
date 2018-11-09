@@ -1,10 +1,10 @@
 
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '528001837672984',
+        appId: '323453645115752-',
         cookie: true,
         xfbml: true,
-        version: 'v3.1'
+        version: 'v3.2'
     });
     FB.AppEvents.logPageView();
 };
@@ -23,6 +23,13 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+//function checkLoginState() {
+//    
+//  FB.getLoginStatus(function(response) {
+//    alert(statusChangeCallback(response));;
+//  });
+//}
+
 function checkLoginState() {
 
 
@@ -34,13 +41,14 @@ function checkLoginState() {
     var name;
     var email;
     var picture;
-
+alert(111);
     FB.login(function (response) {
         if (response.authResponse) {
             accessToken = response.authResponse.accessToken;
             expiresIn = response.authResponse.expiresIn;
             signedRequest = response.authResponse.signedRequest;
             status = response.status;
+            
             FB.api('/me?fields=id,name,email,permissions,picture', function (response) {
                 userID = response.id;
                 name = response.name;

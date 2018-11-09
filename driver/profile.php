@@ -4,7 +4,6 @@ include_once(dirname(__FILE__) . '/auth.php');
 
 $DRIVER = new Drivers($_SESSION['id']);
 $CITY = new City($DRIVER->city);
-
 ?>
 <html>
     <head>
@@ -51,14 +50,20 @@ $CITY = new City($DRIVER->city);
 
                                 <div class="prof-img">
                                     <?php
-                                    if ($DRIVER->profile_picture) {
+                                    if (empty($DRIVER->profile_picture)) {
                                         ?>
-                                        <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
+                                        <img src="../upload/driver/driver.png" alt="Profile Picture"/>
                                         <?php
                                     } else {
-                                        ?>
-                                        <img src="../upload/driver/driver.png" alt=""/>
-                                        <?php
+                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                            ?>
+                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                            <?php
+                                        }
                                     }
                                     ?>
                                 </div>

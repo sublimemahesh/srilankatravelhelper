@@ -3,7 +3,6 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $VISITOR = new Visitor($_SESSION["id"]);
-
 ?>
 <html>
     <head>
@@ -51,14 +50,20 @@ $VISITOR = new Visitor($_SESSION["id"]);
 
                                 <div class="prof-img">
                                     <?php
-                                    if ($VISITOR->profile_picture) {
+                                    if (empty($VISITOR->profile_picture)) {
                                         ?>
-                                        <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?> " alt=""/>
+                                        <img src="../upload/visitor/visitor.png" alt="Profile Picture"/>
                                         <?php
                                     } else {
-                                        ?>
-                                        <img src="../upload/visitor/visitor.png" alt=""/>
-                                        <?php
+                                        if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                            ?>
+                                            <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                                            <?php
+                                        }
                                     }
                                     ?>
                                 </div>
@@ -125,7 +130,7 @@ $VISITOR = new Visitor($_SESSION["id"]);
                     });
                 }
             });
-           $(window).load(function () {
+            $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
