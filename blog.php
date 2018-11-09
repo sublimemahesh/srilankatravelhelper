@@ -108,7 +108,6 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                 } elseif ($question['position'] === 'driver') {
                                     $POSITION = new Drivers($question['position_id']);
                                 }
-                                
                                 $result = getAskedTime($question['askedAt']);
 
                                 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
@@ -144,7 +143,24 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                         <div class="asked-by col-md-2 col-xs-12">
                                             
                                             <div class="col-md-12">
-                                                <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
+                                                <?php
+                                                if (empty($POSITION->profile_picture)) {
+                                                    ?>
+                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                    <?php
+                                                } else {
+                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                        ?>
+                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <!--<img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
                                             </div>
                                             <div class="col-md-12 time-ago">
                                                 asked <?php echo $result; ?>

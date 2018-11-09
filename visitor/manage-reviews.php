@@ -103,14 +103,31 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             foreach (DriverPhotos::getDriverPhotosByDriver($Driver->id) as $key => $photo) {
                                                 if ($key == 0) {
                                                     ?>
-                                                    <img src="../upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                    <img src="../upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                                     <?php
                                                 }
                                             }
                                             ?>
                                         </div>
                                         <div class="img-pad">
-                                            <img src="../upload/drivers/<?php echo $Driver->profile_picture; ?>" class="img-circle driver-list">
+                                            <?php
+                                            if (empty($Driver->profile_picture)) {
+                                                ?>
+                                                <img src="../upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                <?php
+                                            } else {
+                                                if ($Driver->facebookID && substr($Driver->profile_picture, 0, 5) === "https") {
+                                                    ?>
+                                                    <img src="<?php echo $Driver->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="../upload/driver/<?php echo $Driver->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+
                                         </div>
                                         <div class="driver-name text-left">
                                             <?php echo $Driver->name; ?>

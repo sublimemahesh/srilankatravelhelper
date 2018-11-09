@@ -387,8 +387,24 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
                                             </div>
 
-                                            <div class="img-pad"> 
-                                                <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" class="img-circle driver-list"/>
+                                            <div class="img-pad">
+                                                <?php
+                                                if (empty($driver['profile_picture'])) {
+                                                    ?>
+                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                } else {
+                                                    if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
+                                                        ?>
+                                                        <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                                 <!--                                        
                                                                                         <div class="star-rating " data-rating="4.5"> 
                                                                                             <div class="rating-counter">(12 reviews)</div><br/>

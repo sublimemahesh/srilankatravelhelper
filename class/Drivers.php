@@ -28,6 +28,7 @@ class Drivers {
     public $description;
     public $username;
     public $password;
+    public $facebookID;
     public $resetCode;
     public $authToken;
     public $isActive;
@@ -50,6 +51,7 @@ class Drivers {
                     . "`description`,"
                     . "`username`,"
                     . "`password`,"
+                    . "`facebookID`,"
                     . "`resetCode`,"
                     . "`authToken`,"
                     . "`isActive`"
@@ -74,6 +76,7 @@ class Drivers {
             $this->description = $result['description'];
             $this->username = $result['username'];
             $this->password = $result['password'];
+            $this->facebookID = $result['facebookID'];
             $this->resetCode = $result['resetCode'];
             $this->authToken = $result['authToken'];
             $this->isActive = $result['isActive'];
@@ -83,7 +86,7 @@ class Drivers {
     }
 
     public function create() {
-        
+
         date_default_timezone_set('Asia/Colombo');
 
         $createdAt = date('Y-m-d H:i:s');
@@ -210,7 +213,7 @@ class Drivers {
             return $result;
         }
     }
-    
+
     public function checkUserName($username) {
 
         $query = "SELECT `email`,`username` FROM `driver` WHERE `username`= '" . $username . "'";
@@ -225,11 +228,11 @@ class Drivers {
             return $result;
         }
     }
-    
+
     public function login($username, $password) {
 
         $query = "SELECT `id`,`name`,`email`,`profile_picture` FROM `driver` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
-        
+
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
@@ -247,7 +250,7 @@ class Drivers {
             return $driver;
         }
     }
-    
+
     private function setAuthToken($id) {
 
         $authToken = md5(uniqid(rand(), true));
@@ -263,7 +266,7 @@ class Drivers {
             return FALSE;
         }
     }
-    
+
     private function setUserSession($driver) {
 
         if (!isset($_SESSION)) {
@@ -279,7 +282,7 @@ class Drivers {
         $_SESSION["authToken"] = $driver->authToken;
         $_SESSION["position"] = "driver";
     }
-    
+
     public function GenarateCode($email) {
 
         $rand = rand(10000, 99999);
@@ -298,7 +301,7 @@ class Drivers {
             return FALSE;
         }
     }
-    
+
     public function SelectForgetDriver($email) {
 
         if ($email) {
@@ -315,7 +318,7 @@ class Drivers {
             return $result;
         }
     }
-    
+
     public function SelectResetCode($code) {
 
         $query = "SELECT `id` FROM `driver` WHERE `resetCode`= '" . $code . "'";
@@ -331,7 +334,7 @@ class Drivers {
             return TRUE;
         }
     }
-    
+
     public function updatePassword($password, $code) {
 
         $enPass = md5($password);
@@ -350,9 +353,8 @@ class Drivers {
             return FALSE;
         }
     }
-    
-    public function authenticate() {
 
+    public function authenticate() {
         if (!isset($_SESSION)) {
             session_start();
         }
@@ -395,11 +397,11 @@ class Drivers {
         unset($_SESSION["authToken"]);
         unset($_SESSION["position"]);
         unset($_SESSION["login"]);
-        
+
 
         return TRUE;
     }
-    
+
     public function checkOldPass($id, $password) {
 
         $enPass = md5($password);
@@ -435,7 +437,7 @@ class Drivers {
             return FALSE;
         }
     }
-    
+
     public function getDriverByCity($city) {
 
         $query = "SELECT * FROM `driver` WHERE `city` = '" . $city . "' ORDER BY `id` ASC";
@@ -450,10 +452,10 @@ class Drivers {
         }
         return $array_res;
     }
-    
-    public function isFbIdIsEx($visitorID) {
 
-        $query = "SELECT * FROM `driver` WHERE `facebookID` = '" . $visitorID . "'";
+    public function isFbIdIsEx($driverID) {
+
+        $query = "SELECT * FROM `driver` WHERE `facebookID` = '" . $driverID . "'";
 
         $db = new Database();
 
@@ -481,7 +483,7 @@ class Drivers {
 
         if ($result) {
 
-            $this->loginByFB($visitorID, $password);
+            $this->loginByFB($driverID, $password);
 
             return $this->__construct($last_id);
         } else {
@@ -496,26 +498,24 @@ class Drivers {
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             $this->id = $result['id'];
-            $visitor = $this->__construct($this->id);
+            $driver = $this->__construct($this->id);
 
             if (!isset($_SESSION)) {
                 session_start();
                 session_unset($_SESSION);
             }
-
+            $authtocken = $this->setAuthToken($driver->id);
             $_SESSION["login"] = TRUE;
-
-            $_SESSION["id"] = $visitor->id;
-
+            $_SESSION["id"] = $driver->id;
+            $_SESSION["authToken"] = $authtocken;
             return TRUE;
         }
     }
-    
+
     public function getDriversForPagination($pageLimit, $setLimit) {
         $query = "SELECT * FROM `driver` LIMIT " . $pageLimit . " , " . $setLimit . "";
         $db = new Database();
@@ -528,12 +528,12 @@ class Drivers {
         }
         return $array_res;
     }
-    
+
     public function showPaginationOfDrivers($per_page, $page) {
-        
+
         $page_url = "?";
         $query = "SELECT COUNT(*) as totalCount FROM `driver` ORDER BY `id` ASC";
-        
+
 
         $rec = mysql_fetch_array(mysql_query($query));
 
@@ -613,4 +613,5 @@ class Drivers {
 
         echo $setPaginate;
     }
+
 }

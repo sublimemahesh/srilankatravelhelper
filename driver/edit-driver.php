@@ -11,8 +11,6 @@ if (isset($_GET['id'])) {
     $DRIVER = new Drivers($_SESSION['id']);
 }
 $CITY = new City($DRIVER->city);
-
-
 ?>
 <html>
     <head>
@@ -74,14 +72,20 @@ $CITY = new City($DRIVER->city);
                                 <form method="post" action="post-and-get/driver.php"  enctype="multipart/form-data">
                                     <div class="prof-img">
                                         <?php
-                                        if ($DRIVER->profile_picture) {
+                                        if (empty($DRIVER->profile_picture)) {
                                             ?>
-                                            <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?> " alt=""/>
+                                            <img src="../upload/driver/driver.png" alt="Profile Picture"/>
                                             <?php
                                         } else {
-                                            ?>
-                                            <img src="../upload/driver/driver.png" alt=""/>
-                                            <?php
+                                            if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                ?>
+                                                <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img src="../upload/driver/<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                <?php
+                                            }
                                         }
                                         ?>
                                     </div>
@@ -173,29 +177,29 @@ $CITY = new City($DRIVER->city);
         <script src="js/add-driver.js" type="text/javascript"></script>
         <script src="plugins/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script>
-            tinymce.init({
-                selector: "#description",
-                // ===========================================
-                // INCLUDE THE PLUGIN
-                // ===========================================
+                                            tinymce.init({
+                                                selector: "#description",
+                                                // ===========================================
+                                                // INCLUDE THE PLUGIN
+                                                // ===========================================
 
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                // ===========================================
-                // PUT PLUGIN'S BUTTON on the toolbar
-                // ===========================================
+                                                plugins: [
+                                                    "advlist autolink lists link image charmap print preview anchor",
+                                                    "searchreplace visualblocks code fullscreen",
+                                                    "insertdatetime media table contextmenu paste"
+                                                ],
+                                                // ===========================================
+                                                // PUT PLUGIN'S BUTTON on the toolbar
+                                                // ===========================================
 
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-                // ===========================================
-                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-                // ===========================================
+                                                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                                                // ===========================================
+                                                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                                                // ===========================================
 
-                relative_urls: false
+                                                relative_urls: false
 
-            });
+                                            });
 
 
         </script>

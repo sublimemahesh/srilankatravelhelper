@@ -1,6 +1,6 @@
 <?php
-header('Content-Type: application/json; charset=UTF8');
-include_once(dirname(__FILE__) . '/../../class/include.php');
+
+include_once(dirname(__FILE__) . '/../../../class/include.php');
 
 if (isset($_POST['visitorLogin'])) {
 
@@ -17,9 +17,12 @@ if (isset($_POST['visitorLogin'])) {
 
     $visitorID = $_POST["userID"];
     $name = $_POST["name"];
-    $email = $_POST["email"];
     $picture = $_POST["picture"];
     $password = substr(explode(".", $_POST["signedRequest"])[1], -7);
+    $email = '';
+    if (isset($_POST["email"])) {
+        $email = $_POST["email"];
+    }
 
     $VISITOR = New Visitor(NULL);
 
@@ -31,6 +34,7 @@ if (isset($_POST['visitorLogin'])) {
 
         if ($res === false) {
             $response['message'] = 'error-log';
+            header('Content-Type: application/json; charset=UTF8');
             echo json_encode($response);
             exit();
         } else {
@@ -42,13 +46,16 @@ if (isset($_POST['visitorLogin'])) {
                 $response['message'] = 'success-cre';
                 $response['back'] = '';
             }
+            header('Content-Type: application/json; charset=UTF8');
             echo json_encode($response);
             exit();
         }
     } else {
+
         $res = $VISITOR->loginByFB($visitorID, $password);
         if ($res === false) {
             $response['message'] = 'error-log';
+            header('Content-Type: application/json; charset=UTF8');
             echo json_encode($response);
             exit();
         } else {
@@ -60,6 +67,7 @@ if (isset($_POST['visitorLogin'])) {
                 $response['message'] = 'success-log';
                 $response['back'] = '';
             }
+            header('Content-Type: application/json; charset=UTF8');
             echo json_encode($response);
             exit();
         }

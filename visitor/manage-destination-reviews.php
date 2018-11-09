@@ -110,7 +110,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     if ($id) {
                                         ?>
                                         <div class="listing-item">
-                                            <img src="../upload/destination/thumb/<?php echo $Destination->image_name; ?>" alt="">
+                                            <img src="../upload/destination/thumb1/<?php echo $Destination->image_name; ?>" alt="">
                                         </div>
                                         <div class="tour-name text-left">
                                             <?php echo $Destination->name; ?>

@@ -289,18 +289,34 @@ $stars = $sum / $divider;
                                     foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
                                         if ($key == 0) {
                                             ?>
-                                            <img src="upload/drivers/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                             <?php
                                         }
                                     }
                                     ?> 
                                 </div>
                                 <div class="img-pad "> 
-                                    <img src="upload/drivers/<?php echo $DRIVER->profile_picture; ?>" class="img-circle driver-list"/>
+                                    <?php
+                                    if (empty($DRIVER->profile_picture)) {
+                                        ?>
+                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                        <?php
+                                    } else {
+                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                            ?>
+                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
                                 </div> 
                                 <div class="profile-description ">
                                     <h3><?php echo $DRIVER->name; ?></h3>
-                                    
+
                                 </div>
                                 <div class="driver-rating">
                                     <div class="star-rating-driver text-right"> 
@@ -436,7 +452,7 @@ $stars = $sum / $divider;
                                                 </div>  
                                                 <div class="col-md-7">
                                                     <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                     <p><?php echo $review['message']; ?></p>
+                                                    <p><?php echo $review['message']; ?></p>
 
                                                 </div> 
                                                 <div class="col-md-3 star-section">

@@ -1,14 +1,20 @@
 <div class="navigation col-md-3 col-sm-3">
     <div class="profile-img">
         <?php
-        if ($VISITOR->profile_picture) {
+        if (empty($VISITOR->profile_picture)) {
             ?>
-            <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt=""/>
+            <img src="../upload/visitor/visitor.png" alt="Profile Picture"/>
             <?php
         } else {
-            ?>
-            <img src="../upload/visitor/visitor.png" alt=""/>
-            <?php
+            if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                ?>
+                <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                <?php
+            } else {
+                ?>
+                <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                <?php
+            }
         }
         ?>
 

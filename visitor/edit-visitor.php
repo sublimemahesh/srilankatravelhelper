@@ -64,14 +64,20 @@ if (isset($_GET['id'])) {
                                 <form method="post" action="post-and-get/visitor.php"  enctype="multipart/form-data">
                                     <div class="prof-img">
                                         <?php
-                                        if ($VISITOR->profile_picture) {
+                                        if (empty($VISITOR->profile_picture)) {
                                             ?>
-                                            <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?> " alt=""/>
+                                            <img src="../upload/visitor/visitor.png" alt="Profile Picture"/>
                                             <?php
                                         } else {
-                                            ?>
-                                            <img src="../upload/visitor/visitor.png" alt=""/>
-                                            <?php
+                                            if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                ?>
+                                                <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture"/>
+                                                <?php
+                                            }
                                         }
                                         ?>
                                     </div>

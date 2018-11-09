@@ -429,6 +429,7 @@ class Visitor {
     }
 
     public function loginByFB($visitorID, $password) {
+        
 
         $query = "SELECT * FROM `visitor` WHERE `facebookID`= '" . $visitorID . "' AND `password`= '" . $password . "'";
 
@@ -446,10 +447,11 @@ class Visitor {
                 session_start();
                 session_unset($_SESSION);
             }
-
+            
+            $authtocken = $this->setAuthToken($visitor['id']);
             $_SESSION["login"] = TRUE;
-
-            $_SESSION["id"] = $visitor->id;
+            $_SESSION["id"] = $visitor['id'];
+            $_SESSION["authToken"] = $authtocken;
 
             return TRUE;
         }
