@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
@@ -47,7 +47,7 @@ $types = $DESTINATION_TYPE->all();
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                   Edit Destination
+                                    Edit Destination
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
@@ -69,7 +69,6 @@ $types = $DESTINATION_TYPE->all();
                                                     <select class="form-control place-select1 show-tick" autocomplete="off" type="text" id="type" name="type" required="TRUE">
                                                         <option value=""> -- Please Select -- </option>
                                                         <?php foreach ($types as $type) {
-                                                            
                                                             ?>
                                                             <option value="<?php echo $type['id']; ?>" <?php
                                                             if ($DESTINATION->type === $type['id']) {
@@ -99,9 +98,19 @@ $types = $DESTINATION_TYPE->all();
                                             </div>
                                         </div>
                                     </div>
-
-
-
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="city">City</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
+                                                    <input type="hidden" name="city" id="city"  value="<?php echo $DESTINATION->city; ?>"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="picture_name">Image</label>
@@ -141,11 +150,12 @@ $types = $DESTINATION_TYPE->all();
 
                                         </div>
                                     </div>
+                                    <div id="map"></div>
                                     <div class="col-md-8 col-md-offset-2">
                                         <input type="hidden" id="oldImageName" value="<?php echo $DESTINATION->image_name; ?>" name="oldImageName"/>
                                         <input type="hidden" id="id" value="<?php echo $DESTINATION->id; ?>" name="id"/>
 <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect center-block" name="update" value="update">Save Changes</button>
+                                        <button type="submit" id="submit" class="btn btn-primary m-t-15 waves-effect center-block" name="update" value="update">Save Changes</button>
                                     </div>
                                     <div class="row clearfix">  </div>
                                     <hr/>
@@ -157,7 +167,6 @@ $types = $DESTINATION_TYPE->all();
                 <!-- #END# Vertical Layout -->
             </div>
         </section>
-
         <!-- Jquery Core Js -->
         <script src="plugins/jquery/jquery.min.js"></script>
         <script src="plugins/bootstrap/js/bootstrap.js"></script> 
@@ -168,32 +177,108 @@ $types = $DESTINATION_TYPE->all();
         <script src="js/add-new-ad.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script>
-            tinymce.init({
-                selector: "#description",
-                // ===========================================
-                // INCLUDE THE PLUGIN
-                // ===========================================
+                                                        tinymce.init({
+                                                            selector: "#description",
+                                                            // ===========================================
+                                                            // INCLUDE THE PLUGIN
+                                                            // ===========================================
 
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                // ===========================================
-                // PUT PLUGIN'S BUTTON on the toolbar
-                // ===========================================
+                                                            plugins: [
+                                                                "advlist autolink lists link image charmap print preview anchor",
+                                                                "searchreplace visualblocks code fullscreen",
+                                                                "insertdatetime media table contextmenu paste"
+                                                            ],
+                                                            // ===========================================
+                                                            // PUT PLUGIN'S BUTTON on the toolbar
+                                                            // ===========================================
 
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-                // ===========================================
-                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-                // ===========================================
+                                                            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                                                            // ===========================================
+                                                            // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                                                            // ===========================================
 
-                relative_urls: false
+                                                            relative_urls: false
 
+                                                        });
+        </script>
+        <script>
+            //Google Location Autocomplete
+            var placeSearch, autocomplete;
+
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                        {types: ['geocode']});
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+                $('#city').val(place.place_id);
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+        <script>
+            // Retrieve Details from Place_ID
+            function initMap() {
+                setTimeout(function () {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: -33.866, lng: 151.196},
+                        zoom: 15
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+                    var service = new google.maps.places.PlacesService(map);
+                    var place_id = $('#city').val();
+                    service.getDetails({
+                        placeId: place_id
+                    }, function (place, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+//                        alert(place.name);
+                            $('#autocomplete').val(place.name);
+                        }
+                    });
+                }, 1000);
+            }
+
+            $(document).ready(function () {
+                initMap();
             });
 
 
         </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
     </body>
 
