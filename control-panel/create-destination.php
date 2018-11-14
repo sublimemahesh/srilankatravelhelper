@@ -101,6 +101,19 @@ $types = $DESTINATION_TYPE->all();
                                             </div>
                                         </div>
                                     </div> 
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="city">City</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
+                                                    <input type="hidden" name="city" id="city"  value=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -145,47 +158,46 @@ $types = $DESTINATION_TYPE->all();
                                         </div>
                                     </div>
                                     <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" name="id"  value="<?php echo $id; ?>"/>
+                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                             <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="Add Destination"/>
                                         </div>
                                     </div>
                                     <hr/>
                                 </form>
                             </div>
-<!--                            <div class="body">
-                                <div class="row clearfix">
+                            <!--                            <div class="body">
+                                                            <div class="row clearfix">
+                            <?php
+                            foreach ($DESTINATIONS as $key => $destination) {
+
+                                if (count($destination) > 0) {
+                                    ?>
+                                                                                                        <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                                                                                            <div class="photo-img-container">
+                                                                                                                <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                                                                            </div>
+                                                                                                            <div class="img-caption">
+                                                                                                                <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
+                                                                                                                            <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
+                                                                                                                <div class="d">
+                                                                                                                    <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                                                                                    <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                                                                                    <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                                                                                    <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
                                     <?php
-                                    foreach ($DESTINATIONS as $key => $destination) {
-
-                                        if (count($destination) > 0) {
-                                            ?>
-                                            <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                                <div class="photo-img-container">
-                                                    <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
-                                                </div>
-                                                <div class="img-caption">
-                                                    <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                                <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
-                                                    <div class="d">
-                                                        <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                        <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                        <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                        <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                        } else {
-                                            ?> 
-                                            <b style="padding-left: 15px;">No packages in the database.</b> 
-                                            <?php
-                                        }
-                                    }
+                                } else {
                                     ?> 
-
-                                </div>
-                            </div>-->
+                                                                                                        <b style="padding-left: 15px;">No packages in the database.</b> 
+                                    <?php
+                                }
+                            }
+                            ?> 
+                            
+                                                            </div>
+                                                        </div>-->
                         </div>
 
                     </div>
@@ -200,6 +212,8 @@ $types = $DESTINATION_TYPE->all();
 
         <!-- Bootstrap Core Js -->
         <script src="plugins/bootstrap/js/bootstrap.js"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=SriLanka&types=(cities)&language=pt_BR&key=YOUR_API_KEY"></script>-->
+
 
         <!-- Select Plugin Js -->
         <!--<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>-->
@@ -218,32 +232,80 @@ $types = $DESTINATION_TYPE->all();
         <script src="delete/js/destination.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script>
-            tinymce.init({
-                selector: "#description",
-                // ===========================================
-                // INCLUDE THE PLUGIN
-                // ===========================================
+                                                        tinymce.init({
+                                                            selector: "#description",
+                                                            // ===========================================
+                                                            // INCLUDE THE PLUGIN
+                                                            // ===========================================
 
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                // ===========================================
-                // PUT PLUGIN'S BUTTON on the toolbar
-                // ===========================================
+                                                            plugins: [
+                                                                "advlist autolink lists link image charmap print preview anchor",
+                                                                "searchreplace visualblocks code fullscreen",
+                                                                "insertdatetime media table contextmenu paste"
+                                                            ],
+                                                            // ===========================================
+                                                            // PUT PLUGIN'S BUTTON on the toolbar
+                                                            // ===========================================
 
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-                // ===========================================
-                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-                // ===========================================
+                                                            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                                                            // ===========================================
+                                                            // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                                                            // ===========================================
 
-                relative_urls: false
+                                                            relative_urls: false
 
-            });
+                                                        });
 
 
         </script>
+        <script>
+            var placeSearch, autocomplete;
+
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                        {types: ['geocode']});
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+                $('#city').val(place.place_id);
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+        async defer></script>
     </body>
 
 </html>

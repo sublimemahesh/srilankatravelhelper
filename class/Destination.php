@@ -10,6 +10,7 @@ class Destination {
     public $id;
     public $type;
     public $name;
+    public $city;
     public $image_name;
     public $short_description;
     public $description;
@@ -18,7 +19,7 @@ class Destination {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`type`,`name`,`image_name`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`type`,`name`,`city`,`image_name`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -27,6 +28,7 @@ class Destination {
             $this->id = $result['id'];
             $this->type = $result['type'];
             $this->name = $result['name'];
+            $this->city = $result['city'];
             $this->image_name = $result['image_name'];
             $this->short_description = $result['short_description'];
             $this->description = $result['description'];
@@ -38,9 +40,10 @@ class Destination {
 
     public function create() {
 
-        $query = "INSERT INTO `destination` (`type`,`name`,`image_name`,`short_description`,`description`,`sort`) VALUES  ('"
+        $query = "INSERT INTO `destination` (`type`,`name`,`city`,`image_name`,`short_description`,`description`,`sort`) VALUES  ('"
                 . $this->type . "', '"
                 . $this->name . "', '"
+                . $this->city . "', '"
                 . $this->image_name . "', '"
                 . $this->short_description . "', '"
                 . $this->description . "', '"
@@ -78,6 +81,7 @@ class Destination {
         $query = "UPDATE  `destination` SET "
                 . "`type` ='" . $this->type . "', "
                 . "`name` ='" . $this->name . "', "
+                . "`city` ='" . $this->city . "', "
                 . "`image_name` ='" . $this->image_name . "', "
                 . "`short_description` ='" . $this->short_description . "', "
                 . "`description` ='" . $this->description . "', "

@@ -9,6 +9,7 @@ if (isset($_POST['create'])) {
 
     $DESTINATION->type = $_POST['type'];
     $DESTINATION->name = $_POST['name'];
+    $DESTINATION->city = $_POST['city'];
     $DESTINATION->short_description = $_POST['short_description'];
     $DESTINATION->description = $_POST['description'];
 
@@ -75,6 +76,7 @@ if (isset($_POST['create'])) {
 
     $VALID->check($DESTINATION, [
         'name' => ['required' => TRUE],
+        'city' => ['required' => TRUE],
         'description' => ['required' => TRUE],
         'short_description' => ['required' => TRUE]
     ]);
@@ -167,6 +169,7 @@ if (isset($_POST['update'])) {
     $DESTINATION->image_name = $_POST['oldImageName'];
     $DESTINATION->type = $_POST['type'];
     $DESTINATION->name = $_POST['name'];
+    $DESTINATION->city = $_POST['city'];
     $DESTINATION->short_description = $_POST['short_description'];
     $DESTINATION->description = $_POST['description'];
 
@@ -174,6 +177,7 @@ if (isset($_POST['update'])) {
 
     $VALID->check($DESTINATION, [
         'name' => ['required' => TRUE],
+        'city' => ['required' => TRUE],
         'description' => ['required' => TRUE],
         'short_description' => ['required' => TRUE],
         'type' => ['required' => TRUE]
