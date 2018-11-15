@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 $id = $_GET["id"];
 $DESTINATION = new Destination($id);
 $DESTINATION_TYPE = new DestinationType($DESTINATION->type);
@@ -8,8 +11,14 @@ $REVIEWS = Reviews::getTotalReviewsOfDestination($id);
 
 $divider1 = $REVIEWS['count'];
 $sum1 = $REVIEWS['sum'];
+if($divider1 == 0) {
+    $stars1 = 0;
+    $sum1 = 0;
+} else {
+    $stars1 = $sum1 / $divider1;
+}
 
-$stars1 = $sum1 / $divider1;
+
 
 $album = '';
 if (isset($_GET['album'])) {
@@ -38,7 +47,7 @@ if (isset($_GET['album'])) {
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
         <link href="lib/sliderPro/slider-pro.css" rel="stylesheet" type="text/css"/>
         <link href="css/destination-slider.css" rel="stylesheet" type="text/css"/>
-        
+        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <style>
             /* This rule is read by Galleria to define the gallery height: */
             #galleria{height:480px}
@@ -318,6 +327,9 @@ if (isset($_GET['album'])) {
                                 </p> 
 
                             </div>
+                            <div class="review-button">
+                                <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class="button border with-icon submit add-to-cart">Add to Cart</button></a>
+                            </div>
                         </div>
                         <div class="col-md-3 col-sm-4" >
                             <div>
@@ -569,8 +581,9 @@ if (isset($_GET['album'])) {
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
-
+        <script src="scripts/add-to-cart.js" type="text/javascript"></script>
         <script src="lib/sliderPro/jquery.sliderPro.js" type="text/javascript"></script>
+        <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
 

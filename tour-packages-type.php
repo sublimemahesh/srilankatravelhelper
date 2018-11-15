@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 
@@ -16,7 +19,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <!--    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -91,7 +94,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </section>
-<?php include './footer.php'; ?>
+            <?php include './footer.php'; ?>
         </div>
         <script>
             // For Demo purposes only (show hover effect on mobile devices)

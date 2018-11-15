@@ -1,8 +1,10 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
-
 <html>
     <head>
         <!-- Basic Page Needs
@@ -16,7 +18,8 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </head>
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
@@ -33,60 +36,57 @@ include_once(dirname(__FILE__) . '/class/include.php');
             </div>
             <div class="container margin-top-70">
                 <div class="row">
-                      <?php
-                $DESTINATION_TYPES = DestinationType::all();
-                foreach ($DESTINATION_TYPES as $destination_type) {
-                  
+                    <?php
+                    $DESTINATION_TYPES = DestinationType::all();
+                    foreach ($DESTINATION_TYPES as $destination_type) {
                         ?>
-                    <div class="col-md-4">
-                        <a href="destination-type-view-page.php?id=<?php echo $destination_type['id'];?>" class="listing-item-container">
-                            <div class="listing-item">
-                                <img src="upload/destination-type/<?php echo $destination_type['image_name'];?>" alt="">
-                                <div class="listing-item-content">
-                                    <span class="tag" style="background: #0dce38!important">View</span>
-                                    <h3><?php echo $destination_type['name'];?></h3>
-<!--                                    <span><?php echo $destination_type['description'];?></span>-->
-                                    <div class="star-rating" style="padding: 15px 0px !important;">
-                                        <?php
-                                                        $REVIEWS = Reviews::getTotalReviewsOfDestinationType($destination_type['id']);
+                        <div class="col-md-4">
+                            <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
+                                <div class="listing-item">
+                                    <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">
+                                    <div class="listing-item-content">
+                                        <span class="tag" style="background: #0dce38!important">View</span>
+                                        <h3><?php echo $destination_type['name']; ?></h3>
+    <!--                                    <span><?php echo $destination_type['description']; ?></span>-->
+                                        <div class="star-rating" style="padding: 15px 0px !important;">
+                                            <?php
+                                            $REVIEWS = Reviews::getTotalReviewsOfDestinationType($destination_type['id']);
 
-                                                        $divider = $REVIEWS['count'];
-                                                        $sum = $REVIEWS['sum'];
+                                            $divider = $REVIEWS['count'];
+                                            $sum = $REVIEWS['sum'];
 
-                                                        if ($divider == 0) {
-                                                            for ($j = 1; $j <= 5; $j++) {
-                                                                ?>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <?php
-                                                            }
-                                                            $sum = 0;
-                                                        } else {
-                                                            $stars = $sum / $divider;
+                                            if ($divider == 0) {
+                                                for ($j = 1; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                                $sum = 0;
+                                            } else {
+                                                $stars = $sum / $divider;
 
-                                                            for ($i = 1; $i <= $stars; $i++) {
-                                                                ?>
-                                                                <i class="fa fa-star"></i>
-                                                                <?php
-                                                            }
-                                                            for ($j = $i; $j <= 5; $j++) {
-                                                                ?>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                        
-                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+
+                                            <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                          <?php
-                    
-                }
-                ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <?php include './footer.php'; ?>
@@ -110,4 +110,3 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <script type="text/javascript" src="scripts/custom.js"></script>
 
 </html>
-

@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 $id = $_GET["id"];
 $DRIVER = new Drivers($id);
 
@@ -621,7 +624,8 @@ $stars = $sum / $divider;
         </script>
         <!-- Scripts
          ================================================== -->
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
         <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="scripts/mmenu.min.js"></script>
         <script type="text/javascript" src="scripts/chosen.min.js"></script>

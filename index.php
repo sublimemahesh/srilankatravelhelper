@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <head>
@@ -16,8 +19,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-
-    <link href="slider-css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!--         animate css 
             <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
              Button Hover animate css 
@@ -486,6 +488,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
     <!-- jquery latest version -->
     <script src="slider css/jquery-3.2.0.min.js" type="text/javascript"></script>
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <!-- chossen js -->
     <script src="slider-css/chosen.jquery.min.js" type="text/javascript"></script>
     <script src="slider-css/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
