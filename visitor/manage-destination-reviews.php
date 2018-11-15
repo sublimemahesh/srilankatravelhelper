@@ -16,7 +16,7 @@ if (!isset($_SESSION)) {
 }
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'destinationreview') {
-        $_SESSION["back_url"] = 'http://travelhelper.galle.website/visitor/manage-destination-reviews.php?destination=' . $id;
+        $_SESSION["back_url"] = 'http://toursrilanka.travel/visitor/manage-destination-reviews.php?destination=' . $id;
 //        $_SESSION["back_url"] = 'http://localhost/visitor/manage-destination-reviews.php?destination=' . $id;
     }
     redirect('index.php?message=24');

@@ -1,3 +1,13 @@
+<?php
+
+$destinations = '';
+$count = 0;
+if (isset($_SESSION['destination_cart'])) {
+    $destinations = $_SESSION['destination_cart'];
+    $count = count($destinations);
+}
+?>
+
 <header id="header-container">
     <!-- Header -->
     <div id="header">
@@ -34,7 +44,7 @@
                         <li><a href="contact.php">Contact</a>
                         <li><a href="blog.php">Blog</a>
                         </li>
-                        <li><a href="visitor/"><i class="sl sl-icon-login"></i> Sign In</a></li>
+                        <li><a href="visitor/profile.php"><i class="sl sl-icon-login"></i> Sign In</a></li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
@@ -47,6 +57,15 @@
                 <div class="header-widget">
 
                     <a href="#" class="button border with-icon">Plan Your Trip <i class="sl sl-icon-plus"></i></a>
+                </div>
+                <div class="my-cart">
+                    <div class="my-cart-btn">
+                        <a href="my-cart.php" class="button"><i class="fa fa-cart-plus"></i></a>
+                    </div>
+                    <!--<div>-->
+                    <span class="cart-title">My Cart</span><br />
+                    <span class="cart-item-count"><?php echo $count; ?> Destinations</span>
+                    <!--</div>-->
                 </div>
             </div>
             <!-- Right Side Content / End -->

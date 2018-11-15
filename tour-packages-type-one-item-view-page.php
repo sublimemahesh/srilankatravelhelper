@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 $id = $_GET["id"];
 $TOUR = new TourPackages($id);
 $TOUR_TYPE = new TourType($TOUR->type);

@@ -449,6 +449,14 @@ ul.setPaginate li a:hover, ul.setPaginate li a.current_page {
 ul.setPaginate li.dot {
     padding: 3px 0;
 }
+.remove-from-cart {
+    color: #ccc;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.remove-from-cart:hover {
+    color: #00a8ff;
+}
 @media(max-width:576px) {
     .reviws-section {
         height: auto;

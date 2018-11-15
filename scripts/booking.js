@@ -101,53 +101,95 @@ $(document).ready(function () {
                 showConfirmButton: false
             });
             return false;
-        }  else {
+        } else {
             var visitor = $('#visitor').val();
-        var tour = $('#tour').val();
-        var driver = $('#selected-driver').val();
-        var noofadults = $('#noofadults').val();
-        var noofchildren = $('#noofchildren').val();
-        var startdate = $('#startdate').val();
-        var enddate = $('#enddate').val();
-        var message = $('#booking-msg').val();
+            var tour = $('#tour').val();
+            var driver = $('#selected-driver').val();
+            var noofadults = $('#noofadults').val();
+            var noofchildren = $('#noofchildren').val();
+            var startdate = $('#startdate').val();
+            var enddate = $('#enddate').val();
+            var message = $('#booking-msg').val();
+            var tailormadetour = $('#tailormadetour').val();
+            var places = $('#places').val();
 
-        $.ajax({
-            url: "post-and-get/ajax/booking.php",
-            cache: false,
-            dataType: "json",
-            type: "POST",
-            data: {
-                visitor: visitor,
-                tour: tour,
-                driver: driver,
-                noofadults: noofadults,
-                noofchildren: noofchildren,
-                startdate: startdate,
-                enddate: enddate,
-                message: message,
-                option: 'ADDDETAILS'
-            },
-            success: function (result) {
-                if (result === 'FALSE') {
-                    swal({
-                        title: "Error!",
-                        text: "Please try again...",
-                        type: 'error',
-                        timer: 2000,
-                        showConfirmButton: false
-                    });
-                } else {
-                    swal({
-                        title: "Success!",
-                        text: "Your booking was saved successfully...",
-                        type: 'success',
-                        timer: 2000,
-                        showConfirmButton: false
-                    });
-                }
+            if (tailormadetour == 'tourpackge') {
+                $.ajax({
+                    url: "post-and-get/ajax/booking.php",
+                    cache: false,
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        visitor: visitor,
+                        tour: tour,
+                        driver: driver,
+                        noofadults: noofadults,
+                        noofchildren: noofchildren,
+                        startdate: startdate,
+                        enddate: enddate,
+                        message: message,
+                        option: 'ADDDETAILS'
+                    },
+                    success: function (result) {
+                        if (result === 'FALSE') {
+                            swal({
+                                title: "Error!",
+                                text: "Please try again...",
+                                type: 'error',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        } else {
+                            swal({
+                                title: "Success!",
+                                text: "Your booking was saved successfully...",
+                                type: 'success',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        }
 
+                    }
+                });
+            } else if (tailormadetour == 'tailormade') {
+                $.ajax({
+                    url: "post-and-get/ajax/tailormade_tours.php",
+                    cache: false,
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        visitor: visitor,
+                        places: places,
+                        driver: driver,
+                        noofadults: noofadults,
+                        noofchildren: noofchildren,
+                        startdate: startdate,
+                        enddate: enddate,
+                        message: message,
+                        option: 'ADDDETAILS'
+                    },
+                    success: function (result) {
+                        if (result === 'FALSE') {
+                            swal({
+                                title: "Error!",
+                                text: "Please try again...",
+                                type: 'error',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        } else {
+                            swal({
+                                title: "Success!",
+                                text: "Your booking was saved successfully...",
+                                type: 'success',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                        }
+
+                    }
+                });
             }
-        });
         }
     });
 });

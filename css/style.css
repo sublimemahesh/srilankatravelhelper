@@ -164,7 +164,7 @@ img.footer-logo {
 
 .header-widget {
     position: relative;
-    top: -1px;
+    top: 4px;
     height: 54px
 }
 
@@ -212,17 +212,58 @@ header.fullwidth .container {
 
 .left-side {
     float: left;
-    width: 83%;
+    width: 78%;
     display: inline-block
 }
 
 .right-side {
-    float: right;
-    width: 17%;
+    float: left;
+    width: 22%;
     display: inline-block
 }
 .container {
     width: 1116px;
+}
+.my-cart {
+    float: right;
+    width: 111px;
+    margin-top: -50px;
+    /*    margin-right: 27px;*/
+}
+.my-cart .button {
+    font-size: 20px;
+    padding: 4px 8px;
+    border-radius: 0px;
+}
+.my-cart-btn {
+    float: left;
+}
+.cart-item-count {
+    font-size: 10px;
+}
+.cart-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #b0d133;
+    line-height: 17px;
+}
+.boxed-widget a{
+    color: #b3b9bf;
+}
+.boxed-widget a:hover{
+    color: #000;
+    text-decoration: none;
+}
+.opening-hours ul {
+    line-height: 27px;
+}
+a:hover.listing-item-container {
+    text-decoration: none;
+    color: #000;
+}
+a.listing-item-container {
+    text-decoration: none;
+    color: #000;
 }
 
 @media(min-width:1025px) and (max-width:1239px) {
@@ -248,7 +289,7 @@ header.fullwidth .container {
 }*/
 
 .header-widget {
-    text-align: right
+    text-align: left;
 }
 
 #header.cloned {
@@ -6306,7 +6347,8 @@ a.button.border {
     background-color: transparent;
     color: #66676b;
     border: 1px solid #66676b;
-    padding: 9px 21px
+    padding: 5px 9px;
+    /*    padding: 9px 21px*/
 }
 
 a.button.border:hover {
@@ -10094,12 +10136,12 @@ span.like-icon {
 }
 
 .like-icon:before {
-    content: "\f08a";
+    /*content: "\f08a"*/
     transform: scale(.95)
 }
 
 .like-icon:after {
-    content: "\f004";
+    /*content: "\f004";*/
     opacity: 0;
     transform: scale(.5)
 }

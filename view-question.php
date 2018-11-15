@@ -36,11 +36,11 @@ $askedAt = getAskedTime($Question->askedAt);
         <!-- CSS
            ================================================== -->
         <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/blog.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
 
     </head>

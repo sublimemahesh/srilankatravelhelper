@@ -1,33 +1,37 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
 
-
 if (!isset($_SESSION)) {
     session_start();
 }
 $tour = '';
+$tailormade = '';
+$places = '';
 if (isset($_GET["tour"])) {
     $tour = $_GET["tour"];
     $TOUR = new TourPackages($tour);
     $REVIEWS = Reviews::getTotalReviewsOfTour($tour);
-}
+    $divider = $REVIEWS['count'];
+    $sum = $REVIEWS['sum'];
 
+    $stars = $sum / $divider;
+}
+if (isset($_GET['tailormade'])) {
+    $tailormade = 'hidden';
+    $places = serialize($_SESSION["destination_cart"]);
+}
 
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'booking') {
-        $_SESSION["back_url"] = 'http://travelhelper.galle.website/booking.php?tour=' . $tour;
+        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/booking.php?tour=' . $tour;
+    } elseif (isset($_GET['tailormade'])) {
+//        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/booking.php?tailormade';
+        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/booking.php?tailormade';
     }
     redirect('visitor/index.php?message=24');
 }
 
 $VISITOR = new Visitor($_SESSION['id']);
-
-
-
-$divider = $REVIEWS['count'];
-$sum = $REVIEWS['sum'];
-
-$stars = $sum / $divider;
 ?>
 <!DOCTYPE html>
 
@@ -44,7 +48,7 @@ $stars = $sum / $divider;
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <link href="slider css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <style>
@@ -91,7 +95,7 @@ $stars = $sum / $divider;
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container about-bg ">
+            <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner">
                         <h2 class="tp">Booking</h2>
@@ -107,7 +111,7 @@ $stars = $sum / $divider;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="driver-profile-section" >
+                            <div class="driver-profile-section <?php echo $tailormade; ?>" >
 
                                 <div class="listing-item">
                                     <img src="upload/tour-package/thumb/<?php echo $TOUR->image_name; ?>" alt="">
@@ -138,6 +142,21 @@ $stars = $sum / $divider;
                                 </div>
 
                             </div> 
+                            <div class="boxed-widget opening-hours">
+
+                                <h3>Selected Destinations</h3>
+                            <ul>
+                                <?php
+                                foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
+                                    $DESTINATION = new Destination($cartitem);
+                                    ?>
+                                    <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                                    <?php
+                                }
+                                ?>
+
+                            </ul>
+                        </div>
                         </div>
                         <div class="col-md-9">
                             <div class="col-md-12 booking-section">
@@ -207,7 +226,10 @@ $stars = $sum / $divider;
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h3>Tour Package Booking Details</h3>
+                                        <h3 class="<?php echo $tailormade; ?>">Tour Package Booking Details</h3>
+                                        <h3 class="<?php if ($tailormade == '') {
+                                                        echo 'hidden';
+                                                    }; ?>">Tailor-Made Tour Booking Details</h3>
 
                                         <div class="your-details col-md-10 col-md-offset-1">
                                             <div class="col-md-6">
@@ -238,8 +260,14 @@ $stars = $sum / $divider;
                                         </div>
                                         <div class="booking-next col-md-6 col-xs-6">
                                             <input type="hidden" name="tour" id="tour" value="<?php echo $tour; ?>" />
+                                            <input type="hidden" name="places" id="places" value="<?php echo $places; ?>" />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
                                             <input type="hidden" name="selected-driver" id="selected-driver" value="" />
+                                            <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php if ($tailormade == 'hidden') {
+                                                        echo 'tailormade';
+                                                    } else {
+                                                        echo 'tourpackge';
+                                                    } ?>" />
                                             <button class="btn btn-submit">Book Now <i class="fa fa-angle-double-right"></i></button>
                                         </div>
                                     </div>
@@ -256,14 +284,14 @@ $stars = $sum / $divider;
                     </div>
                 </div>
             </section>
-            <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts
      ================================================== -->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
     <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
-    <!--<script src="scripts/jquery_2.2.4.js" type="text/javascript"></script>-->
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>
@@ -273,7 +301,6 @@ $stars = $sum / $divider;
     <script type="text/javascript" src="scripts/waypoints.min.js"></script>
     <script type="text/javascript" src="scripts/counterup.min.js"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
-    <!--<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>-->
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script src="scripts/search-drivers.js" type="text/javascript"></script>

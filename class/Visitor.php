@@ -211,6 +211,7 @@ class Visitor {
         unset($_SESSION["lastLogin"]);
         unset($_SESSION["username"]);
         unset($_SESSION["position"]);
+        unset($_SESSION["destination_cart"]);
 
         return TRUE;
     }
