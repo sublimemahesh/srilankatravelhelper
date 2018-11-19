@@ -17,13 +17,13 @@ if ($_POST['option'] === 'ADDTOCART') {
         } else {
             array_push($cart, $id);
             $_SESSION['destination_cart'] = $cart;
-            $result = TRUE;
+            $result = count($cart);
         }
         
     } else {
         array_push($cart, $id);
         $_SESSION['destination_cart'] = $cart;
-        $result = TRUE;
+        $result = count($cart);
     }
 
     

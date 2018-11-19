@@ -31,6 +31,16 @@ $(document).ready(function () {
                         timer: 2000,
                         showConfirmButton: false
                     });
+                    var html = '';
+                    if(result == 1) {
+                        html  = '1 destination';
+                    } else {
+                        html  = result+' destinations';
+                    }
+                    
+                    $('.cart-item-count').empty();
+                    $('.cart-item-count').append(html);
+                    
                 }
             }
         });

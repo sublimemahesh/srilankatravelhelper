@@ -6,13 +6,14 @@
 .btn-heading {
     background: #b0d133;
     color: #fff;
-    padding: 7px;
+    padding: 6px 12px;
     border-radius: 3px;
+    border: 1px solid #b0d133;
 }
 .btn-heading:hover {
     background: #fff;
     color: #b0d133;
-    padding: 7px;
+    padding: 6px 12px;
     border-radius: 3px;
     border: 1px solid #b0d133;
 }
@@ -193,6 +194,18 @@ input[type="submit"] {
 }
 .comment-p{
     text-align: justify;
+}
+#ps {
+    margin-bottom: 15px;
+}
+#pos {
+    margin-bottom: 15px;
+}
+.newest-btn {
+    border-radius: 6px 0 0 6px;
+}
+.unanswered-btn{
+    border-radius: 0px 6px 6px 0px;
 }
 @media(max-width: 1000px) {
     .container {
