@@ -14,7 +14,7 @@ if ($_POST['option'] === 'remove') {
         unset($cart[$key]);
         $_SESSION['destination_cart'] = $cart;
         
-        $result = TRUE;
+        $result = count($cart);
     
 //    foreach($_SESSION['destination_cart'] as $a) {
 //        echo $a;

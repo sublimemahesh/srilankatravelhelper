@@ -140,7 +140,8 @@ img {
 
 #logo {
     display: inline-block;
-    margin-top: -9px
+    margin-top: 1px;
+    margin-right: 15px;
 }
 
 #logo img {
@@ -151,7 +152,7 @@ img {
 
 img.footer-logo {
     /*    max-height: 38px;*/
-    width: auto
+    width: 350px;
 }
 
 #header {
@@ -175,7 +176,8 @@ img.footer-logo {
     text-align: center;
     position: relative;
     line-height: 26px;
-    font-weight: 500
+    font-weight: 500;
+    margin-left: 42px;
 }
 
 .header-widget .button.border i {
@@ -212,13 +214,13 @@ header.fullwidth .container {
 
 .left-side {
     float: left;
-    width: 78%;
+    width: 72%;
     display: inline-block
 }
 
 .right-side {
     float: left;
-    width: 22%;
+    width: 28%;
     display: inline-block
 }
 .container {
@@ -228,11 +230,12 @@ header.fullwidth .container {
     float: right;
     width: 111px;
     margin-top: -50px;
+    width: 117px;
     /*    margin-right: 27px;*/
 }
 .my-cart .button {
     font-size: 20px;
-    padding: 4px 8px;
+    padding: 6px 10px;
     border-radius: 0px;
 }
 .my-cart-btn {

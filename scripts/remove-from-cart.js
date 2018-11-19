@@ -3,8 +3,8 @@ $(document).ready(function () {
     $('.remove-from-cart').click(function () {
         var id = $(this).attr('destination-id');
         var key = $(this).attr('array-key');
-        
-        
+
+
         swal({
             title: "Are you sure?",
             text: "You will not be able to recover this action!",
@@ -31,12 +31,21 @@ $(document).ready(function () {
                             showConfirmButton: false
                         });
                         $('#li-' + key).remove();
+                        var html = '';
+                        if (jsonStr == 1) {
+                            html = '1 destination';
+                        } else {
+                            html = jsonStr + ' destinations';
+                        }
+
+                        $('.cart-item-count').empty();
+                        $('.cart-item-count').append(html);
 
                     }
                 }
             });
         });
-      
+
     });
 
 });

@@ -62,6 +62,8 @@ $(document).ready(function () {
                         $('#subject').val('');
 //                    $('#question').text('');
                         tinyMCE.activeEditor.setContent('');
+                        
+                        location.reload();
                     }
 
 

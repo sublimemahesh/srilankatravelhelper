@@ -52,6 +52,7 @@ $(document).ready(function () {
                             showConfirmButton: false
                         });
                         tinyMCE.activeEditor.setContent('');
+                        location.reload(); 
                     }
 
 

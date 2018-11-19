@@ -16,7 +16,7 @@ if (isset($_SESSION['destination_cart'])) {
             <div class="left-side">
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="./"><img src="images/logo/log-1.png" alt=""></a>
+                    <a href="./"><img src="images/logo/logo.png" alt=""></a>
                 </div>
                 <!-- Mobile Navigation -->
                 <div class="mmenu-trigger">
@@ -29,21 +29,11 @@ if (isset($_SESSION['destination_cart'])) {
                 <!-- Main Navigation -->
                 <nav id="navigation" class="style-1">
                     <ul id="responsive">
-                        <li><a class="current" href="./">Home</a>
-
-                        </li>
-                        <li><a href="destination-type.php">Destinations</a>
-
-                        </li>
-
-                        <li><a href="tour-packages-type.php">Packages</a>
-                        </li>
-
-                        <li><a href="drivers-page.php">Drivers</a>
-                        <li><a href="about.php">About</a>
-                        <li><a href="contact.php">Contact</a>
-                        <li><a href="blog.php">Blog</a>
-                        </li>
+                        <li><a class="current" href="./">Home</a></li>
+                        <li><a href="destination-type.php">Destinations</a></li>
+                        <li><a href="tour-packages-type.php">Packages</a></li>
+                        <li><a href="drivers-page.php">Drivers</a></li>
+                        <li><a href="blog.php">Blog</a></li>
                         <li><a href="visitor/profile.php"><i class="sl sl-icon-login"></i> Sign In</a></li>
                     </ul>
                 </nav>

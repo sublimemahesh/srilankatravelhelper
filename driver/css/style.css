@@ -28,6 +28,13 @@ and open the template in the editor.
 .logo-header {
     margin-top: 21px;
 }
+.logo-header img {
+    width: 290px
+}
+.nav-logo {
+    width: 237px;
+    margin-top: 5px;
+}
 .box {
     top: 50px;
     padding: 0px 60px;
@@ -76,6 +83,9 @@ h3 {
 }
 .logo {
     padding: 0px 37px;
+}
+.logo img {
+    width: 250px
 }
 .description {
     text-align: center;
@@ -141,7 +151,9 @@ a:hover {
     text-align: center;
 }
 .footer .logo img{
-    height: 42px;
+    height: 36px;
+    margin: 0px 0 10px;
+    width: auto;
 }
 .footer .logo{
     padding: 10px 0px 0px;
@@ -211,7 +223,7 @@ h4 a {
 h4 a:hover {
     color: #fff;
     text-decoration: none;
-    
+
 }
 @media(max-width:576px) {
     .box {

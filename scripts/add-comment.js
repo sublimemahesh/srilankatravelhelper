@@ -55,6 +55,7 @@ $(document).ready(function () {
                             timer: 2000,
                             showConfirmButton: false
                         });
+                        location.reload(); 
                     }
 
 
