@@ -46,7 +46,7 @@ if (isset($_SESSION['destination_cart'])) {
             <div class="right-side">
                 <div class="header-widget">
 
-                    <a href="#" class="button border with-icon">Plan Your Trip <i class="sl sl-icon-plus"></i></a>
+                    <a href="plan-trip.php" class="button border with-icon">Plan Your Trip <i class="sl sl-icon-plus"></i></a>
                 </div>
                 <div class="my-cart">
                     <div class="my-cart-btn">

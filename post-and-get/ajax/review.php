@@ -16,3 +16,16 @@ if ($_POST['option'] === 'GETTOTALREVIEWS') {
     echo json_encode($result);
 }
 
+if ($_POST['option'] === 'GETTOTALREVIEWSOFDESTINATION') {
+    
+    $REVIEW = Reviews::getTotalReviewsOfDestination($_POST['id']);
+    
+    if($REVIEW['count'] == 0) {
+        $result = 0;
+    } else {
+        $result = $REVIEW;
+    }
+    
+    header('Content-type: application/json');
+    echo json_encode($result);
+}
