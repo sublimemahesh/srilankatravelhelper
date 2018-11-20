@@ -1,5 +1,4 @@
 <?php
-
 include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if ($_POST['option'] === 'ADDTOCART') {
@@ -19,19 +18,11 @@ if ($_POST['option'] === 'ADDTOCART') {
             $_SESSION['destination_cart'] = $cart;
             $result = count($cart);
         }
-        
     } else {
         array_push($cart, $id);
         $_SESSION['destination_cart'] = $cart;
         $result = count($cart);
     }
-
-    
-//    foreach($_SESSION['destination_cart'] as $a) {
-//        echo $a;
-//    }
-    
-
     header('Content-type: application/json');
     echo json_encode($result);
 }

@@ -172,25 +172,25 @@ $types = $DESTINATION_TYPE->all();
 
                                 if (count($destination) > 0) {
                                     ?>
-                                                                                                        <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
-                                                                                                            <div class="photo-img-container">
-                                                                                                                <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
-                                                                                                            </div>
-                                                                                                            <div class="img-caption">
-                                                                                                                <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
-                                                                                                                            <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
-                                                                                                                <div class="d">
-                                                                                                                    <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
-                                                                                                                    <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
-                                                                                                                    <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
-                                                                                                                    <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+                                                                                                                <div class="col-md-3"  id="div<?php echo $destination['id']; ?>">
+                                                                                                                    <div class="photo-img-container">
+                                                                                                                        <img src="../upload/destination/thumb/<?php echo $destination['image_name']; ?>" class="img-responsive ">
+                                                                                                                    </div>
+                                                                                                                    <div class="img-caption">
+                                                                                                                        <p class="maxlinetitle">Name : <?php echo $destination['name']; ?></p>  
+                                                                                                                                    <p class="maxlinetitle">Type : <?php echo $DESTINATION_TYPE->name; ?></p>  
+                                                                                                                        <div class="d">
+                                                                                                                            <a href="#"  class="delete-destination" data-id="<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                                                                                            <a href="edit-destination.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                                                                                            <a href="arrange-destination.php?id=<?php echo $destination['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                                                                                            <a href="create-destination-photos.php?id=<?php echo $destination['id']; ?>"> <button class="glyphicon glyphicon-picture arrange-btn"></button> </a>
+                                                                                                                        </div>
+                                                                                                                    </div>
                                                                                                                 </div>
-                                                                                                            </div>
-                                                                                                        </div>
                                     <?php
                                 } else {
                                     ?> 
-                                                                                                        <b style="padding-left: 15px;">No packages in the database.</b> 
+                                                                                                                <b style="padding-left: 15px;">No packages in the database.</b> 
                                     <?php
                                 }
                             }
@@ -264,9 +264,13 @@ $types = $DESTINATION_TYPE->all();
             function initAutocomplete() {
                 // Create the autocomplete object, restricting the search to geographical
                 // location types.
-                autocomplete = new google.maps.places.Autocomplete(
-                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-                        {types: ['geocode']});
+                var options = {
+                    types: ['(cities)'],
+                    componentRestrictions: {country: "lk"}
+                };
+                var input = document.getElementById('autocomplete');
+
+                autocomplete = new google.maps.places.Autocomplete(input, options);
 
                 // When the user selects an address from the dropdown, populate the address
                 // fields in the form.

@@ -12669,6 +12669,15 @@ input:checked+.slider:before {
     margin: 0;
     top: 2px
 }
+.location-search-input {
+    width: 75%;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+}
+.location-search-btn {
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+}
 
 @-webkit-keyframes passing-through {
     0% {
