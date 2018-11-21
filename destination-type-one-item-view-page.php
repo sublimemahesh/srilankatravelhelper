@@ -11,7 +11,7 @@ $REVIEWS = Reviews::getTotalReviewsOfDestination($id);
 
 $divider1 = $REVIEWS['count'];
 $sum1 = $REVIEWS['sum'];
-if($divider1 == 0) {
+if ($divider1 == 0) {
     $stars1 = 0;
     $sum1 = 0;
 } else {
@@ -24,7 +24,6 @@ $album = '';
 if (isset($_GET['album'])) {
     $album = 'TRUE';
 }
-//dd($album === 'TRUE');
 ?> 
 <!DOCTYPE html>
 
@@ -41,7 +40,7 @@ if (isset($_GET['album'])) {
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors"> 
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
@@ -560,17 +559,14 @@ if (isset($_GET['album'])) {
 
             </div>
         </div>
-    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>-->
         <script src="scripts/jquery_2.2.4.js" type="text/javascript"></script>
-        <!-- load Galleria -->
-    <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.3/galleria.min.js"></script>-->
         <script src="scripts/galleria_1.5.3.min.js" type="text/javascript"></script>
-    <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.3/themes/classic/galleria.classic.min.js"></script>-->
         <script src="scripts/galleria_1.5.3_galleria.classic.min.js" type="text/javascript"></script>
 
 
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
-        <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+        <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="scripts/mmenu.min.js"></script>
         <script type="text/javascript" src="scripts/chosen.min.js"></script>
         <script type="text/javascript" src="scripts/slick.min.js"></script>

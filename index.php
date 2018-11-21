@@ -19,38 +19,15 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" href="css/style.css">
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <!--         animate css 
-            <link href="slider css/animate.css" rel="stylesheet" type="text/css"/>
-             Button Hover animate css 
-            <link href="slider css/hover-min.css" rel="stylesheet" type="text/css"/>
-             jquery-ui.min css 
-            <link href="slider css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-            <link href="slider css/meanmenu.min.css" rel="stylesheet" type="text/css"/>
-             meanmenu css 
-            <link href="slider css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-            <link href="slider css/slick.css" rel="stylesheet" type="text/css"/>
-             slick css 
-            <link href="slider css/chosen.min.css" rel="stylesheet" type="text/css"/>
-            <link href="slider css/jquery-customselect.css" rel="stylesheet" type="text/css"/>
-             chosen.min-->
-
+    <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!--font-awesome css--> 
-    <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/><!--
-    <link href="slider css/magnific-popup.css" rel="stylesheet" type="text/css"/>
-     magnific Css -->
-
+    <link href="slider css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <!-- Revolution Slider -->
     <link href="slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>
     <link href="slider-css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
     <link href="slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
     <!-- custome css -->
     <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
-    <!--     responsive css 
-        <link href="slider css/responsive.css" rel="stylesheet" type="text/css"/>
-         modernizr css 
-        <script src="slider css/modernizr-2.8.3.min.js" type="text/javascript"></script>-->
-
 </head>
 
 <body>
@@ -65,55 +42,6 @@ if (!isset($_SESSION)) {
         <!-- Header Container / End -->
         <!-- Banner
                ================================================== -->
-        <!--        <div class="main-search-container dark-overlay">
-                    <div class="main-search-inner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h2>Let Make Meomorable Holiday</h2>
-                                    <h4>Expolore top-rated attractions, activities, events and more</h4>
-        
-                                    <div class="main-search-input">
-        
-                                        <div class="main-search-input-item">
-                                            <input type="text" placeholder="What are you looking for?" value=""/>
-                                        </div>
-        
-                                        <div class="main-search-input-item location">
-                                            <div id="autocomplete-container">
-                                                <input id="autocomplete-input" type="text" placeholder="Location">
-                                            </div>
-                                            <a href="#"><i class="fa fa-map-marker"></i></a>
-                                        </div>
-        
-                                        <div class="main-search-input-item">
-                                            <select data-placeholder="All Categories" class="chosen-select" >
-                                                <option>All Categories</option>	
-                                                <option>Wild</option>
-                                                <option>Pristine</option>
-                                                <option>Scenic</option>
-                                                <option>Heritage</option>
-                                                <option>Festive</option>
-                                            </select>
-                                        </div>
-        
-                                        <button class="button" onclick="window.location.href = '#'">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     Video 
-                    <div class="video-container">
-                        <video poster="images/main-search-video-poster.jpg" loop autoplay muted>
-                            <source src="images/main-search-video.mp4" type="video/mp4">
-                        </video>
-                    </div>
-        
-                       
-                </div>-->
-
-
         <!-- Info Section -->
         <div class="container margin-top-45 ">
             <div class="row">
@@ -473,7 +401,9 @@ if (!isset($_SESSION)) {
     <!-- Wrapper / End -->
     <!-- Scripts
        ================================================== -->
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>
     <script type="text/javascript" src="scripts/slick.min.js"></script>
@@ -488,7 +418,6 @@ if (!isset($_SESSION)) {
 
     <!-- jquery latest version -->
     <script src="slider css/jquery-3.2.0.min.js" type="text/javascript"></script>
-    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <!-- chossen js -->
     <script src="slider-css/chosen.jquery.min.js" type="text/javascript"></script>
     <script src="slider-css/jquery.themepunch.revolution.min.js" type="text/javascript"></script>

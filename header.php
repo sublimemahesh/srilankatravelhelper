@@ -1,10 +1,18 @@
 <?php
-
 $destinations = '';
-$count = 0;
+$count1 = 0;
+$count = '';
 if (isset($_SESSION['destination_cart'])) {
     $destinations = $_SESSION['destination_cart'];
-    $count = count($destinations);
+    $count1 = count($destinations);
+}
+
+if ($count == 0) {
+    $count = $count1;
+} else if ($count < 9) {
+    $count = '0' . $count1;
+} else {
+    $count = $count1;
 }
 ?>
 
@@ -34,7 +42,13 @@ if (isset($_SESSION['destination_cart'])) {
                         <li><a href="tour-packages-type.php">Packages</a></li>
                         <li><a href="drivers-page.php">Drivers</a></li>
                         <li><a href="blog.php">Blog</a></li>
-                        <li><a href="visitor/profile.php"><i class="sl sl-icon-login"></i> Sign In</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                            <ul>
+                                <li><a href="visitor/profile.php">Login Now</a></li>
+                                <li><a href="visitor/profile.php">Join Now</a></li>
+                                <li><a href="driver/profile.php">Driver Login</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
@@ -44,18 +58,17 @@ if (isset($_SESSION['destination_cart'])) {
             <!-- Left Side Content / End -->
             <!-- Right Side Content / End -->
             <div class="right-side">
-                <div class="header-widget">
+                <div class="header-widget widget-btn-left">
 
-                    <a href="plan-trip.php" class="button border with-icon">Plan Your Trip <i class="sl sl-icon-plus"></i></a>
+                    <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+
                 </div>
-                <div class="my-cart">
-                    <div class="my-cart-btn">
-                        <a href="my-cart.php" class="button"><i class="fa fa-cart-plus"></i></a>
-                    </div>
-                    <!--<div>-->
-                    <span class="cart-title">My Cart</span><br />
-                    <span class="cart-item-count"><?php echo $count; ?> Destinations</span>
-                    <!--</div>-->
+                <div class="header-widget widget-btn-right">
+                    <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <?php if ($count == 1) {
+    echo '1 item';
+} else {
+    echo $count . ' items';
+}; ?></a>
                 </div>
             </div>
             <!-- Right Side Content / End -->

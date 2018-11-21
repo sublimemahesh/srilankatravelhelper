@@ -177,7 +177,19 @@ img.footer-logo {
     position: relative;
     line-height: 26px;
     font-weight: 500;
-    margin-left: 42px;
+    margin-left: 20px;
+    padding-left: 0px;
+}
+.my-cart .button,
+.my-cart .button.border {
+    margin-right: 0;
+    min-width: 130px;
+    text-align: center;
+    position: relative;
+    line-height: 26px;
+    font-weight: 500;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 .header-widget .button.border i {
@@ -228,9 +240,9 @@ header.fullwidth .container {
 }
 .my-cart {
     float: right;
-    width: 111px;
+    /*width: 111px;*/
     margin-top: -50px;
-    width: 117px;
+    /*width: 117px;*/
     /*    margin-right: 27px;*/
 }
 .my-cart .button {
@@ -557,13 +569,18 @@ body #backtotop a {
     visibility: hidden;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -90px;
     padding: 0;
     z-index: 99999
 }
 
 #navigation ul ul li {
-    float: none
+    float: none;
+    padding: 5px;
+}
+
+#navigation ul ul li:hover {
+    background: #eee;
 }
 
 #navigation ul ul ul {
@@ -643,12 +660,12 @@ body #backtotop a {
     border-bottom: 0
 }
 
-#navigation ul li:hover ul a,
+/*#navigation ul li:hover ul a,
 #navigation ul ul a {
     line-height: 27px!important;
     padding: 5px 40px 5px 15px!important;
     line-height: 24px!important
-}
+}*/
 
 body #navigation ul ul {
     padding: 12px 10px;
@@ -725,6 +742,10 @@ body #navigation ul ul {
 #navigation.style-1 ul a {
     line-height: 32px;
     padding: 5px 10px
+}
+
+#navigation.style-1 ul ul li a {
+    line-height: 15px;
 }
 
 #navigation.style-1 ul li {

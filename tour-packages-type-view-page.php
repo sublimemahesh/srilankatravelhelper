@@ -31,7 +31,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
 
         <style>
@@ -308,7 +308,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script src="scripts/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>
     <script type="text/javascript" src="scripts/slick.min.js"></script>
