@@ -48,7 +48,7 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <style>
@@ -291,7 +291,7 @@ $VISITOR = new Visitor($_SESSION['id']);
      ================================================== -->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
     <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
-    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/mmenu.min.js"></script>
     <script type="text/javascript" src="scripts/chosen.min.js"></script>

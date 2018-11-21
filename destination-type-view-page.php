@@ -35,7 +35,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="css/component.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <style>
             .like-icon {
                 padding: 8px 12px;
@@ -174,7 +174,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             </div>
             <?php include './footer.php'; ?>
         </div>
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+        <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="scripts/mmenu.min.js"></script>
         <script type="text/javascript" src="scripts/chosen.min.js"></script>
         <script type="text/javascript" src="scripts/slick.min.js"></script>
@@ -189,7 +191,6 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
-        <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
 
     </body>
 </html>
