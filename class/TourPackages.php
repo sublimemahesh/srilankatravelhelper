@@ -39,7 +39,6 @@ class TourPackages {
     }
 
     public function create() {
-
         $query = "INSERT INTO `tour_packages` (`type`,`name`,`price`,`short_description`,`description`,`image_name`,`sort`) VALUES  ('"
                 . $this->type . "', '"
                 . $this->name . "', '"
@@ -138,28 +137,29 @@ class TourPackages {
 
     public function getTourPackagesById($id) {
 
-        $query = "SELECT * FROM `tour_packages` WHERE `type`= $id ORDER BY `sort` ASC";
-
-        $db = new Database();
-
-        $result = $db->readQuery($query);
+        $allpackages = TourPackages::all();
         $array_res = array();
+        foreach ($allpackages as $package) {
+            $type = unserialize($package['type']);
 
-        while ($row = mysql_fetch_array($result)) {
-            array_push($array_res, $row);
+            if (in_array($id, $type)) {
+                array_push($array_res, $package);
+            }
         }
         return $array_res;
     }
 
     public function getTourPackagesByIdForPagination($id, $pageLimit, $setLimit) {
-        $query = "SELECT * FROM `tour_packages` WHERE `type`= $id LIMIT " . $pageLimit . " , " . $setLimit . "";
-        $db = new Database();
+//        $query = "SELECT * FROM `tour_packages` WHERE `type`= $id LIMIT " . $pageLimit . " , " . $setLimit . "";
 
-        $result = $db->readQuery($query);
+        $allpackages = TourPackages::all();
         $array_res = array();
+        foreach ($allpackages as $package) {
+            $type = unserialize($package['type']);
 
-        while ($row = mysql_fetch_array($result)) {
-            array_push($array_res, $row);
+            if (in_array($id, $type)) {
+                array_push($array_res, $package);
+            }
         }
         return $array_res;
     }

@@ -230,18 +230,18 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         ?>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
                                 <div class="single-package-carasoul">
                                     <div class="package-location">
                                         <img src="upload/tour-package/<?php echo $tour_package['image_name']; ?>" alt="">
-                                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>"> <span>View</span></a>
+                                        <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>"> <span>View</span></a>
                                     </div>
                                     <div class="package-details">
                                         <div class="package-places">
                                             <h4><?php echo $tour_package['name']; ?></h4>
                                             <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price']; ?></span>
                                             <div class="details">
-                                                <p><?php echo substr($tour_package['description'], 0, 93); ?></p>
+                                                <p><?php echo substr($tour_package['description'], 0, 100).'...'; ?></p>
                                             </div>
                                         </div>
                                         <div class="package-ratings-review">

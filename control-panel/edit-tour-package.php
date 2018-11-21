@@ -7,6 +7,8 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 $TOUR_PACKAGE = new TourPackages($id);
+$TOUR_TYPE = new TourType(NULL);
+$types = $TOUR_TYPE->all();
 ?> 
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@ $TOUR_PACKAGE = new TourPackages($id);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Tour Package -srilankatravelhelper</title>
+        <title>Tour Package || Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -57,6 +59,22 @@ $TOUR_PACKAGE = new TourPackages($id);
                             <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/tour-packages.php" enctype="multipart/form-data"> 
 
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <select class="form-control place-select1 show-tick" autocomplete="off" type="text" id="type" name="type[]" required="TRUE" multiple="multiple" size="10">
+                                                    <!--<option value=""> -- Please Select -- </option>-->
+                                                    <?php foreach ($types as $type) {
+                                                        ?>
+                                                        <option value="<?php echo $type['id']; ?>" id="type-<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <label class="form-label">Tour Type(s)</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -122,8 +140,7 @@ $TOUR_PACKAGE = new TourPackages($id);
         <script src="js/admin.js"></script>
         <script src="js/demo.js"></script>
         <script src="js/add-new-ad.js" type="text/javascript"></script>
-
-
+        <script src="js/tour-types.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script>
             tinymce.init({

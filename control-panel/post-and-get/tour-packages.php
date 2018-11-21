@@ -6,8 +6,7 @@ if (isset($_POST['create'])) {
 
     $TOUR_PACKAGE = new TourPackages(NULL);
     $VALID = new Validator();
-
-    $TOUR_PACKAGE->type = $_POST['type'];
+    $TOUR_PACKAGE->type = serialize($_POST['type']);
     $TOUR_PACKAGE->name = $_POST['name'];
     $TOUR_PACKAGE->price = $_POST['price'];
     $TOUR_PACKAGE->short_description = $_POST['short_description'];
@@ -166,9 +165,8 @@ if (isset($_POST['update'])) {
     }
 
     $TOUR_PACKAGE = new TourPackages($_POST['id']);
-
     $TOUR_PACKAGE->image_name = $_POST['oldImageName'];
-    $TOUR_PACKAGE->type = $_POST['type'];
+    $TOUR_PACKAGE->type = serialize($_POST['type']);
     $TOUR_PACKAGE->name = $_POST['name'];
     $TOUR_PACKAGE->name = $_POST['price'];
     $TOUR_PACKAGE->short_description = $_POST['short_description'];
