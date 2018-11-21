@@ -5,7 +5,6 @@ if (!isset($_SESSION)) {
 }
 $id = $_GET["id"];
 
-$DESTINATION = new Destination($id);
 $DESTINATION_TYPE = new DestinationType($id);
 
 /* set page numbers */
