@@ -3,7 +3,6 @@ $(document).ready(function () {
     $('.add-to-cart').click(function () {
         var id = $(this).attr('destination-id');
         var back = $(this).attr('back');
-        alert(id);
 
         $.ajax({
             url: "post-and-get/ajax/add-to-cart.php",
@@ -34,9 +33,13 @@ $(document).ready(function () {
                     });
                     var html = '';
                     if(result == 1) {
-                        html  = '1 destination';
-                    } else {
-                        html  = result+' destinations';
+                        html  = '&nbsp;01 item';
+                    } else if(result == 0) {
+                        html  = '&nbsp;&nbsp;0 item';
+                    } else if(result < 10){
+                        html  = '0'+result+' items';
+                    } else if(result >= 10){
+                        html  = result+' items';
                     }
                     
                     $('.cart-item-count').empty();
@@ -80,9 +83,13 @@ $(document).ready(function () {
                     });
                     var html = '';
                     if(result == 1) {
-                        html  = '1 destination';
-                    } else {
-                        html  = result+' destinations';
+                        html  = '&nbsp;&nbsp;01 item';
+                    } else if(result == 0) {
+                        html  = '&nbsp;&nbsp;0 item';
+                    } else if(result < 10){
+                        html  = '0'+result+' items';
+                    } else if(result >= 10){
+                        html  = result+' items';
                     }
                     
                     $('.cart-item-count').empty();

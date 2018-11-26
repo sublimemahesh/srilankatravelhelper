@@ -33,9 +33,13 @@ $(document).ready(function () {
                         $('#li-' + key).remove();
                         var html = '';
                         if (jsonStr == 1) {
-                            html = '1 destination';
-                        } else {
-                            html = jsonStr + ' destinations';
+                            html = '&nbsp;&nbsp;01 item';
+                        } else if (jsonStr == 0) {
+                            html = '&nbsp;&nbsp;0 item';
+                        } else if (jsonStr < 10) {
+                            html = '0' + jsonStr + ' items';
+                        } else if (jsonStr >= 10) {
+                            html = jsonStr + ' items';
                         }
 
                         $('.cart-item-count').empty();
