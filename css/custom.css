@@ -559,9 +559,33 @@ input[type="text"].location-search-input {
     .booking-prev {
         text-align: right;
     }
+    .header-icon2 {
+        margin-right: 2px;
+        margin-left: 0px;
+        position: relative;
+    }
+    .header-widget a.button.border {
+        padding: 5px 9px 5px 0px;
+    }
+    .header-widget .button, .header-widget .button.border {
+        margin-left: 0px;
+    }
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
+    
 }
 
 @media(max-width:996px) {
+    .header-widget a.button.border {
+        padding: 5px 16px 5px 0px;
+    }
+    .header-icon2 {
+        margin-right: 2px;
+        margin-left: 0px;
+    }
 
 }
 

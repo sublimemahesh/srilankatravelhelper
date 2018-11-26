@@ -174,6 +174,7 @@ if (isset($_SESSION["back_url"])) {
 
             $(window).load(function () {
                 var width = $(window).width();
+                alert(width);
 
                 if (width > 900) {
 
@@ -183,6 +184,10 @@ if (isset($_SESSION["back_url"])) {
                 } else if (width > 760) {
 
                     var contentheight = $(window).height() - 200;
+
+                    $('.content').css('height', contentheight);
+                } else if (width === 600) {
+                    var contentheight = $(window).height() + 200;
 
                     $('.content').css('height', contentheight);
                 } else if (width > 576) {

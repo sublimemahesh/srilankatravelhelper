@@ -40,7 +40,7 @@ if (!isset($_SESSION)) {
                     $DESTINATION_TYPES = DestinationType::all();
                     foreach ($DESTINATION_TYPES as $destination_type) {
                         ?>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
                                 <div class="listing-item">
                                     <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">
