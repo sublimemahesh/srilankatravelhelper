@@ -87,7 +87,6 @@ if (isset($_SESSION["back_url"])) {
                                 <h3>NEW CUSTOMER?</h3>
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" />
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
-                                <input type="text" name="username" id="username" class="form-control" placeholder="User Name" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
                                 <input type="button" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
@@ -111,7 +110,7 @@ if (isset($_SESSION["back_url"])) {
                                 <br />
 
                                 <h3>ALREADY A MEMBER?</h3>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="User Name" />
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="hidden" class="form-control"  name="back_url" value="<?php echo $back_url; ?>">
                                 <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
@@ -174,7 +173,6 @@ if (isset($_SESSION["back_url"])) {
 
             $(window).load(function () {
                 var width = $(window).width();
-                alert(width);
 
                 if (width > 900) {
 
