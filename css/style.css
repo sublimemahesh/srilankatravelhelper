@@ -9670,7 +9670,8 @@ body .notification strong {
 .listing-item-container.list-layout {
     background: 0 0;
     background-color: #f9f9f9;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px;
 }
 
 .listing-item-container.list-layout:hover {
@@ -9704,7 +9705,7 @@ body .notification strong {
 
 .listing-item-container.list-layout .listing-item-image {
     min-height: 200px;
-    flex: 2;
+    flex: 2.5;
     height: 100%;
     overflow: hidden;
     border-radius: 4px 0 0 4px;
@@ -9723,11 +9724,12 @@ body .notification strong {
 }
 
 .listing-item-container.list-layout span.like-icon {
-    bottom: 50%;
+    bottom: 65%;
     transform: translateY(50%);
-    background-color: #eee;
-    color: #9d9d9d;
-    right: 35px
+    background-color: #0067a3;
+    color: #fff;
+    right: 45px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.52);
 }
 
 .listing-item-container.list-layout span.like-icon.liked,
@@ -9741,7 +9743,7 @@ body .notification strong {
     top: 50%;
     transform: translateY(-50%);
     left: 35px;
-    padding-right: 120px
+    right: 35px
 }
 
 .listing-item-container.list-layout .listing-item-inner h3 {
@@ -9869,20 +9871,21 @@ section.fullwidth .listing-item-container.list-layout,
     text-transform: uppercase;
     font-size: 9px;
     letter-spacing: 2.5px;
-    font-weight: 60;
+    font-weight: 60px;
     background: rgba(255, 255, 255, .3);
     border-radius: 50px;
     padding: 4px 16px;
     line-height: 20px;
     color: #fff;
     font-weight: 400;
-    margin-bottom: 9px
+    margin-bottom: 9px;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
 }
 
 .listing-item-container.list-layout span.tag {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 55px;
+    left: 40px;
     background: #66676b;
     margin: 0;
     z-index: 10;
