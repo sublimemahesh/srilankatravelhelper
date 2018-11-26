@@ -101,7 +101,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                             <!-- Image -->
                                             <div class="listing-item-image">
                                                 <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt="">
-                                                <span class="tag"style="background: #0dce38!important" >View </span>
+                                                
                                             </div>
 
                                             <!-- Content -->
@@ -143,8 +143,10 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                         <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
                                                     </div>
                                                 </div>
-
+                                            </div>
+                                            <div class="listing-item-btn">
                                                 <span class="like-icon add-to-cart" id="add-to-cart" destination-id="<?php echo $destination['id']; ?>" back="cart" title="Add to Cart"><i class="fa fa-cart-plus"></i></span>
+                                                <span class="tag"style="background: #0dce38!important" >View </span>
                                             </div>
                                         </a>
                                     </div>
