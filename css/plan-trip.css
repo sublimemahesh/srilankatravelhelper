@@ -125,3 +125,25 @@ body {
     background-image: none;
     color: #fff;
 }
+@media(max-width:600px) {
+
+    input[type="text"].location-search-input {
+        width: 75%;
+    }
+    .search-destination-item .star-rating-fa {
+        margin-top: -3px;
+    }
+    .search-destination-item .driver-name {
+        position: relative;
+        margin-top: 7px;
+        left: 0px;
+    }
+    .search-destination-item .driver-name {
+        font-size: 18px;
+    }
+}
+@media(width:600px) {
+    .search-destination-item .driver-name {
+        font-size: 20px;
+    }
+}

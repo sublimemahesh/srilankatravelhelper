@@ -53,7 +53,7 @@ if (isset($_SESSION['destination_cart'])) {
                     <div class="row location-search-title">
                         Enter city to find destinations
                     </div>
-                    <input type="text" class="form-control location-search-input col-md-8" name="autocomplete" id="autocomplete" />
+                    <input type="text" class="form-control location-search-input col-md-8 col-sm-8 col-xs-8" name="autocomplete" id="autocomplete" />
                     <input type="hidden" name="city" id="city"  value=""/>
                     <button class="btn location-search-btn">Search</button>
                 </div>

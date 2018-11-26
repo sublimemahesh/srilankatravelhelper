@@ -78,12 +78,12 @@ $(document).ready(function () {
                                     }
 
 
-                                    html += '<div class="col-md-4 search-destination-item">';
-                                    html += '<div class="col-md-12 search-destination-inner">';
-                                    html += '<div class="listing-item col-md-5">';
+                                    html += '<div class="col-md-4 col-sm-6 col-xs-12 search-destination-item">';
+                                    html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
+                                    html += '<div class="listing-item col-md-5 col-sm-5 col-xs-5">';
                                     html += '<img src="upload/destination/' + destination.image_name + '" alt=""/>';
                                     html += '</div>';
-                                    html += '<div class="search-item-details col-md-7">';
+                                    html += '<div class="search-item-details col-md-7 col-sm-7 col-xs-7">';
                                     html += '<div class="driver-name text-left"> ';
                                     html += name;
                                     html += '</div>';

@@ -31,6 +31,25 @@ if (isset($_SESSION['destination_cart'])) {
             .review-button {
                 margin-bottom: 70px;
             }
+            @media(max-width:576px) {
+                .ml-xs-20 {
+                    margin-left: 20px;
+                     width: auto;
+                }
+                .mr-xs-20 {
+                    margin-right: 20px;
+                }
+            }
+            @media(width:600px) {
+                .ml-xs-20 {
+                    margin-left: 20px;
+                    width: auto;
+                }
+                .mr-xs-20 {
+                    margin-right: 20px;
+                }
+            }
+            
         </style>
     </head>
     <body>
@@ -47,7 +66,7 @@ if (isset($_SESSION['destination_cart'])) {
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70">
+            <div class="container margin-top-70 ml-xs-20 mr-xs-20">
                 <div class="row">
                     <ul class="list-group">
                         <?php
