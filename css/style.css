@@ -254,7 +254,7 @@ header.fullwidth .container {
     float: left;
 }
 .cart-item-count {
-    font-size: 10px;
+    /*font-size: 10px;*/
 }
 .cart-title {
     font-size: 15px;

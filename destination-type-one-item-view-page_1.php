@@ -43,9 +43,10 @@ if (isset($_GET['album'])) {
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
+        <link href="lib/sliderPro/slider-pro.css" rel="stylesheet" type="text/css"/>
+        <link href="css/destination-slider.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="css/images-grid.css">
         <style>
             /* This rule is read by Galleria to define the gallery height: */
             #galleria{height:480px}
@@ -184,9 +185,6 @@ if (isset($_GET['album'])) {
             a:hover {
                 text-decoration: none;
             }
-            #header {
-                z-index: 0;
-            }
             @media(max-width:576px) {
                 .reviws-section {
                     height: auto;
@@ -254,19 +252,68 @@ if (isset($_GET['album'])) {
                         <div class="col-md-9 col-sm-8">
                             <div class=" content">
                                 <div class="col-md-12">
-                                    <div id="gallery1"></div>
                                     <?php
                                     $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
                                     $count = DestinationPhotos::countDestinationPhotosByDestination($id);
                                     foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
                                         if ($key === 0) {
                                             ?>
+                                            <div class="large_photo_wrapper taller_box">
+                                                <a href="?id=<?php echo $id; ?>&album=true">
+                                                    <img src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>" alt="" class=""/>
 
+                                                </a>
+                                                <a href="?id=<?php echo $id; ?>&album=true">
+                                                    <div class="caption" >
+                                                        <span><i class="fa fa-camera" ></i>All photos (<?php echo $count['count']; ?>)</span>
+                                                    </div>
+                                                </a>
+                                                <a href="?id=<?php echo $id; ?>&album=true">
+                                                    <div class="full-view hidden" >
+                                                        <span><i class="fa fa-expand" ></i>Full View</span>
+                                                    </div>
+                                                </a>
+
+                                            </div>
                                             <?php
                                         }
                                     }
                                     ?>
 
+                                    <div class="mini_mosaic_wrapper taller_box hidden-sm">
+                                        <?php
+                                        $countofmoreimgs = $count['count'] - 4;
+                                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                                            if ($key <> 0 && $key < 4) {
+                                                ?>
+                                                <div class="mini-img">
+                                                    <a href="?id=<?php echo $id; ?>&album=true">
+                                                        <img src="upload/destination-photos/thumb1/<?php echo $destination_photos['image_name']; ?>" alt=""/>
+                                                    </a>
+                                                    <a href="?id=<?php echo $id; ?>&album=true">
+                                                        <div class="viewmoreimgs" >
+                                                            <?php
+                                                            if ($countofmoreimgs == 0) {
+                                                                echo '';
+                                                            } elseif ($countofmoreimgs == 1) {
+                                                                ?>
+                                                                <span>+ 1 photo</span>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <span>+ <?php echo $countofmoreimgs; ?> photos</span>
+                                                                <?php
+                                                            }
+                                                            ?>
+
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="padding-top-10" >
@@ -446,7 +493,6 @@ if (isset($_GET['album'])) {
                                 </div>
                                 <div class="review-button">
                                     <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
-                                    <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                 </div>
                             </div>
 
@@ -455,6 +501,62 @@ if (isset($_GET['album'])) {
 
                 </div>
                 <?php include './footer.php'; ?>
+            </div>
+
+            <div class="view-album <?php
+            if ($album === '') {
+                echo 'hidden';
+            }
+            ?>">
+                <div class="slider-top col-md-12">
+                    <a href="?id=<?php echo $id; ?>"><i class="fa fa-remove"></i></a>
+                </div>
+                <div id="example3" class="slider-pro col-md-9">
+
+                    <div class="sp-slides">
+                        <?php
+                        $destinationid = $_GET['id'];
+                        $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($destinationid);
+//                        dd($DESTINATION_PHOTOS);
+                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                            ?>
+                            <div class="sp-slide">
+                                <img class="sp-image" src="../src/css/images/blank.gif" 
+                                     data-src="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>"
+                                     data-small="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>"
+                                     data-medium="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>"
+                                     data-large="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>"
+                                     data-retina="upload/destination-photos/<?php echo $destination_photos['image_name']; ?>"/>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                    <div class="sp-thumbnails">
+                        <?php
+                        foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
+                            ?>
+                            <img class="sp-thumbnail" src="upload/destination-photos/thumb/<?php echo $destination_photos['image_name']; ?>"/>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="des-slider-topic col-md-3">
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <img src="upload/destination/<?php echo $DESTINATION->image_name; ?>" class="img-circle img-responsive" alt=""/>
+                    </div>
+                    <div class="col-md-8 col-xs-8 col-sm-8">
+                        <h5 class="main-title">Destinations</h5>
+                        <h5 class="sub-title"><b>Type</b> - <?php echo $DESTINATION_TYPE->name; ?></h5>
+                        <h5 class="sub-title"><b>Title</b> - <?php echo $DESTINATION->name; ?></h5>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
         <script src="scripts/jquery_2.2.4.js" type="text/javascript"></script>
@@ -476,8 +578,66 @@ if (isset($_GET['album'])) {
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
+        <script src="lib/sliderPro/jquery.sliderPro.js" type="text/javascript"></script>
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
-        <script src="scripts/images-grid.js"></script>
-        <script src="scripts/destination-slider.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+
+                $('#example3').sliderPro({
+                    width: 960,
+                    height: 640,
+                    fade: true,
+                    arrows: true,
+                    buttons: false,
+                    fullScreen: true,
+                    shuffle: false,
+                    smallSize: 500,
+                    mediumSize: 1000,
+                    largeSize: 3000,
+                    thumbnailArrows: true,
+                    autoplay: false
+                });
+                var width = $(document).width();
+
+                if (width > 996) {
+
+                    setTimeout(function () {
+                        $('.sp-thumbnails-container').addClass("hidden");
+                        $('.sp-thumbnails-container').css("width", "100%");
+
+
+                    }, 500);
+                }
+                $('.large_photo_wrapper').on('mouseover', function () {
+                    $('.full-view').removeClass("hidden");
+                });
+                $('.large_photo_wrapper').on('mouseout', function () {
+                    $('.full-view').addClass("hidden");
+                });
+
+
+            });
+
+            $(document).ready(function () {
+                var width = $(document).width();
+
+                if (width > 996) {
+                    $('.slider-pro').on('mouseover', '.sp-slides-container', function () {
+                        $('.sp-thumbnails-container').removeClass("hidden");
+                    });
+                    $('.slider-pro').on('mouseout', '.sp-slides-container', function () {
+                        $('.sp-thumbnails-container').addClass("hidden");
+                    });
+                    $('.sp-thumbnails-container').on('mouseover', function () {
+                        $('.sp-thumbnails-container').removeClass("hidden");
+                    });
+                } else {
+                    $('.sp-thumbnails-container').removeClass("hidden");
+                }
+            });
+        </script>
+
     </body>
 </html>

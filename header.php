@@ -7,13 +7,16 @@ if (isset($_SESSION['destination_cart'])) {
     $count1 = count($destinations);
 }
 
-if ($count == 0) {
-    $count = $count1;
-} else if ($count < 9) {
+if ($count1 == 0) {
+    $count = '&nbsp;&nbsp;' . $count1;
+} else if ($count1 == 1) {
+    $count = '&nbsp;0' . $count1;
+} else if ($count1 < 9) {
     $count = '0' . $count1;
 } else {
     $count = $count1;
 }
+
 ?>
 
 <header id="header-container">
@@ -64,11 +67,15 @@ if ($count == 0) {
 
                 </div>
                 <div class="header-widget widget-btn-right">
-                    <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <?php if ($count == 1) {
-    echo '1 item';
-} else {
-    echo $count . ' items';
-}; ?></a>
+                    <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
+                            if ($count == 1) {
+                                echo '1 item';
+                            } else {
+                                echo $count . ' items';
+                            };
+                            ?>
+                        </span>
+                    </a>
                 </div>
             </div>
             <!-- Right Side Content / End -->

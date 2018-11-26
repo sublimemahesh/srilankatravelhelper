@@ -505,10 +505,12 @@ input[type="text"].location-search-input {
     float: right;
 }
 .header-widget.widget-btn-right .button-right {
-    padding-right: 24px;
+    /*padding-right: 24px;*/
 }
 .header-icon2 {
-    margin-right: 13%;
+    margin-right: 2px;
+    margin-left: -19px;
+    position: relative;
 }
 
 @media(max-width:576px) {
