@@ -24,14 +24,13 @@ class Visitor {
     public $facebookID;
     public $authToken;
     public $lastLogin;
-    public $username;
     public $resetCode;
     public $password;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`facebookID`,`authToken`,`lastLogin`,`username`,`resetCode` FROM `visitor` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`facebookID`,`authToken`,`lastLogin`,`resetCode` FROM `visitor` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -47,7 +46,6 @@ class Visitor {
             $this->isActive = $result['isActive'];
             $this->facebookID = $result['facebookID'];
             $this->lastLogin = $result['lastLogin'];
-            $this->username = $result['username'];
             $this->authToken = $result['authToken'];
             $this->resetCode = $result['resetCode'];
 
@@ -61,11 +59,10 @@ class Visitor {
 
         $createdAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `visitor` (`createdAt`,`name`,`email`,`username`,`password`) VALUES  ('"
+        $query = "INSERT INTO `visitor` (`createdAt`,`name`,`email`,`password`) VALUES  ('"
                 . $createdAt . "', '"
                 . $this->name . "', '"
                 . $this->email . "', '"
-                . $this->username . "', '"
                 . $this->password . "')";
 
         $db = new Database();
@@ -104,10 +101,10 @@ class Visitor {
         return $db->readQuery($query);
     }
 
-    public function login($username, $password) {
+    public function login($email, $password) {
 
         
-        $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`lastLogin`,`username` FROM `visitor` WHERE `username`= '" . $username . "' AND `password`= '" . $password . "'";
+        $query = "SELECT `id`,`name`,`email`,`address`,`contact_number`,`profile_picture`,`createdAt`,`isActive`,`lastLogin` FROM `visitor` WHERE `email`= '" . $email . "' AND `password`= '" . $password . "'";
 
         $db = new Database();
 
@@ -209,7 +206,6 @@ class Visitor {
         unset($_SESSION["isActive"]);
         unset($_SESSION["authToken"]);
         unset($_SESSION["lastLogin"]);
-        unset($_SESSION["username"]);
         unset($_SESSION["position"]);
         unset($_SESSION["destination_cart"]);
 
@@ -251,7 +247,6 @@ class Visitor {
         $_SESSION["profile_picture"] = $visitor['profile_picture'];
         $_SESSION["isActive"] = $visitor['isActive'];
         $_SESSION["authToken"] = $visitor['authToken'];
-        $_SESSION["username"] = $visitor['username'];
         $_SESSION["position"] = 'visitor';
         
     }
@@ -291,7 +286,7 @@ class Visitor {
 
     public function checkEmail($email) {
 
-        $query = "SELECT `email`,`username` FROM `visitor` WHERE `email`= '" . $email . "'";
+        $query = "SELECT `email` FROM `visitor` WHERE `email`= '" . $email . "'";
 
         $db = new Database();
 
@@ -342,7 +337,7 @@ class Visitor {
 
         if ($email) {
 
-            $query = "SELECT `email`,`username`,`resetCode` FROM `visitor` WHERE `email`= '" . $email . "'";
+            $query = "SELECT `email`,`resetCode` FROM `visitor` WHERE `email`= '" . $email . "'";
 
             $db = new Database();
 

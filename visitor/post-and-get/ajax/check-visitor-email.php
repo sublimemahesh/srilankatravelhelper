@@ -23,11 +23,6 @@ if ($_POST['save']) {
         $response['message'] = "3";
         echo json_encode($response);
         exit();
-    } else if (empty($_POST['username'])) {
-        $response['status'] = 'error';
-        $response['message'] = "4";
-        echo json_encode($response);
-        exit();
     } else if (empty($_POST['password'])) {
         $response['status'] = 'error';
         $response['message'] = "5";
@@ -52,38 +47,28 @@ if ($_POST['save']) {
             echo json_encode($response);
             exit();
         } else {
-            $checkusername = $VISITOR->checkUserName($_POST['username']);
 
-            if ($checkusername) {
-                $response['status'] = 'error1';
-                $response['message'] = "8";
-                echo json_encode($response);
-                exit();
-            } else {
-
-                $VISITOR = new Visitor(NULL);
+            $VISITOR = new Visitor(NULL);
 
 
-                $pw = md5($_POST['password']);
-                $email = $_POST['email'];
+            $pw = md5($_POST['password']);
+            $email = $_POST['email'];
 //            $cemail = $_POST['cnfemail'];
 
-                $VISITOR->name = filter_input(INPUT_POST, 'name');
-                $VISITOR->email = $email;
-                $VISITOR->username = filter_input(INPUT_POST, 'username');
-                $VISITOR->password = $pw;
-                $VISITOR->create();
+            $VISITOR->name = filter_input(INPUT_POST, 'name');
+            $VISITOR->email = $email;
+            $VISITOR->password = $pw;
+            $VISITOR->create();
 
-                if ($VISITOR->id) {
-                    $VISITOR->login($VISITOR->username, $VISITOR->password);
-                    $response['status'] = 'success';
-                    echo json_encode($response);
-                } else {
-                    $response['status'] = 'error';
-                    $response['message'] = "Oops. Something went wrong, Please try again.";
-                    echo json_encode($response);
-                    exit();
-                }
+            if ($VISITOR->id) {
+                $VISITOR->login($VISITOR->email, $VISITOR->password);
+                $response['status'] = 'success';
+                echo json_encode($response);
+            } else {
+                $response['status'] = 'error';
+                $response['message'] = "Oops. Something went wrong, Please try again.";
+                echo json_encode($response);
+                exit();
             }
         }
     }
