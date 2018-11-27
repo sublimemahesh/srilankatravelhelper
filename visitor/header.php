@@ -23,6 +23,7 @@ if ($count1 == 0) {
     <!-- Header -->
     <div id="header">
         <!--<div class="container">-->
+        <div class="container">
             <!-- Left Side Content -->
             <div class="left-side">
                 <!-- Logo -->
@@ -81,6 +82,7 @@ if ($count1 == 0) {
 
 
         <!--</div>-->
+    </div>
     </div>
     <!-- Header / End -->
 
