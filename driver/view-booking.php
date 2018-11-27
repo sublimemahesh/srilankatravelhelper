@@ -21,6 +21,7 @@ $TOUR = new TourPackages($BOOKING->tour_package);
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -129,13 +130,14 @@ include './footer.php';
         <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/cancel-booking.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
         <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var navigationheight = $(window).height();
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

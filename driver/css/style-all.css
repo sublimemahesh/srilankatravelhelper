@@ -17,6 +17,9 @@ and open the template in the editor.
     height: 75px;
     z-index: 99999;
 }
+#header {
+    height: 78px;
+}
 .footer {
     height: 100px;
 }

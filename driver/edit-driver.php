@@ -22,11 +22,12 @@ $CITY = new City($DRIVER->city);
                 echo 'Profile';
             };
             ?>  || Driver DashBoard</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -172,10 +173,11 @@ $CITY = new City($DRIVER->city);
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-driver.js" type="text/javascript"></script>
         <script src="plugins/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
         <script>
                                             tinymce.init({
                                                 selector: "#description",
@@ -216,7 +218,7 @@ $CITY = new City($DRIVER->city);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var navigationheight = $(window).height();
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

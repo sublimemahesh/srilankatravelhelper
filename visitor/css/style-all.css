@@ -509,4 +509,8 @@ a:hover {
     color: #fff;
     text-align: center;
 }
-
+#header {
+    height: 78px;
+    padding-left: 50px;
+    padding-right: 50px;
+}

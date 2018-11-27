@@ -1,0 +1,518 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 26, 2018, 3:56:02 PM
+    Author     : U s E r ¨
+*/
+
+#header {
+
+    position: relative;
+    z-index: 999;
+    padding: 18px 0 8px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12);
+    font-size: 16px;
+
+}
+.left-side {
+
+    float: left;
+    width: 72%;
+    display: inline-block;
+
+}
+#logo, #navigation {
+
+    float: left;
+
+}
+#logo {
+
+    display: inline-block;
+    margin-top: 1px;
+    margin-right: 15px;
+
+}
+.mmenu-trigger {
+
+    display: none;
+
+}
+.mmenu-trigger {
+
+    height: 50px;
+    width: 50px;
+    display: none;
+    position: relative;
+    margin: 0 0 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+#navigation.style-1 {
+
+    margin-top: 1px;
+
+}
+#navigation {
+
+    position: relative;
+    display: block;
+
+}
+#logo, #navigation {
+
+    float: left;
+
+}
+#navigation ul {
+
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+}
+#navigation.style-1 ul li {
+
+    margin: 0 5px;
+
+}
+#navigation.style-1 ul li {
+
+    transition: all .25s;
+
+}
+#navigation ul li {
+
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+}
+.comment-by-listing a:hover, .browse-all-user-listings a i, .hosted-by-title h4 a:hover, .style-2 .trigger.active a, .style-2 .ui-accordion .ui-accordion-header-active:hover, .style-2 .ui-accordion .ui-accordion-header-active, #posts-nav li a:hover, .plan.featured .listing-badge, .post-content h3 a:hover, .add-review-photos i, .show-more-button i, .listing-details-sidebar li a, .star-rating .rating-counter a:hover, .more-search-options-trigger::after, .header-widget .sign-in:hover, #footer a, #footer .footer-links li a:hover, #navigation.style-1 .current, #navigation.style-1 ul li:hover a, .user-menu.active .user-name::after, .user-menu:hover .user-name::after, .user-menu.active .user-name, .user-menu:hover .user-name, .main-search-input-item.location a:hover, .chosen-container .chosen-results li.highlighted, .input-with-icon.location a i:hover, .sort-by .chosen-container-single .chosen-single div::after, .sort-by .chosen-container-single .chosen-default, .panel-dropdown a::after, .post-content a.read-more, .post-meta li a:hover, .widget-text h5 a:hover, .about-author a, a.button.border.white:hover, .icon-box-2 i, a.button.border, .style-2 .ui-accordion .ui-accordion-header:hover, .style-2 .trigger a:hover, .plan.featured .listing-badges .featured, .list-4 li::before, .list-3 li::before, .list-2 li::before, .list-1 li::before, .info-box h4, .testimonial-carousel .slick-slide.slick-active .testimonial::before, .sign-in-form .tabs-nav li a:hover, .sign-in-form .tabs-nav li.active a, .lost_password:hover a, #top-bar .social-icons li a:hover i, .listing-share .social-icons li a:hover i, .agent .social-icons li a:hover i, #footer .social-icons li a:hover i, .headline span i {
+
+    color: #0dce38;
+
+}
+#navigation.style-1 .current {
+
+    background-color: transparent;
+    color: #66676b;
+
+}
+#navigation.style-1 ul li a {
+
+    color: #444;
+    cursor: pointer;
+
+}
+#navigation.style-1 ul a {
+
+    line-height: 32px;
+    padding: 5px 10px;
+
+}
+#navigation ul a {
+
+    display: block;
+    text-decoration: none;
+
+}
+.right-side {
+
+    float: left;
+    width: 28%;
+    display: inline-block;
+
+}
+.header-widget.widget-btn-left {
+
+    float: left;
+
+}
+.header-widget {
+
+    text-align: left;
+
+}
+.header-widget {
+
+    position: relative;
+    top: 4px;
+    height: 54px;
+
+}
+.header-widget .button, .header-widget .button.border {
+
+    margin-right: 0;
+    min-width: 130px;
+    text-align: center;
+    position: relative;
+    line-height: 26px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding-left: 0px;
+
+}
+a.button.border {
+
+    color: #0dce38;
+    border-color: #0dce38;
+
+}
+.header-widget.widget-btn-right {
+
+    float: right;
+
+}
+.header-widget {
+
+    text-align: left;
+
+}
+.header-widget {
+
+    position: relative;
+    top: 4px;
+    height: 54px;
+
+}
+.header-widget .button, .header-widget .button.border {
+
+    margin-right: 0;
+    min-width: 130px;
+    text-align: center;
+    position: relative;
+    line-height: 26px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding-left: 0px;
+
+}
+a.button.border {
+
+    color: #0dce38;
+    border-color: #0dce38;
+
+}
+
+a.button.border {
+
+    font-weight: 500;
+
+}
+a.button.border {
+
+    background-color: transparent;
+    color: #66676b;
+    border: 1px solid #66676b;
+    border-top-color: rgb(102, 103, 107);
+    border-right-color: rgb(102, 103, 107);
+    border-bottom-color: rgb(102, 103, 107);
+    border-left-color: rgb(102, 103, 107);
+    padding: 5px 9px;
+    padding-left: 9px;
+    padding: 9px 21px;
+
+}
+button.button, input[type="button"], input[type="submit"], a.button.border, a.button {
+
+    background-color: #66676b;
+    top: 0;
+    padding: 9px 20px;
+    color: #fff;
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    margin-right: 6px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 50px;
+
+}
+.header-icon {
+
+    background: #0dce38;
+    padding: 8px 11px 9px 5px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+
+}
+.header-widget .button.border i {
+
+    font-size: 17px;
+    padding: 0 0 0 4px;
+    top: 2px;
+    display: inline-block;
+    position: relative;
+
+}
+.header-icon2 {
+
+    margin-right: 2px;
+    margin-left: -19px;
+    position: relative;
+
+}
+#logo,
+#navigation {
+    float: left
+}
+
+/*#logo {
+    margin-right: 50px
+}*/
+
+.header-widget {
+    text-align: left;
+}
+
+#header.cloned {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999
+}
+
+#header.cloned {
+    background-color: #fff
+}
+
+#header.cloned #logo img {
+    transform: translate3d(0, 0, 0);
+    /*    max-width: 120px;*/
+    margin-top: 1px
+}
+
+#header.cloned {
+    padding: 18px 0 7px
+}
+
+.sticky-logo {
+    display: none
+}
+
+#header.cloned.unsticky {
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(0, -100%) scale(1);
+    transition: .3s
+}
+
+#header.cloned.sticky {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0) scale(1);
+    transition: .3s
+}
+#navigation.style-1 ul li a {
+
+    color: #444;
+    cursor: pointer;
+
+}
+#navigation.style-1 ul a {
+
+    line-height: 32px;
+    padding: 5px 10px;
+
+}
+#navigation ul a {
+
+    display: block;
+    text-decoration: none;
+
+}
+#navigation.style-1 ul ul li a {
+
+    line-height: 15px;
+
+}
+#navigation.style-1 ul ul li a {
+
+    color: #444 !important;
+
+}
+#navigation.style-1 ul li a {
+
+    color: #444;
+    cursor: pointer;
+
+}
+#navigation.style-1 ul a {
+
+    line-height: 32px;
+    padding: 5px 10px;
+
+}
+#navigation ul a {
+
+    display: block;
+    text-decoration: none;
+
+}
+#navigation ul ul::before {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    background: transparent;
+    width: 100%;
+    height: 10px;
+
+}
+body #navigation ul ul {
+
+    padding: 12px 10px;
+    box-sizing: border-box;
+
+}
+#navigation ul li ul {
+
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: -90px;
+    padding: 0;
+    z-index: 99999;
+
+}
+#navigation ul ul {
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s;
+    transform: translate3d(0, 15px, 0);
+
+}
+#navigation ul ul {
+
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .12);
+    border-radius: 4px;
+    font-size: 15px;
+
+}
+#navigation ul ul {
+
+    margin: 10px 0 0 15px;
+
+}
+#navigation ul {
+
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+}
+#navigation ul li a i {
+    font-size: 14px;
+    position: relative;
+    top: 0;
+    padding-right: 5px;
+}
+#navigation.style-1 ul li a {
+    color: #444;
+    cursor: pointer;
+}
+#navigation.style-1 ul a {
+    line-height: 32px;
+    padding: 5px 10px;
+}
+#navigation ul a {
+    display: block;
+    text-decoration: none;
+}
+@media only screen and (max-width:1024px) {
+    #responsive {
+        display: none
+    }
+    .mmenu-trigger {
+        display: inline-block!important
+    }
+    #logo {
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 5px;
+        width: 35%;
+        text-align: center;
+        left: 0;
+        right: 0
+    }
+    .header-widget {
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start
+    }
+    .header-widget a.button.border {
+        padding: 7px 16px;
+        background-color: transparent;
+        font-size: 16px;
+        min-width: auto;
+        float: right
+    }
+    .sign-in,
+    .user-menu {
+        flex: 1
+    }
+    .header-widget .sign-in {
+        top: 9px
+    }
+    #header-container.header-style-2 .left-side,
+    #header-container.header-style-2 .right-side,
+    .right-side,
+    .left-side {
+        width: 100%
+    }
+    #top-bar .right-side .social-icons {
+        float: left;
+        position: relative;
+        z-index: 9
+    }
+    #header-container.header-style-2 .header-widget {
+        float: left;
+        margin-top: 35px;
+        margin-bottom: -5px
+    }
+    .header-widget {
+        text-align: left
+    }
+    #header {
+        padding-bottom: 0
+    }
+    ul.top-bar-menu {
+        z-index: 99;
+        position: relative
+    }
+    .header-style-2 .menu-responsive {
+        width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        padding: 0 15px
+    }
+    #header-container.header-style-2 .header-widget {
+        width: calc(100%);
+        border-top: 1px solid #e0e0e0;
+        padding-top: 30px
+    }
+}

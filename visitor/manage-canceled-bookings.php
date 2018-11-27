@@ -16,6 +16,7 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="plugins/datatables-responsive/dataTables.responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -126,13 +127,14 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
         <script src="js/jquery-datatable.js" type="text/javascript"></script>
         <script src="plugins/datatables-responsive/dataTables.responsive.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
         <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var navigationheight = $(window).height();
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
