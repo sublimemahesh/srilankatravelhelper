@@ -5,7 +5,7 @@ include_once '../class/include.php';
     <head>
         <meta charset="UTF-8">
         <title>Visitor DashBoard</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -101,9 +101,7 @@ include_once '../class/include.php';
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-driver.js" type="text/javascript"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function () {

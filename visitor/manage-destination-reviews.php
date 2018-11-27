@@ -28,12 +28,13 @@ $VISITOR = new Visitor($_SESSION['id']);
     <head>
         <meta charset="UTF-8">
         <title>Manage Destination Reviews || Visitor DashBoard</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <style>
             .star-rating-fa {
                 left: 345px;
@@ -197,10 +198,10 @@ $VISITOR = new Visitor($_SESSION['id']);
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/reviews.js" type="text/javascript"></script>
-
+        <script src="js/custom.js" type="text/javascript"></script>
         <script>
                                     function myFunction() {
 
@@ -254,7 +255,7 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                         if (width > 576) {
                                             var contentheight = $(window).height() + 500;
-                                            var navigationheight = $(window).height() + 425;
+                                            var navigationheight = $(window).height() + 500;
 
                                             $('.content').css('height', contentheight);
                                             $('.navigation').css('height', navigationheight);

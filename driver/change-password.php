@@ -8,10 +8,11 @@ $DRIVER = new Drivers($_SESSION['id']);
     <head>
         <meta charset="UTF-8">
         <title>Change Password || Driver DashBoard</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
         
     </head>
     <body>
@@ -89,44 +90,19 @@ $DRIVER = new Drivers($_SESSION['id']);
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-driver.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
 
         <script>
-            $(document).ready(function () {
-                var message = $('#msg').val();
-                var msgid = $('#msg').attr('msgid');
-
-                if (message.length > 35) {
-                    $('.error-msg1').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-
-                } else {
-                    $('.error-msg').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-                }
-
-                if (msgid == 15) {
-                    $('#signin-form').removeClass('hidden');
-                    $('#signup-form').addClass('hidden');
-                    $('.login-box').addClass('login-box5');
-                    $('.login-box').removeClass('login-box4');
-                    $('.login-link1').removeClass('hidden');
-                    $('.login-link').addClass('hidden');
-
-                    $('#sign-up').click(function () {
-                        $('.login-box').addClass('login-box4');
-                        $('.login-box').removeClass('login-box5');
-                    });
-                }
-            });
+            
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var navigationheight = $(window).height();
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

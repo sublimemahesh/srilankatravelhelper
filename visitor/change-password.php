@@ -8,11 +8,12 @@ $VISITOR = new visitor($_SESSION['id']);
     <head>
         <meta charset="UTF-8">
         <title>Change Password || Visitor DashBoard</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -89,10 +90,8 @@ $VISITOR = new visitor($_SESSION['id']);
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/sign-up.js" type="text/javascript"></script>
-        <script src="js/add-visitor.js" type="text/javascript"></script>
-
+        <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
                 var message = $('#msg').val();
