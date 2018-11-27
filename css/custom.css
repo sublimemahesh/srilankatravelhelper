@@ -37,6 +37,9 @@
     background-color: #2727291a;
     opacity: .2
 }
+.footer {
+    height: 120px;
+}
 
 @media only screen and (max-width:480px) {
     iframe {
@@ -631,6 +634,9 @@ input[type="text"].location-search-input {
         background-color: #0067a3;
         color: #fff;
         right: 35px;
+    }
+    .footer {
+        height: 150px;
     }
 }
 
