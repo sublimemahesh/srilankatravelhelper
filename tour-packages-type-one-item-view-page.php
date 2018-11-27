@@ -226,7 +226,8 @@ if ($divider1 == 0) {
                                     foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
                                         ?>
                                         <div  class="col-md-3">
-                                            <a class="example-image-link" href="upload/tour-package/date/gallery/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="upload/tour-package/date/gallery/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
+                                            <a class="example-image-link" href="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                                                <img class="example-image" src="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
                                         </div>
                                         <?php
                                     }
