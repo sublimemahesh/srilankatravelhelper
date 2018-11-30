@@ -14,3 +14,19 @@ $(document).ready(function () {
         $('.header-icon2').removeClass('btn-hover');
     });
 })
+$(window).load(function () {
+    var width = $(window).width();
+
+    if (width > 576) {
+        var contentheight = $(window).height();
+        var navigationheight = $(window).height();
+
+        $('.content').css('height', contentheight);
+        $('.navigation').css('height', navigationheight);
+        $('.header-con').addClass('container');
+    } else {
+        var contentheight = $(window).height();
+        $('.content').css('height', contentheight);
+        $('.header-con').removeClass('container');
+    }
+});

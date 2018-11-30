@@ -16,13 +16,13 @@ if ($count1 == 0) {
 } else {
     $count = $count1;
 }
-
 ?>
 
 <header id="header-container">
     <!-- Header -->
     <div id="header">
         <!--<div class="container">-->
+        <div class="container">
             <!-- Left Side Content -->
             <div class="left-side">
                 <!-- Logo -->
@@ -67,22 +67,22 @@ if ($count1 == 0) {
                 </div>
                 <div class="header-widget widget-btn-right">
                     <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
-                            if ($count == 1) {
-                                echo '1 item';
-                            } else {
-                                echo $count . ' items';
-                            };
-                            ?>
+if ($count == 1) {
+    echo '1 item';
+} else {
+    echo $count . ' items';
+};
+?>
                         </span>
                     </a>
                 </div>
             </div>
-            
 
 
-        <!--</div>-->
-    </div>
-    <!-- Header / End -->
+
+            <!--</div>-->
+        </div>
+        <!-- Header / End -->
 
 </header>
 <div class="clearfix"></div>

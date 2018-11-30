@@ -23,7 +23,7 @@ if ($count1 == 0) {
     <!-- Header -->
     <div id="header">
         <!--<div class="container">-->
-        <div class="container">
+        <div class="container header-con">
             <!-- Left Side Content -->
             <div class="left-side">
                 <!-- Logo -->
@@ -43,6 +43,7 @@ if ($count1 == 0) {
                     <ul id="responsive">
                         <li><a class="current" href="./">Home</a></li>
                         <li><a href="../destination-type.php">Destinations</a></li>
+                        <li><a href="all-cities.php">Cities</a></li>
                         <li><a href="../tour-packages-type.php">Packages</a></li>
                         <li><a href="../drivers-page.php">Drivers</a></li>
                         <li><a href="../blog.php">Blog</a></li>
