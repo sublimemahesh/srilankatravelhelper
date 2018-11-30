@@ -15,10 +15,14 @@ $(document).ready(function () {
                 option: 'GETNEARBYDESTINATIONS'
             },
             success: function (destinations) {
-
                 var html = '';
                 var name = '';
-                if (destinations) {
+
+                if (destinations === 'FALSE') {
+                    html = 'No any nearby destinations in the database';
+                    $('.nearbydestinations-carousel').empty();
+                    $('.nearbydestinations-carousel').append(html);
+                } else if (destinations) {
                     $.each(destinations, function (key, destination) {
                         var destname = destination.name;
                         if (destname.length > 18) {
@@ -89,14 +93,9 @@ $(document).ready(function () {
 //console.log(html);
                                 $('.nearbydestinations-carousel').empty();
                                 $('.nearbydestinations-carousel').append(html);
-
                             }
                         });
                     });
-                } else {
-                    html = 'No any nearby destinations in the database';
-                    $('.nearbydestinations-carousel').empty();
-                    $('.nearbydestinations-carousel').append(html);
                 }
             }
         });
@@ -122,7 +121,12 @@ $(document).ready(function () {
 
                     var html = '';
                     var name = '';
-                    if (destinations) {
+
+                    if (destinations === 'FALSE') {
+                        html = 'No any nearby destinations in the database';
+                        $('.nearbydestinations-carousel').empty();
+                        $('.nearbydestinations-carousel').append(html);
+                    } else if (destinations) {
                         $.each(destinations, function (key, destination) {
                             var destname = destination.name;
                             if (destname.length > 18) {
@@ -192,10 +196,6 @@ $(document).ready(function () {
                                 }
                             });
                         });
-                    } else {
-                        html = 'No any nearby destinations in the database';
-                        $('.nearbydestinations-carousel').empty();
-                        $('.nearbydestinations-carousel').append(html);
                     }
                 }
             });
