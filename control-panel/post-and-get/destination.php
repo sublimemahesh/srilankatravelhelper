@@ -83,7 +83,20 @@ if (isset($_POST['create'])) {
 
 
     if ($VALID->passed()) {
-        $DESTINATION->create();
+        $result = $DESTINATION->create();
+
+        if ($result) {
+            $city = Location::getLocationByPlaceID($DESTINATION->city);
+
+            if (empty($city)) {
+                $LOCATION = new Location(NULL);
+                $LOCATION->placeid = $DESTINATION->city;
+                $LOCATION->name = $_POST['cityname'];
+//                $LOCATION->longitude = $_POST['longitude'];
+//                $LOCATION->latitude = $_POST['latitude'];
+                $res = $LOCATION->create();
+            }
+        }
 
         if (!isset($_SESSION)) {
             session_start();
@@ -185,7 +198,20 @@ if (isset($_POST['update'])) {
 
 
     if ($VALID->passed()) {
-        $DESTINATION->update();
+        $result = $DESTINATION->update();
+
+        if ($result) {
+            $city = Location::getLocationByPlaceID($DESTINATION->city);
+
+            if (empty($city)) {
+                $LOCATION = new Location(NULL);
+                $LOCATION->placeid = $DESTINATION->city;
+                $LOCATION->name = $_POST['cityname'];
+//                $LOCATION->longitude = $_POST['longitude'];
+//                $LOCATION->latitude = $_POST['latitude'];
+                $res = $LOCATION->create();
+            }
+        }
 
         if (!isset($_SESSION)) {
             session_start();

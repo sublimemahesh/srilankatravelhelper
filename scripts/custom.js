@@ -324,6 +324,48 @@
                     }
                 }]
         });
+        $('.nearbycities-carousel').slick({
+            centerMode: false,
+//            centerPadding: '34%',
+            slidesToShow: 4,
+            dots: true,
+            arrows: true,
+            responsive: [{
+                    breakpoint: 1025,
+                    settings: {
+                        centerPadding: '10px',
+                        slidesToShow: 4,
+                    }
+                }, {
+                    breakpoint: 767,
+                    settings: {
+                        arrows: false,
+                        centerPadding: '10px',
+                        slidesToShow: 1
+                    }
+                }]
+        });
+        $('.nearbydestinations-carousel').slick({
+            centerMode: false,
+//            centerPadding: '34%',
+            slidesToShow: 4,
+            dots: true,
+            arrows: true,
+            responsive: [{
+                    breakpoint: 1025,
+                    settings: {
+                        centerPadding: '10px',
+                        slidesToShow: 4,
+                    }
+                }, {
+                    breakpoint: 767,
+                    settings: {
+                        arrows: false,
+                        centerPadding: '10px',
+                        slidesToShow: 1
+                    }
+                }]
+        });
         $('.review-carousel').slick({
             centerMode: false,
             centerPadding: '0px',

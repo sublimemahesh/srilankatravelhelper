@@ -255,18 +255,6 @@ if (isset($_GET['album'])) {
                             <div class=" content">
                                 <div class="col-md-12">
                                     <div id="gallery1"></div>
-                                    <?php
-                                    $DESTINATION_PHOTOS = DestinationPhotos::getDestinationByDestinationPhotos($id);
-                                    $count = DestinationPhotos::countDestinationPhotosByDestination($id);
-                                    foreach ($DESTINATION_PHOTOS as $key => $destination_photos) {
-                                        if ($key === 0) {
-                                            ?>
-
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-
                                 </div>
                             </div>
                             <div class="padding-top-10" >
@@ -479,5 +467,12 @@ if (isset($_GET['album'])) {
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/images-grid.js"></script>
         <script src="scripts/destination-slider.js" type="text/javascript"></script>
+        <script>
+//            $(document).ready(function () {
+//                $('.gallery1').click(function () {
+//                    $('.cloned').css('z-index', '0')
+//                });
+//            });
+        </script>
     </body>
 </html>

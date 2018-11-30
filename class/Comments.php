@@ -100,8 +100,8 @@ class Comments {
             return FALSE;
         }
     }
-    
-        public function delete() {
+
+    public function delete() {
 
         $query = 'DELETE FROM `comments` WHERE id="' . $this->id . '"';
 
@@ -109,8 +109,8 @@ class Comments {
 
         return $db->readQuery($query);
     }
-    
-        public function activeComments() {
+
+    public function activeComments() {
 
         $query = "SELECT * FROM `comments` WHERE is_active = '1'";
         $db = new Database();
@@ -123,8 +123,8 @@ class Comments {
 
         return $array_res;
     }
-    
-          public function pendingComments() {
+
+    public function pendingComments() {
 
         $query = "SELECT * FROM `comments` WHERE is_active = '0'";
         $db = new Database();
@@ -137,12 +137,12 @@ class Comments {
 
         return $array_res;
     }
-    
-    
-     public function arrange($key, $img) {
+
+    public function arrange($key, $img) {
         $query = "UPDATE `comments` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
+
 }

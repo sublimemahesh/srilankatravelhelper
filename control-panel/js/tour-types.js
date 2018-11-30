@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var tourid = $('#id').val();
-    alert(tourid);
     $.ajax({
         type: 'POST',
         url: 'post-and-get/ajax/tour-types.php',
