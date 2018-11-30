@@ -38,7 +38,7 @@ body {
     text-align: left;
 }
 .search-destination-item .button-section .btn{
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding: 5px 13px 2px;
     font-size: 16px;
 }
@@ -125,6 +125,77 @@ body {
     background-image: none;
     color: #fff;
 }
+#search-content h1, #search-content1 h1 {
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.city-item {
+    margin-bottom: 50px;
+}
+.city-item .search-destination-inner {
+    margin-bottom: 50px;
+}
+.city-item .driver-name {
+    position: relative;
+    margin-top: 20px;
+    left: 0;
+    z-index: 0;
+    color: #1a0202;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.city-item p {
+    font-size: 15px;
+    text-align: left;
+    line-height: 22px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+.city-item .listing-item {
+    background: none;   
+}
+.city-item .listing-item::before {
+    background: none;   
+    background-color: none;
+}
+.city-item .listing-item.col-md-5 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.city-item .col-md-3, .city-item .col-sm-3, .city-item .col-xs-3{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.city-item .col-md-12, .city-item .col-sm-12, .city-item .col-xs-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.city-item .search-item-details.col-xs-12{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.city-item  .search-destination-inner {
+    background: #eee;
+}
+.location-search-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #707070;
+}
+.search-destination-item .listing-item img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+}
+.main-search-input {
+    margin-bottom: 40px;
+}
 @media(max-width:600px) {
 
     input[type="text"].location-search-input {
@@ -140,6 +211,14 @@ body {
     }
     .search-destination-item .driver-name {
         font-size: 18px;
+    }
+    .search-cities.search-destination-item .col-xs-7{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .search-cities.col-xs-12{
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 @media(width:600px) {

@@ -107,6 +107,9 @@ $types = $DESTINATION_TYPE->all();
                                                 <div class="form-line">
                                                     <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
                                                     <input type="hidden" name="city" id="city"  value="<?php echo $DESTINATION->city; ?>"/>
+                                                    <input type="hidden" name="cityname" id="cityname"  value=""/>
+<!--                                                    <input type="hidden" name="longitude" id="longitude"  value=""/>
+                                                    <input type="hidden" name="latitude" id="latitude"  value=""/>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -176,6 +179,7 @@ $types = $DESTINATION_TYPE->all();
         <script src="js/demo.js"></script>
         <script src="js/add-new-ad.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+        
         <script>
                                                         tinymce.init({
                                                             selector: "#description",
@@ -221,6 +225,9 @@ $types = $DESTINATION_TYPE->all();
                 // Get the place details from the autocomplete object.
                 var place = autocomplete.getPlace();
                 $('#city').val(place.place_id);
+                $('#cityname').val(place.name);
+//                $('#longitude').val(place.geometry.location.lng());
+//                $('#latitude').val(place.geometry.location.lat());
                 for (var component in componentForm) {
                     document.getElementById(component).value = '';
                     document.getElementById(component).disabled = false;

@@ -49,15 +49,32 @@ if (isset($_SESSION['destination_cart'])) {
                 </div>
             </div>
             <div class="container margin-top-70 margin-bottom-55">
-                <div class="row col-md-8 col-md-offset-2">
+                <div class="row col-md-6 col-md-offset-3">
                     <div class="row location-search-title">
                         Enter city to find destinations
                     </div>
-                    <input type="text" class="form-control location-search-input col-md-8 col-sm-8 col-xs-8" name="autocomplete" id="autocomplete" />
-                    <input type="hidden" name="city" id="city"  value=""/>
-                    <button class="btn location-search-btn">Search</button>
+                    <div class="main-search-input">
+                        <div class="main-search-input-item location">
+                            <div id="autocomplete-container">
+                                <input  name="autocomplete" id="autocomplete" type="text" placeholder="Select a city">
+                                <input type="hidden" name="city" id="city"  value=""/>
+                                <input type="hidden" name="cityname" id="cityname"  value=""/>
+                            </div>
+                            <a href="#"><i class="fa fa-map-marker"></i></a>
+                        </div>
+                        <button class="button" id="location-search-btn" >Search</button>
+                    </div>
                 </div>
+
                 <div class="row" id="search-content">
+                </div>
+                <div class="row col-md-12 hidden" id="search-content1">
+                    <h1>Other Nearby Destinations in <span id="city-name"></span> City</h1>
+                    <hr />
+                    <div class="nearbydestinations-carousel testimonials">
+                        <div id="nearbycities" ></div>
+
+                    </div>
                 </div>
 
             </div>
@@ -81,6 +98,7 @@ if (isset($_SESSION['destination_cart'])) {
     <script src="scripts/add-to-cart.js" type="text/javascript"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="scripts/search-destination.js" type="text/javascript"></script>
+    <script src="scripts/near-by-destinations.js" type="text/javascript"></script>
     <script>
         var placeSearch, autocomplete;
 
@@ -104,6 +122,7 @@ if (isset($_SESSION['destination_cart'])) {
             // Get the place details from the autocomplete object.
             var place = autocomplete.getPlace();
             $('#city').val(place.place_id);
+            $('#cityname').val(place.name);
             for (var component in componentForm) {
                 document.getElementById(component).value = '';
                 document.getElementById(component).disabled = false;

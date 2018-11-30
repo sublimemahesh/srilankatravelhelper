@@ -535,6 +535,32 @@ input[type="text"].location-search-input {
     margin-left: -19px;
     position: relative;
 }
+.city-body {
+    box-shadow: 5px 5px 5px #eee;
+    border: 1px solid #eee;
+}
+.city-body .package-details {
+    padding: 0 10px 10px 10px;
+}
+.package-ratings-review.cities-view-btn {
+    text-align: center;
+}
+.package-ratings-review.cities-view-btn a.btn {
+    padding: 5px 25px;
+    border: 1px solid #fff;
+    border-radius: 17px;
+}
+.city-body .package-details a:hover {
+    text-decoration: none;
+    color: #0dce38;
+}
+.package-details a:hover {
+    text-decoration: none;
+    color: #0dce38;
+}
+.city-body .package-details a {
+    color: #000;
+}
 
 @media(max-width:576px) {
     .reviws-section {

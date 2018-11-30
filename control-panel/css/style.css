@@ -8136,3 +8136,16 @@ html.ie11 .bs-searchbox .form-control {
     margin-top: 20px;
     text-align: right;
 }
+.form-group ul {
+    list-style-type: none;
+}
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: absolute;
+    left: 0px;
+    opacity: 1;
+}
+input[type="checkbox"] {
+    margin: 2px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}

@@ -145,6 +145,7 @@ class Destination {
         while ($row = mysql_fetch_array($result)) {
             array_push($array_res, $row);
         }
+
         return $array_res;
     }
 

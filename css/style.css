@@ -311,7 +311,7 @@ a.listing-item-container {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 999
+    z-index: 999;
 }
 
 #header.cloned {
@@ -749,7 +749,7 @@ body #navigation ul ul {
 }
 
 #navigation.style-1 ul li {
-    margin: 0 5px
+    margin: 0 0px
 }
 
 #navigation.style-1 ul ul li {
