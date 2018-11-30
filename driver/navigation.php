@@ -64,5 +64,15 @@
                 </div>
             </div>
         </a>
+        <a href="manage-offers.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-gift" id="differ-icon"></i>
+                </div>
+                <div class="icon-text">
+                    My Offers
+                </div>
+            </div>
+        </a>
     </div>
 </div>
