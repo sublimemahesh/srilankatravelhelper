@@ -118,9 +118,11 @@ $VISITOR = new Visitor($_SESSION["id"]);
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
+                    $('.header-con').addClass('container');
                 } else {
                     var contentheight = $(window).height();
                     $('.content').css('height', contentheight);
+                    $('.header-con').removeClass('container');
                 }
             });
         </script>
