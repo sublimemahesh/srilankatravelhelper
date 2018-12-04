@@ -46,7 +46,7 @@ if ($count1 == 0) {
                         <li><a href="tour-packages-type.php">Packages</a></li>
                         <li><a href="drivers-page.php">Drivers</a></li>
                         <li><a href="blog.php">Blog</a></li>
-                        <li><a href="offer.php">Offer</a></li>
+                        <li><a href="offers.php">Offer</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
                             <ul>
                                 <li><a href="visitor/profile.php">Login Now</a></li>

@@ -9,11 +9,11 @@ $DRIVER = new Drivers($_SESSION['id']);
         <meta charset="UTF-8">
         <title>Manage Offers || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -56,11 +56,11 @@ $DRIVER = new Drivers($_SESSION['id']);
                                     </div>
                                     <div class="row form-data">
                                         <label>Start Date</label>
-                                        <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Enter Start Date" value="" />
+                                        <input type="text" name="start_date" id="startdate" class="form-control" placeholder="Enter Start Date" value="" />
                                     </div>
                                     <div class="row form-data">
                                         <label>End Date</label>
-                                        <input type="date" name="end_date" id="end_date" class="form-control" placeholder="Enter End Date" value="" />
+                                        <input type="text" name="end_date" id="enddate" class="form-control" placeholder="Enter End Date" value="" />
                                     </div>
                                     <div class="row form-data">
                                         <label>Discount</label>
@@ -70,7 +70,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                         <label>Price</label>
                                         <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="" />
                                     </div>
-                                    
+
                                     <div class="row form-data">
                                         <label>Image</label>
                                         <input type="file" name="image" id="image" />
@@ -107,7 +107,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                 <a href="#" class="delete-offer" data-id="<?php echo $offer['id']; ?>"> <button class="fa fa-trash delete-btn"></button></a>
                                                 <a href="edit-offer.php?id=<?php echo $offer['id']; ?>"> <button class="fa fa-pencil edit-btn"></button></a>
                                                 <a href="view-offer.php?id=<?php echo $offer['id']; ?>"> <button class="fa fa-eye edit-btn"></button></a>
-                                            
+
                                             </div>
                                         </div>
                                     </div>
@@ -127,6 +127,7 @@ $DRIVER = new Drivers($_SESSION['id']);
         </div>
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
@@ -163,12 +164,18 @@ $DRIVER = new Drivers($_SESSION['id']);
 
         </script>
         <script>
+            $(function () {
+                $("#startdate").datepicker({dateFormat: "yy-mm-dd"}).val()
+                $("#enddate").datepicker({dateFormat: "yy-mm-dd"}).val()
+            });
+        </script>
+        <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

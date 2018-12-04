@@ -13,11 +13,7 @@ $CITY = new City($DRIVER->city);
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/colors/main.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
         <div class="wrapper">
@@ -120,7 +116,7 @@ $CITY = new City($DRIVER->city);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

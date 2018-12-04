@@ -32,6 +32,7 @@ include_once(dirname(__FILE__) . '/BlogComment.php');
 include_once(dirname(__FILE__) . '/TailorMadeTours.php');
 include_once(dirname(__FILE__) . '/Location.php');
 include_once(dirname(__FILE__) . '/Offer.php');
+include_once(dirname(__FILE__) . '/OfferBooking.php');
 
 function dd($data) {
     var_dump($data);

@@ -27,7 +27,6 @@ $CITY = new City($DRIVER->city);
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -218,7 +217,7 @@ $CITY = new City($DRIVER->city);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

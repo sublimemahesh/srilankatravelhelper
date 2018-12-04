@@ -19,7 +19,6 @@ $OFFER = new offer($id);
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -77,16 +76,16 @@ $OFFER = new offer($id);
                                         <div class="col-md-9"><?php echo $OFFER->price; ?></div> 
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 title">Description</div>
-                                        <div class="col-md-12"><?php echo $OFFER->description; ?></div> 
+                                        <div class="col-md-3 title">Description</div>
+                                        <div class="col-md-9"><?php echo $OFFER->description; ?></div> 
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3 title">Image</div>
                                         <div class="col-md-9">
-                                            <img src="../upload/offer/<?php echo $OFFER->image_name; ?>" alt="" class="img-thumbnail"/>
+                                            <img src="../upload/offer/<?php echo $OFFER->image_name; ?>" alt="" class="img-thumbnail" width="50%"/>
                                         </div> 
                                     </div>
-                                    
+
                                 </div>
                                 </form>
                             </div>
@@ -107,13 +106,14 @@ $OFFER = new offer($id);
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/cancel-booking.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
+        
         <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
