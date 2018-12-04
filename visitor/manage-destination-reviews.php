@@ -34,7 +34,6 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <style>
             .star-rating-fa {
                 left: 345px;
@@ -255,7 +254,7 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                         if (width > 576) {
                                             var contentheight = $(window).height() + 500;
-                                            var navigationheight = $(window).height() + 500;
+                                            var navigationheight = $(window).height() + 425;
 
                                             $('.content').css('height', contentheight);
                                             $('.navigation').css('height', navigationheight);

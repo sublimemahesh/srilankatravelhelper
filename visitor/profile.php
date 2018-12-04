@@ -13,11 +13,6 @@ $VISITOR = new Visitor($_SESSION["id"]);
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/colors/main.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         
     </head>
     <body>
@@ -114,7 +109,7 @@ $VISITOR = new Visitor($_SESSION["id"]);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

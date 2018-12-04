@@ -15,7 +15,6 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -90,7 +89,7 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

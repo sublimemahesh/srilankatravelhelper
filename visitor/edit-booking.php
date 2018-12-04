@@ -23,7 +23,6 @@ $DRIVER = new Drivers($BOOKING->driver);
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -121,7 +120,7 @@ $DRIVER = new Drivers($BOOKING->driver);
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height();
+                    var contentheight = $(window).height() - 75;
                     var navigationheight = $(window).height();
 
                     $('.content').css('height', contentheight);

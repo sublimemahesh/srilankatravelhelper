@@ -13,7 +13,6 @@ $VISITOR = new visitor($_SESSION['id']);
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">

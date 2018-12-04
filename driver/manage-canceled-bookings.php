@@ -15,7 +15,6 @@ $DRIVER = new Drivers($_SESSION['id']);
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="plugins/datatables-responsive/dataTables.responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -133,7 +132,7 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

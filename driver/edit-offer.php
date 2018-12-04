@@ -15,11 +15,11 @@ $OFFER = new Offer($id);
         <meta charset="UTF-8">
         <title>Edit Offer || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="wrapper">
@@ -62,11 +62,11 @@ $OFFER = new Offer($id);
                                     </div>
                                     <div class="row form-data">
                                         <label>Start Date</label>
-                                        <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Enter Start Date" value="<?php echo $OFFER->startdate; ?>" />
+                                        <input type="text" name="start_date" id="startdate" class="form-control" placeholder="Enter Start Date" value="<?php echo $OFFER->startdate; ?>" />
                                     </div>
                                     <div class="row form-data">
                                         <label>End Date</label>
-                                        <input type="date" name="end_date" id="end_date" class="form-control" placeholder="Enter End Date" value="<?php echo $OFFER->enddate; ?>" />
+                                        <input type="text" name="end_date" id="enddate" class="form-control" placeholder="Enter End Date" value="<?php echo $OFFER->enddate; ?>" />
                                     </div>
                                     <div class="row form-data">
                                         <label>Discount</label>
@@ -105,6 +105,7 @@ $OFFER = new Offer($id);
             ?>
         </div>
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/sign-up.js" type="text/javascript"></script>
@@ -140,12 +141,18 @@ $OFFER = new Offer($id);
 
         </script>
         <script>
+            $(function () {
+                $("#startdate").datepicker({dateFormat: "yy-mm-dd"}).val()
+                $("#enddate").datepicker({dateFormat: "yy-mm-dd"}).val()
+            });
+        </script>
+        <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
                     var contentheight = $(window).height();
-                    var navigationheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
