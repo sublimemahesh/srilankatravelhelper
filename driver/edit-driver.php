@@ -10,7 +10,6 @@ if (isset($_GET['id'])) {
 } else {
     $DRIVER = new Drivers($_SESSION['id']);
 }
-$CITY = new City($DRIVER->city);
 ?>
 <html>
     <head>
@@ -106,18 +105,11 @@ $CITY = new City($DRIVER->city);
                                     </div>
                                     <div class="row form-data">
                                         <label>City</label>
-                                        <input type="text" name="city" id="city" onkeyup="myFunction()" class="form-control" placeholder="Enter City" value="<?php echo $CITY->name; ?>" />
-                                        <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />
-                                        <ul id="myUL" class="hidden">
-                                            <?php
-                                            foreach (City::all() as $city) {
-                                                ?>
-                                                <li class="cityli" cityid="<?php echo $city['id']; ?>"><a href="#"><?php echo $city['name']; ?></a></li>
-                                                <?php
-                                            }
-                                            ?>
-
-                                        </ul>
+                                        <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
+                                                    <input type="hidden" name="cityid" id="city"  value="<?php echo $DRIVER->city; ?>"/>
+<!--                                        <input type="text" name="cityid" id="cityid" onkeyup="myFunction()" class="form-control" placeholder="Enter City" value="<?php echo $CITY->name; ?>" />
+                                        <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />-->
+                                        
                                     </div>
                                     <div class="row form-data">
                                         <label>Contact Number</label>
@@ -152,6 +144,7 @@ $CITY = new City($DRIVER->city);
                             </div>
                         </div>
                     </div>
+                    <div id="map"></div>
                     <div class="col-md-3 col-sm-3">
                         <ul class="list-group prof-details">
                             <a href="profile.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
@@ -204,6 +197,89 @@ $CITY = new City($DRIVER->city);
 
 
         </script>
+        
+            <script>
+            //Google Location Autocomplete
+            var placeSearch, autocomplete;
+
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                        {types: ['geocode']});
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+                $('#city').val(place.place_id);
+//                $('#cityname').val(place.name);
+//                $('#longitude').val(place.geometry.location.lng());
+//                $('#latitude').val(place.geometry.location.lat());
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+        <script>
+            // Retrieve Details from Place_ID
+            function initMap() {
+                setTimeout(function () {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: -33.866, lng: 151.196},
+                        zoom: 15
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+                    var service = new google.maps.places.PlacesService(map);
+                    var place_id = $('#city').val();
+                    service.getDetails({
+                        placeId: place_id
+                    }, function (place, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+//                        alert(place.name);
+                            $('#autocomplete').val(place.name);
+                        }
+                    });
+                }, 1000);
+            }
+
+            $(document).ready(function () {
+                initMap();
+            });
+
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+        async defer></script>
+        
         <script>
             $(function () {
                 $("#dob").datepicker({
@@ -226,33 +302,7 @@ $CITY = new City($DRIVER->city);
                     $('.content').css('height', contentheight);
                 }
             });
-
-            function myFunction() {
-
-                $('#myUL').removeClass('hidden');
-
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("city");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-            $('.cityli').click(function () {
-                var name = $(this).text();
-                var id = $(this).attr('cityid');
-                $('#city').val(name);
-                $('#cityid').val(id);
-                $('#myUL').addClass('hidden');
-
-            });
-        </script>
+</script>
+        
     </body>
 </html>
