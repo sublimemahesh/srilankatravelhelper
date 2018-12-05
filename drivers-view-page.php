@@ -361,6 +361,9 @@ $stars = $sum / $divider;
                             <hr  >
                             <p><?php echo $DRIVER->description; ?></p>
                         </div>
+                        <div class="review-button">
+                            <a href="visitor/visitor-message.php?id=<?php echo $id; ?>&back=visitormessage" target="new"><button id="view-all-reviews" class="button border with-icon submit">Message Now</button></a>
+                    </div>
                     </div>
                 </div>
 
