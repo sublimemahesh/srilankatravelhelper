@@ -391,6 +391,10 @@
     padding: 10px 0;
     height: 150px;
 }
+.driver-p {
+    margin: 15px 10px;
+    padding-bottom: 7px;
+}
 
 /* Add Animation */
 .modal-content, #caption {    
