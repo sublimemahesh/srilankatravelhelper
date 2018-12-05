@@ -1,4 +1,4 @@
-<div class="navigation col-md-3 col-sm-3">
+<div class="navigation col-md-3 col-sm-4">
     <div class="profile-img">
         <?php
         if (empty($VISITOR->profile_picture)) {
@@ -81,6 +81,16 @@
                 </div>
                 <div class="icon-text">
                     My Bookings
+                </div>
+            </div>
+        </a>
+        <a href="visitor-message.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-envelope" id="differ-icon"></i>
+                </div>
+                <div class="icon-text">
+                    Messages
                 </div>
             </div>
         </a>

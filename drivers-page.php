@@ -60,7 +60,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
                                 if ($key == 0) {
                                     ?>
-                                                                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                     <?php
                                 }
                             }
@@ -71,16 +71,16 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             <?php
                             if (empty($driver['profile_picture'])) {
                                 ?>
-                                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
                                 <?php
                             } else {
                                 if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
                                     ?>
-                                                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                    <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 } else {
                                     ?>
-                                                                                            <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                    <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 }
                             }
@@ -99,7 +99,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($divider == 0) {
                                 for ($j = 1; $j <= 5; $j++) {
                                     ?>
-                                                                                            <i class="fa fa-star-o"></i>
+                                                                                                    <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                                 $sum = 0;
@@ -108,12 +108,12 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                                 for ($i = 1; $i <= $stars; $i++) {
                                     ?>
-                                                                                            <i class="fa fa-star"></i>
+                                                                                                    <i class="fa fa-star"></i>
                                     <?php
                                 }
                                 for ($j = $i; $j <= 5; $j++) {
                                     ?>
-                                                                                            <i class="fa fa-star-o"></i>
+                                                                                                    <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                             }
@@ -150,6 +150,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                 if ($key == 0) {
                                                     ?>
                                                     <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+
+
+
                                                     <?php
                                                 }
                                             }
@@ -157,13 +160,14 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                         </div>
 
                                         <div class="img-pad">
+
                                             <?php
                                             if (empty($DRIVER->profile_picture)) {
                                                 ?>
                                                 <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
                                                 <?php
                                             } else {
-                                                if ($driver['facebookID'] && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
                                                     ?>
                                                     <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                                     <?php
@@ -248,7 +252,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                 <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
                                                 <?php
                                             } else {
-                                                if ($driver['facebookID'] && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
                                                     ?>
                                                     <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                                     <?php
