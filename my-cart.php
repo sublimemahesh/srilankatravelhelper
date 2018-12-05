@@ -5,10 +5,10 @@ if (!isset($_SESSION)) {
 }
 
 $destinations = '';
-$count = '';
+$countdestinations = '';
 if (isset($_SESSION['destination_cart'])) {
     $destinations = $_SESSION['destination_cart'];
-    $count = count($destinations);
+    $countdestinations = count($destinations);
 }
 ?>
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ if (isset($_SESSION['destination_cart'])) {
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
         <style>
             .review-button {
                 margin-bottom: 70px;
@@ -34,7 +35,7 @@ if (isset($_SESSION['destination_cart'])) {
             @media(max-width:576px) {
                 .ml-xs-20 {
                     margin-left: 20px;
-                     width: auto;
+                    width: auto;
                 }
                 .mr-xs-20 {
                     margin-right: 20px;
@@ -49,7 +50,7 @@ if (isset($_SESSION['destination_cart'])) {
                     margin-right: 20px;
                 }
             }
-            
+
         </style>
     </head>
     <body>
@@ -70,11 +71,62 @@ if (isset($_SESSION['destination_cart'])) {
                 <div class="row">
                     <ul class="list-group">
                         <?php
-                        if ($count > 1) {
+                        if ($countdestinations > 0) {
                             foreach ($destinations as $key => $destination) {
                                 $DESTINATION = new Destination($destination);
+
+                                $REVIEWS = Reviews::getTotalReviewsOfDestination($DESTINATION->id);
+
+                                $divider1 = $REVIEWS['count'];
+                                $sum1 = $REVIEWS['sum'];
+                                if ($divider1 == 0) {
+                                    $stars1 = 0;
+                                    $sum1 = 0;
+                                } else {
+                                    $stars1 = $sum1 / $divider1;
+                                }
                                 ?>
-                                <li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>
+                                                                <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+
+
+
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 search-destination-item" id="div-<?php echo $key; ?>">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">
+                                        <div class="listing-item col-md-5 col-sm-5 col-xs-5">
+                                            <img src="upload/destination/<?php echo $DESTINATION->image_name; ?>" alt=""/>
+                                        </div>
+                                        <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
+                                            <div class="driver-name text-left">
+                                                <?php echo $DESTINATION->name; ?>
+                                            </div>
+                                            <div class="star-rating-fa">
+                                                <?php
+                                                for ($i = 1; $i <= $stars1; $i++) {
+                                                    echo '<i class="fa fa-star"></i>';
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    echo '<i class="fa fa-star-o"></i>';
+                                                }
+                                                ?>
+                                                <div class="rating-counter">(<?php echo $sum1; ?> reviews)</div><br>
+                                            </div>
+                                            <div style="margin-top: 0px;padding-bottom: 7px;">
+                                                <p class="text-center " id="">
+                                                    <?php echo substr($DESTINATION->short_description,0,55).'...'; ?>
+                                                </p>
+                                            </div>
+                                            <div class="button-section">
+                                                <a href="destination-type-one-item-view-page.php?id=<?php echo $DESTINATION->id; ?>" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>
+                                                <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                                 <?php
                             }
                         } else {

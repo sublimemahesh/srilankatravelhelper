@@ -30,7 +30,7 @@ $(document).ready(function () {
                             timer: 2000,
                             showConfirmButton: false
                         });
-                        $('#li-' + key).remove();
+                        $('#div-' + key).remove();
                         var html = '';
                         if (jsonStr == 1) {
                             html = '&nbsp;&nbsp;01 item';
