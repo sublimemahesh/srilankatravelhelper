@@ -9,7 +9,7 @@ if (isset($_GET["page"])) {
 } else {
     $page = 1;
 }
-$setLimit = 12;
+$setLimit = 2;
 $pageLimit = ($page * $setLimit) - $setLimit;
 ?>
 <!DOCTYPE html>
@@ -52,85 +52,261 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         $DRIVERS = Drivers::getDriversForPagination($pageLimit, $setLimit);
                         foreach ($DRIVERS as $key => $driver) {
                             ?>
-                            <div class="col-md-4">
-                                <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+                            <!--                            <div class="col-md-4">
+                                                            <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
+                            
+                                                                <div class="listing-item">
+                            <?php
+                            foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
+                                if ($key == 0) {
+                                    ?>
+                                                                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                    <?php
+                                }
+                            }
+                            ?> 
+                                                                </div>
+                            
+                                                                <div class="img-pad">
+                            <?php
+                            if (empty($driver['profile_picture'])) {
+                                ?>
+                                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                <?php
+                            } else {
+                                if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
+                                    ?>
+                                                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                    <?php
+                                } else {
+                                    ?>
+                                                                                            <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                    <?php
+                                }
+                            }
+                            ?>
+                                                                </div>
+                                                                <div class="driver-name text-left"> 
+                            <?php echo $driver['name']; ?>
+                                                                </div>
+                                                                <div class="star-rating-fa text-right"> 
+                            <?php
+                            $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
 
-                                    <div class="listing-item">
-                                        <?php
-                                        foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
-                                            if ($key == 0) {
-                                                ?>
-                                                <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                                <?php
-                                            }
-                                        }
-                                        ?> 
-                                    </div>
+                            $divider = $REVIEWS['count'];
+                            $sum = $REVIEWS['sum'];
 
-                                    <div class="img-pad">
-                                        <?php
-                                        if (empty($driver['profile_picture'])) {
-                                            ?>
-                                            <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
-                                            <?php
-                                        } else {
-                                            if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
-                                                ?>
-                                                <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="driver-name text-left"> 
-                                        <?php echo $driver['name']; ?>
-                                    </div>
-                                    <div class="star-rating-fa text-right"> 
-                                        <?php
-                                        $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
+                            if ($divider == 0) {
+                                for ($j = 1; $j <= 5; $j++) {
+                                    ?>
+                                                                                            <i class="fa fa-star-o"></i>
+                                    <?php
+                                }
+                                $sum = 0;
+                            } else {
+                                $stars = $sum / $divider;
 
-                                        $divider = $REVIEWS['count'];
-                                        $sum = $REVIEWS['sum'];
+                                for ($i = 1; $i <= $stars; $i++) {
+                                    ?>
+                                                                                            <i class="fa fa-star"></i>
+                                    <?php
+                                }
+                                for ($j = $i; $j <= 5; $j++) {
+                                    ?>
+                                                                                            <i class="fa fa-star-o"></i>
+                                    <?php
+                                }
+                            }
+                            ?>
+                                                                    <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                                                </div>
+                            
+                                                                <div class="driver-p" style="">
+                                                                    <p class="text-center " id="">
+                            <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>-->
 
-                                        if ($divider == 0) {
-                                            for ($j = 1; $j <= 5; $j++) {
-                                                ?>
-                                                <i class="fa fa-star-o"></i>
-                                                <?php
-                                            }
-                                            $sum = 0;
-                                        } else {
-                                            $stars = $sum / $divider;
-
-                                            for ($i = 1; $i <= $stars; $i++) {
-                                                ?>
-                                                <i class="fa fa-star"></i>
-                                                <?php
-                                            }
-                                            for ($j = $i; $j <= 5; $j++) {
-                                                ?>
-                                                <i class="fa fa-star-o"></i>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
-                                    </div>
-
-                                    <div style="margin-top: 15px;padding-bottom: 7px;">
-                                        <p class="text-center " id="">
-                                            <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
                             <?php
                         }
-                        ?>    
+                        ?>
+                        <?php
+//                        $SORTOFDRIVERS = Reviews::getDriversSortByReviews($pageLimit, $setLimit);
+                        $SORTOFDRIVERS = Reviews::getDriversSortByReviews();
+//                        dd($SORTOFDRIVERS);
+                        foreach ($SORTOFDRIVERS as $key => $sortdriver) {
+
+                            if ($sortdriver != 0) {
+                                $DRIVER = new Drivers($sortdriver);
+                                ?>
+                                <div class="col-md-4">
+                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
+
+                                        <div class="listing-item">
+                                            <?php
+                                            foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                                if ($key == 0) {
+                                                    ?>
+                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                    <?php
+                                                }
+                                            }
+                                            ?> 
+                                        </div>
+
+                                        <div class="img-pad">
+                                            <?php
+                                            if (empty($DRIVER->profile_picture)) {
+                                                ?>
+                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                <?php
+                                            } else {
+                                                if ($driver['facebookID'] && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                    ?>
+                                                    <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="driver-name text-left"> 
+                                            <?php echo $DRIVER->name; ?>
+                                        </div>
+                                        <div class="star-rating-fa text-right"> 
+                                            <?php
+                                            $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
+
+                                            $divider = $REVIEWS['count'];
+                                            $sum = $REVIEWS['sum'];
+
+                                            if ($divider == 0) {
+                                                for ($j = 1; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                                $sum = 0;
+                                            } else {
+                                                $stars = $sum / $divider;
+
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                            <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                        </div>
+
+                                        <div class="driver-p" style="">
+                                            <p class="text-center " id="">
+                                                <?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <?php
+                            }
+                        }
+                        $ALLDRIVERS = Drivers::getDriversID();
+                        foreach ($ALLDRIVERS as $key => $driverid) {
+                            if (!in_array($driverid, $SORTOFDRIVERS)) {
+                                $DRIVER = new Drivers($driverid);
+                                ?>
+                                <div class="col-md-4">
+                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
+
+                                        <div class="listing-item">
+                                            <?php
+                                            foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                                if ($key == 0) {
+                                                    ?>
+                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                    <?php
+                                                }
+                                            }
+                                            ?> 
+                                        </div>
+
+                                        <div class="img-pad">
+                                            <?php
+                                            if (empty($DRIVER->profile_picture)) {
+                                                ?>
+                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                <?php
+                                            } else {
+                                                if ($driver['facebookID'] && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                    ?>
+                                                    <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="driver-name text-left"> 
+                                            <?php echo $DRIVER->name; ?>
+                                        </div>
+                                        <div class="star-rating-fa text-right"> 
+                                            <?php
+                                            $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
+
+                                            $divider = $REVIEWS['count'];
+                                            $sum = $REVIEWS['sum'];
+
+                                            if ($divider == 0) {
+                                                for ($j = 1; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                                $sum = 0;
+                                            } else {
+                                                $stars = $sum / $divider;
+
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                            <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                        </div>
+
+                                        <div class="driver-p" style="">
+                                            <p class="text-center " id="">
+                                                <?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <?php
+                            }
+                        }
+                        ?>
 
 
                     </div>
@@ -140,7 +316,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="col-md-6 col-md-offset-3">
                             <!-- Pagination -->
                             <div class="pagination-container margin-top-20 margin-bottom-40">
-                                <?php Drivers::showPaginationOfDrivers($setLimit, $page); ?>
+                                <?php // Drivers::showPaginationOfDrivers($setLimit, $page); ?>
                             </div>
                         </div>
                     </div>

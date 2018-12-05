@@ -9813,7 +9813,7 @@ section.fullwidth .listing-item-container.list-layout,
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50%; 
+    background-position: 50%;
     z-index: 100;
     cursor: pointer
 }
@@ -10062,7 +10062,7 @@ section.fullwidth .listing-item-container.list-layout,
     z-index: 9;
     position: relative;
     color: #f5cf00;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 #star-rating-fa{
     margin: 17px 10px 10px 10px;
@@ -10074,21 +10074,23 @@ section.fullwidth .listing-item-container.list-layout,
 
 .driver-name{
     position: absolute;
-    margin-top: -80px;
-    left: 150px;
+    margin-top: -87px;
+    left: 162px;
     z-index: 9999999;
     color: #fff;
     font-weight: 600;
+    font-size: 17px;
 }
 
-.driver-name:hover{
+
+/*.driver-name:hover{
     position: absolute;
     margin-top: -80px;
     left: 150px;
     z-index: 9999999;
     color: #fff;
     font-weight: 600;
-}
+}*/
 .star-rating .rating-counter {
     top: 0px;
     position: relative;

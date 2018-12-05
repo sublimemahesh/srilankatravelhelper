@@ -89,7 +89,7 @@ class Reviews {
 
         date_default_timezone_set('Asia/Colombo');
         $reviewedAt = date('Y-m-d H:i:s');
-        
+
         $query = "UPDATE  `reviews` SET "
                 . "`visitor` ='" . $this->visitor . "', "
                 . "`reviews` ='" . $this->reviews . "', "
@@ -134,7 +134,7 @@ class Reviews {
 
         return $array_res;
     }
-    
+
     public function getReviewsByTour($tour) {
 
         $query = "SELECT * FROM `reviews` WHERE `tour` = '" . $tour . "' ORDER BY `reviewedAt` ASC";
@@ -152,7 +152,7 @@ class Reviews {
 
         return $array_res;
     }
-    
+
     public function getReviewsByDestination($destination) {
 
         $query = "SELECT * FROM `reviews` WHERE `destination` = '" . $destination . "' ORDER BY `reviewedAt` ASC";
@@ -181,7 +181,7 @@ class Reviews {
 
         return $result;
     }
-    
+
     public function checkReviewsofTour($tour, $visitor) {
 
         $query = "SELECT * FROM `reviews` WHERE `tour` = '" . $tour . "' AND `visitor` = '" . $visitor . "' ORDER BY `reviewedAt` ASC";
@@ -192,7 +192,7 @@ class Reviews {
 
         return $result;
     }
-    
+
     public function checkReviewsofDestination($destination, $visitor) {
 
         $query = "SELECT * FROM `reviews` WHERE `destination` = '" . $destination . "' AND `visitor` = '" . $visitor . "' ORDER BY `reviewedAt` ASC";
@@ -203,7 +203,7 @@ class Reviews {
 
         return $result;
     }
-    
+
     public function getTotalReviewsOfDriver($driver) {
 
         $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `driver` = '" . $driver . "' ORDER BY `reviewedAt` ASC";
@@ -214,7 +214,7 @@ class Reviews {
 
         return $result;
     }
-    
+
     public function getTotalReviewsOfTour($tour) {
 
         $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `tour` = '" . $tour . "' ORDER BY `reviewedAt` ASC";
@@ -222,10 +222,10 @@ class Reviews {
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
-        
+
         return $result;
     }
-    
+
     public function getTotalReviewsOfDestination($destination) {
 
         $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `destination` = '" . $destination . "' ORDER BY `reviewedAt` ASC";
@@ -236,27 +236,45 @@ class Reviews {
 
         return $result;
     }
-    
+
     public function getTotalReviewsOfTourType($type) {
 
-        $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `tour` in(SELECT `id` from `tour_packages` WHERE `type` = '". $type ."')";
+        $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `tour` in(SELECT `id` from `tour_packages` WHERE `type` = '" . $type . "')";
 
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
-        
+
         return $result;
     }
-    
+
     public function getTotalReviewsOfDestinationType($type) {
 
-        $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `destination` in(SELECT `id` from `destination` WHERE `type` = '". $type ."')";
+        $query = "SELECT count(id) AS `count`, sum(reviews) AS `sum` FROM `reviews` WHERE `destination` in(SELECT `id` from `destination` WHERE `type` = '" . $type . "')";
 
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
 
         return $result;
+    }
+
+//    public function getDriversSortByReviews($pageLimit, $setLimit) {
+    public function getDriversSortByReviews() {
+
+//        $query = "SELECT `driver`, sum(reviews) AS `sum` FROM `reviews` GROUP BY `driver` ORDER BY sum(reviews) DESC  LIMIT " . $pageLimit . " , " . $setLimit . "";
+        $query = "SELECT `driver`, sum(reviews) AS `sum` FROM `reviews` GROUP BY `driver` ORDER BY sum(reviews) DESC ";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row['driver']);
+        }
+
+        return $array_res;
     }
 
 }

@@ -528,6 +528,20 @@ class Drivers {
         }
         return $array_res;
     }
+    
+    public function getDriversID() {
+        $query = "SELECT `id` FROM `driver`";
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            
+            array_push($array_res, $row['id']);
+        }
+        return $array_res;
+    }
 
     public function showPaginationOfDrivers($per_page, $page) {
 
