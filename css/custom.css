@@ -239,6 +239,9 @@
     width: 48%;
     color: #fff;
 }
+.driver-item.col-md-6 {
+    width: 48%;
+}
 .driver-item a {
     color: #fff;
 }
@@ -250,7 +253,7 @@
     border: 1px solid #f5cf00;
     background-color: #fff;
     margin: 0px 12px 10px 0px;
-    width: 48%;
+    /*width: 48%;*/
     color: #000;
 }
 .driver-item.selected {
@@ -292,7 +295,12 @@
     font-size: 12px;
 }
 .select-location input[type="text"] {
-    width: 90%;
+    width: 48%;
+    margin-right: 2%;
+}
+.booking-next .search-btn {
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 .searchbutton {
     content: 'images/searchicon.png';
@@ -628,6 +636,11 @@ input[type="text"].location-search-input {
         margin-right: 20px;
         width: auto;
     }
+    .driver-item.col-md-6 {
+
+        width: 100%;
+
+    }
 
 }
 
@@ -798,6 +811,7 @@ input[type="text"].location-search-input {
     position: relative;
     background-color: #2e7bc6 !important;
 }
+
 /*-------------Offer Booking -----------*/
 
 .offer-booking-box {
