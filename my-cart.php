@@ -98,7 +98,7 @@ if (isset($_SESSION['destination_cart'])) {
                                         </div>
                                         <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
                                             <div class="driver-name text-left">
-                                                <?php echo $DESTINATION->name; ?>
+                                                <?php if(strlen($DESTINATION->name) >18 ) {echo substr($DESTINATION->name,0,18).'...'; } else {echo $DESTINATION->name; } ?>
                                             </div>
                                             <div class="star-rating-fa">
                                                 <?php

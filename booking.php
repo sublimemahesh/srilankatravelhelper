@@ -142,21 +142,25 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 </div>
 
                             </div> 
-                            <div class="boxed-widget opening-hours">
+                            <div class="boxed-widget opening-hours <?php
+                            if ($tailormade == '') {
+                                echo 'hidden';
+                            };
+                            ?>">
 
                                 <h3>Selected Destinations</h3>
-                            <ul>
-                                <?php
-                                foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
-                                    $DESTINATION = new Destination($cartitem);
-                                    ?>
-                                    <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                                <ul>
                                     <?php
-                                }
-                                ?>
+                                    foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
+                                        $DESTINATION = new Destination($cartitem);
+                                        ?>
+                                        <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                                        <?php
+                                    }
+                                    ?>
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-md-9">
                             <div class="col-md-12 booking-section">
@@ -181,23 +185,157 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                         <div class="location col-md-10 col-xs-12 col-md-offset-1">
                                             <div class="select-location col-md-12">
-                                                <label>Select Location</label>
-                                                <input type="text" name="name" id="myInput" onkeyup="myFunction()" placeholder="Search for location.." title="Type in a name" class="form-control" autocomplete="off"/>
-                                                <a href="#"><div class="searchbutton"><img src="images/searchicon.png" alt=""/></div></a>
-                                                <input type="hidden" id="cityid" name="id" value="" >
-                                                <ul id="myUL" class="hidden">
-                                                    <?php
-                                                    foreach (City::all() as $city) {
-                                                        ?>
-                                                        <li class="city" cityid="<?php echo $city['id']; ?>"><a href="#"><?php echo $city['name']; ?></a></li>
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                <label class="col-md-6">Driver Name</label>
+                                                <label class="col-md-6">City</label>
+                                                <!--<input type="text" name="name" id="myInput" onkeyup="myFunction()" placeholder="Search for location.." title="Type in a name" class="form-control" autocomplete="off"/>-->
+                                                <input type="text" id="drivername" class="form-control col-md-6" placeholder="Enter driver name" name="drivername" required="TRUE">
+                                                <input type="text" id="autocomplete" class="form-control col-md-6" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
+                                                <input type="hidden" name="city" id="city"  value=""/>
+                                                <input type="hidden" name="cityname" id="cityname"  value=""/>
+                                                <div class="row booking-next text-center">
+                                                    <button class="btn search-btn" id="">Search</button>
+                                                </div>
+                                                            <!--<a href="#"><div class="searchbutton"><img src="images/searchicon.png" alt=""/></div></a>-->
+                                                            <!--<input type="hidden" id="cityid" name="id" value="" >-->
 
-                                                </ul>
                                             </div>
                                             <div class="select-driver col-md-12">
+                                                <?php
+                                                $SORTOFDRIVERS = Reviews::getDriversSortByReviews();
+                                                foreach ($SORTOFDRIVERS as $key => $sortdriver) {
 
+                                                    if ($sortdriver != 0) {
+                                                        $DRIVER = new Drivers($sortdriver);
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
+
+                                                        $divider1 = $REVIEWS['count'];
+                                                        $sum1 = $REVIEWS['sum'];
+                                                        if ($divider1 == 0) {
+                                                            $stars1 = 0;
+                                                            $sum1 = 0;
+                                                        } else {
+                                                            $stars1 = $sum1 / $divider1;
+                                                        }
+                                                        ?>
+
+                                                        <a href="#">
+                                                            <div class="driver-item driver-item-<?php echo $DRIVER->id; ?> col-md-6 col-xs-12" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                                <div class="col-md-4 col-xs-12">
+                                                                    <?php
+                                                                    if (empty($DRIVER->profile_picture)) {
+                                                                        ?>
+                                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                                        <?php
+                                                                    } else {
+                                                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                                            ?>
+                                                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
+                                                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt=""/>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="col-md-8 col-xs-12">
+                                                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
+                                                                        <div class="drivername">
+                                                                            <?php echo $DRIVER->name; ?>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="star-rate">
+                                                                        <?php
+                                                                        for ($i = 1; $i <= $stars1; $i++) {
+                                                                            echo '<i class="fa fa-star"></i>';
+                                                                        }
+                                                                        for ($j = $i; $j <= 5; $j++) {
+                                                                            echo '<i class="fa fa-star-o"></i>';
+                                                                        }
+                                                                        ?>
+                                                                        <span class="reviews"> (<?php echo $sum1; ?> Reviews)</span>
+                                                                    </div>
+                                                                    <div class="drivercity">
+                                                                        City: <?php echo $DRIVER->cityname; ?>
+                                                                    </div>
+                                                                    <div class="drivercity">
+                                                                        Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <?php
+                                                    }
+                                                }
+                                                $ALLDRIVERS = Drivers::getDriversID();
+                                                foreach ($ALLDRIVERS as $key => $driverid) {
+                                                    if (!in_array($driverid, $SORTOFDRIVERS)) {
+                                                        $DRIVER = new Drivers($driverid);
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
+
+                                                        $divider1 = $REVIEWS['count'];
+                                                        $sum1 = $REVIEWS['sum'];
+                                                        if ($divider1 == 0) {
+                                                            $stars1 = 0;
+                                                            $sum1 = 0;
+                                                        } else {
+                                                            $stars1 = $sum1 / $divider1;
+                                                        }
+                                                        ?>
+                                                        <a href="#">
+                                                            <div class="driver-item driver-item-<?php echo $DRIVER->id; ?> col-md-6 col-xs-12" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                                <div class="col-md-4 col-xs-12">
+                                                                    <?php
+                                                                    if (empty($DRIVER->profile_picture)) {
+                                                                        ?>
+                                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                                        <?php
+                                                                    } else {
+                                                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                                            ?>
+                                                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
+                                                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt=""/>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="col-md-8 col-xs-12">
+                                                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
+                                                                        <div class="drivername">
+                                                                            <?php echo $DRIVER->name; ?>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="star-rate">
+                                                                        <?php
+                                                                        for ($i = 1; $i <= $stars1; $i++) {
+                                                                            echo '<i class="fa fa-star"></i>';
+                                                                        }
+                                                                        for ($j = $i; $j <= 5; $j++) {
+                                                                            echo '<i class="fa fa-star-o"></i>';
+                                                                        }
+                                                                        ?>
+                                                                        <span class="reviews"> (<?php echo $sum1; ?> Reviews)</span>
+                                                                    </div>
+                                                                    <div class="drivercity">
+                                                                        City: <span class="cityname" id="cityname-<?php echo $DRIVER->id; ?>" cityid=""></span>
+                                                                    </div>
+                                                                    <div class="drivercity">
+                                                                        Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -227,9 +365,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     </div>
                                     <div class="row">
                                         <h3 class="<?php echo $tailormade; ?>">Tour Package Booking Details</h3>
-                                        <h3 class="<?php if ($tailormade == '') {
-                                                        echo 'hidden';
-                                                    }; ?>">Tailor-Made Tour Booking Details</h3>
+                                        <h3 class="<?php
+                                        if ($tailormade == '') {
+                                            echo 'hidden';
+                                        };
+                                        ?>">Tailor-Made Tour Booking Details</h3>
 
                                         <div class="your-details col-md-10 col-md-offset-1">
                                             <div class="col-md-6">
@@ -263,11 +403,13 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             <input type="hidden" name="places" id="places" value="<?php echo $places; ?>" />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
                                             <input type="hidden" name="selected-driver" id="selected-driver" value="" />
-                                            <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php if ($tailormade == 'hidden') {
-                                                        echo 'tailormade';
-                                                    } else {
-                                                        echo 'tourpackge';
-                                                    } ?>" />
+                                            <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php
+                                            if ($tailormade == 'hidden') {
+                                                echo 'tailormade';
+                                            } else {
+                                                echo 'tourpackge';
+                                            }
+                                            ?>" />
                                             <button class="btn btn-submit">Book Now <i class="fa fa-angle-double-right"></i></button>
                                         </div>
                                     </div>
@@ -284,8 +426,10 @@ $VISITOR = new Visitor($_SESSION['id']);
                     </div>
                 </div>
             </section>
-<?php include './footer.php'; ?>
+            <div id="map"></div>
+            <?php include './footer.php'; ?>
         </div>
+
     </body>
     <!-- Scripts
      ================================================== -->
@@ -307,46 +451,101 @@ $VISITOR = new Visitor($_SESSION['id']);
     <script src="scripts/booking.js" type="text/javascript"></script>
 
     <script>
-                                                    $(function () {
-                                                        $("#startdate").datepicker({dateFormat: "yy-mm-dd"}).val()
-                                                        $("#enddate").datepicker({dateFormat: "yy-mm-dd"}).val()
-                                                    });
+                                                                $(function () {
+                                                                    $("#startdate").datepicker({dateFormat: "yy-mm-dd"}).val()
+                                                                    $("#enddate").datepicker({dateFormat: "yy-mm-dd"}).val()
+                                                                });
+                                                                function selectItem(id) {
+                                                                    $('.driver-item').removeClass('selected');
+                                                                    $('.driver-item-' + id).addClass('selected');
+
+                                                                    $('#selected-driver').val(id);
+                                                                }
     </script>
     <script>
+        var placeSearch, autocomplete;
 
-        function myFunction() {
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: {country: "lk"}
+            };
+            var input = document.getElementById('autocomplete');
 
-            $('#myUL').removeClass('hidden');
+            autocomplete = new google.maps.places.Autocomplete(input, options);
 
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("myUL");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+            $('#city').val(place.place_id);
+            $('#cityname').val(place.name);
+//                $('#longitude').val(place.geometry.location.lng());
+//                $('#latitude').val(place.geometry.location.lat());
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+        }
+
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
             }
         }
-        $('.city').click(function () {
-            var name = $(this).text();
-            var id = $(this).attr('cityid');
-            $('#myInput').val(name);
-            $('#cityid').val(id);
-            $('#myUL').addClass('hidden');
-
-        });
-        function selectItem(id) {
-            $('.driver-item').removeClass('selected');
-            $('.driver-item-' + id).addClass('selected');
-
-            $('#selected-driver').val(id);
-        }
     </script>
+    <script>
+        // Retrieve Details from Place_ID
+        function initMap() {
+            setTimeout(function () {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -33.866, lng: 151.196},
+                    zoom: 15
+                });
+
+                var infowindow = new google.maps.InfoWindow();
+                var service = new google.maps.places.PlacesService(map);
+                var place_id = $('#city').val();
+                service.getDetails({
+                    placeId: place_id
+                }, function (place, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+//                        alert(place.name);
+                        $('#autocomplete').val(place.name);
+                    }
+                });
+            }, 1000);
+        }
+
+        $(document).ready(function () {
+            initMap();
+        });
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+    async defer></script>
 
 </html>
 

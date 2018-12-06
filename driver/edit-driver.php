@@ -107,6 +107,7 @@ if (isset($_GET['id'])) {
                                         <label>City</label>
                                         <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
                                                     <input type="hidden" name="cityid" id="city"  value="<?php echo $DRIVER->city; ?>"/>
+                                                    <input type="hidden" name="cityname" id="cityname"  value="<?php echo $DRIVER->cityname; ?>"/>
 <!--                                        <input type="text" name="cityid" id="cityid" onkeyup="myFunction()" class="form-control" placeholder="Enter City" value="<?php echo $CITY->name; ?>" />
                                         <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />-->
                                         
@@ -218,7 +219,7 @@ if (isset($_GET['id'])) {
                 // Get the place details from the autocomplete object.
                 var place = autocomplete.getPlace();
                 $('#city').val(place.place_id);
-//                $('#cityname').val(place.name);
+                $('#cityname').val(place.name);
 //                $('#longitude').val(place.geometry.location.lng());
 //                $('#latitude').val(place.geometry.location.lat());
                 for (var component in componentForm) {

@@ -19,6 +19,7 @@ class Drivers {
     public $email;
     public $address;
     public $city;
+    public $cityname;
     public $contact_number;
     public $nic_number;
     public $driving_licence_number;
@@ -42,6 +43,7 @@ class Drivers {
                     . "`email`,"
                     . "`address`,"
                     . "`city`,"
+                    . "`city_name`,"
                     . "`contact_number`,"
                     . "`nic_number`,"
                     . "`driving_licence_number`,"
@@ -67,6 +69,7 @@ class Drivers {
             $this->email = $result['email'];
             $this->address = $result['address'];
             $this->city = $result['city'];
+            $this->cityname = $result['city_name'];
             $this->contact_number = $result['contact_number'];
             $this->nic_number = $result['nic_number'];
             $this->driving_licence_number = $result['driving_licence_number'];
@@ -132,6 +135,7 @@ class Drivers {
                 . "`email` ='" . $this->email . "', "
                 . "`address` ='" . $this->address . "', "
                 . "`city` ='" . $this->city . "', "
+                . "`city_name` ='" . $this->cityname . "', "
                 . "`contact_number` ='" . $this->contact_number . "', "
                 . "`nic_number` ='" . $this->nic_number . "', "
                 . "`driving_licence_number` ='" . $this->driving_licence_number . "', "
@@ -438,10 +442,58 @@ class Drivers {
         }
     }
 
-    public function getDriverByCity($city) {
+    public function getDriverByCityNameAndReviews($city, $name) {
 
-        $query = "SELECT * FROM `driver` WHERE `city` = '" . $city . "' ORDER BY `id` ASC";
+        $w = array();
+        $where = '';
 
+        if (!empty($city)) {
+            $w[] = "a.city = '" . $city . "'";
+        }
+        if (!empty($name)) {
+            $w[] = "a.name like '%" . $name . "%'";
+        }
+        if (count($w)) {
+            $where = 'WHERE ' . implode(' AND ', $w);
+        }
+
+//        $query = "SELECT * FROM `driver` $where  ORDER BY `id` ASC";
+//        $query = "SELECT * FROM `driver` WHERE `id` IN (SELECT `driver` FROM `reviews` WHERE `driver` IN (SELECT `id` FROM `driver` $where) GROUP BY `driver` ORDER BY sum(reviews))";
+        $query = "SELECT driver FROM (SELECT `driver`, `name` ,`city`, sum(reviews) FROM `driver` inner join `reviews` on driver.id = reviews.driver GROUP BY `driver` ORDER BY sum(reviews) DESC ) a $where";
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+        $arr = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            $res = new Drivers($row['driver']);
+            $reviews = Reviews::getTotalReviewsOfDriver($row['driver']);
+            $arr['driverdetails'] = $res;
+            $arr['reviews'] = $reviews;
+
+            array_push($array_res, $arr);
+        }
+        return $array_res;
+    }
+
+    public function getDriverByCityAndName($city, $name) {
+
+        $w = array();
+        $where = '';
+
+        if (!empty($city)) {
+            $w[] = "`city` = '" . $city . "'";
+        }
+        if (!empty($name)) {
+            $w[] = "`name` like '%" . $name . "%'";
+        }
+        if (count($w)) {
+            $where = 'AND ' .implode(' AND ', $w);
+        }
+
+        $query = "SELECT * FROM `driver` WHERE `id` NOT IN (SELECT distinct(`driver`) FROM `reviews`) $where";
+        
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -528,7 +580,7 @@ class Drivers {
         }
         return $array_res;
     }
-    
+
     public function getDriversID() {
         $query = "SELECT `id` FROM `driver`";
         $db = new Database();
@@ -537,7 +589,7 @@ class Drivers {
         $array_res = array();
 
         while ($row = mysql_fetch_array($result)) {
-            
+
             array_push($array_res, $row['id']);
         }
         return $array_res;
