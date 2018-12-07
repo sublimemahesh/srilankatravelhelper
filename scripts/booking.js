@@ -112,6 +112,7 @@ $(document).ready(function () {
             var message = $('#booking-msg').val();
             var tailormadetour = $('#tailormadetour').val();
             var places = $('#places').val();
+            alert(places);
 
             if (tailormadetour == 'tourpackge') {
                 $.ajax({
