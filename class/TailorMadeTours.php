@@ -1363,7 +1363,7 @@ class TailorMadeTours {
         $MESSAGE->sender = 'driver';
         $result = $MESSAGE->create();
 
-        return TRUE;
+        return $result;
 
     }
 
