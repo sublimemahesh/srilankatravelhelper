@@ -35,6 +35,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/blog.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <link href="css/read-more-less.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -67,7 +68,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                     <h3>Unanswered Questions</h3>
                                 </div>
                                 <div class="ask-btn">
-                                    <a href="#qu-form" class="btn btn-heading" id="ask-btn">Ask Question</a>
+                                    <a href="ask-a-question.php" class="btn btn-heading" id="ask-btn">Ask Question</a>
                                 </div>
                             </div>
 
@@ -132,17 +133,22 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                         </div>
                                         <div class="description col-md-9 col-xs-9">
                                             <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
-                                            <span class="qu-description"><?php
-                                                if (strlen($question['question']) > 225) {
-                                                    echo substr($question['question'], 0, 225) . '...';
-                                                } else {
-                                                    echo $question['question'];
-                                                }
-                                                ?></span>
+                                            <span class="qu-description">
+                                                <span class="more">
+                                                    <?php echo $question['question']; ?>
+                                                </span>
+                                            </span>
                                         </div>
                                         <div class="asked-by col-md-2 col-xs-12">
-                                            
-                                            <div class="col-md-12">
+                                            <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i">Location</span><br />
+
+                                            <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($question['askedAt'], 0, 10); ?></span>
+
+                                            <div class="col-md-12 time-ago">
+                                                asked <?php echo $result; ?>
+                                            </div>
+                                            <div class="col-md-12 blog-profile">
+                                                <div class="col-md-4">
                                                 <?php
                                                 if (empty($POSITION->profile_picture)) {
                                                     ?>
@@ -160,14 +166,12 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                                     }
                                                 }
                                                 ?>
-                                                <!--<img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
+                <!--<img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
                                             </div>
-                                            <div class="col-md-12 time-ago">
-                                                asked <?php echo $result; ?>
-                                            </div>
-                                            <div class="col-md-12 asked-by-blog">
-                                                <?php echo $POSITION->name; ?><br />
+                                            <div class="col-md-8 asked-by-blog">
+                                                <span class="qu-name"><?php echo $POSITION->name; ?></span><br />
                                                 <?php echo $question['position']; ?>
+                                            </div>
                                             </div>
                                         </div>
 
@@ -207,16 +211,14 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                         </div>
                                         <div class="description col-md-9 col-xs-9">
                                             <span class="qu-subject"><a href="view-question.php?id=<?php echo $question['id']; ?>"><?php echo $question['subject']; ?></a></span><br />
-                                            <span class="qu-description"><?php
-                                                if (strlen($question['question']) > 225) {
-                                                    echo substr($question['question'], 0, 225) . '...';
-                                                } else {
-                                                    echo $question['question'];
-                                                }
-                                                ?></span>
+                                            <span class="qu-description">
+                                                <span class="more">
+                                                    <?php echo $question['question']; ?>
+                                                </span>
+                                            </span>
                                         </div>
                                         <div class="asked-by col-md-2 col-xs-12">
-                                            
+
                                             <div class="col-md-12">
                                                 <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>
                                             </div>
@@ -237,19 +239,6 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                 <?php
                             }
                             ?>
-                        </div>
-                        <div class="qu-form" id="qu-form">
-                            <h3>Ask A Question</h3>
-                            <div class="panel panel-default">
-
-                                <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject" autocomplete="off"/>
-                                <textarea class="form-control" name="question" id="qu" required placeholder="Enter Question"></textarea>
-                                <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
-                                <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
-                                <input type="submit" class="btn btn-heading" name="btn-submit" id="btn-submit" value="POST"/>
-
-                            </div>
-
                         </div>
 
                     </div>
@@ -306,7 +295,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <?php
 
             function getAskedTime($datetime) {
-                
+
 
                 date_default_timezone_set('Asia/Colombo');
                 $today = new DateTime(date("Y-m-d"));
@@ -334,7 +323,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                         }
                     }
                 } elseif ($datediff == 1 && $time1 > $todaytime) {
-                    
+
                     $t = $todaytime->diff($time1);
                     $timediff1 = $t->format('%h:%i:%s');
                     $time3 = new DateTime('24:00:00');
@@ -346,16 +335,15 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                     $diff = $datediff . ' day ago';
                 } elseif ($datediff > 30) {
                     $month = round($datediff / 30);
-                    
+
                     if ($month >= 12) {
-                        
+
                         $year = round($month / 12);
                         if ($year == 1) {
                             $diff = $year . ' year ago';
                         } else {
                             $diff = $year . ' years ago';
                         }
-                        
                     } elseif ($month == 1) {
                         $diff = $month . ' month ago';
                     } else {
@@ -363,7 +351,6 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                     }
                 }
                 return $diff;
-
             }
             ?>
 
@@ -392,6 +379,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <script src="scripts/signup.js" type="text/javascript"></script>
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="scripts/blog.js" type="text/javascript"></script>
+        <script src="scripts/read-more-less.js" type="text/javascript"></script>
         <script>
             tinymce.init({
                 selector: "#qu",

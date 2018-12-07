@@ -73,7 +73,7 @@ $askedAt = getAskedTime($Question->askedAt);
                                     <h3><?php echo $Question->subject; ?></h3>
                                 </div>
                                 <div class="ask-btn">
-                                    <a href="blog.php" class="btn btn-heading" id="ask-btn">Ask Question</a>
+                                    <a href="ask-a-question.php" class="btn btn-heading" id="ask-btn">Ask Question</a>
                                 </div>
                             </div>
                             <div class="row">
@@ -82,33 +82,38 @@ $askedAt = getAskedTime($Question->askedAt);
                         </div>
 
                         <div class="col-md-12">
-                            <div class="view-qu asked-by col-md-2 col-xs-2">
-                                <div class="col-md-12">
-                                    <!--<img src="upload/<?php echo $Question->position; ?>/<?php // echo $POSITION->profile_picture; ?>" alt=""/>-->
-                                    <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
-                                                    <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
-                                                        ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $Question->position; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                </div>
+                            <div class="view-qu asked-by col-md-2 col-xs-12">
+                                <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i">Location</span><br />
+
+                                <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($Question->askedAt, 0, 10); ?></span>
+
                                 <div class="col-md-12 time-ago">
-                                    <div class="time-ago">
-                                        asked <?php echo $askedAt; ?>
+                                    asked <?php echo $askedAt; ?>
+                                </div>
+                                <div class="col-md-12 blog-profile">
+                                    <div class="col-md-4">
+                                        <?php
+                                        if (empty($POSITION->profile_picture)) {
+                                            ?>
+                                            <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                            <?php
+                                        } else {
+                                            if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                ?>
+                                                <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img src="upload/<?php echo $Question->position; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </div>
-                                    <?php echo $POSITION->name; ?><br />
-                                    <?php echo $Question->position; ?>
+                                    <div class="col-md-8 asked-by-blog">
+                                        <span class="qu-name"><?php echo $POSITION->name; ?></span><br />
+                                        <?php echo $Question->position; ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="question col-md-10 col-xs-10">
@@ -153,23 +158,23 @@ $askedAt = getAskedTime($Question->askedAt);
                                             <div class="view-qu asked-by col-md-2 hidden-xs">
                                                 <div class="col-md-12">
                                                     <!--<img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
-                                                <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                     <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                    if (empty($POSITION->profile_picture)) {
                                                         ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                         <?php
                                                     } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
+                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </div>
 
                                                 <div class="col-md-12 time-ago">
@@ -192,23 +197,23 @@ $askedAt = getAskedTime($Question->askedAt);
                                             </div>
                                             <div class="view-qu asked-by col-md-2 col-xs-7 col-xs-offset-5 hidden-lg hidden-md- hidden-sm">
                                                 <div class="col-md-12">
-                                                 <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                     <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                    if (empty($POSITION->profile_picture)) {
                                                         ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                         <?php
                                                     } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
+                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </div>
 
                                                 <div class="col-md-12 time-ago">
@@ -246,23 +251,23 @@ $askedAt = getAskedTime($Question->askedAt);
                                                         <div class="col-md-3 col-md-offset-0 col-xs-7 col-xs-offset-5">
                                                             <div class="view-qu asked-by">
                                                                 <div class="col-md-12">
-                                                                   <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
-                                                    <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
-                                                        ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $comment['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
+                                                                    <?php
+                                                                    if (empty($POSITION->profile_picture)) {
+                                                                        ?>
+                                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                                        <?php
+                                                                    } else {
+                                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                                            ?>
+                                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
+                                                                            <img src="upload/<?php echo $comment['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </div>
                                                                 <div class="col-md-12 time-ago">
                                                                     <div class="time-ago">
@@ -303,22 +308,22 @@ $askedAt = getAskedTime($Question->askedAt);
 
                                                 <div class="col-md-12">
                                                     <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
-                                                    <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                    if (empty($POSITION->profile_picture)) {
                                                         ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                         <?php
                                                     } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
+                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </div>
 
                                                 <div class="col-md-12 time-ago">
@@ -336,23 +341,23 @@ $askedAt = getAskedTime($Question->askedAt);
                                             </div>
                                             <div class="view-qu asked-by col-md-2 col-xs-7 col-xs-offset-5 hidden-lg hidden-md- hidden-sm">
                                                 <div class="col-md-12">
-                                                <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                     <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                    if (empty($POSITION->profile_picture)) {
                                                         ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                         <?php
                                                     } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
+                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/<?php echo $answer['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </div>
 
                                                 <div class="col-md-12 time-ago">
