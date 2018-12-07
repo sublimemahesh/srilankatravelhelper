@@ -22,15 +22,15 @@ if (isset($_POST['set-price'])) {
             $sendmessage = $BOOKING->sendSetPriceMessageToVisitor($result->id);
 
             if ($sendmessage) {
-                $VISITOR = new Visitor($RESULT->visitor);
-                $DRIVER = new Drivers($RESULT->driver);
+                $VISITOR = new Visitor($sendmessage->visitor);
+                $DRIVER = new Drivers($sendmessage->driver);
 
                 $driver_name = $DRIVER->name;
                 $driver_image_name = $DRIVER->profile_picture;
-                $message = $RESULT->messages;
-                $datetime = $RESULT->date_and_time;
+                $message = $sendmessage->messages;
+                $datetime = $sendmessage->date_and_time;
                 $visitor_email = $VISITOR->email;
-                $driver_id = $RESULT->driver;
+                $driver_id = $sendmessage->driver;
                 $site_link = "http://" . $_SERVER['HTTP_HOST'];
                 $website_name = 'www.toursrilanka.travel';
                 $comany_name = 'Tour Sri Lanka';
@@ -232,7 +232,9 @@ if (isset($_POST['set-price'])) {
                             </body>
                         </html>';
 
-                mail($visitor_email, $subject, $html, $headers);
+                if(mail($visitor_email, $subject, $html, $headers)) {
+                    return true;
+                }
             }
         }
 
