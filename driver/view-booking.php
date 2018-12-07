@@ -86,6 +86,10 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                         <div class="col-md-9"><?php echo $BOOKING->no_of_children; ?></div> 
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-3 title">Price</div>
+                                        <div class="col-md-9"><?php echo 'USD ' . $BOOKING->price; ?></div> 
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-3 title">Status</div>
                                         <div class="col-md-9"><?php echo ucwords($BOOKING->status); ?></div> 
                                     </div>
@@ -100,6 +104,7 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                     ?>">
                                         <a href="manage-active-bookings.php" class="btn btn-info">Back</a> 
                                         <a href="#" class="btn btn-danger cancel-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
+                                        <a href="set-price-for-booking.php?id=<?php echo $BOOKING->id; ?>" class="btn btn-warning">Set Price</a> 
                                     </div>
                                     <div class="btn col-md-12 <?php
                                     if ($BOOKING->status === 'active') {
@@ -119,9 +124,9 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                 </div>
 
             </div>
-<?php
-include './footer.php';
-?>
+            <?php
+            include './footer.php';
+            ?>
         </div>
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
@@ -141,7 +146,7 @@ include './footer.php';
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
                 } else {
-                    var contentheight = $(window).height()+ 300;
+                    var contentheight = $(window).height() + 300;
                     $('.content').css('height', contentheight);
                 }
             });

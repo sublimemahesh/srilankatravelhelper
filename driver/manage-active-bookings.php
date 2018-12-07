@@ -92,7 +92,8 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                         <a href="view-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
                                                         <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
                                                             <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
-                                                        </a>  
+                                                        </a>   |
+                                                        <a href="set-price-for-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
                                                         
                                                     </td>
                                                 </tr>

@@ -87,6 +87,10 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                         <div class="col-md-9"><?php echo $BOOKING->no_of_children; ?></div> 
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-3 title">Price</div>
+                                        <div class="col-md-9"><?php echo 'USD '.$BOOKING->price; ?></div> 
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-3 title">Status</div>
                                         <div class="col-md-9"><?php echo ucwords($BOOKING->status); ?></div> 
                                     </div>
@@ -101,6 +105,7 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                     ?>">
                                         <a href="manage-active-bookings.php" class="btn btn-info">Back</a> 
                                         <a href="#" class="btn btn-danger cancel-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
+                                    
                                     </div>
                                     <div class="btn col-md-12 <?php
                                     if ($BOOKING->status === 'active') {
