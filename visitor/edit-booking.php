@@ -69,6 +69,10 @@ $DRIVER = new Drivers($BOOKING->driver);
                                         <input type="text" name="driver" id="driver" class="form-control" placeholder="Enter Driver" value="<?php echo $DRIVER->name; ?>" disabled="" />
                                     </div>
                                     <div class="row form-data">
+                                        <label>Price</label>
+                                        <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo 'USD '.$BOOKING->price; ?>" disabled="" />
+                                    </div>
+                                    <div class="row form-data">
                                         <label>Start Date</label>
                                         <input type="text" name="start_date" id="start_date" class="form-control" placeholder="Enter Start Date" value="<?php echo $BOOKING->start_date; ?>" />
                                     </div>

@@ -290,7 +290,7 @@ class TailorMadeTours {
 
         foreach ($places as $place) {
             $DESTINATION = new Destination($place);
-            $destination_list += '<li>' . $DESTINATION->name . '</li>';
+            $destination_list .= '<li>' . $DESTINATION->name . '</li>';
         }
 
 
@@ -578,7 +578,7 @@ class TailorMadeTours {
 
         foreach ($places as $place) {
             $DESTINATION = new Destination($place);
-            $destination_list += '<li>' . $DESTINATION->name . '</li>';
+            $destination_list .= '<li>' . $DESTINATION->name . '</li>';
         }
 
         $html = '<!DOCTYPE html>
@@ -840,7 +840,7 @@ class TailorMadeTours {
 
         foreach ($places as $place) {
             $DESTINATION = new Destination($place);
-            $destination_list += '<li>' . $DESTINATION->name . '</li>';
+            $destination_list .= '<li>' . $DESTINATION->name . '</li>';
         }
 
         $html = '<!DOCTYPE html>
@@ -1128,7 +1128,7 @@ class TailorMadeTours {
 
         foreach ($places as $place) {
             $DESTINATION = new Destination($place);
-            $destination_list += '<li>' . $DESTINATION->name . '</li>';
+            $destination_list .= '<li>' . $DESTINATION->name . '</li>';
         }
 
 
@@ -1266,7 +1266,7 @@ class TailorMadeTours {
                                 </tr>
                                 <tr>
                                     <td>Selected Destinations</td>
-                                    <td>: <ul>' . $destination_list . '</ul></td>
+                                    <td>:<ul>' . $destination_list . '</ul></td>
                                 </tr>
                                 <tr>
                                     <td>Start Date</td>

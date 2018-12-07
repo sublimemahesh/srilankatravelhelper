@@ -112,7 +112,7 @@ $(document).ready(function () {
             var message = $('#booking-msg').val();
             var tailormadetour = $('#tailormadetour').val();
             var places = $('#places').val();
-            alert(places);
+            var price = $('#price').val();
 
             if (tailormadetour == 'tourpackge') {
                 $.ajax({
@@ -129,6 +129,7 @@ $(document).ready(function () {
                         startdate: startdate,
                         enddate: enddate,
                         message: message,
+                        price: price,
                         option: 'ADDDETAILS'
                     },
                     success: function (result) {

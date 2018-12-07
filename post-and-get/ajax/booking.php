@@ -13,6 +13,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $BOOKING->start_date = $_POST['startdate'];
     $BOOKING->end_date = $_POST['enddate'];
     $BOOKING->message = $_POST['message'];
+    $BOOKING->price = $_POST['price'];
     
     $result = $BOOKING->create();
     

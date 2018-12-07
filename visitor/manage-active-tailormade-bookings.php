@@ -72,7 +72,6 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         <tbody>
 
                                             <?php
-                                            $i = 0;
                                             foreach (TailorMadeTours::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
                                                 $DRIVER = new Drivers($booking['driver']);
                                                 

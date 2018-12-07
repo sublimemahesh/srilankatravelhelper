@@ -25,8 +25,8 @@ if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'booking') {
         $_SESSION["back_url"] = 'http://www.toursrilanka.travel/booking.php?tour=' . $tour;
     } elseif (isset($_GET['tailormade'])) {
-//        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/booking.php?tailormade';
-        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/booking.php?tailormade';
+        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/booking.php?tailormade';
+//        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/booking.php?tailormade';
     }
     redirect('visitor/index.php?message=24');
 }
@@ -400,6 +400,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         </div>
                                         <div class="booking-next col-md-6 col-xs-6">
                                             <input type="hidden" name="tour" id="tour" value="<?php echo $tour; ?>" />
+                                            <input type="hidden" name="price" id="price" value="<?php echo $TOUR->price; ?>" />
                                             <input type="hidden" name="places" id="places" value='<?php echo $places; ?>' />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
                                             <input type="hidden" name="selected-driver" id="selected-driver" value="" />
