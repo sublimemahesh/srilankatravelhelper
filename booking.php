@@ -400,7 +400,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         </div>
                                         <div class="booking-next col-md-6 col-xs-6">
                                             <input type="hidden" name="tour" id="tour" value="<?php echo $tour; ?>" />
-                                            <input type="hidden" name="places" id="places" value="<?php echo $places; ?>" />
+                                            <input type="hidden" name="places" id="places" value='<?php echo $places; ?>' />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
                                             <input type="hidden" name="selected-driver" id="selected-driver" value="" />
                                             <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php
