@@ -75,7 +75,7 @@ $DISTINCTDRIVERS = DriverAndVisitorMessages::getDistinctDriversByVisitorId($visi
                                         <?php
                                         if (empty($VISITOR->profile_picture)) {
                                             ?> 
-                                        <img id="profile-img" src="../upload/driver/driver.png" class="online" alt="" />
+                                            <img id="profile-img" src="../upload/driver/driver.png" class="online" alt="" />
                                             <?php
                                         } else {
 
@@ -83,7 +83,7 @@ $DISTINCTDRIVERS = DriverAndVisitorMessages::getDistinctDriversByVisitorId($visi
                                                 ?>
                                                 <img id="profile-img" src="<?php echo $VISITOR->profile_picture; ?>" class="online" alt="" />
                                                 <?php
-                                            }  else {
+                                            } else {
                                                 ?>
                                                 <img id="profile-img" src="../upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="online" alt="" />
                                                 <?php
@@ -209,7 +209,7 @@ $DISTINCTDRIVERS = DriverAndVisitorMessages::getDistinctDriversByVisitorId($visi
                                                 ?>
                                                 <img src="<?php echo $DRI->profile_picture; ?>" alt = "" />
                                                 <?php
-                                            }  else {
+                                            } else {
                                                 ?>
                                                 <img src = "../upload/driver/<?php echo $DRI->profile_picture; ?>" alt = ""/>
                                                 <?php
@@ -361,29 +361,29 @@ $DISTINCTDRIVERS = DriverAndVisitorMessages::getDistinctDriversByVisitorId($visi
             </div>
             <?php
 
-        function change_time($input_time) {
+            function change_time($input_time) {
 
-            $hours = substr($input_time, 0, 2);
-            $mins = substr($input_time, 3, 2);
+                $hours = substr($input_time, 0, 2);
+                $mins = substr($input_time, 3, 2);
 
-            if (($hours >= 12) && ($hours <= 24)) {
-                if (($hours == 24)) {
-                    $new_hour = "00";
-                    $part = "AM";
-                } else if ($hours == 12) {
-                    $new_hour = $hours;
-                    $part = "PM";
+                if (($hours >= 12) && ($hours <= 24)) {
+                    if (($hours == 24)) {
+                        $new_hour = "00";
+                        $part = "AM";
+                    } else if ($hours == 12) {
+                        $new_hour = $hours;
+                        $part = "PM";
+                    } else {
+                        $new_hour = $hours - 12;
+                        $part = "PM";
+                    }
                 } else {
-                    $new_hour = $hours - 12;
-                    $part = "PM";
+                    $new_hour = $hours;
+                    $part = "AM";
                 }
-            } else {
-                $new_hour = $hours;
-                $part = "AM";
+                return $new_hour . ":" . $mins . " " . $part;
             }
-            return $new_hour . ":" . $mins . " " . $part;
-        }
-        ?>
+            ?>
             <?php
             include './footer.php';
             ?>
@@ -401,8 +401,8 @@ $DISTINCTDRIVERS = DriverAndVisitorMessages::getDistinctDriversByVisitorId($visi
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var contentheight = $(window).height() + 100;
+                    var navigationheight = $(window).height() + 25;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

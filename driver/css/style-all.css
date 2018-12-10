@@ -383,7 +383,9 @@ a:hover {
 #myUL li a:hover:not(.header) {
     background-color: #eee;
 }
-
+.icon-text.icon-text1 {
+    padding: 10px 5px;
+}
 
 
 

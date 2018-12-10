@@ -140,7 +140,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                             </span>
                                         </div>
                                         <div class="asked-by col-md-2 col-xs-12">
-                                            <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i">Location</span><br />
+                                            <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i"><?php echo $question['location']; ?></span><br />
 
                                             <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($question['askedAt'], 0, 10); ?></span>
 
@@ -149,29 +149,29 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                             </div>
                                             <div class="col-md-12 blog-profile">
                                                 <div class="col-md-4">
-                                                <?php
-                                                if (empty($POSITION->profile_picture)) {
-                                                    ?>
-                                                    <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                     <?php
-                                                } else {
-                                                    if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                    if (empty($POSITION->profile_picture)) {
                                                         ?>
-                                                        <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
                                                         <?php
                                                     } else {
-                                                        ?>
-                                                        <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
-                                                        <?php
+                                                        if ($POSITION->facebookID && substr($POSITION->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $POSITION->profile_picture; ?>"  alt="Profile Picture"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt="Profile Picture" />
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
-                <!--<img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
-                                            </div>
-                                            <div class="col-md-8 asked-by-blog">
-                                                <span class="qu-name"><?php echo $POSITION->name; ?></span><br />
-                                                <?php echo $question['position']; ?>
-                                            </div>
+                                                    ?>
+    <!--<img src="upload/<?php echo $question['position']; ?>/<?php echo $POSITION->profile_picture; ?>" alt=""/>-->
+                                                </div>
+                                                <div class="col-md-8 asked-by-blog">
+                                                    <span class="qu-name"><?php echo $POSITION->name; ?></span><br />
+                                                    <?php echo $question['position']; ?>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -296,7 +296,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
 
             function getAskedTime($datetime) {
 
-
+                $diff = '';
                 date_default_timezone_set('Asia/Colombo');
                 $today = new DateTime(date("Y-m-d"));
                 $todaytime = new DateTime(date("H:i:s"));
@@ -349,7 +349,10 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                     } else {
                         $diff = $month . ' months ago';
                     }
+                } else {
+                    $diff = $datediff . ' days ago';
                 }
+
                 return $diff;
             }
             ?>

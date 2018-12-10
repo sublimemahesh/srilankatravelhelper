@@ -60,13 +60,15 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
 
                 <div class="col-md-12">
                     <div class="blog col-md-12 col-xs-12">
-                        
+
                         <div class="qu-form" id="qu-form">
                             <h3>Ask A Question</h3>
                             <div class="panel panel-default">
 
                                 <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject" autocomplete="off"/>
+                                <input type="text" class="form-control" name="autocomplete" id="autocomplete"  onFocus="geolocate()" required="" placeholder="Enter Related Location" autocomplete="off"/>
                                 <textarea class="form-control" name="question" id="qu" required placeholder="Enter Question"></textarea>
+                                <input type="hidden" name="city" id="city" value=""/>
                                 <input type="hidden" name="position" id="position" value="<?php echo $position; ?>"/>
                                 <input type="hidden" name="positionid" id="positionid" value="<?php echo $positionid; ?>"/>
                                 <input type="submit" class="btn btn-heading" name="btn-submit" id="btn-submit" value="POST"/>
@@ -215,31 +217,85 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <script src="scripts/blog.js" type="text/javascript"></script>
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
         <script>
-            tinymce.init({
-                selector: "#qu",
-                // ===========================================
-                // INCLUDE THE PLUGIN
-                // ===========================================
+                                    tinymce.init({
+                                        selector: "#qu",
+                                        // ===========================================
+                                        // INCLUDE THE PLUGIN
+                                        // ===========================================
 
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                // ===========================================
-                // PUT PLUGIN'S BUTTON on the toolbar
-                // ===========================================
+                                        plugins: [
+                                            "advlist autolink lists link image charmap print preview anchor",
+                                            "searchreplace visualblocks code fullscreen",
+                                            "insertdatetime media table contextmenu paste"
+                                        ],
+                                        // ===========================================
+                                        // PUT PLUGIN'S BUTTON on the toolbar
+                                        // ===========================================
 
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-                // ===========================================
-                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-                // ===========================================
+                                        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                                        // ===========================================
+                                        // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                                        // ===========================================
 
-                relative_urls: false
+                                        relative_urls: false
 
-            });
+                                    });
 
 
         </script>
+        <script>
+            var placeSearch, autocomplete;
+
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                var options = {
+                    types: ['(cities)'],
+                    componentRestrictions: {country: "lk"}
+                };
+                var input = document.getElementById('autocomplete');
+
+                autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+                $('#city').val(place.name);
+//                $('#longitude').val(place.geometry.location.lng());
+//                $('#latitude').val(place.geometry.location.lat());
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+        async defer></script>
     </body>
 </html>

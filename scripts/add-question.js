@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('#btn-submit').click(function () {
 
-        var subject, question, position, positionid;
+        var subject, question, position, positionid, city;
 
         subject = $('#subject').val();
+        city = $('#city').val();
         question = tinyMCE.activeEditor.getContent();
         position = $('#position').val();
         positionid = $('#positionid').val();
@@ -37,6 +38,7 @@ $(document).ready(function () {
                 type: "POST",
                 data: {
                     subject: subject,
+                    city: city,
                     question: question,
                     position: position,
                     positionid: positionid,

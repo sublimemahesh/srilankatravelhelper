@@ -19,11 +19,12 @@ class BlogQuestion {
     public $position;
     public $position_id;
     public $askedAt;
+    public $location;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`subject`,`question`,`position`,`position_id`,`askedAt` FROM `blog_question` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`subject`,`question`,`position`,`position_id`,`askedAt`,`location` FROM `blog_question` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -35,6 +36,7 @@ class BlogQuestion {
             $this->position = $result['position'];
             $this->position_id = $result['position_id'];
             $this->askedAt = $result['askedAt'];
+            $this->location = $result['location'];
 
             return $this;
         }
@@ -44,11 +46,12 @@ class BlogQuestion {
         date_default_timezone_set('Asia/Colombo');
         $askedAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `blog_question` (`subject`,`question`,`position`,`position_id`,`askedAt`) VALUES  ('"
+        $query = "INSERT INTO `blog_question` (`subject`,`question`,`position`,`position_id`,`location`,`askedAt`) VALUES  ('"
                 . $this->subject . "', '"
                 . $this->question . "', '"
                 . $this->position . "', '"
                 . $this->position_id . "', '"
+                . $this->location . "', '"
                 . $askedAt . "')";
 
         $db = new Database();
@@ -77,10 +80,24 @@ class BlogQuestion {
 
         return $array_res;
     }
-    
+
     public function getUnansweredQuestions() {
 
         $query = "SELECT * FROM `blog_question` WHERE `id` not in (SELECT distinct(`question`) AS `answered_question` FROM `blog_answer`) ORDER BY `askedAt` DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
+
+    public function getQuestionesByPosition($position, $position_id) {
+
+        $query = "SELECT * FROM `blog_question` WHERE `position` LIKE '" . $position . "' AND `position_id` = " . $position_id . " ORDER BY `askedAt` DESC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -97,9 +114,7 @@ class BlogQuestion {
         $query = "UPDATE  `blog_question` SET "
                 . "`subject` ='" . $this->subject . "', "
                 . "`question` ='" . $this->question . "', "
-                . "`position` ='" . $this->position . "', "
-                . "`position_id` ='" . $this->position_id . "', "
-                . "`askedAt` ='" . $this->askedAt . "' "
+                . "`location` ='" . $this->location . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
@@ -121,7 +136,7 @@ class BlogQuestion {
 
         return $db->readQuery($query);
     }
-    
+
     public function getQuestionsCount() {
 
         $query = "SELECT count(id) AS 'count' FROM `blog_question`";
@@ -131,6 +146,7 @@ class BlogQuestion {
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
+
     public function getUnansweredQuestionsCount() {
 
         $query = "SELECT count(`id`) AS `count` FROM `blog_question` WHERE `id` not in (SELECT distinct(`question`) AS `answered_question` FROM `blog_answer`)";
