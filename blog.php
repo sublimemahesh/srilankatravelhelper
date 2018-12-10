@@ -3,6 +3,14 @@ include_once(dirname(__FILE__) . '/class/include.php');
 if (!isset($_SESSION)) {
     session_start();
 }
+if (isset($_GET["page"])) {
+    $page = (int) $_GET["page"];
+} else {
+    $page = 1;
+}
+$setLimit = 30;
+$pageLimit = ($page * $setLimit) - $setLimit;
+
 $id = '';
 $position = '';
 $positionid = '';
@@ -16,8 +24,27 @@ if (isset($_SESSION['id'])) {
     $positionid = $_SESSION['id'];
 }
 
-$COUNT = BlogQuestion::getQuestionsCount();
-$UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
+$keyword = '';
+$location = '';
+$countsrch = '';
+if (isset($_GET['search'])) {
+    if (isset($_GET['keyword'])) {
+        $keyword = $_GET['keyword'];
+    }
+    if (isset($_GET['location'])) {
+        $location = $_GET['location'];
+    }
+
+    $allquestions = BlogQuestion::searchAll($keyword, $location, $pageLimit, $setLimit);
+    $unansweredquestions = BlogQuestion::searchUnansweredQuestions($keyword, $location, $pageLimit, $setLimit);
+    $countsrch = BlogQuestion::getsearchAllCount($keyword, $location);
+    $countunansweredsrch = BlogQuestion::getSearchUnansweredQuestionsCount($keyword, $location);
+} else {
+    $allquestions = BlogQuestion::all($pageLimit, $setLimit);
+    $unansweredquestions = BlogQuestion::getUnansweredQuestions($pageLimit, $setLimit);
+    $countsrch = BlogQuestion::getQuestionsCount();
+    $countunansweredsrch = BlogQuestion::getUnansweredQuestionsCount();
+}
 ?>
 <html>
     <head>
@@ -55,11 +82,39 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                     </div>
                 </div>
             </div>
+            <div class="blog-search main-search-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-md-offset-3">
+                            <form id="blog-search" action="blog.php" method="get">
+                                <div class=" main-search-input">
+
+                                    <div class="main-search-input-item">
+                                        <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
+                                    </div>
+
+                                    <div class="main-search-input-item location">
+                                        <div id="autocomplete-container">
+                                            <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
+                                            <input type="hidden" name="location" id="location"  value=""/>
+                                        </div>
+                                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                                    </div>
+                                    <button class="button" name="search">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container  padding-top-45">
 
                 <div class="col-md-12">
                     <div class="blog col-md-12 col-xs-12">
+
                         <div class="blog-top-heading">
+
                             <div class="row">
                                 <div class="topic topic-all" id="">
                                     <h3>All Questions</h3>
@@ -74,8 +129,8 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
 
                             <div class="row">
                                 <div class="topic topic-all" id="">
-                                    <h4><?php echo $COUNT['count']; ?> Question<?php
-                                        if ($COUNT['count'] == 1) {
+                                    <h4><?php echo $countsrch['count']; ?> Question<?php
+                                        if ($countsrch['count'] == 1) {
                                             echo '';
                                         } else {
                                             echo 's';
@@ -83,8 +138,8 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                         ?></h4>
                                 </div>
                                 <div class="topic topic-unanswered" id="">
-                                    <h4><?php echo $UNANSWEREDQUCOUNT['count']; ?> Question<?php
-                                        if ($UNANSWEREDQUCOUNT['count'] == 1) {
+                                    <h4><?php echo $countunansweredsrch['count']; ?> Question<?php
+                                        if ($countunansweredsrch['count'] == 1) {
                                             echo '';
                                         } else {
                                             echo 's';
@@ -103,7 +158,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                         </div>
                         <div class="" id="all">
                             <?php
-                            foreach (BlogQuestion::all() as $question) {
+                            foreach ($allquestions as $question) {
                                 if ($question['position'] === 'visitor') {
                                     $POSITION = new Visitor($question['position_id']);
                                 } elseif ($question['position'] === 'driver') {
@@ -183,10 +238,33 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                 <?php
                             }
                             ?>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <!-- Pagination -->
+                                    <?php
+                                    if (isset($_GET['search'])) {
+                                        ?>
+                                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                                            <?php BlogQuestion::showPaginationOfSearchedBlogQuestions($keyword, $location, $setLimit, $page); ?>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                                            <?php BlogQuestion::showPaginationOfBlogQuestions($setLimit, $page); ?>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    
+                                </div>
+                            </div>
                         </div>
+
+
                         <div class="" id="unanswered">
                             <?php
-                            foreach (BlogQuestion::getUnansweredQuestions() as $question) {
+                            foreach ($unansweredquestions as $question) {
                                 if ($question['position'] === 'visitor') {
                                     $POSITION = new Visitor($question['position_id']);
                                 } elseif ($question['position'] === 'driver') {
@@ -239,6 +317,27 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                                 <?php
                             }
                             ?>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <!-- Pagination -->
+                                    <?php
+                                    if (isset($_GET['search'])) {
+                                        ?>
+                                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                                            <?php BlogQuestion::showPaginationOfSearchedBlogUnAnsweredQuestions($keyword, $location, $setLimit, $page); ?>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                                            <?php BlogQuestion::showPaginationOfBlogUnAnsweredQuestions($setLimit, $page); ?>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -384,31 +483,82 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <script src="scripts/blog.js" type="text/javascript"></script>
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
         <script>
-            tinymce.init({
-                selector: "#qu",
-                // ===========================================
-                // INCLUDE THE PLUGIN
-                // ===========================================
+                                                tinymce.init({
+                                                    selector: "#qu",
+                                                    // ===========================================
+                                                    // INCLUDE THE PLUGIN
+                                                    // ===========================================
 
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                // ===========================================
-                // PUT PLUGIN'S BUTTON on the toolbar
-                // ===========================================
+                                                    plugins: [
+                                                        "advlist autolink lists link image charmap print preview anchor",
+                                                        "searchreplace visualblocks code fullscreen",
+                                                        "insertdatetime media table contextmenu paste"
+                                                    ],
+                                                    // ===========================================
+                                                    // PUT PLUGIN'S BUTTON on the toolbar
+                                                    // ===========================================
 
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-                // ===========================================
-                // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-                // ===========================================
+                                                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+                                                    // ===========================================
+                                                    // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                                                    // ===========================================
 
-                relative_urls: false
+                                                    relative_urls: false
 
-            });
+                                                });
 
 
         </script>
+        <script>
+            //Google Location Autocomplete
+            var placeSearch, autocomplete;
+
+            function initAutocomplete() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                        {types: ['geocode']});
+
+                // When the user selects an address from the dropdown, populate the address
+                // fields in the form.
+                autocomplete.addListener('place_changed', fillInAddress);
+            }
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+                $('#location').val(place.name);
+//                $('#longitude').val(place.geometry.location.lng());
+//                $('#latitude').val(place.geometry.location.lat());
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
+        async defer></script>
     </body>
 </html>
