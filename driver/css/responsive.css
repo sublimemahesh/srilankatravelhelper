@@ -37,7 +37,10 @@ and open the template in the editor.
         margin: 0px auto 10px;
     }
     .navigation {
-        height: 625px;
+        height: 763px;
+    }
+    .icon-text.icon-text1 {
+        padding: 10px 5px;
     }
     .dropdown {
         top: -40px;
@@ -127,6 +130,9 @@ and open the template in the editor.
     .icon-text {
         width: 139px;
         padding: 20px 5px;
+    }
+    .icon-text.icon-text1 {
+        padding: 10px 5px;
     }
     .profile-panel {
         margin: 20px 0px;

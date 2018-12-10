@@ -7,6 +7,7 @@ if ($_POST['option'] === 'ADDQUESTION') {
     $QUESTIONS = new BlogQuestion(NULL);
 
     $QUESTIONS->subject = $_POST['subject'];
+    $QUESTIONS->location = $_POST['location'];
     $QUESTIONS->question = $_POST['question'];
     $QUESTIONS->position = $_POST['position'];
     $QUESTIONS->position_id = $_POST['positionid'];

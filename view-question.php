@@ -83,7 +83,7 @@ $askedAt = getAskedTime($Question->askedAt);
 
                         <div class="col-md-12">
                             <div class="view-qu asked-by col-md-2 col-xs-12">
-                                <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i">Location</span><br />
+                                <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i"><?php echo $Question->city; ?></span><br />
 
                                 <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($Question->askedAt, 0, 10); ?></span>
 

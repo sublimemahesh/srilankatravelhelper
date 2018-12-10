@@ -88,8 +88,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                   var contentheight = $(window).height() + 100;
+                    var navigationheight = $(window).height() + 25;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

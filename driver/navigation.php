@@ -69,7 +69,7 @@
                 <div class="icon-box">
                     <i class="fa fa-male" id="differ-icon"></i>
                 </div>
-                <div class="icon-text">
+                <div class="icon-text icon-text1">
                     My Tailor Made Bookings
                 </div>
             </div>
@@ -91,6 +91,16 @@
                 </div>
                 <div class="icon-text">
                     Messages
+                </div>
+            </div>
+        </a>
+        <a href="manage-questions.php">
+            <div class="nav1">
+                <div class="icon-box">
+                    <i class="fa fa-envelope" id="differ-icon"></i>
+                </div>
+                <div class="icon-text">
+                    My Questions
                 </div>
             </div>
         </a>

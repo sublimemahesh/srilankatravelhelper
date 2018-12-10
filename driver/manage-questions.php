@@ -2,12 +2,12 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$VISITOR = new Visitor($_SESSION['id']);
+$DRIVER = new Drivers($_SESSION['id']);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Manage Bookings || Visitor DashBoard</title>
+        <title>Manage Questions || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
@@ -48,61 +48,55 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                                Manage Bookings
+                                Manage Questions
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Booking ID</th>
-                                            <th>Booked At</th>                               
-                                            <th>Driver</th>
-                                            <th>Tour Package</th>
-                                            <th>Option</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Booking ID</th>
-                                            <th>Booked At</th>                               
-                                            <th>Driver</th>
-                                            <th>Tour Package</th>
-                                            <th>Option</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-
-                                        <?php
-                                        $i = 0;
-                                        foreach (Booking::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
-                                            $DRIVER = new Drivers($booking['driver']);
-                                            $TOUR = new TourPackages($booking['tour_package']);
-
-                                            $i++;
-                                            ?>
-                                            <tr id="row_<?php echo $booking['id']; ?>">
-                                                <td><?php echo $i; ?></td> 
-                                                <td><?php echo $booking['id']; ?></td> 
-                                                <td><?php echo $booking['date_time_booked']; ?></td> 
-
-                                                <td><?php echo $DRIVER->name; ?></td> 
-                                                <td><?php echo $TOUR->name; ?></td> 
-                                                <td> 
-                                                    <a href="view-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
-                                                    <a href="edit-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                    <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
-                                                        <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
-                                                    </a>  
-
-                                                </td>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Subject</th>
+                                                <th>Asked At</th>                               
+                                                <th>Related Location</th>
+                                                <th>Option</th>
                                             </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Subject</th>
+                                                <th>Asked At</th>                               
+                                                <th>Related Location</th>
+                                                <th>Option</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+
                                             <?php
-                                        }
-                                        ?>   
-                                    </tbody>
-                                </table>
+                                            $i = 0;
+                                            foreach (BlogQuestion::getQuestionesByPosition('driver', $DRIVER->id) as $key => $question) {
+                                                
+                                                $i++;
+                                                ?>
+                                                <tr id="row_<?php echo $question['id']; ?>">
+                                                    <td><?php echo $i; ?></td> 
+                                                    <td><?php echo $question['subject']; ?></td> 
+                                                    <td><?php echo $question['askedAt']; ?></td>
+                                                    <td><?php echo $question['location']; ?></td>
+                                                    <td> 
+                                                        <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
+                                                        <a href="#" class="delete-question btn btn-sm btn-danger" data-id="<?php echo $question['id']; ?>"  title="Delete Question">
+                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="delete"></i>
+                                                        </a>  
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                                
+                                            }
+                                            ?>   
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                     </div>
@@ -119,7 +113,6 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
-        <script src="js/cancel-booking.js" type="text/javascript"></script>
         <script src="plugins/jquery-datatable/jquery.dataTables.js" type="text/javascript"></script>
         <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
         <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
@@ -132,13 +125,14 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/jquery-datatable.js" type="text/javascript"></script>
         <script src="plugins/datatables-responsive/dataTables.responsive.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
+        <script src="delete/js/question.js" type="text/javascript"></script>
         <script>
             $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height() + 100;
-                    var navigationheight = $(window).height() + 25;
+                    var contentheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
