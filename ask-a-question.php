@@ -65,7 +65,15 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                             <h3>Ask A Question</h3>
                             <div class="panel panel-default">
 
-                                <input type="text" class="form-control" name="subject" id="subject" required="" placeholder="Enter Subject" autocomplete="off"/>
+                                <input type="text" class="form-control" id="subject" name="subject" autocomplete="off" placeholder="Enter Subject" value="" attempt="">
+                                <div id="suggesstion-box">
+                                    <ul id="subject-list-append" class="subject-list"></ul>
+                                </div>
+                                <input type="hidden" name="qu-id" value="" id="qu-id"  />
+
+
+
+
                                 <input type="text" class="form-control" name="autocomplete" id="autocomplete"  onFocus="geolocate()" required="" placeholder="Enter Related Location" autocomplete="off"/>
                                 <textarea class="form-control" name="question" id="qu" required placeholder="Enter Question"></textarea>
                                 <input type="hidden" name="city" id="city" value=""/>
@@ -216,6 +224,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
         <script src="scripts/blog.js" type="text/javascript"></script>
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
+        <script src="scripts/add-new-question.js" type="text/javascript"></script>
         <script>
                                     tinymce.init({
                                         selector: "#qu",

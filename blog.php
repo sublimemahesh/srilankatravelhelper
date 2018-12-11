@@ -98,7 +98,7 @@ if (isset($_GET['search'])) {
                                             <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
                                             <input type="hidden" name="location" id="location"  value=""/>
                                         </div>
-                                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                                        <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
                                     </div>
                                     <button class="button" name="search">Search</button>
                                 </div>
@@ -256,7 +256,7 @@ if (isset($_GET['search'])) {
                                         <?php
                                     }
                                     ?>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -335,7 +335,7 @@ if (isset($_GET['search'])) {
                                         <?php
                                     }
                                     ?>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -422,11 +422,11 @@ if (isset($_GET['search'])) {
                         }
                     }
                 } elseif ($datediff == 1 && $time1 > $todaytime) {
-
                     $t = $todaytime->diff($time1);
                     $timediff1 = $t->format('%h:%i:%s');
+                    $timediff1format = new DateTime($timediff1);
                     $time3 = new DateTime('24:00:00');
-                    $time = $time3->diff($timediff1);
+                    $time = $time3->diff($timediff1format);
                     $timediff = $time->format('%h:%i:%s');
                     $arr1 = explode(':', $timediff);
                     $diff = $arr1[0] . ' hours ago';
@@ -464,7 +464,7 @@ if (isset($_GET['search'])) {
          ================================================== -->
         <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
-        <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script><script src="scripts/blog.js" type="text/javascript"></script>
         <script type="text/javascript" src="scripts/mmenu.min.js"></script>
         <script type="text/javascript" src="scripts/chosen.min.js"></script>
         <script type="text/javascript" src="scripts/slick.min.js"></script>
@@ -480,7 +480,7 @@ if (isset($_GET['search'])) {
         <script src="scripts/signin.js" type="text/javascript"></script>
         <script src="scripts/signup.js" type="text/javascript"></script>
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
-        <script src="scripts/blog.js" type="text/javascript"></script>
+
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
         <script>
                                                 tinymce.init({

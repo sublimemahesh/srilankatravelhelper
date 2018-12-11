@@ -273,10 +273,99 @@ input[type="submit"] {
 .blog-search.main-search-inner {
     padding-bottom: 0px;
 }
+
+.subject-list {
+    float: left;
+    list-style: none;
+    padding: 0;
+    width: 93.5%;
+    position: absolute;
+    z-index: 1;
+    margin-top: -16px;
+}
+.subject-list li {
+
+    padding: 10px;
+    background: #f0f0f0;
+    border-bottom: #bbb9b9 1px solid;
+    color: #000;
+
+}
+.selected {
+
+    background: #0000ff !important;
+    color: white !important;
+
+}
 @media(max-width: 1000px) {
     .container {
         width: 100%
     }
+}
+@media(width: 320px) {
+    .subject-list {
+        width: 75%;
+
+    }
+}
+@media(width: 360px) {
+    .subject-list {
+        width: 78%;
+
+    }
+}
+@media(width: 375px) {
+    .subject-list {
+        width: 79%;
+
+    }
+}
+@media(min-width: 400px) and (max-width: 414px) {
+    .subject-list {
+        width: 81%;
+    }
+}
+@media(width: 414px) {
+    .subject-list {
+        width: 81%;
+    }
+}
+@media(width: 600px) {
+    .subject-list {
+        width: 87.5%;
+    }
+}
+@media(max-width: 576px) {
+
+    #blog-search {
+        margin-top: -102px;
+    }
+    .main-search-input input, .main-search-input input:focus {
+        padding: 0 20px;
+        height: 31px;
+        line-height: 50px;
+    }
+    .main-search-input button.button {
+        font-size: 14px;
+        font-weight: 400;
+        padding: 0 8px;
+        margin-right: 1px;
+        height: 31px;
+        outline: 0;
+    }
+    .blog-search .main-search-input {
+        padding: 7px;
+        max-height: 49px;
+    }
+}
+@media(min-width: 768px) and (max-width: 996px) {
+    .subject-list {
+        width: 90%;
+    }
+    #blog-search {
+        margin-top: -102px;
+    }
+
 }
 @media(max-width: 600px) {
 
