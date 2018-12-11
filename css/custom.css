@@ -1096,7 +1096,8 @@ body #navigation1 ul ul {
 }
 
 #navigation1.style-1 ul li {
-    transition: all .25s
+    transition: all .25s;
+    margin: 0 15px;
 }
 
 #navigation1.style-1 ul li a {
@@ -1129,9 +1130,6 @@ body #navigation1 ul ul {
     line-height: 15px;
 }
 
-#navigation1.style-1 ul li {
-    margin: 0 0px
-}
 
 #navigation1.style-1 ul ul li {
     margin: 0;
@@ -1224,4 +1222,8 @@ body #navigation1 ul ul {
     border-radius: 50%;
     border: 1px solid #ccc;
     margin-right: 5px;
+}
+.view-all-destination-button {
+    margin-bottom: 20px;
+    text-align: center;
 }
