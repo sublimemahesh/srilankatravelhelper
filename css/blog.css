@@ -297,6 +297,9 @@ input[type="submit"] {
     color: white !important;
 
 }
+.subject-list li:hover {
+    text-decoration: none;
+}
 @media(max-width: 1000px) {
     .container {
         width: 100%

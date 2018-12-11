@@ -58,48 +58,101 @@ if ($count1 == 0) {
                                     </span>
                                 </button>
                             </div>
-                            <!-- Main Navigation -->
-                            <nav id="navigation" class="style-1">
-                                <ul id="responsive">
-                                    <li><a class="current" href="../">Home</a></li>
-                                    <li><a href="../destination-type.php">Destinations</a></li>
-                                    <li><a href="../all-cities.php">Cities</a></li>
-                                    <li><a href="../tour-packages-type.php">Packages</a></li>
-                                    <li><a href="../drivers-page.php">Drivers</a></li>
-                                    <li><a href="../blog.php">Blog</a></li>
-                                    <li><a href="../offers.php">Offer</a></li>
-                                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
-                                        <ul>
-                                            <li><a href="../visitor/profile.php">Login Now</a></li>
-                                            <li><a href="../visitor/profile.php">Join Now</a></li>
-                                            <li><a href="profile.php">Driver Login</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <div class="clearfix"></div>
-                            <!-- Main Navigation / End -->
+
 
                         </div>
                         <!-- Left Side Content / End -->
                         <!-- Right Side Content / End -->
                         <div class="right-side">
-                            <div class="header-widget widget-btn-left">
-
-                                <a href="../plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+                            <div class="nav-top hidden-lg hidden-md hidden-sm">
+                                <div class="header-widget widget-btn-left">
+                                    <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+                                </div>
+                                <div class="header-widget widget-btn-right">
+                                    <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
+                                            if ($count == 1) {
+                                                echo '1 item';
+                                            } else {
+                                                echo $count . ' items';
+                                            };
+                                            ?>
+                                        </span>
+                                    </a>
+                                </div>
 
                             </div>
-                            <div class="header-widget widget-btn-right">
-                                <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
-                                        if ($count == 1) {
-                                            echo '1 item';
-                                        } else {
-                                            echo $count . ' items';
-                                        };
-                                        ?>
-                                    </span>
-                                </a>
+                            <div class="nav-top hidden-xs">
+
+                                <div class="header-widget widget-btn-right">
+                                    <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
+                                            if ($count == 1) {
+                                                echo '1 item';
+                                            } else {
+                                                echo $count . ' items';
+                                            };
+                                            ?>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="header-widget widget-btn-left">
+                                    <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+                                </div>
+                                <nav id="navigation1" class="style-1 hidden-xs">
+                                    <ul id="responsive">
+                                        <?php
+                                        if (isset($_SESSION['id'])) {
+                                            ?>
+                                            <li><a href="#"><img src="../upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
+                                                <?php
+                                            } else {
+                                                ?>
+                                            <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                                <?php
+                                            }
+                                            ?>
+                                            <ul>
+                                                <li><a href="../visitor/profile.php">Login Now</a></li>
+                                                <li><a href="../visitor/profile.php">Join Now</a></li>
+                                                <li><a href="profile.php">Driver Login</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
+                            <div class="nav-bottom">
+                                <!-- Main Navigation -->
+                                <nav id="navigation" class="style-1">
+                                    <ul id="responsive">
+                                        <li><a class="current" href="../">Home</a></li>
+                                        <li><a href="../destination-type.php">Destinations</a></li>
+                                        <li><a href="../all-cities.php">Cities</a></li>
+                                        <li><a href="../tour-packages-type.php">Packages</a></li>
+                                        <li><a href="../drivers-page.php">Drivers</a></li>
+                                        <li><a href="../blog.php">Blog</a></li>
+                                        <li><a href="../offers.php">Offer</a></li>
+                                        <?php
+                                        if (isset($_SESSION['id'])) {
+                                            ?>
+                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
+                                                <?php
+                                            } else {
+                                                ?>
+                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                                <?php
+                                            }
+                                            ?>
+                                            <ul>
+                                                <li><a href="../visitor/profile.php">Login Now</a></li>
+                                                <li><a href="../visitor/profile.php">Join Now</a></li>
+                                                <li><a href="profile.php">Driver Login</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="clearfix"></div>
+                                <!-- Main Navigation / End -->
+                            </div>
+
                         </div>
                         <!-- Right Side Content / End -->
                         <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
@@ -192,8 +245,6 @@ if ($count1 == 0) {
                             </div>
                         </div>
                         <!-- Sign In Popup / End -->
-
-
                     </div>
                 </div>
                 <!-- Header / End -->
