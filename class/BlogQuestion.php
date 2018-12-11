@@ -163,7 +163,18 @@ class BlogQuestion {
         $where = '';
 
         if (!empty($keyword)) {
-            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
+            $arr = split(' ', $keyword);
+
+            $w1 = array();
+            for ($i = 0; $i < count($arr); $i++) {
+                $w1[] = "`subject` LIKE '%" . $arr[$i] . "%' OR `question` LIKE '%" . $arr[$i] . "%'";
+            }
+            if (count($w1)) {
+                $w[] = implode(' OR ', $w1);
+            }
+
+
+//            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
         }
         if (!empty($location)) {
             $w[] = "`location` LIKE '%" . $location . "%'";
@@ -191,7 +202,16 @@ class BlogQuestion {
         $where = '';
 
         if (!empty($keyword)) {
-            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
+            $arr = split(' ', $keyword);
+
+            $w1 = array();
+            for ($i = 0; $i < count($arr); $i++) {
+                $w1[] = "`subject` LIKE '%" . $arr[$i] . "%' OR `question` LIKE '%" . $arr[$i] . "%'";
+            }
+            if (count($w1)) {
+                $w[] = implode(' OR ', $w1);
+            }
+//            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
         }
         if (!empty($location)) {
             $w[] = "`location` LIKE '%" . $location . "%'";
@@ -219,7 +239,16 @@ class BlogQuestion {
         $where = '';
 
         if (!empty($keyword)) {
-            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
+            $arr = split(' ', $keyword);
+
+            $w1 = array();
+            for ($i = 0; $i < count($arr); $i++) {
+                $w1[] = "`subject` LIKE '%" . $arr[$i] . "%' OR `question` LIKE '%" . $arr[$i] . "%'";
+            }
+            if (count($w1)) {
+                $w[] = implode(' OR ', $w1);
+            }
+//            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
         }
         if (!empty($location)) {
             $w[] = "`location` LIKE '%" . $location . "%'";
@@ -242,7 +271,16 @@ class BlogQuestion {
         $where = '';
 
         if (!empty($keyword)) {
-            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
+            $arr = split(' ', $keyword);
+
+            $w1 = array();
+            for ($i = 0; $i < count($arr); $i++) {
+                $w1[] = "`subject` LIKE '%" . $arr[$i] . "%' OR `question` LIKE '%" . $arr[$i] . "%'";
+            }
+            if (count($w1)) {
+                $w[] = implode(' OR ', $w1);
+            }
+//            $w[] = "`subject` LIKE '%" . $keyword . "%' OR `question` LIKE '%" . $keyword . "%'";
         }
         if (!empty($location)) {
             $w[] = "`location` LIKE '%" . $location . "%'";
@@ -257,6 +295,32 @@ class BlogQuestion {
 
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
+    }
+
+    public function searchSubject($keyword) {
+
+        $arr = split(' ', $keyword);
+
+        $w = array();
+        $where = '';
+        for ($i = 0; $i < count($arr); $i++) {
+            $w[] = "`subject` LIKE '%" . $arr[$i] . "%'";
+        }
+        if (count($w)) {
+            $where = 'WHERE ' . implode(' OR ', $w);
+        }
+        $query = "SELECT * FROM `blog_question` " . $where . " ORDER BY `askedAt` DESC";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+
+        return $array_res;
     }
 
     public function showPaginationOfBlogQuestions($per_page, $page) {

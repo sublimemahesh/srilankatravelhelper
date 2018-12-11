@@ -10,7 +10,7 @@ if ($_POST['option'] === 'SIGNIN') {
         $POSITION = new Drivers(NULL);
     }
 
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $username = $_POST['username'];
     $password = md5(filter_var($_POST['password'], FILTER_SANITIZE_STRING));
 
     $result = $POSITION->login($username, $password);
