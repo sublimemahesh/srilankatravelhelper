@@ -4,15 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-/* set page numbers */
-if (isset($_GET["page"])) {
-    $page = (int) $_GET["page"];
-} else {
-    $page = 1;
-}
-$setLimit = 10;
 
-$pageLimit = ($page * $setLimit) - $setLimit;
 ?>  
 <!DOCTYPE html>
 <html>
@@ -56,7 +48,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     </div>
                 </div>
             </div>
-            <div class="container padding-top-45  padding-bottom-45">
+
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
@@ -85,7 +77,6 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         </div>
                         <div class="row">
                             <?php
-                            $DESTINATIONS = Destination::getAllDestinations( $pageLimit, $setLimit);
 
                             foreach ($DESTINATIONS as $key => $destination) {
                                 ?>
@@ -97,7 +88,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                             <!-- Image -->
                                             <div class="listing-item-image">
                                                 <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt="">
-                                                
+
                                             </div>
 
                                             <!-- Content -->
@@ -157,16 +148,6 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- Pagination -->
-                                <div class="pagination-container margin-top-20 margin-bottom-40">
-                                    <?php Destination::showPaginationOfAllDestinations($setLimit, $page); ?>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pagination / End -->
-
-                    </div>
-
-
 
                 </div>
             </div>
@@ -189,6 +170,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
+
 
     </body>
 </html>
