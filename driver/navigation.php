@@ -47,7 +47,7 @@
         <a href="manage-photos.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-image"></i>
                 </div>
                 <div class="icon-text">
                     Manage Photos
@@ -57,7 +57,7 @@
         <a href="manage-bookings.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-file" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text">
                     My Bookings
@@ -67,7 +67,7 @@
         <a href="manage-tailor-made-bookings.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-file" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text icon-text1">
                     My Tailor Made Bookings
@@ -77,7 +77,7 @@
         <a href="manage-offers.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-gift" id="differ-icon"></i>
+                    <i class="fa fa-gift" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text">
                     My Offers
@@ -87,7 +87,7 @@
         <a href="driver-message.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-envelope" id="differ-icon"></i>
+                    <i class="fa fa-comment"></i>
                 </div>
                 <div class="icon-text">
                     Messages
@@ -97,7 +97,7 @@
         <a href="manage-questions.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-envelope" id="differ-icon"></i>
+                    <i class="fa fa-question-circle" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text">
                     My Questions

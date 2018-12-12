@@ -47,7 +47,7 @@
         <a href="manage-reviews.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-star-half-full"></i>
                 </div>
                 <div class="icon-text">
                     Driver Reviews
@@ -57,7 +57,7 @@
         <a href="manage-tour-package-reviews.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-star-half-full"></i>
                 </div>
                 <div class="icon-text icon-text1">
                     Tour Package Reviews
@@ -67,7 +67,7 @@
         <a href="manage-destination-reviews.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-star-half-full"></i>
                 </div>
                 <div class="icon-text icon-text1">
                     Destination Reviews
@@ -77,7 +77,7 @@
         <a href="manage-bookings.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-file" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text">
                     My Bookings
@@ -87,7 +87,7 @@
         <a href="manage-tailor-made-bookings.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-male" id="differ-icon"></i>
+                    <i class="fa fa-file" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text icon-text2">
                     My Tailor Made Bookings
@@ -97,7 +97,7 @@
         <a href="visitor-message.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-envelope" id="differ-icon"></i>
+                    <i class="fa fa-comment"></i>
                 </div>
                 <div class="icon-text">
                     Messages
@@ -107,7 +107,7 @@
         <a href="manage-questions.php">
             <div class="nav1">
                 <div class="icon-box">
-                    <i class="fa fa-envelope" id="differ-icon"></i>
+                    <i class="fa fa-question-circle" id="differ-icon2"></i>
                 </div>
                 <div class="icon-text">
                     My Questions
