@@ -22,7 +22,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
     <head>
         <!-- Basic Page Needs
            ================================================== -->
-        <title>Sri Lanka Travel Helper</title>
+        <title><?php echo $TOUR_TYPE->name; ?> || Tour Packages || Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS

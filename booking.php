@@ -39,7 +39,7 @@ $VISITOR = new Visitor($_SESSION['id']);
     <head>
         <!-- Basic Page Needs
            ================================================== -->
-        <title>Sri Lanka Travel Helper</title>
+        <title>Booking || Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS

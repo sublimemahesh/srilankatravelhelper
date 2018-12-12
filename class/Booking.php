@@ -251,7 +251,7 @@ class Booking {
         $from = 'info@galle.website';
         $reply = 'info@galle.website';
 
-        $subject = "Booking Confirmation | Sri Lanka Travel Helper | " . $bookingid . "";
+        $subject = "Booking Confirmation | Tour Sri Lanka | " . $bookingid . "";
         $site = 'travelhelper.galle.website';
 
         // mandatory headers for email message, change if you need something different in your setting.
@@ -281,7 +281,7 @@ class Booking {
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
-                            <title>' . "Sri Lanka Travel Helper - Booking Confirmation" . '</title>
+                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
                             <style type="text/css">
                                 table {
                                     border: 1px solid #d0d0d0;
@@ -386,10 +386,10 @@ class Booking {
                                 <span>Email: mail@travelhelper.lk</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
-                            <h2 class="topic">Booking Confirmation | Sri Lanka Travel Helper | #' . $bookingid . '</h2>
+                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
-                                <p>Thank you for making an online booking with Sri Lanka Travel Helper. Your booking id is :  #' . $bookingid . '. Your booking is subject to the terms & conditions listed on the website. </p>
+                                <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $bookingid . '. Your booking is subject to the terms & conditions listed on the website. </p>
                                 
                             </div>
                             
@@ -508,7 +508,7 @@ class Booking {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Sri Lanka Travel Helper</td>
+                                    <td class="footer-td2">Tour Sri Lanka</td>
                                     <td>Phone: +94 91 227 7513</td>
                                 </tr>
                                 <tr class="footer-tr">
@@ -535,7 +535,7 @@ class Booking {
         $from = 'info@galle.website';
         $reply = 'info@galle.website';
 
-        $subject = "Booking Confirmation | Sri Lanka Travel Helper | " . $bookingid . "";
+        $subject = "Booking Confirmation | Tour Sri Lanka | " . $bookingid . "";
         $site = 'travelhelper.galle.website';
 
         // mandatory headers for email message, change if you need something different in your setting.
@@ -565,7 +565,7 @@ class Booking {
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
-                            <title>' . "Sri Lanka Travel Helper - Booking Confirmation" . '</title>
+                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
                             <style type="text/css">
                                 table {
                                     border: 1px solid #d0d0d0;
@@ -670,7 +670,7 @@ class Booking {
                                 <span>Email: mail@travelhelper.lk</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
-                            <h2 class="topic">Booking Confirmation | Sri Lanka Travel Helper | #' . $bookingid . '</h2>
+                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
                             
                             
@@ -767,7 +767,7 @@ class Booking {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Sri Lanka Travel Helper</td>
+                                    <td class="footer-td2">Tour Sri Lanka</td>
                                     <td>Phone: +94 91 227 7513</td>
                                 </tr>
                                 <tr class="footer-tr">
@@ -794,7 +794,7 @@ class Booking {
         $from = 'info@galle.website';
         $reply = 'info@galle.website';
 
-        $subject = "Booking Confirmation | Sri Lanka Travel Helper | " . $bookingid . "";
+        $subject = "Booking Confirmation | Tour Sri Lanka | " . $bookingid . "";
         $site = 'travelhelper.galle.website';
 
         // mandatory headers for email message, change if you need something different in your setting.
@@ -824,7 +824,7 @@ class Booking {
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
-                            <title>' . "Sri Lanka Travel Helper - Booking Confirmation" . '</title>
+                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
                             <style type="text/css">
                                 table {
                                     border: 1px solid #d0d0d0;
@@ -929,7 +929,7 @@ class Booking {
                                 <span>Email: mail@travelhelper.lk</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
-                            <h2 class="topic">Booking Confirmation | Sri Lanka Travel Helper | #' . $bookingid . '</h2>
+                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             
                             <table class="booking-details">
@@ -1059,7 +1059,7 @@ class Booking {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Sri Lanka Travel Helper</td>
+                                    <td class="footer-td2">Tour Sri Lanka</td>
                                     <td>Phone: +94 91 227 7513</td>
                                 </tr>
                                 <tr class="footer-tr">
