@@ -77,7 +77,25 @@ $drivers = $DRIVER->all();
                                             ?>
                                             <div class="col-md-3"  id="div<?php echo $driver['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/drivers/<?php echo $driver['profile_picture']; ?>" class="img-responsive ">
+
+                                                    <?php
+                                                    if (empty($driver['profile_picture'])) {
+                                                        ?>
+                                                        <img src="../upload/driver/driver.png" alt="Profile Picture"  class="img-responsive "/>
+                                                        <?php
+                                                    } else {
+                                                        if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-responsive "/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="../upload/driver/<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-responsive "/>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+
                                                 </div>
                                                 <div class="img-caption">
                                                     <p class="maxlinetitle">Name : <?php echo $driver['name']; ?></p> 

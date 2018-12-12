@@ -36,13 +36,6 @@ $(document).ready(function (event) {
                         var name = '';
 
                         $.each(destinations, function (key, destination) {
-                            var destname = destination.name;
-                            if (destname.length > 18) {
-                                name = destname.substring(0, 16) + '...';
-                            } else {
-                                name = destname;
-                            }
-
 
 
                             $.ajax({
@@ -79,6 +72,13 @@ $(document).ready(function (event) {
                                         }
                                     }
 
+                                    var destname = destination.name;
+                                    if (destname.length > 18) {
+                                        name = destname.substring(0, 16) + '...';
+                                    } else {
+                                        name = destname;
+                                    }
+
 
                                     html += '<div class="col-md-4 col-sm-6 col-xs-12 search-destination-item">';
                                     html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
@@ -86,8 +86,8 @@ $(document).ready(function (event) {
                                     html += '<img src="upload/destination/' + destination.image_name + '" alt=""/>';
                                     html += '</div>';
                                     html += '<div class="search-item-details col-md-7 col-sm-7 col-xs-7">';
-                                    html += '<div class="driver-name text-left"> ';
-                                    html += destination.name;
+                                    html += '<div class="driver-name text-left" title="' + destination.name + '"> ';
+                                    html += name;
                                     html += '</div>';
                                     html += '<div class="star-rating-fa">';
                                     html += html1;
@@ -158,12 +158,7 @@ $(document).ready(function (event) {
                             var name = '';
 
                             $.each(destinations, function (key, destination) {
-                                var destname = destination.name;
-                                if (destname.length > 18) {
-                                    name = destname.substring(0, 16) + '...';
-                                } else {
-                                    name = destname;
-                                }
+
                                 $.ajax({
                                     url: "post-and-get/ajax/review.php",
                                     cache: false,
@@ -195,14 +190,21 @@ $(document).ready(function (event) {
                                                 html1 += '<i class="fa fa-star-o"></i>';
                                             }
                                         }
+
+                                        var destname = destination.name;
+                                        if (destname.length > 18) {
+                                            name = destname.substring(0, 16) + '...';
+                                        } else {
+                                            name = destname;
+                                        }
                                         html += '<div class="col-md-4 col-sm-6 col-xs-12 search-destination-item">';
                                         html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
                                         html += '<div class="listing-item col-md-5 col-sm-5 col-xs-5">';
                                         html += '<img src="upload/destination/' + destination.image_name + '" alt=""/>';
                                         html += '</div>';
                                         html += '<div class="search-item-details col-md-7 col-sm-7 col-xs-7">';
-                                        html += '<div class="driver-name text-left"> ';
-                                        html += destination.name;
+                                        html += '<div class="driver-name text-left" title="' + destination.name + '"> ';
+                                        html += name;
                                         html += '</div>';
                                         html += '<div class="star-rating-fa">';
                                         html += html1;
