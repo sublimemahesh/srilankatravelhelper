@@ -687,6 +687,10 @@ input[type="text"].location-search-input {
     .question-list {
         margin-top: -362px;
     }
+    .work-process {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
 }
 
@@ -1266,4 +1270,43 @@ body #navigation1 ul ul {
     margin-bottom: 20px;
     text-align: center;
 }
-
+.work-process {
+    position: relative;
+}
+.work-process {
+    text-align: center;
+}
+.process-img {
+    width: 110px;
+    height: 110px;
+    margin: 15px auto 0;
+}
+.process-img {
+    display: inline-block;
+}
+.process-img {
+    position: relative;
+}
+.process-img img {
+    z-index: 1;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+span.process-num {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 600;
+    opacity: .1;
+    left: -37px;
+    top: -34px;
+}
+.work-process h4 {
+    margin: 10px 0;
+    color: #004c85;
+}
+.work-process p {
+    font-size: 13px;
+}
