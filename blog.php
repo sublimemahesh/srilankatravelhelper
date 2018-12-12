@@ -82,7 +82,7 @@ if (isset($_GET['search'])) {
                     </div>
                 </div>
             </div>
-            <div class="blog-search main-search-inner">
+            <div class="question-search main-search-inner">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-md-offset-3">
@@ -108,7 +108,7 @@ if (isset($_GET['search'])) {
                 </div>
             </div>
 
-            <div class="container  padding-top-45">
+            <div class="container  padding-top-45  question-list" >
 
                 <div class="col-md-12">
                     <div class="blog col-md-12 col-xs-12">

@@ -580,6 +580,12 @@ input[type="text"].location-search-input {
 .city-body .package-details a {
     color: #000;
 }
+.destinations-search .main-search-input {
+    margin-top: -57px;
+}
+.question-search .main-search-input {
+    margin-top: -57px;
+}
 
 @media(max-width:576px) {
     .reviws-section {
@@ -647,6 +653,39 @@ input[type="text"].location-search-input {
 
         width: 100%;
 
+    }
+    .destinations-search .main-search-input {
+        border-radius: 0;
+        display: block;
+        padding: 10px;
+        max-height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12);
+        margin-top: 390px;
+    }
+    .question-search .main-search-input {
+        border-radius: 0;
+        display: block;
+        padding: 10px;
+        max-height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12);
+        margin-top: 474px;
+    }
+    .destinations-search.main-search-inner { 
+        padding-bottom: 0px;
+    }
+    .question-search.main-search-inner { 
+        padding-bottom: 0px;
+    }
+    .destination-types-list {
+        margin-top: -362px;
+    }
+    .destination-types-list {
+        margin-top: -362px;
+    }
+    .question-list {
+        margin-top: -362px;
     }
 
 }
@@ -1096,7 +1135,8 @@ body #navigation1 ul ul {
 }
 
 #navigation1.style-1 ul li {
-    transition: all .25s
+    transition: all .25s;
+    margin: 0 15px;
 }
 
 #navigation1.style-1 ul li a {
@@ -1129,9 +1169,6 @@ body #navigation1 ul ul {
     line-height: 15px;
 }
 
-#navigation1.style-1 ul li {
-    margin: 0 0px
-}
 
 #navigation1.style-1 ul ul li {
     margin: 0;
@@ -1225,3 +1262,8 @@ body #navigation1 ul ul {
     border: 1px solid #ccc;
     margin-right: 5px;
 }
+.view-all-destination-button {
+    margin-bottom: 20px;
+    text-align: center;
+}
+

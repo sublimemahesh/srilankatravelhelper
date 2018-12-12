@@ -567,7 +567,7 @@ body #backtotop a {
     position: relative;
     float: left;
     margin: 0;
-    padding: 0
+    padding: 0 0 0 20px;
 }
 
 #navigation ul li ul {
