@@ -53,30 +53,61 @@ if (!isset($_SESSION)) {
             </div>
             <div class="row icons-container padding-bottom-20">
                 <!-- Stage -->
-                <div class="col-md-4">
-                    <div class="icon-box-2 with-line">
-                        <i class="im im-icon-Map2"></i>
-                        <h3>Find Interesting Place</h3>
-                        <p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
+                <!--                <div class="col-md-4">
+                                    <div class="icon-box-2 with-line">
+                                        <i class="im im-icon-Map2"></i>
+                                        <h3>Find Interesting Place</h3>
+                                        <p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
+                                    </div>
+                                </div>
+                                 Stage 
+                                <div class="col-md-4">
+                                    <div class="icon-box-2 with-line">
+                                        <i class="im im-icon-Mail-withAtSign"></i>
+                                        <h3>24/7/365 Help</h3>
+                                        <p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
+                                    </div>
+                                </div>
+                
+                                 Stage 
+                                <div class="col-md-4">
+                                    <div class="icon-box-2">
+                                        <i class="im im-icon-Checked-User"></i>
+                                        <h3>Make a Reservation</h3>
+                                        <p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
+                                    </div>
+                                </div>-->
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="images/icons/tour-1.png" class="img-responsive" alt="">
+                            <span class="process-num">01</span>
+                        </div>
+                        <h4>Choose a Destination &amp; Guide</h4>
+                        <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                     </div>
                 </div>
-                <!-- Stage -->
-                <div class="col-md-4">
-                    <div class="icon-box-2 with-line">
-                        <i class="im im-icon-Mail-withAtSign"></i>
-                        <h3>24/7/365 Help</h3>
-                        <p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="images/icons/tour-2.png" class="img-responsive" alt="">
+                            <span class="process-num">02</span>
+                        </div>
+                        <h4>Choose your guide &amp; Customize</h4>
+                        <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            <span class="process-num">03</span>
+                        </div>
+                        <h4>Book Your Guide Online</h4>
+                        <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                     </div>
                 </div>
 
-                <!-- Stage -->
-                <div class="col-md-4">
-                    <div class="icon-box-2">
-                        <i class="im im-icon-Checked-User"></i>
-                        <h3>Make a Reservation</h3>
-                        <p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- Info Section / End -->
