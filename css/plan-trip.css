@@ -196,6 +196,15 @@ body {
 .main-search-input {
     margin-bottom: 40px;
 }
+.main-search-input-item.location a {
+    z-index: 0;
+}
+.listing-item {
+    z-index: 0;
+}
+#autocomplete-container, #autocomplete-input {
+    z-index: 0;
+}
 @media(max-width:600px) {
 
     input[type="text"].location-search-input {

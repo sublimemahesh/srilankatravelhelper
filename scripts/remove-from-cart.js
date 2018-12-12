@@ -21,7 +21,7 @@ $(document).ready(function () {
                 data: {key: key, option: 'remove'},
                 dataType: "JSON",
                 success: function (jsonStr) {
-                    if (jsonStr) {
+                    if (jsonStr >= 0) {
 
                         swal({
                             title: "Removed!",
@@ -32,6 +32,7 @@ $(document).ready(function () {
                         });
                         $('#div-' + key).remove();
                         var html = '';
+                        var html1 = '';
                         if (jsonStr == 1) {
                             html = '&nbsp;&nbsp;01 item';
                         } else if (jsonStr == 0) {
@@ -42,8 +43,17 @@ $(document).ready(function () {
                             html = jsonStr + ' items';
                         }
 
+                        if (jsonStr == 0) {
+                            html1 = '<li class="list-group-item"><h3>No any selected destinations in your cart</h3></li>';
+                            $('.list-group').empty();
+                            $('.list-group').append(html1);
+                            $('.review-button').addClass('hidden');
+                        }
+
                         $('.cart-item-count').empty();
                         $('.cart-item-count').append(html);
+
+
 
                     }
                 }

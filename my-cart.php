@@ -86,7 +86,7 @@ if (isset($_SESSION['destination_cart'])) {
                                     $stars1 = $sum1 / $divider1;
                                 }
                                 ?>
-                                                                <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -98,7 +98,13 @@ if (isset($_SESSION['destination_cart'])) {
                                         </div>
                                         <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
                                             <div class="driver-name text-left">
-                                                <?php if(strlen($DESTINATION->name) >18 ) {echo substr($DESTINATION->name,0,18).'...'; } else {echo $DESTINATION->name; } ?>
+                                                <?php
+                                                if (strlen($DESTINATION->name) > 18) {
+                                                    echo substr($DESTINATION->name, 0, 18) . '...';
+                                                } else {
+                                                    echo $DESTINATION->name;
+                                                }
+                                                ?>
                                             </div>
                                             <div class="star-rating-fa">
                                                 <?php
@@ -113,7 +119,7 @@ if (isset($_SESSION['destination_cart'])) {
                                             </div>
                                             <div style="margin-top: 0px;padding-bottom: 7px;">
                                                 <p class="text-center " id="">
-                                                    <?php echo substr($DESTINATION->short_description,0,55).'...'; ?>
+        <?php echo substr($DESTINATION->short_description, 0, 55) . '...'; ?>
                                                 </p>
                                             </div>
                                             <div class="button-section">
@@ -138,11 +144,13 @@ if (isset($_SESSION['destination_cart'])) {
 
                     </ul> 
                 </div>
-                <div class="review-button">
+                <div class="review-button <?php if (count($_SESSION['destination_cart']) <= 0) {
+                            echo 'hidden';
+                        } ?>">
                     <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart">Book Now</button></a>
                 </div>
             </div>
-            <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
         </div>
     </body>
 
@@ -163,5 +171,6 @@ if (isset($_SESSION['destination_cart'])) {
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script src="scripts/remove-from-cart.js" type="text/javascript"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+
 </html>
 
