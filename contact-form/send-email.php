@@ -2,8 +2,8 @@
 
 //----------------------Company Information---------------------
 
-$comany_name = "Sri Lanka Travel Helper";
-$website_name = "www.srilankatravelhelper.com";
+$comany_name = "Tour Sri Lanka";
+$website_name = "www.toursrilanka.travel";
 $comConNumber = "+94 77 548 1031";
 //$comEmail = "info@hikkabeachtours.com";
 //$from = 'info@hikkabeachtours.com';
