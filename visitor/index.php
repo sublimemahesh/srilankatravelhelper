@@ -35,6 +35,9 @@ if ($count1 == 0) {
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>
+        <link href="../slider-css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
+        <link href="../slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
         <style>
             input[type="button"].signup-btn  {
                 background: red;
@@ -59,7 +62,7 @@ if ($count1 == 0) {
                                 <a href="../"><img src="../images/logo/logo.png" alt=""></a>
                             </div>
                             <!-- Mobile Navigation -->
-                            <div class="mmenu-trigger">
+                            <div class="mmenu-trigger" id="mmenu-trigger">
                                 <button class="hamburger hamburger--collapse" type="button">
                                     <span class="hamburger-box">
                                         <span class="hamburger-inner"></span>
@@ -139,22 +142,22 @@ if ($count1 == 0) {
                                         <li><a href="../blog.php">Blog</a></li>
                                         <li><a href="../offers.php">Offer</a></li>
                                         <?php
-                                        if (isset($_SESSION['id'])) {
+//                                        if (isset($_SESSION['id'])) {
                                             ?>
-                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
+                                            <!--<li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>-->
                                                 <?php
-                                            } else {
+//                                            } else {
                                                 ?>
-                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                            <!--<li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>-->
                                                 <?php
-                                            }
+//                                            }
                                             ?>
-                                            <ul>
+<!--                                            <ul>
                                                 <li><a href="profile.php">Login Now</a></li>
                                                 <li><a href="profile.php">Join Now</a></li>
                                                 <li><a href="../driver/profile.php">Driver Login</a></li>
-                                            </ul>
-                                        </li>
+                                            </ul>-->
+                                        <!--</li>-->
                                     </ul>
                                 </nav>
                                 <div class="clearfix"></div>
@@ -377,18 +380,21 @@ if ($count1 == 0) {
         <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
         <script src="js/sign-up.js" type="text/javascript"></script>
         <script src="js/add-visitor.js" type="text/javascript"></script>
-        <script src="../scripts/customjs.js" type="text/javascript"></script>
-        <script src="../scripts/mmenu.min.js" type="text/javascript"></script>
-        <script src="../scripts/chosen.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="../scripts/mmenu.min.js"></script>
         <script type="text/javascript" src="../scripts/chosen.min.js"></script>
         <script type="text/javascript" src="../scripts/slick.min.js"></script>
         <script type="text/javascript" src="../scripts/rangeslider.min.js"></script>
         <script type="text/javascript" src="../scripts/magnific-popup.min.js"></script>
         <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
-        <!--<script type="text/javascript" src="../scripts/custom.js"></script>-->
+        <script type="text/javascript" src="../scripts/custom.js"></script>
+        <!--<script src="js/customjs.js" type="text/javascript"></script>-->
+
         <script>
-            $(document).ready(function () {
+//            $(document).ready(function () {
+
+    
+
+
                 var message = $('#msg').val();
                 var msgid = $('#msg').attr('msgid');
 
@@ -414,9 +420,9 @@ if ($count1 == 0) {
                         $('.login-box').removeClass('login-box5');
                     });
                 }
-            });
+//            });
 
-            $(window).load(function () {
+//            $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 900) {
@@ -441,7 +447,7 @@ if ($count1 == 0) {
                     var contentheight = $(window).height() - 218;
                     $('.content').css('height', contentheight);
                 }
-            });
+//            });
 
         </script>
 
