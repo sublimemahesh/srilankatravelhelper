@@ -14,6 +14,14 @@ $(document).ready(function() {
         $('.login-link1').addClass('hidden');
         $('.login-link').removeClass('hidden');
     });
+    $('.mmenu-trigger').click(function () {
+        $(this).addClass('mmenu-left');
+        $(this).click(function () {
+            $('#mm-0').removeClass('mm-opened');
+            $('.hamburger').removeClass('is-active');
+            $(this).removeClass('mmenu-left');
+        });
+    });
     
     
 });

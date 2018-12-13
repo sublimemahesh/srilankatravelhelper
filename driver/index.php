@@ -131,22 +131,22 @@ if ($count1 == 0) {
                                         <li><a href="../blog.php">Blog</a></li>
                                         <li><a href="../offers.php">Offer</a></li>
                                         <?php
-                                        if (isset($_SESSION['id'])) {
+//                                        if (isset($_SESSION['id'])) {
                                             ?>
-                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
+                                            <!--<li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>-->
                                                 <?php
-                                            } else {
+//                                            } else {
                                                 ?>
-                                            <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                            <!--<li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>-->
                                                 <?php
-                                            }
+//                                            }
                                             ?>
-                                            <ul>
+<!--                                            <ul>
                                                 <li><a href="../visitor/profile.php">Login Now</a></li>
                                                 <li><a href="../visitor/profile.php">Join Now</a></li>
                                                 <li><a href="profile.php">Driver Login</a></li>
                                             </ul>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </nav>
                                 <div class="clearfix"></div>
@@ -373,7 +373,7 @@ if ($count1 == 0) {
         <script type="text/javascript" src="../scripts/magnific-popup.min.js"></script>
         <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
         <script>
-            $(document).ready(function () {
+//            $(document).ready(function () {
                 var message = $('#msg').val();
                 var msgid = $('#msg').attr('msgid');
 
@@ -399,11 +399,11 @@ if ($count1 == 0) {
                         $('.login-box').removeClass('login-box5');
                     });
                 }
-            });
+//            });
 
         </script>
         <script>
-            $(window).load(function () {
+//            $(window).load(function () {
                 var width = $(window).width();
 
                 if (width > 900) {
@@ -424,7 +424,7 @@ if ($count1 == 0) {
                     var contentheight = $(window).height() - 218;
                     $('.content').css('height', contentheight);
                 }
-            });
+//            });
         </script>
         <script>
             window.fbAsyncInit = function () {

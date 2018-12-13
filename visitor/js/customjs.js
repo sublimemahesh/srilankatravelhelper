@@ -1,10 +1,13 @@
 (function ($) {
     "use strict";
     $(document).ready(function () {
+        
         $(function () {
             function mmenuInit() {
+                
                 var wi = $(window).width();
                 if (wi <= '1024') {
+                    console.log(wi);
                     $(".mmenu-init").remove();
                     $("#navigation").clone().addClass("mmenu-init").insertBefore("#navigation").removeAttr('id').removeClass('style-1 style-2').find('ul, div').removeClass('style-1 style-2 mega-menu mega-menu-content mega-menu-section').removeAttr('id');
                     $(".mmenu-init").find("ul").addClass("mm-listview");
@@ -19,6 +22,7 @@
                     var mmenuAPI = $(".mmenu-init").data("mmenu");
                     var $icon = $(".hamburger");
                     $(".mmenu-trigger").click(function () {
+                        
                         mmenuAPI.open();
                     });
                     mmenuAPI.bind("open:finish", function () {
@@ -571,12 +575,12 @@
                 $('.fs-inner-container.content').insertBefore('.fs-inner-container.map-fixed');
             }
         });
-        $(window).on('load resize', function () {
-            $('.dashboard-stat-content h4').counterUp({
-                delay: 100,
-                time: 800
-            });
-        });
+//        $(window).on('load resize', function () {
+//            $('.dashboard-stat-content h4').counterUp({
+//                delay: 100,
+//                time: 800
+//            });
+//        });
         $('.leave-rating input').change(function () {
             var $radio = $(this);
             $('.leave-rating .selected').removeClass('selected');
@@ -893,97 +897,9 @@
         }
     });
 })(this.jQuery);
-/*!
- * jquery.scrollto.js 0.0.1 - https://github.com/yckart/jquery.scrollto.js
- * Copyright (c) 2012 Yannick Albert (http://yckart.com)
- * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
- **/
-$.scrollTo = $.fn.scrollTo = function (x, y, options) {
-    if (!(this instanceof $))
-        return $.fn.scrollTo.apply($('html, body'), arguments);
-    options = $.extend({}, {
-        gap: {
-            x: 0,
-            y: 0
-        },
-        animation: {
-            easing: 'swing',
-            duration: 600,
-            complete: $.noop,
-            step: $.noop
-        }
-    }, options);
-    return this.each(function () {
-        var elem = $(this);
-        elem.stop().animate({
-            scrollLeft: !isNaN(Number(x)) ? x : $(y).offset().left + options.gap.x,
-            scrollTop: !isNaN(Number(y)) ? y : $(y).offset().top + options.gap.y
-        }, options.animation);
-    });
-};
-
-function numericalRating(ratingElem) {
-    $(ratingElem).each(function () {
-        var dataRating = $(this).attr('data-rating');
-        if (dataRating >= 4.0) {
-            $(this).addClass('high');
-        } else if (dataRating >= 3.0) {
-            $(this).addClass('mid');
-        } else if (dataRating < 3.0) {
-            $(this).addClass('low');
-        }
-    });
-}
-numericalRating('.numerical-rating');
-
-function starRating(ratingElem) {
-    $(ratingElem).each(function () {
-        var dataRating = $(this).attr('data-rating');
-
-        function starsOutput(firstStar, secondStar, thirdStar, fourthStar, fifthStar) {
-            return ('' +
-                    '<span class="' + firstStar + '"></span>' +
-                    '<span class="' + secondStar + '"></span>' +
-                    '<span class="' + thirdStar + '"></span>' +
-                    '<span class="' + fourthStar + '"></span>' +
-                    '<span class="' + fifthStar + '"></span>');
-        }
-        var fiveStars = starsOutput('star', 'star', 'star', 'star', 'star');
-        var fourHalfStars = starsOutput('star', 'star', 'star', 'star', 'star half');
-        var fourStars = starsOutput('star', 'star', 'star', 'star', 'star empty');
-        var threeHalfStars = starsOutput('star', 'star', 'star', 'star half', 'star empty');
-        var threeStars = starsOutput('star', 'star', 'star', 'star empty', 'star empty');
-        var twoHalfStars = starsOutput('star', 'star', 'star half', 'star empty', 'star empty');
-        var twoStars = starsOutput('star', 'star', 'star empty', 'star empty', 'star empty');
-        var oneHalfStar = starsOutput('star', 'star half', 'star empty', 'star empty', 'star empty');
-        var oneStar = starsOutput('star', 'star empty', 'star empty', 'star empty', 'star empty');
-        if (dataRating >= 4.75) {
-            $(this).append(fiveStars);
-        } else if (dataRating >= 4.25) {
-            $(this).append(fourHalfStars);
-        } else if (dataRating >= 3.75) {
-            $(this).append(fourStars);
-        } else if (dataRating >= 3.25) {
-            $(this).append(threeHalfStars);
-        } else if (dataRating >= 2.75) {
-            $(this).append(threeStars);
-        } else if (dataRating >= 2.25) {
-            $(this).append(twoHalfStars);
-        } else if (dataRating >= 1.75) {
-            $(this).append(twoStars);
-        } else if (dataRating >= 1.25) {
-            $(this).append(oneHalfStar);
-        } else if (dataRating < 1.25) {
-            $(this).append(oneStar);
-        }
-    });
-}
-starRating('.star-rating');
 
 
 $(document).ready(function () {
-    
-
     $('.header-icon1').removeClass('btn-hover');
     $('.header-icon2').removeClass('btn-hover');
     $('.button-left').mouseover(function () {
