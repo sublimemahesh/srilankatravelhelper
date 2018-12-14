@@ -8,24 +8,36 @@ $(document).ready(function (e) {
             if (e.which != 40) {
                 if (e.which != 13) {
                     var keyword = $('#subject').val();
+                    if (keyword == '') {
+                        $('#subject-list-append').empty();
+                    }
                     $.ajax({
                         type: 'POST',
                         url: 'post-and-get/ajax/add-new-question.php',
                         dataType: "json",
                         data: {keyword: keyword, option: 'GETNAME'},
                         success: function (result) {
-                            var html = '';
+                            if (result == '') {
+                                $('#subject-list-append').empty();
+                            } else {
+                                var html = '';
+                                html += '<div class="panel panel-default suggestion-panel">'
+                                html += '<div class="row">'
+                                html += '<p class="small col-md-6"> The following questions might be related.</p>';
+                                html += '<p class="small hidden-btn col-md-6">Hide related questions</p>';
+                                html += '</div>';
 
-                            $.each(result, function (key) {
-                                if (key === 0) {
-//                                    html += '<li id="c' + this.id + '" class="subject">' + this.subject + '</li>';
-                                    html += '<a href="view-question.php?id=' + this.id + '" target="_blank"><li id="c' + this.id + '" class="subject selected">' + this.subject + '</li></a>';
-                                } else {
-                                    html += '<a href="view-question.php?id=' + this.id + '" target="_blank"><li id="c' + this.id + '" class="subject">' + this.subject + '</li></a>';
-                                }
-                            });
-                            $('#subject-list-append').empty();
-                            $('#subject-list-append').append(html);
+                                $.each(result, function (key) {
+                                    if (key < 8) {
+                                        html += '<a href="view-question.php?id=' + this.id + '" target="_blank"><p id="c' + this.id + '" class="subject"><i class="fa fa-question-circle"></i>' + this.subject + '</p></a>';
+                                    }
+                                });
+                                html += '</div>';
+                                $('#subject-list-append').empty();
+                                $('#subject-list-append').append(html);
+                            }
+
+
                         }
                     });
                 }
@@ -40,7 +52,6 @@ $(document).ready(function (e) {
         $('#qu-id').val(questionId.replace("c", ""));
         $('#subject').val(question);
         $('#subject-list-append').empty();
-
         $('#subject').change(function () {
             $('#qu-id').val("");
         });
@@ -88,15 +99,11 @@ $(document).ready(function (e) {
             var questionId = selected.replace("c", "");
             $('#qu-id').val(questionId);
             $('#subject').attr('attempt', 1);
-
             var questionsubject = $('li.selected').text();
             $('#subject').val(questionsubject);
-
             $('#subject-list-append').empty();
-
             $('#subject').change(function (e) {
                 $('#subject').attr('attempt', 0);
-
             });
         }
     });
@@ -105,5 +112,10 @@ $(document).ready(function (e) {
             $('#qu-id').val("");
         }
 
+    });
+
+
+    $('#subject-list-append').on('click', '.hidden-btn', function () {
+        $('#subject-list-append').empty();
     });
 });

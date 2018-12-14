@@ -66,11 +66,11 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                             <div class="panel panel-default">
 
                                 <input type="text" class="form-control" id="subject" name="subject" autocomplete="off" placeholder="Enter Subject" value="" attempt="">
-                                <div id="suggesstion-box">
-                                    <ul id="subject-list-append" class="subject-list"></ul>
-                                </div>
+                                
                                 <input type="hidden" name="qu-id" value="" id="qu-id"  />
-
+                                <div id="suggesstion-place">
+                                    <div id="subject-list-append" class="subject-list"></div>
+                                </div>
 
 
 
