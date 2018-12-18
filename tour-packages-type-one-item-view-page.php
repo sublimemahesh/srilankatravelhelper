@@ -184,6 +184,10 @@ if ($divider1 == 0) {
                 border-left: 0px;
                 height: auto;
             }
+            h4.headline {
+                font-size: 22px;
+                margin: 30px 0 15px;
+            }
         }
 
     </style>
@@ -207,7 +211,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-45 padding-top-45">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-9">
 
                     <div class="item1">
                         <div class="padding-top-10">
@@ -220,7 +224,7 @@ if ($divider1 == 0) {
                                 <hr >
                                 <p><?php echo $tour_date['description']; ?></p>
 
-                                <div class="image-row padding-bottom-100">
+                                <div class="image-row padding-bottom-140">
                                     <?php
                                     $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
                                     foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
@@ -244,60 +248,82 @@ if ($divider1 == 0) {
                         <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
                     </div>
                 </div>
-                <div class="col-md-3" >
+                <div class="col-md-3 col-sm-3" >
                     <div>
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
                     <?php
-                    $TOUR_PACKAGES = TourPackages::all();
+                    $TOUR_PACKAGES = TourPackages::getTourPackagesById($type);
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         if ($key < 7) {
+                            $count = TourDate::countTotalDatesOfPackage($tour_package['id']);
+
+                            $days = $count['count'];
+                            $nights = $days - 1;
                             ?>
-                            <div  class="col-md-12 col-xs-12 more-items" >
-                                <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
-                                    <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $tour_package['name']; ?></h5>
-                                    <div class="col-md-5 col-xs-5 more-items-image">
-                                        <img  src="upload/tour-package/thumb1/<?php echo $tour_package['image_name']; ?>"  class="img-circle" alt=""/>
-                                        <div class="more-reviews-item1">
-                                            <li>
-                                                <?php
-                                                $REVIEWS = Reviews::getTotalReviewsOfTour($tour_package['id']);
 
-                                                $divider = $REVIEWS['count'];
-                                                $sum = $REVIEWS['sum'];
+                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
+                                <div class="other-tours col-md-12">
+                                    <h4><?php echo $tour_package["name"]; ?></h4>
+                                    <div class="col-md-4 col-sm-12 col-xs-4">
+                                        <img src="upload/tour-package/thumb1/<?php echo $tour_package["image_name"]; ?>" alt="">
+                                    </div>
+                                    <div class="col-md-8 col-sm-12 col-xs-8">
+                                        <div class="col-sm-12">
+                                            <?php
+                                            $REVIEWS = Reviews::getTotalReviewsOfTour($tour_package['id']);
 
-                                                if ($divider == 0) {
-                                                    for ($j = 1; $j <= 5; $j++) {
-                                                        ?>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <?php
-                                                    }
-                                                    $sum = 0;
-                                                } else {
-                                                    $stars = $sum / $divider;
+                                            $divider = $REVIEWS['count'];
+                                            $sum = $REVIEWS['sum'];
 
-                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                        ?>
-                                                        <i class="fa fa-star"></i>
-                                                        <?php
-                                                    }
-                                                    for ($j = $i; $j <= 5; $j++) {
-                                                        ?>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <?php
-                                                    }
+                                            if ($divider == 0) {
+                                                for ($j = 1; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
                                                 }
-                                                ?>
-                                            </li>
+                                                $sum = 0;
+                                            } else {
+                                                $stars = $sum / $divider;
+
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                            }
+                                            echo '<br />(' . $sum . ' reviews)';
+                                            ?>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <?php
+                                            if ($days == 1) {
+                                                echo '01 day';
+                                            } else {
+                                                if ($days < 10) {
+                                                    echo '0' . $days . 'days';
+                                                } else {
+                                                    echo $days . 'days';
+                                                }
+                                                if ($nights == 1) {
+                                                    echo ' & 01 night';
+                                                } else if ($nights < 10) {
+                                                    echo ' & 0' . $nights . 'nights';
+                                                } else {
+                                                    echo ' & ' . $nights . 'nights';
+                                                }
+                                            }
+                                            ?>
+
                                         </div>
                                     </div>
-                                    <div class="col-md-7 col-xs-7">
-                                        <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($tour_package['short_description'], 0, 65) . '...'; ?></p>
-                                    </div>
-
-
-                                </a>
-                            </div>
+                                </div>
+                            </a>
 
                             <?php
                         }
@@ -334,7 +360,7 @@ if ($divider1 == 0) {
                             }
                             ?>
                         </div>
-                        
+
                     </div>	
                     <div class="col-md-8 ">
                         <div class="reviws-section">

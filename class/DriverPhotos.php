@@ -107,6 +107,15 @@ class DriverPhotos {
         return $array_res;
     }
 
+    public function countDriverPhotosByDriver($id) {
+
+        $query = "SELECT count(id) AS `count` FROM `driver_photos` WHERE `driver` = '" . $id . "' ORDER BY `sort` ASC";
+
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+
     public function arrange($key, $driver) {
         $query = "UPDATE `driver_photos` SET `sort` = '" . $key . "'  WHERE id = '" . $driver . "'";
         $db = new Database();

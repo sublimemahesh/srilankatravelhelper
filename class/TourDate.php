@@ -140,10 +140,18 @@ class TourDate {
         return $array_res;
     }
     
-       public function arrange($key, $img) {
+    public function arrange($key, $img) {
         $query = "UPDATE `tour_date` SET `sort` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
+        return $result;
+    }
+    
+    public function countTotalDatesOfPackage($id) {
+
+        $query = "SELECT count(id) AS `count` FROM `tour_date` WHERE `package` = $id ORDER BY `sort` ASC";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
 
