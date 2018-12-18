@@ -171,13 +171,13 @@ img.footer-logo {
 .header-widget .button,
 .header-widget .button.border {
     margin-right: 0;
-    min-width: 130px;
-    text-align: center;
+    /*min-width: 130px;*/
+    text-align: left;
     position: relative;
     line-height: 15px;
     font-weight: 500;
     margin-left: 0px;
-    padding-left: 0px;
+    padding: 1px 9px 5px 0px;
 }
 .my-cart .button,
 .my-cart .button.border {
@@ -234,7 +234,7 @@ header.fullwidth .container {
     width: 70%;
     display: inline-block;
     text-align: right;
-    height: 91px;
+    height: 81px;
     padding: 5px 0px;
 }
 .container {
@@ -257,6 +257,7 @@ header.fullwidth .container {
 }
 .cart-item-count {
     /*font-size: 10px;*/
+    margin-left: -4px;
 }
 .cart-title {
     font-size: 15px;
@@ -727,7 +728,9 @@ body #navigation ul ul {
 #navigation.style-1 ul li a {
     color: #444;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 13px;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
 
 #navigation.style-1 ul li:hover a {
@@ -748,7 +751,7 @@ body #navigation ul ul {
 
 #navigation.style-1 ul a {
     line-height: 32px;
-    padding: 5px 10px
+    padding: 0px 10px 5px 10px;
 }
 
 #navigation.style-1 ul ul li a {
@@ -14507,14 +14510,15 @@ screen and (max-height:300px) {
 
 body {
     color: #707070;
-    font-size: 15px;
-    line-height: 27px;
+    font-size: 14px;
+    line-height: 25px;
     background-color: #fff
 }
 
 body p {
-    font-size: 16px;
-    line-height: 29px
+    font-size: 14px;
+    line-height: 25px;
+    text-align: justify;
 }
 
 #wrapper {
@@ -14564,9 +14568,11 @@ h6.white {
 }
 
 h3.headline {
-    font-size: 30px;
-    line-height: 37px;
-    margin: 0 0 30px
+    font-size: 18px;
+    line-height: 12px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 h2.headline {
@@ -14732,7 +14738,6 @@ h4 span.headline-detail {
 
 .margin-top-25 {
     margin-top: 25px!important
-        margin-bottom: 25px!important
 }
 
 .margin-top-30 {
@@ -16548,6 +16553,10 @@ div.layout-style {
 .star-rating {
     color: yellow;
 }
+.header-widget a:hover {
+    text-decoration: none;  
+}
+
 @media(max-width: 1000px) {
     .container {
         width: 100%

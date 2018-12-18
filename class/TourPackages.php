@@ -74,6 +74,20 @@ class TourPackages {
 
         return $array_res;
     }
+    
+    public function getPackagesByType($type) {
+
+        $query = "SELECT * FROM `tour_packages` WHERE `type` = $type ORDER BY sort ASC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
     public function update() {
 
@@ -136,7 +150,7 @@ class TourPackages {
     }
 
     public function getTourPackagesById($id) {
-
+        
         $allpackages = TourPackages::all();
         $array_res = array();
         foreach ($allpackages as $package) {

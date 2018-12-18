@@ -75,51 +75,62 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 position: relative;
             }
             .single-package-carasoul .package-location span {
-                background: #37b721 none repeat scroll 0 0;
+                background: #37b721b3 none repeat scroll 0 0;
                 bottom: 10px;
                 color: #ffffff;
-                font-size: 20px;
+                font-size: 13px;
                 font-weight: 600;
-                height: 40px;
-                left:10px;
-                line-height: 43px;
+                height: 34px;
+                right: 25px;
+                line-height: 33px;
                 position: absolute;
                 text-align: center;
                 transition: all 0.3s ease-in-out 0s;
                 width: 100px;
                 z-index: 99;
-                border-radius: 21px;
+                border-radius: 24px;
+                border: 1px solid #fff9;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+            .single-package-carasoul .package-location span:hover {
+                background: #fffc none repeat scroll 0 0;
+                bottom: 10px;
+                color: #0dce38;
+                border: 1px solid #0dce38;
             }
             .single-package-carasoul .package-details {
                 background: #ffffff;
                 border-radius: 0 0 4px 4px;
             }
             .single-package-carasoul .package-details .package-places {
-                padding: 25px;
+                padding: 10px 25px;
             }
             .single-package-carasoul .package-details .package-places h4 {
-                padding-bottom: 7px;
+                padding-bottom: 0px;
                 color: #454545;
                 font-size: 19px;
                 font-weight: 600;
             }
             .single-package-carasoul .package-details .package-places > span {
                 color: #727272;
-                font-size: 15px;
+                font-size: 14px;
                 font-weight: 500;
             }
             .single-package-carasoul .package-details .package-places > span i {
                 margin-right: 10px;
+                font-size: 14px;
             }
             .single-package-carasoul .package-details .package-places .details {
-                margin-top: 18px;
+                margin-top: 5px;
             }
             .single-package-carasoul .package-details .package-places .details p {
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 14px;
                 color: #727272;
                 line-height: 25px;
                 margin: 0;
+                text-align: justify;
             }
             .single-package-carasoul .package-details .package-places .details p span {
                 font-size: 15px;
@@ -141,7 +152,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 float: right;
             }
             .single-package-carasoul .package-details .package-ratings-review .two-column li i {
-                color: #ffef3b;
+                color: #efdb00;
                 font-size: 21px;
             }
             .single-package-carasoul .package-details .package-ratings-review .two-column li p {
@@ -154,7 +165,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 display: block;
                 width: 100%;
                 text-align: center;
-                padding: 27px 0;
+                padding: 22px 0;
                 position: absolute;
                 bottom: -63px;
                 opacity: 0;
@@ -173,9 +184,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 visibility: visible;
                 bottom: -1px;
             }
-            .single-package-carasoul:hover .package-location span {
-                background: #000000;
-            }
+            /*            .single-package-carasoul:hover .package-location span {
+                            background: #000000;
+                        }*/
             .owl-nav div {
                 background: #37b721 none repeat scroll 0 0;
                 color: #ffffff;
@@ -199,10 +210,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 left: auto;
                 right: -200px;
             }
-            /*            #pagination{
-                            background-color: #37b721 !important;
-                            border-color: #37b721 !important;
-                        }*/
+            .package-places h4 {
+                margin-bottom: 4px;
+            }
         </style>
     </head>
 </head>
@@ -238,10 +248,10 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     </div>
                                     <div class="package-details">
                                         <div class="package-places">
-                                            <h4><?php echo $tour_package['name']; ?></h4>
+                                            <h4><a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>"><?php echo $tour_package['name']; ?></a></h4>
                                             <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price']; ?></span>
                                             <div class="details">
-                                                <p><?php echo substr($tour_package['description'], 0, 100).'...'; ?></p>
+                                                <p><?php echo substr($tour_package['description'], 0, 100) . '...'; ?></p>
                                             </div>
                                         </div>
                                         <div class="package-ratings-review">

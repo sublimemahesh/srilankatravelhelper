@@ -98,16 +98,67 @@ if (isset($_GET['search'])) {
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
-                    <div class="col-lg-3 col-md-4">
-                        <div class="boxed-widget opening-hours margin-top-35">
+                    <div class="col-lg-3 col-md-4 col-sm-5">
+                        <div class="boxed-widget opening-hours margin-top-25">
 
                             <h3><i class="fa fa-map-marker"></i>Destination Types</h3>
                             <ul>
                                 <?php
                                 $DESTINATIONTYPES = DestinationType::all();
                                 foreach ($DESTINATIONTYPES as $key => $type) {
+                                    $count = Destination::countTotalDestinationsOfType($type['id']);
+                                    
                                     ?>
-                                    <li><a href="destination-type-view-page.php?id=<?php echo $type["id"]; ?>"><i class="fa fa-check"></i><?php echo $type["name"]; ?></a></li>
+                                    <a href="destination-type-view-page.php?id=<?php echo $type["id"]; ?>">
+                                        <div class="dest-type col-md-12">
+                                            <h4><?php echo $type["name"]; ?></h4>
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                <img src="upload/destination-type/<?php echo $type["image_name"]; ?>" alt="">
+                                            </div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                                <div class="col-sm-12">
+                                                    <?php
+                                                    $REVIEWS = Reviews::getTotalReviewsOfDestinationType($type['id']);
+
+                                                    $divider = $REVIEWS['count'];
+                                                    $sum = $REVIEWS['sum'];
+
+                                                    if ($divider == 0) {
+                                                        for ($j = 1; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                        $sum = 0;
+                                                    } else {
+                                                        $stars = $sum / $divider;
+
+                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                        }
+                                                        for ($j = $i; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    echo '<br />(' . $sum . ' reviews)';
+                                                    ?>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    Destinations - <?php
+                                                    if ($count['count'] < 10) {
+                                                        echo '0' . $count['count'];
+                                                    } else {
+                                                        echo $count['count'];
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                     <?php
                                 }
                                 ?>
@@ -117,7 +168,7 @@ if (isset($_GET['search'])) {
 
                     </div>
                     <!-- Sidebar / End -->
-                    <div class="col-lg-9 col-md-8 padding-right-30">
+                    <div class="col-lg-9 col-md-8 col-sm-7 padding-right-30">
                         <!-- Sorting / Layout Switcher -->
                         <div class="row margin-bottom-25">
                         </div>

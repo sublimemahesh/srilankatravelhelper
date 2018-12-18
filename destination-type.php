@@ -87,6 +87,8 @@ if (!isset($_SESSION)) {
                         <?php
                     }
                     ?>
+                </div>
+                <div class="row">
                     <div class="view-all-destination-button">
                         <a href="all-destinations.php" ><button id="view-all-reviews" class="button border with-icon submit">All Destinations</button></a>
                     </div>

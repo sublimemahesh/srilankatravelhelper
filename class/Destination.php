@@ -190,6 +190,14 @@ class Destination {
         }
         return $array_res;
     }
+
+    public function countTotalDestinationsOfType($id) {
+
+        $query = "SELECT count(id) AS `count` FROM `destination` WHERE `type`= $id ORDER BY `sort` ASC";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
     
     public function showPaginationOfDestination($id, $per_page, $page) {
         

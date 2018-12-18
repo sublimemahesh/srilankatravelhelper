@@ -60,21 +60,6 @@ if ($count1 == 0) {
 
                 </div>
                 <div class="nav-top hidden-xs">
-
-                    <div class="header-widget widget-btn-right">
-                        <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
-                                if ($count == 1) {
-                                    echo '1 item';
-                                } else {
-                                    echo $count . ' items';
-                                };
-                                ?>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="header-widget widget-btn-left">
-                        <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
-                    </div>
                     <nav id="navigation1" class="style-1 hidden-xs">
                         <ul id="responsive">
                             <?php
@@ -96,6 +81,21 @@ if ($count1 == 0) {
                             </li>
                         </ul>
                     </nav>
+                    <div class="header-widget widget-btn-right">
+                        <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span><span class="cart-item-count"><?php
+                                if ($count == 1) {
+                                    echo '1 item';
+                                } else {
+                                    echo $count . ' items';
+                                };
+                                ?>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="header-widget widget-btn-left">
+                        <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span><span> Plan Your Trip</span></a>
+                    </div>
+
                 </div>
                 <div class="nav-bottom">
                     <!-- Main Navigation -->
