@@ -34,6 +34,7 @@ include_once(dirname(__FILE__) . '/Location.php');
 include_once(dirname(__FILE__) . '/Offer.php');
 include_once(dirname(__FILE__) . '/OfferBooking.php');
 include_once(dirname(__FILE__) . '/DriverAndVisitorMessages.php');
+include_once(dirname(__FILE__) . '/LocationDetails.php');
 
 function dd($data) {
     var_dump($data);
