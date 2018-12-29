@@ -225,6 +225,7 @@ $types = $DESTINATION_TYPE->all();
                 // Get the place details from the autocomplete object.
                 var place = autocomplete.getPlace();
                 $('#city').val(place.place_id);
+                console.log(place);
                 $('#cityname').val(place.name);
 //                $('#longitude').val(place.geometry.location.lng());
 //                $('#latitude').val(place.geometry.location.lat());
