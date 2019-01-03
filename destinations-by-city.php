@@ -58,7 +58,16 @@ $LOCATION = new Location($city);
                                 </div>
                                 <div style="margin-top: 0px;padding-bottom: 7px;">
                                     <p class="text-center " id="">
-                                        <?php echo $LOCATION->description; ?>
+                                        
+                                        <?php
+                                        if (strlen($LOCATION->description) > 650) {
+                                            echo substr($LOCATION->description, 0, 650) . '...';
+                                        } else {
+                                            echo $LOCATION->description;
+                                        }
+                                        ?>
+                                        
+                                        
                                     </p>
                                 </div>
 
@@ -81,7 +90,15 @@ $LOCATION = new Location($city);
                                 </div>
                                 <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
                                     <div class="driver-name text-left"> 
-                                        <?php echo $destination['name']; ?>
+
+                                        <?php
+                                        if (strlen($destination['name']) > 14) {
+                                            echo substr($destination['name'], 0, 14) . '...';
+                                        } else {
+                                            echo $destination['name'];
+                                        }
+                                        ?>
+
                                     </div>
                                     <div class="star-rating-fa">
                                         <?php

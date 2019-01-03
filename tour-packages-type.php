@@ -36,7 +36,7 @@ if (!isset($_SESSION)) {
                     </div>
                 </div>
             </div>
-            <section class="fullwidth   padding-top-45 padding-bottom-45" data-background-color="#fff">
+            <section class="fullwidth   padding-top-70 padding-bottom-45" data-background-color="#fff">
                 <div class="container">
                     <div class="row">
                         <?php

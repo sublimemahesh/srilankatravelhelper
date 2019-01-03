@@ -29,6 +29,8 @@ if (!isset($_SESSION)) {
         <link href="slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
         <!-- custome css -->
         <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
+         <!-- responsive css -->
+         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>

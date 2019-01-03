@@ -80,6 +80,8 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                     <td><?php echo $location['place_id']; ?></td>
                                                     <td> 
                                                         <a href="edit-location.php?id=<?php echo $location['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        |
+                                                         <a href="create-location-details.php?id=<?php echo $location['id']; ?>"> <button class="glyphicon glyphicon glyphicon-tasks loca-Details"></button></a>
                                                         | 
                                                         <a href="#" >
                                                             <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $location['id']; ?>"></button>
