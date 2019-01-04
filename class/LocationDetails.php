@@ -47,7 +47,7 @@ class LocationDetails {
 
     public function create() {
 
-        $query = "INSERT INTO `location_details`(`id`, `related_location`, `location`, `bus_distance`, `train_distance`, `taxi_distance`, `bus_hour`, `train_hour`, `taxi_hour`)VALUES  ('"
+        $query = "INSERT INTO `location_details`(`related_location`, `location`, `bus_distance`, `train_distance`, `taxi_distance`, `bus_hour`, `train_hour`, `taxi_hour`)VALUES  ('"
                 . $this->related_location . "', '"
                 . $this->location . "', '"
                 . $this->bus_distance . "', '"

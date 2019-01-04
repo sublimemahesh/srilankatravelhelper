@@ -37,7 +37,7 @@ if (!isset($_SESSION)) {
                 </div>
             </div>
         </div>
-        <div class="container  padding-top-45">
+        <div class="container  padding-top-70">
             <div class="row">
                 <div class="col-md-6">
                     <img src="images/destination/whild-life.jpg" alt=""/>
@@ -60,16 +60,16 @@ if (!isset($_SESSION)) {
                 </div>
             </div>
         </div>
-        <section class="fullwidth margin-top-0 padding-top-45 padding-bottom-45" data-background-color="#fff">
+        <section class="fullwidth margin-top-0 padding-top-45 padding-bottom-55" data-background-color="#fff">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="pricing-container margin-top-30">
                             <div class="plan">
                                 <div class="plan-price">
-                                    <h3>Vission</h3>
+                                    <h3>Vision</h3>
 
-                                    <span class="period">Free of charge one standard listing active for 30 days Free of charge one standard listing active for 30 day</span>
+                                    <span class="period">Free of charge one standard listing active for 30 days Free of charge one standard listing active for 30 day  in the search results</span>
                                 </div>
                             </div>
                             <div class="plan featured">
@@ -84,7 +84,7 @@ if (!isset($_SESSION)) {
                                 <div class="plan-price">
                                     <h3>Strenghts</h3>
 
-                                    <span class="period">Monthly subscription for unlimited listings and availabilityMonthly subscription for unlimited listings and availability</span>
+                                    <span class="period">Monthly subscription for unlimited listings and availability .Monthly subscription for unlimited listings and availability</span>
                                 </div>
                             </div>
                         </div>

@@ -8149,3 +8149,33 @@ input[type="checkbox"] {
     margin-top: 1px \9;
     line-height: normal;
 }
+.loca-Details {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #741c95;
+    border-radius: 3px;
+    border: 0;
+}
+.locationData{
+    padding: 11px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    margin-top: -8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.locationData h4{
+    padding-top: 10px;
+}
+.locationdetailshead {
+    padding-right: 0px;
+    margin-left: -131px;
+    margin-top: -4px;
+}
+.locationdetailsbody{
+    margin-bottom: -50px;
+}
+.label1 label {
+    margin-top: -9px; 
+}

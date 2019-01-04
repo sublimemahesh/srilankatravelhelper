@@ -149,7 +149,7 @@ body {
 }
 .city-item p {
     font-size: 15px;
-    text-align: left;
+    text-align: justify;
     line-height: 22px;
     padding: 0px;
     margin-bottom: 0px;
@@ -174,8 +174,8 @@ body {
     padding-right: 0px;
 }
 .city-item .search-item-details.col-xs-12{
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 .city-item  .search-destination-inner {
     background: #eee;

@@ -169,7 +169,7 @@ if ($divider1 == 0) {
             padding-top: 10px;
         }
         .item1{
-            padding-bottom: 100px;
+            padding-bottom: 25px;
         }
         a:hover {
             text-decoration: none;
@@ -249,7 +249,7 @@ if ($divider1 == 0) {
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3" >
-                    <div>
+                    <div class="moretourpack">
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
                     <?php
@@ -264,7 +264,16 @@ if ($divider1 == 0) {
 
                             <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
                                 <div class="other-tours col-md-12">
-                                    <h4><?php echo $tour_package["name"]; ?></h4>
+                                    <h4>
+                                        <?php
+                                        if (strlen($tour_package['name']) > 24) {
+                                            echo substr($tour_package['name'], 0, 24) . '...';
+                                        } else {
+                                            echo $tour_package['name'];
+                                        }
+                                        ?>
+                                    </h4>
+
                                     <div class="col-md-4 col-sm-12 col-xs-4">
                                         <img src="upload/tour-package/thumb1/<?php echo $tour_package["image_name"]; ?>" alt="">
                                     </div>
@@ -333,7 +342,7 @@ if ($divider1 == 0) {
             </div>
         </div>
 
-        <div class="container padding-bottom-35">
+        <div class="container padding-bottom-70">
             <div class="row">
                 <div class="col-md-12">
                     <hr>

@@ -45,7 +45,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 </div>
             </div>
 
-            <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
+            <section class="fullwidth  padding-top-70 padding-bottom-0" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
                         <?php

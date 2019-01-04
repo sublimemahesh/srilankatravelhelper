@@ -108,7 +108,7 @@ if (isset($_GET['search'])) {
                 </div>
             </div>
 
-            <div class="container  padding-top-45  question-list" >
+            <div class="container  padding-top-25 padding-bottom-20  question-list" >
 
                 <div class="col-md-12">
                     <div class="blog col-md-12 col-xs-12">
