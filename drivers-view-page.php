@@ -250,7 +250,7 @@ $stars = $sum / $divider;
                     </div>
                 </div>
             </div>
-            <div class="container padding-bottom-45 padding-top-45">
+            <div class="container padding-bottom-45 padding-top-70">
                 <div class="row">
                     <div class="col-md-3" >
 
@@ -535,7 +535,7 @@ $stars = $sum / $divider;
                 </div>
 
             </div>
-            <section class="fullwidth  padding-top-45 padding-bottom-45" >
+            <section class="fullwidth  padding-top-45 padding-bottom-70" >
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

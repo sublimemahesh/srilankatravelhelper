@@ -32,7 +32,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     </div>
                 </div>
             </div>
-            <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
+            <section class="blog-contents-version-one padding-bottom-10 padding-top-70 popular-packages">
                 <div class="container">
                     <div class="row">
                         <?php
@@ -63,7 +63,26 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                 <div class="offer-right"> 
                                     <div class="offer-driver-img">
                                         <a target="blank" href="member-view.php?id=" class="link" title="DRIVER : <?php echo $DRIVER->name; ?>">
-                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" class="img-circle img-responsive vis-member-border offer-member-img">
+                                          
+                                        <?php
+                                            if (empty($DRIVER->profile_picture)) {
+                                                ?>
+                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle img-responsive vis-member-border offer-member-img"/>
+                                                <?php
+                                            } else {
+                                                if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                    ?>
+                                                    <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle img-responsive vis-member-border offer-member-img"/>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle img-responsive vis-member-border offer-member-img"/>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        
+                                        
                                         </a>
                                     </div>
                                     <div class="offer-person"><span class="color-blue">LKR <?php echo number_format($newprice, 2); ?></span><strike class="old-discount-price">LKR <?php echo number_format($offer['price'], 2); ?></strike> </div>
