@@ -206,7 +206,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
             </div>
         </div>
 
-        <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
+        <section class="blog-contents-version-one padding-bottom-5 padding-top-70 popular-packages">
             <div class="container">
                 <div class="row">
                     <?php
@@ -221,7 +221,16 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                 <div class="package-details">
                                     <div class="package-places">
                                         <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>">
-                                            <h4><?php echo $city['name']; ?></h4>
+                                            <h4>
+                                                <?php
+                                                if (strlen($city['name']) > 14) {
+                                                    echo substr($city['name'], 0, 14) . '...';
+                                                } else {
+                                                    echo $city['name'];
+                                                }
+                                                ?>
+
+                                            </h4>
                                         </a>
                                         <div class="details">
                                             <p><?php echo substr($city['short_description'], 0, 100) . '...'; ?></p>

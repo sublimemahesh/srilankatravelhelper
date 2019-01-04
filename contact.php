@@ -36,7 +36,7 @@ if (!isset($_SESSION)) {
                 </div>
             </div>
         </div>
-        <div class="container padding-bottom-45 padding-top-45">
+        <div class="container padding-bottom-65 padding-top-70">
             <div class="row">
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <h4 class="headline margin-bottom-30">Find Us There</h4>
@@ -108,11 +108,11 @@ if (!isset($_SESSION)) {
                                             <input type="text" name="captchacode" id="captchacode" class="form-control input-validater" placeholder="Enter the security code >> ">
                                             <span id="capspan" ></span> 
                                         </div>   
-                                        <div class="col-sm-6 col-xs-12"> 
+                                        <div class="col-sm-6 col-xs-12 capmargin "> 
                                             <?php include("./contact-form/captchacode-widget.php"); ?> 
                                         </div>  
 
-                                        <div class="col-xs-12 col-sm-6">
+                                        <div class="col-xs-12 col-sm-6 ">
                                             <div class="col-sm-4">
                                                 <div class="div-check" >
                                                     <img src="contact-form/img/checking.gif" id="checking"/>

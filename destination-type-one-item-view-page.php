@@ -248,12 +248,12 @@ if (isset($_GET['album'])) {
 
 
 
-                <div class="container padding-bottom-45 padding-top-45">
+                <div class="container padding-bottom-45 padding-top-70">
                     <div class="row">
 
                         <div class="col-md-9 col-sm-8">
                             <div class=" content">
-                                <div class="col-md-12">
+                                <div class="col-md-12 destinationimg">
                                     <div id="gallery1"></div>
                                 </div>
                             </div>
@@ -340,7 +340,7 @@ if (isset($_GET['album'])) {
 
                     </div>
                 </div>
-                <div class="container padding-bottom-35">
+                <div class="container padding-bottom-70">
                     <div class="row">
                         <div class="col-md-12">
                             <hr>

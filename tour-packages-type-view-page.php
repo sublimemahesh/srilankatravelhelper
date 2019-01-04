@@ -232,7 +232,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             </div>
         </div>
 
-        <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
+        <section class="blog-contents-version-one padding-bottom-5 padding-top-70 popular-packages">
             <div class="container">
                 <div class="row">
                     <?php
@@ -248,7 +248,17 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     </div>
                                     <div class="package-details">
                                         <div class="package-places">
-                                            <h4><a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>"><?php echo $tour_package['name']; ?></a></h4>
+                                            <h4><a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
+
+                                                    <?php
+                                                    if (strlen($tour_package['name']) > 30) {
+                                                        echo substr($tour_package['name'], 0, 30) . '...';
+                                                    } else {
+                                                        echo $tour_package['name'];
+                                                    }
+                                                    ?>
+
+                                                </a></h4>
                                             <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price']; ?></span>
                                             <div class="details">
                                                 <p><?php echo substr($tour_package['description'], 0, 100) . '...'; ?></p>

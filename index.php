@@ -29,6 +29,8 @@ if (!isset($_SESSION)) {
         <link href="slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
         <!-- custome css -->
         <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
+         <!-- responsive css -->
+         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -44,7 +46,7 @@ if (!isset($_SESSION)) {
             <!-- Banner
                    ================================================== -->
             <!-- Info Section -->
-            <div class="container margin-top-45 ">
+            <div class="container margin-top-20 ">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="headline centered margin-top-45">
@@ -52,7 +54,7 @@ if (!isset($_SESSION)) {
                         </h2>
                     </div>
                 </div>
-                <div class="row icons-container padding-bottom-20">
+                <div class="row icons-container padding-bottom-30">
                     <!-- Stage -->
                     <!--                <div class="col-md-4">
                                         <div class="icon-box-2 with-line">
@@ -161,7 +163,7 @@ if (!isset($_SESSION)) {
                  data-img-height="505">
 
                 <!-- Infobox -->
-                <div class="text-content white-font">
+                <div class="text-content text-content1 white-font padding-top-70 padding-bottom-65 ">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-5 col-sm-8">
@@ -185,7 +187,7 @@ if (!isset($_SESSION)) {
             </div>
             <!-- Parallax / End -->
             <!-- Recent Blog Posts -->
-            <section class="fullwidth  padding-top-45 padding-bottom-50 " data-background-color="#fff">
+            <section class="fullwidth  padding-top-70 padding-bottom-60 " data-background-color="#fff">
                 <div class="container">
 
                     <div class="row">
@@ -266,7 +268,7 @@ if (!isset($_SESSION)) {
                  data-color-opacity="0.6"
                  data-img-width="800"
                  data-img-height="505" id="driver">
-                <section class="fullwidth  padding-bottom-30" >
+                <section class="fullwidth  padding-bottom-50" >
 
                     <!-- Info Section -->
                     <div class="container">
@@ -317,7 +319,7 @@ if (!isset($_SESSION)) {
             </a>
             <!-- Flip banner / End -->
             <!-- Fullwidth Section -->
-            <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
+            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

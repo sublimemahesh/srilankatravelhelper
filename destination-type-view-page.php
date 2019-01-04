@@ -60,12 +60,12 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     </div>
                 </div>
             </div>
-            <div class="container padding-top-45  padding-bottom-45">
+            <div class="container padding-top-45  padding-bottom-5">
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-lg-3 col-md-4">
-                        <div class="boxed-widget opening-hours margin-top-35">
+                        <div class="boxed-widget opening-hours margin-top-25">
 
                             <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
                             <ul>
