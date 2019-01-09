@@ -21,6 +21,7 @@ if (!isset($_SESSION)) {
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="wrapper">
@@ -43,7 +44,7 @@ if (!isset($_SESSION)) {
                         $TOUR_TYPES = TourType::all();
                         foreach ($TOUR_TYPES as $tour_type) {
                             ?>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <a href="tour-packages-type-view-page.php?id=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
                                     <div class="blog-compact-item">
                                         <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">

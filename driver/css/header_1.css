@@ -394,8 +394,7 @@ body #navigation ul ul {
     color: #0dce38;
 }
 #navigation.style-1 {
-    margin-top: -1px;
-    margin-left: 15px;
+    margin-top: 1px
 }
 
 
@@ -406,9 +405,7 @@ body #navigation ul ul {
 #navigation.style-1 ul li a {
     color: #444;
     cursor: pointer;
-    font-size: 13px;
-    font-weight: bolder;
-    text-transform: uppercase;
+    font-size: 18px;
 }
 
 #navigation.style-1 ul li:hover a {
@@ -699,13 +696,14 @@ a.button.white.border:hover {
     float: left;
 }
 .header-widget .button, .header-widget .button.border {
-    margin-right: 6px;
-    min-width: 90px;
-    text-align: left;
+    margin-right: 0;
+    min-width: 130px;
+    text-align: center;
     position: relative;
     line-height: 15px;
+    font-weight: 500;
     margin-left: 0px;
-    padding: 0px 10px 4px 0px;
+    padding-left: 0px;
 }
 a.button.border {
     color: #0dce38;
@@ -729,7 +727,7 @@ a.button.border {
 }
 .header-icon {
     background: #0dce38;
-    padding: 2px 4px 2px 1px;
+    padding: 5px 6px 3px 1px;
     border-radius: 50%;
     color: #fff;
     font-size: 18px;
@@ -754,7 +752,6 @@ a.button.border {
 .header-widget.widget-btn-left {
     float: right;
     margin-right: 20px;
-    margin-top: 1px;
 }
 .header-widget.widget-btn-right {
     float: right;
@@ -763,8 +760,8 @@ a.button.border {
     /*padding-right: 24px;*/
 }
 .header-icon2 {
-    margin-right: -3px;
-    margin-left: 0px;
+    margin-right: 11px;
+    margin-left: -19px;
     position: relative;
 }
 a.button.border:hover {
@@ -772,6 +769,7 @@ a.button.border:hover {
     color: #fff;
 }
 .header-widget .button.border i {
+
     font-size: 17px;
     padding: 0 0 0 4px;
     top: 2px;
@@ -1370,13 +1368,12 @@ body #navigation1 ul ul {
 
 #navigation1.style-1 ul li {
     transition: all .25s;
-    margin: 0 0px;
+    margin: 0 15px;
 }
 
 #navigation1.style-1 ul li a {
     color: #444;
-    cursor: pointer;
-    font-size: 14px;
+    cursor: pointer
 }
 
 #navigation1.style-1 ul li:hover a {
@@ -1396,7 +1393,7 @@ body #navigation1 ul ul {
 }
 
 #navigation1.style-1 ul a {
-    line-height: 22px;
+    line-height: 32px;
     padding: 5px 10px
 }
 

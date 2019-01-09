@@ -28,7 +28,7 @@ body {
 .search-destination-item .star-rating-fa {
     z-index: 9;
     position: relative;
-    color: #f5cf00;
+    color: #ead814;
     padding-left: 0px;
     margin-top: 28px;
     font-size: 12px;
@@ -144,8 +144,8 @@ body {
     z-index: 0;
     color: #1a0202;
     font-weight: 600;
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 8px;
 }
 .city-item p {
     font-size: 15px;

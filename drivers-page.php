@@ -27,6 +27,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -60,7 +61,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
                                 if ($key == 0) {
                                     ?>
-                                                                                                                                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                                                                                                                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                     <?php
                                 }
                             }
@@ -71,16 +72,16 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             <?php
                             if (empty($driver['profile_picture'])) {
                                 ?>
-                                                                                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
                                 <?php
                             } else {
                                 if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
                                     ?>
-                                                                                                                                                                    <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 } else {
                                     ?>
-                                                                                                                                                                    <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                                                                            <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 }
                             }
@@ -99,7 +100,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($divider == 0) {
                                 for ($j = 1; $j <= 5; $j++) {
                                     ?>
-                                                                                                                                                                    <i class="fa fa-star-o"></i>
+                                                                                                                                                                            <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                                 $sum = 0;
@@ -108,12 +109,12 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                                 for ($i = 1; $i <= $stars; $i++) {
                                     ?>
-                                                                                                                                                                    <i class="fa fa-star"></i>
+                                                                                                                                                                            <i class="fa fa-star"></i>
                                     <?php
                                 }
                                 for ($j = $i; $j <= 5; $j++) {
                                     ?>
-                                                                                                                                                                    <i class="fa fa-star-o"></i>
+                                                                                                                                                                            <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                             }
@@ -141,7 +142,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($sortdriver != 0) {
                                 $DRIVER = new Drivers($sortdriver);
                                 ?>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-6">
 
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
@@ -236,7 +237,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if (!in_array($driverid, $SORTOFDRIVERS)) {
                                 $DRIVER = new Drivers($driverid);
                                 ?>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-6 ">
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
                                         <div class="listing-item">

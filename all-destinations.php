@@ -107,11 +107,23 @@ if (isset($_GET['search'])) {
                                 $DESTINATIONTYPES = DestinationType::all();
                                 foreach ($DESTINATIONTYPES as $key => $type) {
                                     $count = Destination::countTotalDestinationsOfType($type['id']);
-                                    
                                     ?>
                                     <a href="destination-type-view-page.php?id=<?php echo $type["id"]; ?>">
                                         <div class="dest-type col-md-12">
-                                            <h4><?php echo $type["name"]; ?></h4>
+                                            <h4  title="<?php echo $type['name']; ?>">
+                                                
+                                                <?php
+                                                if (strlen($type['name']) > 18) {
+                                                    echo substr($type['name'], 0, 18) . '...';
+                                                } else {
+                                                    echo $type['name'];
+                                                }
+                                                ?>
+
+                                            </h4>
+
+
+
                                             <div class="col-md-4 col-sm-4 col-xs-4">
                                                 <img src="upload/destination-type/<?php echo $type["image_name"]; ?>" alt="">
                                             </div>
@@ -149,11 +161,11 @@ if (isset($_GET['search'])) {
                                                 </div>
                                                 <div class="col-sm-12">
                                                     Destinations - <?php
-                                                    if ($count['count'] < 10) {
-                                                        echo '0' . $count['count'];
-                                                    } else {
-                                                        echo $count['count'];
-                                                    }
+                                                if ($count['count'] < 10) {
+                                                    echo '0' . $count['count'];
+                                                } else {
+                                                    echo $count['count'];
+                                                }
                                                     ?>
                                                 </div>
                                             </div>
@@ -192,7 +204,10 @@ if (isset($_GET['search'])) {
 
 
                                                 <div class="listing-item-inner">
-                                                    <h3><?php echo $destination['name']; ?></h3>
+                                                    <h3>
+                                                        <?php echo $destination['name']; ?>
+
+                                                    </h3>
                                                     <span class="para"><?php echo $destination['short_description']; ?></span>
                                                     <div class="star-rating">
                                                         <?php

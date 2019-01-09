@@ -107,7 +107,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                 </div>
             </div>
 
-            <section class="fullwidth  padding-top-45 padding-bottom-45" data-background-color="#f8f8f8">
+            <section class="fullwidth  padding-top-70 padding-bottom-70" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">

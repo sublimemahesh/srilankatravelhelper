@@ -446,15 +446,16 @@ a.listing-item-container {
     border-top: 1px solid rgba(0, 0, 0, .09);
     margin-top: 60px;
     text-align: center;
-    padding: 40px 0;
+    padding:16px 0;
     display: inline-block;
-    width: 100%
+    width: 100%;
+    font-size: 13px;
 }
 
 #footer.alt .copyrights {
     margin-top: 0;
     border: 0;
-    padding: 25px
+    padding: 25px;
 }
 
 .copyrights a {
@@ -16551,7 +16552,7 @@ div.layout-style {
     /*    margin-right:70px;*/
 }
 .star-rating {
-    color: yellow;
+    color: #ead814;
 }
 .header-widget a:hover {
     text-decoration: none;  
@@ -16573,7 +16574,7 @@ div.layout-style {
     margin-bottom: 11px;
 }
 .footerdes p{
-    line-height: 40px;
+    line-height: 24px;
 }
 .desbycity p{
     text-align: justify;
@@ -16588,4 +16589,14 @@ div.layout-style {
 
 .text-content1 {
     padding: 0px 0;
+}
+.indexdri p{
+    height: 85px;
+    margin: 15px 10px;
+    padding-bottom: 7px;
+}
+
+#navigation ul li:first-child {
+    padding: 0;
+ 
 }

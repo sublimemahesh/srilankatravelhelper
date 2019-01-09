@@ -63,6 +63,7 @@ if (isset($_GET['search'])) {
         <link href="css/blog.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/read-more-less.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -85,7 +86,7 @@ if (isset($_GET['search'])) {
             <div class="question-search main-search-inner">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 col-md-offset-3">
+                        <div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3">
                             <form id="blog-search" action="blog.php" method="get">
                                 <div class=" main-search-input">
 

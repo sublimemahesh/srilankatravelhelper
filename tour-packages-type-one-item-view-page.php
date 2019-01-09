@@ -38,53 +38,14 @@ if ($divider1 == 0) {
     <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
     <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
+    <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     <style>
 
         /*reviews*/
         .img-section img{
             margin-top:30px;
             border:6px solid #fff;
-        }
-
-        .reviws-section{
-            /*                border: 1px solid #000;*/
-            background:#F7F7F0;
-            border-radius:3%;
-            padding: 0;
-            margin-bottom: 20px;
-            width: 100%;
-
-        }
-        .reviews-title{
-            margin-top:10px;
-            font-family: 'Courgette', cursive;
-        }
-        .reviews-description{
-            font-family: 'Courgette', cursive;
-
-        }
-        .package-ratings-review{
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        .package-ratings-review li{
-            list-style-type: none;
-            /*                border-left:1px solid #000;*/
-        }
-        .count-reviews{
-            margin-top: 12px;
-            font-size:19px;
-        }
-        .star-section{
-            border-left:2px solid #e3d9d9;
-            height:100%; 
-            min-height: 170px;
-            position: relative;
-
-        }
-        .reviews-item1 li{
-            color:#f5cf00;
-
         }
 
         span.like-icon {
@@ -113,12 +74,7 @@ if ($divider1 == 0) {
             background-color:#D8D8D8;
             color:#FFF;
         }
-        .rating-block{
-            background-color:#F7F7F0;
-            border:1px solid #F7F7F0;
-            padding: 10% 12% 11% 12%;
-            border-radius:3%;
-        }
+
         .bold{
             font-weight:700;
         }
@@ -152,11 +108,7 @@ if ($divider1 == 0) {
         .review-block-description{
             font-size:13px;
         }
-        .rating-breakdown{
-            border-radius:3%;
-            /*                padding: 1% 1% 1% 1%;*/
 
-        }
         .more-reviews-item1 li{
             color:#f5cf00;
             list-style-type: none;
@@ -224,12 +176,12 @@ if ($divider1 == 0) {
                                 <hr >
                                 <p><?php echo $tour_date['description']; ?></p>
 
-                                <div class="image-row padding-bottom-140">
+                                <div class="image-row padding-bottom-140 packagepadding">
                                     <?php
                                     $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
                                     foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
                                         ?>
-                                        <div  class="col-md-3">
+                                        <div  class="col-md-3 tourpackimg">
                                             <a class="example-image-link" href="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
                                                 <img class="example-image" src="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
                                         </div>
@@ -262,9 +214,9 @@ if ($divider1 == 0) {
                             $nights = $days - 1;
                             ?>
 
-                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
-                                <div class="other-tours col-md-12">
-                                    <h4>
+                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
+                                <div class="other-tours col-md-12 other-tourspack">
+                                    <h4 title="<?php echo $tour_package['name']; ?>">
                                         <?php
                                         if (strlen($tour_package['name']) > 24) {
                                             echo substr($tour_package['name'], 0, 24) . '...';
@@ -348,14 +300,14 @@ if ($divider1 == 0) {
                     <hr>
                     <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                     <hr>
-                    <div class="col-md-4 rating-breakdown">
-                        <div class="col-md-12 rating-block">
+                    <div class="col-md-4 col-sm-4 rating-breakdown">
+                        <div class="col-md-12 rating-block ratingblock1">
 
                             <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
                             <?php
                             for ($i = 1; $i <= $stars1; $i++) {
                                 ?>
-                                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                <button type="button" class="btn btn-warning btn-sm starbtn" aria-label="Left Align">
                                     <span class="fa fa-star" aria-hidden="true"></span>
                                 </button>
                                 <?php
@@ -371,70 +323,75 @@ if ($divider1 == 0) {
                         </div>
 
                     </div>	
-                    <div class="col-md-8 ">
-                        <div class="reviws-section">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="reviws-section" style="margin-top: 0px;">
                             <div class="review-carousel testimonials">
-                                <?php
-                                foreach (Reviews::getReviewsByTour($TOUR->id) as $review) {
-                                    $VISITOR = new Visitor($review['visitor']);
+                                <?php if (count(Reviews::getReviewsByTour($TOUR->id)) > 0) {
                                     ?>
-                                    <div class="col-md-12">
-
-                                        <div class="col-md-2 img-section">
-                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
-                                        </div>  
-                                        <div class="col-md-7">
-                                            <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                            <p><?php echo $review['message']; ?></p>
-
-                                        </div> 
-                                        <div class="col-md-3 star-section">
-                                            <div class="package-ratings-review">
-                                                <ul class="two-column">
-                                                    <div class="reviews-item1 ">
-                                                        <li>
-                                                            <?php
-                                                            $stars = $review['reviews'];
-                                                            for ($i = 1; $i <= $stars; $i++) {
-                                                                ?>
-                                                                <i class="fa fa-star"></i>
-                                                                <?php
-                                                            }
-                                                            for ($j = $i; $j <= 5; $j++) {
-                                                                ?>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </li>
-                                                        <li>
-                                                            <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
-                                                        </li>
-                                                        <div class="like-icon-section">
-                                                            <div class="col-md-4 like-icon-section-pd">
-                                                                <span class="like-icon"></span>
-                                                            </div>
-                                                            <div class="col-md-4 like-icon-section-pd">
-                                                                <span class="like-icon"></span>
-                                                            </div>
-                                                            <div class="col-md-4 like-icon-section-pd">
-                                                                <span class="like-icon "></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </ul>
-                                            </div>
-                                        </div> 
-                                    </div>
                                     <?php
-                                }
-                                ?>
+                                    foreach (Reviews::getReviewsByTour($TOUR->id) as $review) {
+                                        $VISITOR = new Visitor($review['visitor']);
+                                        ?>
+                                        <div class="col-md-12">
 
+                                            <div class="col-md-3 col-sm-3 img-section reviewspts">
+                                                <div class="reviewimg">
+                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                </div>
+                                                <div class="reviews-item1 ">
+                                                    <li>
+                                                        <?php
+                                                        $stars = $review['reviews'];
+                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                        }
+                                                        for ($j = $i; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </li>
+                                                    <li>
+                                                        <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                    </li>
+                                                </div>
+                                            </div>  
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                <p><?php echo $review['message']; ?></p>
+                                            </div> 
+
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li class="list-group-item"><h5>No any reviews in here</h5></li>
+                                <?php }
+                                ?>
                             </div>
                         </div>
+                         <?php if (count(Reviews::getReviewsByTour($TOUR->id)) > 0) {
+                                    ?>
                         <div class="review-button">
                             <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
                         </div>
+                        <?php
+                                } else {
+                                    
+                                    ?>
+                         <div class="review-button">
+                            <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                        </div>
+                        <?php
+                                }
+                                    ?>
                     </div>
 
                 </div>

@@ -1,5 +1,5 @@
 
-@media only screen and (max-width: 360px) {
+@media only screen and (width: 360px) {
     .main-search-input-item .chosen-container-single .chosen-single, .main-search-input-item .chosen-single.chosen-container-active, .gray-style .main-search-input-item .chosen-container-single .chosen-single, .gray-style .main-search-input-item .chosen-single.chosen-container-active, .gray-style.main-search-input input, .gray-style.main-search-input input:focus, .main-search-input input, .main-search-input input:focus {
         padding: 0 21px;
         height: 35px;
@@ -36,6 +36,664 @@
         outline: 0;
         margin-bottom: 16px;
     }
+    h3.headline {
+        font-size: 18px;
+        line-height: 19px;
+        margin: 0 0 19px;
+        margin-top: 0px;
+        margin-bottom: 19px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -12px;
+        margin-top: 0px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 0px;
+    }
+    .right-side {
+        padding: 22px 0px;
+    }
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .driver-p {
+        height: 123px;
+    }
+    .moredest{
+        margin-right: 0px;
+    }
+    .moredesti{
+        padding-top: 30px;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .tourpackimg{
+        padding-bottom: 15px;
+    }
+    .packagepadding{
+        margin-bottom: -110px;
+    }
+    .other-tourspack{
+        height: 162px;
+    }
+    .rating-breakdown{
+        padding-bottom: 17px;
+    }
+
+
 
 }
+@media only screen and (width: 768px) {
 
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .header-widget.widget-btn-left {
+        float: right;
+        margin-right: 20px;
+        margin-top: -15px;;
+    }
+    .header-widget.widget-btn-right {
+        float: right;
+        margin-right: 20px;
+        margin-top: -14px;
+    }
+
+    .welcometext h2{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .welcometext h4{
+        text-align: center;
+    }
+    .youmargin{
+        margin-left: 17px;
+    }
+    .footerdes p {
+        line-height: 24px;
+    }
+    #footer .footer-links li {
+        position: relative;
+        list-style: none;
+        line-height: 29px;
+    }
+    .text-widget1 {
+        margin-bottom: 21px;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -11px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    header-widget a.button.border {
+        padding: 0px 4px 1px 0px;
+        /*padding: 7px 16px;*/
+        background-color: transparent;
+        font-size: 13px;
+        min-width: auto;
+        float: right;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .rating-block {
+        height: 137px;
+    }
+    .ratingblock{
+        margin-top: 7px;
+    }
+    .more-items p {
+        line-height: 19px;
+    }
+    .destinationpadding{
+        padding-left: 0px;
+    }
+    .reviws-section {
+        border: 1px solid #000;
+        background: #F7F7F0;
+        border-radius: 0%;
+        padding: 5px;
+        margin-bottom: 13px;
+        width: 100%;
+        border: 1px solid #f0ad4e;
+        margin-top: 38px;
+    }
+    .otherdri{
+        margin-top: -36px;
+    }
+    .tourpackimg{
+        padding-bottom: 15px;
+    }
+    .starbtn{
+        font-size: 8px;
+    }
+    .ratingblock1 {
+        padding: 21% 10% 17% 11%;
+        height: 209px;
+    }
+    .reviewimg {
+        margin-left: 0px;
+    }
+    .reviewspts img {
+        width:auto;
+    }
+    .driver-p {
+        height: 110px;
+    }
+    .reviewrating{
+        margin-top: -37px;
+    }
+
+}
+@media only screen and (width: 375px) {
+    .main-search-input-item .chosen-container-single .chosen-single, .main-search-input-item .chosen-single.chosen-container-active, .gray-style .main-search-input-item .chosen-container-single .chosen-single, .gray-style .main-search-input-item .chosen-single.chosen-container-active, .gray-style.main-search-input input, .gray-style.main-search-input input:focus, .main-search-input input, .main-search-input input:focus {
+        padding: 0 21px;
+        height: 35px;
+        line-height: 39px;
+        border-radius: 30px;
+        background: #e0e0e0b3;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .08);
+        font-size: 12px;
+    }
+    item.location a {
+        padding: 0px 1px;
+        z-index: 101;
+    }
+    .input-with-icon i, .main-search-input-item.location a {
+        padding: 0px 5px;
+        z-index: 101;
+    }
+    .main-search-input select, .main-search-input select:focus {
+        font-size: 13px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
+        background: #fff;
+        height: 33px;
+        padding: 7px 18px;
+        border-radius: 4px;
+    }
+    .main-search-input button.button {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0 38px;
+        margin-right: 1px;
+        height: 46px;
+        outline: 0;
+        margin-bottom: 16px;
+    }
+    h3.headline {
+        font-size: 18px;
+        line-height: 19px;
+        margin: 0 0 19px;
+        margin-top: 0px;
+        margin-bottom: 19px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .header-widget {
+        padding: 26px 0;
+    }
+    .work-process p {
+        text-align: center;
+    }
+    .popguide{
+        margin-bottom:-39px;
+    }
+    .youmargin {
+        margin-left: -7px;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -12px;
+        margin-top: 0px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 0px;
+    }
+    .right-side {
+        padding: 22px 0px;
+    }
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .driver-p {
+        height: 123px;
+    }
+    .moredest{
+        margin-right: 0px;
+    }
+    .moredesti{
+        padding-top: 30px;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .tourpackimg{
+        padding-bottom: 15px;
+    }
+    .packagepadding{
+        margin-bottom: -110px;
+    }
+    .other-tourspack{
+        height: 162px;
+    }
+    .rating-breakdown{
+        padding-bottom: 17px;
+    }
+
+
+}
+@media only screen and (width: 414px) {
+    .main-search-input-item .chosen-container-single .chosen-single, .main-search-input-item .chosen-single.chosen-container-active, .gray-style .main-search-input-item .chosen-container-single .chosen-single, .gray-style .main-search-input-item .chosen-single.chosen-container-active, .gray-style.main-search-input input, .gray-style.main-search-input input:focus, .main-search-input input, .main-search-input input:focus {
+        padding: 0 21px;
+        height: 35px;
+        line-height: 39px;
+        border-radius: 30px;
+        background: #e0e0e0b3;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .08);
+        font-size: 12px;
+    }
+    item.location a {
+        padding: 0px 1px;
+        z-index: 101;
+    }
+    .input-with-icon i, .main-search-input-item.location a {
+        padding: 0px 5px;
+        z-index: 101;
+    }
+    .main-search-input select, .main-search-input select:focus {
+        font-size: 13px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
+        background: #fff;
+        height: 33px;
+        padding: 7px 18px;
+        border-radius: 4px;
+    }
+    .main-search-input button.button {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0 38px;
+        margin-right: 1px;
+        height: 46px;
+        outline: 0;
+        margin-bottom: 16px;
+    }
+    h3.headline {
+        font-size: 18px;
+        line-height: 19px;
+        margin: 0 0 19px;
+        margin-top: 0px;
+        margin-bottom: 19px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .popguide{
+        margin-bottom:-39px;
+    }
+    #logo {
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 0px;
+        margin-top: 5px;
+        width: 50%;
+        text-align: center;
+        left: 0;
+        right: 0;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -12px;
+        margin-top: 0px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 0px;
+    }
+    .right-side {
+        padding: 23px 0px;
+    }
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .driver-p {
+        height: 123px;
+    }
+    .moredest{
+        margin-right: 0px;
+    }
+    .moredesti{
+        padding-top: 30px;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .moredest{
+        margin-right: 0px;
+    }
+    .moredesti{
+        padding-top: 30px;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .tourpackimg{
+        padding-bottom: 15px;
+    }
+    .packagepadding{
+        margin-bottom: -110px;
+    }
+    .other-tourspack{
+        height: 162px;
+    }
+    .rating-breakdown{
+        padding-bottom: 17px;
+    }
+
+
+}
+@media only screen and (width: 800px) {
+
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .header-widget.widget-btn-left {
+        float: right;
+        margin-right: 20px;
+        margin-top: -15px;;
+    }
+    .header-widget.widget-btn-right {
+        float: right;
+        margin-right: 20px;
+        margin-top: -14px;
+    }
+
+    .welcometext h2{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .welcometext h4{
+        text-align: center;
+    }
+    .youmargin{
+        margin-left: 17px;
+    }
+    .footerdes p {
+        line-height: 24px;
+    }
+    #footer .footer-links li {
+        position: relative;
+        list-style: none;
+        line-height: 29px;
+    }
+    .text-widget1 {
+        margin-bottom: 21px;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -11px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    header-widget a.button.border {
+        padding: 0px 4px 1px 0px;
+        /*padding: 7px 16px;*/
+        background-color: transparent;
+        font-size: 13px;
+        min-width: auto;
+        float: right;
+    }
+    #header {
+        padding: 5px 0 0px;
+
+    }
+    #logo {
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 0px;
+        margin-top: 5px;
+        width: 50%;
+        text-align: center;
+        left: 0;
+        right: 0;
+    }
+    .right-side {
+        height: 60px;
+    }
+    .reviews-title {
+        margin-top: 1px;
+        font-family: 'Courgette', cursive;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .rating-block {
+        height: 137px;
+    }
+    .ratingblock{
+        margin-top: 7px;
+    }
+    .more-items p {
+        line-height: 19px;
+    }
+    .destinationpadding{
+        padding-left: 0px;
+    }
+    .ratingblock1 {
+        padding: 21% 10% 17% 11%;
+        height: 209px;
+    }
+    .reviewimg {
+        margin-left: 0px;
+    }
+    .reviewspts img {
+        width:auto;
+    }
+    .starbtn {
+        font-size: 8px;
+    }
+    .tourpackimg {
+        padding-bottom: 15px;
+    }
+    .driver-p {
+        height: 110px;
+    }
+}
+@media only screen and (width: 600px) {
+
+    .header-widget {
+        padding: 20px 0;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .header-widget.widget-btn-left {
+        float: right;
+        margin-right: 20px;
+        margin-top: -15px;;
+    }
+    .header-widget.widget-btn-right {
+        float: right;
+        margin-right: 20px;
+        margin-top: -14px;
+    }
+
+    .welcometext h2{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .welcometext h4{
+        text-align: center;
+    }
+    .youmargin{
+        margin-left: 17px;
+        width: 100%;
+    }
+    .footerdes p {
+        line-height: 24px;
+    }
+    #footer .footer-links li {
+        position: relative;
+        list-style: none;
+        line-height: 29px;
+    }
+    .text-widget1 {
+        margin-bottom: 21px;
+    }
+    .mmenu-trigger {
+        display: inline-block !important;
+        height: 48px;
+        width: 50px;
+        display: none;
+        position: relative;
+        margin: 0 0 -11px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    header-widget a.button.border {
+        padding: 0px 4px 1px 0px;
+        /*padding: 7px 16px;*/
+        background-color: transparent;
+        font-size: 13px;
+        min-width: auto;
+        float: right;
+    }
+    #header {
+        padding: 5px 0 0px;
+
+    }
+    #logo {
+        position: absolute;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 0px;
+        margin-top: 5px;
+        width: 50%;
+        text-align: center;
+        left: 0;
+        right: 0;
+    }
+    .right-side {
+        height: 60px;
+    }
+    .img-pad {
+        padding-left: 16px;
+        padding-right: 5px;
+        padding-bottom: 39px;
+    }
+    .driver-name {
+        margin-top: -99px;
+    }
+    h3.headline {
+        font-size: 18px;
+        line-height: 12px;
+        margin: 22px 1px 19px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .more-items-image img {
+        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
+        float: left;
+        border: 1px solid #fff;
+    }
+    .otherdestinaion{
+        padding-right:10px;
+    }
+    .otherdestinaionmar{
+        margin-right: 4px;
+    }
+    .driver-profile-section {
+        background-color: #fff;
+        border: 1px solid #F7F7F0;
+        padding: 7% 12% 7% 12%;
+        padding-bottom: 7%;
+        border-radius: 3%;
+        padding-bottom: 10px;
+    }
+
+    .reviewspts img {
+        width: 19%;
+    }
+    .otherdri{
+        padding-top: 38px;
+    }
+
+
+}
