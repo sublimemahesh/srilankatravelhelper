@@ -33,6 +33,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
 
         <style>
             .tour-package-bg {
@@ -248,7 +249,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     </div>
                                     <div class="package-details">
                                         <div class="package-places">
-                                            <h4><a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
+                                            <h4 title="<?php echo $tour_package['name']; ?>" ><a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
 
                                                     <?php
                                                     if (strlen($tour_package['name']) > 30) {

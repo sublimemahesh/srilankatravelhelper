@@ -56,7 +56,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
                     </div>
                 </div>
             </div>
-            <div class="container  padding-top-45">
+            <div class="container  padding-top-45 padding-bottom-50">
 
                 <div class="col-md-12">
                     <div class="blog col-md-12 col-xs-12">

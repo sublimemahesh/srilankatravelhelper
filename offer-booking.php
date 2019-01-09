@@ -70,7 +70,7 @@ $now = date('Y-m-d H:i:s');
                     </div>
                 </div>
             </div>
-            <section class="blog-contents-version-one padding-bottom-45 padding-top-45 popular-packages">
+            <section class="blog-contents-version-one padding-bottom-45 padding-top-30 popular-packages">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9">

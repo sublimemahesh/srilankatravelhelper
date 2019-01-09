@@ -25,6 +25,7 @@ $LOCATION = new Location($city);
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             .review-button {
                 margin-bottom: 70px;
@@ -58,7 +59,7 @@ $LOCATION = new Location($city);
                                 </div>
                                 <div style="margin-top: 0px;padding-bottom: 7px;">
                                     <p class="text-center " id="">
-                                        
+
                                         <?php
                                         if (strlen($LOCATION->description) > 650) {
                                             echo substr($LOCATION->description, 0, 650) . '...';
@@ -66,8 +67,8 @@ $LOCATION = new Location($city);
                                             echo $LOCATION->description;
                                         }
                                         ?>
-                                        
-                                        
+
+
                                     </p>
                                 </div>
 
@@ -89,7 +90,7 @@ $LOCATION = new Location($city);
                                     <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt=""/>
                                 </div>
                                 <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
-                                    <div class="driver-name text-left"> 
+                                    <div class="driver-name text-left" title="<?php echo $destination['name']; ?>"> 
 
                                         <?php
                                         if (strlen($destination['name']) > 14) {
@@ -133,7 +134,7 @@ $LOCATION = new Location($city);
                                     </div>
                                     <div style="margin-top: 0px;padding-bottom: 7px;">
                                         <p class="text-center " id="">
-                                            <?php echo substr($destination['short_description'], 0, 60) . '...'; ?>
+                                            <?php echo substr($destination['short_description'], 0, 55) . '...'; ?>
                                         </p>
                                     </div>
                                     <div class="button-section">

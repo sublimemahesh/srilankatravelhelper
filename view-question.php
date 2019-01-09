@@ -116,7 +116,7 @@ $askedAt = getAskedTime($Question->askedAt);
                                     </div>
                                 </div>
                             </div>
-                            <div class="question col-md-10 col-xs-10">
+                            <div class="question col-md-10 col-xs-12">
                                 <?php echo $Question->question; ?>
                             </div>
 
@@ -241,7 +241,7 @@ $askedAt = getAskedTime($Question->askedAt);
                                                         <div class="comment-p col-md-9">
                                                             <p><?php echo $comment['comment']; ?></p>
                                                         </div>
-                                                        <div class="col-md-3 col-md-offset-0 col-xs-7 col-xs-offset-5">
+                                                        <div class="col-md-3 col-md-offset-0 col-xs-4 col-xs-offset-8">
 
                                                             <div class="view-qu asked-by">
                                                                 <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($comment['position'], 0, 10); ?></span>

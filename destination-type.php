@@ -19,6 +19,7 @@ if (!isset($_SESSION)) {
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="wrapper">

@@ -4,13 +4,13 @@
     <!-- Main -->
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-sm-6 footerdes">
+            <div class="col-md-5 col-sm-3 footerdes">
                 <img class="footer-logo" src="images/logo/tour-logo-1.png" alt="">
                 <br><br>
-                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius. laoreet. Quisque rutrum. Aenean imperdiet.</p>
             </div>
 
-            <div class="col-md-4 col-sm-6 ">
+            <div class="col-md-4 col-sm-5 ">
                 <h4>Helpful Links</h4>
                 <ul class="footer-links">
                     <li><a href="./">Home</a></li>
@@ -31,7 +31,7 @@
                 <div class="clearfix"></div>
             </div>		
 
-            <div class="col-md-3  col-sm-12">
+            <div class="col-md-3  col-sm-4">
                 <h4>Contact Us</h4>
                 <div class="text-widget1">
                     <span>Sublime,Galle Road ,Galle</span> <br>
@@ -57,7 +57,7 @@
         <!-- Copyright -->
         <div class="row">
             <div class="col-md-12 footerlast">
-                <div class="copyrights">© 2018 Tour Sri Lanka. All Rights Reserved.</div>
+                <div class="copyrights">© 2019 Tour Sri Lanka. All Rights Reserved.</div>
             </div>
         </div>
 

@@ -45,6 +45,9 @@ $stars = $sum / $divider;
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
+        <!--review-->
+        <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             /*driver*/
             .driver-profile-section{
@@ -100,52 +103,7 @@ $stars = $sum / $divider;
             .item-fa1,.item-fa2,.item-fa3,.item-fa4{
                 font-size: 32px;  
             }
-            /*reviews*/
-            /*reviews*/
-            .img-section img{
-                margin-top:30px;
-                border:6px solid #fff;
-            }
 
-            .reviws-section{
-                /*                border: 1px solid #000;*/
-                background:#F7F7F0;
-                border-radius:3%;
-                padding: 1% 1% 1% 1%;
-                margin-bottom: 20px;
-                width: 100%;
-                height: 187px;
-
-            }
-            .reviews-title{
-                margin-top:10px;
-                font-family: 'Courgette', cursive;
-            }
-            .reviews-description{
-                font-family: 'Courgette', cursive;
-
-            }
-            .package-ratings-review{
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            .package-ratings-review li{
-                list-style-type: none;
-                /*                border-left:1px solid #000;*/
-            }
-            .count-reviews{
-                margin-top: 12px;
-                font-size:19px;
-            }
-            .star-section{
-                border-left:2px solid #e3d9d9;
-                height:170px; 
-
-            }
-            .reviews-item1 li{
-                color:#f5cf00;
-
-            }
 
             span.like-icon {
                 /*                bottom: 50%;*/
@@ -173,12 +131,7 @@ $stars = $sum / $divider;
                 background-color:#D8D8D8;
                 color:#FFF;
             }
-            .rating-block{
-                background-color:#F7F7F0;
-                border:1px solid #F7F7F0;
-                padding:7% 12% 7% 12%;
-                border-radius:3%;
-            }
+
             .bold{
                 font-weight:700;
             }
@@ -279,7 +232,7 @@ $stars = $sum / $divider;
             </div>
             <div class="container padding-bottom-45 padding-top-45">
                 <div class="row">
-                    <div class="col-md-3" >
+                    <div class="col-md-3 col-sm-3" >
 
                         <?php
                         if ($driver) {
@@ -437,7 +390,7 @@ $stars = $sum / $divider;
                         </div>
 
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-9 otherdri">
                         <div class=" content">
 
                             <div class="">
@@ -446,55 +399,75 @@ $stars = $sum / $divider;
                                     foreach (Reviews::getReviewsByDriver($DRIVER->id) as $review) {
                                         $VISITOR = new Visitor($review['visitor']);
                                         ?>
-                                        <div class="reviws-section">
-                                            <div class="col-md-12">
-
-                                                <div class="col-md-2 img-section">
+                                        <!--                                        <div class="reviws-section">
+                                                                                    <div class="col-md-12">
+                                        
+                                                                                        <div class="col-md-2 img-section reviewspts">
+                                                                                            <div class="reviewimg">
+                                                                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                                                            </div>
+                                                                                            <div class="reviews-item1 ">
+                                                                                                <li>
+                                        <?php
+                                        $stars = $review['reviews'];
+                                        for ($i = 1; $i <= $stars; $i++) {
+                                            ?>
+                                                                                                            <i class="fa fa-star"></i>
+                                            <?php
+                                        }
+                                        for ($j = $i; $j <= 5; $j++) {
+                                            ?>
+                                                                                                            <i class="fa fa-star-o"></i>
+                                            <?php
+                                        }
+                                        ?>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                                                                </li>
+                                        
+                                                                                            </div>
+                                        
+                                                                                        </div>  
+                                                                                        <div class="col-md-7">
+                                                                                            <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                                                            <p><?php echo $review['message']; ?></p>
+                                        
+                                                                                        </div> 
+                                                                                        
+                                                                                    </div>
+                                                                                </div>-->
+                                        <div class="col-md-12 reviws-section">
+                                            <div class="col-md-3 img-section reviewspts">
+                                                <div class="reviewimg">
                                                     <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
-                                                </div>  
-                                                <div class="col-md-7">
-                                                    <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                    <p><?php echo $review['message']; ?></p>
+                                                </div>
+                                                <div class="reviews-item1 ">
+                                                    <li>
+                                                        <?php
+                                                        $stars = $review['reviews'];
+                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                        }
+                                                        for ($j = $i; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </li>
+                                                    <li>
+                                                        <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                    </li>
+                                                </div>
+                                            </div>  
+                                            <div class="col-md-9">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                <p><?php echo $review['message']; ?></p>
+                                            </div> 
 
-                                                </div> 
-                                                <div class="col-md-3 star-section">
-                                                    <div class="package-ratings-review">
-                                                        <ul class="two-column">
-                                                            <div class="reviews-item1 ">
-                                                                <li>
-                                                                    <?php
-                                                                    $stars = $review['reviews'];
-                                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <?php
-                                                                    }
-                                                                    for ($j = $i; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </li>
-                                                                <li>
-                                                                    <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
-                                                                </li>
-                                                                <div class="like-icon-section">
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon "></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </ul>
-                                                    </div>
-                                                </div> 
-                                            </div>
                                         </div>
                                         <?php
                                     }
@@ -502,55 +475,38 @@ $stars = $sum / $divider;
                                     foreach (Reviews::getReviewsByTour($TOUR->id) as $review) {
                                         $VISITOR = new Visitor($review['visitor']);
                                         ?>
-                                        <div class="reviws-section">
-                                            <div class="col-md-12">
 
-                                                <div class="col-md-2 img-section">
+                                        <div class="col-md-12 reviws-section">
+                                            <div class="col-md-3 img-section reviewspts">
+                                                <div class="reviewimg">
                                                     <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
-                                                </div>  
-                                                <div class="col-md-7">
-                                                    <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                    <p><?php echo $review['message']; ?></p>
+                                                </div>
+                                                <div class="reviews-item1 ">
+                                                    <li>
+                                                        <?php
+                                                        $stars = $review['reviews'];
+                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                            <?php
+                                                        }
+                                                        for ($j = $i; $j <= 5; $j++) {
+                                                            ?>
+                                                            <i class="fa fa-star-o"></i>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </li>
+                                                    <li>
+                                                        <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                    </li>
+                                                </div>
+                                            </div>  
+                                            <div class="col-md-9">
+                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                <p><?php echo $review['message']; ?></p>
+                                            </div> 
 
-                                                </div> 
-                                                <div class="col-md-3 star-section">
-                                                    <div class="package-ratings-review">
-                                                        <ul class="two-column">
-                                                            <div class="reviews-item1 ">
-                                                                <li>
-                                                                    <?php
-                                                                    $stars = $review['reviews'];
-                                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <?php
-                                                                    }
-                                                                    for ($j = $i; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </li>
-                                                                <li>
-                                                                    <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
-                                                                </li>
-                                                                <div class="like-icon-section">
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon "></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </ul>
-                                                    </div>
-                                                </div> 
-                                            </div>
                                         </div>
                                         <?php
                                     }
@@ -559,19 +515,17 @@ $stars = $sum / $divider;
                                         $VISITOR = new Visitor($review['visitor']);
                                         ?>
                                         <div class="reviws-section">
-                                            <div class="col-md-12">
+                                            <div class="review-carousel testimonials">
+                                                <?php
+                                                foreach (Reviews::getReviewsByDestination($DESTINATION->id) as $review) {
+                                                    $VISITOR = new Visitor($review['visitor']);
+                                                    ?>
+                                                    <div class="col-md-12">
 
-                                                <div class="col-md-2 img-section">
-                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
-                                                </div>  
-                                                <div class="col-md-7">
-                                                    <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                    <p><?php echo $review['message']; ?></p>
-
-                                                </div> 
-                                                <div class="col-md-3 star-section">
-                                                    <div class="package-ratings-review">
-                                                        <ul class="two-column">
+                                                        <div class="col-md-3 col-sm-5 img-section reviewspts">
+                                                            <div class="reviewimg">
+                                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                            </div>
                                                             <div class="reviews-item1 ">
                                                                 <li>
                                                                     <?php
@@ -591,21 +545,20 @@ $stars = $sum / $divider;
                                                                 <li>
                                                                     <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
                                                                 </li>
-                                                                <div class="like-icon-section">
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon"></span>
-                                                                    </div>
-                                                                    <div class="col-md-4 like-icon-section-pd">
-                                                                        <span class="like-icon "></span>
-                                                                    </div>
-                                                                </div>
                                                             </div>
-                                                        </ul>
+                                                        </div>  
+                                                        <div class="col-md-9 col-sm-7">
+                                                            <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                            <p><?php echo $review['message']; ?></p>
+
+
+                                                        </div> 
+
                                                     </div>
-                                                </div> 
+                                                    <?php
+                                                }
+                                                ?>
+
                                             </div>
                                         </div>
                                         <?php

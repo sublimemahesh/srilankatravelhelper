@@ -894,6 +894,9 @@ input[type="text"].location-search-input {
 .nav-bottom {
     /*height: 50%;*/
     border-top: 1px solid #cccc;
+    width: 81%;
+    float: right;
+
 }
 @media(max-width:767px) {
     .offer-item {
@@ -1310,9 +1313,10 @@ span.process-num {
 .work-process h4 {
     margin: 10px 0;
     color: #004c85;
-}
+    }
 .work-process p {
     font-size: 13px;
+    text-align: center;
 }
 .package-places h4 a {
     color: #000;
@@ -1434,7 +1438,7 @@ span.process-num {
     }
 }
 @media(min-width:767px) and (max-width:1000px) {
-    
+
     .other-tours{
         height: 167px;
     }

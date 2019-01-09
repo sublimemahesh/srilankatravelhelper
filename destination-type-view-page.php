@@ -36,6 +36,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             .like-icon {
                 padding: 8px 12px;
@@ -94,7 +95,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach ($DESTINATIONS as $key => $destination) {
                                 ?>
                                 <!-- Listing Item -->
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-lg-12 col-md-12 col-sm-6">
                                     <div class="listing-item-container list-layout">
                                         <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>" class="listing-item">
 
@@ -109,7 +110,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
 
                                                 <div class="listing-item-inner">
-                                                    <h3><?php echo $destination['name']; ?></h3>
+                                                    <h3 title="<?php echo $destination['name']; ?>"><?php echo $destination['name']; ?></h3>
                                                     <span class="para"><?php echo $destination['short_description']; ?></span>
                                                     <div class="star-rating">
                                                         <?php
