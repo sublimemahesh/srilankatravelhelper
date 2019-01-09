@@ -180,7 +180,7 @@ if (!isset($_SESSION)) {
                                         color: #fff;
                                         padding-top: 0px;
                                         line-height: 32px">Determine Your Destination</h4>
-                                    <p style="font-size: 18px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
+                                    <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
                                     <a href="#" class="button margin-top-25">Plan Your Trip</a>
                                 </div>
                                 <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-left" data-aos-duration="3000">
@@ -334,7 +334,7 @@ if (!isset($_SESSION)) {
                  data-color-opacity="0.6"
                  data-img-width="800"
                  data-img-height="505" id="driver">
-                <section class="fullwidth  padding-bottom-50" >
+                <section class="fullwidth  padding-bottom-50" data-aos="fade-up" data-aos-duration="3000" >
 
                     <!-- Info Section -->
                     <div class="container">
@@ -385,7 +385,7 @@ if (!isset($_SESSION)) {
                         </a>-->
             <!-- Flip banner / End -->
             <!-- Fullwidth Section -->
-            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8">
+            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8" data-aos="fade-left" data-aos-duration="3000">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

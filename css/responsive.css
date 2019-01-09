@@ -28,13 +28,13 @@
         border-radius: 4px;
     }
     .main-search-input button.button {
-        font-size: 18px;
-        font-weight: 600;
-        padding: 0 38px;
-        margin-right: 1px;
-        height: 46px;
-        outline: 0;
-        margin-bottom: 16px;
+       font-size: 15px;
+font-weight: 600;
+padding: 0px 26px;
+margin-right: 1px;
+height: 46px;
+outline: 0;
+margin-bottom: 16px;
     }
     h3.headline {
         font-size: 18px;
@@ -96,7 +96,18 @@
         padding-bottom: 17px;
     }
 
-
+.city-item p {
+    font-size: 15px;
+    text-align: justify;
+    line-height: 22px;
+    padding: 0px;
+        padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+}
+.relexholding img{
+    display: none;
+}
 
 }
 @media only screen and (width: 768px) {
@@ -214,6 +225,13 @@
     .reviewrating{
         margin-top: -37px;
     }
+    .star-rating-driver {
+    margin-top: 15px;
+    z-index: 9;
+    position: relative;
+    color: #f5cf00;
+    padding-right: 60px;
+}
 
 }
 @media only screen and (width: 375px) {

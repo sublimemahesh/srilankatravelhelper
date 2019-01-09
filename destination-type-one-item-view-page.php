@@ -240,7 +240,7 @@ if (isset($_GET['album'])) {
                                         <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" >
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
-                                                <div class="col-md-5 col-xs-5 more-items-image">
+                                                <div class="col-md-5 col-xs-4 more-items-image">
                                                     <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
                                                         <li>
@@ -276,7 +276,7 @@ if (isset($_GET['album'])) {
                                                         </li>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-7 col-xs-7">
+                                                <div class="col-md-7 col-xs-8">
                                                     <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
                                                 </div>
 
