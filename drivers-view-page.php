@@ -206,7 +206,7 @@ $stars = $sum / $divider;
             </div>
             <div class="container padding-bottom-45 padding-top-70">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3" >
+                    <div class="col-md-3 col-sm-4" >
 
 
                         <div class="driver-profile-section" >
@@ -267,16 +267,16 @@ $stars = $sum / $divider;
                             </div>
                             <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-facebook-square item-fa1"></i></span>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-whatsapp item-fa2"></i></span>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-twitter-square item-fa3"></i></span>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-skype item-fa4"></i></span>
                                     </div>
                                 </div>
@@ -284,12 +284,12 @@ $stars = $sum / $divider;
 
                         </div>
                         <div class="padding-top-20"></div>
-                        <div class="">
+                        <div class="relexholding">
                             <img src="images/side-banner/side-banner.jpg" alt=""/>
                         </div>
 
                     </div>
-                    <div class="col-md-9 col-sm-9">
+                    <div class="col-md-9 col-sm-8">
                         <div class=" content">
                             <div id="galleria">
                                 <?php
