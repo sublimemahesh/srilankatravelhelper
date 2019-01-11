@@ -21,12 +21,14 @@ if ($count1 == 0) {
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             input[type="button"].signup-btn  {
                 background: red;
@@ -34,7 +36,7 @@ if ($count1 == 0) {
                 height: 45px;
                 color: #fff;
                 border: 0px
-                    
+
             }
         </style>
     </head>
@@ -170,56 +172,56 @@ if ($count1 == 0) {
         <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
         <script>
 //            $(document).ready(function () {
-                var message = $('#msg').val();
-                var msgid = $('#msg').attr('msgid');
+            var message = $('#msg').val();
+            var msgid = $('#msg').attr('msgid');
 
-                if (message.length > 35) {
-                    $('.error-msg1').removeClass('hidden');
+            if (message.length > 35) {
+                $('.error-msg1').removeClass('hidden');
+                $('.login-box').addClass('login-box4');
+
+            } else {
+                $('.error-msg').removeClass('hidden');
+                $('.login-box').addClass('login-box4');
+            }
+
+            if (msgid == 15) {
+                $('#signin-form').removeClass('hidden');
+                $('#signup-form').addClass('hidden');
+                $('.login-box').addClass('login-box5');
+                $('.login-box').removeClass('login-box4');
+                $('.login-link1').removeClass('hidden');
+                $('.login-link').addClass('hidden');
+
+                $('#sign-up').click(function () {
                     $('.login-box').addClass('login-box4');
-
-                } else {
-                    $('.error-msg').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-                }
-
-                if (msgid == 15) {
-                    $('#signin-form').removeClass('hidden');
-                    $('#signup-form').addClass('hidden');
-                    $('.login-box').addClass('login-box5');
-                    $('.login-box').removeClass('login-box4');
-                    $('.login-link1').removeClass('hidden');
-                    $('.login-link').addClass('hidden');
-
-                    $('#sign-up').click(function () {
-                        $('.login-box').addClass('login-box4');
-                        $('.login-box').removeClass('login-box5');
-                    });
-                }
+                    $('.login-box').removeClass('login-box5');
+                });
+            }
 //            });
 
         </script>
         <script>
 //            $(window).load(function () {
-                var width = $(window).width();
+            var width = $(window).width();
 
-                if (width > 900) {
+            if (width > 900) {
 
-                    var contentheight = $(window).height() - 200;
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else if (width > 760) {
+                $('.content').css('height', contentheight);
+            } else if (width > 760) {
 
-                    var contentheight = $(window).height() - 200;
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else if (width > 576) {
-                    var contentheight = $(window).height() - 200;
+                $('.content').css('height', contentheight);
+            } else if (width > 576) {
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else {
-                    var contentheight = $(window).height() - 218;
-                    $('.content').css('height', contentheight);
-                }
+                $('.content').css('height', contentheight);
+            } else {
+                var contentheight = $(window).height() - 218;
+                $('.content').css('height', contentheight);
+            }
 //            });
         </script>
         <script>

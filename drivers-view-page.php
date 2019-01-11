@@ -36,6 +36,8 @@ $stars = $sum / $divider;
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> 
         <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+
         <style>
 
 
@@ -192,7 +194,7 @@ $stars = $sum / $divider;
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container-fluid about-bg ">
+            <div class="container-fluid about-bg" data-aos-easing="linear" data-aos-duration="1500">
                 <div class="container">
                     <div class="rl-banner">
                         <h2 class="tp"><?php echo $DRIVER->name; ?></h2>
@@ -206,7 +208,7 @@ $stars = $sum / $divider;
             </div>
             <div class="container padding-bottom-45 padding-top-70">
                 <div class="row">
-                    <div class="col-md-3 col-sm-4" >
+                    <div class="col-md-3 col-sm-4" data-aos="fade-right" data-aos-duration="3000" >
 
 
                         <div class="driver-profile-section" >
@@ -289,7 +291,7 @@ $stars = $sum / $divider;
                         </div>
 
                     </div>
-                    <div class="col-md-9 col-sm-8">
+                    <div class="col-md-9 col-sm-8" data-aos="fade-left" data-aos-duration="3000">
                         <div class=" content">
                             <div id="galleria">
                                 <?php
@@ -323,13 +325,13 @@ $stars = $sum / $divider;
 
             </div>
 
-            <div class="container padding-bottom-35">
+            <div class="container padding-bottom-35" data-aos="fade-down" data-aos-duration="3000">
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
-                        <h3 class="headline ">Reviews(<?php echo $sum; ?>)</h3>
+                        <h3 class="headline ">Reviews (<?php echo $sum; ?>)</h3>
                         <hr>
-                        <div class="col-md-4 col-sm-4 rating-breakdown">
+                        <div class="col-md-4 col-sm-5 rating-breakdown">
                             <div class="col-md-12 rating-block">
 
                                 <h2 class="bold padding-bottom-7"><?php echo $sum; ?> <small>/ <?php echo 5 * $divider; ?></small></h2>
@@ -420,7 +422,7 @@ $stars = $sum / $divider;
                                                             </div>
                                                         </div>	-->
                         </div>	
-                        <div class="col-md-8 col-sm-8 reviewrating ">
+                        <div class="col-md-8 col-sm-7 reviewrating ">
                             <div class="reviws-section">
                                 <div class="review-carousel testimonials">
                                     <?php
@@ -429,7 +431,7 @@ $stars = $sum / $divider;
                                         ?>
                                         <div class="col-md-12">
 
-                                            <div class="col-md-3 col-sm-3 img-section reviewspts">
+                                            <div class="col-md-3 col-sm-4 img-section reviewspts">
                                                 <div class="reviewimg">
                                                     <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
                                                 </div>
@@ -456,12 +458,12 @@ $stars = $sum / $divider;
                                                 </div>
 
                                             </div>  
-                                            <div class="col-md-9 col-sm-9">
+                                            <div class="col-md-9 col-sm-8">
                                                 <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
                                                 <p><?php echo $review['message']; ?></p>
 
                                             </div> 
-                                             
+
                                         </div>
                                         <?php
                                     }
@@ -478,7 +480,7 @@ $stars = $sum / $divider;
 
             </div>
             <section class="fullwidth  padding-top-45 padding-bottom-70" >
-                <div class="container">
+                <div class="container" data-aos="fade-up" data-aos-duration="3000">
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="headline  margin-bottom-45">
@@ -582,7 +584,10 @@ $stars = $sum / $divider;
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
-
+        <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
 
 
     </body>

@@ -42,7 +42,7 @@ if ($count1 == 0) {
             <!-- Left Side Content / End -->
             <!-- Right Side Content / End -->
             <div class="right-side">
-                <div class="nav-top hidden-lg hidden-md hidden-sm">
+                <div class="nav-top hidden-lg hidden-md hidden-sm" >
                     <div class="header-widget widget-btn-left">
                         <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
                     </div>
@@ -147,7 +147,7 @@ if ($count1 == 0) {
                         <li><a href="#tab2">Register</a></li>
                     </ul>
 
-                    <div class="tabs-container alt">
+                    <div class="tabs-container alt" data-aos="fade-up" data-aos-duration="3000" >
 
                         <!-- Login -->
                         <div class="tab-content" id="tab1" style="display: none;">
@@ -182,7 +182,7 @@ if ($count1 == 0) {
                         </div>
 
                         <!-- Register -->
-                        <div class="tab-content" id="tab2" style="display: none;">
+                        <div class="tab-content" data-aos="fade-up" data-aos-duration="3000"  id="tab2" style="display: none;" >
 
                             <form method="post" class="register">
 

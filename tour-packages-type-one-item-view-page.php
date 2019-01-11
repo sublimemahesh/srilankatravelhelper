@@ -40,6 +40,7 @@ if ($divider1 == 0) {
     <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
     <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     <style>
 
         /*reviews*/
@@ -149,7 +150,7 @@ if ($divider1 == 0) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner">
+                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="1500">
                     <h2 class="tp">Tour Packages</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -161,9 +162,9 @@ if ($divider1 == 0) {
             </div>
         </div>
 
-        <div class="container padding-bottom-45 padding-top-45">
+        <div class="container padding-bottom-45 padding-top-45" >
             <div class="row">
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-9" data-aos="fade-right" data-aos-duration="3000">
 
                     <div class="item1">
                         <div class="padding-top-10">
@@ -200,7 +201,7 @@ if ($divider1 == 0) {
                         <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3" >
+                <div class="col-md-3 col-sm-3" data-aos="fade-left" data-aos-duration="3000">
                     <div class="moretourpack">
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
@@ -296,7 +297,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-70">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" data-aos="fade-up" data-aos-duration="3000">
                     <hr>
                     <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                     <hr>
@@ -377,21 +378,20 @@ if ($divider1 == 0) {
                                 ?>
                             </div>
                         </div>
-                         <?php if (count(Reviews::getReviewsByTour($TOUR->id)) > 0) {
-                                    ?>
-                        <div class="review-button">
-                            <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
-                        </div>
-                        <?php
-                                } else {
-                                    
-                                    ?>
-                         <div class="review-button">
-                            <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
-                        </div>
-                        <?php
-                                }
-                                    ?>
+                        <?php if (count(Reviews::getReviewsByTour($TOUR->id)) > 0) {
+                            ?>
+                            <div class="review-button">
+                                <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="review-button">
+                                <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
 
                 </div>
@@ -417,6 +417,11 @@ if ($divider1 == 0) {
     <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="lib/owl/owl.carousel.min.js" type="text/javascript"></script>
     <script src="scripts/lightbox.min.js" type="text/javascript"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
+    <script>
     <script>
         $(function () {
             $('#nav').on('click', '.nav-item', function (event) {

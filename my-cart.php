@@ -28,29 +28,12 @@ if (isset($_SESSION['destination_cart'])) {
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
         <style>
             .review-button {
                 margin-bottom: 70px;
             }
-            @media(max-width:576px) {
-                .ml-xs-20 {
-                    margin-left: 20px;
-                    width: auto;
-                }
-                .mr-xs-20 {
-                    margin-right: 20px;
-                }
-            }
-            @media(width:600px) {
-                .ml-xs-20 {
-                    margin-left: 20px;
-                    width: auto;
-                }
-                .mr-xs-20 {
-                    margin-right: 20px;
-                }
-            }
-
         </style>
     </head>
     <body>
@@ -58,7 +41,7 @@ if (isset($_SESSION['destination_cart'])) {
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">My Cart</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -67,9 +50,9 @@ if (isset($_SESSION['destination_cart'])) {
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70 ml-xs-20 mr-xs-20">
+            <div class="container margin-top-70">
                 <div class="row">
-                    <ul class="list-group">
+                    <ul class="list-group padding-bottom-60" data-aos="fade-down" data-aos-duration="3000">
                         <?php
                         if ($countdestinations > 0) {
                             foreach ($destinations as $key => $destination) {
@@ -86,7 +69,7 @@ if (isset($_SESSION['destination_cart'])) {
                                     $stars1 = $sum1 / $divider1;
                                 }
                                 ?>
-                                                                                <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                        <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -119,7 +102,7 @@ if (isset($_SESSION['destination_cart'])) {
                                             </div>
                                             <div style="margin-top: 0px;padding-bottom: 7px;">
                                                 <p class="text-center " id="">
-        <?php echo substr($DESTINATION->short_description, 0, 55) . '...'; ?>
+                                                    <?php echo substr($DESTINATION->short_description, 0, 55) . '...'; ?>
                                                 </p>
                                             </div>
                                             <div class="button-section">
@@ -137,16 +120,20 @@ if (isset($_SESSION['destination_cart'])) {
                             }
                         } else {
                             ?>
-                            <li class="list-group-item"><h3>No any selected destinations in your cart</h3></li>
+                            <li class="list-group-item " data-aos="fade-up" data-aos-duration="3000">
+                                <h3>No any selected destinations in your cart</h3>
+                            </li>
                             <?php
                         }
                         ?>
 
                     </ul> 
                 </div>
-                <div class="review-button <?php if (count($_SESSION['destination_cart']) <= 0) {
-                            echo 'hidden';
-                        } ?>">
+                <div class="review-button <?php
+                if (count($_SESSION['destination_cart']) <= 0) {
+                    echo 'hidden';
+                }
+                ?>">
                     <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart">Book Now</button></a>
                 </div>
             </div>
@@ -171,6 +158,10 @@ if (isset($_SESSION['destination_cart'])) {
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script src="scripts/remove-from-cart.js" type="text/javascript"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </html>
 

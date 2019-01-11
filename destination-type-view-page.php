@@ -37,6 +37,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
         <style>
             .like-icon {
                 padding: 8px 12px;
@@ -51,7 +52,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -65,8 +66,8 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
-                    <div class="col-lg-3 col-md-4">
-                        <div class="boxed-widget opening-hours margin-top-25">
+                    <div class="col-lg-3 col-md-4 hidden-sm" data-aos="fade-right" data-aos-duration="3000">
+                        <div class="boxed-widget opening-hours margin-top-35">
 
                             <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
                             <ul>
@@ -83,8 +84,45 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         </div>
 
                     </div>
+                    <div class="col-lg-3 col-md-4 visible-sm" data-aos="fade-right" data-aos-duration="3000">
+                        <div class="boxed-widget opening-hours margin-top-35">
+
+                            <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
+                            <ul>
+                                <?php
+                                $DESTINATIONS = Destination::getDestinationById($id);
+                                $count = count($DESTINATIONS);
+                                ?>
+                                <div class="col-sm-6">
+                                    <?php
+                                    foreach ($DESTINATIONS as $key => $destination) {
+                                        if ($key < $count / 2) {
+                                            ?>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <?php
+                                    foreach ($DESTINATIONS as $key => $destination) {
+                                        if ($key >= $count / 2) {
+                                            ?>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+
+                                </div>
+                            </ul>
+                        </div>
+
+                    </div>
                     <!-- Sidebar / End -->
-                    <div class="col-lg-9 col-md-8 padding-right-30">
+                    <div class="col-lg-9 col-md-8 padding-right-30" >
                         <!-- Sorting / Layout Switcher -->
                         <div class="row margin-bottom-25">
                         </div>
@@ -95,14 +133,14 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach ($DESTINATIONS as $key => $destination) {
                                 ?>
                                 <!-- Listing Item -->
-                                <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="col-lg-12 col-md-12 col-sm-6" data-aos="fade-down" data-aos-duration="3000">
                                     <div class="listing-item-container list-layout">
                                         <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>" class="listing-item">
 
                                             <!-- Image -->
                                             <div class="listing-item-image">
                                                 <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt="">
-                                                
+
                                             </div>
 
                                             <!-- Content -->
@@ -194,6 +232,10 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
 
     </body>
 </html>

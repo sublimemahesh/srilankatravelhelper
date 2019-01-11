@@ -1,16 +1,23 @@
 <!-- Footer
 ================================================== -->
-<div id="footer" class="dark">
+<div id="footer" class="dark" >
     <!-- Main -->
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-sm-3 footerdes">
+            <div class="col-md-5 col-sm-3 footerdes" data-aos="fade-up" data-aos-duration="3000">
                 <img class="footer-logo" src="images/logo/tour-logo-1.png" alt="">
                 <br><br>
-                <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius. laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                <div class="hidden-sm">
+                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius. laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                </div>
+                <div class="hidden-lg hidden-md hidden-xs">
+                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor.</p>
+                </div>
+
+
             </div>
 
-            <div class="col-md-4 col-sm-5 ">
+            <div class="col-md-4 col-sm-5" data-aos="fade-up" data-aos-duration="3000">
                 <h4>Helpful Links</h4>
                 <ul class="footer-links">
                     <li><a href="./">Home</a></li>
@@ -31,7 +38,7 @@
                 <div class="clearfix"></div>
             </div>		
 
-            <div class="col-md-3  col-sm-4">
+            <div class="col-md-3  col-sm-4" data-aos="fade-up" data-aos-duration="3000">
                 <h4>Contact Us</h4>
                 <div class="text-widget1">
                     <span>Sublime,Galle Road ,Galle</span> <br>

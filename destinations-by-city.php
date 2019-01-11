@@ -26,6 +26,8 @@ $LOCATION = new Location($city);
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+        
         <style>
             .review-button {
                 margin-bottom: 70px;
@@ -37,7 +39,7 @@ $LOCATION = new Location($city);
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Destinations By City</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -46,7 +48,7 @@ $LOCATION = new Location($city);
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70 margin-bottom-55">
+            <div class="container margin-top-70 margin-bottom-55" data-aos="fade-up" data-aos-duration="3000">
                 <div class="row col-md-10 col-md-offset-1">
                     <div class="city-item">
                         <div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">
@@ -77,7 +79,7 @@ $LOCATION = new Location($city);
                     </div>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="row col-md-12" id="search-content">
+                <div class="row col-md-12" id="search-content" data-aos="fade-up" data-aos-duration="3000">
                     <h1>Destinations in <?php echo $LOCATION->name; ?> City</h1>
                     <hr />
                     <?php
@@ -217,6 +219,10 @@ $LOCATION = new Location($city);
     <script src="scripts/add-to-cart.js" type="text/javascript"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="scripts/search-destination.js" type="text/javascript"></script>
+     <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
     <script>
         var placeSearch, autocomplete;
 

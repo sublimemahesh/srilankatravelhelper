@@ -6246,7 +6246,7 @@ a.read-more:hover i {
 }
 
 .blog-compact-item-content p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     display: inline-block;
     color: rgba(255, 255, 255, .8);
@@ -7627,7 +7627,7 @@ body .notification strong {
 
 .testimonial,
 .testimonial p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 30px
 }
@@ -7662,8 +7662,8 @@ body .notification strong {
     display: block;
     color: #f9f4f4;
     padding-top: 6px;
-    font-weight: 400;
-    font-size: 15px
+    font-weight: 200;
+    font-size: 13px
 }
 
 .testimonial-box .star-rating {
@@ -7760,7 +7760,7 @@ body .notification strong {
 }
 
 .text-content p {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 34px
 }
@@ -7768,8 +7768,8 @@ body .notification strong {
 .text-content h2 {
     margin-bottom: 30px;
     line-height: 46px;
-    font-size: 36px;
-    font-weight: 500
+    font-size: 30px;
+    font-weight: 800;
 }
 
 .top-1 {
@@ -14588,7 +14588,7 @@ h2.headline span {
 }
 
 .headline span {
-    font-size: 22px;
+    font-size: 21px;
     line-height: 36px;
     margin-top: 10px;
     color: #fff;
@@ -16598,5 +16598,15 @@ div.layout-style {
 
 #navigation ul li:first-child {
     padding: 0;
- 
+
+}
+.text-content h4{
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    padding-top: 0px;
+    line-height: 18px
+}
+a .listing-item:hover { 
+    text-decoration: none; 
 }

@@ -17,13 +17,14 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Offers</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -45,7 +46,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
                             $newprice = $price - ($price * $discount / 100);
                             ?>
-                            <div class="offer-item">
+                            <div class="offer-item" data-aos="fade-up" data-aos-duration="3000">
                                 <div class="ribbon"><span><?php echo $offer['discount']; ?>% off</span></div>
                                 <!-- hotel Image-->
                                 <div class="offer-image">
@@ -54,17 +55,30 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     </a>
                                 </div>
                                 <!-- hotel body-->
-                                <div class="offer-body">
+                                <div class="offer-body hidden-sm hidden-xs ">
                                     <!-- title-->
                                     <h3><?php echo $offer['title']; ?></h3>
                                     <!-- Text Intro-->
                                     <p style="text-align: justify;"><?php echo substr($offer['description'], 0, 750); ?></p>
                                 </div>
+                                <div class="offer-body hidden-lg hidden-md hidden-xs">
+                                    <!-- title-->
+                                    <h3><?php echo $offer['title']; ?></h3>
+                                    <!-- Text Intro-->
+                                    <p style="text-align: justify;"><?php echo substr($offer['description'], 0, 400); ?></p>
+                                </div>
+                                   <div class="offer-body hidden-lg hidden-md hidden-sm">
+                                    <!-- title-->
+                                    <h3><?php echo $offer['title']; ?></h3>
+                                    <!-- Text Intro-->
+                                   
+                                </div>
+
                                 <div class="offer-right"> 
                                     <div class="offer-driver-img">
                                         <a target="blank" href="member-view.php?id=" class="link" title="DRIVER : <?php echo $DRIVER->name; ?>">
-                                          
-                                        <?php
+
+                                            <?php
                                             if (empty($DRIVER->profile_picture)) {
                                                 ?>
                                                 <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle img-responsive vis-member-border offer-member-img"/>
@@ -81,8 +95,8 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                                 }
                                             }
                                             ?>
-                                        
-                                        
+
+
                                         </a>
                                     </div>
                                     <div class="offer-person"><span class="color-blue">LKR <?php echo number_format($newprice, 2); ?></span><strike class="old-discount-price">LKR <?php echo number_format($offer['price'], 2); ?></strike> </div>
@@ -107,6 +121,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
             <?php include './footer.php'; ?>
         </div>
 
+
         <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
         <script src="scripts/jquery-2.2.0.min.js" type="text/javascript"></script>
         <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -120,6 +135,10 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
 

@@ -1,4 +1,57 @@
+@media(min-width:577px) and (max-width:990px) {
 
+    .destinations-search .main-search-input {
+        margin-top: -180px;
+    }
+    .right-side {
+        height: 25px;
+    }
+    .nav-top {
+        height: 60%;
+        margin-top: -52px;
+    }
+    .mmenu-trigger {
+        margin-top: 54px;
+        margin-bottom: 0px;
+    }
+    #logo {
+        margin-top: 8px;
+    }
+    .nav-bottom {
+        height: 50%;
+        border-top: 0;
+        width: 100%;
+        float: left;
+
+    }
+    .text-content h2 {
+        margin-top:0;
+
+    }
+    .text-content h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        padding-top: 0px;
+        line-height: 12px
+
+    }
+    .mt-sm-8{
+        margin-top: 8px !important;
+    }
+    .mb-sm-15{
+        margin-bottom: 15px !important;
+    }
+    .welcometext{
+        text-align: center;
+    }
+    .header-icon {
+        padding: 5px 6px 2px 1px;
+    }
+    .listing-item-container.list-layout .listing-item {
+        text-decoration: none;
+    }
+}
 @media only screen and (width: 360px) {
     .main-search-input-item .chosen-container-single .chosen-single, .main-search-input-item .chosen-single.chosen-container-active, .gray-style .main-search-input-item .chosen-container-single .chosen-single, .gray-style .main-search-input-item .chosen-single.chosen-container-active, .gray-style.main-search-input input, .gray-style.main-search-input input:focus, .main-search-input input, .main-search-input input:focus {
         padding: 0 21px;
@@ -28,13 +81,13 @@
         border-radius: 4px;
     }
     .main-search-input button.button {
-       font-size: 15px;
-font-weight: 600;
-padding: 0px 26px;
-margin-right: 1px;
-height: 46px;
-outline: 0;
-margin-bottom: 16px;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 0px 26px;
+        margin-right: 1px;
+        height: 46px;
+        outline: 0;
+        margin-bottom: 16px;
     }
     h3.headline {
         font-size: 18px;
@@ -96,18 +149,18 @@ margin-bottom: 16px;
         padding-bottom: 17px;
     }
 
-.city-item p {
-    font-size: 15px;
-    text-align: justify;
-    line-height: 22px;
-    padding: 0px;
+    .city-item p {
+        font-size: 15px;
+        text-align: justify;
+        line-height: 22px;
+        padding: 0px;
         padding-bottom: 0px;
-    margin-bottom: 0px;
-    padding-bottom: 5px;
-}
-.relexholding img{
-    display: none;
-}
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+    }
+    .relexholding img{
+        display: none;
+    }
 
 }
 @media only screen and (width: 768px) {
@@ -157,11 +210,9 @@ margin-bottom: 16px;
         width: 50px;
         display: none;
         position: relative;
-        margin: 0 0 -11px;
         background-color: #eee;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 10px;
     }
 
     header-widget a.button.border {
@@ -179,7 +230,8 @@ margin-bottom: 16px;
         padding-top: 5px;
     }
     .rating-block {
-        height: 137px;
+        height: 202px;
+        padding-top: 32px;
     }
     .ratingblock{
         margin-top: 7px;
@@ -226,12 +278,56 @@ margin-bottom: 16px;
         margin-top: -37px;
     }
     .star-rating-driver {
-    margin-top: 15px;
-    z-index: 9;
-    position: relative;
-    color: #f5cf00;
-    padding-right: 60px;
-}
+        margin-top: 15px;
+        z-index: 9;
+        position: relative;
+        color: #f5cf00;
+        padding-right: 60px;
+    }
+    .offer-driver-img {
+        margin: 0px 21px;
+    }
+    .offer-person span {
+        display: block;
+        font-size: 14px;
+        margin: 15px 0px 13px 2px;
+        font-weight: 700;
+        color: #616aae;
+    }
+    .thm-btn {
+        padding: 4px 5px;
+    }
+    .header-widget a.button.border {
+        padding: 2px 16px 5px 0px;
+    }
+    #rating-counter {
+        padding-left: 77px;
+    }
+    .star-rating-driver {
+        padding-right: 57px;
+    }
+    .city-item .driver-name {
+        position: relative;
+        margin-top: 20px;
+        left: 0;
+        z-index: 0;
+        color: #1a0202;
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 0px;
+
+    }
+    .city-item p {
+        font-size: 15px;
+        text-align: justify;
+        line-height: 22px;
+        padding: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+    }
+
+
 
 }
 @media only screen and (width: 375px) {
@@ -517,11 +613,10 @@ margin-bottom: 16px;
         width: 50px;
         display: none;
         position: relative;
-        margin: 0 0 -11px;
         background-color: #eee;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 10px;
+
     }
 
     header-widget a.button.border {
@@ -547,9 +642,7 @@ margin-bottom: 16px;
         left: 0;
         right: 0;
     }
-    .right-side {
-        height: 60px;
-    }
+
     .reviews-title {
         margin-top: 1px;
         font-family: 'Courgette', cursive;
@@ -557,7 +650,8 @@ margin-bottom: 16px;
         padding-top: 5px;
     }
     .rating-block {
-        height: 137px;
+        height: 194px;
+        padding-top: 27px;
     }
     .ratingblock{
         margin-top: 7px;
@@ -587,6 +681,38 @@ margin-bottom: 16px;
     .driver-p {
         height: 110px;
     }
+    .star-rating-driver {
+        margin-top: 15px;
+        z-index: 9;
+        position: relative;
+        color: #f5cf00;
+        padding-right: 60px;
+    }
+    .offer-driver-img {
+        margin: 0px 21px;
+    }
+    .offer-person span {
+        display: block;
+        font-size: 14px;
+        margin: 15px 0px 13px 2px;
+        font-weight: 700;
+        color: #616aae;
+    }
+    .thm-btn {
+        padding: 4px 5px;
+    }
+    .text-content a.button {
+        padding: 10px 26px;
+        font-size: 16px;
+        font-weight: 600
+    }
+    .seabox{
+        margin-top: -161px; 
+    }
+    .destinations-search .main-search-input {
+        margin-top: -7px;
+    }
+
 }
 @media only screen and (width: 600px) {
 
@@ -636,11 +762,9 @@ margin-bottom: 16px;
         width: 50px;
         display: none;
         position: relative;
-        margin: 0 0 -11px;
         background-color: #eee;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 10px;
     }
 
     header-widget a.button.border {
@@ -665,9 +789,6 @@ margin-bottom: 16px;
         text-align: center;
         left: 0;
         right: 0;
-    }
-    .right-side {
-        height: 60px;
     }
     .img-pad {
         padding-left: 16px;
@@ -713,5 +834,78 @@ margin-bottom: 16px;
         padding-top: 38px;
     }
 
+    .header-icon {
+        background: #0dce38;
+        padding: 5px 6px 2px 1px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 18px;
+        border: 1px solid #0dce38;
+        margin-right: 4px;
+        margin-left: 253px;
 
+    }
+
+
+}
+@media (max-width: 576px) {
+    .text-content a.button {
+        padding: 8px 26px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .mt-xs-8 {
+        margin-top: 8px !important;
+        margin-bottom: 8px;
+    }
+    .mb-xs-8 {
+        margin-bottom: 8px !important;
+    }
+    .main-search-input select, .main-search-input select:focus {
+        padding: 0 21px;
+        height: 35px;
+        line-height: 39px;
+        border-radius: 30px;
+        background: #e0e0e0b3;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .08);
+        font-size: 12px;
+    }
+    select.chosen-select::-ms-expand { 
+        display: none;
+    }
+    .header-icon {
+        background: #0dce38;
+        padding: 5px 6px 2px 1px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 18px;
+        border: 1px solid #0dce38;
+        margin-right: 4px;
+    }
+    .main-search-input button.button {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0 28px;
+        margin-right: 1px;
+        height: 35px;
+        outline: 0;
+        margin-bottom: 16px;
+    }
+    .right-side {
+        height: 60px;
+        padding: 22px 0px 0px;
+    }
+    .header-widget {
+        padding: 0px 0;
+    }
+    .boxed-widget {
+        padding: 32px 25px;
+    }
+    .listing-item-container.list-layout .listing-item {
+        text-decoration: none;
+    }
+    .relexholding img {
+        display: none;
+    }
 }

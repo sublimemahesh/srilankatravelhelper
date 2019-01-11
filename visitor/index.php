@@ -28,7 +28,8 @@ if ($count1 == 0) {
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+          <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Visitor DashBoard</title>
         <link href="../css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -38,6 +39,7 @@ if ($count1 == 0) {
         <link href="../slider-css/revolution_layers.css" rel="stylesheet" type="text/css"/>
         <link href="../slider-css/revolution_navigation.css" rel="stylesheet" type="text/css"/>
         <link href="../slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             input[type="button"].signup-btn  {
                 background: red;
@@ -61,7 +63,7 @@ if ($count1 == 0) {
             <div class="content">
                 <div class="parallax">
 
-                    <div class="box col-md-8 col-md-offset-2 col-xs-12">
+                    <div class="box col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
                         <div class="description-box col-md-6 col-xs-12">
                             <div class="logo">
                                 <img src="../images/logo/log-1.png" alt=""/>

@@ -42,6 +42,9 @@ $askedAt = getAskedTime($Question->askedAt);
         <link href="css/blog.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+
 
     </head>
 
@@ -53,7 +56,7 @@ $askedAt = getAskedTime($Question->askedAt);
             <?php include './header.php'; ?>
             <div class="container1 about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Blog</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -63,7 +66,7 @@ $askedAt = getAskedTime($Question->askedAt);
                     </div>
                 </div>
             </div>
-            <div class="container  padding-top-45">
+            <div class="container  padding-top-45" data-aos="fade-up" data-aos-duration="3000">
 
                 <div class="">
                     <div class="blog col-md-12">
@@ -82,7 +85,7 @@ $askedAt = getAskedTime($Question->askedAt);
                         </div>
 
                         <div class="col-md-12">
-                            <div class="view-qu asked-by col-md-2 col-xs-12">
+                            <div class="view-qu asked-by col-md-2 col-xs-12" >
                                 <i class="glyphicon glyphicon-map-marker"></i> <span class="qu-i"><?php echo $Question->location; ?></span><br />
 
                                 <i class="glyphicon glyphicon-calendar"></i> <span class="qu-i"><?php echo substr($Question->askedAt, 0, 10); ?></span>
@@ -558,6 +561,11 @@ $askedAt = getAskedTime($Question->askedAt);
         <script src="scripts/add-comment.js" type="text/javascript"></script>
         <script src="scripts/signin.js" type="text/javascript"></script>
         <script src="scripts/signup.js" type="text/javascript"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
+        
         <script>
             tinymce.init({
                 selector: "#ans",

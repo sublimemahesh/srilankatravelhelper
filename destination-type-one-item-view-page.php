@@ -48,6 +48,7 @@ if (isset($_GET['album'])) {
         <link rel="stylesheet" href="css/images-grid.css">
         <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
         <style>
             /* This rule is read by Galleria to define the gallery height: */
             /*reviews*/
@@ -188,7 +189,7 @@ if (isset($_GET['album'])) {
                      <?php include './header.php'; ?>
                 <div class="container-fluid about-bg ">
                     <div class="container">
-                        <div class="rl-banner">
+                        <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                             <h2 class="tp">Destination</h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
@@ -229,7 +230,7 @@ if (isset($_GET['album'])) {
                             <div>
                                 <h3 class="headline text-center" >More Destinations</h3>
                             </div> 
-                            <div class="row margin-left-4 moredest otherdestinaionmar ">
+                            <div class="row margin-left-4 moredest otherdestinaionmar">
 
                                 <?php
                                 $DESTINATIONS = Destination::getDestinationById($DESTINATION->type);
@@ -237,10 +238,10 @@ if (isset($_GET['album'])) {
                                     if ($key < 7) {
                                         ?>
 
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" >
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3000" >
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
-                                                <div class="col-md-5 col-xs-4 more-items-image">
+                                                <div class="col-md-5 col-xs-4 more-items-image" >
                                                     <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
                                                         <li>
@@ -285,7 +286,7 @@ if (isset($_GET['album'])) {
                                         </div>
 
                                         <!--mobile respo-->
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" >
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" data-aos="fade-up" data-aos-duration="3000" >
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image destinationpadding ">
@@ -346,7 +347,7 @@ if (isset($_GET['album'])) {
                 </div>
                 <div class="container padding-bottom-70">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" data-aos="fade-up" data-aos-duration="3000">
                             <hr>
                             <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                             <hr>
@@ -472,6 +473,10 @@ if (isset($_GET['album'])) {
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/images-grid.js"></script>
         <script src="scripts/destination-slider.js" type="text/javascript"></script>
+          <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
         <script>
 //            $(document).ready(function () {
 //                $('.gallery1').click(function () {

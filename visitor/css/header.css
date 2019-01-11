@@ -915,7 +915,6 @@ a.button.border:hover {
     }
     .header-widget a.button.border {
         padding: 7px 16px;
-        background-color: transparent;
         font-size: 16px;
         min-width: auto;
         float: right;

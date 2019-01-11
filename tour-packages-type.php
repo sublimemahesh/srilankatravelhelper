@@ -22,13 +22,14 @@ if (!isset($_SESSION)) {
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Tour Packages</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -44,7 +45,7 @@ if (!isset($_SESSION)) {
                         $TOUR_TYPES = TourType::all();
                         foreach ($TOUR_TYPES as $tour_type) {
                             ?>
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6"  data-aos="fade-right" data-aos-duration="3000">
                                 <a href="tour-packages-type-view-page.php?id=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
                                     <div class="blog-compact-item">
                                         <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
@@ -122,5 +123,9 @@ if (!isset($_SESSION)) {
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
     </body>
 </html>

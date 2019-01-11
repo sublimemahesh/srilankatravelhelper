@@ -18,6 +18,7 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
     <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="contact-form/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/aos.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <!-- Wrapper -->
@@ -27,7 +28,7 @@ if (!isset($_SESSION)) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner">
+                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                     <h2 class="tp">Contact</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -38,7 +39,7 @@ if (!isset($_SESSION)) {
         </div>
         <div class="container padding-bottom-65 padding-top-70">
             <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-right" data-aos-duration="3000">
                     <h4 class="headline margin-bottom-30">Find Us There</h4>
                     <div class="sidebar-textbox">
                         <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>
@@ -50,7 +51,7 @@ if (!isset($_SESSION)) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8" data-aos="fade-left" data-aos-duration="3000">
                     <section id="contact">
                         <h4 class="headline margin-bottom-35">Contact Form</h4>
                         <div id="contact-message"></div> 
@@ -153,5 +154,9 @@ if (!isset($_SESSION)) {
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
     <script src="contact-form/scripts.js" type="text/javascript"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

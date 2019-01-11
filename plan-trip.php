@@ -28,6 +28,10 @@ if (isset($_SESSION['destination_cart'])) {
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+        
+        
+
         <style>
             .review-button {
                 margin-bottom: 70px;
@@ -39,7 +43,7 @@ if (isset($_SESSION['destination_cart'])) {
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Plan Your Trip</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -50,10 +54,10 @@ if (isset($_SESSION['destination_cart'])) {
             </div>
             <div class="container margin-top-70 margin-bottom-55">
                 <div class="row col-md-6 col-md-offset-3">
-                    <div class="row location-search-title">
+                    <div class="row location-search-title" data-aos="fade-right" data-aos-duration="3000">
                         Enter city to find destinations
                     </div>
-                    <div class="main-search-input">
+                    <div class="main-search-input" data-aos="fade-left" data-aos-duration="3000">
                         <div class="main-search-input-item location">
                             <div id="autocomplete-container">
                                 <input  name="autocomplete" id="autocomplete" type="text" placeholder="Select a city">
@@ -99,6 +103,10 @@ if (isset($_SESSION['destination_cart'])) {
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="scripts/search-destination.js" type="text/javascript"></script>
     <script src="scripts/near-by-destinations.js" type="text/javascript"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         var placeSearch, autocomplete;
 

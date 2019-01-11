@@ -64,6 +64,7 @@ if (isset($_GET['search'])) {
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/read-more-less.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -74,7 +75,7 @@ if (isset($_GET['search'])) {
             <?php include './header.php'; ?>
             <div class="container1 about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Blog</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -86,7 +87,7 @@ if (isset($_GET['search'])) {
             <div class="question-search main-search-inner">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3">
+                        <div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1500">
                             <form id="blog-search" action="blog.php" method="get">
                                 <div class=" main-search-input">
 
@@ -129,7 +130,7 @@ if (isset($_GET['search'])) {
                             </div>
 
                             <div class="row">
-                                <div class="topic topic-all" id="">
+                                <div class="topic topic-all"  id="">
                                     <h4><?php echo $countsrch['count']; ?> Question<?php
                                         if ($countsrch['count'] == 1) {
                                             echo '';
@@ -170,7 +171,7 @@ if (isset($_GET['search'])) {
                                 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
                                 ?>
                                 <div class="">
-                                    <div class="question col-md-12 col-xs-12">
+                                    <div class="question col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3000">
                                         <div class="answers-count <?php
                                         if ($COUNTANSWERS['count'] > 0) {
                                             echo 'active';
@@ -483,6 +484,10 @@ if (isset($_GET['search'])) {
         <script src="lib/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
         <script>
                                                 tinymce.init({
                                                     selector: "#qu",

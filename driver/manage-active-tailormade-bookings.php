@@ -6,7 +6,8 @@ $DRIVER = new Drivers($_SESSION['id']);
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Manage Tailor-made Bookings || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -51,53 +52,51 @@ $DRIVER = new Drivers($_SESSION['id']);
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Booking ID</th>
-                                                <th>Booked At</th>                               
-                                                <th>Visitor</th>
-                                                <th>Price</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Booking ID</th>
-                                                <th>Booked At</th>                               
-                                                <th>Visitor</th>
-                                                <th>Price</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Booked At</th>                               
+                                            <th>Visitor</th>
+                                            <th>Price</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Booked At</th>                               
+                                            <th>Visitor</th>
+                                            <th>Price</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
 
+                                        <?php
+                                        $i = 0;
+                                        foreach (TailorMadeTours::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
+                                            $VISITOR = new Visitor($booking['visitor']);
+                                            ?>
+                                            <tr id="row_<?php echo $booking['id']; ?>">
+                                                <td><?php echo $booking['id']; ?></td> 
+                                                <td><?php echo $booking['date_time_booked']; ?></td> 
+
+                                                <td><?php echo $VISITOR->name; ?></td> 
+                                                <td><?php echo 'USD ' . $booking['price']; ?></td> 
+                                                <td> 
+                                                    <a href="view-tailor-made-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
+                                                    <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Tailor-made Booking">
+                                                        <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
+                                                    </a> |
+                                                    <a href="set-price-for-tailor-made-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
+
+                                                </td>
+                                            </tr>
                                             <?php
-                                            $i = 0;
-                                            foreach (TailorMadeTours::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
-                                                $VISITOR = new Visitor($booking['visitor']);
-                                                
-                                                ?>
-                                                <tr id="row_<?php echo $booking['id']; ?>">
-                                                    <td><?php echo $booking['id']; ?></td> 
-                                                    <td><?php echo $booking['date_time_booked']; ?></td> 
-                                                  
-                                                    <td><?php echo $VISITOR->name; ?></td> 
-                                                    <td><?php echo 'USD '. $booking['price']; ?></td> 
-                                                    <td> 
-                                                        <a href="view-tailor-made-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
-                                                        <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Tailor-made Booking">
-                                                            <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
-                                                        </a> |
-                                                        <a href="set-price-for-tailor-made-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                
-                                            }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        }
+                                        ?>   
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -105,9 +104,9 @@ $DRIVER = new Drivers($_SESSION['id']);
                 </div>
 
             </div>
-            <?php
-            include './footer.php';
-            ?>
+<?php
+include './footer.php';
+?>
         </div>
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>

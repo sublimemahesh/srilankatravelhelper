@@ -19,14 +19,15 @@ if (!isset($_SESSION)) {
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container-fluid about-bg ">
+            <div class="container-fluid about-bg" >
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -35,13 +36,13 @@ if (!isset($_SESSION)) {
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70">
+            <div class="container margin-top-70" >
                 <div class="row">
                     <?php
                     $DESTINATION_TYPES = DestinationType::all();
                     foreach ($DESTINATION_TYPES as $destination_type) {
                         ?>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-down" data-aos-duration="3000">
                             <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
                                 <div class="listing-item">
                                     <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">
@@ -116,5 +117,9 @@ if (!isset($_SESSION)) {
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </html>
