@@ -6,7 +6,8 @@ $DRIVER = new Drivers($_SESSION['id']);
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Manage Questions || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -26,7 +27,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -52,51 +53,50 @@ $DRIVER = new Drivers($_SESSION['id']);
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Subject</th>
-                                                <th>Asked At</th>                               
-                                                <th>Related Location</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Subject</th>
-                                                <th>Asked At</th>                               
-                                                <th>Related Location</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Subject</th>
+                                            <th>Asked At</th>                               
+                                            <th>Related Location</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Subject</th>
+                                            <th>Asked At</th>                               
+                                            <th>Related Location</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
 
+                                        <?php
+                                        $i = 0;
+                                        foreach (BlogQuestion::getQuestionesByPosition('driver', $DRIVER->id) as $key => $question) {
+
+                                            $i++;
+                                            ?>
+                                            <tr id="row_<?php echo $question['id']; ?>">
+                                                <td><?php echo $i; ?></td> 
+                                                <td><?php echo $question['subject']; ?></td> 
+                                                <td><?php echo $question['askedAt']; ?></td>
+                                                <td><?php echo $question['location']; ?></td>
+                                                <td> 
+                                                    <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
+                                                    <a href="#" class="delete-question btn btn-sm btn-danger" data-id="<?php echo $question['id']; ?>"  title="Delete Question">
+                                                        <i class="waves-effect glyphicon glyphicon-trash" data-type="delete"></i>
+                                                    </a>  
+
+                                                </td>
+                                            </tr>
                                             <?php
-                                            $i = 0;
-                                            foreach (BlogQuestion::getQuestionesByPosition('driver', $DRIVER->id) as $key => $question) {
-                                                
-                                                $i++;
-                                                ?>
-                                                <tr id="row_<?php echo $question['id']; ?>">
-                                                    <td><?php echo $i; ?></td> 
-                                                    <td><?php echo $question['subject']; ?></td> 
-                                                    <td><?php echo $question['askedAt']; ?></td>
-                                                    <td><?php echo $question['location']; ?></td>
-                                                    <td> 
-                                                        <a href="edit-question.php?id=<?php echo $question['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-question btn btn-sm btn-danger" data-id="<?php echo $question['id']; ?>"  title="Delete Question">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="delete"></i>
-                                                        </a>  
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                
-                                            }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        }
+                                        ?>   
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

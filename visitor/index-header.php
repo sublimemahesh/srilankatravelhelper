@@ -23,10 +23,11 @@ if ($count1 == 0) {
     <div id="header">
         <div class="container">
             <!-- Left Side Content -->
+            
             <div class="left-side">
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="./"><img src="../images/logo/logo.png" alt=""></a>
+                    <a href="../"><img src="../images/logo/logo.png" alt=""></a>
                 </div>
                 <!-- Mobile Navigation -->
                 <div class="mmenu-trigger">
@@ -76,7 +77,7 @@ if ($count1 == 0) {
                                 <ul>
                                     <li><a href="profile.php">Login Now</a></li>
                                     <li><a href="profile.php">Join Now</a></li>
-                                    <li><a href="../visitor/profile.php">Driver Login</a></li>
+                                    <li><a href="../driver/profile.php">Driver Login</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -101,7 +102,7 @@ if ($count1 == 0) {
                     <!-- Main Navigation -->
                     <nav id="navigation" class="style-1">
                         <ul id="responsive">
-                            <li><a class="current" href="./">Home</a></li>
+                            <li><a class="current" href="../">Home</a></li>
                             <li><a href="../destination-type.php">Destinations</a></li>
                             <li><a href="../all-cities.php">Cities</a></li>
                             <li><a href="../tour-packages-type.php">Packages</a></li>

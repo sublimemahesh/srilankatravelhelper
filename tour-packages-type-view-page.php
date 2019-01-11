@@ -34,6 +34,8 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+        
 
         <style>
             .tour-package-bg {
@@ -222,7 +224,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner">
+                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="1500">
                     <h2 class="tp">Tour Packages</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -240,7 +242,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     $TOUR_PACKAGES = TourPackages::getTourPackagesByIdForPagination($id, $pageLimit, $setLimit);
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         ?>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12" data-aos="fade-right" data-aos-duration="3000">
                             <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
                                 <div class="single-package-carasoul">
                                     <div class="package-location">
@@ -340,6 +342,11 @@ $pageLimit = ($page * $setLimit) - $setLimit;
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
+    <script>
 </body>
 </html>
 

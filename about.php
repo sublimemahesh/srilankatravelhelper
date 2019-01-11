@@ -17,6 +17,8 @@ if (!isset($_SESSION)) {
     <link href="css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/colors/main.css" id="colors">
     <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="css/aos.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -28,7 +30,7 @@ if (!isset($_SESSION)) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner">
+                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                     <h2 class="tp">About Us</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -39,32 +41,32 @@ if (!isset($_SESSION)) {
         </div>
         <div class="container  padding-top-70">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-duration="3000">
                     <img src="images/destination/whild-life.jpg" alt=""/>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 padding-top-20" data-aos="fade-left" data-aos-duration="3000">
                     <p>
                         Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
+                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
+                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                        </br>   
                         Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
                         Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
                     </p> 
-                    <p>
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                    </p>
+
                 </div>
             </div>
         </div>
-        <section class="fullwidth margin-top-0 padding-top-45 padding-bottom-55" data-background-color="#fff">
+        <section class="fullwidth margin-top-0 padding-top-20 padding-bottom-50" data-background-color="#fff" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="pricing-container margin-top-30">
+                        <div class="pricing-container margin-top-30" data-aos="fade-up" data-aos-duration="3000">
                             <div class="plan">
                                 <div class="plan-price">
                                     <h3>Vision</h3>
@@ -111,5 +113,9 @@ if (!isset($_SESSION)) {
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

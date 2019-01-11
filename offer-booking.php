@@ -38,6 +38,7 @@ $now = date('Y-m-d H:i:s');
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
             input[type="text"], input[type="email"], input[type="number"] {
 
@@ -158,7 +159,7 @@ $now = date('Y-m-d H:i:s');
                                             <li class="list-group-item"><b>Old Price</b> : LKR <?php echo number_format($OFFER->price, 2); ?></li> 
                                             <li class="list-group-item"><b>Discount</b> : <?php echo $OFFER->discount ?> %</li> 
                                             <li class="list-group-item"><b>New Price</b> :LKR <?php echo number_format($new_price, 2); ?></li> 
-                                            <li class="list-group-item"><b>Description</b> <?php echo substr($OFFER->description, 0, 100) . '...'; ?></li> 
+                                            <li class="list-group-item"><b>Description</b> <?php echo substr($OFFER->description, 0, 750) . '...'; ?></li> 
                                         </ul>
                                     </div>
                                 </div>

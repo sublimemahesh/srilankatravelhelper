@@ -6,7 +6,8 @@ $DRIVER = new Drivers($_SESSION['id']);
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Profile || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -23,7 +24,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -41,7 +42,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                         $vali->show_message();
                         ?>
                     </div>
-                    <div class="col-md-9 col-sm-9">
+                    <div class="col-md-9 ">
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
                                 My Profile
@@ -87,7 +88,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-3 col-sm-12">
                         <ul class="list-group prof-details">
                             <a href="profile.php"><li class="list-group-item active"><div class="pro-icon"><i class="fa fa-user"></i></div><div class="pro-nav">My Profile</div></li></a>
                             <a href="edit-driver.php"><li class="list-group-item"><div class="pro-icon"><i class="fa fa-pencil"></i></div><div class="pro-nav">Edit Profile</div></li></a>

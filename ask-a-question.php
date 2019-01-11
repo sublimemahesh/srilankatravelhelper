@@ -36,6 +36,8 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <link href="css/blog.css" rel="stylesheet" type="text/css"/>
         <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="css/read-more-less.css" rel="stylesheet" type="text/css"/>
+        <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
@@ -46,7 +48,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <?php include './header.php'; ?>
             <div class="container1 about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <h2 class="tp">Ask A Question</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -59,7 +61,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <div class="container  padding-top-45 padding-bottom-50">
 
                 <div class="col-md-12">
-                    <div class="blog col-md-12 col-xs-12">
+                    <div class="blog col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3000">
 
                         <div class="qu-form" id="qu-form">
                             <h3>Ask A Question</h3>
@@ -225,6 +227,11 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
         <script src="scripts/blog.js" type="text/javascript"></script>
         <script src="scripts/read-more-less.js" type="text/javascript"></script>
         <script src="scripts/add-new-question.js" type="text/javascript"></script>
+         <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
+        
         <script>
                                     tinymce.init({
                                         selector: "#qu",

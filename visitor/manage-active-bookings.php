@@ -6,7 +6,8 @@ $VISITOR = new Visitor($_SESSION['id']);
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Manage Bookings || Visitor DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -26,7 +27,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -51,7 +52,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 Manage Bookings
                             </div>
                             <div class="panel-body">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable bookingtable">
                                     <thead>
                                         <tr>
                                             <th>ID</th>

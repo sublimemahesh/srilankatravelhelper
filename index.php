@@ -13,7 +13,6 @@ if (!isset($_SESSION)) {
         <title>Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
         <!-- CSS
         ================================================== -->
         <link href="images/logo/favicon.png" rel="icon" sizes="32x32" type="image/png">
@@ -50,9 +49,9 @@ if (!isset($_SESSION)) {
             <div class="container margin-top-20 ">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="headline centered margin-top-45">
+                        <h3 class="headline centered margin-top-45 margin-bottom-45">
                             Plan The Vacation of Your Dreams
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <div class="row icons-container padding-bottom-30 popguide">
@@ -121,78 +120,74 @@ if (!isset($_SESSION)) {
 
 
 
-       
 
-                <div class="container ">
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <h3 class="headline centered margin-top-45 margin-bottom-45 ">
-                                Popular Destinations of Sri Lanka
-                            </h3>
-                        </div>
+
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <h3 class="headline centered margin-top-45 margin-bottom-45 ">
+                            Popular Destinations of Sri Lanka
+                        </h3>
                     </div>
                 </div>
+            </div>
 
-                <!-- Categories Carousel -->
-                <div class="fullwidth-carousel-container margin-bottom-50 ">
-                    <div class="fullwidth-slick-carousel category-carousel">
-                        <?php
-                        $DESTINATION_TYPES = DestinationType::all();
-                        foreach ($DESTINATION_TYPES as $key => $destination_type) {
-                            if ($key < 6) {
-                                ?>
+            <!-- Categories Carousel -->
+            <div class="fullwidth-carousel-container margin-bottom-50 ">
+                <div class="fullwidth-slick-carousel category-carousel">
+                    <?php
+                    $DESTINATION_TYPES = DestinationType::all();
+                    foreach ($DESTINATION_TYPES as $key => $destination_type) {
+                        if ($key < 6) {
+                            ?>
 
-                                <div class="fw-carousel-item">
-                                    <div class="category-box-container">
-                                        <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
-                                            <div class="category-box-content">
-                                                <h3><?php echo $destination_type['name']; ?></h3>
-                                                <span>67 views</span>
-                                            </div>
-                                            <span class="category-box-btn"> Browse</span>
-                                        </a>
-                                    </div>
+                            <div class="fw-carousel-item">
+                                <div class="category-box-container">
+                                    <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
+                                        <div class="category-box-content">
+                                            <h3><?php echo $destination_type['name']; ?></h3>
+                                            <span>67 views</span>
+                                        </div>
+                                        <span class="category-box-btn"> Browse</span>
+                                    </a>
                                 </div>
-                <!--                    <img src="upload/destination-type/-109984423_191093156483_1530173407_n.jpg">-->
-                                <?php
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
-                <!-- Categories Carousel / End -->
-                <!-- Parallax -->
-                <div class="parallax"
-                     data-background="images/banner/Travel1.jpg"
-                     data-color="#36383e"
-                     data-color-opacity="0.6"
-                     data-img-width="800"
-                     data-img-height="505">
-
-                    <!-- Infobox -->
-                    <div class="text-content text-content1 white-font padding-top-70 padding-bottom-65 " >
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-5 col-sm-12 welcometext" data-aos="fade-up"   data-aos-offset="500"    data-aos-easing="ease-in-sine">
-                                    <h2>Explore Sri Lanaka</h2>
-                                    <h4 style="font-size: 24px;
-                                        font-weight: 300;
-                                        color: #fff;
-                                        padding-top: 0px;
-                                        line-height: 32px">Determine Your Destination</h4>
-                                    <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-                                    <a href="#" class="button margin-top-25">Plan Your Trip</a>
-                                </div>
-                                <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-left" data-aos-duration="3000">
-                                    <iframe width="677" height="377" src="https://www.youtube.com/embed/s8VNJ88AFWw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                </div>
-
                             </div>
+            <!--                    <img src="upload/destination-type/-109984423_191093156483_1530173407_n.jpg">-->
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <!-- Categories Carousel / End -->
+            <!-- Parallax -->
+            <div class="parallax"
+                 data-background="images/banner/Travel1.jpg"
+                 data-color="#36383e"
+                 data-color-opacity="0.6"
+                 data-img-width="800"
+                 data-img-height="505">
+
+                <!-- Infobox -->
+                <div class="text-content text-content1 white-font padding-top-70 padding-bottom-65 " >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12 welcometext" data-aos="fade-up" data-aos-duration="3000" data-aos-easing="ease-in-sine">
+                                <h2>Explore Sri Lanaka</h2>
+                                <h4>Determine Your Destination</h4>
+                                <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
+                                <a href="#" class="button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15">Plan Your Trip</a>
+                            </div>
+                            <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-left" data-aos-duration="3000">
+                                <iframe width="677" height="377" src="https://www.youtube.com/embed/s8VNJ88AFWw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+
                         </div>
                     </div>
-                    <!-- Infobox / End -->
                 </div>
-                      <!-- Parallax / End -->
+                <!-- Infobox / End -->
+            </div>
+            <!-- Parallax / End -->
             <!-- Recent Blog Posts -->
             <section class="fullwidth  padding-top-70 padding-bottom-60 " data-background-color="#fff" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <div class="container">
@@ -385,9 +380,9 @@ if (!isset($_SESSION)) {
                         </a>-->
             <!-- Flip banner / End -->
             <!-- Fullwidth Section -->
-            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8" data-aos="fade-left" data-aos-duration="3000">
+            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8" >
                 <div class="container">
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-md-12">
                             <h3 class="headline centered margin-bottom-45">
                                 Top Rated Drivers
@@ -396,106 +391,100 @@ if (!isset($_SESSION)) {
                         <div class="col-md-12 indexdri">
                             <div class="simple-slick-carousel dots-nav">
                                 <?php
-                                $DRIVERS = Drivers::all();
-                                foreach ($DRIVERS as $key => $driver) {
-                                    if ($key < 6) {
-                                        ?>
-                                        <?php
-                                        $SORTOFDRIVERS = Reviews::getDriversSortByReviews();
-                                        foreach ($SORTOFDRIVERS as $key => $sortdriver) {
+                                $SORTOFDRIVERS = Reviews::getDriversSortByReviews();
+                                foreach ($SORTOFDRIVERS as $key => $sortdriver) {
+                                    if ($key < 7) {
+                                        if ($sortdriver != 0) {
+                                            $DRIVER = new Drivers($sortdriver);
+                                            ?>
+                                            <div class="carousel-item" data-aos="fade-left" data-aos-duration="3000">
 
-                                            if ($sortdriver != 0) {
-                                                $DRIVER = new Drivers($sortdriver);
-                                                ?>
-                                                <div class="carousel-item">
+                                                <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
-                                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
-
-                                                        <div class="listing-item">
+                                                    <div class="listing-item">
+                                                        <?php
+                                                        $count = DriverPhotos::countDriverPhotosByDriver($DRIVER->id);
+                                                        if ($count['count'] == 0) {
+                                                            ?>
+                                                            <img src = "upload/driver/driver-photos/thumb/sample.jpg" alt = "">
                                                             <?php
-                                                            $count = DriverPhotos::countDriverPhotosByDriver($DRIVER->id);
-                                                            if ($count['count'] == 0) {
+                                                        } else {
+                                                            foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+
+                                                                if ($key == 0) {
+                                                                    ?>
+                                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        }
+                                                        ?> 
+                                                    </div>
+
+                                                    <div class="img-pad">
+
+                                                        <?php
+                                                        if (empty($DRIVER->profile_picture)) {
+                                                            ?>
+                                                            <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                            <?php
+                                                        } else {
+                                                            if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
                                                                 ?>
-                                                                <img src = "upload/driver/driver-photos/thumb/sample.jpg" alt = "">
+                                                                <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                                                 <?php
                                                             } else {
-                                                                foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
-
-                                                                    if ($key == 0) {
-                                                                        ?>
-                                                                        <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                                                        <?php
-                                                                    }
-                                                                }
-                                                            }
-                                                            ?> 
-                                                        </div>
-
-                                                        <div class="img-pad">
-
-                                                            <?php
-                                                            if (empty($DRIVER->profile_picture)) {
                                                                 ?>
-                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
                                                                 <?php
-                                                            } else {
-                                                                if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
-                                                                    ?>
-                                                                    <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-                                                                    <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt="Profile Picture" class="img-circle driver-list"/>
-                                                                    <?php
-                                                                }
                                                             }
-                                                            ?>
-                                                        </div>
-                                                        <div class="driver-name text-left"> 
-                                                            <?php echo $DRIVER->name; ?>
-                                                        </div>
-                                                        <div class="star-rating-fa text-right"> 
-                                                            <?php
-                                                            $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <div class="driver-name text-left"> 
+                                                        <?php echo $DRIVER->name; ?>
+                                                    </div>
+                                                    <div class="star-rating-fa text-right"> 
+                                                        <?php
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
 
-                                                            $divider = $REVIEWS['count'];
-                                                            $sum = $REVIEWS['sum'];
+                                                        $divider = $REVIEWS['count'];
+                                                        $sum = $REVIEWS['sum'];
 
-                                                            if ($divider == 0) {
-                                                                for ($j = 1; $j <= 5; $j++) {
-                                                                    ?>
-                                                                    <i class="fa fa-star-o"></i>
-                                                                    <?php
-                                                                }
-                                                                $sum = 0;
-                                                            } else {
-                                                                $stars = $sum / $divider;
-
-                                                                for ($i = 1; $i <= $stars; $i++) {
-                                                                    ?>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <?php
-                                                                }
-                                                                for ($j = $i; $j <= 5; $j++) {
-                                                                    ?>
-                                                                    <i class="fa fa-star-o"></i>
-                                                                    <?php
-                                                                }
+                                                        if ($divider == 0) {
+                                                            for ($j = 1; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
                                                             }
-                                                            ?>
-                                                            <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
-                                                        </div>
+                                                            $sum = 0;
+                                                        } else {
+                                                            $stars = $sum / $divider;
 
-                                                        <div class="indexdri"style="margin-top: 15px;padding-bottom: 7px;">
-                                                            <p class="text-center" id="">
-                                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                                    </div>
 
-                                                <?php
-                                            }
+                                                    <div class="indexdri"style="margin-top: 15px;padding-bottom: 7px;">
+                                                        <p class="text-center" id="">
+                                                            <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <?php
                                         }
                                     }
                                 }

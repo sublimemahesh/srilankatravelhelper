@@ -156,7 +156,8 @@ $(document).ready(function () {
                                             if (result.facebookID && result.profile_picture.substring(0, 5) === "https") {
                                                 html2 = '<img src="' + result.profile_picture + '"  alt="Profile Picture" class="img-circle driver-list"/>';
                                             } else {
-                                                html2 = ' <img src="../upload/driver/"' + result.profile_picture + '"  alt="Profile Picture" class="img-circle driver-list"/>';
+                                                html2 = ' <img src="../upload/driver/' + result.profile_picture + '"  alt="Profile Picture" class="img-circle driver-list"/>';
+                                           
                                             }
                                         }
 

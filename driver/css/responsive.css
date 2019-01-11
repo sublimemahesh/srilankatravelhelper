@@ -17,7 +17,7 @@ and open the template in the editor.
         height: 109px;
     }
     .header-topic {
-        text-align: left;
+        text-align:center;
         padding-left: 0px;
     }
     .header-topic h2 {
@@ -157,6 +157,24 @@ and open the template in the editor.
     .dropdown.open {
         margin-top: -60px;
     }
-
+    .header-widget {
+        border-top:none;
+    }
+    .header-widget.widget-btn-right {
+        margin-top: -35px;
+    }
+    .header-widget.widget-btn-left {
+        margin-top: -35px;
+    }
+    .right-side, .left-side {
+        width: 100%;
+        padding-top: 10px;
+    }
+    .header-widget a.button.border {
+        padding: 2px 16px 5px 0px;
+    }
+    .header-topic h2 {
+        text-align: right;
+    }
 
 }

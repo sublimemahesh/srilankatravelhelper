@@ -19,6 +19,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/>
 
         <style>
             .tour-package-bg {
@@ -197,7 +198,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner">
+                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                     <h2 class="tp">Cities</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -214,7 +215,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     $LOCATION = Location::all();
                     foreach ($LOCATION as $key => $city) {
                         ?>
-                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-sm">
+                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-sm" data-aos="fade-left" data-aos-duration="3000">
                             <div class="single-package-carasoul">
                                 <div class="package-location">
                                     <img src="upload/location/<?php echo $city['image_name']; ?>" alt="">
@@ -237,13 +238,14 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                             <p><?php echo substr($city['short_description'], 0, 110) . '...'; ?></p>
                                         </div>
                                     </div>
+
                                     <div class="package-ratings-review cities-view-btn">
                                         <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>" class="btn btn-success"> <span>View</span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-md-3 col-sm-4 col-xs-12 hidden-xs hidden-md hidden-lg">
                             <div class="single-package-carasoul">
                                 <div class="package-location">
@@ -254,8 +256,8 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                         <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>">
                                             <h4  title="<?php echo $city['name']; ?>">
                                                 <?php
-                                                if (strlen($city['name']) > 18) {
-                                                    echo substr($city['name'], 0, 18) . '...';
+                                                if (strlen($city['name']) > 14) {
+                                                    echo substr($city['name'], 0, 14) . '...';
                                                 } else {
                                                     echo $city['name'];
                                                 }
@@ -264,17 +266,15 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                             </h4>
                                         </a>
                                         <div class="details">
-                                            <p><?php 
-                                                                                                                               
-                                            if (strlen($city['short_description']) > 85) {
+                                            <p><?php
+                                                if (strlen($city['short_description']) > 85) {
                                                     echo substr($city['short_description'], 0, 85) . '...';
                                                 } else {
                                                     echo $city['short_description'];
                                                 }
-                                                                                     
-                                            ?>
+                                                ?>
                                             </p>
-                                                                                        
+
                                         </div>
                                     </div>
                                     <div class="package-ratings-review cities-view-btn">
@@ -283,23 +283,23 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                 </div>
                             </div>
                         </div>
-                    
-                        <?php
-                    }
-                    ?>
+
+    <?php
+}
+?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Pagination -->
                         <div class="pagination-container margin-top-20 margin-bottom-40">
-                            <?php // TourPackages::showPaginationOfTour($id, $setLimit, $page);  ?>
+<?php // TourPackages::showPaginationOfTour($id, $setLimit, $page);   ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- single popular destination  end-->
 
-        <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
     </div>
 
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
@@ -315,6 +315,10 @@ include_once(dirname(__FILE__) . '/class/include.php');
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
+     <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
 

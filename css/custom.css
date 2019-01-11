@@ -519,6 +519,7 @@ input[type="text"].location-search-input {
     color: #fff;
     font-size: 18px;
     border: 1px solid #0dce38;
+    margin-right: 4px;
 }
 .header-icon.btn-hover {
     background: #fff;
@@ -527,6 +528,7 @@ input[type="text"].location-search-input {
     color: #0dce38;
     font-size: 18px;
     border: 1px solid #fff;
+    margin-right: 4px;
 }
 .my-cart .header-icon {
     background: #0dce38;
@@ -1313,7 +1315,7 @@ span.process-num {
 .work-process h4 {
     margin: 10px 0;
     color: #004c85;
-    }
+}
 .work-process p {
     font-size: 13px;
     text-align: center;
@@ -1423,7 +1425,7 @@ span.process-num {
 }
 @media(width:375px) {
     .dest-type{
-        height: 100px;
+        height: 127px;
     }
     .other-tours{
         height: 105px;
