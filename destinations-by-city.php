@@ -27,7 +27,7 @@ $LOCATION = new Location($city);
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
-        
+
         <style>
             .review-button {
                 margin-bottom: 70px;
@@ -163,6 +163,7 @@ $LOCATION = new Location($city);
                                 $count = 1;
                                 if (in_array($city['id'], $nearbycities)) {
                                     if ($count < 5) {
+                                        $location_details = LocationDetails::getLocationDetailsByRelatedLocationAndLocaion($LOCATION->id, $city['id']);
                                         ?>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
 
@@ -176,6 +177,26 @@ $LOCATION = new Location($city);
                                                         <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>">
                                                             <h4><?php echo $city['name']; ?></h4>
                                                         </a>
+                                                        <?php
+                                                        if ($location_details) {
+                                                            ?>
+                                                            <div class="location-details">
+                                                                <span title="Bus"><i class="fa fa-bus" title="Bus"></i> <?php echo $location_details['bus_hour'] . 'h (' . $location_details['bus_distance'] . 'km)'; ?></span><br />
+                                                                <span title="Train"><i class="fa fa-train" title="Train"></i> <?php echo $location_details['train_hour'] . 'h (' . $location_details['train_distance'] . 'km)'; ?></span><br />
+                                                                <span title="Taxi"><i class="fa fa-car" title="Taxi"></i> <?php echo $location_details['taxi_hour'] . 'h (' . $location_details['taxi_distance'] . 'km)'; ?></span>
+                                                            </div>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <div class="location-details">
+                                                                <span title="Bus"><i class="fa fa-bus" title="Bus"></i> - </span><br />
+                                                                <span title="Train"><i class="fa fa-train" title="Train"></i> - </span><br />
+                                                                <span title="Taxi"><i class="fa fa-car" title="Taxi"></i> - </span>
+                                                            </div>
+                                                            <?php
+                                                        }
+                                                        ?>
+
                                                         <div class="details">
                                                             <p><?php echo substr($city['short_description'], 0, 100) . '...'; ?></p>
                                                         </div>
@@ -219,10 +240,10 @@ $LOCATION = new Location($city);
     <script src="scripts/add-to-cart.js" type="text/javascript"></script>
     <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <script src="scripts/search-destination.js" type="text/javascript"></script>
-     <script src="scripts/aos.js" type="text/javascript"></script>
-        <script>
-            AOS.init();
-        </script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         var placeSearch, autocomplete;
 

@@ -2408,6 +2408,13 @@ section.content {
     -webkit-transition: 0.5s;
     transition: 0.5s; }
 
+section.content1 {
+    margin: 0px 15px 0 315px;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
+
 /* Dashboard =================================== */
 .dashboard-flot-chart {
     height: 275px; }
@@ -5042,6 +5049,10 @@ section.content {
 .form-control-label {
     text-align: right; }
 .form-control-label label {
+    margin-top: 8px; }
+.form-control-label-2 {
+    text-align: left; }
+.form-control-label-2 label {
     margin-top: 8px; }
 
 .form-horizontal .form-group {
@@ -8178,4 +8189,11 @@ input[type="checkbox"] {
 }
 .label1 label {
     margin-top: -9px; 
+}
+.loc-panel {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.location-details span i {
+    padding-right: 10px;
 }
