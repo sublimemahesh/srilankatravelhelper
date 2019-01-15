@@ -210,7 +210,7 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Locations
+                                    Manage Location Details
                                 </h2>
                             </div>
                             <div class="body">
@@ -220,7 +220,6 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <!--<th>Related Location</th>-->
                                                 <th>location</th>
                                                 <th>Bus Distance</th>
                                                 <th>Train Distance</th>
@@ -239,7 +238,6 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
                                                 ?>
                                                 <tr id="row_<?php echo $details['id']; ?>">
                                                     <td><?php echo $key ?></td>
-                                                    <!--<td><?php echo $LOCATION->name; ?></td>-->
                                                     <td><?php echo $LOC->name; ?></td>
                                                     <td class="text-right"><?php echo $details['bus_distance'] . 'km'; ?></td>
                                                     <td class="text-right"><?php echo $details['train_distance'] . 'km'; ?></td>
@@ -248,12 +246,10 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
                                                     <td class="text-right"><?php echo $details['train_hour'] . 'h'; ?></td>
                                                     <td class="text-right"><?php echo $details['taxi_hour'] . 'h'; ?></td>
                                                     <td class="text-center"> 
-                                                        <a href="edit-location.php?id=<?php echo $location['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                        <a href="edit-location-details.php?id=<?php echo $details['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
                                                         |
-                                                        <a href="create-location-details.php?id=<?php echo $location['id']; ?>"> <button class="glyphicon glyphicon glyphicon-tasks loca-Details"></button></a>
-                                                        | 
                                                         <a href="#" >
-                                                            <button class="glyphicon glyphicon-trash delete-btn delete-destination-type" data-id="<?php echo $location['id']; ?>"></button>
+                                                            <button class="glyphicon glyphicon-trash delete-btn delete-location-details" data-id="<?php echo $details['id']; ?>"></button>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -266,7 +262,6 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
                                         <tfoot>
                                             <tr>
                                                 <th>ID</th>
-                                                <!--<th>Related Location</th>-->
                                                 <th>location</th>
                                                 <th>Bus Distance</th>
                                                 <th>Train Distance</th>
@@ -313,7 +308,7 @@ $locations = $LOCATION->getLocationsExceptThisLocation($id);
         <script src="js/admin.js"></script>
         <!-- Demo Js -->
         <script src="js/demo.js"></script>
-        <script src="delete/js/tour-package.js" type="text/javascript"></script>
+        <script src="delete/js/location-details.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script>
             tinymce.init({
