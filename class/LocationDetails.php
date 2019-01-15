@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of LocationDetails
  *
@@ -118,7 +112,19 @@ class LocationDetails {
 
     public function getLocationDetailsByRelatedLocationAndLocaion($related_location, $location) {
 
-        $query = "SELECT * FROM `location_details` WHERE `related_location` = '" . $related_location . "' AND `location` = '" . $location . "' ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `location_details` WHERE `related_location` = '" . $related_location . "' AND `location` = '" . $location . "' ORDER BY `id` ASC";
+
+        $db = new Database();
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+
+    public function getLocationsByRelatedLocation($related_location) {
+
+        $query = "SELECT * FROM `location_details` WHERE `related_location` = '" . $related_location . "' ORDER BY `id` ASC";
 
         $db = new Database();
 

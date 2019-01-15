@@ -16610,3 +16610,12 @@ div.layout-style {
 a .listing-item:hover { 
     text-decoration: none; 
 }
+.location-details span i {
+    padding-right: 10px;
+}
+.location-details span i.fa-bus {
+    padding-right: 15px;
+}
+ .location-details span i.fa-train {
+    padding-right: 14px;
+}
