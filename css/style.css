@@ -16619,3 +16619,6 @@ a .listing-item:hover {
  .location-details span i.fa-train {
     padding-right: 14px;
 }
+.simple-slick-carousel-dest .slick-dots{
+    bottom: -50px;
+}
