@@ -81,13 +81,12 @@ class LocationDetails {
     public function update() {
 
         $query = "UPDATE  `location_details` SET "
-                . "`related_location` ='" . $this->related_location . "', "
-                . "`location` ='" . $this->location . "', "
-                . "`distance` ='" . $this->bus_distance . "', "
-                . "`distance` ='" . $this->train_distance . "', "
-                . "`distance` ='" . $this->bus_hour . "', "
-                . "`distance` ='" . $this->train_hour . "', "
-                . "`distance` ='" . $this->taxi_hour . "' "
+                . "`bus_distance` ='" . $this->bus_distance . "', "
+                . "`train_distance` ='" . $this->train_distance . "', "
+                . "`taxi_distance` ='" . $this->taxi_distance . "', "
+                . "`bus_hour` ='" . $this->bus_hour . "', "
+                . "`train_hour` ='" . $this->train_hour . "', "
+                . "`taxi_hour` ='" . $this->taxi_hour . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
