@@ -155,7 +155,8 @@ $LOCATION = new Location($city);
                 <div class="row col-md-12" id="search-content">
                     <h1>Next To Go</h1>
                     <hr />
-                    <div class="nearbycities-carousel testimonials">
+
+                    <div class="nearbycities-carousel testimonials simple-slick-carousel-dest dots-nav">
                         <?php
                         $nearbycities = unserialize($LOCATION->nearbycities);
                         if ($nearbycities) {
@@ -165,7 +166,7 @@ $LOCATION = new Location($city);
                                     if ($count < 5) {
                                         $location_details = LocationDetails::getLocationDetailsByRelatedLocationAndLocaion($LOCATION->id, $city['id']);
                                         ?>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 carousel-item">
 
                                             <div class="city-body">
                                                 <div class="package-location">
@@ -217,6 +218,7 @@ $LOCATION = new Location($city);
                         }
                         ?>
                     </div>
+
                 </div>
 
             </div>

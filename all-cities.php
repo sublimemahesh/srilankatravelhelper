@@ -235,7 +235,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                             </h4>
                                         </a>
                                         <div class="details">
-                                            <p><?php echo substr($city['short_description'], 0, 110) . '...'; ?></p>
+                                            <p><?php echo substr($city['short_description'], 0, 115) . '...'; ?></p>
                                         </div>
                                     </div>
 
