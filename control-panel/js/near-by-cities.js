@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var locid = $('#id').val();
+    
     $.ajax({
         type: 'POST',
         url: 'post-and-get/ajax/near-by-cities.php',
