@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                     <h2 class="tp">Contact</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -39,7 +39,7 @@ if (!isset($_SESSION)) {
         </div>
         <div class="container padding-bottom-65 padding-top-70">
             <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-right" data-aos-duration="3000">
+                <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="300">
                     <h4 class="headline margin-bottom-30">Find Us There</h4>
                     <div class="sidebar-textbox">
                         <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>

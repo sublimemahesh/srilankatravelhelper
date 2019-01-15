@@ -41,10 +41,10 @@ if (!isset($_SESSION)) {
         </div>
         <div class="container  padding-top-70">
             <div class="row">
-                <div class="col-md-6" data-aos="fade-right" data-aos-duration="3000">
+                <div class="col-md-6" data-aos="fade-right" data-aos-duration="3500">
                     <img src="images/destination/whild-life.jpg" alt=""/>
                 </div>
-                <div class="col-md-6 padding-top-20" data-aos="fade-left" data-aos-duration="3000">
+                <div class="col-md-6 padding-top-20" data-aos="fade-left" data-aos-duration="3500">
                     <p>
                         Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
@@ -66,7 +66,7 @@ if (!isset($_SESSION)) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="pricing-container margin-top-30" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="pricing-container margin-top-30" data-aos="fade-up" data-aos-duration="3500">
                             <div class="plan">
                                 <div class="plan-price">
                                     <h3>Vision</h3>

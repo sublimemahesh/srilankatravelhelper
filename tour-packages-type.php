@@ -29,7 +29,7 @@ if (!isset($_SESSION)) {
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Tour Packages</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -45,7 +45,7 @@ if (!isset($_SESSION)) {
                         $TOUR_TYPES = TourType::all();
                         foreach ($TOUR_TYPES as $tour_type) {
                             ?>
-                            <div class="col-md-4 col-sm-6"  data-aos="fade-right" data-aos-duration="3000">
+                            <div class="col-md-4 col-sm-6"  data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
                                 <a href="tour-packages-type-view-page.php?id=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
                                     <div class="blog-compact-item">
                                         <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">

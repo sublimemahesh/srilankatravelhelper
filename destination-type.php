@@ -27,7 +27,7 @@ if (!isset($_SESSION)) {
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg" >
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500" >
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -42,7 +42,7 @@ if (!isset($_SESSION)) {
                     $DESTINATION_TYPES = DestinationType::all();
                     foreach ($DESTINATION_TYPES as $destination_type) {
                         ?>
-                        <div class="col-md-4 col-sm-6" data-aos="fade-down" data-aos-duration="3000">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="300" >
                             <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
                                 <div class="listing-item">
                                     <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">

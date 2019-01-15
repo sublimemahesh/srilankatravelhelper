@@ -56,7 +56,7 @@ $askedAt = getAskedTime($Question->askedAt);
             <?php include './header.php'; ?>
             <div class="container1 about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Blog</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -66,7 +66,7 @@ $askedAt = getAskedTime($Question->askedAt);
                     </div>
                 </div>
             </div>
-            <div class="container  padding-top-45" data-aos="fade-up" data-aos-duration="3000">
+            <div class="container  padding-top-45" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                 <div class="">
                     <div class="blog col-md-12">

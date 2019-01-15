@@ -189,7 +189,7 @@ if (isset($_GET['album'])) {
                      <?php include './header.php'; ?>
                 <div class="container-fluid about-bg ">
                     <div class="container">
-                        <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                        <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                             <h2 class="tp">Destination</h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
@@ -238,7 +238,7 @@ if (isset($_GET['album'])) {
                                     if ($key < 7) {
                                         ?>
 
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3000" >
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-4 more-items-image" >
@@ -286,7 +286,7 @@ if (isset($_GET['album'])) {
                                         </div>
 
                                         <!--mobile respo-->
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" data-aos="fade-up" data-aos-duration="3000" >
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" data-aos="fade-up" data-aos-duration="3500" >
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image destinationpadding ">
@@ -347,7 +347,7 @@ if (isset($_GET['album'])) {
                 </div>
                 <div class="container padding-bottom-70">
                     <div class="row">
-                        <div class="col-md-12" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500">
                             <hr>
                             <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                             <hr>
@@ -431,8 +431,15 @@ if (isset($_GET['album'])) {
                                 if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
                                     ?>
                                     <div class="review-button">
-                                        <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
-                                        <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                        <div class="col-md-6 col-sm-6">
+                                            <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                            <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-6 addreviewbtn">
+                                            <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                            <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                        </div>
                                     </div>
                                     <?php
                                 } else {
@@ -473,7 +480,7 @@ if (isset($_GET['album'])) {
         <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="scripts/images-grid.js"></script>
         <script src="scripts/destination-slider.js" type="text/javascript"></script>
-          <script src="scripts/aos.js" type="text/javascript"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
         <script>
             AOS.init();
         </script>

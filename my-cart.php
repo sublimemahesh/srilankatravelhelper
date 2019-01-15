@@ -41,7 +41,7 @@ if (isset($_SESSION['destination_cart'])) {
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">My Cart</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -52,7 +52,7 @@ if (isset($_SESSION['destination_cart'])) {
             </div>
             <div class="container margin-top-70">
                 <div class="row">
-                    <ul class="list-group padding-bottom-60" data-aos="fade-down" data-aos-duration="3000">
+                    <ul class="list-group padding-bottom-60" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="300">
                         <?php
                         if ($countdestinations > 0) {
                             foreach ($destinations as $key => $destination) {
@@ -120,7 +120,7 @@ if (isset($_SESSION['destination_cart'])) {
                             }
                         } else {
                             ?>
-                            <li class="list-group-item " data-aos="fade-up" data-aos-duration="3000">
+                            <li class="list-group-item " data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
                                 <h3>No any selected destinations in your cart</h3>
                             </li>
                             <?php

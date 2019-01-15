@@ -39,7 +39,7 @@ $LOCATION = new Location($city);
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Destinations By City</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -48,7 +48,7 @@ $LOCATION = new Location($city);
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70 margin-bottom-55" data-aos="fade-up" data-aos-duration="3000">
+            <div class="container margin-top-70 margin-bottom-55" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                 <div class="row col-md-10 col-md-offset-1">
                     <div class="city-item">
                         <div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">
@@ -79,7 +79,7 @@ $LOCATION = new Location($city);
                     </div>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="row col-md-12" id="search-content" data-aos="fade-up" data-aos-duration="3000">
+                <div class="row col-md-12" id="search-content" data-aos="fade-up" data-aos-duration="3500">
                     <h1>Destinations in <?php echo $LOCATION->name; ?> City</h1>
                     <hr />
                     <?php
