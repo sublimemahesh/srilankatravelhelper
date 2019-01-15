@@ -194,7 +194,7 @@ $stars = $sum / $divider;
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container-fluid about-bg" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="container-fluid about-bg" data-aos-easing="linear" data-aos-duration="3500">
                 <div class="container">
                     <div class="rl-banner">
                         <h2 class="tp"><?php echo $DRIVER->name; ?></h2>
@@ -208,7 +208,7 @@ $stars = $sum / $divider;
             </div>
             <div class="container padding-bottom-45 padding-top-70">
                 <div class="row">
-                    <div class="col-md-3 col-sm-4" data-aos="fade-right" data-aos-duration="3000" >
+                    <div class="col-md-3 col-sm-4" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
 
                         <div class="driver-profile-section" >
@@ -291,7 +291,7 @@ $stars = $sum / $divider;
                         </div>
 
                     </div>
-                    <div class="col-md-9 col-sm-8" data-aos="fade-left" data-aos-duration="3000">
+                    <div class="col-md-9 col-sm-8" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                         <div class=" content">
                             <div id="galleria">
                                 <?php
@@ -325,7 +325,7 @@ $stars = $sum / $divider;
 
             </div>
 
-            <div class="container padding-bottom-35" data-aos="fade-down" data-aos-duration="3000">
+            <div class="container padding-bottom-35" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="900">
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
@@ -471,16 +471,37 @@ $stars = $sum / $divider;
 
                                 </div>
                             </div>
+                        
+                       
+                        <?php if (count(Reviews::getReviewsByDriver($DRIVER->id)) > 0) {
+                            ?>
                             <div class="review-button">
-                                <a href="view-all-reviews.php?driver=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                <div class ="col-md-6 col-xs-12 col-sm-6">
+                                <a href="view-all-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                </div>
+                                
+                                <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
+                                      <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                </div>
                             </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="review-button">
+                                <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        
+                        
                         </div>
                     </div>
                 </div>
 
             </div>
             <section class="fullwidth  padding-top-45 padding-bottom-70" >
-                <div class="container" data-aos="fade-up" data-aos-duration="3000">
+                <div class="container" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="1200">
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="headline  margin-bottom-45">

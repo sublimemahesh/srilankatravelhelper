@@ -48,7 +48,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <?php include './header.php'; ?>
             <div class="container1 about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Ask A Question</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -61,7 +61,7 @@ $UNANSWEREDQUCOUNT = BlogQuestion::getUnansweredQuestionsCount();
             <div class="container  padding-top-45 padding-bottom-50">
 
                 <div class="col-md-12">
-                    <div class="blog col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="blog col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                         <div class="qu-form" id="qu-form">
                             <h3>Ask A Question</h3>

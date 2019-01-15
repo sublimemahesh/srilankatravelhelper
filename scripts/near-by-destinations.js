@@ -60,7 +60,7 @@ $(document).ready(function () {
                                 }
                                 var destname = destination.name;
                                 if (destname.length > 18) {
-                                    name = destname.substring(0, 16) + '...';
+                                    name = destname.substring(0, 12) + '...';
                                 } else {
                                     name = destname;
                                 }

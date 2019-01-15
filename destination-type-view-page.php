@@ -52,7 +52,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -66,7 +66,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
-                    <div class="col-lg-3 col-md-4 hidden-sm" data-aos="fade-right" data-aos-duration="3000">
+                    <div class="col-lg-3 col-md-4 hidden-sm" data-aos="fade-right" data-aos-duration="3500">
                         <div class="boxed-widget opening-hours margin-top-35">
 
                             <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
@@ -84,7 +84,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         </div>
 
                     </div>
-                    <div class="col-lg-3 col-md-4 visible-sm" data-aos="fade-right" data-aos-duration="3000">
+                    <div class="col-lg-3 col-md-4 visible-sm" data-aos="fade-right" data-aos-duration="3500">
                         <div class="boxed-widget opening-hours margin-top-35">
 
                             <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>

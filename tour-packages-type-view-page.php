@@ -224,7 +224,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="1500">
+                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="3500">
                     <h2 class="tp">Tour Packages</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -242,7 +242,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     $TOUR_PACKAGES = TourPackages::getTourPackagesByIdForPagination($id, $pageLimit, $setLimit);
                     foreach ($TOUR_PACKAGES as $key => $tour_package) {
                         ?>
-                        <div class="col-md-4 col-sm-6 col-xs-12" data-aos="fade-right" data-aos-duration="3000">
+                        <div class="col-md-4 col-sm-6 col-xs-12" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
                             <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
                                 <div class="single-package-carasoul">
                                     <div class="package-location">

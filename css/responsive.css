@@ -908,4 +908,7 @@
     .relexholding img {
         display: none;
     }
+    .addreviewbtn{
+        padding-top: 10px;
+    }
 }

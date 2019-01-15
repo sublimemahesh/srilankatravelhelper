@@ -24,7 +24,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <h2 class="tp">Offers</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -46,7 +46,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
                             $newprice = $price - ($price * $discount / 100);
                             ?>
-                            <div class="offer-item" data-aos="fade-up" data-aos-duration="3000">
+                            <div class="offer-item" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                 <div class="ribbon"><span><?php echo $offer['discount']; ?>% off</span></div>
                                 <!-- hotel Image-->
                                 <div class="offer-image">

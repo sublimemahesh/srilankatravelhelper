@@ -595,7 +595,7 @@ if (isset($_GET['album'])) {
                     shuffle: false,
                     smallSize: 500,
                     mediumSize: 1000,
-                    largeSize: 3000,
+                    largeSize: 3500,
                     thumbnailArrows: true,
                     autoplay: false
                 });

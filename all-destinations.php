@@ -62,8 +62,8 @@ if (isset($_GET['search'])) {
         <div id="wrapper">
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
-                <div class="container" data-aos-easing="linear" data-aos-duration="1500">
-                    <div class="rl-banner" >
+                <div class="container" >
+                    <div class="rl-banner" data-aos-easing="linear" data-aos-duration="3500" >
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -97,12 +97,12 @@ if (isset($_GET['search'])) {
                     </div>
                 </div>
             </div>
-            <div class="container padding-top-45  padding-bottom-45 destination-types-list">
+            <div class="container padding-top-25  padding-bottom-45 destination-types-list">
                 <div class="row">
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-lg-3 col-md-4 col-sm-5">
-                        <div class="boxed-widget opening-hours margin-top-25" data-aos="fade-right" data-aos-duration="3000">
+                        <div class="boxed-widget opening-hours margin-top-25" data-aos="fade-right" data-aos-duration="3500">
 
                             <h3><i class="fa fa-map-marker"></i>Destination Types</h3>
                             <ul>
@@ -183,7 +183,7 @@ if (isset($_GET['search'])) {
 
                     </div>
                     <!-- Sidebar / End -->
-                    <div class="col-lg-9 col-md-8 col-sm-7 padding-right-30" data-aos="fade-left" data-aos-duration="3000">
+                    <div class="col-lg-9 col-md-8 col-sm-7 padding-right-30" data-aos="fade-left" data-aos-duration="3500">
                         <!-- Sorting / Layout Switcher -->
                         <div class="row margin-bottom-25">
                         </div>

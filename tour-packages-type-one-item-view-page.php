@@ -150,7 +150,7 @@ if ($divider1 == 0) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="1500">
+                <div class="rl-banner" data-aos-easing="linear" data-aos-duration="3500">
                     <h2 class="tp">Tour Packages</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -164,7 +164,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-45 padding-top-45" >
             <div class="row">
-                <div class="col-md-9 col-sm-9" data-aos="fade-right" data-aos-duration="3000">
+                <div class="col-md-9 col-sm-9" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
                     <div class="item1">
                         <div class="padding-top-10">
@@ -201,7 +201,7 @@ if ($divider1 == 0) {
                         <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3" data-aos="fade-left" data-aos-duration="3000">
+                <div class="col-md-3 col-sm-3" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                     <div class="moretourpack">
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
@@ -297,7 +297,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-70">
             <div class="row">
-                <div class="col-md-12" data-aos="fade-up" data-aos-duration="3000">
+                <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="900">
                     <hr>
                     <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                     <hr>
@@ -381,7 +381,13 @@ if ($divider1 == 0) {
                         <?php if (count(Reviews::getReviewsByTour($TOUR->id)) > 0) {
                             ?>
                             <div class="review-button">
+                                <div class ="col-md-6 col-xs-12 col-sm-6">
                                 <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                </div>
+                                
+                                <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
+                                      <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                </div>
                             </div>
                             <?php
                         } else {

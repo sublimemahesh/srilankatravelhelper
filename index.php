@@ -80,7 +80,7 @@ if (!isset($_SESSION)) {
                                             <p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
                                         </div>
                                     </div>-->
-                    <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3000" >
+                    <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
                         <div class="work-process">
                             <div class="process-img">
                                 <img src="images/icons/tour-1.png" class="img-responsive" alt="">
@@ -90,7 +90,7 @@ if (!isset($_SESSION)) {
                             <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                         <div class="work-process">
                             <div class="process-img">
                                 <img src="images/icons/tour-2.png" class="img-responsive" alt="">
@@ -100,7 +100,7 @@ if (!isset($_SESSION)) {
                             <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3000">
+                    <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                         <div class="work-process ">
                             <div class="process-img">
                                 <img src="images/icons/tour-3.png" class="img-responsive" alt="">
@@ -142,7 +142,7 @@ if (!isset($_SESSION)) {
                             ?>
 
                             <div class="fw-carousel-item">
-                                <div class="category-box-container">
+                                <div class="category-box-container" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
                                     <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
                                         <div class="category-box-content">
                                             <h3><?php echo $destination_type['name']; ?></h3>
@@ -172,13 +172,13 @@ if (!isset($_SESSION)) {
                 <div class="text-content text-content1 white-font padding-top-70 padding-bottom-65 " >
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5 col-sm-12 welcometext" data-aos="fade-up" data-aos-duration="3000" data-aos-easing="ease-in-sine">
+                            <div class="col-lg-5 col-sm-12 welcometext" data-aos="fade-up" data-aos-duration="3500" data-aos-easing="ease-in-sine">
                                 <h2>Explore Sri Lanaka</h2>
                                 <h4>Determine Your Destination</h4>
                                 <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
                                 <a href="#" class="button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15">Plan Your Trip</a>
                             </div>
-                            <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-left" data-aos-duration="3000">
+                            <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-left" data-aos-duration="3500">
                                 <iframe width="677" height="377" src="https://www.youtube.com/embed/s8VNJ88AFWw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
 
@@ -189,7 +189,7 @@ if (!isset($_SESSION)) {
             </div>
             <!-- Parallax / End -->
             <!-- Recent Blog Posts -->
-            <section class="fullwidth  padding-top-70 padding-bottom-60 " data-background-color="#fff" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <section class="fullwidth  padding-top-70 padding-bottom-60 " data-background-color="#fff" >
                 <div class="container">
 
                     <div class="row">
@@ -199,7 +199,7 @@ if (!isset($_SESSION)) {
                             </h3>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                         <!-- Blog Post Item -->
                         <div class="col-md-4  hidden-lg hidden-xs">
                             <?php
@@ -207,7 +207,7 @@ if (!isset($_SESSION)) {
                             foreach ($TOUR_TYPES as $key => $tour_type) {
                                 if ($key < 4) {
                                     ?>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6" >
                                         <a href="tour-packages-type.php?=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
                                             <div class="blog-compact-item">
                                                 <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
@@ -329,12 +329,12 @@ if (!isset($_SESSION)) {
                  data-color-opacity="0.6"
                  data-img-width="800"
                  data-img-height="505" id="driver">
-                <section class="fullwidth  padding-bottom-50" data-aos="fade-up" data-aos-duration="3000" >
+                <section class="fullwidth  padding-bottom-50"  >
 
                     <!-- Info Section -->
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2 margin-top-70">
+                            <div class="col-md-8 col-md-offset-2 margin-top-70" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
                                 <h3 class="headline centered text-content white-font" style="padding:0px 0px!important;">
                                     Testimonials
                                     <span class="margin-top-25">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</span>
@@ -346,7 +346,7 @@ if (!isset($_SESSION)) {
                     <!-- Info Section / End -->
                     <!-- Categories Carousel -->
                     <div class="fullwidth-carousel-container ">
-                        <div class="testimonial-carousel testimonials">
+                        <div class="testimonial-carousel testimonials" data-aos="fade-up" data-aos-duration="3500">
 
                             <?php
                             $COMMENTS = Comments::all();
@@ -380,7 +380,7 @@ if (!isset($_SESSION)) {
                         </a>-->
             <!-- Flip banner / End -->
             <!-- Fullwidth Section -->
-            <section class="fullwidth  padding-top-70 padding-bottom-60" data-background-color="#f8f8f8" >
+            <section class="fullwidth  padding-top-70 padding-bottom-35" data-background-color="#f8f8f8" >
                 <div class="container">
                     <div class="row" >
                         <div class="col-md-12">
@@ -397,7 +397,7 @@ if (!isset($_SESSION)) {
                                         if ($sortdriver != 0) {
                                             $DRIVER = new Drivers($sortdriver);
                                             ?>
-                                            <div class="carousel-item" data-aos="fade-left" data-aos-duration="3000">
+                                            <div class="carousel-item" data-aos="fade-left" data-aos-duration="3500">
 
                                                 <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
