@@ -77,7 +77,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                 <tr id="row_<?php echo $location['id']; ?>">
                                                     <td><?php echo $key ?></td>
                                                     <td><?php echo $location['name']; ?></td>
-                                                    <td><?php echo $location['place_id']; ?></td>
+                                                    <td><?php echo substr($location['place_id'], 0,70); ?></td>
                                                     <td> 
                                                         <a href="edit-location.php?id=<?php echo $location['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
                                                         |
