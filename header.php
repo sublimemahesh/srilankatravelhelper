@@ -64,9 +64,16 @@ if ($count1 == 0) {
                         <ul id="responsive">
                             <?php
                             if (isset($_SESSION['id'])) {
-                                ?>
-                                <li><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
-                                    <?php
+                                $VIS = new Visitor($_SESSION['id']);
+                                if (isset($VIS->facebookID)) {
+                                    ?>
+                                    <li><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                    <li><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
+                                        <?php
+                                    }
                                 } else {
                                     ?>
                                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
@@ -111,9 +118,16 @@ if ($count1 == 0) {
                             <li><a href="contact.php">Contact Us</a></li>
                             <?php
                             if (isset($_SESSION['id'])) {
-                                ?>
-                                <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
-                                    <?php
+                                $VIS = new Visitor($_SESSION['id']);
+                                if (isset($VIS->facebookID)) {
+                                    ?>
+                                    <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                    <li class = "header-pro-pic hidden-lg hidden-md hidden-sm"><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
+                                        <?php
+                                    }
                                 } else {
                                     ?>
                                 <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>

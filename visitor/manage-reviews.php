@@ -176,7 +176,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
-                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section">
+                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section" id="review-add-section-driver">
                                     <h2>Add Review for <span id="driver-name"><?php
                                             if (isset($_GET['driver'])) {
                                                 echo $Driver->name;

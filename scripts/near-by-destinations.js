@@ -4,6 +4,7 @@ $(document).ready(function () {
         var cityname = $('#cityname').val();
         $('#search-content1').removeClass('hidden');
         $('#city-name').text(cityname);
+        
 
         $.ajax({
             url: "post-and-get/ajax/search-destination.php",
@@ -16,6 +17,7 @@ $(document).ready(function () {
             },
             success: function (locations) {
                 console.log(locations);
+
                 var html = '';
                 var name = '';
 
@@ -25,8 +27,11 @@ $(document).ready(function () {
                     $('.nearbydestinations-carousel').empty();
                     $('.nearbydestinations-carousel').append(html);
                 } else if (locations) {
+                    $('.nearbydestinations-carousel').empty();
                     $.each(locations, function (key, location) {
+                        
                         var html1 = '';
+                        
 
                         var str = location.location.shortdescription;
                         var strsub = str.substr(0, 100);
@@ -72,9 +77,15 @@ $(document).ready(function () {
                         html += '</div>';
                         html += '</div>';
                         html += '</div>';
+
                     });
+                    
                     $('.nearbydestinations-carousel').empty();
                     $('.nearbydestinations-carousel').append(html);
+//                    $('.nearbydestinations-carousel').slick('slickRemove');
+//                    $('.nearbydestinations-carousel').slick('refresh');
+//                    $('.carousel-item').addClass('hidden');
+//                    $('.slick-slide').removeClass('hidden');
                 }
             }
         });

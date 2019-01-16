@@ -152,9 +152,6 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
-                } else {
-                    var contentheight = $(window).height();
-                    $('.content').css('height', contentheight);
                 }
             });
         </script>
