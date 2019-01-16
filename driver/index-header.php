@@ -44,10 +44,10 @@ if ($count1 == 0) {
             <div class="right-side">
                 <div class="nav-top hidden-lg hidden-md hidden-sm">
                     <div class="header-widget widget-btn-left">
-                        <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+                        <a href="../plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
                     </div>
                     <div class="header-widget widget-btn-right">
-                        <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
+                        <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
                                 if ($count == 1) {
                                     echo '1 item';
                                 } else {
@@ -82,7 +82,7 @@ if ($count1 == 0) {
                         </ul>
                     </nav>
                     <div class="header-widget widget-btn-right">
-                        <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span><span class="cart-item-count"><?php
+                        <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span><span class="cart-item-count"><?php
                                 if ($count == 1) {
                                     echo '1 item';
                                 } else {
@@ -93,7 +93,7 @@ if ($count1 == 0) {
                         </a>
                     </div>
                     <div class="header-widget widget-btn-left">
-                        <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span><span> Plan Your Trip</span></a>
+                        <a href="../plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span><span> Plan Your Trip</span></a>
                     </div>
 
                 </div>
