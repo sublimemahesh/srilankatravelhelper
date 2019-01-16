@@ -37,7 +37,8 @@ $VISITOR = new Visitor($_SESSION['id']);
         <link href="css/responsive_visitor.css" rel="stylesheet" type="text/css"/>
         <style>
             .star-rating-fa {
-                left: 345px;
+                left: 0px;
+                margin-top: 2px;
             }
             @media (max-width: 576px) {
 
@@ -162,7 +163,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2"></div>
 
-                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section">
+                                <div class="col-md-12 col-sm-12 col-xs-12 review-add-section" id="review-add-section-destination">
                                     <h2>Add Review for <span id="destination-name"><?php
                                             if (isset($_GET['destination'])) {
                                                 echo $Destination->name;

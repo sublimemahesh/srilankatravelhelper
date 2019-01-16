@@ -46,6 +46,13 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 
         <!-- Custom Css -->
         <link href="css/style.css" rel="stylesheet">
+        <style>
+            [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+                position: absolute;
+                left: 0px;
+                opacity: 0;
+            }
+        </style>
     </head> 
 
     <body class="login-page">
@@ -96,7 +103,7 @@ include_once(dirname(__FILE__) . '/../class/include.php');
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
-                          
+
                             <div class="col-xs-12 align-center">
                                 <a href="forget-password.php">Forgot Username or Password?</a>
                             </div>

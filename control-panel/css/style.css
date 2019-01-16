@@ -8197,3 +8197,10 @@ input[type="checkbox"] {
 .location-details span i {
     padding-right: 10px;
 }
+#rememberme [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+
+}

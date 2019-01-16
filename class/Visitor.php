@@ -448,6 +448,7 @@ class Visitor {
             $_SESSION["login"] = TRUE;
             $_SESSION["id"] = $visitor['id'];
             $_SESSION["authToken"] = $authtocken;
+            $_SESSION["position"] = 'visitor';
 
             return TRUE;
         }

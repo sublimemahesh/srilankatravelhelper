@@ -88,7 +88,7 @@ class LocationDetails {
                 . "`train_hour` ='" . $this->train_hour . "', "
                 . "`taxi_hour` ='" . $this->taxi_hour . "' "
                 . "WHERE `id` = '" . $this->id . "'";
-
+        
         $db = new Database();
 
         $result = $db->readQuery($query);

@@ -403,19 +403,19 @@ a:hover {
 }
 .driver-profile .driver-name {
     position: absolute;
-    margin-top: -95px;
-    left: 176px;
+    margin-top: -64px;
+    left: 133px;
     z-index: 9999999;
     color: #fff;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 24px;
 }
 .tour-name, .destination-name {
     font-weight: 600;
     font-size: 26px;
 }
 .star-rating-fa {
-    margin-top: -29px;
+    margin-top: -5px;
     z-index: 9;
     position: relative;
     color: #f5cf00;
