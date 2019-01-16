@@ -23,7 +23,7 @@ if ($count1 == 0) {
     <div id="header">
         <div class="container">
             <!-- Left Side Content -->
-            
+
             <div class="left-side">
                 <!-- Logo -->
                 <div id="logo">
@@ -109,6 +109,7 @@ if ($count1 == 0) {
                             <li><a href="../drivers-page.php">Drivers</a></li>
                             <li><a href="../blog.php">Blog</a></li>
                             <li><a href="../offers.php">Offer</a></li>
+                            <li><a href="../contact.php">Contact Us</a></li>
                             <?php
                             if (isset($_SESSION['id'])) {
                                 ?>

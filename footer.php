@@ -4,7 +4,7 @@
     <!-- Main -->
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-sm-3 footerdes" data-aos="fade-right" data-aos-duration="3500">
+            <div class="col-md-5 col-sm-3 footerdes" data-aos="fade-up" data-aos-duration="3500">
                 <img class="footer-logo" src="images/logo/tour-logo-1.png" alt="">
                 <br><br>
                 <div class="hidden-sm">
@@ -38,7 +38,7 @@
                 <div class="clearfix"></div>
             </div>		
 
-            <div class="col-md-3  col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+            <div class="col-md-3  col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
                 <h4>Contact Us</h4>
                 <div class="text-widget1">
                     <span>Sublime,Galle Road ,Galle</span> <br>
