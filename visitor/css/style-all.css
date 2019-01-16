@@ -528,3 +528,14 @@ a:hover {
 textarea.form-control {
     height: 40px;
 }
+.viewbookingtable {
+    text-align: center;
+}
+.viewbookingtabpane {
+    padding-top: 146px;
+ 
+}
+.viewbookingtable td{
+    text-align: center;
+}
+

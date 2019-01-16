@@ -56,68 +56,50 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                             <div class="panel-heading ">
                                 View Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
-                            <div class="panel-body">
-                                <div class="col-md-8 col-md-offset-2 view-booking-details">
-                                    <div class="row">
-                                        <div class="col-md-3 title">Booked At</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->date_time_booked; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">Driver</div>
-                                        <div class="col-md-9"><?php echo $DRIVER->name; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title" >Tour Package</div>
-                                        <div class="col-md-9"><?php echo $TOUR->name; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">Start Date</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->start_date; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">End Date</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->end_date; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">No of Adults</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->no_of_adults; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">No of Children</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->no_of_children; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">Price</div>
-                                        <div class="col-md-9"><?php echo 'USD '.$BOOKING->price; ?></div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 title">Status</div>
-                                        <div class="col-md-9"><?php echo ucwords($BOOKING->status); ?></div> 
-                                    </div>
-                                    <div class="row msg">
-                                        <div class="col-md-3 title">Message</div>
-                                        <div class="col-md-9"><?php echo $BOOKING->message; ?></div> 
-                                    </div>
-                                    <div class="btn col-md-12 <?php
-                                    if ($BOOKING->status === 'canceled') {
-                                        echo 'hidden';
-                                    }
-                                    ?>">
-                                        <a href="manage-active-bookings.php" class="btn btn-info">Back</a> 
-                                        <a href="#" class="btn btn-danger cancel-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
-                                    
-                                    </div>
-                                    <div class="btn col-md-12 <?php
-                                    if ($BOOKING->status === 'active') {
-                                        echo 'hidden';
-                                    }
-                                    ?>">
-                                        <a href="manage-canceled-bookings.php" class="btn btn-info">Back</a> 
-                                    </div>
+                            <div class ="col-md-8 col-md-offset-2 viewbookingtabpane">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable viewbookingtable ">
 
-                                </div>
-
-                                </form>
+                                    <tr>
+                                        <td>  Booked At </td>
+                                        <td>  <?php echo $BOOKING->date_time_booked; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Driver </td>
+                                        <td> <?php echo $DRIVER->name; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Tour Package </td>
+                                        <td> <?php echo $TOUR->name; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Start Date </td>
+                                        <td>  <?php echo $BOOKING->start_date; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  End Date </td>
+                                        <td>  <?php echo $BOOKING->end_date; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  No of Adults </td>
+                                        <td>  <?php echo $BOOKING->no_of_adults; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  No of Children </td>
+                                        <td> <?php echo $BOOKING->no_of_children; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Price </td>
+                                        <td>  <?php echo 'USD ' . $BOOKING->price; ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Status </td>
+                                        <td>  <?php echo ucwords($BOOKING->status); ?> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>  Message </td>
+                                        <td>  <?php echo $BOOKING->message; ?> </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
