@@ -437,7 +437,7 @@ body #navigation ul ul {
 }
 
 #navigation.style-1 ul li {
-    margin: 0 0px
+    margin: 0 -1px
 }
 
 #navigation.style-1 ul ul li {

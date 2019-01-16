@@ -395,7 +395,7 @@ body #navigation ul ul {
 }
 #navigation.style-1 {
     margin-top: -1px;
-    margin-left: 15px;
+    margin-left: 11px;
 }
 
 
@@ -1501,7 +1501,7 @@ body #navigation1 ul ul {
 .nav-bottom {
     height: 50%;
     border-top: 1px solid #cccc;
-    width: 85%;
+    width: 100%;
     float: right;
 }
 .mm-menu .mm-listview > li {
