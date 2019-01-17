@@ -389,7 +389,23 @@ if (isset($_GET['album'])) {
 
                                                     <div class="col-md-3 col-sm-3 img-section reviewspts">
                                                         <div class="reviewimg">
-                                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                            <?php
+                                                            if (empty($VISITOR->profile_picture)) {
+                                                                ?>
+                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                                <?php
+                                                            } else {
+                                                                if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                                    ?>
+                                                                    <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                                    <?php
+                                                                } else {
+                                                                    ?>
+                                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                            ?>
                                                         </div>
                                                         <div class="reviews-item1 ">
                                                             <li>

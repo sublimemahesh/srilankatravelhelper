@@ -352,7 +352,7 @@ $stars = $sum / $divider;
                                 }
                                 ?>
                             </div>
-         
+
                         </div>	
                         <div class="col-md-8 col-sm-7 reviewrating ">
                             <div class="reviws-section">
@@ -365,7 +365,23 @@ $stars = $sum / $divider;
 
                                             <div class="col-md-3 col-sm-4 img-section reviewspts">
                                                 <div class="reviewimg">
-                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                    <?php
+                                                    if (empty($VISITOR->profile_picture)) {
+                                                        ?>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                        <?php
+                                                    } else {
+                                                        if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <div class="reviews-item1 ">
                                                     <li>
@@ -403,30 +419,30 @@ $stars = $sum / $divider;
 
                                 </div>
                             </div>
-                        
-                       
-                        <?php if (count(Reviews::getReviewsByDriver($DRIVER->id)) > 0) {
-                            ?>
-                            <div class="review-button">
-                                <div class ="col-md-6 col-xs-12 col-sm-6">
-                                <a href="view-all-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+
+
+                            <?php if (count(Reviews::getReviewsByDriver($DRIVER->id)) > 0) {
+                                ?>
+                                <div class="review-button">
+                                    <div class ="col-md-6 col-xs-12 col-sm-6">
+                                        <a href="view-all-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                    </div>
+
+                                    <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
+                                        <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                    </div>
                                 </div>
-                                
-                                <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
-                                      <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="review-button">
+                                    <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
                                 </div>
-                            </div>
-                            <?php
-                        } else {
+                                <?php
+                            }
                             ?>
-                            <div class="review-button">
-                                <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                        
-                        
+
+
                         </div>
                     </div>
                 </div>

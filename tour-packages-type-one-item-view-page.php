@@ -337,7 +337,23 @@ if ($divider1 == 0) {
 
                                             <div class="col-md-3 col-sm-3 img-section reviewspts">
                                                 <div class="reviewimg">
-                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" class="img-circle"  alt=""/>
+                                                    <?php
+                                                    if (empty($VISITOR->profile_picture)) {
+                                                        ?>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                        <?php
+                                                    } else {
+                                                        if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?> 
                                                 </div>
                                                 <div class="reviews-item1 ">
                                                     <li>
@@ -382,11 +398,11 @@ if ($divider1 == 0) {
                             ?>
                             <div class="review-button">
                                 <div class ="col-md-6 col-xs-12 col-sm-6">
-                                <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                    <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
                                 </div>
-                                
+
                                 <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
-                                      <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                    <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
                                 </div>
                             </div>
                             <?php
@@ -424,53 +440,51 @@ if ($divider1 == 0) {
     <script src="lib/owl/owl.carousel.min.js" type="text/javascript"></script>
     <script src="scripts/lightbox.min.js" type="text/javascript"></script>
     <script src="scripts/aos.js" type="text/javascript"></script>
-        <script>
-            AOS.init();
-        </script>
     <script>
-    <script>
-        $(function () {
-            $('#nav').on('click', '.nav-item', function (event) {
-                event.preventDefault();
-                var hash = this.hash;
-
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 1000, function () {
-                    window.location.hash = hash;
-                });
-            });
-        });
-
+        AOS.init();
     </script>
     <script>
+        <script>
+        $(function () {
+                $('#nav').on('click', '.nav-item', function (event) {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+        scrollTop: $(hash).offset().top
+    }, 1000, function () {
+                window.location.hash = hash;
+    });
+        });
+        });
+        </script>
+    <script>
         $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                loop: true,
+                $('.owl-carousel').owlCarousel({
+        loop: true,
                 margin: 10,
                 nav: false,
                 responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 5
-                    },
-                    1000: {
-                        items: 5
-                    },
-                    1200: {
-                        items: 5
-                    }
+                0: {
+                items: 1
                 },
+    600: {
+                        items: 5
+                },
+    1000: {
+                        items: 5
+                },
+        1200: {
+                        items: 5
+            }
+        },
                 autoplay: true,
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true,
                 animateOut: true,
-            });
         });
-    </script>
+        });
+        </script>
 
-</body>
+    </body>
 </html>
 

@@ -106,11 +106,11 @@ if (isset($_GET['id'])) {
                                     <div class="row form-data">
                                         <label>City</label>
                                         <input type="text" id="autocomplete" class="form-control" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
-                                                    <input type="hidden" name="cityid" id="city"  value="<?php echo $DRIVER->city; ?>"/>
-                                                    <input type="hidden" name="cityname" id="cityname"  value="<?php echo $DRIVER->cityname; ?>"/>
+                                        <input type="hidden" name="cityid" id="city"  value="<?php echo $DRIVER->city; ?>"/>
+                                        <input type="hidden" name="cityname" id="cityname"  value="<?php echo $DRIVER->cityname; ?>"/>
 <!--                                        <input type="text" name="cityid" id="cityid" onkeyup="myFunction()" class="form-control" placeholder="Enter City" value="<?php echo $CITY->name; ?>" />
-                                        <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />-->
-                                        
+                            <input type="hidden" id="cityid" name="cityid" value="<?php echo $DRIVER->city; ?>" />-->
+
                                     </div>
                                     <div class="row form-data">
                                         <label>Contact Number</label>
@@ -198,17 +198,21 @@ if (isset($_GET['id'])) {
 
 
         </script>
-        
-            <script>
+
+        <script>
             //Google Location Autocomplete
             var placeSearch, autocomplete;
 
             function initAutocomplete() {
                 // Create the autocomplete object, restricting the search to geographical
                 // location types.
-                autocomplete = new google.maps.places.Autocomplete(
-                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-                        {types: ['geocode']});
+                var options = {
+                    types: ['(cities)'],
+                    componentRestrictions: {country: "lk"}
+                };
+                var input = document.getElementById('autocomplete');
+
+                autocomplete = new google.maps.places.Autocomplete(input, options);
 
                 // When the user selects an address from the dropdown, populate the address
                 // fields in the form.
@@ -280,7 +284,7 @@ if (isset($_GET['id'])) {
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&libraries=places&callback=initAutocomplete"
         async defer></script>
-        
+
         <script>
             $(function () {
                 $("#dob").datepicker({
@@ -303,7 +307,7 @@ if (isset($_GET['id'])) {
                     $('.content').css('height', contentheight);
                 }
             });
-</script>
-        
+        </script>
+
     </body>
 </html>

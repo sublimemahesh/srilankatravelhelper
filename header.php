@@ -16,6 +16,10 @@ if ($count1 == 0) {
 } else {
     $count = $count1;
 }
+$position = '';
+if (isset($_SESSION['position'])) {
+    $position = $_SESSION['position'];
+}
 ?>
 
 <header id="header-container">
@@ -63,15 +67,15 @@ if ($count1 == 0) {
                     <nav id="navigation1" class="style-1 hidden-xs">
                         <ul id="responsive">
                             <?php
-                            if (isset($_SESSION['id']) && $_SESSION['position'] === 'visitor') {
+                            if (isset($_SESSION['id']) && $position === 'visitor') {
                                 $VIS = new Visitor($_SESSION['id']);
-                                if (isset($VIS->facebookID)) {
+                                if ($VIS->facebookID) {
                                     ?>
-                                    <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
+                                    <li><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
                                         <?php
                                     } else {
                                         ?>
-                                    <li class = "header-pro-pic hidden-lg hidden-md hidden-sm"><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
+                                    <li><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
                                         <?php
                                     }
                                 } else {
@@ -117,7 +121,8 @@ if ($count1 == 0) {
                             <li><a href="offers.php">Offer</a></li>
                             <li><a href="contact.php">Contact Us</a></li>
                             <?php
-                            if (isset($_SESSION['id']) && $_SESSION['position'] === 'visitor') {
+                            if (isset($_SESSION['id']) && $position === 'visitor') {
+
                                 $VIS = new Visitor($_SESSION['id']);
                                 if (isset($VIS->facebookID)) {
                                     ?>
