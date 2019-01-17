@@ -535,7 +535,10 @@ textarea.form-control {
     padding-top: 146px;
  
 }
-.viewbookingtable td{
+.viewbookingtable td {
+    text-align: center;
+}
+.viewbookingtable th{
     text-align: center;
 }
 

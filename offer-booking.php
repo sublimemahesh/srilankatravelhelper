@@ -48,7 +48,7 @@ $now = date('Y-m-d H:i:s');
                 background: white;
                 background-color: white;
                 padding: 8px 12px;
-                font-size: 17px;
+                font-size: 13px;
                 margin-top: 0px;
                 border-width: 1px;
                 border-style: solid;

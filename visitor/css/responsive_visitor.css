@@ -23,6 +23,7 @@ and open the template in the editor.
     .view-booking-details .row.msg {
         height: auto;
     }
+    
 }
 @media (min-width: 760px) and (max-width: 900px) {
     .parallax {

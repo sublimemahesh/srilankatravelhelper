@@ -87,7 +87,7 @@ if (isset($_GET['search'])) {
             <div class="question-search main-search-inner">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="3500" data-aos-delay="300">
+                        <div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500" data-aos-delay="600">
                             <form id="blog-search" action="blog.php" method="get">
                                 <div class=" main-search-input">
 
@@ -171,7 +171,7 @@ if (isset($_GET['search'])) {
                                 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
                                 ?>
                                 <div class="">
-                                    <div class="question col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500">
+                                    <div class="question col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="700">
                                         <div class="answers-count <?php
                                         if ($COUNTANSWERS['count'] > 0) {
                                             echo 'active';

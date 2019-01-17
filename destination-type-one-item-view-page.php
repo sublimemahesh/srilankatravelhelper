@@ -206,7 +206,7 @@ if (isset($_GET['album'])) {
                 <div class="container padding-bottom-45 padding-top-70">
                     <div class="row">
 
-                        <div class="col-md-9 col-sm-8">
+                        <div class="col-md-9 col-sm-8" data-aos="fade-right" data-aos-duration="3500" >
                             <div class=" content">
                                 <div class="col-md-12 destinationimg">
                                     <div id="gallery1"></div>
@@ -238,7 +238,7 @@ if (isset($_GET['album'])) {
                                     if ($key < 7) {
                                         ?>
 
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="600">
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-4 more-items-image" >
@@ -286,7 +286,7 @@ if (isset($_GET['album'])) {
                                         </div>
 
                                         <!--mobile respo-->
-                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" data-aos="fade-up" data-aos-duration="3500" >
+                                        <div  class="col-md-12 col-xs-12 more-items hidden-md hidden-lg hidden-xs" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600" >
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image destinationpadding ">

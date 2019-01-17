@@ -13,7 +13,8 @@ $TOUR = new TourPackages($BOOKING->tour_package);
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+             <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>View Booking || Visitor DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -60,43 +61,43 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable viewbookingtable ">
 
                                     <tr>
-                                        <td>  Booked At </td>
+                                        <th>  Booked At </th>
                                         <td>  <?php echo $BOOKING->date_time_booked; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Driver </td>
+                                        <th>  Driver </th>
                                         <td> <?php echo $DRIVER->name; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Tour Package </td>
+                                        <th>  Tour Package </th>
                                         <td> <?php echo $TOUR->name; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Start Date </td>
+                                        <th>  Start Date </th>
                                         <td>  <?php echo $BOOKING->start_date; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  End Date </td>
+                                        <th>  End Date </th>
                                         <td>  <?php echo $BOOKING->end_date; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  No of Adults </td>
+                                        <th>  No of Adults </th>
                                         <td>  <?php echo $BOOKING->no_of_adults; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  No of Children </td>
+                                        <th>  No of Children </th>
                                         <td> <?php echo $BOOKING->no_of_children; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Price </td>
+                                        <th>  Price </th>
                                         <td>  <?php echo 'USD ' . $BOOKING->price; ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Status </td>
+                                        <th>  Status </th>
                                         <td>  <?php echo ucwords($BOOKING->status); ?> </td>
                                     </tr>
                                     <tr>
-                                        <td>  Message </td>
+                                        <th>  Message </th>
                                         <td>  <?php echo $BOOKING->message; ?> </td>
                                     </tr>
                                 </table>

@@ -1,4 +1,5 @@
 <?php
+include_once(dirname(__FILE__) . '/class/include.php');
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -39,7 +40,7 @@ if (!isset($_SESSION)) {
         </div>
         <div class="container padding-bottom-65 padding-top-70">
             <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="300">
+                <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
                     <h4 class="headline margin-bottom-30">Find Us There</h4>
                     <div class="sidebar-textbox">
                         <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>
@@ -51,7 +52,7 @@ if (!isset($_SESSION)) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-8" data-aos="fade-left" data-aos-duration="3000">
+                <div class="col-md-8" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="800">
                     <section id="contact">
                         <h4 class="headline margin-bottom-35">Contact Form</h4>
                         <div id="contact-message"></div> 
