@@ -62,7 +62,7 @@ $(document).ready(function (e) {
                     html += '</div>';
                     html += '<div class="col-md-8 col-xs-12">';
                     html += '<div class="drivername">';
-                    html += '<a href="drivers-view-page.php?id=1" target="new" >' + driver.driverdetails.name + '</a>';
+                    html += '<a href="drivers-view-page.php?id=' + driver.driverdetails.id + '" target="new" >' + driver.driverdetails.name + '</a>';
                     html += '</div>';
                     html += '<div class="star-rate">';
                     html += html1;
