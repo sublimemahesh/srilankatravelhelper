@@ -172,23 +172,23 @@ if ($divider1 == 0) {
                             $TOUR_DATE = TourDate::getTourDatesById($id);
                             foreach ($TOUR_DATE as $key => $tour_date) {
                                 ?>
-                                <hr  >
-                                <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
-                                <hr >
-                                <p><?php echo $tour_date['description']; ?></p>
+                                    <hr>
+                                    <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
+                                    <hr>
+                                    <p><?php echo $tour_date['description']; ?></p>
 
-                                <div class="image-row padding-bottom-140 packagepadding">
-                                    <?php
-                                    $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
-                                    foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
-                                        ?>
-                                        <div  class="col-md-3 tourpackimg">
-                                            <a class="example-image-link" href="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
-                                                <img class="example-image" src="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
-                                        </div>
+                                    <div class="image-row padding-bottom-140 packagepadding">
                                         <?php
-                                    }
-                                    ?>
+                                        $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
+                                        foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
+                                            ?>
+                                            <div  class="col-md-3 tourpackimg">
+                                                <a class="example-image-link" href="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                                                    <img class="example-image" src="upload/tour-package/date/gallery/thumb/<?php echo $tour_photos['image_name']; ?>" alt="Golden Gate Bridge with San Francisco in distance"></a>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
 
                                 </div>
                                 <?php
@@ -445,6 +445,7 @@ if ($divider1 == 0) {
     </script>
     <script>
         <script>
+<<<<<<< HEAD
         $(function () {
                 $('#nav').on('click', '.nav-item', function (event) {
         event.preventDefault();
@@ -457,6 +458,20 @@ if ($divider1 == 0) {
         });
         });
         </script>
+=======
+                $(function () {
+                        $('#nav').on('click', '.nav-item', function (event) {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000, function () {
+                        window.location.hash = hash;
+            });
+                });
+                });
+                </script>
+>>>>>>> design corrections
     <script>
         $(document).ready(function () {
                 $('.owl-carousel').owlCarousel({

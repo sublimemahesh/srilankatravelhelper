@@ -30,7 +30,7 @@ if (!isset($_SESSION)) {
         <?php include './header.php'; ?>
         <div class="container-fluid about-bg ">
             <div class="container">
-                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                     <h2 class="tp">About Us</h2>
                     <ul>
                         <li><a href="./">Home</a></li>
@@ -44,7 +44,7 @@ if (!isset($_SESSION)) {
                 <div class="col-md-6" data-aos="fade-right" data-aos-duration="3500">
                     <img src="images/destination/whild-life.jpg" alt=""/>
                 </div>
-                <div class="col-md-6 padding-top-20" data-aos="fade-left" data-aos-duration="3500">
+                <div class="col-md-6 padding-top-20" data-aos="fade-down" data-aos-duration="3500">
                     <p>
                         Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
                         Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.

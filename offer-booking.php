@@ -39,6 +39,7 @@ $now = date('Y-m-d H:i:s');
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/aos.css" rel="stylesheet" type="text/css"/> 
         <style>
             input[type="text"], input[type="email"], input[type="number"] {
 
@@ -62,7 +63,7 @@ $now = date('Y-m-d H:i:s');
             <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner" data-aos="fade-down" data-aos-duration="3500">
                         <h2 class="tp">Offer Booking</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -76,7 +77,7 @@ $now = date('Y-m-d H:i:s');
                     <div class="row">
                         <div class="col-md-9">
                             <div class="body">
-                                <div class="offer-booking-box margin-panel">
+                                <div class="offer-booking-box margin-panel"  data-aos="fade-right" data-aos-duration="3500" data-aos-delay="100">
                                     <?php
                                     $vali = new Validator();
                                     $vali->show_message();
@@ -147,7 +148,7 @@ $now = date('Y-m-d H:i:s');
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="row top-bott20">
+                            <div class="row top-bott20"  data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                 <div class="panel panel-info margin-panel">
                                     <div class="panel-heading">SELECTED OFFER</div>
                                     <div class="panel-body">
@@ -185,6 +186,11 @@ $now = date('Y-m-d H:i:s');
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
+        <script src="scripts/aos.js" type="text/javascript"></script>
+        <script>
+            AOS.init();
+        </script>
+
     </body>
 </html>
 

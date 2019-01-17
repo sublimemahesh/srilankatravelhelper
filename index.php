@@ -142,7 +142,7 @@ if (!isset($_SESSION)) {
                             ?>
 
                             <div class="fw-carousel-item">
-                                <div class="category-box-container" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
+                                <div class="category-box-container" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
                                     <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
                                         <div class="category-box-content">
                                             <h3><?php echo $destination_type['name']; ?></h3>
@@ -199,7 +199,7 @@ if (!isset($_SESSION)) {
                             </h3>
                         </div>
                     </div>
-                    <div class="row" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                    <div class="row" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <!-- Blog Post Item -->
                         <div class="col-md-4  hidden-lg hidden-xs">
                             <?php

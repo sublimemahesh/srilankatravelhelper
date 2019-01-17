@@ -52,7 +52,7 @@ if (isset($_SESSION['destination_cart'])) {
             </div>
             <div class="container margin-top-70">
                 <div class="row">
-                    <ul class="list-group padding-bottom-60" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="300">
+                    <ul class="list-group padding-bottom-60" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                         <?php
                         if ($countdestinations > 0) {
                             foreach ($destinations as $key => $destination) {

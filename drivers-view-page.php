@@ -194,9 +194,9 @@ $stars = $sum / $divider;
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container-fluid about-bg" data-aos-easing="linear" data-aos-duration="3500">
+            <div class="container-fluid about-bg" >
                 <div class="container">
-                    <div class="rl-banner">
+                    <div class="rl-banner"  data-aos="fade-down" data-aos-duration="3500">
                         <h2 class="tp"><?php echo $DRIVER->name; ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -325,7 +325,7 @@ $stars = $sum / $divider;
 
             </div>
 
-            <div class="container padding-bottom-35" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="900">
+            <div class="container padding-bottom-35" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="100">
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
@@ -449,7 +449,7 @@ $stars = $sum / $divider;
 
             </div>
             <section class="fullwidth  padding-top-45 padding-bottom-70" >
-                <div class="container" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="1200">
+                <div class="container" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="headline  margin-bottom-45">

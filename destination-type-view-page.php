@@ -133,7 +133,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach ($DESTINATIONS as $key => $destination) {
                                 ?>
                                 <!-- Listing Item -->
-                                <div class="col-lg-12 col-md-12 col-sm-6" data-aos="fade-down" data-aos-duration="3000">
+                                <div class="col-lg-12 col-md-12 col-sm-6" data-aos="fade-down" data-aos-duration="3500">
                                     <div class="listing-item-container list-layout">
                                         <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>" class="listing-item">
 

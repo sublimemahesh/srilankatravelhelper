@@ -79,14 +79,14 @@ $LOCATION = new Location($city);
                     </div>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="row col-md-12" id="search-content" data-aos="fade-up" data-aos-duration="3500">
+                <div class="row col-md-12" id="search-content">
                     <h1>Destinations in <?php echo $LOCATION->name; ?> City</h1>
                     <hr />
                     <?php
                     foreach (Destination::getDestinationsByCityID($LOCATION->placeid) as $destination) {
                         ?>
 
-                        <div class="search-cities col-md-4 col-sm-6 col-xs-12 search-destination-item ">
+                        <div class="search-cities col-md-4 col-sm-6 col-xs-12 search-destination-item" data-aos="fade-up" data-aos-duration="3500">
                             <div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">
                                 <div class="listing-item col-md-5 col-sm-5 col-xs-5">
                                     <img src="upload/destination/<?php echo $destination['image_name']; ?>" alt=""/>
@@ -166,7 +166,7 @@ $LOCATION = new Location($city);
                                     if ($count < 5) {
                                         $location_details = LocationDetails::getLocationDetailsByRelatedLocationAndLocaion($LOCATION->id, $city['id']);
                                         ?>
-                                        <div class="col-md-3 col-sm-6 col-xs-12 carousel-item">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 carousel-item"  data-aos="fade-right" data-aos-duration="3500">
 
                                             <div class="city-body">
                                                 <div class="package-location">

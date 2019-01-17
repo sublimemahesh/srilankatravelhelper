@@ -227,7 +227,7 @@ if (isset($_GET['album'])) {
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4 moredesti" >
-                            <div>
+                            <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
                                 <h3 class="headline text-center" >More Destinations</h3>
                             </div> 
                             <div class="row margin-left-4 moredest otherdestinaionmar">

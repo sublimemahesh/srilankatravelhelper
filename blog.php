@@ -171,7 +171,7 @@ if (isset($_GET['search'])) {
                                 $COUNTANSWERS = BlogAnswer::getAnswerCountByQuestion($question['id']);
                                 ?>
                                 <div class="">
-                                    <div class="question col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="700">
+                                    <div class="question col-md-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="500">
                                         <div class="answers-count <?php
                                         if ($COUNTANSWERS['count'] > 0) {
                                             echo 'active';
