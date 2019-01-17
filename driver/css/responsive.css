@@ -118,6 +118,10 @@ and open the template in the editor.
     .view-booking-details .row.msg {
         height: auto;
     }
+    .viewbookingtabpane {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
 @media(min-width:577px) and (max-width:990px) {
@@ -175,6 +179,10 @@ and open the template in the editor.
     }
     .header-topic h2 {
         text-align: right;
+    }
+    .viewbookingtabpane {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
 }

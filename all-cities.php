@@ -215,7 +215,7 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     $LOCATION = Location::all();
                     foreach ($LOCATION as $key => $city) {
                         ?>
-                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-sm" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="300">
+                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-sm" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                             <div class="single-package-carasoul">
                                 <div class="package-location">
                                     <img src="upload/location/<?php echo $city['image_name']; ?>" alt="">

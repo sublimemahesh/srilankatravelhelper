@@ -164,7 +164,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-45 padding-top-45" >
             <div class="row">
-                <div class="col-md-9 col-sm-9" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
+                <div class="col-md-9 col-sm-9" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                     <div class="item1">
                         <div class="padding-top-10">
@@ -201,7 +201,7 @@ if ($divider1 == 0) {
                         <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                <div class="col-md-3 col-sm-3" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
                     <div class="moretourpack">
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>

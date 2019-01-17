@@ -390,6 +390,20 @@ a:hover {
 .icon-text.icon-text1 {
     padding: 10px 5px;
 }
+.viewbookingtable {
+    text-align: center;
+}
+.viewbookingtabpane {
+    padding-top: 146px;
+ 
+}
+.viewbookingtable th{
+      text-align: center; 
+}
+.viewbookingtable td{
+    text-align: center;
+}
+
 
 
 
