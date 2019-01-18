@@ -53,6 +53,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
                                                 <th>Visitor</th>
@@ -62,6 +63,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         </thead>
                                         <tfoot>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
                                                 <th>Visitor</th>
@@ -72,11 +74,13 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         <tbody>
 
                                             <?php
+                                            $i = 0;
                                             foreach (TailorMadeTours::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
                                                 $DRIVER = new Drivers($booking['driver']);
-                                                
+                                                $i++;
                                                 ?>
                                                 <tr id="row_<?php echo $booking['id']; ?>">
+                                                    <td><?php echo $i; ?></td> 
                                                     <td><?php echo $booking['id']; ?></td> 
                                                     <td><?php echo $booking['date_time_booked']; ?></td> 
                                                   

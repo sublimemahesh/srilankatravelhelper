@@ -57,8 +57,8 @@ $places = unserialize($BOOKING->places);
                             </div>
                             <div class ="panel-body">
                                 <div class ="col-md-8 col-md-offset-2">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable viewbookingtable ">
-                                        <thead>
+                                    <table class="table table-bordered table-striped table-hover viewbookingtable">
+                                        
                                             <tr>
                                                 <th>Booked At</th>
                                                 <td>  <?php echo $BOOKING->date_time_booked; ?> </td>
@@ -69,18 +69,15 @@ $places = unserialize($BOOKING->places);
                                             </tr>
                                             <tr>
                                                 <th>Destinations</th>
-                                                <td> <?php
+                                                <td><?php
                                                     foreach ($places as $place) {
                                                         $DESTINATION = new Destination($place);
                                                         ?>
-                                                        <div class="col-md-12">
-                                                            <a href="../destination-type-one-item-view-page.php?id=<?php echo $place; ?>" target="_blank" ><?php echo $DESTINATION->name; ?></a>
-                                                        </div> 
-
-
+                                                        <div class="col-md-9"><a href="../destination-type-one-item-view-page.php?id=<?php echo $place; ?>" target="_blank" ><?php echo $DESTINATION->name; ?></a></div> 
+                                                        <div class="col-md-3 title"></div>
                                                         <?php
                                                     }
-                                                    ?> </td>
+                                                    ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Start Date</th>
@@ -110,7 +107,6 @@ $places = unserialize($BOOKING->places);
                                                 <th>Message</th>
                                                 <td> <?php echo $BOOKING->message; ?> </td>
                                             </tr>
-                                        </thead>
                                     </table>
 
                                     <div class="btn btn-list col-md-12 <?php

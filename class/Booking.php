@@ -1336,7 +1336,7 @@ class Booking {
         $MESSAGE->sender = 'driver';
         $result = $MESSAGE->create();
 
-        return TRUE;
+        return $result;
 
     }
 }
