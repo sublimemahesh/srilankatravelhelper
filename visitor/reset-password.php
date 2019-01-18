@@ -27,13 +27,10 @@ if ($count1 == 0) {
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <style>
-            input[type="button"].signup-btn  {
-                background: red;
-                width: 117px;
-                height: 45px;
-                color: #fff;
-                border: 0px
-                    
+            input[type="submit"].signup-btn {
+                border-radius: 0px;
+                background-color: #dc1a00;
+                width: 200px;
             }
         </style>
     </head>
@@ -41,7 +38,7 @@ if ($count1 == 0) {
         <div class="wrapper">
             <header id="">
                 <!-- Header -->
-                  <?php include './index-header.php'; ?>
+                <?php include './index-header.php'; ?>
 
                 <!-- Header / End -->
 
@@ -88,7 +85,7 @@ if ($count1 == 0) {
                                     ?>
                                     <input type="hidden" id="msg" value="<?php echo $message->description; ?>" />
                                     <div class="error-msg1 hidden">
-                                        <div class="pull-left" id="message"><?php echo $message->description; ?></div>
+                                        <div class="pull-left msg-display" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
 
                                     </div>
@@ -146,11 +143,15 @@ if ($count1 == 0) {
             $(document).ready(function () {
                 var message = $('#msg').val();
 
-                if (message.length > 35) {
+                if (message.length > 47) {
                     $('.error-msg1').removeClass('hidden');
                 } else {
                     $('.error-msg').removeClass('hidden');
                 }
+                setTimeout(function () {
+                    $('.msg-display').css('display', 'block');
+                }, 1000);
+
             });
 
             $(window).load(function () {
@@ -166,6 +167,5 @@ if ($count1 == 0) {
                 }
             });
         </script>
-
     </body>
 </html>

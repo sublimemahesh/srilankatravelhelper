@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.login-box').addClass('login-box1');
     $('#sign-in').click(function () {
         $('#signup-form').addClass('hidden');
         $('#signin-form').removeClass('hidden');

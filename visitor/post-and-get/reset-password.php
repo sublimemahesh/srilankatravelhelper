@@ -12,19 +12,18 @@ if (empty($email)) {
 }
 
 if ($VISITOR->checkEmail($email)) {
-
-    if ($VISITOR->GenarateCode($email)) {
+    $code = $VISITOR->GenarateCode($email);
+    if ($code) {
         $res = $VISITOR->SelectForgetVisitor($email);
-
         $email = $VISITOR->email;
-        $resetcode = $VISITOR->resetCode;
+        $resetcode = $code;
 
         date_default_timezone_set('Asia/Colombo');
 
         $todayis = date("l, F j, Y, g:i a");
 
-        $subject = 'Driver - Password Reset';
-        $from = 'noreply@sublime.lk'; // give from email address
+        $subject = 'Visitor - Password Reset';
+        $from = 'info@galle.website'; // give from email address
 
 
         $headers = "From: " . $from . "\r\n";
@@ -34,7 +33,7 @@ if ($VISITOR->checkEmail($email)) {
 
         $html = "<table style='border:solid 1px #F0F0F0; font-size: 15px; font-family: sans-serif; padding: 0;'>";
 
-        $html .= "<tr><th colspan='3' style='font-size: 18px; padding: 30px 25px 0 25px; color: #fff; text-align: center; background-color: #4184F3;'><h2>Srilanka Travel Helper</h2> </th> </tr>";
+        $html .= "<tr><th colspan='3' style='font-size: 18px; padding: 30px 25px 0 25px; color: #fff; text-align: center; background-color: #4184F3;'><h2>Tour Sri Lanka</h2> </th> </tr>";
 
         $html .= "<tr><td colspan='3' style='font-size: 16px; padding: 20px 25px 10px 25px; color: #333; text-align: left; background-color: #fff;'><h3>" . $subject . "</h3> </td> </tr>";
 

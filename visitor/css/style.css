@@ -220,7 +220,11 @@ h4 a {
 h4 a:hover {
     color: #fff;
     text-decoration: none;
-    
+
+}
+input[type="submit"].signup-btn {
+    border-radius: 0px;
+    background-color: #dc1a00;
 }
 @media(max-width:576px) {
     .box {

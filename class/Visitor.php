@@ -327,7 +327,7 @@ class Visitor {
         $result = $db->readQuery($query);
 
         if ($result) {
-            return TRUE;
+            return $rand;
         } else {
             return FALSE;
         }

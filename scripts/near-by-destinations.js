@@ -29,7 +29,7 @@ $(document).ready(function () {
                 } else if (locations) {
                     $('.nearbydestinations-carousel').empty();
                     $.each(locations, function (key, location) {
-                        
+                        alert(location.location.id);
                         var html1 = '';
                         
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
                         html += '</div>';
                         html += '<div class="package-details">';
                         html += '<div class="package-places">';
-                        html += '<a href="destinations-by-city.php?city="' + location.location.id + '">';
+                        html += '<a href="destinations-by-city.php?city=' + location.location.id + '">';
                         html += '<h4>' + name + '</h4>';
                         html += '</a>';
                         html += html1;
@@ -150,7 +150,7 @@ $(document).ready(function () {
                             html += '</div>';
                             html += '<div class="package-details">';
                             html += '<div class="package-places">';
-                            html += '<a href="destinations-by-city.php?city="' + location.location.id + '">';
+                            html += '<a href="destinations-by-city.php?city=' + location.location.id + '">';
                             html += '<h4>' + name + '</h4>';
                             html += '</a>';
                             html += html1;
