@@ -149,6 +149,7 @@ $(document).ready(function () {
                                 timer: 2000,
                                 showConfirmButton: false
                             });
+                            window.location.replace("visitor/manage-active-bookings.php");
                         }
 
                     }
@@ -179,6 +180,7 @@ $(document).ready(function () {
                                 timer: 2000,
                                 showConfirmButton: false
                             });
+                            
                         } else {
                             swal({
                                 title: "Success!",
@@ -187,6 +189,7 @@ $(document).ready(function () {
                                 timer: 2000,
                                 showConfirmButton: false
                             });
+                            window.location.replace("visitor/manage-active-tailormade-bookings.php");
                         }
 
                     }

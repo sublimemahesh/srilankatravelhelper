@@ -22,15 +22,15 @@ if (isset($_POST['set-price'])) {
             $sendmessage = $BOOKING->sendSetPriceMessageToVisitor($result->id);
 
             if ($sendmessage) {
-                $VISITOR = new Visitor($sendmessage->visitor);
-                $DRIVER = new Drivers($sendmessage->driver);
+                $VISITOR = new Visitor($sendmessage['visitor']);
+                $DRIVER = new Drivers($sendmessage['driver']);
 
                 $driver_name = $DRIVER->name;
                 $driver_image_name = $DRIVER->profile_picture;
-                $message = $sendmessage->messages;
-                $datetime = $sendmessage->date_and_time;
+                $message = $sendmessage['messages'];
+                $datetime = $sendmessage['date_and_time'];
                 $visitor_email = $VISITOR->email;
-                $driver_id = $sendmessage->driver;
+                $driver_id = $sendmessage['driver'];
                 $site_link = "http://" . $_SERVER['HTTP_HOST'];
                 $website_name = 'www.toursrilanka.travel';
                 $comany_name = 'Tour Sri Lanka';
@@ -232,18 +232,16 @@ if (isset($_POST['set-price'])) {
                             </body>
                         </html>';
 
-                if(mail($visitor_email, $subject, $html, $headers)) {
-                    return true;
+                if (mail($visitor_email, $subject, $html, $headers)) {
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    $VALID->addError("Your data was saved successfully", 'success');
+                    $_SESSION['ERRORS'] = $VALID->errors();
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
             }
         }
-
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-        $VALID->addError("Your data was saved successfully", 'success');
-        $_SESSION['ERRORS'] = $VALID->errors();
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else {
 
         if (!isset($_SESSION)) {

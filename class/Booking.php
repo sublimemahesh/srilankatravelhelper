@@ -1099,6 +1099,7 @@ class Booking {
 
         $DRIVER = new Drivers($BOOKING->driver);
         $VISITOR = new Visitor($BOOKING->visitor);
+        $TOUR = new TourPackages($BOOKING->tour_package);
 
 
         $visitor_email = $VISITOR->email;
