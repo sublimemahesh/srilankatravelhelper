@@ -49,6 +49,16 @@ if (isset($_POST['set-price'])) {
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
+                if (empty($DRIVER->profile_picture)) { 
+                 $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="upload/driver/driver.png" alt="Profile Picture" class="CToWUd" width="60"/>';
+                } else {
+                    if ($DRIVER->facebookID) {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="<?php echo $VIS->profile_picture; ?>" alt="Profile Picture" class="CToWUd" width="60"/>';
+                    } else {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">';
+                    }
+                }
+                
                 $html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                         <html xmlns="http://www.w3.org/1999/xhtml">
                             <head>
@@ -70,8 +80,9 @@ if (isset($_POST['set-price'])) {
                                                             </tr>
                                                             <tr>
                                                                 <td style="border-collapse:collapse" valign="middle" align="center">
-                                                                    <img alt="Logo" src="' . $site_link . '/images/logo/logo.png" style="outline:none;text-decoration:none;border:none" class="CToWUd" height="55px" align="middle">
-                                                                </td>
+                                                                    <img alt="Logo" src="' . $site_link . '/images/logo/logo-1.png" style="outline:none;text-decoration:none;border:none" class="CToWUd" height="55px" align="middle">
+                                                                
+</td>
                                                             </tr>           
                                                             <tr>
                                                                 <td style="border-collapse:collapse" width="100%" height="12">
@@ -115,8 +126,10 @@ if (isset($_POST['set-price'])) {
                                                                                                             <tbody>
                                                                                                                 <tr>
                                                                                                                     <td style="border-collapse:collapse" width="40" valign="top" align="right">
-                                                                                                                        <img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">
-                                                                                                                    </td>
+                                                                                                                     ' . $html1 . '
+//                                                                                                                        <img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">
+                                                                                                                                                                                                                                                            
+                                                                                                                         </td>
                                                                                                                     <td style="border-collapse:collapse" width="8" valign="top"></td>
                                                                                                                     <td style="border-collapse:collapse;min-width:100%" width="400" valign="top">
                                                                                                                         <div style="line-height:20px;color:#888;text-align:left;font-size:13px!important;color:rgba(0,0,0,0.8)">
