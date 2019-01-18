@@ -61,9 +61,9 @@ if (isset($_GET['search'])) {
     <body>
         <div id="wrapper">
             <?php include './header.php'; ?>
-            <div class="container-fluid about-bg ">
+            <div class="container-fluid about-bg " >
                 <div class="container" >
-                    <div class="rl-banner" data-aos-easing="linear" data-aos-duration="3500" >
+                    <div class="rl-banner" data-aos="fade-up" data-aos-duration="3500" >
                         <h2 class="tp">Destination</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
@@ -72,10 +72,10 @@ if (isset($_GET['search'])) {
                     </div>
                 </div>
             </div>
-            <div class="destinations-search main-search-inner">
+            <div class="destinations-search main-search-inner" >
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 col-md-offset-3 col-sm-5 col-sm-offset-6 seabox">
+                        <div class="col-md-9 col-md-offset-3 col-sm-5 col-sm-offset-6 seabox" data-aos="fade-down" data-aos-duration="3500">
                             <form id="blog-search" action="all-destinations.php" method="get">
                                 <div class=" main-search-input">
 
@@ -102,7 +102,7 @@ if (isset($_GET['search'])) {
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-lg-3 col-md-4 col-sm-5">
-                        <div class="boxed-widget opening-hours margin-top-25" data-aos="fade-right" data-aos-duration="3500">
+                        <div class="boxed-widget opening-hours margin-top-25" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
                             <h3><i class="fa fa-map-marker"></i>Destination Types</h3>
                             <ul>
@@ -112,7 +112,7 @@ if (isset($_GET['search'])) {
                                     $count = Destination::countTotalDestinationsOfType($type['id']);
                                     ?>
                                     <a href="destination-type-view-page.php?id=<?php echo $type["id"]; ?>" >
-                                        <div class="dest-type col-md-12">
+                                        <div class="dest-type col-md-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                             <h4  title="<?php echo $type['name']; ?>">
 
                                                 <?php
@@ -183,7 +183,7 @@ if (isset($_GET['search'])) {
 
                     </div>
                     <!-- Sidebar / End -->
-                    <div class="col-lg-9 col-md-8 col-sm-7 padding-right-30" data-aos="fade-left" data-aos-duration="3500">
+                    <div class="col-lg-9 col-md-8 col-sm-7 padding-right-30">
                         <!-- Sorting / Layout Switcher -->
                         <div class="row margin-bottom-25">
                         </div>
@@ -192,7 +192,7 @@ if (isset($_GET['search'])) {
                             foreach ($DESTINATIONS as $key => $destination) {
                                 ?>
                                 <!-- Listing Item -->
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-lg-12 col-md-12" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
                                     <div class="listing-item-container list-layout">
                                         <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>" class="listing-item">
 
