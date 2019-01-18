@@ -1,6 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 $city = '';
 if (isset($_GET['city'])) {
     $city = $_GET['city'];

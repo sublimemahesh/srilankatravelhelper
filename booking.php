@@ -323,7 +323,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                         <span class="reviews"> (<?php echo $sum1; ?> Reviews)</span>
                                                                     </div>
                                                                     <div class="drivercity">
-                                                                        City: <span class="cityname" id="cityname-<?php echo $DRIVER->id; ?>" cityid=""></span>
+                                                                        City: <span class="cityname" id="cityname-<?php echo $DRIVER->id; ?>" cityid=""><?php echo $DRIVER->cityname; ?></span>
                                                                     </div>
                                                                     <div class="drivercity">
                                                                         Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
@@ -453,8 +453,14 @@ $VISITOR = new Visitor($_SESSION['id']);
 
     <script>
                                                                 $(function () {
-                                                                    $("#startdate").datepicker({dateFormat: "yy-mm-dd"}).val()
-                                                                    $("#enddate").datepicker({dateFormat: "yy-mm-dd"}).val()
+                                                                    $("#startdate").datepicker({
+                                                                        dateFormat: "yy-mm-dd",
+                                                                        minDate: 0
+                                                                    }).val();
+                                                                    $("#enddate").datepicker({
+                                                                        dateFormat: "yy-mm-dd",
+                                                                        minDate: 1
+                                                                    }).val()
                                                                 });
                                                                 function selectItem(id) {
                                                                     $('.driver-item').removeClass('selected');

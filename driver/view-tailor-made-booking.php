@@ -32,7 +32,7 @@ $places = unserialize($BOOKING->places);
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-8">
+                <div class="col-md-9 col-sm-9">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -56,68 +56,80 @@ $places = unserialize($BOOKING->places);
                             <div class="panel-heading ">
                                 View Tailor Made Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
-                            <div class ="col-md-8 col-md-offset-2 viewbookingtabpane">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable viewbookingtable ">
-                                    <thead>
+                            <div class="panel-body">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table class="table table-bordered table-striped table-hover viewbookingtable">
                                         <tr>
-                                            <th>Booked At</th>
-                                            <td>  <?php echo $BOOKING->date_time_booked; ?> </td>
+                                            <th width="260">Booked At</th>
+                                            <td><?php echo $BOOKING->date_time_booked; ?></td>
                                         </tr>
                                         <tr>
-                                            <th>  Visitor </th>
-                                            <td> <?php echo $VISITOR->name; ?> </td>
+                                            <th>Visitor</th>
+                                            <td><?php echo $VISITOR->name; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Destinations</th>
-                                            <td> <?php
+                                            <td><?php
                                                 foreach ($places as $place) {
                                                     $DESTINATION = new Destination($place);
                                                     ?>
-                                                    <div class="col-md-12">
-                                                        <a href="../destination-type-one-item-view-page.php?id=<?php echo $place; ?>" target="_blank" ><?php echo $DESTINATION->name; ?></a>
-                                                    </div> 
-
-
+                                                    <div class="col-md-9"><a href="../destination-type-one-item-view-page.php?id=<?php echo $place; ?>" target="_blank" ><?php echo $DESTINATION->name; ?></a></div> 
+                                                    <div class="col-md-3 title"></div>
                                                     <?php
                                                 }
-                                                ?> </td>
+                                                ?></td>
                                         </tr>
                                         <tr>
                                             <th>Start Date</th>
-                                            <td> <?php echo $BOOKING->start_date; ?></td>
+                                            <td><?php echo $BOOKING->start_date; ?></td>
                                         </tr>
                                         <tr>
                                             <th>End Date</th>
-                                            <td> <?php echo $BOOKING->end_date; ?> </td>
+                                            <td><?php echo $BOOKING->end_date; ?></td>
                                         </tr>
                                         <tr>
                                             <th>No of Adults</th>
-                                            <td> <?php echo $BOOKING->no_of_adults; ?> </td>
+                                            <td><?php echo $BOOKING->no_of_adults; ?></td>
                                         </tr>
                                         <tr>
                                             <th>No of Children</th>
-                                            <td> <?php echo $BOOKING->no_of_children; ?></td>
+                                            <td><?php echo $BOOKING->no_of_children; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Price</th>
-                                            <td> <?php echo 'USD ' . $BOOKING->price; ?> </td>
+                                            <td><?php echo 'USD ' . $BOOKING->price; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Status</th>
-                                            <td> <?php echo ucwords($BOOKING->status); ?> </td>
+                                            <td><?php echo ucwords($BOOKING->status); ?></td>
                                         </tr>
                                         <tr>
                                             <th>Message</th>
-                                            <td> <?php echo $BOOKING->message; ?> </td>
+                                            <td><?php echo $BOOKING->message; ?></td>
                                         </tr>
-                                    </thead>
-                                </table>
+                                    </table>
+
+                                    <div class="btn btn-list col-md-12 <?php
+                                    if ($BOOKING->status === 'canceled') {
+                                        echo 'hidden';
+                                    }
+                                    ?>">
+                                        <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
+                                        <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
+                                        <a href="set-price-for-tailor-made-booking.php?id=<?php echo $BOOKING->id; ?>" class="btn btn-warning">Set Price</a> 
+                                    </div>
+                                    <div class="btn btn-list col-md-12 <?php
+                                    if ($BOOKING->status === 'active') {
+                                        echo 'hidden';
+                                    }
+                                    ?>">
+                                        <a href="manage-canceled-tailormade-bookings.php" class="btn btn-info">Back</a> 
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <?php
             include './footer.php';

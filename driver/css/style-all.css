@@ -398,12 +398,18 @@ a:hover {
  
 }
 .viewbookingtable th{
-      text-align: center; 
+      text-align: left; 
 }
 .viewbookingtable td{
-    text-align: center;
+    text-align: left;
 }
-
+.btn.btn-list {
+    text-align: right;
+    margin-top: 20px;
+}
+.btn.btn-list.col-md-12 {
+    padding-right: 0px;
+}
 
 
 

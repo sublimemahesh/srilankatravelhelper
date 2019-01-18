@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
     $DRIVER->email = mysql_real_escape_string($_POST['email']);
     $DRIVER->address = filter_input(INPUT_POST, 'address');
     $DRIVER->city = filter_input(INPUT_POST, 'cityid');
-    $DRIVER->cityname = filter_input(INPUT_POST, 'city_name');
+    $DRIVER->cityname = filter_input(INPUT_POST, 'cityname');
     $DRIVER->contact_number = filter_input(INPUT_POST, 'contact_number');
     $DRIVER->nic_number = filter_input(INPUT_POST, 'nic_number');
     $DRIVER->driving_licence_number = filter_input(INPUT_POST, 'driving_licence_number');

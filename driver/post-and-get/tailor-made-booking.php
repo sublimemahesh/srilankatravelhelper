@@ -232,20 +232,17 @@ if (isset($_POST['set-price'])) {
                             </body>
                         </html>';
 
-                if(mail($visitor_email, $subject, $html, $headers)) {
-                    return true;
+                if (mail($visitor_email, $subject, $html, $headers)) {
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    $VALID->addError("Your data was saved successfully", 'success');
+                    $_SESSION['ERRORS'] = $VALID->errors();
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
             }
         }
-
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-        $VALID->addError("Your data was saved successfully", 'success');
-        $_SESSION['ERRORS'] = $VALID->errors();
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-
         if (!isset($_SESSION)) {
             session_start();
         }
