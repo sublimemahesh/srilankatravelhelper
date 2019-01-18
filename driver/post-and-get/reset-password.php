@@ -12,12 +12,12 @@ if (empty($email)) {
 }
 
 if ($DRIVER->checkEmail($email)) {
-
-    if ($DRIVER->GenarateCode($email)) {
+$code = $DRIVER->GenarateCode($email);
+    if ($code) {
         $res = $DRIVER->SelectForgetDriver($email);
 
         $email = $DRIVER->email;
-        $resetcode = $DRIVER->resetCode;
+        $resetcode = $code;
        
         date_default_timezone_set('Asia/Colombo');
 

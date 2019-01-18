@@ -27,13 +27,10 @@ if ($count1 == 0) {
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <style>
-            input[type="button"].signup-btn  {
-                background: red;
-                width: 117px;
-                height: 45px;
-                color: #fff;
-                border: 0px
-                    
+            input[type="submit"].signup-btn {
+                border-radius: 0px;
+                background-color: #dc1a00;
+                width: 137px;
             }
         </style>
     </head>
@@ -41,7 +38,7 @@ if ($count1 == 0) {
         <div class="wrapper">
             <header id="">
                 <!-- Header -->
-                 <?php include './index-header.php'; ?>
+                <?php include './index-header.php'; ?>
                 <!-- Header / End -->
 
             </header>
@@ -141,14 +138,14 @@ if ($count1 == 0) {
         <script type="text/javascript" src="../scripts/tooltips.min.js"></script>
 
         <script>
-            $(document).ready(function() {
-               var message = $('#msg').val();
-               
-               if(message.length > 35) {
-                   $('.error-msg2').removeClass('hidden');
-               } else {
-                   $('.error-msg').removeClass('hidden');
-               }
+            $(document).ready(function () {
+                var message = $('#msg').val();
+
+                if (message.length > 35) {
+                    $('.error-msg2').removeClass('hidden');
+                } else {
+                    $('.error-msg').removeClass('hidden');
+                }
             });
         </script>
 

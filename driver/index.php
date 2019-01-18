@@ -29,16 +29,7 @@ if ($count1 == 0) {
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
-        <style>
-            input[type="button"].signup-btn  {
-                background: red;
-                width: 117px;
-                height: 45px;
-                color: #fff;
-                border: 0px
-
-            }
-        </style>
+        
     </head>
     <body>
         <div class="wrapper">
@@ -73,11 +64,11 @@ if ($count1 == 0) {
                                 <a href="#"><i class="fa fa-google-plus icons"></i></a>-->
 
                             </div>
-                            <div class="login-link">
+                            <div class="login-link hidden">
                                 <h2>Already have an account?</h2>
                                 <a href="#"><h1 id="sign-in">Sign In</h1></a>
                             </div>
-                            <div class="login-link1 hidden">
+                            <div class="login-link1">
                                 <!--                                <h2>Already have an account?</h2>-->
                                 <a href="#"><h1 id="sign-up">Create an Account</h1></a>
                             </div>
@@ -85,7 +76,7 @@ if ($count1 == 0) {
                         </div>
                         <div class="login-box col-md-6 col-xs-12">
 
-                            <form id="signup-form" class="">
+                            <form id="signup-form" class="hidden">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
@@ -110,10 +101,10 @@ if ($count1 == 0) {
                                 <input type="text" name="username" id="username" class="form-control" placeholder="User Name" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
-                                <input type="button" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
+                                <input type="submit" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
                                 <input type="hidden" name="save" value="save"/>
                             </form>
-                            <form id="signin-form" class="hidden" method="post" action="post-and-get/driver.php">
+                            <form id="signin-form" method="post" action="post-and-get/driver.php">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
@@ -175,7 +166,7 @@ if ($count1 == 0) {
             var message = $('#msg').val();
             var msgid = $('#msg').attr('msgid');
 
-            if (message.length > 35) {
+            if (message.length > 43) {
                 $('.error-msg1').removeClass('hidden');
                 $('.login-box').addClass('login-box4');
 

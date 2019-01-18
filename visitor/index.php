@@ -28,7 +28,7 @@ if ($count1 == 0) {
 ?>
 <html>
     <head>
-          <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Visitor DashBoard</title>
         <link href="../css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -41,21 +41,14 @@ if ($count1 == 0) {
         <link href="../slider-css/revolution_settings.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <style>
-            input[type="button"].signup-btn  {
-                background: red;
-                width: 117px;
-                height: 45px;
-                color: #fff;
-                border: 0px
-
-            }
+            
         </style>
     </head>
     <body>
         <div class="wrapper">
             <header id="">
                 <!-- Header -->
-               <?php include './index-header.php'; ?>
+                <?php include './index-header.php'; ?>
                 <!-- Header / End -->
 
             </header>
@@ -87,11 +80,11 @@ if ($count1 == 0) {
 
 
                             </div>
-                            <div class="login-link">
+                            <div class="login-link hidden">
                                 <h2>Already have an account?</h2>
                                 <a href="#"><h1 id="sign-in">Sign In</h1></a>
                             </div>
-                            <div class="login-link1 hidden">
+                            <div class="login-link1">
                                 <!--                                <h2>Already have an account?</h2>-->
                                 <a href="#"><h1 id="sign-up">Create an Account</h1></a>
                             </div>
@@ -99,10 +92,11 @@ if ($count1 == 0) {
                         </div>
                         <div class="login-box col-md-6 col-xs-12">
 
-                            <form id="signup-form" class="">
+                            <form id="signup-form" class="hidden">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
+                                    
                                     ?>
                                     <input type="hidden" id="msg" value="<?php echo $message->description; ?>" msgid = "<?php echo $_GET['message']; ?>" />
                                     <div class="error-msg1 hidden">
@@ -123,10 +117,10 @@ if ($count1 == 0) {
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
                                 <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
-                                <input type="button" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
+                                <input type="submit" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
                                 <input type="hidden" name="save" value="save"/>
                             </form>
-                            <form id="signin-form" class="hidden" method="post" action="post-and-get/visitor.php">
+                            <form id="signin-form" method="post" action="post-and-get/visitor.php">
                                 <?php
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
@@ -159,7 +153,7 @@ if ($count1 == 0) {
                 </div>
 
             </div>
-            <?php include './index-footer.php';?>
+            <?php include './index-footer.php'; ?>
         </div>
         <script type="text/javascript" src="../scripts/jquery-2.2.0.min.js"></script>
                 <!--<script src="js/jquery_2.2.4.js" type="text/javascript"></script>-->
@@ -179,63 +173,58 @@ if ($count1 == 0) {
         <!--<script src="js/customjs.js" type="text/javascript"></script>-->
 
         <script>
-//            $(document).ready(function () {
 
-    
+            var message = $('#msg').val();
+            var msgid = $('#msg').attr('msgid');
+            if (message.length > 43) {
+                $('.error-msg1').removeClass('hidden');
+                $('.login-box').addClass('login-box4');
 
+            } else {
+                $('.error-msg').removeClass('hidden');
+                $('.login-box').addClass('login-box4');
+            }
 
-                var message = $('#msg').val();
-                var msgid = $('#msg').attr('msgid');
+            if (msgid == 15) {
+                $('#signin-form').removeClass('hidden');
+                $('#signup-form').addClass('hidden');
+                $('.login-box').addClass('login-box5');
+                $('.login-box').removeClass('login-box4');
+                $('.login-link1').removeClass('hidden');
+                $('.login-link').addClass('hidden');
 
-                if (message.length > 35) {
-                    $('.error-msg1').removeClass('hidden');
+                $('#sign-up').click(function () {
                     $('.login-box').addClass('login-box4');
-
-                } else {
-                    $('.error-msg').removeClass('hidden');
-                    $('.login-box').addClass('login-box4');
-                }
-
-                if (msgid == 15) {
-                    $('#signin-form').removeClass('hidden');
-                    $('#signup-form').addClass('hidden');
-                    $('.login-box').addClass('login-box5');
-                    $('.login-box').removeClass('login-box4');
-                    $('.login-link1').removeClass('hidden');
-                    $('.login-link').addClass('hidden');
-
-                    $('#sign-up').click(function () {
-                        $('.login-box').addClass('login-box4');
-                        $('.login-box').removeClass('login-box5');
-                    });
-                }
+                    $('.login-box').removeClass('login-box5');
+                });
+            }
 //            });
 
 //            $(window).load(function () {
-                var width = $(window).width();
+            var width = $(window).width();
 
-                if (width > 900) {
+            if (width > 900) {
 
-                    var contentheight = $(window).height() - 200;
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else if (width > 760) {
+                $('.content').css('height', contentheight);
+            } else if (width > 760) {
 
-                    var contentheight = $(window).height() - 200;
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else if (width === 600) {
-                    var contentheight = $(window).height() + 200;
+                $('.content').css('height', contentheight);
+            } else if (width === 600) {
+                var contentheight = $(window).height() + 200;
 
-                    $('.content').css('height', contentheight);
-                } else if (width > 576) {
-                    var contentheight = $(window).height() - 200;
+                $('.content').css('height', contentheight);
+            } else if (width > 576) {
+                var contentheight = $(window).height() - 200;
 
-                    $('.content').css('height', contentheight);
-                } else {
-                    var contentheight = $(window).height() - 218;
-                    $('.content').css('height', contentheight);
-                }
+                $('.content').css('height', contentheight);
+            } else {
+                var contentheight = $(window).height() - 218;
+                $('.content').css('height', contentheight);
+            }
 //            });
 
         </script>
