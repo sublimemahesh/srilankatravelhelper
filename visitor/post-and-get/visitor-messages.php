@@ -3,7 +3,7 @@
 include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if (isset($_POST['visitor-message'])) {
-    
+
     $DRIVERVISITORMESSAGE = new DriverAndVisitorMessages(NULL);
     $VALID = new Validator();
 
@@ -14,56 +14,46 @@ if (isset($_POST['visitor-message'])) {
     $DRIVERVISITORMESSAGE->sender = $_POST['sender'];
     $VALID->check($DRIVERVISITORMESSAGE, [
         'messages' => ['required' => TRUE],
+        'visitor' => ['required' => TRUE],
         'sender' => ['required' => TRUE]
     ]);
     if ($VALID->passed()) {
-        $RESULT = $DRIVERVISITORMESSAGE->create();
+        if ($DRIVERVISITORMESSAGE->driver) {
+            $RESULT = $DRIVERVISITORMESSAGE->create();
 
-        if (!isset($_SESSION)) {
-            session_start();
-        }
+            if (!isset($_SESSION)) {
+                session_start();
+            }
 
-//        if ($RESULT) {
-//            $VALID->addError("Your message was sent successfully.", 'success');
-//            $_SESSION['ERRORS'] = $VALID->errors();
-//            header('Location: ' . $_SERVER['HTTP_REFERER']);
-//        } else {
-//            $VALID->addError("There was an error..!.", 'danger');
-//            $_SESSION['ERRORS'] = $VALID->errors();
-//            header('Location: ' . $_SERVER['HTTP_REFERER']);
-//        }
+            if ($RESULT) {
+                $VISITOR = new Visitor($RESULT->visitor);
+                $DRIVER = new Drivers($RESULT->driver);
 
+                $visitor_name = $VISITOR->name;
+                $visitor_image_name = $VISITOR->profile_picture;
+                $message = $RESULT->messages;
+                $datetime = $RESULT->date_and_time;
+                $driver_email = $DRIVER->email;
+                $visitor_id = $RESULT->visitor;
+                $site_link = "http://" . $_SERVER['HTTP_HOST'];
+                $website_name = 'www.toursrilanka.travel';
+                $comany_name = 'Tour Sri Lanka';
+                $comConNumber = '+94 71 890 5282';
+                $comEmail = 'noreply@toursrilanka.travel';
+                date_default_timezone_set('Asia/Colombo');
 
+                $todayis = date("l, F j, Y, g:i a");
 
-        if ($RESULT) {
-            $VISITOR = new Visitor($RESULT->visitor);
-            $DRIVER = new Drivers($RESULT->driver);
-
-            $visitor_name = $VISITOR->name;
-            $visitor_image_name = $VISITOR->profile_picture;
-            $message = $RESULT->messages;
-            $datetime = $RESULT->date_and_time;
-            $driver_email = $DRIVER->email;
-            $visitor_id = $RESULT->visitor;
-            $site_link = "http://" . $_SERVER['HTTP_HOST'];
-            $website_name = 'www.toursrilanka.travel';
-            $comany_name = 'Tour Sri Lanka';
-            $comConNumber = '+94 71 890 5282';
-            $comEmail = 'noreply@toursrilanka.travel';
-            date_default_timezone_set('Asia/Colombo');
-
-            $todayis = date("l, F j, Y, g:i a");
-
-            $subject = $visitor_name . ' send a new message to you';
-            $from = 'info@toursrilanka.travel'; // give from email address
+                $subject = $visitor_name . ' send a new message to you';
+                $from = 'info@toursrilanka.travel'; // give from email address
 
 
-            $headers = "From: " . $from . "\r\n";
-            $headers .= "Reply-To: " . $from . "\r\n";
-            $headers .= "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                $headers = "From: " . $from . "\r\n";
+                $headers .= "Reply-To: " . $from . "\r\n";
+                $headers .= "MIME-Version: 1.0\r\n";
+                $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-            $html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                $html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                         <html xmlns="http://www.w3.org/1999/xhtml">
                             <head>
                                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -163,7 +153,7 @@ if (isset($_POST['visitor-message'])) {
                                                                                                 <tr>
                                                                                                     <td style="border-collapse:collapse" align="center">
 
-                                                                                                        <a href="' . $site_link . '/driver/driver-message.php?id='.$visitor_id.'" style="text-decoration:none;color:#24c7ff;text-align:center;font-size:16px;font-family:Helvetica,Arial,sans-serif;color:#ffffff;text-decoration:none;color:#ffffff;text-decoration:none;padding:10px;border-radius:6px;border:1px solid #24c7ff;display:inline-block;width:266px;background-color:#24c7ff; margin-top: 15px;" target="_blank"> 
+                                                                                                        <a href="' . $site_link . '/driver/driver-message.php?id=' . $visitor_id . '" style="text-decoration:none;color:#24c7ff;text-align:center;font-size:16px;font-family:Helvetica,Arial,sans-serif;color:#ffffff;text-decoration:none;color:#ffffff;text-decoration:none;padding:10px;border-radius:6px;border:1px solid #24c7ff;display:inline-block;width:266px;background-color:#24c7ff; margin-top: 15px;" target="_blank"> 
                                                                                                          Read the message
                                                                                                         </a>
                                                                                                     </td>
@@ -245,18 +235,30 @@ if (isset($_POST['visitor-message'])) {
                                 </table>
                             </body>
                         </html>';
-            if (mail($driver_email, $subject, $html, $headers)) {
+                if (mail($driver_email, $subject, $html, $headers)) {
 
-                $VALID->addError("Your message was sent successfully.", 'success');
+                    $VALID->addError("Your message was sent successfully.", 'success');
+                    $_SESSION['ERRORS'] = $VALID->errors();
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                } else {
+                    $VALID->addError("There was an error. Please try again !", 'danger');
+                    $_SESSION['ERRORS'] = $VALID->errors();
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                }
+            }
+        } else {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            if (empty($DRIVERVISITORMESSAGE->driver)) {
+                $VALID->addError("There was an error. Please select a driver !", 'danger');
                 $_SESSION['ERRORS'] = $VALID->errors();
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
             } else {
-                $VALID->addError("There was an error.please try again !", 'danger');
+                $VALID->addError("There was an error. Please try again !", 'danger');
                 $_SESSION['ERRORS'] = $VALID->errors();
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
             }
         }
     }
-}
-
-    
+}   
