@@ -10201,7 +10201,8 @@ span.like-icon {
 }
 
 .listing-item {
-    overflow: hidden
+    overflow: hidden;
+    z-index: 0;
 }
 
 .listing-badge {

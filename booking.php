@@ -12,10 +12,16 @@ if (isset($_GET["tour"])) {
     $TOUR = new TourPackages($tour);
     $REVIEWS = Reviews::getTotalReviewsOfTour($tour);
     $divider = $REVIEWS['count'];
+    
+    if ($divider == 0) {
+    $stars = 0;
+    $sum = 0;
+} else {
     $sum = $REVIEWS['sum'];
-
     $stars = $sum / $divider;
 }
+}
+
 if (isset($_GET['tailormade'])) {
     $tailormade = 'hidden';
     $places = serialize($_SESSION["destination_cart"]);

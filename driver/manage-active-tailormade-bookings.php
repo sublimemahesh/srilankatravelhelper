@@ -51,9 +51,10 @@ $DRIVER = new Drivers($_SESSION['id']);
                                 Manage Tailor Made Bookings
                             </div>
                             <div class="panel-body">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="datatable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Booking ID</th>
                                             <th>Booked At</th>                               
                                             <th>Visitor</th>
@@ -63,6 +64,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Booking ID</th>
                                             <th>Booked At</th>                               
                                             <th>Visitor</th>
@@ -76,8 +78,10 @@ $DRIVER = new Drivers($_SESSION['id']);
                                         $i = 0;
                                         foreach (TailorMadeTours::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
                                             $VISITOR = new Visitor($booking['visitor']);
+                                            $i++;
                                             ?>
                                             <tr id="row_<?php echo $booking['id']; ?>">
+                                                <td><?php echo $i; ?></td>
                                                 <td><?php echo $booking['id']; ?></td> 
                                                 <td><?php echo $booking['date_time_booked']; ?></td> 
 
@@ -153,10 +157,10 @@ include './footer.php';
         </script>
 <!--        <script>
             $(document).ready(function () {
-                $('.js-basic-example').DataTable({
+                $('#datatable').DataTable({
                     responsive: true,
                     "lengthMenu": [[100, 250, 500, 1000, -1], [100, 250, 500, 1000, "All"]],
-                    "order": [[ 1, "desc" ]]
+                    "order": [[ 2, "desc" ]]
                 });
             });
             
