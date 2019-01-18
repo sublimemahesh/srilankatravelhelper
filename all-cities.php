@@ -23,6 +23,10 @@ if (!isset($_SESSION)) {
         <link href="css/set1.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="css/colors/main.css" id="colors">
+
+
+
 
         <style>
             .tour-package-bg {
@@ -287,24 +291,23 @@ if (!isset($_SESSION)) {
                             </div>
                         </div>
 
-    <?php
-}
-?>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Pagination -->
                         <div class="pagination-container margin-top-20 margin-bottom-40">
-<?php // TourPackages::showPaginationOfTour($id, $setLimit, $page);   ?>
+                            <?php // TourPackages::showPaginationOfTour($id, $setLimit, $page);   ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- single popular destination  end-->
 
-<?php include './footer.php'; ?>
+        <?php include './footer.php'; ?>
     </div>
-
     <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script src="scripts/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -318,7 +321,7 @@ if (!isset($_SESSION)) {
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
-     <script src="scripts/aos.js" type="text/javascript"></script>
+    <script src="scripts/aos.js" type="text/javascript"></script>
     <script>
         AOS.init();
     </script>

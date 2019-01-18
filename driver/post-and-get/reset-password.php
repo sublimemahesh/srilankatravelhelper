@@ -18,7 +18,7 @@ if ($DRIVER->checkEmail($email)) {
 
         $email = $DRIVER->email;
         $resetcode = $DRIVER->resetCode;
-
+       
         date_default_timezone_set('Asia/Colombo');
 
         $todayis = date("l, F j, Y, g:i a");
@@ -46,7 +46,7 @@ if ($DRIVER->checkEmail($email)) {
 
         $html .= "</table>";
 
-        
+     
         
         if (mail($email, $subject, $html, $headers)) {
             header('Location: ../reset-password.php?message=12');

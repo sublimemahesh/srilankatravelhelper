@@ -172,6 +172,7 @@ if ($divider1 == 0) {
                             $TOUR_DATE = TourDate::getTourDatesById($id);
                             foreach ($TOUR_DATE as $key => $tour_date) {
                                 ?>
+                                <div data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                     <hr>
                                     <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
                                     <hr>
@@ -190,6 +191,7 @@ if ($divider1 == 0) {
                                         }
                                         ?>
 
+                                    </div>
                                 </div>
                                 <?php
                             }
@@ -445,8 +447,8 @@ if ($divider1 == 0) {
     </script>
     <script>
         <script>
-<<<<<<< HEAD
-        $(function () {
+<< <<<<< HEAD
+    $(function () {
                 $('#nav').on('click', '.nav-item', function (event) {
         event.preventDefault();
         var hash = this.hash;
@@ -455,9 +457,9 @@ if ($divider1 == 0) {
     }, 1000, function () {
                 window.location.hash = hash;
     });
-        });
-        });
-        </script>
+});
+    });
+    </script>
 =======
                 $(function () {
                         $('#nav').on('click', '.nav-item', function (event) {
@@ -472,34 +474,34 @@ if ($divider1 == 0) {
                 });
                 </script>
 >>>>>>> design corrections
-    <script>
-        $(document).ready(function () {
-                $('.owl-carousel').owlCarousel({
-        loop: true,
-                margin: 10,
-                nav: false,
-                responsive: {
-                0: {
-                items: 1
-                },
-    600: {
-                        items: 5
-                },
-    1000: {
-                        items: 5
-                },
-        1200: {
-                        items: 5
-            }
+                    <script>
+$(document).ready(fu                                nction () {
+                $('.owl-carousel').ow                        lCarousel({
+                                        loop: true,
+                                                margin: 10,
+                                                nav: false,
+                re                                sponsive: {
+                                         0: {
+                                 item                    s: 1
+    },                
+    600:                    {
+item                    s: 5
+    },
+                1000:                        {
+items: 5                        
         },
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: true,
-                animateOut: true,
-        });
-        });
-        </script>
+                    1200:                            {
+items: 5
+                              }
+                               },
+            auto                    play: true,
+    autoplayTim                eout: 2000,
+autoplayHoverP                ause: true,
+animat                            eOut: true,
+                                });
+            });                    
+</script>
 
-    </body>
+                </body>
 </html>
 
