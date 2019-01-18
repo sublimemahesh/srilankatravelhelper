@@ -46,9 +46,9 @@ if (!isset($_SESSION)) {
                         <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>
                         <ul class="contact-details">
                             <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>+94 71 666 7557 </span></li>
-                            <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>info@sublime.lk</span></li>
-                            <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.srilankatravelhelper.com</a></span></li>
-                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">info@sublime.lk</a></span></li>
+                            <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>+94 91 666 7557</span></li>
+                            <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.toursrilanka.travel</a></span></li>
+                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">info@toursrilanka.travel</a></span></li>
                         </ul>
                     </div>
                 </div>
