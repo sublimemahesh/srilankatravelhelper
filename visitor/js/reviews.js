@@ -144,7 +144,7 @@ $(document).ready(function () {
                                         }
 
                                         html += '<div class="listing-item">';
-                                        html += '<img src="../upload/driver/driver-photos/thumb/' + photo + '" alt="">';
+                                        html += '<img src="../upload/driver/driver-photos/Cov/' + photo + '" alt="">';
                                         html += '</div>';
                                         html += '<div class="img-pad">';
                                         html += html2;

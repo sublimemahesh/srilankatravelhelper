@@ -101,7 +101,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             foreach (DriverPhotos::getDriverPhotosByDriver($Driver->id) as $key => $photo) {
                                                 if ($key == 0) {
                                                     ?>
-                                                    <img src="../upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                            <img src="../upload/driver/driver-photos/Cov/<?php echo $photo['image_name']; ?>" alt="">
                                                     <?php
                                                 }
                                             }
