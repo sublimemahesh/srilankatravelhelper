@@ -127,7 +127,7 @@ and open the template in the editor.
     font-weight: 600;
 }
 .profile-panel {
-    margin: 20px 10px;
+    margin: 0px 10px;
 }
 .prof-img img {
     width: 200px;
@@ -381,7 +381,7 @@ a:hover {
     background-position: 50%;
     z-index: 100;
     cursor: pointer;
-    width: 386px;
+
 }
 .listing-item img {
     object-fit: cover;
@@ -403,8 +403,8 @@ a:hover {
 }
 .driver-profile .driver-name {
     position: absolute;
-    margin-top: -64px;
-    left: 133px;
+    margin-top: -101px;
+    left: 180px;
     z-index: 9999999;
     color: #fff;
     font-weight: 600;
@@ -533,7 +533,7 @@ textarea.form-control {
 }
 .viewbookingtabpane {
     padding-top: 50px;
- 
+
 }
 .viewbookingtable td {
     text-align: left;

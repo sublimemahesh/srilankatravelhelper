@@ -92,7 +92,7 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                 <div class="reviewsbydriver">
                                 </div>
-                                <div class="col-md-6 col-md-offset-2 col-sm-8 col-xs-12 driver-profile">
+                                <div class="col-md-6 col-md-offset-2 col-sm-12 col-xs-12 driver-profile">
                                     <?php
                                     if ($id) {
                                         ?>
