@@ -78,8 +78,8 @@ if (isset($_POST['create-photo'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $img;
-        $handle->image_x = 900;
-        $handle->image_y = 500;
+        $handle->image_x = 605;
+        $handle->image_y = 250;
 
         $handle->Process($dir_dest_thumb_cli);
 
@@ -189,8 +189,8 @@ if (isset($_POST['edit-photo'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
-        $handle->image_x = 900;
-        $handle->image_y = 500;
+        $handle->image_x = 605;
+        $handle->image_y = 250;
 
         $handle->Process($dir_dest_thumb_cli);
 

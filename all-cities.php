@@ -253,7 +253,7 @@ if (!isset($_SESSION)) {
                             </div>
                         </div>
 
-                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-xs hidden-md hidden-lg">
+                        <div class="col-md-3 col-sm-4 col-xs-12 hidden-xs hidden-md hidden-lg" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                             <div class="single-package-carasoul">
                                 <div class="package-location">
                                     <img src="upload/location/<?php echo $city['image_name']; ?>" alt="">

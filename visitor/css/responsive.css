@@ -50,16 +50,17 @@ and open the template in the editor.
         width: 85%;
     }
     .star-rating-fa {
-        margin-top: -30px;
-        padding-right: 47px;
+        margin-top: 23px;
+        padding-right: 154px;
     }
     .driver-list {
-        width: 35%;
-        margin-top: -24px;
+        width: 33%;
+        margin-top: -58px;
+        margin-left: -4px;
     }
     .driver-profile .driver-name {
-        margin-top: -82px;
-        left: 110px;
+        margin-top: -2px;
+        left: 38px;
         font-size: 16px;
     }
     .review-add-section h2 {
@@ -132,6 +133,9 @@ and open the template in the editor.
     .header-widget a.button.border {
         padding: 2px 16px 5px 0px;
     }
+    .driver-profile .driver-name {
+        color: #140202;
+    }
 
 }
 
@@ -176,8 +180,8 @@ and open the template in the editor.
         width: 8%;
     }
     .driver-profile .driver-name {
-        left: 94px;
-        padding-top: 36px;
+        left: 119px;
+        padding-top: 7px;
 
     }
     .star {
