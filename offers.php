@@ -58,7 +58,7 @@ if (!isset($_SESSION)) {
                                     </a>
                                 </div>
                                 <!-- hotel body-->
-                                <div class="offer-body hidden-sm hidden-xs ">
+                                <div class="offer-body hidden-sm hidden-xs edit-title">
                                     <!-- title-->
                                     <h3><?php echo $offer['title']; ?></h3>
                                     <!-- Text Intro-->
@@ -102,8 +102,8 @@ if (!isset($_SESSION)) {
 
                                         </a>
                                     </div>
-                                    <div class="offer-person"><span class="color-blue">LKR <?php echo number_format($newprice, 2); ?></span><strike class="old-discount-price">LKR <?php echo number_format($offer['price'], 2); ?></strike> </div>
-                                    <a class="thm-btn" href="offer-booking.php?offer=<?php echo $offer['id']; ?>">Get your offer</a>
+                                    <div class="offer-person offer"><span class="color-blue">LKR <?php echo number_format($newprice, 2); ?></span><strike class="old-discount-price">LKR <?php echo number_format($offer['price'], 2); ?></strike> </div>
+                                    <a class="thm-btn btncolor4" href="offer-booking.php?offer=<?php echo $offer['id']; ?>&back=offerbooking">Get your offer</a>
                                 </div>
                             </div>
                             <?php

@@ -6,12 +6,13 @@ if (isset($_GET['offer'])) {
 if (!isset($_SESSION)) {
     session_start();
 }
-//if (!isset($_SESSION["vislogin"])) {
-//    $_SESSION["back_url"] = 'http://www.srilankatourism.travel/offer-booking.php?offer=' . $id;
-//    redirect('visitor-login.php?message=24');
-//} else {
-//    $VISITOR = $_SESSION["id"];
-//}
+if (!Visitor::authenticate()) {
+    if ($_GET['back'] === 'offerbooking') {
+//        $_SESSION["back_url"] = 'http://toursrilanka.travel/offer-booking.php?offer=' . $id;
+        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/offer-booking.php?offer=' . $id;
+    }
+    redirect('visitor/index.php?message=24');
+}
 $visitorid = $_SESSION["id"];
 
 $OFFER = new Offer($id);
@@ -139,7 +140,7 @@ $now = date('Y-m-d H:i:s');
                                                     <input type="hidden" id="offer" value="<?php echo $OFFER->id; ?>" name="offer"/> 
                                                     <input type="hidden" id="date_time_booked" value="<?php echo $now; ?>" name="date_time_booked"/>
 
-                                                    <input type="submit" id="book" name="bookoffer" value="Book Now" class="btn btn-info">
+                                                    <input type="submit" id="book" name="bookoffer" value="Book Now" class="btn btn-info btncolor6">
                                                 </div>
                                             </div>
                                         </div>

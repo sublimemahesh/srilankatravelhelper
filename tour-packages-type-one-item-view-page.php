@@ -200,7 +200,7 @@ if ($divider1 == 0) {
 
                     </div>
                     <div class="review-button">
-                        <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit">Book Now</button></a>
+                        <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit btncolor15">Book Now</button></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
@@ -400,11 +400,11 @@ if ($divider1 == 0) {
                             ?>
                             <div class="review-button">
                                 <div class ="col-md-6 col-xs-12 col-sm-6">
-                                    <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                    <a href="view-all-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">View All Reviews</button></a>
                                 </div>
 
                                 <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
-                                    <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                    <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
                                 </div>
                             </div>
                             <?php

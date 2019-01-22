@@ -223,7 +223,7 @@ if (isset($_GET['album'])) {
 
                             </div>
                             <div class="review-button">
-                                <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class="button border with-icon submit add-to-cart">Add to Cart</button></a>
+                                <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class=" btncolor7 button border with-icon submit add-to-cart">Add to Cart</button></a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4 moredesti" >
@@ -448,20 +448,20 @@ if (isset($_GET['album'])) {
                                     ?>
                                     <div class="review-button">
                                         <div class="col-md-6 col-sm-6">
-                                            <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                            <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">View All Reviews</button></a>
                                             <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                         </div>
 
                                         <div class="col-md-6 col-sm-6 addreviewbtn">
-                                            <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                            <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
                                             <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                         </div>
                                     </div>
                                     <?php
                                 } else {
                                     ?>
-                                    <div class="review-button">
-                                        <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                    <div class="review-button btncolor8">
+                                        <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
                                         <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                     </div>
                                 <?php } ?>

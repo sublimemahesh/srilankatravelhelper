@@ -864,7 +864,7 @@ input[type="text"].location-search-input {
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px transparent;
     position: relative;
-    background-color: #2e7bc6 !important;
+    /*background-color: #2e7bc6 !important;*/
 }
 
 /*-------------Offer Booking -----------*/
@@ -1444,4 +1444,212 @@ span.process-num {
     .other-tours{
         height: 167px;
     }
+}
+
+/*Button Colors*/
+.text-content a.btncolor1{
+    background-color: #0dce38;
+}
+.text-content a.btncolor1:hover{
+    text-decoration: none; 
+}
+a.btncolor2:hover{
+    text-decoration: none;
+
+}
+a.button.border.btncolor2:hover{
+    color: #0dce38; 
+    background-color: #fff;
+}
+
+a.button.btncolor2{
+    padding: 10px 26px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px;
+    border-style: solid;
+    background-color: #0dce38;   
+}
+a.button.border.btncolor2{
+    color: #fff;
+}
+
+
+button.btncolor3:hover{
+    color: #0dce38; 
+    background-color: #fff;
+}
+button.btncolor3{
+    border: 1px;
+    border-style: solid; 
+}
+
+a.btncolor4{
+    background: #0dce38;
+    border: 1px;
+    border-style: solid;
+    border-color: #0dce38;
+    border-radius: 50px;
+}
+a.btncolor4:hover{
+    text-decoration: none;
+    background-color: #fff;
+    color: #0dce38;
+}
+.btncolor5 .button.button{
+    border-color: #0dce38;
+    border-style: solid;
+    border-width: 1px;
+}
+.btncolor5 .button.button:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+
+.btn.btn-info.btncolor6{
+    border-color: #0dce38;
+    border-style: solid;
+    border-width: 1px;
+}
+.btn.btncolor6:hover{
+    background-color: #fff;
+    color: #0dce38; 
+}
+button.btncolor7:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.btncolor7{
+    border-style: solid;
+    border-width: 1px;
+}
+.btncolor8.a.button.button border with-icon submit:hover{
+    background-color: #fff;
+    color: #0dce38; 
+}
+.offer span{
+    color: #0dce38;
+}
+.button.btncolor9:hover{
+    background-color: #fff;
+    color: #0dce38; 
+}
+.button.btncolor9{
+    border-style: solid;
+    border-width: 1px; 
+}
+
+.button.btncolor10:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.btncolor10{
+    border-style: solid;
+    border-width: 1px; 
+}
+.button.btncolor11:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.btncolor11{
+    border-style: solid;
+    border-width: 1px;
+}
+.offer-item .edit-title h3{
+    color: #0dce38;
+}
+a.edit-view{
+    background-color:#0dce38; 
+    color: #fff; 
+    border: 1px solid #fff;
+}
+.package-ratings-review.cities-view-btn a.edit-view{
+    border: 1px;
+    border-style: solid;  
+}
+a.edit-view:hover{
+    background-color:#fff; 
+    color: #0dce38;
+    border: 1px solid #0dce38;
+}
+.city-body .package-details a.edit-view{
+    border-color: #0dce38;
+    color: #fff;   
+}
+.city-body .package-details a.edit-view:hover{
+    background-color:#fff; 
+    color: #0dce38;
+}
+
+a.button.border.btncolor12{
+    color: #fff;
+}
+a.button.btncolor12{
+    padding: 10px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px;
+    border-style: solid;
+    background-color: #0dce38;   
+}
+a.button.border.btncolor12:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.btncolor13:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.btncolor13{
+    border-style: solid;
+    border-width: 1px; 
+}
+button.btncolor14:hover{
+    background-color: #fff;
+    color: #0dce38;  
+}
+.button.btncolor14{
+    background-color: #0dce38; 
+    color: #fff;
+    border: 1px;
+    border-style: solid;
+}
+.button.btncolor15:hover{
+    background-color: #fff;
+    color: #0dce38; 
+}
+.button.btncolor15{
+    border: 1px;
+    border-style: solid;
+}
+.button.btncolor16:hover{
+    background-color: #fff;
+    color: #0dce38; 
+}
+.button.btncolor16{
+    border: 1px;
+    border-style: solid;
+}
+a.button.btncolor17{
+    border: 1px;
+    border-style: solid; 
+    background-color: #0dce38;
+    padding: 10px 26px;
+    font-size: 15px;
+    font-weight: 600;
+}
+a.button.border.btncolor17:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+a.button.border.btncolor17{
+    color: #fff;
+}
+.button.btncolor18:hover{
+    background-color: #fff;
+    color: #0dce38;
+}
+.button.border.btncolor18{
+    border: 1px;
+    border-style: solid;
 }
