@@ -247,7 +247,7 @@ if (!isset($_SESSION)) {
                                     </div>
 
                                     <div class="package-ratings-review cities-view-btn">
-                                        <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>" class="btn btn-success"> <span>View</span></a>
+                                        <a href="destinations-by-city.php?city=<?php echo $city['id']; ?>" class="btn btn-success edit-view"> <span>View</span></a>
                                     </div>
                                 </div>
                             </div>

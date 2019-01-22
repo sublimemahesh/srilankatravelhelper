@@ -134,7 +134,7 @@ if (isset($_SESSION['destination_cart'])) {
                     echo 'hidden';
                 }
                 ?>">
-                    <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart">Book Now</button></a>
+                    <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14">Book Now</button></a>
                 </div>
             </div>
 <?php include './footer.php'; ?>

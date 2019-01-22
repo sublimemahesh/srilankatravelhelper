@@ -318,7 +318,7 @@ $stars = $sum / $divider;
                             <p><?php echo $DRIVER->description; ?></p>
                         </div>
                         <div class="review-button">
-                            <a href="visitor/visitor-message.php?id=<?php echo $id; ?>&back=visitormessage" target="new"><button id="view-all-reviews" class="button border with-icon submit">Message Now</button></a>
+                            <a href="visitor/visitor-message.php?id=<?php echo $id; ?>&back=visitormessage" target="new"><button id="view-all-reviews" class="btncolor9 button border with-icon submit">Message Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -425,18 +425,18 @@ $stars = $sum / $divider;
                                 ?>
                                 <div class="review-button">
                                     <div class ="col-md-6 col-xs-12 col-sm-6">
-                                        <a href="view-all-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">View All Reviews</button></a>
+                                        <a href="view-all-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="btncolor10 button border with-icon submit">View All Reviews</button></a>
                                     </div>
 
                                     <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
-                                        <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                        <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="btncolor11 button border with-icon submit">Add Reviews</button></a>
                                     </div>
                                 </div>
                                 <?php
                             } else {
                                 ?>
                                 <div class="review-button">
-                                    <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                    <a href="visitor/manage-reviews.php?driver=<?php echo $id; ?>" ><button id="view-all-reviews" class="btncolor13 button border with-icon submit">Add Reviews</button></a>
                                 </div>
                                 <?php
                             }

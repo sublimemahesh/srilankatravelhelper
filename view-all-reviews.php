@@ -272,7 +272,7 @@ $stars = $sum / $divider;
                                 </div>
                                 <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
                                     <div class="row text-center">
-                                        <a href="visitor/manage-reviews.php?driver=<?php echo $driver; ?>&back=driverreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                        <a href="visitor/manage-reviews.php?driver=<?php echo $driver; ?>&back=driverreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit btncolor18">Add Your Review</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -309,7 +309,7 @@ $stars = $sum / $divider;
                                 </div>
                                 <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
                                     <div class="row text-center">
-                                        <a href="visitor/manage-tour-package-reviews.php?tour=<?php echo $tour; ?>&back=tourreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                        <a href="visitor/manage-tour-package-reviews.php?tour=<?php echo $tour; ?>&back=tourreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit btncolor18">Add Your Review</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +346,7 @@ $stars = $sum / $divider;
                                 </div>
                                 <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
                                     <div class="row text-center">
-                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $destination; ?>&back=destinationreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit">Add Your Review</button></a>
+                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $destination; ?>&back=destinationreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit btncolor18">Add Your Review</button></a>
                                     </div>
                                 </div>
                             </div>

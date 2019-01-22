@@ -172,11 +172,11 @@ if (!isset($_SESSION)) {
                 <div class="text-content text-content1 white-font padding-top-70 padding-bottom-65 " >
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5 col-sm-12 welcometext" data-aos="fade-up" data-aos-duration="3500" data-aos-easing="ease-in-sine">
+                            <div class="col-lg-5 col-sm-12 welcometext " data-aos="fade-up" data-aos-duration="3500" data-aos-easing="ease-in-sine">
                                 <h2>Explore Sri Lanaka</h2>
                                 <h4>Determine Your Destination</h4>
                                 <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-                                <a href="#" class="button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15">Plan Your Trip</a>
+                                <a href="#" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Plan Your Trip</a>
                             </div>
                             <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                 <iframe width="677" height="377" src="https://www.youtube.com/embed/s8VNJ88AFWw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -317,7 +317,7 @@ if (!isset($_SESSION)) {
 
                         <!-- Blog post Item / End -->
                         <div class="col-md-12 centered-content">
-                            <a href="#" class="button border margin-top-10">View More</a>
+                            <a href="#" class="button border margin-top-10 btncolor2">View More</a>
                         </div>
                     </div>
                 </div>

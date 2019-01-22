@@ -125,10 +125,11 @@ if (!isset($_SESSION)) {
                                             </div> 
                                         </div>
                                     </div> 
-
+                                    <div class="btncolor5">
                                     <button type="submit" id="btnSubmit" class="button border with-icon submit">SEND YOUR MESSAGE</button>
                                     <div id="dismessage" align="center"></div>
-                                </div>
+                                    </div>
+                                    </div>
                             </div>
                         </div>
                     </section>
