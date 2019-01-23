@@ -411,7 +411,7 @@ if ($divider1 == 0) {
                         } else {
                             ?>
                             <div class="review-button">
-                                <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit">Add Reviews</button></a>
+                                <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
                             </div>
                             <?php
                         }

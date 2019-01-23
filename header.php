@@ -47,10 +47,10 @@ if (isset($_SESSION['position'])) {
             <!-- Right Side Content / End -->
             <div class="right-side">
                 <div class="nav-top hidden-lg hidden-md hidden-sm" >
-                    <div class="header-widget widget-btn-left">
+                    <div class="header-widget widget-btn-left widget-btn-left-correction">
                         <a href="plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
                     </div>
-                    <div class="header-widget widget-btn-right">
+                    <div class="header-widget widget-btn-right widget-btn-right-correction">
                         <a href="my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
                                 if ($count == 1) {
                                     echo '1 item';
@@ -126,16 +126,16 @@ if (isset($_SESSION['position'])) {
                                 $VIS = new Visitor($_SESSION['id']);
                                 if (isset($VIS->facebookID)) {
                                     ?>
-                                    <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
+                                    <li class="header-pro-pic hidden-lg hidden-md"><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
                                         <?php
                                     } else {
                                         ?>
-                                    <li class = "header-pro-pic hidden-lg hidden-md hidden-sm"><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
+                                    <li class = "header-pro-pic hidden-lg hidden-md"><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
                                         <?php
                                     }
                                 } else {
                                     ?>
-                                <li class="header-pro-pic hidden-lg hidden-md hidden-sm"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                <li class="header-pro-pic hidden-lg hidden-md"><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
                                     <?php
                                 }
                                 ?>

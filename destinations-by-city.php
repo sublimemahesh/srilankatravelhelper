@@ -201,7 +201,7 @@ $LOCATION = new Location($city);
                                                         ?>
 
                                                         <div class="details">
-                                                            <p><?php echo substr($city['short_description'], 0, 100) . '...'; ?></p>
+                                                            <p><?php echo substr($city['short_description'], 0, 95) . '...'; ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="package-ratings-review cities-view-btn">
