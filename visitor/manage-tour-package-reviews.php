@@ -17,7 +17,7 @@ if (!isset($_SESSION)) {
 }
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'tourreview') {
-        $_SESSION["back_url"] = 'http://toursrilanka.travel/visitor/manage-tour-package-reviews.php?tour=' . $id;
+        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/visitor/manage-tour-package-reviews.php?tour=' . $id;
 //        $_SESSION["back_url"] = 'http://localhost/visitor/manage-tour-package-reviews.php?tour=' . $id;
     }
     redirect('index.php?message=24');

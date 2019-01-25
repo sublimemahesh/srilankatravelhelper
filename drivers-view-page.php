@@ -358,65 +358,68 @@ $stars = $sum / $divider;
                             <div class="reviws-section">
                                 <div class="review-carousel testimonials">
                                     <?php
-                                    foreach (Reviews::getReviewsByDriver($DRIVER->id) as $review) {
-                                        $VISITOR = new Visitor($review['visitor']);
-                                        ?>
-                                        <div class="col-md-12">
+                                    if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
+                                        foreach (Reviews::getReviewsByDriver($DRIVER->id) as $review) {
+                                            $VISITOR = new Visitor($review['visitor']);
+                                            ?>
+                                            <div class="col-md-12">
 
-                                            <div class="col-md-3 col-sm-4 img-section reviewspts">
-                                                <div class="reviewimg">
-                                                    <?php
-                                                    if (empty($VISITOR->profile_picture)) {
-                                                        ?>
-                                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                <div class="col-md-3 col-sm-4 img-section reviewspts">
+                                                    <div class="reviewimg">
                                                         <?php
-                                                    } else {
-                                                        if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                        if (empty($VISITOR->profile_picture)) {
                                                             ?>
-                                                            <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                            <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
                                                             <?php
                                                         } else {
-                                                            ?>
-                                                            <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </div>
-                                                <div class="reviews-item1 ">
-                                                    <li>
-                                                        <?php
-                                                        $stars = $review['reviews'];
-                                                        for ($i = 1; $i <= $stars; $i++) {
-                                                            ?>
-                                                            <i class="fa fa-star"></i>
-                                                            <?php
-                                                        }
-                                                        for ($j = $i; $j <= 5; $j++) {
-                                                            ?>
-                                                            <i class="fa fa-star-o"></i>
-                                                            <?php
+                                                            if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                                ?>
+                                                                <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
+                                                                <?php
+                                                            }
                                                         }
                                                         ?>
-                                                    </li>
-                                                    <li>
-                                                        <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
-                                                    </li>
+                                                    </div>
+                                                    <div class="reviews-item1 ">
+                                                        <li>
+                                                            <?php
+                                                            $stars = $review['reviews'];
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </li>
+                                                        <li>
+                                                            <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews</p>
+                                                        </li>
 
-                                                </div>
+                                                    </div>
 
-                                            </div>  
-                                            <div class="col-md-9 col-sm-8">
-                                                <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                <p><?php echo $review['message']; ?></p>
+                                                </div>  
+                                                <div class="col-md-9 col-sm-8">
+                                                    <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                    <p><?php echo $review['message']; ?></p>
 
-                                            </div> 
+                                                </div> 
 
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    <?php } else { ?>
+                                        <li class="list-group-item"><h5>No any reviews in here</h5></li>
+                                    <?php } ?>
                                 </div>
                             </div>
 

@@ -49,6 +49,17 @@ if (isset($_POST['driver-message'])) {
                 $subject = $driver_name . ' send a new message to you';
                 $from = 'noreply@toursrilanka.travel'; // give from email address
 
+                 if (empty($DRIVER->profile_picture)) { 
+                 $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="upload/driver/driver.png" alt="Profile Picture" class="CToWUd" width="60"/>';
+                } else {
+                    if ($DRIVER->facebookID) {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $driver_image_name . '" alt="Profile Picture" class="CToWUd" width="60"/>';
+                    } else {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">';
+                    }
+                }
+                
+                
 
                 $headers = "From: " . $from . "\r\n";
                 $headers .= "Reply-To: " . $from . "\r\n";
@@ -121,7 +132,8 @@ if (isset($_POST['driver-message'])) {
                                                                                                             <tbody>
                                                                                                                 <tr>
                                                                                                                     <td style="border-collapse:collapse" width="40" valign="top" align="right">
-                                                                                                                        <img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">
+                                                                                                                     ' . $html1 . '
+
                                                                                                                     </td>
                                                                                                                     <td style="border-collapse:collapse" width="8" valign="top"></td>
                                                                                                                     <td style="border-collapse:collapse;min-width:100%" width="400" valign="top">

@@ -113,10 +113,10 @@ if ($count1 == 0) {
 
 
                                 <h3>NEW CUSTOMER?</h3>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" />
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" />
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
-                                <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" />
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" autocomplete="off" />
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" autocomplete="off"/>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" autocomplete="off" autocomplete="off"/>
+                                <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password"  />
                                 <input type="submit" name="signup" id="signup"  class="signup-btn" value="SIGN UP" />
                                 <input type="hidden" name="save" value="save"/>
                             </form>
@@ -138,8 +138,8 @@ if ($count1 == 0) {
                                 <br />
 
                                 <h3>ALREADY A MEMBER?</h3>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" />
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" autocomplete="off"/>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password"  autocomplete="off"/>
                                 <input type="hidden" class="form-control"  name="back_url" value="<?php echo $back_url; ?>">
                                 <input type="submit" id="signin" name="signin" class="signup-btn" value="SIGN IN" />
                                 <h4><a href="forgot-password.php">Forgotten Password?</a></h4>
