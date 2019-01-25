@@ -13,7 +13,7 @@ if (!isset($_SESSION)) {
 unset($_SESSION["back_url"]);
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'visitormessage') {
-        $_SESSION["back_url"] = 'http://toursrilanka.travel/visitor/visitor-message.php?id=' . $driverid;
+        $_SESSION["back_url"] = 'http://www.toursrilanka.travel/visitor/visitor-message.php?id=' . $driverid;
 //        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/visitor/visitor-message.php?id=' . $driverid;
     }
     redirect('index.php?message=24');

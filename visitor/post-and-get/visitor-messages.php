@@ -53,6 +53,17 @@ if (isset($_POST['visitor-message'])) {
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
+                
+                 if (empty($VISITOR->profile_picture)) { 
+                 $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="upload/visitor/driver.png" alt="Profile Picture" class="CToWUd" width="60"/>';
+                } else {
+                    if ($DRIVER->facebookID) {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $visitor_image_name . '" alt="Profile Picture" class="CToWUd" width="60"/>';
+                    } else {
+                        $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '/upload/visitor/' . $visitor_image_name . '" class="CToWUd" width="60">';
+                    }
+                }
+                
                 $html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                         <html xmlns="http://www.w3.org/1999/xhtml">
                             <head>
@@ -119,7 +130,8 @@ if (isset($_POST['visitor-message'])) {
                                                                                                             <tbody>
                                                                                                                 <tr>
                                                                                                                     <td style="border-collapse:collapse" width="40" valign="top" align="right">
-                                                                                                                        <img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '/upload/visitor/' . $visitor_image_name . '" class="CToWUd" width="60">
+                                                                                                                      ' . $html1 . '
+
                                                                                                                     </td>
                                                                                                                     <td style="border-collapse:collapse" width="8" valign="top"></td>
                                                                                                                     <td style="border-collapse:collapse;min-width:100%" width="400" valign="top">
