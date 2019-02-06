@@ -13,7 +13,8 @@ if (isset($_GET['id'])) {
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>Edit <?php
             if (isset($_GET['id'])) {
                 echo 'Driver';
@@ -37,7 +38,7 @@ if (isset($_GET['id'])) {
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
