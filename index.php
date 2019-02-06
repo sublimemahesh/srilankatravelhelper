@@ -55,31 +55,6 @@ if (!isset($_SESSION)) {
                     </div>
                 </div>
                 <div class="row icons-container padding-bottom-30 popguide">
-                    <!-- Stage -->
-                    <!--                <div class="col-md-4">
-                                        <div class="icon-box-2 with-line">
-                                            <i class="im im-icon-Map2"></i>
-                                            <h3>Find Interesting Place</h3>
-                                            <p>Proin dapibus nisl ornare diam varius tempus. Aenean a quam luctus, finibus tellus ut, convallis eros sollicitudin turpis.</p>
-                                        </div>
-                                    </div>
-                                     Stage
-                                    <div class="col-md-4">
-                                        <div class="icon-box-2 with-line">
-                                            <i class="im im-icon-Mail-withAtSign"></i>
-                                            <h3>24/7/365 Help</h3>
-                                            <p>Maecenas pulvinar, risus in facilisis dignissim, quam nisi hendrerit nulla, id vestibulum metus nullam viverra porta purus.</p>
-                                        </div>
-                                    </div>
-                   
-                                     Stage
-                                    <div class="col-md-4">
-                                        <div class="icon-box-2">
-                                            <i class="im im-icon-Checked-User"></i>
-                                            <h3>Make a Reservation</h3>
-                                            <p>Faucibus ante, in porttitor tellus blandit et. Phasellus tincidunt metus lectus sollicitudin feugiat pharetra consectetur.</p>
-                                        </div>
-                                    </div>-->
                     <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
                         <div class="work-process">
                             <div class="process-img">
@@ -116,12 +91,6 @@ if (!isset($_SESSION)) {
             <!-- Info Section / End -->
             <!-- Content
             ================================================== -->
-
-
-
-
-
-
             <div class="container ">
                 <div class="row">
                     <div class="col-md-12 ">
@@ -131,7 +100,6 @@ if (!isset($_SESSION)) {
                     </div>
                 </div>
             </div>
-
             <!-- Categories Carousel -->
             <div class="fullwidth-carousel-container margin-bottom-50 ">
                 <div class="fullwidth-slick-carousel category-carousel">
@@ -140,7 +108,6 @@ if (!isset($_SESSION)) {
                     foreach ($DESTINATION_TYPES as $key => $destination_type) {
                         if ($key < 6) {
                             ?>
-
                             <div class="fw-carousel-item">
                                 <div class="category-box-container" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
                                     <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="category-box" data-background-image="upload/destination-type/<?php echo $destination_type['image_name']; ?>">
@@ -152,7 +119,6 @@ if (!isset($_SESSION)) {
                                     </a>
                                 </div>
                             </div>
-            <!--                    <img src="upload/destination-type/-109984423_191093156483_1530173407_n.jpg">-->
                             <?php
                         }
                     }
@@ -195,130 +161,75 @@ if (!isset($_SESSION)) {
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="headline centered margin-bottom-45">
-                                Best Tailor Made Tour Packages
+                                Best Ready-made Tour Packages
                             </h3>
                         </div>
                     </div>
                     <div class="row" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
                         <!-- Blog Post Item -->
-                        <div class="col-md-4  hidden-lg hidden-xs">
-                            <?php
-                            $TOUR_TYPES = TourType::all();
-                            foreach ($TOUR_TYPES as $key => $tour_type) {
-                                if ($key < 4) {
-                                    ?>
-                                    <div class="col-sm-6" >
-                                        <a href="tour-packages-type.php?=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
-                                            <div class="blog-compact-item">
-                                                <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
-                                                <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                                <div class="blog-compact-item-content">
-                                                    <ul class="blog-post-tags">
-                                                        <li><div class="star-rating-fa text-right">
-                                                                <?php
-                                                                $REVIEWS = Reviews::getTotalReviewsOfTourType($tour_type['id']);
+                        <div class="col-md-12 ">
+                            <div class="ready-made-slick-carousel dots-nav">
+                                <?php
+                                $TOUR_TYPES = TourType::all();
+                                foreach ($TOUR_TYPES as $key => $tour_type) {
+                                    if ($key < 8) {
+                                        ?>
+                                        <div class="col-md-4">
+                                            <a href="tour-packages-type.php?=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
+                                                <div class="blog-compact-item">
+                                                    <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
+                                                    <span class="blog-item-tag" style="background: #0dce38!important">View</span>
+                                                    <div class="blog-compact-item-content">
+                                                        <ul class="blog-post-tags">
+                                                            <li><div class="star-rating-fa text-right">
+                                                                    <?php
+                                                                    $REVIEWS = Reviews::getTotalReviewsOfTourType($tour_type['id']);
+                                                                    $divider = $REVIEWS['count'];
+                                                                    $sum = $REVIEWS['sum'];
 
-                                                                $divider = $REVIEWS['count'];
-                                                                $sum = $REVIEWS['sum'];
+                                                                    if ($divider == 0) {
+                                                                        for ($j = 1; $j <= 5; $j++) {
+                                                                            ?>
+                                                                            <i class="fa fa-star-o"></i>
+                                                                            <?php
+                                                                        }
+                                                                        $sum = 0;
+                                                                    } else {
+                                                                        $stars = $sum / $divider;
 
-                                                                if ($divider == 0) {
-                                                                    for ($j = 1; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
+                                                                        for ($i = 1; $i <= $stars; $i++) {
+                                                                            ?>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <?php
+                                                                        }
+                                                                        for ($j = $i; $j <= 5; $j++) {
+                                                                            ?>
+                                                                            <i class="fa fa-star-o"></i>
+                                                                            <?php
+                                                                        }
                                                                     }
-                                                                    $sum = 0;
-                                                                } else {
-                                                                    $stars = $sum / $divider;
-
-                                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <?php
-                                                                    }
-                                                                    for ($j = $i; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
-                                                                    }
-                                                                }
-                                                                ?>
-                                                                <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
-                                                            </div></li>
-                                                    </ul>
-                                                    <h3><?php echo $tour_type['name']; ?></h3>
-                                                    <p><?php echo substr($tour_type['short_description'], 0, 150) . '...'; ?></p>
+                                                                    ?>
+                                                                    <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <h3><?php echo $tour_type['name']; ?></h3>
+                                                        <p><?php echo substr($tour_type['short_description'], 0, 150) . '...'; ?></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <?php
+                                            </a>
+                                        </div>
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?>
-                        </div>
-
-                        <div class="col-md-12 hidden-sm">
-                            <?php
-//                        $TOUR_TYPES = TourType::all();
-                            foreach ($TOUR_TYPES as $key => $tour_type) {
-                                if ($key < 3) {
-                                    ?>
-                                    <div class="col-md-4">
-                                        <a href="tour-packages-type.php?=<?php echo $tour_type['id']; ?>" class="blog-compact-item-container">
-                                            <div class="blog-compact-item">
-                                                <img src="upload/tour-type/<?php echo $tour_type['image_name']; ?>" alt="">
-                                                <span class="blog-item-tag" style="background: #0dce38!important">View</span>
-                                                <div class="blog-compact-item-content">
-                                                    <ul class="blog-post-tags">
-                                                        <li><div class="star-rating-fa text-right">
-                                                                <?php
-                                                                $REVIEWS = Reviews::getTotalReviewsOfTourType($tour_type['id']);
-
-                                                                $divider = $REVIEWS['count'];
-                                                                $sum = $REVIEWS['sum'];
-
-                                                                if ($divider == 0) {
-                                                                    for ($j = 1; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
-                                                                    }
-                                                                    $sum = 0;
-                                                                } else {
-                                                                    $stars = $sum / $divider;
-
-                                                                    for ($i = 1; $i <= $stars; $i++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <?php
-                                                                    }
-                                                                    for ($j = $i; $j <= 5; $j++) {
-                                                                        ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                        <?php
-                                                                    }
-                                                                }
-                                                                ?>
-                                                                <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
-                                                            </div></li>
-                                                    </ul>
-                                                    <h3><?php echo $tour_type['name']; ?></h3>
-                                                    <p><?php echo substr($tour_type['short_description'], 0, 150) . '...'; ?></p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
 
                         <!-- Blog post Item / End -->
-                        <div class="col-md-12 centered-content">
+<!--                        <div class="col-md-12 centered-content">
                             <a href="#" class="button border margin-top-10 btncolor2">View More</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </section>
@@ -364,21 +275,12 @@ if (!isset($_SESSION)) {
                                 <?php
                             }
                             ?>
-
                         </div>
                     </div>
 
                     <!-- Categories Carousel / End -->
                 </section>
             </div>
-            <!-- Flip banner -->
-            <!--            <a href="#" class="flip-banner parallax " data-background="images/banner/banner-3.jpg" data-color="#0dce38" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
-                            <div class="flip-banner-content">
-                                <h2 class="flip-visible">Expolore top-rated attractions nearby</h2>
-                                <h2 class="flip-hidden">View More<i class="sl sl-icon-arrow-right"></i></h2>
-                            </div>
-                        </a>-->
-            <!-- Flip banner / End -->
             <!-- Fullwidth Section -->
             <section class="fullwidth  padding-top-70 padding-bottom-35" data-background-color="#f8f8f8" >
                 <div class="container">
@@ -489,9 +391,6 @@ if (!isset($_SESSION)) {
                                     }
                                 }
                                 ?>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -504,7 +403,6 @@ if (!isset($_SESSION)) {
         <!-- Wrapper / End -->
         <!-- Scripts
            ================================================== -->
-
 
         <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
@@ -519,8 +417,6 @@ if (!isset($_SESSION)) {
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
-
-
         <!-- jquery latest version -->
         <script src="slider css/jquery-3.2.0.min.js" type="text/javascript"></script>
         <!-- chossen js -->
@@ -528,7 +424,6 @@ if (!isset($_SESSION)) {
         <script src="slider-css/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
         <script src="slider-css/jquery.themepunch.tools.min.js" type="text/javascript"></script>
         <!-- Revolution Extensions -->
-
         <script src="slider-css/revolution.extension.actions.min.js" type="text/javascript"></script>
         <script src="slider-css/revolution.extension.carousel.min.js" type="text/javascript"></script>
         <script src="slider-css/revolution.extension.kenburn.min.js" type="text/javascript"></script>

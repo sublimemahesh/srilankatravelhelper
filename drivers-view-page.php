@@ -10,10 +10,16 @@ $DRIVER_PHOTOS = DriverPhotos::getDriverPhotosByDriver($id);
 
 $REVIEWS = Reviews::getTotalReviewsOfDriver($DRIVER->id);
 
-$divider = $REVIEWS['count'];
-$sum = $REVIEWS['sum'];
+if ($REVIEWS['count'] == 0) {
+    $divider = 0;
+    $sum = 0;
+    $stars = 0;
+} else {
+    $divider = $REVIEWS['count'];
+    $sum = $REVIEWS['sum'];
 
-$stars = $sum / $divider;
+    $stars = $sum / $divider;
+}
 ?> 
 <!DOCTYPE html>
 
@@ -473,7 +479,23 @@ $stars = $sum / $divider;
                                             <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>">
                                                 <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $driver['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image">
-                                                    <img  src="upload/driver/<?php echo $driver['profile_picture']; ?>"  class="img-circle" alt=""/>
+                                                    <?php
+                                                    if (empty($driver['profile_picture'])) {
+                                                        ?>
+                                                        <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                        <?php
+                                                    } else {
+                                                        if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
+                                                            ?>
+                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle"/>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                     <div class="more-reviews-item1">
                                                         <li>
                                                             <?php
