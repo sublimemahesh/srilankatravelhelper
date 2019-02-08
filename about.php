@@ -69,10 +69,10 @@ if (!isset($_SESSION)) {
                     <div class="col-md-12">
                         <div class="pricing-container margin-top-30" data-aos="fade-up" data-aos-duration="3500">
                             <div class="plan">
-                                <div class="plan-price">
+                                <div class="plan-price vision-box">
                                     <h3>Vision</h3>
 
-                                    <span class="period">Free of charge one standard listing active for 30 days Free of charge one standard listing active for 30 day  in the search results</span>
+                                    <span class="period">To be the most preferred and premier tour operator in Sri Lanka.</span>
                                 </div>
                             </div>
                             <div class="plan featured">
@@ -80,14 +80,14 @@ if (!isset($_SESSION)) {
                                 <div class="plan-price">
                                     <h3>Mission</h3>
 
-                                    <span class="period">One time fee for one listing, highlighted in the search resultsOne time fee for one listing, highlighted in the search results</span>
+                                    <span class="period">To be the best tours operator in Sri Lanka, by offering high quality professional services, maximum customer satisfaction and very comfortable services for competitive lowest prices.</span>
                                 </div>
                             </div>
                             <div class="plan">
-                                <div class="plan-price">
-                                    <h3>Strenghts</h3>
+                                <div class="plan-price strength-box">
+                                    <h3>Strengths</h3>
 
-                                    <span class="period">Monthly subscription for unlimited listings and availability .Monthly subscription for unlimited listings and availability</span>
+                                    <span class="period">Drive business growth, whilst maintaining balance between quality and sustainability.</span>
                                 </div>
                             </div>
                         </div>

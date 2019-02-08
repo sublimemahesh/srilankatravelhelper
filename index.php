@@ -214,7 +214,7 @@ if (!isset($_SESSION)) {
                                                             </li>
                                                         </ul>
                                                         <h3><?php echo $tour_type['name']; ?></h3>
-                                                        <p><?php echo substr($tour_type['short_description'], 0, 150) . '...'; ?></p>
+                                                        <p><?php echo substr($tour_type['short_description'], 0, 170) . '...'; ?></p>
                                                     </div>
                                                 </div>
                                             </a>
