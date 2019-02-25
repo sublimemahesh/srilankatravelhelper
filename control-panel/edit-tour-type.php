@@ -59,7 +59,7 @@ $TOUR_TYPE = new TourType($id);
                                 <h2>Edit Tour Type</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination-type.php">
+                                        <a href="manage-tour-type.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
