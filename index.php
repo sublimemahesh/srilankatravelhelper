@@ -61,8 +61,8 @@ if (!isset($_SESSION)) {
                                 <img src="images/icons/tour-1.png" class="img-responsive" alt="">
                                 <span class="process-num">01</span>
                             </div>
-                            <h4>Choose a Destination &amp; Guide</h4>
-                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                            <h4>Select Your Location</h4>
+                            <p>Choose places where you want to get an unforgettable experience that you dream of.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
@@ -71,8 +71,8 @@ if (!isset($_SESSION)) {
                                 <img src="images/icons/tour-2.png" class="img-responsive" alt="">
                                 <span class="process-num">02</span>
                             </div>
-                            <h4>Choose your guide &amp; Customize</h4>
-                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                            <h4>Select Your Driver</h4>
+                            <p>Choose a person who can give more professional service with trustworthy and will guide you to reach the maximum thrilling experience.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
@@ -81,8 +81,8 @@ if (!isset($_SESSION)) {
                                 <img src="images/icons/tour-3.png" class="img-responsive" alt="">
                                 <span class="process-num">03</span>
                             </div>
-                            <h4>Book Your Guide Online</h4>
-                            <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                            <h4>Enjoy Your Vacation</h4>
+                            <p>Enjoy your vacation with us and get unforgettable memories to your life.</p>
                         </div>
                     </div>
 
@@ -140,8 +140,7 @@ if (!isset($_SESSION)) {
                         <div class="row">
                             <div class="col-lg-5 col-sm-12 welcometext " data-aos="fade-up" data-aos-duration="3500" data-aos-easing="ease-in-sine">
                                 <h2>Explore Sri Lanaka</h2>
-                                <h4>Determine Your Destination</h4>
-                                <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
+                                <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">Sri Lanka is an island with scenic beauty and ancient ruins, religious shrines (the Cultural Triangle), national parks and wildlife sanctuaries, charming traditional buildings, a pastoral way of life contrasting with the hubbub of the towns and cities, brilliant beaches and a salubrious climate.</p>
                                 <a href="#" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Plan Your Trip</a>
                             </div>
                             <div class="col-lg-7 col-sm-12 youmargin" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">

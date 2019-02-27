@@ -280,11 +280,8 @@
         });
         $('.fullwidth-slick-carousel').slick({
             centerMode: true,
-            autoplay: true,
-            autoplaySpeed: 1500,
             centerPadding: '15%',
             slidesToShow: 3,
-            cssEase: 'linear',
             dots: true,
             arrows: false,
             responsive: [{
@@ -424,8 +421,6 @@
         });
         $('.simple-slick-carousel').slick({
             infinite: true,
-            autoplay: true,
-            autoplaySpeed: 1500,
             slidesToShow: 3,
             slidesToScroll: 1,
             dots: true,
@@ -443,7 +438,7 @@
                         slidesToScroll: 1
                     }
                 },
-                {
+            {
                     breakpoint: 576,
                     settings: {
                         slidesToShow: 1,
@@ -451,8 +446,8 @@
                     }
                 }]
         });
-
-        $('.simple-slick-carousel-dest').slick({
+        
+         $('.simple-slick-carousel-dest').slick({
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -471,7 +466,7 @@
                         slidesToScroll: 1
                     }
                 },
-                {
+            {
                     breakpoint: 576,
                     settings: {
                         slidesToShow: 1,
@@ -480,36 +475,6 @@
                 }]
         });
         
-        $('.ready-made-slick-carousel').slick({
-            infinite: true,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: true,
-            responsive: [{
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                }, {
-                    breakpoint: 769,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }]
-        });
-
         $('.simple-fw-slick-carousel').slick({
             infinite: true,
             slidesToShow: 5,
@@ -1053,7 +1018,7 @@ starRating('.star-rating');
 
 
 $(document).ready(function () {
-
+    
 
     $('.header-icon1').removeClass('btn-hover');
     $('.header-icon2').removeClass('btn-hover');

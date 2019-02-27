@@ -8,10 +8,10 @@
                 <img class="footer-logo" src="images/logo/tour-logo-1.png" alt="">
                 <br><br>
                 <div class="hidden-sm">
-                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius. laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                    <p>Tour Sri Lanka is an ideal platform by serving the professional travel and tour packages. We arrange and organize your travel desire with beyond expectation. Everything has been arranged upon on your requirements and also you can plan a trip on your desire. Tour Sri Lanka is a place where can reach what you have dreamed.</p>
                 </div>
                 <div class="hidden-lg hidden-md hidden-xs">
-                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies.ligula, porttitor.</p>
+                    <p>Tour Sri Lanka is an ideal platform by serving the professional travel and tour packages. We arrange and organize your travel desire with beyond expectation.</p>
                 </div>
 
 

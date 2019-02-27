@@ -11,13 +11,13 @@
 class Database {
 
     
-//    private $host = 'localhost';
-//    private $name = 'gallnwxt_travelhelper';
-//    private $user = 'gallnwxt_travelhelper';
-//    private $password = 'sJqd3BLr3gmv!';
+// private $host = 'localhost';
+//private $name = 'islapiiu_toursrilanka';
+//private $user = 'islapiiu_main';
+//private $password = 'Ue.t;FNgC?BG,Paf8V'; 
      
     private $host = 'localhost';
-    private $name = 'travel_helper';
+    private $name = 'tour_sri_lanka';
     private $user = 'root';
     private $password = '';
 
