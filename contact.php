@@ -43,7 +43,7 @@ if (!isset($_SESSION)) {
                 <div class="col-md-4 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
                     <h4 class="headline margin-bottom-30">Find Us There</h4>
                     <div class="sidebar-textbox">
-                        <p>Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.</p>
+                        <p>We are specialists by providing more professional service with trustworthy and will guide you to reach the maximum thrilling experience.</p>
                         <ul class="contact-details">
                             <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>+94 71 666 7557 </span></li>
                             <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>+94 91 666 7557</span></li>

@@ -124,6 +124,33 @@ $types = $DESTINATION_TYPE->all();
 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="time">Spend Time(min)</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" id="spend_time" class="form-control" placeholder="Enter Spend Time(min)" autocomplete="off" name="spend_time" required="TRUE">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                     <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="time">Location</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" id="desLocation" class="form-control" placeholder="Please enter longitude's/latitude's of location" autocomplete="off" name="desLocation" required="TRUE">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="description">Short Description</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
@@ -209,7 +236,7 @@ $types = $DESTINATION_TYPE->all();
                                                             relative_urls: false
 
                                                         });
- 
+
         </script>
         <script>
             var placeSearch, autocomplete;

@@ -124,6 +124,7 @@ if (isset($_SESSION['destination_cart'])) {
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
+            
         }
 
         function fillInAddress() {

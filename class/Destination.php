@@ -12,6 +12,8 @@ class Destination {
     public $name;
     public $city;
     public $image_name;
+    public $spend_time;
+    public $desLocation;
     public $short_description;
     public $description;
     public $sort;
@@ -19,7 +21,7 @@ class Destination {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`type`,`name`,`city`,`image_name`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`type`,`name`,`city`,`image_name`,`spend_time`,`location`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -30,6 +32,8 @@ class Destination {
             $this->name = $result['name'];
             $this->city = $result['city'];
             $this->image_name = $result['image_name'];
+            $this->spend_time = $result['spend_time'];
+            $this->desLocation = $result['location'];
             $this->short_description = $result['short_description'];
             $this->description = $result['description'];
             $this->sort = $result['sort'];
@@ -40,11 +44,13 @@ class Destination {
 
     public function create() {
 
-        $query = "INSERT INTO `destination` (`type`,`name`,`city`,`image_name`,`short_description`,`description`,`sort`) VALUES  ('"
+        $query = "INSERT INTO `destination` (`type`,`name`,`city`,`image_name`,`spend_time`,`location`,`short_description`,`description`,`sort`) VALUES  ('"
                 . $this->type . "', '"
                 . $this->name . "', '"
                 . $this->city . "', '"
                 . $this->image_name . "', '"
+                . $this->spend_time . "', '"
+                . $this->desLocation . "', '"
                 . $this->short_description . "', '"
                 . $this->description . "', '"
                 . $this->sort . "')";
@@ -75,7 +81,7 @@ class Destination {
 
         return $array_res;
     }
-    
+
     public function getAllDestinations($pageLimit, $setLimit) {
 
         $query = "SELECT * FROM `destination` ORDER BY sort ASC LIMIT " . $pageLimit . " , " . $setLimit . "";
@@ -97,6 +103,8 @@ class Destination {
                 . "`name` ='" . $this->name . "', "
                 . "`city` ='" . $this->city . "', "
                 . "`image_name` ='" . $this->image_name . "', "
+                . "`spend_time` ='" . $this->spend_time . "', "
+                . "`location` ='" . $this->desLocation . "', "
                 . "`short_description` ='" . $this->short_description . "', "
                 . "`description` ='" . $this->description . "', "
                 . "`sort` ='" . $this->sort . "' "
@@ -146,7 +154,7 @@ class Destination {
         }
         return $array_res;
     }
-    
+
     public function getDestinationsByCityID($city) {
 
         $query = "SELECT * FROM `destination` WHERE `city` = '" . $city . "' ORDER BY `sort` ASC";
@@ -175,7 +183,7 @@ class Destination {
         }
         return $array_res;
     }
-    
+
     public function getDestinationById($id) {
 
         $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `sort` ASC";
@@ -198,9 +206,9 @@ class Destination {
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
-    
+
     public function showPaginationOfDestination($id, $per_page, $page) {
-        
+
         $page_url = "?";
         $query = "SELECT COUNT(*) as totalCount FROM `destination` WHERE `type`= '" . $id . "' ORDER BY `sort` ASC";
 
@@ -283,9 +291,9 @@ class Destination {
 
         echo $setPaginate;
     }
-    
+
     public function showPaginationOfAllDestinations($per_page, $page) {
-        
+
         $page_url = "?";
         $query = "SELECT COUNT(*) as totalCount FROM `destination` ORDER BY `sort` ASC";
 
@@ -368,9 +376,9 @@ class Destination {
 
         echo $setPaginate;
     }
-    
+
     public function searchDestinations($keyword, $location, $pageLimit, $setLimit) {
-        
+
         $w = array();
         $where = '';
 
@@ -385,7 +393,7 @@ class Destination {
         }
 
         $query = "SELECT * FROM `destination` " . $where . " ORDER BY `sort` ASC LIMIT " . $pageLimit . " , " . $setLimit . "";
-        
+
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -396,7 +404,7 @@ class Destination {
         }
         return $array_res;
     }
-    
+
     public function showPaginationOfSearchedDestinations($keyword, $location, $per_page, $page) {
 
         $page_url = "?";

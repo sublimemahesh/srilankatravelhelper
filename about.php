@@ -47,18 +47,12 @@ if (!isset($_SESSION)) {
                 </div>
                 <div class="col-md-6 padding-top-20" data-aos="fade-down" data-aos-duration="3500">
                     <p>
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                        </br>   
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
-                        Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. 
-                        Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+                        Tour Sri Lanka is an ideal platform by serving the professional travel and tour packages. We arrange and organize your travel desire with beyond expectation. Everything has been arranged upon on your requirements and also you can plan a trip on your desire. Tour Sri Lanka is a place where can reach what you have dreamed. We are specialists by providing more professional service with trustworthy and will guide you to reach the maximum thrilling experience. Our main ambition to provide quality and professional service for our customers.
+                       
                     </p> 
+                     <br/>
+                     <p>
+Tour Sri Lanka is the best place for the guests who looking extraordinary travel experience with perfectly match their desires. So we provide facility to plan a trip in their desires. Our guests can select loctions which they dreamed to visit and choose one of our professional drivers.We always highly concerned about the customer satisfaction and we believe our best reward ever we can be gained is customer satisfaction. We are here to serve the best vacation ever you spend in Sri Lanka which will be unforgettable forever.</p>
 
                 </div>
             </div>

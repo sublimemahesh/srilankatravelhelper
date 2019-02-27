@@ -69,7 +69,7 @@ if (isset($_SESSION['destination_cart'])) {
                                     $stars1 = $sum1 / $divider1;
                                 }
                                 ?>
-                                                                                        <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -137,7 +137,7 @@ if (isset($_SESSION['destination_cart'])) {
                     <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14">Book Now</button></a>
                 </div>
             </div>
-<?php include './footer.php'; ?>
+            <?php include './footer.php'; ?>
         </div>
     </body>
 

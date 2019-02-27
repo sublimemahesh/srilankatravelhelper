@@ -129,6 +129,30 @@ $types = $DESTINATION_TYPE->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="time">Spend Time (min)</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
+                                            <div class="form-group">
+                                                <div class="form-line"> 
+                                                    <input type="text" class="form-control" placeholder="Please enter spend time (min)" autocomplete="off" name="spend_time" value="<?php echo $DESTINATION->spend_time; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="time">Location</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
+                                            <div class="form-group">
+                                                <div class="form-line"> 
+                                                    <input type="text" class="form-control" placeholder="Please enter longitude's/latitude's of location" autocomplete="off" name="desLocation" value="<?php echo $DESTINATION->desLocation; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="description">Short Description</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
@@ -179,7 +203,7 @@ $types = $DESTINATION_TYPE->all();
         <script src="js/demo.js"></script>
         <script src="js/add-new-ad.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
-        
+
         <script>
                                                         tinymce.init({
                                                             selector: "#description",
@@ -227,6 +251,7 @@ $types = $DESTINATION_TYPE->all();
                 $('#city').val(place.place_id);
                 console.log(place);
                 $('#cityname').val(place.name);
+//                alert(place.geometry.location.lng(),place.geometry.location.lat());
 //                $('#longitude').val(place.geometry.location.lng());
 //                $('#latitude').val(place.geometry.location.lat());
                 for (var component in componentForm) {

@@ -29,6 +29,7 @@ $(document).ready(function () {
                 } else if (locations) {
                     $('.nearbydestinations-carousel').empty();
                     $.each(locations, function (key, location) {
+                        alert(location.location.id);
                         var html1 = '';
                         
 
