@@ -10,7 +10,23 @@ if (isset($_SESSION['destination_cart'])) {
     $destinations = $_SESSION['destination_cart'];
     $countdestinations = count($destinations);
 }
+
+$string = '';
+foreach ($destinations as $des) {
+    $destian = new Destination($des);
+    $string .= "'" . $destian->desLocation . "',";
+}
+
+$dest_str = substr($string, 0, strlen($string) - 1);
+
+$spentime = '';
+foreach ($destinations as $des) {
+    $destians = new Destination($des);
+//    $spentime .= "'" . $destians->spend_time. "',";
+    $spentime += $destians->spend_time;
+}
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,21 +86,21 @@ if (isset($_SESSION['destination_cart'])) {
                                         $stars1 = $sum1 / $divider1;
                                     }
                                     ?>
-                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                                                                                                                                                                                                            <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
 
-                                    <div class="col-md-4 col-sm-6 col-xs-12 search-destination-item" id="div-<?php echo $key; ?>">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 search-destination-item" id="div-<?php echo $key; ?>">
                                         <div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">
                                             <div class="listing-item col-md-5 col-sm-5 col-xs-5">
                                                 <img src="upload/destination/<?php echo $DESTINATION->image_name; ?>" alt=""/>
                                             </div>
-                                            <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
+                                            <div class="search-item-details col-md-7 col-sm-7 col-xs-7 hidden-xs">
                                                 <div class="driver-name text-left">
                                                     <?php
-                                                    if (strlen($DESTINATION->name) > 18) {
-                                                        echo substr($DESTINATION->name, 0, 18) . '...';
+                                                    if (strlen($DESTINATION->name) > 14) {
+                                                        echo substr($DESTINATION->name, 0, 14) . '...';
                                                     } else {
                                                         echo $DESTINATION->name;
                                                     }
@@ -103,7 +119,7 @@ if (isset($_SESSION['destination_cart'])) {
                                                 </div>
                                                 <div style="margin-top: 0px;padding-bottom: 7px;">
                                                     <p class="text-center " id="">
-                                                        <?php echo substr($DESTINATION->short_description, 0, 55) . '...'; ?>
+                                                        <?php echo substr($DESTINATION->short_description, 0, 52) . '...'; ?>
                                                     </p>
                                                 </div>
                                                 <div class="button-section">
@@ -112,6 +128,40 @@ if (isset($_SESSION['destination_cart'])) {
                                                     <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
                                                 </div>
                                             </div>
+
+                                            <div class="search-item-details col-md-7 col-sm-7 col-xs-7 hidden-lg hidden-md hidden-sm ">
+                                                <div class="driver-name text-left">
+                                                    <?php
+                                                    if (strlen($DESTINATION->name) > 10) {
+                                                        echo substr($DESTINATION->name, 0, 10) . '...';
+                                                    } else {
+                                                        echo $DESTINATION->name;
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <div class="star-rating-fa">
+                                                    <?php
+                                                    for ($i = 1; $i <= $stars1; $i++) {
+                                                        echo '<i class="fa fa-star"></i>';
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        echo '<i class="fa fa-star-o"></i>';
+                                                    }
+                                                    ?>
+                                                    <div class="rating-counter">(<?php echo $sum1; ?> reviews)</div><br>
+                                                </div>
+                                                <div style="margin-top: 0px;padding-bottom: 7px;">
+                                                    <p class="text-center " id="">
+                                                        <?php echo substr($DESTINATION->short_description, 0, 49) . '...'; ?>
+                                                    </p>
+                                                </div>
+                                                <div class="button-section">
+                                                    <input type="hidden" id="destination-<?php echo $DESTINATION->id; ?>" class="destination" location="<?php echo $DESTINATION->id; ?>" value="<?php echo $destination; ?>" />
+                                                    <a href="destination-type-one-item-view-page.php?id=<?php echo $DESTINATION->id; ?>" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>
+                                                    <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
 
@@ -131,10 +181,25 @@ if (isset($_SESSION['destination_cart'])) {
 
                         </ul> 
                     </div>
-<input type="hidden" class="destination" value="<?php // echo $_SESSION['destination_cart']; ?>" />
-                    <div class="col-md-4">
-                        <div id="map-canvas" style="width: 600px; height: 600;"></div>
+                    <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
+
+                    <div class="col-md-4  col-xs-1  col-sm-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
+                        <div id="map-canvas" class="desMap"></div>
+                        <div class="panel panel-default estimatetime">
+                            <div class="panel-body">
+                                <h4> Estimate Time</h4>
+                                <hr> 
+                                <div class="col-md-6 col-xs-8 col-sm-4">
+                                    <label for="comment">Total Estimate Time : </label>
+                                </div>   
+                                <div class="col-md-6 col-xs-4 col-sm-4">
+                                    <label for="comment"> <?php echo $spentime; ?> min
+                                    </label>
+                                </div>  
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="review-button <?php
@@ -186,22 +251,34 @@ if (isset($_SESSION['destination_cart'])) {
         function ViewCustInGoogleMap() {
 
             var mapOptions = {
-                center: new google.maps.LatLng(7.231062, 80.217732), 
+                center: new google.maps.LatLng(7.231062, 80.217732),
                 zoom: 7,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
             // Get data from database. It should be like below format or you can alter it.
-alert($('.destination').val());
-            var data = '[\n\
-    { "DisplayText": "location-1","LatitudeLongitude": "7.231062, 80.217732" },\n\
-{ "DisplayText": "location-2","LatitudeLongitude": "7.833941, 80.574718"},\n\
-{ "DisplayText": "location-3","LatitudeLongitude": "7.360663, 81.640682"}\n\
-]';
+//            alert($('.dest').val());
 
+//            var convertedArray = stringToConvert.split();
+//            console.log(convertedArray);
+
+            var desti = $('.dest').val();
+
+            desti = desti.replace(/'/g, '"');
+
+//            desti = JSON.parse(desti);
+            var destinations = JSON.parse("[" + desti + "]");
+            var arr = '';
+            $.each(destinations, function (key, destination) {
+                arr += '{ "LatitudeLongitude": "' + destination + '" },';
+
+            });
+
+            de = arr.substring(0, arr.length - 1);
+
+            var data = '[' + de + ']';
             people = JSON.parse(data);
-
             for (var i = 0; i < people.length; i++) {
                 setMarker(people[i]);
             }
@@ -230,7 +307,7 @@ alert($('.destination').val());
                             infowindow.open(map, this);
                         });
                     } else {
-                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
+//                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
                     }
                 });
             } else {
