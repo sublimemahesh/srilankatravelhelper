@@ -170,7 +170,7 @@ class TourPackages {
         $array_res = array();
         foreach ($allpackages as $package) {
             $type = unserialize($package['type']);
-
+            
             if (in_array($id, $type)) {
                 array_push($array_res, $package);
             }

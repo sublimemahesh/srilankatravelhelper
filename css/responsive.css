@@ -51,6 +51,15 @@
     .listing-item-container.list-layout .listing-item {
         text-decoration: none;
     }
+    .desMap {
+        width: 717px;
+        height: 324px;
+
+    }
+    .estimatetime {
+        margin-right: 0px;
+
+    }
 }
 @media only screen and (width: 360px) {
     .main-search-input-item .chosen-container-single .chosen-single, .main-search-input-item .chosen-single.chosen-container-active, .gray-style .main-search-input-item .chosen-container-single .chosen-single, .gray-style .main-search-input-item .chosen-single.chosen-container-active, .gray-style.main-search-input input, .gray-style.main-search-input input:focus, .main-search-input input, .main-search-input input:focus {
@@ -437,6 +446,12 @@
     }
     .rating-breakdown{
         padding-bottom: 17px;
+    }
+    .desMap {
+        width: 319px;
+        height: 300px;
+        margin-left: 14px;
+
     }
 
 
@@ -911,5 +926,19 @@
     }
     .addreviewbtn{
         padding-top: 10px;
+    }
+    .desMap {
+        width: 304px;
+        height: 300px;
+        margin-left: 12px;
+
+    }
+    .estimatetime {
+        margin-right: -319px;
+        margin-top: 37px;
+        margin-left: 11px;
+    }
+    .search-destination-item .driver-name {
+        margin-top: 2px;
     }
 }

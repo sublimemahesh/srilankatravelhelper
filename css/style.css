@@ -16617,9 +16617,17 @@ a .listing-item:hover {
 .location-details span i.fa-bus {
     padding-right: 15px;
 }
- .location-details span i.fa-train {
+.location-details span i.fa-train {
     padding-right: 14px;
 }
 .simple-slick-carousel-dest .slick-dots{
     bottom: -50px;
+}
+.estimatetime{
+    margin-right: -40px;
+    margin-top: 37px;
+}
+.desMap{
+    width: 400px;
+    height: 300px;
 }
