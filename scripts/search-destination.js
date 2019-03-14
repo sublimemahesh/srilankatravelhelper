@@ -245,8 +245,9 @@ $(document).ready(function (event) {
     });
 
     $('#search-content').on('click', '.add-to-cart', function () {
+    
+//        this.disabled = true;
 //      Spend time calculation
-
         var spend = $(this).attr('spend_time');
         var allspend = $('.spendtime').val();
         if (allspend == "") {
@@ -269,7 +270,7 @@ $(document).ready(function (event) {
         }
         $('.dest').val(string);
 
-    })
+    });
 });
 
 

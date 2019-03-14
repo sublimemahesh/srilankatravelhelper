@@ -18,12 +18,22 @@ if ($divider1 == 0) {
     $stars1 = $sum1 / $divider1;
 }
 
-
-
 $album = '';
 if (isset($_GET['album'])) {
     $album = 'TRUE';
 }
+;
+///count views
+$desview = Destination::getDestinationViewById($id);
+$view = (int) $desview['views'];
+if ($view == 0) {
+    $view = 1;
+} else {
+    $view = $view+1;
+}
+//echo "Total page views = " . $view;
+$updateview=Destination::updateViewByid($id,$view);
+
 ?> 
 <!DOCTYPE html>
 

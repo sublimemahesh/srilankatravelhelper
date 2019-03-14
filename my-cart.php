@@ -86,7 +86,7 @@ foreach ($destinations as $des) {
                                         $stars1 = $sum1 / $divider1;
                                     }
                                     ?>
-                                                                                                                                                                                                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                                                                                                                                                                                                                            <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -185,7 +185,6 @@ foreach ($destinations as $des) {
                     <input type="hidden" class="spendtime" value="<?php echo $spentime; ?>"/>
 
                     <div class="col-md-4  col-xs-1  col-sm-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
-                        <div id="map-canvas" class="desMap"></div>
                         <div class="panel panel-default estimatetime">
                             <div class="panel-body">
                                 <h4> Estimate Time</h4>
@@ -198,6 +197,7 @@ foreach ($destinations as $des) {
                                 </div>  
                             </div>
                         </div>
+                        <div id="map-canvas" class="desMap"></div>
                     </div>
 
                 </div>
@@ -264,7 +264,7 @@ foreach ($destinations as $des) {
 //            console.log(convertedArray);
 
             var desti = $('.dest').val();
-        
+
             desti = desti.replace(/'/g, '"');
 
 //            desti = JSON.parse(desti);
