@@ -63,7 +63,7 @@ foreach ($destinations as $des) {
     </head>
     <body>
         <div id="wrapper">
-<?php include './header.php'; ?>
+            <?php include './header.php'; ?>
             <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
@@ -111,7 +111,7 @@ foreach ($destinations as $des) {
                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
 
 
-                    <div id="map-canvas" class="desMap"></div>
+
                     <div class="panel panel-default estimatetime">
                         <div class="panel-body">
                             <h4> Estimate Time</h4>
@@ -121,20 +121,17 @@ foreach ($destinations as $des) {
                             </div>   
                             <div class="col-md-6 col-xs-4 col-sm-4 spendt" >
                                 <input type="hidden" class="spendtime" value="<?php echo $spentime ?>"/>
-                                <input type="text" class="spendtime" disabled value="<?php echo $spentime ?> min" >
-                                 
+                                <input type="text" class="spendtime"  disabled value="<?php echo $spentime ?> min" >
                             </div>  
-                           
-                              
-                           
                         </div>
                     </div>
+                    <div id="map-canvas" class="desMap"></div>
                 </div>
 
             </div>
 
 
-<?php include './footer.php'; ?>
+            <?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts

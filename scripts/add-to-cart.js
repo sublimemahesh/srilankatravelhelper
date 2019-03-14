@@ -67,6 +67,7 @@ $(document).ready(function () {
                 option: 'ADDTOCART'
             },
             success: function (result) {
+
                 if (result === 'FALSE') {
                     swal({
                         position: 'bottom-end',
@@ -75,6 +76,7 @@ $(document).ready(function () {
                         type: 'error',
                         timer: 1000,
                         showConfirmButton: false
+                        
                     });
                 } else {
                     swal({

@@ -14,6 +14,7 @@ class Destination {
     public $image_name;
     public $spend_time;
     public $desLocation;
+    public $viewer;
     public $short_description;
     public $description;
     public $sort;
@@ -21,7 +22,7 @@ class Destination {
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`type`,`name`,`city`,`image_name`,`spend_time`,`location`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`type`,`name`,`city`,`image_name`,`spend_time`,`location`,`views`,`short_description`,`description`,`sort` FROM `destination` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -34,6 +35,7 @@ class Destination {
             $this->image_name = $result['image_name'];
             $this->spend_time = $result['spend_time'];
             $this->desLocation = $result['location'];
+            $this->viewer = $result['views'];
             $this->short_description = $result['short_description'];
             $this->description = $result['description'];
             $this->sort = $result['sort'];
@@ -186,7 +188,7 @@ class Destination {
 
     public function getDestinationById($id) {
 
-        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `sort` ASC";
+        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `destination`.`viewer` DESC";
 
         $db = new Database();
 
@@ -501,6 +503,24 @@ class Destination {
         }
 
         echo $setPaginate;
+    }
+
+    public function updateViewByid($id, $view) {
+
+        $query = "UPDATE  `destination` SET "
+                . "`views` ='" . $view . "' "
+                . "WHERE `id` = '" . $id . "'";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+    }
+
+    public function getDestinationViewById($id) {
+
+        $query = "SELECT `id`,`views` FROM `destination` WHERE `id`= $id ";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
     }
 
 }
