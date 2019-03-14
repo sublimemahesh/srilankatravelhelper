@@ -86,7 +86,7 @@ foreach ($destinations as $des) {
                                         $stars1 = $sum1 / $divider1;
                                     }
                                     ?>
-                                                                                                                                                                                                                                                                                            <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                                                                                                                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -125,7 +125,7 @@ foreach ($destinations as $des) {
                                                 <div class="button-section">
                                                     <input type="hidden" id="destination-<?php echo $DESTINATION->id; ?>" class="destination" location="<?php echo $DESTINATION->id; ?>" value="<?php echo $destination; ?>" />
                                                     <a href="destination-type-one-item-view-page.php?id=<?php echo $DESTINATION->id; ?>" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>
-                                                    <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
+                                                    <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" spend-time="<?php echo $DESTINATION->spend_time; ?>" location="<?php echo $DESTINATION->desLocation; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
                                                 </div>
                                             </div>
 
@@ -158,7 +158,7 @@ foreach ($destinations as $des) {
                                                 <div class="button-section">
                                                     <input type="hidden" id="destination-<?php echo $DESTINATION->id; ?>" class="destination" location="<?php echo $DESTINATION->id; ?>" value="<?php echo $destination; ?>" />
                                                     <a href="destination-type-one-item-view-page.php?id=<?php echo $DESTINATION->id; ?>" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>
-                                                    <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
+                                                    <button class="btn btn-cart  remove-from-cart" id="li-<?php echo $key; ?>" destination-id="<?php echo $DESTINATION->id; ?>" spend-time="<?php echo $DESTINATION->spend_time; ?>"  array-key="<?php echo $key; ?>" back="cart" title="Remove from Cart"><i class="glyphicon glyphicon-remove-sign" ></i></button>
                                                 </div>
                                             </div>
 
@@ -182,6 +182,7 @@ foreach ($destinations as $des) {
                         </ul> 
                     </div>
                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
+                    <input type="hidden" class="spendtime" value="<?php echo $spentime; ?>"/>
 
                     <div class="col-md-4  col-xs-1  col-sm-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                         <div id="map-canvas" class="desMap"></div>
@@ -190,11 +191,10 @@ foreach ($destinations as $des) {
                                 <h4> Estimate Time</h4>
                                 <hr> 
                                 <div class="col-md-6 col-xs-8 col-sm-4">
-                                    <label for="comment">Total Estimate Time : </label>
+                                    <label for="comment" class="estimateTime2">Total Estimate Time : </label>
                                 </div>   
                                 <div class="col-md-6 col-xs-4 col-sm-4">
-                                    <label for="comment"> <?php echo $spentime; ?> min
-                                    </label>
+                                    <input type="text" class="spendtime" disabled value="<?php echo $spentime ?> min" >
                                 </div>  
                             </div>
                         </div>
@@ -251,7 +251,7 @@ foreach ($destinations as $des) {
         function ViewCustInGoogleMap() {
 
             var mapOptions = {
-                center: new google.maps.LatLng(7.231062, 80.217732),
+                center: new google.maps.LatLng(8.231062, 80.217732),
                 zoom: 7,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
@@ -264,7 +264,7 @@ foreach ($destinations as $des) {
 //            console.log(convertedArray);
 
             var desti = $('.dest').val();
-
+        
             desti = desti.replace(/'/g, '"');
 
 //            desti = JSON.parse(desti);
@@ -327,7 +327,7 @@ foreach ($destinations as $des) {
                 google.maps.event.addListener(marker, 'mouseover', function (event) {
                     infowindow.setContent(this.html);
                     infowindow.setPosition(event.latLng);
-                    infowindow.open(map, this);
+//                    infowindow.open(map, this);
                 });
             }
         }

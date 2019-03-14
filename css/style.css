@@ -16629,5 +16629,19 @@ a .listing-item:hover {
 }
 .desMap{
     width: 400px;
-    height: 300px;
+    height: 503px;
+}
+.spendtime{
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0);
+    font-weight: 500;
+    opacity: 1;
+    border-radius: 3px;
+}
+.estimateTime{
+    padding-top: 13px;
+}
+.estimateTime2{
+    padding-top: 13px;
 }
