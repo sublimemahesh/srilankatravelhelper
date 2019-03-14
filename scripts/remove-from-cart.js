@@ -53,15 +53,49 @@ $(document).ready(function () {
                         $('.cart-item-count').empty();
                         $('.cart-item-count').append(html);
 
-
+                            
 
                     }
+                 location.reload();
                 }
             });
         });
 
     });
 
+//    $('.remove-from-cart').click(function () {
+
+        //Remove the spend time
+//        var spend = $(this).attr('spend-time');
+//        var allspend = $('.spendtime').val();
+//
+//        var red = parseInt(allspend) - parseInt(spend);
+//        $('.spendtime').val(red + ' min ')
+//        
+//  
+//       
+//       //  Remove Location array
+//        var location = $(this).attr('location');
+//                 var alllocations = $('.dest').val();
+//                   alert(alllocations);
+//        if (alllocations == '') {
+//            var string = "'" + location + "'";
+//        } else {
+//            var string = alllocations + ",'" + location + "'";
+//        }
+//          var lenall = string.length;
+//        var lenold=location.length;
+//        alert(lenall);
+//           alert(lenold);
+//       var res = lenall -lenold;
+//        alert(res)
+//         var res1 = string.substring(0,res-lenold-4);
+//           alert(res1);
+//     
+//        
+//        $('.dest').val(res1);
+//        
+//    });
 });
 
 

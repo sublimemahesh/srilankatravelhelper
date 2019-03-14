@@ -4,6 +4,7 @@ $(document).ready(function (event) {
 
         if (!cityid || cityid.length === 0) {
             swal({
+                position: 'bottom-end',
                 title: "Error!",
                 text: "Please select a city...",
                 type: 'error',
@@ -24,6 +25,7 @@ $(document).ready(function (event) {
                 success: function (destinations) {
                     if (destinations === 'FALSE') {
                         swal({
+                            position: 'bottom-end',
                             title: "Error!",
                             text: "Please try again...",
                             type: 'error',
@@ -78,9 +80,16 @@ $(document).ready(function (event) {
                                     } else {
                                         name = destname;
                                     }
+//                                   convert cha to int  
+                                    var spend_time = destination.spend_time;
+                                    if (spend_time = null) {
+                                        spend_time = 0;
 
+                                    } else {
+                                        spend_time = destination.spend_time;
+                                    }
 
-                                    html += '<div class="col-md-4 col-sm-6 col-xs-12 search-destination-item">';
+                                    html += '<div class="col-md-6 col-sm-6 col-xs-12 search-destination-item">';
                                     html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
                                     html += '<div class="listing-item col-md-5 col-sm-5 col-xs-5">';
                                     html += '<img src="upload/destination/' + destination.image_name + '" alt=""/>';
@@ -100,7 +109,7 @@ $(document).ready(function (event) {
                                     html += '</div>';
                                     html += '<div class="button-section">';
                                     html += '<a href="destination-type-one-item-view-page.php?id=' + destination.id + '" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>';
-                                    html += '<button class="btn btn-cart add-to-cart" id="add-to-cart-' + destination.id + '" destination-id="' + destination.id + '" back="cart" title="Add to Cart"><i class="glyphicon glyphicon-shopping-cart" ></i></button>';
+                                    html += '<button class="btn btn-cart add-to-cart" id="add-to-cart-' + destination.id + '" destination-id="' + destination.id + '" location="' + destination.location + '" spend_time="' + spend_time + '"   back="cart" title="Add to Cart"><i class="glyphicon glyphicon-shopping-cart" ></i></button>';
                                     html += '</div>';
                                     html += '</div>';
                                     html += '</div>';
@@ -234,6 +243,33 @@ $(document).ready(function (event) {
             }
         }
     });
+
+    $('#search-content').on('click', '.add-to-cart', function () {
+//      Spend time calculation
+
+        var spend = $(this).attr('spend_time');
+        var allspend = $('.spendtime').val();
+        if (allspend == "") {
+            allspend = 0;
+        } else {
+            allspend = $('.spendtime').val();
+        }
+
+
+        var sum = parseInt(spend) + parseInt(allspend);
+//    $('.spendtime').val(sum);
+        $('.spendtime').val(sum + ' min ');
+//      Create Location array
+        var location = $(this).attr('location');
+        var alllocations = $('.dest').val();
+        if (alllocations == '') {
+            var string = "'" + location + "'";
+        } else {
+            var string = alllocations + ",'" + location + "'";
+        }
+        $('.dest').val(string);
+
+    })
 });
 
 

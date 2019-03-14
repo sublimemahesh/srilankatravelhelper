@@ -29,7 +29,7 @@ $(document).ready(function () {
                 } else if (locations) {
                     $('.nearbydestinations-carousel').empty();
                     $.each(locations, function (key, location) {
-                        alert(location.location.id);
+                     
                         var html1 = '';
                         
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
                             html1 += '</div>';
                         }
 
-                        html += '<div class="col-md-3 col-sm-6 col-xs-12 carousel-item">';
+                        html += '<div class="col-md-6 col-sm-6 col-xs-12 carousel-item">';
                         html += '<div class="city-body">';
                         html += '<div class="package-location">';
                         html += '<img src="upload/location/' + location.location.imagename + '" alt="">';
@@ -143,7 +143,7 @@ $(document).ready(function () {
                                 html1 += '</div>';
                             }
 
-                            html += '<div class="col-md-3 col-sm-6 col-xs-12 carousel-item">';
+                            html += '<div class="col-md-6 col-sm-6 col-xs-12 carousel-item">';
                             html += '<div class="city-body">';
                             html += '<div class="package-location">';
                             html += '<img src="upload/location/' + location.location.imagename + '" alt="">';
