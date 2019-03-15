@@ -188,7 +188,7 @@ class Destination {
 
     public function getDestinationById($id) {
 
-        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `destination`.`viewer` DESC";
+        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `views` DESC";
 
         $db = new Database();
 

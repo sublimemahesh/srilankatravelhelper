@@ -29,11 +29,22 @@ $view = (int) $desview['views'];
 if ($view == 0) {
     $view = 1;
 } else {
-    $view = $view+1;
+    $view = $view + 1;
 }
 //echo "Total page views = " . $view;
-$updateview=Destination::updateViewByid($id,$view);
+$updateview = Destination::updateViewByid($id, $view);
 
+//map Destination location
+$destinations = '';
+$string = '';
+//foreach ($destinations as $des) {
+$destian = new Destination($id);
+$string .= "'" . $destian->desLocation . "',";
+
+//}
+
+$dest_str = substr($string, 0, strlen($string) - 1);
+//dd($dest_str);
 ?> 
 <!DOCTYPE html>
 
@@ -192,11 +203,11 @@ $updateview=Destination::updateViewByid($id,$view);
 
         <div id="wrapper" class="">
             <div class="view-destination <?php
-            if ($album === 'TRUE') {
-                echo 'hidden';
-            }
-            ?>" >
-                     <?php include './header.php'; ?>
+if ($album === 'TRUE') {
+    echo 'hidden';
+}
+?>" >
+                 <?php include './header.php'; ?>
                 <div class="container-fluid about-bg ">
                     <div class="container">
                         <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
@@ -227,16 +238,28 @@ $updateview=Destination::updateViewByid($id,$view);
                                 <hr  >
                                 <h3 class="headline"><?php echo $DESTINATION->name; ?></h3>
                                 <hr  >
-                                <p class="para">
-                                    <?php echo $DESTINATION->description; ?>
-                                </p> 
+                                <div class="col-md-7">
+                                    <p class="para">
+                                        <?php echo $DESTINATION->description; ?>
+                                    </p> 
+                                   
+                                </div>
+                                <div class="col-md-5">
+                                    <div id="map-canvas" class="onedesMap"></div>
+                                    <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
+                                </div>
+                                <div class="col-md-5">
+                                     <div class="review-button">
+                                        <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class=" btncolor7 button border with-icon submit add-to-cart">Add to Cart</button></a>
+                                    </div>
+                                </div>
 
                             </div>
-                            <div class="review-button">
-                                <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class=" btncolor7 button border with-icon submit add-to-cart">Add to Cart</button></a>
-                            </div>
+
                         </div>
+
                         <div class="col-md-3 col-sm-4 moredesti" >
+
                             <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
                                 <h3 class="headline text-center" >More Destinations</h3>
                             </div> 
@@ -507,9 +530,107 @@ $updateview=Destination::updateViewByid($id,$view);
         <script src="scripts/images-grid.js"></script>
         <script src="scripts/destination-slider.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&sensor=true" type="text/javascript"></script>
         <script>
             AOS.init();
         </script>
+        <script>
+            var map;
+            var geocoder;
+            var marker;
+            var people = new Array();
+            var latlng;
+            var infowindow;
+
+            $(document).ready(function () {
+                ViewCustInGoogleMap();
+            });
+
+            function ViewCustInGoogleMap() {
+
+                var mapOptions = {
+                    center: new google.maps.LatLng(7.931062, 80.817732),
+                    zoom: 7,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+                // Get data from database. It should be like below format or you can alter it.
+//            alert($('.dest').val());
+
+//            var convertedArray = stringToConvert.split();
+//            console.log(convertedArray);
+
+                var desti = $('.dest').val();
+
+                desti = desti.replace(/'/g, '"');
+
+//            desti = JSON.parse(desti);
+                var destinations = JSON.parse("[" + desti + "]");
+                var arr = '';
+                $.each(destinations, function (key, destination) {
+                    arr += '{ "LatitudeLongitude": "' + destination + '" },';
+
+                });
+
+                de = arr.substring(0, arr.length - 1);
+
+                var data = '[' + de + ']';
+                people = JSON.parse(data);
+                for (var i = 0; i < people.length; i++) {
+                    setMarker(people[i]);
+                }
+
+            }
+
+            function setMarker(people) {
+                geocoder = new google.maps.Geocoder();
+                infowindow = new google.maps.InfoWindow();
+                if ((people["LatitudeLongitude"] == null) || (people["LatitudeLongitude"] == 'null') || (people["LatitudeLongitude"] == '')) {
+                    geocoder.geocode({'address': people["Address"]}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            latlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                            marker = new google.maps.Marker({
+                                position: latlng,
+                                map: map,
+                                draggable: false,
+                                html: people["DisplayText"],
+                                icon: "images/marker/" + people["MarkerId"] + ".png"
+                            });
+                            //marker.setPosition(latlng);
+                            //map.setCenter(latlng);
+                            google.maps.event.addListener(marker, 'click', function (event) {
+                                infowindow.setContent(this.html);
+                                infowindow.setPosition(event.latLng);
+                                infowindow.open(map, this);
+                            });
+                        } else {
+//                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
+                        }
+                    });
+                } else {
+                    var latlngStr = people["LatitudeLongitude"].split(",");
+                    var lat = parseFloat(latlngStr[0]);
+                    var lng = parseFloat(latlngStr[1]);
+                    latlng = new google.maps.LatLng(lat, lng);
+                    marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map,
+                        draggable: false, // cant drag it
+                        html: people["DisplayText"]    // Content display on marker click
+                                //icon: "images/marker.png"       // Give ur own image
+                    });
+                    //marker.setPosition(latlng);
+                    //map.setCenter(latlng);
+                    google.maps.event.addListener(marker, 'mouseover', function (event) {
+                        infowindow.setContent(this.html);
+                        infowindow.setPosition(event.latLng);
+//                    infowindow.open(map, this);
+                    });
+                }
+            }
+        </script>
+
         <script>
 //            $(document).ready(function () {
 //                $('.gallery1').click(function () {

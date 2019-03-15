@@ -58,7 +58,12 @@
     }
     .estimatetime {
         margin-right: 0px;
-
+    }
+    .onedesMap {
+        width: 439px;
+        height: 462px;
+        margin-bottom: 34px;
+        margin-top: 26px;
     }
 }
 @media only screen and (width: 360px) {
@@ -578,6 +583,9 @@
     .rating-breakdown{
         padding-bottom: 17px;
     }
+    .onedesMap {
+        width: 354px;
+    }
 
 
 }
@@ -940,5 +948,11 @@
     }
     .search-destination-item .driver-name {
         margin-top: 2px;
+    }
+    .onedesMap {
+        width: 313px;
+        height: 462px;
+        margin-bottom: 34px;
+        margin-top: 26px;
     }
 }
