@@ -190,7 +190,7 @@ foreach ($destinations as $des) {
                                 <h4> Estimate Time</h4>
                                 <hr> 
                                 <div class="col-md-6 col-xs-8 col-sm-4">
-                                    <label for="comment" class="estimateTime2">Total Estimate Time : </label>
+                                    <label for="comment" class="estimateTime2">Total Estimate Time  </label>
                                 </div>   
                                 <div class="col-md-6 col-xs-4 col-sm-4">
                                     <input type="text" class="spendtime" disabled value="<?php echo $spentime ?> min" >

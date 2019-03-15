@@ -117,7 +117,7 @@ foreach ($destinations as $des) {
                             <h4> Estimate Time</h4>
                             <hr> 
                             <div class="col-md-6 col-xs-8 col-sm-4">
-                                <label for="comment" class="estimateTime">Total Estimate Time : </label>
+                                <label for="comment" class="estimateTime">Total Estimate Time  </label>
                             </div>   
                             <div class="col-md-6 col-xs-4 col-sm-4 spendt" >
                                 <input type="hidden" class="spendtime" value="<?php echo $spentime ?>"/>
