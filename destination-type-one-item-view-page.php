@@ -203,15 +203,15 @@ $dest_str = substr($string, 0, strlen($string) - 1);
 
         <div id="wrapper" class="">
             <div class="view-destination <?php
-if ($album === 'TRUE') {
-    echo 'hidden';
-}
-?>" >
-                 <?php include './header.php'; ?>
+            if ($album === 'TRUE') {
+                echo 'hidden';
+            }
+            ?>" >
+                     <?php include './header.php'; ?>
                 <div class="container-fluid about-bg ">
                     <div class="container">
                         <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
-                            <h2 class="tp">Destination</h2>
+                            <h2 class="tp"><?php echo $DESTINATION->name; ?></h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
                                 <li><span class="active">Destination</span></li>
@@ -238,27 +238,150 @@ if ($album === 'TRUE') {
                                 <hr  >
                                 <h3 class="headline"><?php echo $DESTINATION->name; ?></h3>
                                 <hr  >
-                                <div class="col-md-7">
+                                <div class="col-md-12">
                                     <p class="para">
                                         <?php echo $DESTINATION->description; ?>
                                     </p> 
-                                   
+
                                 </div>
-                                <div class="col-md-5">
-                                    <div id="map-canvas" class="onedesMap"></div>
-                                    <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
-                                </div>
-                                <div class="col-md-5">
-                                     <div class="review-button">
+
+                                <div class="col-md-12">
+                                    <div class="review-button">
                                         <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class=" btncolor7 button border with-icon submit add-to-cart">Add to Cart</button></a>
                                     </div>
                                 </div>
 
-                            </div>
 
+                                <div class="col-md-12">
+                                    <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500">
+                                        <hr>
+                                        <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
+                                        <hr>
+                                        <div class="col-md-4 col-sm-3 rating-breakdown">
+                                            <div class="row">
+                                                <div class="col-md-12  rating-block">
+                                                    <h2 class="bold padding-bottom-7 ratingblock"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
+                                                    <?php
+                                                    for ($i = 1; $i <= $stars1; $i++) {
+                                                        ?>
+                                                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                                        </button>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                                        </button>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-9">
+                                            <div class="reviws-section">
+                                                <div class="review-carousel testimonials">
+                                                    <?php
+                                                    if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
+                                                        foreach (Reviews::getReviewsByDestination($DESTINATION->id) as $review) {
+
+                                                            $VISITOR = new Visitor($review['visitor']);
+                                                            ?>
+                                                            <div class="col-md-12">
+
+                                                                <div class="col-md-3 col-sm-3 img-section reviewspts">
+                                                                    <div class="reviewimg">
+                                                                        <?php
+                                                                        if (empty($VISITOR->profile_picture)) {
+                                                                            ?>
+                                                                            <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
+                                                                                ?>
+                                                                                <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
+                                                                                <?php
+                                                                            } else {
+                                                                                ?>
+                                                                                <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
+                                                                                <?php
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                    <div class="reviews-item1 ">
+                                                                        <li>
+                                                                            <?php
+                                                                            $stars = $review['reviews'];
+                                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                                ?>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <?php
+                                                                            }
+                                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                                ?>
+                                                                                <i class="fa fa-star-o"></i>
+                                                                                <?php
+                                                                            }
+                                                                            ?>
+                                                                        </li>
+                                                                        <li>
+                                                                            <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews </p>
+                                                                        </li>
+                                                                    </div>
+                                                                </div>  
+                                                                <div class="col-md-9 col-sm-9">
+                                                                    <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
+                                                                    <p><?php echo $review['message']; ?></p>
+                                                                </div> 
+                                                            </div>
+
+
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    <?php } else { ?>
+                                                        <li class="list-group-item"><h5>No any reviews in here</h5></li>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
+                                                ?>
+                                                <div class="review-button">
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">View All Reviews</button></a>
+                                                        <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                                    </div>
+
+                                                    <div class="col-md-6 col-sm-6 addreviewbtn">
+                                                        <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
+                                                        <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                                    </div>
+                                                </div>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <div class="review-button btncolor8">
+                                                    <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
+                                                    <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-3 col-sm-4 moredesti" >
+                            <div>
+                                <div id="map-canvas" class="onedesMap"></div>
+                                <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
+                            </div>
 
                             <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
                                 <h3 class="headline text-center" >More Destinations</h3>
@@ -268,7 +391,7 @@ if ($album === 'TRUE') {
                                 <?php
                                 $DESTINATIONS = Destination::getDestinationById($DESTINATION->type);
                                 foreach ($DESTINATIONS as $key => $destination) {
-                                    if ($key < 7) {
+                                    if ($key < 5) {
                                         ?>
 
                                         <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="600">
@@ -380,127 +503,7 @@ if ($album === 'TRUE') {
                 </div>
                 <div class="container padding-bottom-70">
                     <div class="row">
-                        <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500">
-                            <hr>
-                            <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
-                            <hr>
-                            <div class="col-md-4 col-sm-3 rating-breakdown">
-                                <div class="row">
-                                    <div class="col-md-12  rating-block">
-                                        <h2 class="bold padding-bottom-7 ratingblock"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
-                                        <?php
-                                        for ($i = 1; $i <= $stars1; $i++) {
-                                            ?>
-                                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                            </button>
-                                            <?php
-                                        }
-                                        for ($j = $i; $j <= 5; $j++) {
-                                            ?>
-                                            <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                            </button>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-9">
-                                <div class="reviws-section">
-                                    <div class="review-carousel testimonials">
-                                        <?php
-                                        if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
-                                            foreach (Reviews::getReviewsByDestination($DESTINATION->id) as $review) {
 
-                                                $VISITOR = new Visitor($review['visitor']);
-                                                ?>
-                                                <div class="col-md-12">
-
-                                                    <div class="col-md-3 col-sm-3 img-section reviewspts">
-                                                        <div class="reviewimg">
-                                                            <?php
-                                                            if (empty($VISITOR->profile_picture)) {
-                                                                ?>
-                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle"/>
-                                                                <?php
-                                                            } else {
-                                                                if ($VISITOR->facebookID && substr($VISITOR->profile_picture, 0, 5) === "https") {
-                                                                    ?>
-                                                                    <img src="<?php echo $VISITOR->profile_picture; ?>"  alt="Profile Picture" class="img-circle"/>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-                                                                    <img src="upload/visitor/<?php echo $VISITOR->profile_picture; ?>" alt="Profile Picture" class="img-circle"/>
-                                                                    <?php
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </div>
-                                                        <div class="reviews-item1 ">
-                                                            <li>
-                                                                <?php
-                                                                $stars = $review['reviews'];
-                                                                for ($i = 1; $i <= $stars; $i++) {
-                                                                    ?>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <?php
-                                                                }
-                                                                for ($j = $i; $j <= 5; $j++) {
-                                                                    ?>
-                                                                    <i class="fa fa-star-o"></i>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                            </li>
-                                                            <li>
-                                                                <p class="count-reviews" style="color:#000 !important;"><?php echo $review['reviews']; ?> Reviews </p>
-                                                            </li>
-                                                        </div>
-                                                    </div>  
-                                                    <div class="col-md-9 col-sm-9">
-                                                        <h4 class=" reviews-title"><?php echo $VISITOR->name; ?></h4>
-                                                        <p><?php echo $review['message']; ?></p>
-                                                    </div> 
-                                                </div>
-
-
-                                                <?php
-                                            }
-                                            ?>
-                                        <?php } else { ?>
-                                            <li class="list-group-item"><h5>No any reviews in here</h5></li>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                                <?php
-                                if (count(Reviews::getReviewsByDestination($DESTINATION->id)) > 0) {
-                                    ?>
-                                    <div class="review-button">
-                                        <div class="col-md-6 col-sm-6">
-                                            <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">View All Reviews</button></a>
-                                            <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
-                                        </div>
-
-                                        <div class="col-md-6 col-sm-6 addreviewbtn">
-                                            <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
-                                            <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
-                                        </div>
-                                    </div>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <div class="review-button btncolor8">
-                                        <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
-                                        <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
-                                    </div>
-                                <?php } ?>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
