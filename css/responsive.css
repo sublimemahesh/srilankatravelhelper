@@ -1,3 +1,10 @@
+@media only screen and (width: 1280x) {
+    .onedesMap {
+        width: 276px;
+        height: 445px;
+        margin-bottom: 41px;
+    }
+}
 @media(min-width:577px) and (max-width:990px) {
 
     .destinations-search .main-search-input {
@@ -60,10 +67,10 @@
         margin-right: 0px;
     }
     .onedesMap {
-        width: 439px;
-        height: 462px;
+        width: 246px;
+        height: 413px;
         margin-bottom: 34px;
-        margin-top: 26px;
+        margin-top: 0px;
     }
 }
 @media only screen and (width: 360px) {
@@ -956,3 +963,4 @@
         margin-top: 26px;
     }
 }
+

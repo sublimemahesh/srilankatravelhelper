@@ -42,10 +42,11 @@ $LOCATION = new Location($city);
             <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
-                        <h2 class="tp">Destinations By City</h2>
+                        <h2 class="tp"><?php echo $LOCATION->name?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><span class="active">Destinations By City</span></li>
+                            <li><a href="all-cities.php">Destinations By City</a></li>
+                            <li><span class="active"><?php echo $LOCATION->name?></span></li>
                         </ul>
                     </div>
                 </div>
