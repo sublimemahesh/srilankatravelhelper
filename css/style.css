@@ -15749,10 +15749,12 @@ h4 span.headline-detail {
         font-size: 16px;
         border: 1px solid #e0e0e0;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
-        background: #fff;
+        background: #ffffffb3;
         height: 55px;
         padding: 12px 18px;
-        border-radius: 4px
+        border-radius: 19px;
+        z-index: 999999;
+          
     }
     #dashboard {
         padding-top: 0!important
@@ -16649,5 +16651,25 @@ a .listing-item:hover {
     width: 313px;
     height: 445px;
     margin-bottom: 41px;
+}
+.dropDes{
+    margin: 0;
+    padding: 9px 10px;
+    list-style: none;
+    line-height: 15px;
+    word-wrap: break-word;
+    font-family: raleway, helveticaneue, helvetica neue, Helvetica, Arial, sans-serif;
+    text-transform: none;
+    color: gray;
+}
+
+.dropDes option{
+    margin: 0;
+    padding: 9px 10px;
+    list-style: none;
+    line-height: 15px;
+    word-wrap: break-word;
+    display: list-item;
+    cursor: pointer;
 }
 

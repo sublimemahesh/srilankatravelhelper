@@ -23,32 +23,41 @@
                             <div class="container padding-top-100">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="main-search-input">
-
-                                            <div class="main-search-input-item">
-                                                <input type="text" placeholder="What are you looking for?" value=""/>
-                                            </div>
-
-                                            <div class="main-search-input-item location">
-                                                <div id="autocomplete-container">
-                                                    <input id="autocomplete-input" type="text" placeholder="Location">
+                                        <form id="blog-search" action="all-destinations.php" method="get">
+                                            <div class=" main-search-input">
+                                                <div class="main-search-input-item location">
+                                                    <div id="autocomplete-container">
+                                                        <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
+                                                        <input type="hidden" name="location" id="location"  value=""/>
+                                                    </div>
+                                                    <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
                                                 </div>
-                                                <a href="#"><i class="fa fa-map-marker"></i></a>
-                                            </div>
+                                                <div class="main-search-input-item">
+                                                    <!--<select class="chosen-select" name="type" >-->
+<!--                                                          <select class="dropDes" name="type" >-->
+                                                       <select class="dropDes" name="type" >
+                                                              <option value=""> All Categories </option>
+                                                        <?php
+                                                        foreach (DestinationType::all() as $des) {
+                                                            ?>
+                                                            <option value="<?php echo $des['id']; ?>">
+                                                                <?php echo $des['name']; ?></option>
 
-                                            <div class="main-search-input-item">
-                                                <select data-placeholder="All Categories" class="chosen-select" >
-                                                    <option>All Categories</option>	
-                                                    <option>Wild</option>
-                                                    <option>Pristine</option>
-                                                    <option>Scenic</option>
-                                                    <option>Heritage</option>
-                                                    <option>Festive</option>
-                                                </select>
-                                            </div>
+                                                        <?php }
+                                                        ?>
 
-                                            <button class="button" onclick="window.location.href = '#'">Search</button>
-                                        </div>
+                                                    </select>
+                                                </div>
+                                                <div class="main-search-input-item">
+                                                    <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
+                                                </div>
+
+                                                <button class="button" name="search">Search</button>
+                                                
+                                                
+                                                
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
