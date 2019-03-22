@@ -15,6 +15,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
 $keyword = '';
 $location = '';
+$type = '';
 if (isset($_GET['search'])) {
     if (isset($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
@@ -22,10 +23,15 @@ if (isset($_GET['search'])) {
     if (isset($_GET['location'])) {
         $location = $_GET['location'];
     }
-    $DESTINATIONS = Destination::searchDestinations($keyword, $location, $pageLimit, $setLimit);
+    if (isset($_GET['type'])) {
+        $type = $_GET['type'];
+    }
+
+    $DESTINATIONS = Destination::searchDestinations($keyword, $location, $type, $pageLimit, $setLimit);
 } else {
     $DESTINATIONS = Destination::getAllDestinations($pageLimit, $setLimit);
 }
+
 ?>  
 <!DOCTYPE html>
 <html>
@@ -78,11 +84,6 @@ if (isset($_GET['search'])) {
                         <div class="col-md-9 col-md-offset-3 col-sm-5 col-sm-offset-6 seabox" data-aos="fade-down" data-aos-duration="3500">
                             <form id="blog-search" action="all-destinations.php" method="get">
                                 <div class=" main-search-input">
-
-                                    <div class="main-search-input-item">
-                                        <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
-                                    </div>
-
                                     <div class="main-search-input-item location">
                                         <div id="autocomplete-container">
                                             <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
@@ -90,6 +91,25 @@ if (isset($_GET['search'])) {
                                         </div>
                                         <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
                                     </div>
+
+<!--                                                                        <div class="main-search-input-item">
+                                                                            <select class="" name="type" >
+                                    <?php
+                                    foreach (DestinationType::all() as $des) {
+                                        ?>
+                                                                                                <option value="<?php echo $des['id']; ?>">
+                                        <?php echo $des['name']; ?></option>
+                                                
+                                    <?php }
+                                    ?>
+                                    
+                                                                            </select>
+                                                                        </div>-->
+                                    <div class="main-search-input-item">
+                                        <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
+                                    </div>
+
+
                                     <button class="button" name="search">Search</button>
                                 </div>
                             </form>
@@ -266,7 +286,7 @@ if (isset($_GET['search'])) {
                                 if (isset($_GET['search'])) {
                                     ?>
                                     <div class="pagination-container margin-top-20 margin-bottom-40">
-                                        <?php Destination::showPaginationOfSearchedDestinations($keyword, $location, $setLimit, $page); ?>
+                                        <?php Destination::showPaginationOfSearchedDestinations($keyword, $location, $type, $pageLimit, $setLimit); ?>
                                     </div>
                                     <?php
                                 } else {

@@ -379,7 +379,7 @@ class Destination {
         echo $setPaginate;
     }
 
-    public function searchDestinations($keyword, $location, $pageLimit, $setLimit) {
+    public function searchDestinations($keyword, $location, $type, $pageLimit, $setLimit) {
 
         $w = array();
         $where = '';
@@ -388,7 +388,10 @@ class Destination {
             $w[] = "`name` LIKE '%" . $keyword . "%'";
         }
         if (!empty($location)) {
-            $w[] = "`city` LIKE '" . $location . "'";
+            $w[] = "`city` = '" . $location . "'";
+        }
+         if (!empty($type)) {
+            $w[] = "`type` LIKE '" . $type . "'";
         }
         if (count($w)) {
             $where = 'WHERE ' . implode(' AND ', $w);
@@ -407,8 +410,8 @@ class Destination {
         return $array_res;
     }
 
-    public function showPaginationOfSearchedDestinations($keyword, $location, $per_page, $page) {
-
+    public function showPaginationOfSearchedDestinations($keyword, $location, $type, $per_page, $page) {
+        
         $page_url = "?";
 
         $w = array();
@@ -420,12 +423,16 @@ class Destination {
         if (!empty($location)) {
             $w[] = "`city` LIKE '" . $location . "'";
         }
+//          if (!empty($type)) {
+//            $w[] = "`type` = '" . $type . "'";
+//          
+//        }
         if (count($w)) {
-            $where = 'WHERE ' . implode(' AND ', $w);
+            $where = 'WHERE ' . implode(' OR ', $w);
         }
 
         $query = "SELECT count(*) AS totalCount FROM `destination` " . $where . " ORDER BY `sort` ASC";
-
+     
         $rec = mysql_fetch_array(mysql_query($query));
 
         $total = $rec['totalCount'];
@@ -449,7 +456,7 @@ class Destination {
                     if ($counter == $page)
                         $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
                     else
-                        $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&search='>$counter</a></li>";
+                        $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&type=$type&search='>$counter</a></li>";
                 }
             }
             elseif ($setLastpage > 5 + ($adjacents * 2)) {
@@ -458,42 +465,42 @@ class Destination {
                         if ($counter == $page)
                             $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
                         else
-                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&search='>$counter</a></li>";
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&type=$type&search='>$counter</a></li>";
                     }
                     $setPaginate .= "<li class='dot'>...</li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&keyword=$keyword&location=$location&search='>$lpm1</a></li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&search='>$setLastpage</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&keyword=$keyword&location=$location&type=$type&search='>$lpm1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&type=$type&search='>$setLastpage</a></li>";
                 }
                 elseif ($setLastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
-                    $setPaginate .= "<li><a href='{$page_url}page=1&keyword=$keyword&location=$location&search='>1</a></li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=2&keyword=$keyword&location=$location&search='>2</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=1&keyword=$keyword&location=$location&type=$type&search='>1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=2&keyword=$keyword&location=$location&type=$type&search='>2</a></li>";
                     $setPaginate .= "<li class='dot'>...</li>";
                     for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
                         if ($counter == $page)
                             $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
                         else
-                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&search='>$counter</a></li>";
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&type=$type&search='>$counter</a></li>";
                     }
                     $setPaginate .= "<li class='dot'>..</li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&keyword=$keyword&location=$location&search='>$lpm1</a></li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&search='>$setLastpage</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$lpm1&keyword=$keyword&location=$location&type=$type&search='>$lpm1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&type=$type&search='>$setLastpage</a></li>";
                 }
                 else {
-                    $setPaginate .= "<li><a href='{$page_url}page=1&keyword=$keyword&location=$location&search='>1</a></li>";
-                    $setPaginate .= "<li><a href='{$page_url}page=2&keyword=$keyword&location=$location&search='>2</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=1&keyword=$keyword&location=$location&type=$type&search='>1</a></li>";
+                    $setPaginate .= "<li><a href='{$page_url}page=2&keyword=$keyword&location=$location&type=$type&search='>2</a></li>";
                     $setPaginate .= "<li class='dot'>..</li>";
                     for ($counter = $setLastpage - (2 + ($adjacents * 2)); $counter <= $setLastpage; $counter++) {
                         if ($counter == $page)
                             $setPaginate .= "<li><a class='current_page'>$counter</a></li>";
                         else
-                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&search='>$counter</a></li>";
+                            $setPaginate .= "<li><a href='{$page_url}page=$counter&keyword=$keyword&location=$location&type=$type&search='>$counter</a></li>";
                     }
                 }
             }
 
             if ($page < $counter - 1) {
-                $setPaginate .= "<li><a href='{$page_url}page=$next&keyword=$keyword&location=$location&search='>Next</a></li>";
-                $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&search='>Last</a></li>";
+                $setPaginate .= "<li><a href='{$page_url}page=$next&keyword=$keyword&location=$location&type=$type&search='>Next</a></li>";
+                $setPaginate .= "<li><a href='{$page_url}page=$setLastpage&keyword=$keyword&location=$location&type=$type&search='>Last</a></li>";
             } else {
                 $setPaginate .= "<li><a class='current_page'>Next</a></li>";
                 $setPaginate .= "<li><a class='current_page'>Last</a></li>";
