@@ -22,7 +22,9 @@ if ($_POST['option'] === 'ADDTOCART') {
         array_push($cart, $id);
         $_SESSION['destination_cart'] = $cart;
         $result = count($cart);
+      
     }
+ 
     header('Content-type: application/json');
     echo json_encode($result);
 }

@@ -65,7 +65,8 @@ $dest_str = substr($string, 0, strlen($string) - 1);
         <link href="css/galleria.classic.min.css" rel="stylesheet" type="text/css"/>
         <!--reviws fonts-->
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
         <link rel="stylesheet" href="css/images-grid.css">
         <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
@@ -529,7 +530,8 @@ $dest_str = substr($string, 0, strlen($string) - 1);
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
-        <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <!--<script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
         <script src="scripts/images-grid.js"></script>
         <script src="scripts/destination-slider.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>

@@ -264,7 +264,7 @@ $stars = $sum / $divider;
                                         }
                                         ?>
                                     </div>
-                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    <div id="rating-counter">(<?php echo $divider; ?> reviews)
                                     </div>
                                 </div>
                                 <div class="profile-description ">
@@ -301,7 +301,7 @@ $stars = $sum / $divider;
                                         }
                                         ?>
                                     </div>
-                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    <div id="rating-counter">(<?php echo $divider; ?> reviews)
                                     </div>
                                 </div>
                                 <div class="profile-description ">
@@ -338,7 +338,7 @@ $stars = $sum / $divider;
                                         }
                                         ?>
                                     </div>
-                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    <div id="rating-counter">(<?php echo $divider; ?> reviews)
                                     </div>
                                 </div>
                                 <div class="profile-description ">

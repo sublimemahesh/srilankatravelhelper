@@ -209,7 +209,7 @@ if (!isset($_SESSION)) {
                                                                         }
                                                                     }
                                                                     ?>
-                                                                    <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
+                                                                    <div class="rating-counter-tour">(<?php echo $divider; ?> reviews)</div><br/>
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -375,7 +375,7 @@ if (!isset($_SESSION)) {
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br/>
+                                                        <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br/>
                                                     </div>
 
                                                     <div class="indexdri"style="margin-top: 15px;padding-bottom: 7px;">

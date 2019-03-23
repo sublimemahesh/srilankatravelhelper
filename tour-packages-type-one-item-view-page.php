@@ -261,7 +261,7 @@ if ($divider1 == 0) {
                                                     <?php
                                                 }
                                             }
-                                            echo '<br />(' . $sum . ' reviews)';
+                                            echo '<br />(' . $divider . ' reviews)';
                                             ?>
                                         </div>
                                         <div class="col-sm-12">

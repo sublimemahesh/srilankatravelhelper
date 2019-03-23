@@ -24,7 +24,8 @@ $LOCATION = new Location($city);
         <link rel="stylesheet" href="css/style.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
-        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <!--        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/plan-trip.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
@@ -42,11 +43,11 @@ $LOCATION = new Location($city);
             <div class="container-fluid about-bg ">
                 <div class="container">
                     <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500">
-                        <h2 class="tp"><?php echo $LOCATION->name?></h2>
+                        <h2 class="tp"><?php echo $LOCATION->name ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
                             <li><a href="all-cities.php">Destinations By City</a></li>
-                            <li><span class="active"><?php echo $LOCATION->name?></span></li>
+                            <li><span class="active"><?php echo $LOCATION->name ?></span></li>
                         </ul>
                     </div>
                 </div>
@@ -135,7 +136,7 @@ $LOCATION = new Location($city);
                                             }
                                         }
                                         ?>
-                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br>
+                                        <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br>
                                     </div>
                                     <div style="margin-top: 0px;padding-bottom: 7px;">
                                         <p class="text-center " id="">
@@ -241,9 +242,10 @@ $LOCATION = new Location($city);
     <script type="text/javascript" src="scripts/counterup.min.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/tooltips.min.js"></script>
+    <script src="scripts/add-to-cart_2.js" type="text/javascript"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
-    <script src="scripts/add-to-cart.js" type="text/javascript"></script>
-    <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+<!--<script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
     <script src="scripts/search-destination.js" type="text/javascript"></script>
     <script src="scripts/aos.js" type="text/javascript"></script>
     <script>

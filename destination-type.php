@@ -80,7 +80,7 @@ if (!isset($_SESSION)) {
                                             }
                                             ?>
 
-                                            <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
+                                            <div class="rating-counter">(<?php echo $divider; ?> reviews)</div>
                                         </div>
                                     </div>
                                 </div>

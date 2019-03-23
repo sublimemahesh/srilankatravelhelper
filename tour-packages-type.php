@@ -81,7 +81,7 @@ if (!isset($_SESSION)) {
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="rating-counter-tour">(<?php echo $sum; ?> reviews)</div><br/>
+                                                        <div class="rating-counter-tour">(<?php echo $divider; ?> reviews)</div><br/>
                                                     </div></li>
                                             </ul>
                                             <h3><?php echo $tour_type['name']; ?></h3>
