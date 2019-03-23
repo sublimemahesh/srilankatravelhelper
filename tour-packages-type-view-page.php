@@ -300,7 +300,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                     ?>
                                                 </li>
                                                 <li>
-                                                    <p>(<?php echo $sum; ?> Reviews)</p>
+                                                    <p>(<?php echo $divider; ?> Reviews)</p>
                                                 </li>
                                             </ul>
                                         </div>

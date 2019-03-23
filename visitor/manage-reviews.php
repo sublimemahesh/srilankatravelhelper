@@ -160,7 +160,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                     }
                                                 }
                                                 ?>
-                                                <div class="rating-counter">(<?php echo $sum; ?> reviews)</div><br>
+                                                <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br>
                                             </div>
                                             <div class="col-md-7"></div>
                                         </div>

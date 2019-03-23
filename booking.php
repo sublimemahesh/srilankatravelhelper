@@ -140,7 +140,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         }
                                         ?>
                                     </div>
-                                    <div id="rating-counter">(<?php echo $sum; ?> reviews)
+                                    <div id="rating-counter">(<?php echo $divider; ?> reviews)
                                     </div>
                                 </div>
                                 <div class="profile-description ">

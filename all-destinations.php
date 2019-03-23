@@ -31,7 +31,6 @@ if (isset($_GET['search'])) {
 } else {
     $DESTINATIONS = Destination::getAllDestinations($pageLimit, $setLimit);
 }
-
 ?>  
 <!DOCTYPE html>
 <html>
@@ -50,7 +49,8 @@ if (isset($_GET['search'])) {
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/component.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
-        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
@@ -92,19 +92,19 @@ if (isset($_GET['search'])) {
                                         <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
                                     </div>
 
-<!--                                                                        <div class="main-search-input-item">
-                                                                            <select class="" name="type" >
+                                    <!--                                                                        <div class="main-search-input-item">
+                                                                                                                <select class="" name="type" >
                                     <?php
                                     foreach (DestinationType::all() as $des) {
                                         ?>
-                                                                                                <option value="<?php echo $des['id']; ?>">
+                                                                                                                                        <option value="<?php echo $des['id']; ?>">
                                         <?php echo $des['name']; ?></option>
-                                                
+                                                                                        
                                     <?php }
                                     ?>
-                                    
-                                                                            </select>
-                                                                        </div>-->
+                                                                        
+                                                                                                                </select>
+                                                                                                            </div>-->
                                     <div class="main-search-input-item">
                                         <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
                                     </div>
@@ -179,16 +179,16 @@ if (isset($_GET['search'])) {
                                                             <?php
                                                         }
                                                     }
-                                                    echo '<br />(' . $sum . ' reviews)';
+                                                    echo '<br />(' . $divider . ' reviews)';
                                                     ?>
                                                 </div>
                                                 <div class="col-sm-12">
                                                     Destinations - <?php
-                                                    if ($count['count'] < 10) {
-                                                        echo '0' . $count['count'];
-                                                    } else {
-                                                        echo $count['count'];
-                                                    }
+                                                if ($count['count'] < 10) {
+                                                    echo '0' . $count['count'];
+                                                } else {
+                                                    echo $count['count'];
+                                                }
                                                     ?>
                                                 </div>
                                             </div>
@@ -261,7 +261,7 @@ if (isset($_GET['search'])) {
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="rating-counter">(<?php echo $sum; ?> reviews)</div>
+                                                        <div class="rating-counter">(<?php echo $divider; ?> reviews)</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +320,8 @@ if (isset($_GET['search'])) {
         <script type="text/javascript" src="scripts/custom.js"></script>
         <script src="desti/toucheffects.js" type="text/javascript"></script>
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
-        <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <!--<script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
         <script>
