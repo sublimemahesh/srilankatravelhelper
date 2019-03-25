@@ -1,5 +1,7 @@
-
 <?php
+
+error_reporting(E_ERROR | E_PARSE);
+
 include_once(dirname(__FILE__) . '/Setting.php');
 include_once(dirname(__FILE__) . '/Helper.php');
 include_once(dirname(__FILE__) . '/Upload.php');
