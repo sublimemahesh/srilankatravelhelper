@@ -360,7 +360,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                                     </div>
 
                                                     <div class="col-md-6 col-sm-6 addreviewbtn">
-                                                        <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
+                                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
                                                         <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                                     </div>
                                                 </div>
@@ -368,7 +368,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                             } else {
                                                 ?>
                                                 <div class="review-button btncolor8">
-                                                    <a href="visitor/manage-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
+                                                    <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
                                                     <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                                 </div>
                                             <?php } ?>

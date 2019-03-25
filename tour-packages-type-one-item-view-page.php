@@ -404,14 +404,14 @@ if ($divider1 == 0) {
                                 </div>
 
                                 <div class ="col-md-6 col-xs-12 col-sm-6 addreviewbtn">
-                                    <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
+                                    <a href="visitor/manage-tour-package-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
                                 </div>
                             </div>
                             <?php
                         } else {
                             ?>
                             <div class="review-button">
-                                <a href="visitor/manage-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
+                                <a href="visitor/manage-tour-package-reviews.php?tour=<?php echo $id; ?>" ><button id="view-all-reviews" class="button border with-icon submit btncolor16">Add Reviews</button></a>
                             </div>
                             <?php
                         }
