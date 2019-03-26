@@ -140,7 +140,7 @@ img {
 
 #logo {
     display: inline-block;
-    margin: 13px 16px 10px 10px;
+    margin: 21px 16px 10px 10px;
 }
 
 #logo img {
@@ -16684,4 +16684,109 @@ a .listing-item:hover {
 .padding-bottom-120 {
     padding-bottom: 120px !important;
 }
+/*header new css strat*/
+.header-cart, .header-wishlist {
+    position: relative;
+    display: inline-block;
+    width: 17%;
+    vertical-align: top;
+    text-align: left;
+    margin-right: 15px;
+}
+.shopping-cart{
+    width: 15%;
+}
+.header-cart-small,.header-wishlist{
+    position: relative;
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+    text-align: left;
+}
+.plan-trip{
+    float: left; 
+}
+.header-cart .icon, .header-wishlist .icon {
+    position: absolute;
+    top: 2px;
+    left: -27px;
+    font-size:21px;
+    font-weight: normal;
+    color:#888;
+}
+.header-cart-small .icon, .header-wishlist .icon {
+    position: absolute;
+    top: 14px;
+    left: -22px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #888;
+}
+.lnr {
+    font-family: 'fontawosem';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.header-cart .cart-number, .header-wishlist .cart-number {
+    display: inline-block;
+    font-size: 12px;
+    height: 17px;
+    line-height: 10px;
+    padding: 4px 8px;
+    text-align: center;
+    color: #fff;
+    background-color: #fcd119;
+    border-radius: 16px;
+    position: absolute;
+    margin-top: -6px;
+}
+.header-cart-small .cart-number, .header-wishlist .cart-number {
+    display: inline-block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 17px;
+    padding: 6px 8px;
+    text-align: center;
+    color: #fff;
+    background-color: #fcd119;
+    border-radius: 16px;
+}
+.header-cart .title, .header-wishlist .title {
+    display: inline-block;
+    line-height: 39px;
+    padding-left: 10px;
+    color: #747774;
+    font-size: 14px !important;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.header-cart-small .title, .header-wishlist .title {
+    display: inline-block;
+    line-height: 39px;
+    padding-left: 10px;
+    color: #747774;
+    font-size: 14px !important;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.f-title{
+    line-height: 10px;
+    font-size:14px;
+    text-decoration: none;
+    color:#747774;
+
+}
+#nav-img{
+    width:24px!important;
+border-radius: 0%!important;
+border: none!important;
+margin-right: 0px!important;
+}
+/*header new css end*/
 

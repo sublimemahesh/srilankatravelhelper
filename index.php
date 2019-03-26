@@ -33,7 +33,7 @@ if (!isset($_SESSION)) {
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/harabara/font.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
-        <link href="css/header-new-css.css" rel="stylesheet" type="text/css"/>
+       
     </head>
 
     <body>
