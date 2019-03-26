@@ -119,7 +119,7 @@ if ($divider1 == 0) {
         }
         .image-row{
             padding-bottom: 10px;
-            padding-top: 10px;
+            padding-top: 20px;
         }
         .item1{
             padding-bottom: 25px;
@@ -175,10 +175,10 @@ if ($divider1 == 0) {
                                 <div data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                     <hr>
                                     <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
-                                    <hr>
+                                    
                                     <p><?php echo $tour_date['description']; ?></p>
 
-                                    <div class="image-row padding-bottom-140 packagepadding">
+                                    <div class="image-row padding-bottom-120 packagepadding">
                                         <?php
                                         $TOUR_DATE_PHOTOS = TourDatePhoto::getTourDatePhotosById($tour_date['id']);
                                         foreach ($TOUR_DATE_PHOTOS as $key => $tour_photos) {
@@ -302,7 +302,6 @@ if ($divider1 == 0) {
                 <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="900">
                     <hr>
                     <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
-                    <hr>
                     <div class="col-md-4 col-sm-4 rating-breakdown">
                         <div class="col-md-12 rating-block ratingblock1">
 

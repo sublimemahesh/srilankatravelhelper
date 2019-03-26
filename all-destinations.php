@@ -59,6 +59,13 @@ if (isset($_GET['search'])) {
             .like-icon {
                 padding: 8px 12px;
             }
+            .boxed-widget h3 {
+                font-size: 18px;
+                margin: 0 0 25px;
+                display: block;
+                border-bottom: 1px solid #e8e8e8;
+                text-transform: uppercase;
+            }
         </style>
     </head>
 
@@ -97,9 +104,9 @@ if (isset($_GET['search'])) {
                                     <?php
                                     foreach (DestinationType::all() as $des) {
                                         ?>
-                                                                                                                                        <option value="<?php echo $des['id']; ?>">
+                                                                                                                                            <option value="<?php echo $des['id']; ?>">
                                         <?php echo $des['name']; ?></option>
-                                                                                        
+                                                                                            
                                     <?php }
                                     ?>
                                                                         
@@ -122,7 +129,7 @@ if (isset($_GET['search'])) {
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-lg-3 col-md-4 col-sm-5">
-                        <div class="boxed-widget opening-hours margin-top-25" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
+                        <div class="boxed-widget opening-hours" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
                             <h3><i class="fa fa-map-marker"></i>Destination Types</h3>
                             <ul>
@@ -184,11 +191,11 @@ if (isset($_GET['search'])) {
                                                 </div>
                                                 <div class="col-sm-12">
                                                     Destinations - <?php
-                                                if ($count['count'] < 10) {
-                                                    echo '0' . $count['count'];
-                                                } else {
-                                                    echo $count['count'];
-                                                }
+                                                    if ($count['count'] < 10) {
+                                                        echo '0' . $count['count'];
+                                                    } else {
+                                                        echo $count['count'];
+                                                    }
                                                     ?>
                                                 </div>
                                             </div>

@@ -106,6 +106,7 @@
     position: absolute;
     right: 0;
     color: #fff;
+    top: 3px;
 }
 .rl-banner ul li:last-child:before {
     display: none;

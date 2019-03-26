@@ -31,6 +31,7 @@ if (!isset($_SESSION)) {
         <link href="slider css/style.css" rel="stylesheet" type="text/css"/>
         <!-- responsive css -->
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/harabara/font.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
         <link href="css/header-new-css.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -130,7 +131,7 @@ if (!isset($_SESSION)) {
             <!-- Categories Carousel / End -->
             <!-- Parallax -->
             <div class="parallax"
-                 data-background="images/banner/Travel1.jpg"
+                 data-background="images/banner/banner-travel.jpg"
                  data-color="#36383e"
                  data-color-opacity="0.6"
                  data-img-width="800"

@@ -42,6 +42,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             .like-icon {
                 padding: 8px 12px;
             }
+            .title-top{
+                margin-top: 25px;
+            }
         </style>
     </head>
 
@@ -67,15 +70,15 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-lg-3 col-md-4 hidden-sm" data-aos="fade-right" data-aos-duration="3500">
-                        <div class="boxed-widget opening-hours margin-top-35">
+                        <div class="boxed-widget opening-hours">
 
-                            <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
+                            <h3><?php echo $DESTINATION_TYPE->name ?></h3>
                             <ul>
                                 <?php
                                 $DESTINATIONS = Destination::getDestinationById($id);
                                 foreach ($DESTINATIONS as $key => $destination) {
                                     ?>
-                                    <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
+                                <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
                                     <?php
                                 }
                                 ?>
@@ -85,9 +88,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                     </div>
                     <div class="col-lg-3 col-md-4 visible-sm" data-aos="fade-right" data-aos-duration="3500">
-                        <div class="boxed-widget opening-hours margin-top-35">
+                        <div class="boxed-widget opening-hours">
 
-                            <h3><i class="fa fa-map-marker"></i><?php echo $DESTINATION_TYPE->name ?></h3>
+                            <h3><?php echo $DESTINATION_TYPE->name ?></h3>
                             <ul>
                                 <?php
                                 $DESTINATIONS = Destination::getDestinationById($id);
@@ -98,7 +101,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key < $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -110,7 +113,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key >= $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="fa fa-check"></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }

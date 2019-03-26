@@ -266,7 +266,7 @@ header.fullwidth .container {
     line-height: 17px;
 }
 .boxed-widget a{
-    color: #b3b9bf;
+    color: #a7a7a7;
 }
 .boxed-widget a:hover{
     color: #000;
@@ -4432,10 +4432,10 @@ a.mfp-gallery {
 
 .boxed-widget h3 {
     font-size: 20px;
-    padding: 0 0 25px;
     margin: 0 0 25px;
     display: block;
-    border-bottom: 1px solid #e8e8e8
+    border-bottom: 1px solid #e8e8e8;
+    text-transform: uppercase;
 }
 
 .boxed-widget h3 i {
@@ -7770,6 +7770,7 @@ body .notification strong {
     line-height: 46px;
     font-size: 30px;
     font-weight: 800;
+    text-transform: uppercase;
 }
 
 .top-1 {
@@ -9682,7 +9683,7 @@ body .notification strong {
     background: 0 0;
     background-color: #f9f9f9;
     margin-bottom: 25px;
-    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.51) 4px 4px 5px;
 }
 
 .listing-item-container.list-layout:hover {
@@ -9753,8 +9754,7 @@ body .notification strong {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 35px;
-    right: 35px
+    padding: 41px;
 }
 
 .listing-item-container.list-layout .listing-item-inner h3 {
@@ -10048,7 +10048,7 @@ section.fullwidth .listing-item-container.list-layout,
 }
 #rating-counter {
     color: #888;
-    padding-left: 92px;
+    padding-left: 100px;
     display: inline-block;
     font-size: 15px;
 
@@ -14570,7 +14570,7 @@ h6.white {
 }
 
 h3.headline {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 12px;
     margin: 0 0 20px;
     text-transform: uppercase;
@@ -14589,7 +14589,7 @@ h2.headline span {
 }
 
 .headline span {
-    font-size: 21px;
+    font-size: 15px;
     line-height: 36px;
     margin-top: 10px;
     color: #fff;
@@ -15303,7 +15303,7 @@ h4 span.headline-detail {
 }
 
 .padding-bottom-30 {
-    padding-bottom: 30px!important
+    padding-bottom: 15px!important
 }
 
 .padding-bottom-35 {
@@ -16671,5 +16671,17 @@ a .listing-item:hover {
     word-wrap: break-word;
     display: list-item;
     cursor: pointer;
+}
+.listing-item-content .listing-item-inner h3 {
+    color: #fff;
+    font-size: 20px;
+    bottom: 25px;
+    position: relative;
+    font-weight: 500;
+    margin: 0;
+    line-height: 31px;
+}
+.padding-bottom-120 {
+    padding-bottom: 120px !important;
 }
 
