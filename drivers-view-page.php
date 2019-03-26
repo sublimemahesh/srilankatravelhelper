@@ -54,8 +54,9 @@ if ($REVIEWS['count'] == 0) {
                 background-color:#fff;
                 border:1px solid #F7F7F0;
                 /*                padding:7% 12% 7% 12%;*/
-                border-radius:3%;
+                border-radius:1%;
                 /*                padding-bottom: 10px;*/
+                box-shadow: rgba(0, 0, 0, 0.51) 4px 4px 5px;
             }
             .profile-description{
                 margin: 1% 1% 1% 3%;
@@ -72,7 +73,7 @@ if ($REVIEWS['count'] == 0) {
                 color:#000;
             }
             .star-rating-driver{
-                margin-top: 15px;
+                margin-top: 0px;
                 z-index: 9;
                 position: relative;
                 color: #f5cf00;
@@ -273,7 +274,7 @@ if ($REVIEWS['count'] == 0) {
                             <div class="profile-description ">
                                 <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
                             </div>
-                            <div class="fa-item" style="padding: 3% 20% 3% 10%;background: #F7F7F0;">
+                            <div class="fa-item" style="padding: 3% 20% 3% 18%;background: #F7F7F0;">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-facebook-square item-fa1"></i></span>
@@ -336,7 +337,8 @@ if ($REVIEWS['count'] == 0) {
                     <div class="col-md-12">
                         <hr>
                         <h3 class="headline ">Reviews (<?php echo $sum; ?>)</h3>
-                        <hr>
+                        
+                        
                         <div class="col-md-4 col-sm-5 rating-breakdown">
                             <div class="col-md-12 rating-block">
 
