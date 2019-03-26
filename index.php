@@ -32,6 +32,7 @@ if (!isset($_SESSION)) {
         <!-- responsive css -->
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header-new-css.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
