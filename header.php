@@ -100,13 +100,6 @@ if (isset($_SESSION['position'])) {
                         </a>
                     </div>
                     <div class="header-cart">
-
-                        <span class="icon lnr lnr-cart">
-                            <img src="images/icons/profile.png" alt=""/>
-                        </span>
-
-                        <span class="title">My Profile </span>
-
                         <nav id="navigation1" class="style-1 hidden-xs">
                             <ul id="responsive">
                                 <?php
@@ -123,10 +116,11 @@ if (isset($_SESSION['position'])) {
                                         }
                                     } else {
                                         ?>
+                                    <li><a href="#">  <span class="icon lnr lnr-cart">
+                                                <img id="nav-img" src="images/icons/profile.png" alt=""/>
+                                            </span>
 
-                                    <li>
-                                        <a href="" ></a>
-    <!--                                        <a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>-->
+                                            <span class="title">My Profile </span></a>
                                         <?php
                                     }
                                     ?>
