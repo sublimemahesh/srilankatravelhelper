@@ -193,7 +193,7 @@ foreach ($destinations as $des) {
                                     <label for="comment" class="estimateTime2">Total Estimate Time  </label>
                                 </div>   
                                 <div class="col-md-6 col-xs-4 col-sm-4">
-                                    <input type="text" class="spendtime" disabled value="<?php echo $spentime ?> min" >
+                                    <input type="text" class="spendtime" disabled value="<?php echo $spentime/60 ?> h" >
                                 </div>  
                             </div>
                         </div>

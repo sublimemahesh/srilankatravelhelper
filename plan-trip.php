@@ -121,7 +121,7 @@ foreach ($destinations as $des) {
                             </div>   
                             <div class="col-md-6 col-xs-4 col-sm-4 spendt" >
                                 <input type="hidden" class="spendtime" value="<?php echo $spentime ?>"/>
-                                <input type="text" class="spendtime"  disabled value="<?php echo $spentime ?> min" >
+                                <input type="text" class="spendtime"  disabled value="<?php echo $spentime / 60 ?> h" >
                             </div>  
                         </div>
                     </div>
@@ -154,6 +154,8 @@ foreach ($destinations as $des) {
     <script src="scripts/near-by-destinations.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
     <script src="scripts/aos.js" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136795201-1"></script>
     <script>
         AOS.init();
     </script>
