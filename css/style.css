@@ -234,8 +234,8 @@ header.fullwidth .container {
     width: 70%;
     display: inline-block;
     text-align: right;
-    height: 81px;
-    padding: 5px 0px;
+    height: 100px;
+    padding: 16px 0px;
 }
 .container {
     width: 1116px;
@@ -715,7 +715,7 @@ body #navigation ul ul {
 }
 
 #navigation.style-1 {
-    margin-top: 1px
+    margin-top: 5px
 }
 
 #navigation.style-1 .current:after {

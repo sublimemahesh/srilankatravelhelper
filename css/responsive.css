@@ -11,11 +11,12 @@
         margin-top: -180px;
     }
     .right-side {
-        height: 25px;
+        height: 66px;
     }
     .nav-top {
         height: 60%;
-        margin-top: -52px;
+        margin-top: 0px;
+        margin-right: 0px;
     }
     .mmenu-trigger {
         margin-top: 54px;
@@ -598,6 +599,14 @@
     .onedesMap {
         width: 354px;
     }
+    .right-side {
+        float: left;
+        width: 70%;
+        display: inline-block;
+        text-align: right;
+        height: 68px;
+        padding: 21px 0px;
+    }
 
 
 }
@@ -747,6 +756,14 @@
     .destinations-search .main-search-input {
         margin-top: -7px;
     }
+    .right-side {
+        float: left;
+        width: 70%;
+        display: inline-block;
+        text-align: right;
+        height: 68px;
+        padding: 21px 0px;
+    }
 
 }
 @media only screen and (width: 600px) {
@@ -880,6 +897,14 @@
         margin-left: 253px;
 
     }
+    .right-side {
+        float: left;
+        width: 70%;
+        display: inline-block;
+        text-align: right;
+        height: 68px;
+        padding: 21px 0px;
+    }
 
 
 
@@ -972,6 +997,13 @@
         background: #ffffffb3;
         border-radius: 19px;
     }
-    
+    .right-side {
+        float: left;
+        display: inline-block;
+        text-align: right;
+        height: 68px;
+        padding: 21px 0px;
+    }
+
 }
 
