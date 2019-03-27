@@ -61,6 +61,7 @@ if ($REVIEWS['count'] == 0) {
             .profile-description{
                 margin: 1% 1% 1% 3%;
                 text-align: center;
+                padding: 5px;
 
             }
             .driver-rating{
@@ -73,11 +74,11 @@ if ($REVIEWS['count'] == 0) {
                 color:#000;
             }
             .star-rating-driver{
-                margin-top: 0px;
+                margin-top: -10px;
                 z-index: 9;
                 position: relative;
                 color: #f5cf00;
-                padding-right: 84px;
+                padding-right: 88px;
             }
             .contact-details-driver{
                 margin: 1% 1% 1% 3%;
@@ -274,7 +275,7 @@ if ($REVIEWS['count'] == 0) {
                             <div class="profile-description ">
                                 <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
                             </div>
-                            <div class="fa-item" style="padding: 3% 20% 3% 18%;background: #F7F7F0;">
+                            <div class="fa-item" style="padding: 0% 20% 5% 18%;background: #F7F7F0;">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span><i class="fa fa-facebook-square item-fa1"></i></span>
@@ -463,7 +464,7 @@ if ($REVIEWS['count'] == 0) {
                 <div class="container" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="headline  margin-bottom-45">
+                            <h3 class="headline">
                                 <hr>
                                 More Drivers
                                 <hr>

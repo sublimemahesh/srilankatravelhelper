@@ -238,8 +238,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
 
                                 <hr  >
                                 <h3 class="headline"><?php echo $DESTINATION->name; ?></h3>
-                                <hr  >
-                                <div class="col-md-12">
+                                <div class="">
                                     <p class="para">
                                         <?php echo $DESTINATION->description; ?>
                                     </p> 
@@ -253,8 +252,8 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                 </div>
 
 
-                                <div class="col-md-12">
-                                    <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500">
+                                <div class="">
+                                    <div class="" data-aos="fade-up" data-aos-duration="3500">
                                         <hr>
                                         <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
                                         <hr>

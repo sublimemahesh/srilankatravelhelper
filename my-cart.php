@@ -50,6 +50,9 @@ foreach ($destinations as $des) {
             .review-button {
                 margin-bottom: 70px;
             }
+            .time-box{
+                box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+            }
         </style>
     </head>
     <body>
@@ -187,13 +190,12 @@ foreach ($destinations as $des) {
                     <div class="col-md-4  col-xs-1  col-sm-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                         <div class="panel panel-default estimatetime">
                             <div class="panel-body">
-                                <h4> Estimate Time</h4>
-                                <hr> 
+                                <h4> Estimate Time</h4> 
                                 <div class="col-md-6 col-xs-8 col-sm-4">
                                     <label for="comment" class="estimateTime2">Total Estimate Time  </label>
                                 </div>   
                                 <div class="col-md-6 col-xs-4 col-sm-4">
-                                    <input type="text" class="spendtime"  disabled value="<?php echo round($spentime / 60, 2) ?> h" >
+                                    <input type="text" class="spendtime" style="box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;" disabled value="<?php echo round($spentime / 60, 2) ?> h" >
                                 </div>  
                             </div>
                         </div>

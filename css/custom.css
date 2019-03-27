@@ -73,12 +73,13 @@
 .rl-banner {
     float: left;
     width: 100%;
+    font-family: 'Playfair Display', serif;
 }
 .rl-banner h2 {
     color: #fff;
     font-size: 30px;
     text-transform: capitalize;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     font-weight: 500;
 }
 .rl-banner h2.tp {
@@ -1317,6 +1318,8 @@ span.process-num {
 .work-process h4 {
     margin: 10px 0;
     color: #004c85;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
 }
 .work-process p {
     font-size: 13px;

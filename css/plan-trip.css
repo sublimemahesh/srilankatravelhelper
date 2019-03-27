@@ -24,6 +24,7 @@ body {
     color: #1a0202;
     font-weight: 600;
     font-size: 18px;
+    font-family: 'Playfair Display', serif;
 }
 .search-destination-item .star-rating-fa {
     z-index: 9;
@@ -130,6 +131,7 @@ body {
     font-size: 22px;
     color: #000;
     margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
 }
 .city-item {
     margin-bottom: 50px;
@@ -146,6 +148,7 @@ body {
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
 }
 .city-item p {
     font-size: 15px;
