@@ -34,7 +34,8 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link rel="stylesheet" href="css/colors/main.css" id="colors">
         <link href="css/component.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
-        <link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>-->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
@@ -233,7 +234,8 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <script type="text/javascript" src="scripts/custom.js"></script>
         <script src="desti/toucheffects.js" type="text/javascript"></script>
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
-        <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <!--<script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>-->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
         <script>
