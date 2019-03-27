@@ -256,8 +256,9 @@ $(document).ready(function (event) {
             allspend = $('.spendtime').val();
         }
   
-     
-        
+//        alert(spend);
+//        alert(allspend);
+//        
         var sum = parseInt(spend)/60 + parseInt(allspend);
 //    $('.spendtime').val(sum);
         $('.spendtime').val(sum + ' h ');

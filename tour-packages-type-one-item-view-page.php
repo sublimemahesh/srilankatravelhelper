@@ -445,61 +445,7 @@ if ($divider1 == 0) {
         AOS.init();
     </script>
     <script>
-        <script>
-<< <<<<< HEAD
-    $(function () {
-                $('#nav').on('click', '.nav-item', function (event) {
-        event.preventDefault();
-        var hash = this.hash;
-        $('html, body').animate({
-        scrollTop: $(hash).offset().top
-    }, 1000, function () {
-                window.location.hash = hash;
-    });
-});
-    });
-    </script>
-=======
-                $(function () {
-                        $('#nav').on('click', '.nav-item', function (event) {
-                event.preventDefault();
-                var hash = this.hash;
-                $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 1000, function () {
-                        window.location.hash = hash;
-            });
-                });
-                });
-                </script>
->>>>>>> design corrections
-                    <script>
-$(document).ready(fu                                nction () {
-                $('.owl-carousel').ow                        lCarousel({
-                                        loop: true,
-                                                margin: 10,
-                                                nav: false,
-                re                                sponsive: {
-                                         0: {
-                                 item                    s: 1
-    },                
-    600:                    {
-item                    s: 5
-    },
-                1000:                        {
-items: 5                        
-        },
-                    1200:                            {
-items: 5
-                              }
-                               },
-            auto                    play: true,
-    autoplayTim                eout: 2000,
-autoplayHoverP                ause: true,
-animat                            eOut: true,
-                                });
-            });                    
-</script>
+        
 
                 </body>
 </html>
