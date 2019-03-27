@@ -1726,10 +1726,12 @@ em.mm-counter + a.mm-fullsubopen {
     width: 17%;
     vertical-align: top;
     text-align: left;
-    margin-right: 15px;
+
 }
+
 .shopping-cart{
     width: 15%;
+   margin-right: 20px;
 }
 .header-cart-small,.header-wishlist{
     position: relative;
@@ -1737,7 +1739,9 @@ em.mm-counter + a.mm-fullsubopen {
     float: right;
     vertical-align: top;
     text-align: left;
+
 }
+
 .plan-trip{
     float: left; 
 }
@@ -1794,18 +1798,19 @@ em.mm-counter + a.mm-fullsubopen {
 }
 .header-cart .title, .header-wishlist .title {
     display: inline-block;
-    line-height: 39px;
-    padding-left: 10px;
-    color: #747774;
+    line-height: 35px;
+    padding-left: 1px;
+    color: #333 !important;
     font-size: 14px !important;
-    font-weight: 600;
     text-transform: capitalize;
 }
+
+
 .header-cart-small .title, .header-wishlist .title {
     display: inline-block;
     line-height: 39px;
     padding-left: 10px;
-    color: #747774;
+    color: #444;
     font-size: 14px !important;
     font-weight: 600;
     text-transform: capitalize;
@@ -1814,14 +1819,26 @@ em.mm-counter + a.mm-fullsubopen {
     line-height: 10px;
     font-size:14px;
     text-decoration: none;
-    color:#747774;
+    color:#444;
+
+}
+.title-border::after{
+    top: 42%;
+    right: 20px;
+    width: 1px;
+    height: 50%;
+    content: "";
+    position: absolute;
+    background-color: #cecece;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 
 }
 #nav-img{
     width:24px!important;
-border-radius: 0%!important;
-border: none!important;
-margin-right: 0px!important;
+    border-radius: 0%!important;
+    border: none!important;
+    margin-right: 0px!important;
 }
 /*header new css end*/
-

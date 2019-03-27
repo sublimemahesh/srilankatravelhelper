@@ -44,7 +44,7 @@ if ($count1 == 0) {
             <!-- Right Side Content / End -->
             <div class="right-side">
                 <div class="nav-top hidden-lg hidden-md hidden-sm">
-                     <div class="header-cart-small  widget-btn-left widget-btn-left-correction plan-trip ">
+                    <div class="header-cart-small  widget-btn-left widget-btn-left-correction plan-trip ">
                         <a class=" button-left" href="../plan-trip.php">
                             <button class="button border with-icon submit btncolor16">Plan Your Trip</button>
                         </a>
@@ -69,8 +69,8 @@ if ($count1 == 0) {
 
                 </div>
                 <div class="nav-top hidden-xs">
-                    
-                         <div class=" header-cart shopping-cart" >
+
+                    <div class=" header-cart shopping-cart" >
                         <a href="../my-cart.php">
                             <span class="icon lnr lnr-cart"> 
                                 <img src="../images/icons/shopping-cart(2).png" alt=""/>
@@ -84,7 +84,7 @@ if ($count1 == 0) {
                                     ?>
                                 </span>
                             </div>
-                            <span class="title">My Cart </span>
+                            <span class="title title-border">My Cart </span>
                         </a>
                     </div>
 
@@ -93,37 +93,37 @@ if ($count1 == 0) {
                             <span class="icon lnr lnr-cart">
                                 <img src="../images/icons/placeholder.png" alt=""/>
                             </span>
-                            <span class="title">Plan Your Trip</span>
+                            <span class="title title-border">Plan Your Trip</span>
                         </a>
                     </div>
-                    
-                            <div class="header-cart">
-                    <nav id="navigation1" class="style-1 hidden-xs">
-                        <ul id="responsive">
-                            <?php
-                            if (isset($_SESSION['id'])) {
-                                ?>
-                                <li><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
-                                    <?php
-                                } else {
+
+                    <div class="header-cart">
+                        <nav id="navigation1" class="style-1 hidden-xs">
+                            <ul id="responsive">
+                                <?php
+                                if (isset($_SESSION['id'])) {
                                     ?>
-                                <li><a href="#"><span class="icon lnr lnr-cart">
-                                                <img id="nav-img" src="images/icons/profile.png" alt=""/>
+                                    <li><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                    <li><a href="#"><span class="icon lnr lnr-cart">
+                                                <img id="nav-img" src="../images/icons/profile.png" alt=""/>
                                             </span>
 
                                             <span class="title">My Profile </span></a>
-                                    <?php
-                                }
-                                ?>
-                                <ul>
-                                    <li><a href="profile.php">Login Now</a></li>
-                                    <li><a href="profile.php">Join Now</a></li>
-                                    <li><a href="../driver/profile.php">Driver Login</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                            </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    <ul>
+                                        <li><a href="profile.php">Login Now</a></li>
+                                        <li><a href="profile.php">Join Now</a></li>
+                                        <li><a href="../driver/profile.php">Driver Login</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
 
                 </div>
                 <div class="nav-bottom">
