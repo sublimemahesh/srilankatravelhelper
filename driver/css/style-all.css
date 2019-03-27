@@ -33,6 +33,10 @@ and open the template in the editor.
     height: 60px;
 
 }
+.desMap {
+    width: 400px;
+    height: 503px;
+}
 .logo-header img {
     width: 237px;
     margin-top: 5px;

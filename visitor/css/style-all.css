@@ -548,3 +548,7 @@ textarea.form-control {
 .btn.btn-list.col-md-12 {
     padding-right: 0px;
 }
+.desMap {
+    width: 400px;
+    height: 503px;
+}

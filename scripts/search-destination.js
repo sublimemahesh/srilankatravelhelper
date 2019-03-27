@@ -257,9 +257,9 @@ $(document).ready(function (event) {
         }
 
 
-        var sum = parseInt(spend) + parseInt(allspend);
+        var sum = parseInt(spend)/60 + parseInt(allspend)/60;
 //    $('.spendtime').val(sum);
-        $('.spendtime').val(sum + ' min ');
+        $('.spendtime').val(sum + ' h ');
 //      Create Location array
         var location = $(this).attr('location');
         var alllocations = $('.dest').val();
