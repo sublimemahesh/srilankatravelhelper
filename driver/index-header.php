@@ -43,23 +43,62 @@ if ($count1 == 0) {
             <!-- Right Side Content / End -->
             <div class="right-side">
                 <div class="nav-top hidden-lg hidden-md hidden-sm">
-                    <div class="header-widget widget-btn-left">
-                        <a href="../plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span> Plan Your Trip</a>
+
+                    <div class="header-cart-small  widget-btn-left widget-btn-left-correction plan-trip ">
+                        <a class=" button-left" href="../plan-trip.php">
+                            <button class="button border with-icon submit btncolor16">Plan Your Trip</button>
+                        </a>
                     </div>
-                    <div class="header-widget widget-btn-right">
-                        <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span> <span class="cart-item-count"><?php
-                                if ($count == 1) {
-                                    echo '1 item';
-                                } else {
-                                    echo $count . ' items';
-                                };
-                                ?>
+                    <div class="  header-cart-small widget-btn-right widget-btn-right-correction">
+                        <a class="button-right " href="../my-cart.php">
+                            <span class="icon lnr lnr-cart">
+                                <img src="../images/icons/shopping-cart(2).png" alt=""/>
                             </span>
+                            <div class="f-title"><span class="cart-number cart-item-count"><?php
+                                    if ($count == 1) {
+                                        echo '1 item';
+                                    } else {
+                                        echo $count . ' items';
+                                    };
+                                    ?>
+                                </span>
+                            </div>
+                            <span class="title" ></span>
                         </a>
                     </div>
 
+
+
                 </div>
                 <div class="nav-top hidden-xs">
+                    
+                        <div class=" header-cart shopping-cart" >
+                        <a href="../my-cart.php">
+                            <span class="icon lnr lnr-cart"> 
+                                <img src="../images/icons/shopping-cart(2).png" alt=""/>
+                            </span>
+                            <div class="f-title"><span class="cart-number cart-item-count"><?php
+                                    if ($count == 1) {
+                                        echo '1 ';
+                                    } else {
+                                        echo $count . ' ';
+                                    };
+                                    ?>
+                                </span>
+                            </div>
+                            <span class="title">My Cart </span>
+                        </a>
+                    </div>
+                    
+                       <div class="header-cart " >
+                        <a href="../plan-trip.php">
+                            <span class="icon lnr lnr-cart">
+                                <img src="../images/icons/placeholder.png" alt=""/>
+                            </span>
+                            <span class="title">Plan Your Trip</span>
+                        </a>
+                    </div>
+                           <div class="header-cart">
                     <nav id="navigation1" class="style-1 hidden-xs">
                         <ul id="responsive">
                             <?php
@@ -69,7 +108,13 @@ if ($count1 == 0) {
                                     <?php
                                 } else {
                                     ?>
-                                <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                                        <li><a href="#">
+                                     <span class="icon lnr lnr-cart">
+                                                <img id="nav-img" src="../images/icons/profile.png" alt=""/>
+                                            </span>
+
+                                            <span class="title">My Profile </span></a>
+                                    </a>
                                     <?php
                                 }
                                 ?>
@@ -81,20 +126,8 @@ if ($count1 == 0) {
                             </li>
                         </ul>
                     </nav>
-                    <div class="header-widget widget-btn-right">
-                        <a href="../my-cart.php" class="button border with-icon button-right"><span class="header-icon header-icon2"><i class="glyphicon glyphicon-shopping-cart"></i></span><span class="cart-item-count"><?php
-                                if ($count == 1) {
-                                    echo '1 item';
-                                } else {
-                                    echo $count . ' items';
-                                };
-                                ?>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="header-widget widget-btn-left">
-                        <a href="../plan-trip.php" class="button border with-icon button-left"><span class="header-icon header-icon1"><i class="glyphicon glyphicon-map-marker"></i></span><span> Plan Your Trip</span></a>
-                    </div>
+                           </div>
+                  
 
                 </div>
                 <div class="nav-bottom">

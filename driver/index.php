@@ -48,10 +48,11 @@ if ($count1 == 0) {
                                 <img src="../images/logo/log-1.png" alt=""/>
                             </div>
                             <div class="description">
-                                <p>Lorem ipsum dolor</p>
-                                <p>sit amet, consectetuer adipiscing elit.</p>
-                                <p>Aenean commodo ligula eget dolor.</p>
-                                <p>Aenean massa.</p>
+                                 <p> Tour Sri Lanka is a</p>
+                                <p>  place where can reach what </p>
+                                <p>you have dreamed.</p>
+                                <p> We arrange and organize your </p>
+                                <p>travel desire with beyond expectation.</p>
                             </div>
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>

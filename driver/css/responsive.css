@@ -122,6 +122,11 @@ and open the template in the editor.
         padding-top: 20px;
         padding-bottom: 20px;
     }
+    .right-side {
+        width: 100%;
+        padding-top: 10px;
+         height: 66px;
+    }
 }
 
 @media(min-width:577px) and (max-width:990px) {
@@ -173,6 +178,7 @@ and open the template in the editor.
     .right-side, .left-side {
         width: 100%;
         padding-top: 10px;
+         height: 66px;
     }
     .header-widget a.button.border {
         padding: 2px 16px 5px 0px;
@@ -184,5 +190,6 @@ and open the template in the editor.
         padding-top: 20px;
         padding-bottom: 20px;
     }
+    
 
 }
