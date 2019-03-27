@@ -86,7 +86,7 @@ if ($count1 == 0) {
                                     ?>
                                 </span>
                             </div>
-                            <span class="title">My Cart </span>
+                            <span class="title title-border">My Cart </span>
                         </a>
                     </div>
                     
@@ -95,7 +95,7 @@ if ($count1 == 0) {
                             <span class="icon lnr lnr-cart">
                                 <img src="../images/icons/placeholder.png" alt=""/>
                             </span>
-                            <span class="title">Plan Your Trip</span>
+                            <span class="title title-border">Plan Your Trip</span>
                         </a>
                     </div>
                            <div class="header-cart">
