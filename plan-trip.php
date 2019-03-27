@@ -115,13 +115,12 @@ foreach ($destinations as $des) {
                     <div class="panel panel-default estimatetime">
                         <div class="panel-body">
                             <h4> Estimate Time</h4>
-                            <hr> 
                             <div class="col-md-6 col-xs-8 col-sm-4">
                                 <label for="comment" class="estimateTime">Total Estimate Time  </label>
                             </div>   
                             <div class="col-md-6 col-xs-4 col-sm-4 spendt" >
-                                <input type="hidden" class="spendtime" value="<?php echo round($spentime / 60, 2) ?>"/>
-                                 <input type="text" class="spendtime"  disabled value="<?php echo round($spentime / 60, 2) ?> h" >
+                                <input type="hidden" class="spendtime" style="box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;" value="<?php echo round($spentime / 60, 2) ?>"/>
+                                <input type="text" class="spendtime" style="box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;" disabled value="<?php echo round($spentime / 60, 2) ?> h" >
                             </div>  
                         </div>
                     </div>

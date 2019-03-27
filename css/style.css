@@ -4424,7 +4424,7 @@ a.mfp-gallery {
 .boxed-widget {
     background-color: #f9f9f9;
     border-radius: 3px;
-    padding: 32px;
+    padding: 5px;
     transform: translate3d(0, 0, 0);
     z-index: 90;
     position: relative
@@ -4436,6 +4436,7 @@ a.mfp-gallery {
     display: block;
     border-bottom: 1px solid #e8e8e8;
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 
 .boxed-widget h3 i {
@@ -6235,7 +6236,8 @@ a.read-more:hover i {
     padding: 5px 0;
     font-weight: 500;
     margin: 2px 0 0;
-    line-height: 31px
+    line-height: 31px;
+    font-family: 'Playfair Display', serif;
 }
 
 .blog-compact-item-content span {
@@ -7771,6 +7773,7 @@ body .notification strong {
     font-size: 30px;
     font-weight: 800;
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 
 .top-1 {
@@ -9862,12 +9865,14 @@ section.fullwidth .listing-item-container.list-layout,
 
 .listing-item-content h3 {
     color: #fff;
-    font-size: 20px;
+    font-size: 22px;
     bottom: -1px;
     position: relative;
     font-weight: 500;
     margin: 0;
-    line-height: 31px
+    line-height: 31px;
+    font-family: 'Playfair Display', serif;
+
 }
 
 .listing-item-content span {
@@ -10048,7 +10053,7 @@ section.fullwidth .listing-item-container.list-layout,
 }
 #rating-counter {
     color: #888;
-    padding-left: 100px;
+    padding-left: 95px;
     display: inline-block;
     font-size: 15px;
 
@@ -14406,7 +14411,8 @@ screen and (max-height:300px) {
     color: #fff;
     font-size: 24px;
     padding: 5px 0;
-    margin: 0
+    margin: 0;
+    font-family: 'Playfair Display', serif;
 }
 
 .category-box-content span {
@@ -14575,6 +14581,7 @@ h3.headline {
     margin: 0 0 20px;
     text-transform: uppercase;
     font-weight: 600;
+    font-family: 'Playfair Display', serif;
 }
 
 h2.headline {
@@ -14605,7 +14612,8 @@ h2.headline span {
 h4.headline {
     font-size: 22px;
     line-height: 32px;
-    margin: -5px 0 30px
+    margin: -5px 0 30px;
+    font-family: 'Playfair Display', serif;
 }
 
 .headline.centered {
@@ -15754,7 +15762,7 @@ h4 span.headline-detail {
         padding: 12px 18px;
         border-radius: 19px;
         z-index: 999999;
-          
+
     }
     #dashboard {
         padding-top: 0!important
@@ -16627,7 +16635,7 @@ a .listing-item:hover {
 }
 .estimatetime{
     margin-right: -40px;
-    margin-top: 37px;
+    margin-top: 0px;
 }
 .desMap{
     width: 400px;
@@ -16675,7 +16683,7 @@ a .listing-item:hover {
 .listing-item-content .listing-item-inner h3 {
     color: #fff;
     font-size: 20px;
-    bottom: 25px;
+    bottom: 15px;
     position: relative;
     font-weight: 500;
     margin: 0;
@@ -16683,6 +16691,15 @@ a .listing-item:hover {
 }
 .padding-bottom-120 {
     padding-bottom: 120px !important;
+}
+.rl-banner ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 0px;
+}
+.panel-default {
+    border-color: #d5d5d5;
+    font-family: 'Courgette', cursive;
 }
 /*header new css strat*/
 .header-cart, .header-wishlist {
@@ -16784,9 +16801,9 @@ a .listing-item:hover {
 }
 #nav-img{
     width:24px!important;
-border-radius: 0%!important;
-border: none!important;
-margin-right: 0px!important;
+    border-radius: 0%!important;
+    border: none!important;
+    margin-right: 0px!important;
 }
 /*header new css end*/
 

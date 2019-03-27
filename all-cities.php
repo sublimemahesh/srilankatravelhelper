@@ -94,8 +94,9 @@ if (!isset($_SESSION)) {
             .single-package-carasoul .package-details .package-places h4 {
                 padding-bottom: 7px;
                 color: #454545;
-                font-size: 19px;
+                font-size: 22px;
                 font-weight: 600;
+                font-family: 'Playfair Display', serif;
             }
             .single-package-carasoul .package-details .package-places > span {
                 color: #727272;
