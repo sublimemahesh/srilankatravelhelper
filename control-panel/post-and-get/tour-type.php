@@ -21,8 +21,8 @@ if (isset($_POST['add-tour-type'])) {
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = Helper::randamId();
-        $handle->image_x = 330;
-        $handle->image_y = 320;
+        $handle->image_x = 700;
+        $handle->image_y = 500;
 
         $handle->Process($dir_dest);
 
@@ -77,8 +77,8 @@ if (isset($_POST['edit-tour-type'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
-        $handle->image_x = 330;
-        $handle->image_y = 320;
+        $handle->image_x = 700;
+        $handle->image_y = 500;
 
         $handle->Process($dir_dest);
 
