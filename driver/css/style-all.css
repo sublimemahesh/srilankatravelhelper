@@ -399,10 +399,10 @@ a:hover {
 }
 .viewbookingtabpane {
     padding-top: 146px;
- 
+
 }
 .viewbookingtable th{
-      text-align: left; 
+    text-align: left; 
 }
 .viewbookingtable td{
     text-align: left;
@@ -413,6 +413,10 @@ a:hover {
 }
 .btn.btn-list.col-md-12 {
     padding-right: 0px;
+}
+.desMap {
+    width: 346px;
+    height: 503px;
 }
 
 
