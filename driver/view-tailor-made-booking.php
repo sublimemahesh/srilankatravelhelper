@@ -63,7 +63,7 @@ foreach ($places as $place) {
                                 View Tailor Made Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
                             <div class="panel-body">
-                                <div class="col-md-8">
+                                <div class ="col-lg-7 col-md-7">
                                     <table class="table table-bordered table-striped table-hover viewbookingtable">
                                         <tr>
                                             <th width="260">Booked At</th>
@@ -133,7 +133,7 @@ foreach ($places as $place) {
                                     </div>
                                 </div>
 
-                                <div class ="col-md-5 col-lg-4">
+                         <div class ="col-lg-5 col-md-5  ">
                                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
                                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
 

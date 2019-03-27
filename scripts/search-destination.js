@@ -255,9 +255,10 @@ $(document).ready(function (event) {
         } else {
             allspend = $('.spendtime').val();
         }
-
-
-        var sum = parseInt(spend)/60 + parseInt(allspend)/60;
+  
+     
+        
+        var sum = parseInt(spend)/60 + parseInt(allspend);
 //    $('.spendtime').val(sum);
         $('.spendtime').val(sum + ' h ');
 //      Create Location array

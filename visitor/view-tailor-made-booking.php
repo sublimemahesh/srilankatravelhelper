@@ -62,7 +62,7 @@ foreach ($places as $place) {
                                 View Tailor Made Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
                             <div class ="panel-body">
-                                <div class ="col-md-8">
+                                <div class ="col-lg-7 col-md-7 col-sm-5 ">
                                     <table class="table table-bordered table-striped table-hover viewbookingtable">
                                         
                                             <tr>
@@ -131,7 +131,7 @@ foreach ($places as $place) {
                                         <a href="manage-canceled-tailormade-bookings.php" class="btn btn-info">Back</a> 
                                     </div>
                                 </div>
-                                <div class ="col-md-4 col-lg-4">
+                                <div class ="col-lg-5 col-md-5 col-sm-4 ">
                                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
                                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
 
@@ -141,10 +141,10 @@ foreach ($places as $place) {
                                         <div class="panel-body">
                                             <h4> Estimate Time</h4>
                                             <hr> 
-                                            <div class="col-md-6 col-xs-8 col-sm-4">
+                                            <div class="col-md-4 col-xs-8 col-sm-4">
                                                 <label for="comment" class="estimateTime">Total Estimate Time  </label>
                                             </div>   
-                                            <div class="col-md-4 col-xs-4 col-sm-4 spendt" >
+                                            <div class="col-md-3 col-xs-4 col-sm-4 spendt" >
                                                 <input type="hidden" class="spendtime" value="<?php echo round($spentime / 60, 2); ?>"/>
                                                 <input type="text" class="spendtime"  disabled value="<?php echo round($spentime / 60, 2) ?> h" >
                                             </div>  
