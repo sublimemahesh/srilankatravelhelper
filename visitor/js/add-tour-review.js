@@ -1,8 +1,10 @@
 $(document).ready(function () {
     $('#add-review').click(function () {
+            
         var tour, visitor, review, id, message;
 
         id = $('#reviewid').val();
+     
         tour = $('#tourid').val();
         visitor = $('#visitorid').val();
         review = $(this).attr('review');

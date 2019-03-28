@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#add-review').click(function () {
+
         var driver, visitor, review, id, message;
 
         id = $('#reviewid').val();
