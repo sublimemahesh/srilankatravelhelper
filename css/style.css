@@ -1905,7 +1905,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 }
 
 .main-search-input {
-    margin-top: 40px;
+    margin-top: -246px;
     border-radius: 50px;
     width: 100%;
     background-color: #fff;
@@ -14694,7 +14694,9 @@ h4 span.headline-detail {
 .icons .text-muted {
     display: none
 }
-
+margin-top-m40{
+    margin-top:-100px!important
+}
 .margin-top-0 {
     margin-top: 0!important
 }
@@ -16718,7 +16720,7 @@ a .listing-item:hover {
 
 .shopping-cart{
     width: 15%;
-   margin-right: 20px;
+    margin-right: 20px;
 }
 .header-cart-small,.header-wishlist{
     position: relative;

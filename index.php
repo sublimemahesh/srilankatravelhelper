@@ -3,7 +3,6 @@ include_once(dirname(__FILE__) . '/class/include.php');
 if (!isset($_SESSION)) {
     session_start();
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +32,7 @@ if (!isset($_SESSION)) {
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/plugins/harabara/font.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
-       
+
     </head>
 
     <body>
@@ -43,8 +42,47 @@ if (!isset($_SESSION)) {
             <!-- Header Container
             ================================================== -->
             <?php include './header.php'; ?>
-            <?php include './slider.php'; ?>
 
+            <?php include './slider.php'; ?>
+            <div class="main-search-inner  ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="blog-search" action="all-destinations.php" method="get">
+                                <div class=" main-search-input">
+                                    <div class="main-search-input-item location">
+                                        <div id="autocomplete-container">
+                                            <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
+                                            <input type="hidden" name="location" id="location"  value=""/>
+                                        </div>
+                                        <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
+                                    </div>
+                                    <div class="main-search-input-item">
+                                        <!--<select class="chosen-select" name="type" >-->
+<!--                                                          <select class="dropDes" name="type" >-->
+                                        <select class="dropDes" name="type" >
+                                            <option value=""> All Categories </option>
+                                            <?php
+                                            foreach (DestinationType::all() as $des) {
+                                                ?>
+                                                <option value="<?php echo $des['id']; ?>">
+                                                    <?php echo $des['name']; ?></option>
+
+                                            <?php }
+                                            ?>
+
+                                        </select>
+                                    </div>
+                                    <div class="main-search-input-item">
+                                        <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
+                                    </div>
+                                    <button class="button" name="search">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Header Container / End -->
             <!-- Banner
                    ================================================== -->
@@ -438,7 +476,7 @@ if (!isset($_SESSION)) {
         <script src="slider-css/revolution.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
         <script>
-            AOS.init();
+                                                AOS.init();
         </script>
         <script>
             //Google Location Autocomplete
