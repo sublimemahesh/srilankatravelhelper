@@ -126,7 +126,15 @@ if (isset($_SESSION['position'])) {
                                     }
                                     ?>
                                     <ul>
-                                        <li><a href="visitor/profile.php">Login Now</a></li>
+                                        <li><a href="visitor/profile.php">
+                                                <?php 
+                                                                                   
+                                                ?>
+                                                
+                                                Login Now
+                                            
+                                            
+                                            </a></li>
                                         <li><a href="visitor/profile.php">Join Now</a></li>
                                         <li><a href="driver/profile.php">Driver Login</a></li>
                                     </ul>
