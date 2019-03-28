@@ -299,14 +299,14 @@ and open the template in the editor.
     }
 }
 
-@media (max-width: 375px){
+@media (width: 375px){
     .desMap {
         width: 253px;
         height: 503px;
     }
 }
 
-@media (max-width: 414px){
+@media (width: 414px){
     .desMap {
         width: 294px;
         height: 503px;

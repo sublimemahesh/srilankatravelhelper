@@ -93,6 +93,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for destination.." title="Type in a name">
                                 <div class="searchbutton3"><img src="images/searchicon.png" alt=""/></div>
                                 <input type="hidden" id="destinationid" name="id" value="<?php
+                                 
                                 if (isset($_GET['destination'])) {
                                     echo $Destination->id;
                                 };
@@ -205,7 +206,8 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/reviews.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
         <script>
-                                    function myFunction() {
+       
+                 function myFunction() {
 
                                         $('#myUL').removeClass('hidden');
 
