@@ -96,7 +96,7 @@ if (!isset($_SESSION)) {
                 color: #454545;
                 font-size: 22px;
                 font-weight: 600;
-                font-family: 'Playfair Display', serif;
+                font-family: 'Oswald', sans-serif;
             }
             .single-package-carasoul .package-details .package-places > span {
                 color: #727272;

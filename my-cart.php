@@ -69,7 +69,7 @@ foreach ($destinations as $des) {
                     </div>
                 </div>
             </div>
-            <div class="container margin-top-70">
+            <div class="container margin-top-70 margin-bottom-55">
                 <div class="row">
                     <div class="col-md-8">
                         <ul class="list-group padding-bottom-60" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
@@ -176,7 +176,7 @@ foreach ($destinations as $des) {
                             } else {
                                 ?>
                                 <li class="list-group-item " data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
-                                    <h3>No any selected destinations in your cart</h3>
+                                    <h3 style="font-family: 'Oswald', sans-serif;">No any selected destinations in your cart</h3>
                                 </li>
                                 <?php
                             }
@@ -209,7 +209,7 @@ foreach ($destinations as $des) {
                     echo 'hidden';
                 }
                 ?>">
-                    <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14">Book Now</button></a>
+                    <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Book Now</button></a>
                 </div>
             </div>
             <?php include './footer.php'; ?>

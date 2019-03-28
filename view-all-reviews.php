@@ -52,26 +52,29 @@ $stars = $sum / $divider;
             .driver-profile-section{
                 background-color:#fff;
                 border:1px solid #F7F7F0;
-                border-radius:3%;
+                border-radius:1%;
+                box-shadow: rgba(0, 0, 0, 0.51) 4px 4px 5px;
+                border: 1px solid #F7F7F0;
             }
             .profile-description{
                 margin: 1% 1% 1% 3%;
                 text-align: center;
+                padding: 5px;
             }
             .driver-rating{
                 background-color:#F7F7F0;
                 padding-bottom: 10px;
-                padding-top: 10px;
+                padding-top: 0px;
             }
             .profile-driver-name{
                 color:#000;
             }
             .star-rating-driver{
-                margin-top: 15px;
+                margin-top: 0px;
                 z-index: 9;
                 position: relative;
                 color: #f5cf00;
-                padding-right: 84px;
+                padding-right: 88px;
             }
             .contact-details-driver{
                 margin: 1% 1% 1% 3%;
@@ -270,7 +273,7 @@ $stars = $sum / $divider;
                                 <div class="profile-description ">
                                     <p><?php echo substr($DRIVER->short_description, 0, 155) . '...'; ?></p>
                                 </div>
-                                <div class="fa-item" style="padding: 3% 10% 3% 10%;background: #F7F7F0;">
+                                <div class="fa-item" style="padding: 0% 10% 5% 10%;background: #F7F7F0;">
                                     <div class="row text-center">
                                         <a href="visitor/manage-reviews.php?driver=<?php echo $driver; ?>&back=driverreview" target="new" ><button id="view-all-reviews" class="button border with-icon submit btncolor18">Add Your Review</button></a>
                                     </div>

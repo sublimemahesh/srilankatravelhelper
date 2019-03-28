@@ -228,7 +228,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                     <h2 class="tp"><?php echo $TOUR_TYPE->name; ?></h2>
                     <ul>
                         <li><a href="./">Home</a></li>
-                        <li><span class="active">Tour Packages</span></li>
+                        <li><a href="tour-packages-type.php">Tour Packages</a></li>
                         <li><span class="active"><?php echo $TOUR_TYPE->name; ?></span></li>
                     </ul>
                 </div>

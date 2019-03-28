@@ -79,7 +79,6 @@ if (!isset($_SESSION)) {
 
                                 <div class="offer-right"> 
                                     <div class="offer-driver-img">
-                                        <a target="blank" href="member-view.php?id=" class="link" title="DRIVER : <?php echo $DRIVER->name; ?>">
 
                                             <?php
                                             if (empty($DRIVER->profile_picture)) {
@@ -99,8 +98,6 @@ if (!isset($_SESSION)) {
                                             }
                                             ?>
 
-
-                                        </a>
                                     </div>
                                     <div class="offer-person offer"><span class="color-blue">LKR <?php echo number_format($newprice, 2); ?></span><strike class="old-discount-price">LKR <?php echo number_format($offer['price'], 2); ?></strike> </div>
                                     <a class="thm-btn btncolor4" href="offer-booking.php?offer=<?php echo $offer['id']; ?>&back=offerbooking">Get your offer</a>
