@@ -115,7 +115,7 @@ foreach ($places as $place) {
                                             </tr>
                                     </table>
 
-                                    <div class="btn btn-list col-md-12 hidden-sm <?php
+                                    <div class="btn btn-list col-md-12 hidden-sm hidden-xs <?php
                                     if ($BOOKING->status === 'canceled') {
                                         echo 'hidden';
                                     }
@@ -154,7 +154,7 @@ foreach ($places as $place) {
                             </div>
                                    
                         </div>
-                        <div class="btn btn-list col-md-12  hidden-md hidden-xs hidden-lg <?php
+                        <div class="btn btn-list col-md-12  hidden-md  hidden-lg <?php
                                     if ($BOOKING->status === 'canceled') {
                                         echo 'hidden';
                                     }

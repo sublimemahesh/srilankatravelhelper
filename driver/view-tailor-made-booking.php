@@ -38,7 +38,7 @@ foreach ($places as $place) {
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -115,7 +115,7 @@ foreach ($places as $place) {
                                         </tr>
                                     </table>
 
-                                    <div class="btn btn-list col-md-12 <?php
+                                    <div class="btn btn-list btn-tail col-md-12 hidden-xs hidden-sm <?php
                                     if ($BOOKING->status === 'canceled') {
                                         echo 'hidden';
                                     }
@@ -133,7 +133,7 @@ foreach ($places as $place) {
                                     </div>
                                 </div>
 
-                         <div class ="col-lg-5 col-md-5  ">
+                                <div class ="col-lg-5 col-md-5  ">
                                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
                                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
 
@@ -158,6 +158,15 @@ foreach ($places as $place) {
                             </div>
                         </div>
                     </div>
+                    <div class="btn btn-list btn-tail col-md-12  hidden-md hidden-lg <?php
+                    if ($BOOKING->status === 'canceled') {
+                        echo 'hidden';
+                    }
+                    ?>">
+                        <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
+                        <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
+                        <a href="set-price-for-tailor-made-booking.php?id=<?php echo $BOOKING->id; ?>" class="btn btn-warning">Set Price</a> 
+                    </div>
                 </div>
             </div>
             <?php
@@ -171,7 +180,7 @@ foreach ($places as $place) {
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/cancel-tailor-made-booking.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&sensor=true" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&sensor=true" type="text/javascript"></script>
         <script>
 
             $(window).load(function () {
@@ -188,101 +197,101 @@ foreach ($places as $place) {
             });
         </script>
 
-      <script>
-        var map;
-        var geocoder;
-        var marker;
-        var people = new Array();
-        var latlng;
-        var infowindow;
+        <script>
+            var map;
+            var geocoder;
+            var marker;
+            var people = new Array();
+            var latlng;
+            var infowindow;
 
-        $(document).ready(function () {
-            ViewCustInGoogleMap();
-        });
-
-        function ViewCustInGoogleMap() {
-
-            var mapOptions = {
-                center: new google.maps.LatLng(8.231062, 80.217732),
-                zoom: 7,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-            // Get data from database. It should be like below format or you can alter it.
-//            alert($('.dest').val());
-
-//            var convertedArray = stringToConvert.split();
-//            console.log(convertedArray);
-
-            var desti = $('.dest').val();
-
-            desti = desti.replace(/'/g, '"');
-
-//            desti = JSON.parse(desti);
-            var destinations = JSON.parse("[" + desti + "]");
-            var arr = '';
-            $.each(destinations, function (key, destination) {
-                arr += '{ "LatitudeLongitude": "' + destination + '" },';
-
+            $(document).ready(function () {
+                ViewCustInGoogleMap();
             });
 
-            de = arr.substring(0, arr.length - 1);
+            function ViewCustInGoogleMap() {
 
-            var data = '[' + de + ']';
-            people = JSON.parse(data);
-            for (var i = 0; i < people.length; i++) {
-                setMarker(people[i]);
+                var mapOptions = {
+                    center: new google.maps.LatLng(8.231062, 80.217732),
+                    zoom: 7,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+                // Get data from database. It should be like below format or you can alter it.
+  //            alert($('.dest').val());
+
+  //            var convertedArray = stringToConvert.split();
+  //            console.log(convertedArray);
+
+                var desti = $('.dest').val();
+
+                desti = desti.replace(/'/g, '"');
+
+  //            desti = JSON.parse(desti);
+                var destinations = JSON.parse("[" + desti + "]");
+                var arr = '';
+                $.each(destinations, function (key, destination) {
+                    arr += '{ "LatitudeLongitude": "' + destination + '" },';
+
+                });
+
+                de = arr.substring(0, arr.length - 1);
+
+                var data = '[' + de + ']';
+                people = JSON.parse(data);
+                for (var i = 0; i < people.length; i++) {
+                    setMarker(people[i]);
+                }
+
             }
 
-        }
-
-        function setMarker(people) {
-            geocoder = new google.maps.Geocoder();
-            infowindow = new google.maps.InfoWindow();
-            if ((people["LatitudeLongitude"] == null) || (people["LatitudeLongitude"] == 'null') || (people["LatitudeLongitude"] == '')) {
-                geocoder.geocode({'address': people["Address"]}, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        latlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-                        marker = new google.maps.Marker({
-                            position: latlng,
-                            map: map,
-                            draggable: false,
-                            html: people["DisplayText"],
-                            icon: "images/marker/" + people["MarkerId"] + ".png"
-                        });
-                        //marker.setPosition(latlng);
-                        //map.setCenter(latlng);
-                        google.maps.event.addListener(marker, 'click', function (event) {
-                            infowindow.setContent(this.html);
-                            infowindow.setPosition(event.latLng);
-                            infowindow.open(map, this);
-                        });
-                    } else {
-//                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
-                    }
-                });
-            } else {
-                var latlngStr = people["LatitudeLongitude"].split(",");
-                var lat = parseFloat(latlngStr[0]);
-                var lng = parseFloat(latlngStr[1]);
-                latlng = new google.maps.LatLng(lat, lng);
-                marker = new google.maps.Marker({
-                    position: latlng,
-                    map: map,
-                    draggable: false, // cant drag it
-                    html: people["DisplayText"]    // Content display on marker click
-                            //icon: "images/marker.png"       // Give ur own image
-                });
-                //marker.setPosition(latlng);
-                //map.setCenter(latlng);
-                google.maps.event.addListener(marker, 'mouseover', function (event) {
-                    infowindow.setContent(this.html);
-                    infowindow.setPosition(event.latLng);
-//                    infowindow.open(map, this);
-                });
+            function setMarker(people) {
+                geocoder = new google.maps.Geocoder();
+                infowindow = new google.maps.InfoWindow();
+                if ((people["LatitudeLongitude"] == null) || (people["LatitudeLongitude"] == 'null') || (people["LatitudeLongitude"] == '')) {
+                    geocoder.geocode({'address': people["Address"]}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            latlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                            marker = new google.maps.Marker({
+                                position: latlng,
+                                map: map,
+                                draggable: false,
+                                html: people["DisplayText"],
+                                icon: "images/marker/" + people["MarkerId"] + ".png"
+                            });
+                            //marker.setPosition(latlng);
+                            //map.setCenter(latlng);
+                            google.maps.event.addListener(marker, 'click', function (event) {
+                                infowindow.setContent(this.html);
+                                infowindow.setPosition(event.latLng);
+                                infowindow.open(map, this);
+                            });
+                        } else {
+  //                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
+                        }
+                    });
+                } else {
+                    var latlngStr = people["LatitudeLongitude"].split(",");
+                    var lat = parseFloat(latlngStr[0]);
+                    var lng = parseFloat(latlngStr[1]);
+                    latlng = new google.maps.LatLng(lat, lng);
+                    marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map,
+                        draggable: false, // cant drag it
+                        html: people["DisplayText"]    // Content display on marker click
+                                //icon: "images/marker.png"       // Give ur own image
+                    });
+                    //marker.setPosition(latlng);
+                    //map.setCenter(latlng);
+                    google.maps.event.addListener(marker, 'mouseover', function (event) {
+                        infowindow.setContent(this.html);
+                        infowindow.setPosition(event.latLng);
+  //                    infowindow.open(map, this);
+                    });
+                }
             }
-        }
-    </script>
+        </script>
     </body>
 </html>
