@@ -37,7 +37,7 @@ foreach ($places as $place) {
                 <?php
                 include './navigation.php';
                 ?>
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-9 col-sm-8">
                     <div class="top-bott20 m-l-25 m-r-15">
                         <?php
                         if (isset($_GET['message'])) {
@@ -62,7 +62,7 @@ foreach ($places as $place) {
                                 View Tailor Made Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
                             <div class ="panel-body">
-                                <div class ="col-lg-7 col-md-7 col-sm-5 ">
+                                <div class ="col-lg-7 col-md-7 col-sm-12 ">
                                     <table class="table table-bordered table-striped table-hover viewbookingtable">
                                         
                                             <tr>
@@ -115,7 +115,7 @@ foreach ($places as $place) {
                                             </tr>
                                     </table>
 
-                                    <div class="btn btn-list col-md-12 <?php
+                                    <div class="btn btn-list col-md-12 hidden-sm <?php
                                     if ($BOOKING->status === 'canceled') {
                                         echo 'hidden';
                                     }
@@ -131,18 +131,15 @@ foreach ($places as $place) {
                                         <a href="manage-canceled-tailormade-bookings.php" class="btn btn-info">Back</a> 
                                     </div>
                                 </div>
-                                <div class ="col-lg-5 col-md-5 col-sm-4 ">
+                                <div class ="col-lg-5 col-md-5 col-sm-12 ">
                                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
                                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
-
-
-
                                     <div class="panel panel-default estimatetime">
                                         <div class="panel-body">
                                             <h4> Estimate Time</h4>
                                             <hr> 
-                                            <div class="col-md-4 col-xs-8 col-sm-4">
-                                                <label for="comment" class="estimateTime">Total Estimate Time  </label>
+                                            <div class="col-md-4 col-xs-8 col-sm-8">
+                                                <label for="comment" class="">Total Estimate Time  </label>
                                             </div>   
                                             <div class="col-md-3 col-xs-4 col-sm-4 spendt" >
                                                 <input type="hidden" class="spendtime" value="<?php echo round($spentime / 60, 2); ?>"/>
@@ -155,7 +152,16 @@ foreach ($places as $place) {
                                 
                                 
                             </div>
+                                   
                         </div>
+                        <div class="btn btn-list col-md-12  hidden-md hidden-xs hidden-lg <?php
+                                    if ($BOOKING->status === 'canceled') {
+                                        echo 'hidden';
+                                    }
+                                    ?>">
+                                        <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
+                                        <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
+                                    </div>
                     </div>
 
                 </div>
