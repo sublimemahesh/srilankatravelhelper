@@ -136,6 +136,17 @@ and open the template in the editor.
     .driver-profile .driver-name {
         color: #140202;
     }
+    .desMap {
+        width: 238px;
+        height: 503px;
+    }
+    .estimatetime .spendtime{
+        width: 46px;
+    }
+    .estimatetime{
+        margin-top: 35px;
+    }
+
 
 }
 
@@ -278,5 +289,33 @@ and open the template in the editor.
 @media (min-width: 760px) and (max-width: 900px) {
     .parallax {
         min-height: 1100px;
+    }
+    .estimatetime .spendtime{
+        width: 80px;
+    }
+    .desMap {
+        width: 402px;
+        height: 503px;
+    }
+}
+
+@media (max-width: 375px){
+    .desMap {
+        width: 253px;
+        height: 503px;
+    }
+}
+
+@media (max-width: 414px){
+    .desMap {
+        width: 294px;
+        height: 503px;
+    }
+}
+
+@media(max-width:800px){
+    .desMap {
+        width: 427px;
+        height: 503px;
     }
 }
