@@ -154,7 +154,7 @@ if ($divider1 == 0) {
                     <h2 class="tp"><?php echo $TOUR->name; ?></h2>
                     <ul>
                         <li><a href="./">Home</a></li>
-                        <li><span class="active">Tour Packages</span></li>
+                        <li><a href="tour-packages-type.php">Tour Packages</a></li>
                         <li><span class="active"><?php echo $TOUR_TYPE->name; ?></span></li>
                         <li><span class="active"><?php echo $TOUR->name; ?></span></li>
                     </ul>
@@ -302,7 +302,9 @@ if ($divider1 == 0) {
                 <div class="col-md-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="900">
                     <hr>
                     <h3 class="headline ">Reviews(<?php echo $sum1; ?>)</h3>
+                    <hr>
                     <div class="col-md-4 col-sm-4 rating-breakdown">
+                        <div class="row">
                         <div class="col-md-12 rating-block ratingblock1">
 
                             <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
@@ -323,7 +325,7 @@ if ($divider1 == 0) {
                             }
                             ?>
                         </div>
-
+                        </div>
                     </div>	
                     <div class="col-md-8 col-sm-8">
                         <div class="reviws-section" style="margin-top: 0px;">

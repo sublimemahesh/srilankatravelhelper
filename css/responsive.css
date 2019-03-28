@@ -973,21 +973,24 @@
         padding-top: 10px;
     }
     .desMap {
-        width: 304px;
-        height: 300px;
+        width: 355px;
+        height: 445px;
         margin-left: 12px;
 
     }
     .estimatetime {
-        margin-right: -319px;
+        margin-right: -365px;
         margin-top: 37px;
         margin-left: 11px;
+    }
+    .btn-res-top{
+        margin-top: 20px;
     }
     .search-destination-item .driver-name {
         margin-top: 2px;
     }
     .onedesMap {
-        width: 313px;
+        width: 385px;
         height: 462px;
         margin-bottom: 34px;
         margin-top: 26px;

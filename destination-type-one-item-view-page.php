@@ -179,8 +179,14 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                     padding: 2px 6px;
                 }
                 .rating-block {
-                    padding: 10% 3% 11% 9%;
-                    height: 138px;
+                    padding: 1% 1% 1% 1%;
+                    height: 100px;
+                }
+                .padding-bottom-45 {
+                    padding-bottom: 0px !important;
+                }
+                .destinationimg {
+                    margin-bottom: 0px;
                 }
 
             }
@@ -215,7 +221,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                             <h2 class="tp"><?php echo $DESTINATION->name; ?></h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
-                                <li><span class="active">Destination</span></li>
+                                <li><a href="destination-type.php">Destination</a></li>
                                 <li><span class="active"><?php echo $DESTINATION_TYPE->name; ?></span></li>
                                 <li><span class="active"><?php echo $DESTINATION->name; ?></span></li>
                             </ul>
@@ -246,7 +252,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="review-button">
+                                    <div class="review-button padding-bottom-45">
                                         <a href="#" ><button id="add-to-cart" destination-id="<?php echo $id; ?>" back="cart" class=" btncolor7 button border with-icon submit add-to-cart">Add to Cart</button></a>
                                     </div>
                                 </div>
@@ -354,12 +360,12 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                                 ?>
                                                 <div class="review-button">
                                                     <div class="col-md-6 col-sm-6">
-                                                        <a href="view-all-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">View All Reviews</button></a>
+                                                        <a href="view-all-reviews.php?destination=<?php echo $id; ?>"><button id="view-all-reviews" class="button border with-icon submit btncolor17">View All Reviews</button></a>
                                                         <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                                     </div>
 
                                                     <div class="col-md-6 col-sm-6 addreviewbtn">
-                                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
+                                                        <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"><button id="view-all-reviews" class="button border with-icon submit btncolor17">Add Reviews</button></a>
                                                         <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                                     </div>
                                                 </div>
@@ -367,7 +373,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                             } else {
                                                 ?>
                                                 <div class="review-button btncolor8">
-                                                    <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"<button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
+                                                    <a href="visitor/manage-destination-reviews.php?destination=<?php echo $id; ?>"><button id="view-all-reviews" class="button border with-icon submit btncolor12">Add Reviews</button></a>
                                                     <input type="hidden" id="dest-id" value="<?php echo $id; ?>" />
                                                 </div>
                                             <?php } ?>
@@ -429,7 +435,6 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                                                 }
                                                             }
                                                             ?>
-                                                        </li>
                                                         </li>
                                                     </div>
                                                 </div>

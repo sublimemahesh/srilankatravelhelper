@@ -60,7 +60,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <h2 class="tp"><?php echo $DESTINATION_TYPE->name; ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><span class="active">Destination</span></li>
+                            <li><a href="destination-type.php">Destination</a></li>
                             <li><span class="active"><?php echo $DESTINATION_TYPE->name; ?></span></li>
                         </ul>
                     </div>

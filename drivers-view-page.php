@@ -208,7 +208,7 @@ if ($REVIEWS['count'] == 0) {
                         <h2 class="tp"><?php echo $DRIVER->name; ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><span class="active">Drivers</span></li>
+                            <li><a href="drivers-page.php">Drivers</a></li>
                             <li><span class="active"><?php echo $DRIVER->name; ?></span></li>
                         </ul>
                     </div>
@@ -338,11 +338,11 @@ if ($REVIEWS['count'] == 0) {
                     <div class="col-md-12">
                         <hr>
                         <h3 class="headline ">Reviews (<?php echo $sum; ?>)</h3>
-                        
+                        <hr>
                         
                         <div class="col-md-4 col-sm-5 rating-breakdown">
+                            <div class="row">
                             <div class="col-md-12 rating-block">
-
                                 <h2 class="bold padding-bottom-7"><?php echo $sum; ?> <small>/ <?php echo 5 * $divider; ?></small></h2>
                                 <?php
                                 for ($i = 1; $i <= $stars; $i++) {
@@ -361,7 +361,7 @@ if ($REVIEWS['count'] == 0) {
                                 }
                                 ?>
                             </div>
-
+                            </div>
                         </div>	
                         <div class="col-md-8 col-sm-7 reviewrating ">
                             <div class="reviws-section">
