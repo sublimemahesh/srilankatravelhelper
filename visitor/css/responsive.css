@@ -313,9 +313,3 @@ and open the template in the editor.
     }
 }
 
-@media(max-width:800px){
-    .desMap {
-        width: 427px;
-        height: 503px;
-    }
-}
