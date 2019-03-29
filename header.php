@@ -54,15 +54,15 @@ if (isset($_SESSION['position'])) {
                     </div>
                     <div class="  header-cart-small widget-btn-right widget-btn-right-correction">
                         <a class="button-right " href="my-cart.php">
-                            <span class="icon lnr lnr-cart">
+                            <span class="icon  lnr-cart">
                                 <img src="images/icons/shopping-cart(2).png" alt=""/>
                             </span>
                             <div class="f-title"><span class="cart-number cart-item-count"><?php
                                     if ($count == 1) {
-                                        echo '1 item';
+                                        echo '1 ';
                                     } else {
-                                        echo $count . ' items';
-                                    };
+                                        echo $count . ' ';
+                                    }
                                     ?>
                                 </span>
                             </div>
@@ -73,76 +73,93 @@ if (isset($_SESSION['position'])) {
 
                 </div>
                 <div class="nav-top hidden-xs">
-                    <div class=" header-cart shopping-cart" >
-                        <a href="my-cart.php">
-                            <span class="icon lnr lnr-cart"> 
-                                <img src="images/icons/shopping-cart(2).png" alt=""/>
-                            </span>
-                            <div class="f-title"><span class="cart-number cart-item-count"><?php
-                                    if ($count == 1) {
-                                        echo '1 ';
-                                    } else {
-                                        echo $count . ' ';
-                                    };
-                                    ?>
-                                </span>
-                            </div>
-                            <span class="title title-border">My Cart </span>
-                        </a>
-                    </div>
 
-                    <div class="header-cart " >
-                        <a href="plan-trip.php">
-                            <span class="icon lnr lnr-cart">
-                                <img src="images/icons/placeholder.png" alt=""/>
-                            </span>
-                            <div class="f-title"></div>
-                            <span class="title title-border">Plan Your Trip</span>
-                        </a>
-                    </div>
-                    <div class="header-cart">
-                        <nav id="navigation1" class="style-1 hidden-xs">
-                            <ul id="responsive">
-                                <?php
-                                if (isset($_SESSION['id']) && $position === 'visitor') {
-                                    $VIS = new Visitor($_SESSION['id']);
-                                    if ($VIS->facebookID) {
-                                        ?>
-                                        <li><a href="#"><img src="<?php echo $VIS->profile_picture; ?>" alt=""/> My Profile</a>
-                                            <?php
-                                        } else {
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <div class="col-md-4">
+                            <div class=" header-cart shopping-cart" >
+                                <a href="my-cart.php">
+                                    <span class="icon  lnr-cart"> 
+                                        <img src="images/icons/shopping-cart(2).png" alt=""/>
+                                    </span>
+                                    <div class="f-title"><span class="cart-number cart-item-count"><?php
+                                            if ($count == 1) {
+                                                echo '1 ';
+                                            } else {
+                                                echo $count . ' ';
+                                            };
                                             ?>
-                                        <li><a href = "#"><img src = "upload/visitor/<?php echo $VIS->profile_picture; ?>" alt = ""/> My Profile</a>
-                                            <?php
-                                        }
-                                    } else {
-                                        ?>
-                                    <li><a href="#">  <span class="icon lnr lnr-cart">
-                                                <img id="nav-img" src="images/icons/profile.png" alt=""/>
-                                            </span>
+                                        </span>
+                                    </div>
+                                    <span class="title title-border">My Cart </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="header-cart  plan-your-trip" >
+                                <a href="plan-trip.php">
+                                    <span class="icon lnr-cart">
+                                        <img src="images/icons/placeholder.png" alt=""/>
+                                    </span>
+                                    <div class="f-title"></div>
+                                    <span class="title title-border">Plan Your Trip</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
 
-                                            <span class="title">My Profile </span></a>
-                                        <?php
-                                    }
-                                    ?>
-                                    <ul>
-                                        <li><a href="visitor/profile.php">
-                                                <?php 
-                                                                                   
+
+                            <div class="header-cart user-pro">
+                                <nav id="navigation1" class="style-1 hidden-xs">
+                                    <ul id="responsive">
+                                        <?php 
+                                        if (isset($_SESSION['id']) && $position === 'visitor') {
+                                            $VIS = new Visitor($_SESSION['id']);
+                                            if ($VIS->facebookID) {
                                                 ?>
-                                                
-                                                Login Now
-                                            
-                                            
-                                            </a></li>
-                                        <li><a href="visitor/profile.php">Join Now</a></li>
-                                        <li><a href="driver/profile.php">Driver Login</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
+                                                <li>
+                                                    <a class="user-item" href="#">  <span class="icon lnr lnr-cart">
+                                                            <img src="<?php echo $VIS->profile_picture; ?>" alt=""/>
+                                                        </span>
 
+                                                        <span class="title">My Profile </span></a>
+
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                <li>
+                                                    <a class="user-item" href="#">  <span class="icon lnr lnr-cart">
+                                                            <img  src="upload/visitor/<?php echo $VIS->profile_picture; ?>" alt=""/>
+                                                        </span>
+
+                                                        <span class="title">My Profile </span></a>
+                                                    <?php
+                                                }
+                                            } else {
+                                                ?>
+                                            <li><a class="user-item" href="#">  <span class="icon lnr lnr-cart">
+                                                        <img id="nav-img" src="images/icons/profile.png" alt=""/>
+                                                    </span>
+
+                                                    <span class="title">My Profile </span></a>
+                                                <?php
+                                            }
+                                            ?>
+                                            <ul>
+                                                <li><a href="visitor/profile.php">Login Now</a></li>
+                                                <li><a href="visitor/profile.php">Join Now</a></li>
+                                                <li><a href="driver/profile.php">Driver Login</a></li>
+                                            </ul>
+                                        </li> 
+                                    </ul>
+                                </nav>
+
+                            </div>
+                        </div>
                     </div>
+
+
+
 
                 </div>
                 <div class="nav-bottom">

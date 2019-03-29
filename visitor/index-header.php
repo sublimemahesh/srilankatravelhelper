@@ -56,9 +56,9 @@ if ($count1 == 0) {
                             </span>
                             <div class="f-title"><span class="cart-number cart-item-count"><?php
                                     if ($count == 1) {
-                                        echo '1 item';
+                                        echo '1 ';
                                     } else {
-                                        echo $count . ' items';
+                                        echo $count . ' ';
                                     };
                                     ?>
                                 </span>
@@ -69,8 +69,10 @@ if ($count1 == 0) {
 
                 </div>
                 <div class="nav-top hidden-xs">
-
-                    <div class=" header-cart shopping-cart" >
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <div class="col-md-4">
+                              <div class=" header-cart shopping-cart" >
                         <a href="../my-cart.php">
                             <span class="icon lnr lnr-cart"> 
                                 <img src="../images/icons/shopping-cart(2).png" alt=""/>
@@ -87,8 +89,9 @@ if ($count1 == 0) {
                             <span class="title title-border">My Cart </span>
                         </a>
                     </div>
-
-                    <div class="header-cart " >
+                        </div>
+                        <div class="col-md-4">
+                                 <div class="header-cart " >
                         <a href="../plan-trip.php">
                             <span class="icon lnr lnr-cart">
                                 <img src="../images/icons/placeholder.png" alt=""/>
@@ -96,18 +99,26 @@ if ($count1 == 0) {
                             <span class="title title-border">Plan Your Trip</span>
                         </a>
                     </div>
-
+                        </div>
+                        <div class="col-md-4">
+                            
                     <div class="header-cart">
                         <nav id="navigation1" class="style-1 hidden-xs">
                             <ul id="responsive">
                                 <?php
                                 if (isset($_SESSION['id'])) {
                                     ?>
-                                    <li><a href="#"><img src="upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/> My Profile</a>
-                                        <?php
+                                    <li>
+                                        
+                                        <a class="user-item" href="#"><span class="icon lnr lnr-cart">
+                                                <img  src="../upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/>
+                                            </span>
+
+                                            <span class="title">My Profile </span></a>
+                                       <?php
                                     } else {
                                         ?>
-                                    <li><a href="#"><span class="icon lnr lnr-cart">
+                                    <li><a class="user-item" href="#"><span class="icon lnr lnr-cart">
                                                 <img id="nav-img" src="../images/icons/profile.png" alt=""/>
                                             </span>
 
@@ -124,7 +135,9 @@ if ($count1 == 0) {
                             </ul>
                         </nav>
                     </div>
-
+                        </div>
+                    </div>
+                 
                 </div>
                 <div class="nav-bottom">
                     <!-- Main Navigation -->
