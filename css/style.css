@@ -234,7 +234,7 @@ header.fullwidth .container {
     width: 70%;
     display: inline-block;
     text-align: right;
-    height: 100px;
+    height: 90px;
     padding: 6px 0px;
 }
 .container {
@@ -256,8 +256,7 @@ header.fullwidth .container {
     float: left;
 }
 .cart-item-count {
-    /*font-size: 10px;*/
-    margin-left: -4px;
+    margin-left: -47px;
 }
 .cart-title {
     font-size: 15px;
@@ -423,7 +422,8 @@ a.listing-item-container {
     -ms-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     color: #707070;
-    line-height: 21px
+    line-height: 21px;
+    text-decoration: none;
 }
 
 #footer .footer-links li a:hover {
@@ -716,7 +716,7 @@ body #navigation ul ul {
 }
 
 #navigation.style-1 {
-    margin-top: 16px
+    margin-top: 8px
 }
 
 #navigation.style-1 .current:after {
@@ -733,6 +733,7 @@ body #navigation ul ul {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
 }
 
 #navigation.style-1 ul li:hover a {
@@ -753,7 +754,7 @@ body #navigation ul ul {
 
 #navigation.style-1 ul a {
     line-height: 32px;
-    padding: 0px 10px 5px 10px;
+    padding: 0px 5px 5px 10px;
 }
 
 #navigation.style-1 ul ul li a {
@@ -15849,13 +15850,18 @@ margin-top-m40{
         display: none
     }
     .main-search-input {
+        width: 100%;
+        margin-top: -51%;
         border-radius: 0;
         display: block;
-        padding: 0;
-        max-height: 100%;
+        position:relative;
         background-color: transparent;
         box-shadow: none
     }
+    #search-mobile{
+        text-align: center;
+    }
+    
     .gray-style.main-search-input {
         background-color: transparent
     }
@@ -16741,20 +16747,23 @@ a .listing-item:hover {
     right: 2px;
 }
 /*header new css strat*/
-.header-cart, .header-wishlist {
+.header-cart {
     position: relative;
     display: inline-block;
-    width: 17%;
+    /*    width: 17%;*/
     vertical-align: top;
-    text-align: left;
+    text-align: justify;
+
+
+}
+#navigation1.style-1 ul .user-item{
+    padding: 0px 0px 0px 0px;
 
 }
 
-.shopping-cart{
-    width: 15%;
-    margin-right: 20px;
-}
-.header-cart-small,.header-wishlist{
+
+
+.header-cart-small{
     position: relative;
     display: inline-block;
     float: right;
@@ -16766,15 +16775,14 @@ a .listing-item:hover {
 .plan-trip{
     float: left; 
 }
-.header-cart .icon, .header-wishlist .icon {
+.header-cart .icon{
     position: absolute;
     top: 2px;
     left: -27px;
-    font-size:21px;
     font-weight: normal;
     color:#888;
 }
-.header-cart-small .icon, .header-wishlist .icon {
+.header-cart-small .icon {
     position: absolute;
     top: 14px;
     left: -22px;
@@ -16793,20 +16801,21 @@ a .listing-item:hover {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.header-cart .cart-number, .header-wishlist .cart-number {
+.header-cart .cart-number {
     display: inline-block;
     font-size: 12px;
-    height: 17px;
-    line-height: 10px;
-    padding: 4px 8px;
+    height: 20px;
+    width:20px;
+    line-height: 20px;
     text-align: center;
     color: #fff;
     background-color: #fcd119;
-    border-radius: 16px;
+    border-radius: 15px;
     position: absolute;
-    margin-top: -6px;
+    margin-top: -2px;
+    font-weight: 400;
 }
-.header-cart-small .cart-number, .header-wishlist .cart-number {
+.header-cart-small .cart-number{
     display: inline-block;
     font-size: 12px;
     height: 30px;
@@ -16817,17 +16826,18 @@ a .listing-item:hover {
     background-color: #fcd119;
     border-radius: 16px;
 }
-.header-cart .title, .header-wishlist .title {
+.header-cart .title{
     display: inline-block;
     line-height: 35px;
     padding-left: 1px;
     color: #333 !important;
     font-size: 14px !important;
     text-transform: capitalize;
+    font-family: 'Oswald', sans-serif;
 }
 
 
-.header-cart-small .title, .header-wishlist .title {
+.header-cart-small .title{
     display: inline-block;
     line-height: 39px;
     padding-left: 10px;
@@ -16844,17 +16854,16 @@ a .listing-item:hover {
 
 }
 .title-border::after{
-    top: 42%;
-    right: 20px;
+    top: 52%;
+    right: -14px;
     width: 1px;
-    height: 50%;
+    height: 70%;
     content: "";
     position: absolute;
     background-color: #cecece;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-
 }
 #nav-img{
     width:24px!important;

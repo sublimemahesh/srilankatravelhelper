@@ -41,13 +41,12 @@
             <div class="col-md-3  col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="600">
                 <h4>Contact Us</h4>
                 <div class="text-widget1">
-                    <span>Sublime,Galle Road ,Galle</span> <br>
                 </div>
                 <div class="text-widget1">
-                    Phone: <span>(123) 123-456 </span><br>
+                    Phone: <span> <a href="tel:+94 71 666 7557" style="text-decoration: none;color:#888;"> +94 71 666 7557 </a></span><br>
                 </div>
                 <div class="text-widge1t">
-                    E-Mail:<span> <a href="#"><span class="__cf_email__" data-cfemail="1f707979767c7a5f7a677e726f737a317c7072">[email&#160;protected]</span></a> </span><br>
+                    E-Mail:<span> <a href="mailto:info@toursrilanka.travel" style="text-decoration: none;color:#888;"> info@toursrilanka.travel</a></span><br>
                 </div>
 
                 <ul class="social-icons margin-top-20">

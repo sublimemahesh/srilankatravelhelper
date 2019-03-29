@@ -893,11 +893,13 @@ input[type="text"].location-search-input {
     padding-top: 7px !important;
 
 }
+
 .nav-top {
-    height: 60%;
+    height: 25px;
+    padding:0px 0px 0px 0px ;
 }
 .nav-bottom {
-    /*height: 50%;*/
+    height: 65px;
     border-top: 1px solid #cccc;
     width: 96%;
     float: right;
@@ -1316,10 +1318,11 @@ span.process-num {
     top: -34px;
 }
 .work-process h4 {
-    margin: 10px 0;
-    color: #004c85;
+    margin: 10px 0; 
+    color: #149447;
     font-family: 'Oswald', sans-serif;
-    font-size: 20px;
+    font-size: 20px; 
+    
 }
 .work-process p {
     font-size: 13px;

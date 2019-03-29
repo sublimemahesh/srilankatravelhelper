@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
 
         <!-- Basic Page Needs
         ================================================== -->
-        <title>Tour Sri Lanka</title>
+        <title>toursrilanka.travel | Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
@@ -76,7 +76,7 @@ if (!isset($_SESSION)) {
                                     <div class="main-search-input-item">
                                         <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
                                     </div>
-                                    <button class="button" name="search">Search</button>
+                                    <button id="search-mobile" class="button" name="search">Search</button>
                                 </div>
                             </form>
                         </div>
@@ -286,9 +286,9 @@ if (!isset($_SESSION)) {
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 margin-top-70" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
-                                <h3 class="headline centered text-content white-font" style="padding:0px 0px!important;">
+                                <h3 class="headline testimonial-h3 centered text-content white-font" style="padding:0px 0px!important;">
                                     Testimonials
-                                    <span class="margin-top-25">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</span>
+                                    <span class="testimonial-p margin-top-25">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</span>
                                 </h3>
                             </div>
                         </div>
