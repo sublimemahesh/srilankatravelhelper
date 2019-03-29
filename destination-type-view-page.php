@@ -79,7 +79,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                 $DESTINATIONS = Destination::getDestinationById($id);
                                 foreach ($DESTINATIONS as $key => $destination) {
                                     ?>
-                                <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
+                                <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
                                     <?php
                                 }
                                 ?>
@@ -102,7 +102,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key < $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -114,7 +114,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key >= $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class=""></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }

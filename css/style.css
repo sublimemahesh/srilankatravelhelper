@@ -4423,9 +4423,9 @@ a.mfp-gallery {
 }
 
 .boxed-widget {
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-radius: 3px;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     transform: translate3d(0, 0, 0);
     z-index: 90;
     position: relative
@@ -4630,7 +4630,8 @@ a.send-message-to-owner.button {
 
 .opening-hours {
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 .opening-hours ul {
@@ -16594,7 +16595,7 @@ div.layout-style {
     text-align: justify;
 }
 .moretourpack h4{
-    margin: 29px 0 30px;
+    margin: 45px 0 30px;
 }
 .capmargin{
     margin-top: 31px;
@@ -16641,8 +16642,8 @@ a .listing-item:hover {
     margin-top: 0px;
 }
 .desMap{
-    width: 400px;
-    height: 503px;
+    width: 385px;
+    height: 500px;
 }
 .spendtime{
     background-color: #fff;
@@ -16656,7 +16657,10 @@ a .listing-item:hover {
     padding-top: 13px;
 }
 .estimateTime2{
-    padding-top: 13px;
+    padding-top: 10px;
+}
+.estimatetime .panel-body {
+    width: 385px;
 }
 .onedesMap {
     width: 313px;
@@ -16702,11 +16706,39 @@ a .listing-item:hover {
 }
 .panel-default {
     border-color: #d5d5d5;
-    font-family: 'Courgette', cursive;
+    font-family: 'Oswald', sans-serif
 }
 .rating-block h2 {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.estimate .input, input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea, select {
+    height: 50px;
+    line-height: 51px;
+    padding: 0 20px;
+    outline: 0;
+    font-size: 15px;
+    color: gray;
+    margin: 0 0 0px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .06);
+    font-weight: 500;
+    opacity: 1;
+    border-radius: 3px;
+}
+.estimatetime label, legend {
+    font-size: 18px;
+}
+.estimatetime .panel-body {
+    padding: 12px;
+}
+.opening-hours .glyphicon {
+    right: 2px;
 }
 /*header new css strat*/
 .header-cart, .header-wishlist {

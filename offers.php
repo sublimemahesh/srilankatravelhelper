@@ -70,7 +70,7 @@ if (!isset($_SESSION)) {
                                     <!-- Text Intro-->
                                     <p style="text-align: justify;"><?php echo substr($offer['description'], 0, 400); ?></p>
                                 </div>
-                                   <div class="offer-body hidden-lg hidden-md hidden-sm">
+                                   <div class="offer-body hidden-lg hidden-md hidden-sm hidden-xs">
                                     <!-- title-->
                                     <h3><?php echo $offer['title']; ?></h3>
                                     <!-- Text Intro-->
