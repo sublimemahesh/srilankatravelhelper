@@ -1409,6 +1409,7 @@ body #navigation1 ul ul {
     color: #444;
     cursor: pointer;
     font-size: 14px;
+      font-family: 'Oswald', sans-serif;
 }
 
 #navigation1.style-1 ul li:hover a {
