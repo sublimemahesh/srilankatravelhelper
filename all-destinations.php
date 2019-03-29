@@ -96,7 +96,7 @@ if (isset($_GET['search'])) {
                                             <input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Location" autocomplete="off">
                                             <input type="hidden" name="location" id="location"  value=""/>
                                         </div>
-                                        <a href="#" class="hidden-xs"><i class="fa fa-map-marker"></i></a>
+                                        <a href="#" class="hidden-xs"></a>
                                     </div>
 
                                     <!--                                                                        <div class="main-search-input-item">
@@ -131,7 +131,7 @@ if (isset($_GET['search'])) {
                     <div class="col-lg-3 col-md-4 col-sm-5">
                         <div class="boxed-widget opening-hours" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
-                            <h3><i class="fa fa-map-marker"></i>Destination Types</h3>
+                            <h3>Destination Types</h3>
                             <ul>
                                 <?php
                                 $DESTINATIONTYPES = DestinationType::all();

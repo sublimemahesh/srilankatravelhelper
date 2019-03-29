@@ -53,6 +53,10 @@ foreach ($destinations as $des) {
             .time-box{
                 box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
             }
+            .h1, .h2, .h3, h1, h2, h3 {
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
         </style>
     </head>
     <body>
@@ -89,7 +93,7 @@ foreach ($destinations as $des) {
                                         $stars1 = $sum1 / $divider1;
                                     }
                                     ?>
-                                                                                                                                                                                                                                                                                                            <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                                                                                                                                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -189,13 +193,12 @@ foreach ($destinations as $des) {
 
                     <div class="col-md-4  col-xs-1  col-sm-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="100">
                         <div class="panel panel-default estimatetime">
-                            <div class="panel-body">
-                                <h4> Estimate Time</h4> 
+                            <div class="panel-body time-box"> 
                                 <div class="col-md-6 col-xs-8 col-sm-4">
-                                    <label for="comment" class="estimateTime2">Total Estimate Time  </label>
+                                    <label for="comment" class="estimateTime2">Total Estimate Time</label>
                                 </div>   
                                 <div class="col-md-6 col-xs-4 col-sm-4">
-                                    <input type="text" class="spendtime" style="box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;" disabled value="<?php echo round($spentime / 60, 2) ?> h" >
+                                    <input type="text" class="spendtime" disabled value="<?php echo round($spentime / 60, 2) ?> h" >
                                 </div>  
                             </div>
                         </div>

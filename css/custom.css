@@ -587,7 +587,6 @@ input[type="text"].location-search-input {
 }
 .city-body .package-details a {
     color: #fff;
-    font-family: 'Oswald', sans-serif;
 }
 .destinations-search .main-search-input {
     margin-top: -57px;
@@ -793,11 +792,10 @@ input[type="text"].location-search-input {
 .offer-item .offer-body h3 {
     margin: 0px 0px 15px 0px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #2a0a92;
-    font-family: 'Oswald', sans-serif;
 }
 .offer-item .offer-body p {
     color: #696767;
@@ -896,11 +894,10 @@ input[type="text"].location-search-input {
 
 }
 .nav-top {
-    height: 37px;
-    padding:3px 0px 0px 0px ;
+    height: 60%;
 }
 .nav-bottom {
-    height: 60px;
+    /*height: 50%;*/
     border-top: 1px solid #cccc;
     width: 96%;
     float: right;
@@ -1330,7 +1327,6 @@ span.process-num {
 }
 .package-places h4 a {
     color: #000;
-    font-family: 'Oswald', sans-serif;
 }
 .two-column li p {
     line-height: 19px;
@@ -1350,13 +1346,15 @@ span.process-num {
 }
 .dest-type, .other-tours {
     padding: 10px;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
     margin-bottom: 5px;
     line-height: 20px;
     font-size: 13px;
-    border: 1px solid #ffcf00;
+    border: 1px solid #c6c4ba;
     cursor: pointer;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .dest-type:hover, .other-tours:hover {
     padding: 10px;
@@ -1367,7 +1365,7 @@ span.process-num {
     margin-bottom: 5px;
     line-height: 20px;
     font-size: 13px;
-    border: 1px solid #ffcf00;
+    border: 1px solid #c6c4ba;
 }
 .dest-type h4, .other-tours h4 {
     font-size: 15px;
@@ -1385,7 +1383,7 @@ span.process-num {
     padding-right: 0px;
 }
 .dest-type .col-md-8, .other-tours .col-md-8 {
-    padding-left: 8px;
+    padding-left: 15px;
     padding-right: 0px;
 }
 .dest-type .fa, .other-tours .fa {
@@ -1667,7 +1665,6 @@ a.button.border.btncolor17{
 .strength-box {
     height: 236px;
 }
-
 /* cyrillic */
 @font-face {
   font-family: 'Oswald';
