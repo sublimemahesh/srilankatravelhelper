@@ -1861,18 +1861,9 @@ em.mm-counter + a.mm-fullsubopen {
 
 }
 .title-border::after{
-    /*    top: 42%;
-        right: 20px;
-        width: 1px;
-        height: 50%;
-        content: "";
-        position: absolute;
-        background-color: #cecece;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);*/
+
     top: 52%;
-    right: -14px;
+    right: -25px;
     width: 1px;
     height: 70%;
     content: "";

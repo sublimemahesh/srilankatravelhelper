@@ -110,7 +110,7 @@ if ($count1 == 0) {
                                         if (isset($_SESSION['id'])) {
                                             ?>
                                             <li>
-                                                <a href="#">
+                                                <a class="user-item"  href="#">
                                                     <span class="icon lnr lnr-cart">
                                                         <img  src="../upload/visitor/-418140250_190785000656_1543990783_n.jpg" alt=""/>
                                                     </span>

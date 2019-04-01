@@ -6,35 +6,35 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:500,600,700';
 /* cyrillic */
 @font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752HT8Ghe4.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752HT8Ghe4.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* vietnamese */
 @font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752Fj8Ghe4.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752Fj8Ghe4.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
 /* latin-ext */
 @font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752Fz8Ghe4.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752Fz8Ghe4.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752GT8G.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v17/TK3iWkUHHAIjg752GT8G.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 a,
 button {
@@ -164,7 +164,7 @@ header.fullwidth .container {
     float: left;
 }
 .cart-item-count {
-   margin-left: -47px;
+    margin-left: -47px;
 }
 .cart-title {
     font-size: 15px;
@@ -436,11 +436,11 @@ body #navigation ul ul {
 
 #navigation.style-1 ul li a {
     color: #444;
-cursor: pointer;
-font-size: 14px;
-font-weight: 600;
-text-transform: uppercase;
-font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
 }
 
 #navigation.style-1 ul li:hover a {
@@ -461,7 +461,7 @@ font-family: 'Oswald', sans-serif;
 
 #navigation.style-1 ul a {
     line-height: 32px;
-  padding: 2px 8px;
+    padding: 2px 8px;
 }
 
 #navigation.style-1 ul ul li a {
@@ -1429,8 +1429,8 @@ body #navigation1 ul ul {
 }
 
 #navigation1.style-1 ul a {
-   line-height: 28px;
-padding: 1px 4px;
+    line-height: 28px;
+    padding: 1px 4px;
 }
 
 #navigation1.style-1 ul ul li a {
@@ -1530,11 +1530,14 @@ padding: 1px 4px;
     margin-right: 5px;
 }
 .nav-top {
-    height: 50%;
+    height: 25px;;
 }
 .nav-bottom {
-    height: 50%;
+    height: 65px;
     border-top: 1px solid #cccc;
+    width: 96%;
+    float: right;
+
 }
 .mm-menu .mm-listview > li {
 
@@ -1757,12 +1760,12 @@ em.mm-counter + a.mm-fullsubopen {
     /*    width: 17%;*/
     vertical-align: top;
     text-align: justify;
-    
+
 
 }
 #navigation1.style-1 ul .user-item{
     padding: 0px 0px 0px 0px;
-    
+
 }
 
 
@@ -1858,18 +1861,9 @@ em.mm-counter + a.mm-fullsubopen {
 
 }
 .title-border::after{
-    /*    top: 42%;
-        right: 20px;
-        width: 1px;
-        height: 50%;
-        content: "";
-        position: absolute;
-        background-color: #cecece;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);*/
+
     top: 52%;
-    right: -14px;
+    right: -25px;
     width: 1px;
     height: 70%;
     content: "";
