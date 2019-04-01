@@ -105,12 +105,22 @@ body {
 .search-destination-item .search-destination-inner {
     background: #eee;
 }
+
+#plan-trip-input{
+    margin-top: 0px;
+}
+
+#plan-trip-input input{
+    border: none;
+    box-shadow: none;  
+}
 .location-search-title {
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 15px;
     text-align: center;
     color: #707070;
+    text-transform: capitalize;
 }
 .search-destination-item .listing-item img {
     object-fit: cover;

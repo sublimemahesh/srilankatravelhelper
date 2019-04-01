@@ -90,7 +90,7 @@ foreach ($destinations as $des) {
                             <div class="row location-search-title" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
                                 Enter city to find destinations
                             </div>
-                            <div class="main-search-input" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                            <div id="plan-trip-input" class="main-search-input" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                                 <div class="main-search-input-item location">
                                     <div id="autocomplete-container">
                                         <input  name="autocomplete" id="autocomplete" type="text" placeholder="Select a city">

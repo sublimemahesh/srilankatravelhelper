@@ -15861,7 +15861,7 @@ margin-top-m40{
     #search-mobile{
         text-align: center;
     }
-    
+
     .gray-style.main-search-input {
         background-color: transparent
     }
@@ -16873,3 +16873,7 @@ a .listing-item:hover {
 }
 /*header new css end*/
 
+.main-search-input input{
+    border: none;
+    box-shadow: none;  
+}
