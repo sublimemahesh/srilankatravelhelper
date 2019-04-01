@@ -52,11 +52,10 @@ if ($REVIEWS['count'] == 0) {
             /*driver*/
             .driver-profile-section{
                 background-color:#fff;
-                border:1px solid #F7F7F0;
+                border:1px solid #DADADA;
                 /*                padding:7% 12% 7% 12%;*/
                 border-radius:1%;
                 /*                padding-bottom: 10px;*/
-                box-shadow: rgba(0, 0, 0, 0.51) 4px 4px 5px;
             }
             .profile-description{
                 margin: 1% 1% 1% 3%;

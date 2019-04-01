@@ -1355,10 +1355,10 @@ span.process-num {
     margin-bottom: 5px;
     line-height: 20px;
     font-size: 13px;
-    border: 1px solid #c6c4ba;
+/*    border: 1px solid #c6c4ba;*/
     cursor: pointer;
     margin-bottom: 15px;
-    box-shadow: 0 6px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+/*    box-shadow: 0 6px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
 }
 .dest-type:hover, .other-tours:hover {
     padding: 10px;
@@ -1369,14 +1369,14 @@ span.process-num {
     margin-bottom: 5px;
     line-height: 20px;
     font-size: 13px;
-    border: 1px solid #c6c4ba;
+/*    border: 1px solid #c6c4ba;*/
 }
 .dest-type h4, .other-tours h4 {
     font-size: 15px;
     font-weight: bolder;
     padding-bottom: 0;
     margin-bottom: 5px;
-    margin-top: 0px;
+    margin-top: -3px;
 }
 .dest-type .col-md-4, .other-tours .col-md-4 {
     padding-left: 0px;
