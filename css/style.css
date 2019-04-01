@@ -16856,7 +16856,7 @@ a .listing-item:hover {
 }
 .title-border::after{
     top: 52%;
-    right: -14px;
+    right: -25px;
     width: 1px;
     height: 70%;
     content: "";
