@@ -35,7 +35,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <link href="css/component.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <!--<link href="lib/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>-->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
         <link href="css/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="css/aos.css" rel="stylesheet" type="text/css"/>
@@ -45,6 +45,9 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             }
             .title-top{
                 margin-top: 25px;
+            }
+            .boxed-widget {
+                padding: 5px 10px 5px 25px;
             }
         </style>
     </head>
@@ -74,17 +77,17 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="boxed-widget opening-hours">
 
                             <h3><?php echo $DESTINATION_TYPE->name ?></h3>
-                            <ul>
+                            <ol class="other-dest">
                                 <?php
                                 $DESTINATIONS = Destination::getDestinationById($id);
                                 foreach ($DESTINATIONS as $key => $destination) {
                                     ?>
-                                <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
+                                    <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><?php echo $destination["name"]; ?></a></li>
                                     <?php
                                 }
                                 ?>
 
-                            </ul>
+                            </ol>
                         </div>
 
                     </div>
@@ -102,7 +105,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key < $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -114,7 +117,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                     foreach ($DESTINATIONS as $key => $destination) {
                                         if ($key >= $count / 2) {
                                             ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><i class="glyphicon glyphicon-map-marker"></i><?php echo $destination["name"]; ?></a></li>
+                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"></i><?php echo $destination["name"]; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -235,7 +238,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
         <script src="desti/toucheffects.js" type="text/javascript"></script>
         <script src="css/modernizr.custom.js" type="text/javascript"></script>
         <!--<script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>-->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
         <script src="scripts/add-to-cart.js" type="text/javascript"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
         <script>

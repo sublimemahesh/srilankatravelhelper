@@ -152,8 +152,6 @@ if (isset($_GET['search'])) {
 
                                             </h4>
 
-
-
                                             <div class="col-md-4 col-sm-4 col-xs-4">
                                                 <img src="upload/destination-type/<?php echo $type["image_name"]; ?>" alt="">
                                             </div>

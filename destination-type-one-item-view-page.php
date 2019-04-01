@@ -402,7 +402,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
 
                                         <div  class="col-md-12 col-xs-12 more-items hidden-sm otherdestinaion" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="600">
                                             <a href="destination-type-one-item-view-page.php?id=<?php echo $destination['id']; ?>">
-                                                <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Courgette', cursive;"><?php echo $destination['name']; ?></h5>
+                                                <h5  title="<?php echo $destination['name']; ?>" class="headline" style="font-family: 'Oswald', sans-serif;"><?php echo $destination['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-4 more-items-image" >
                                                     <img  src="upload/destination/thumb/<?php echo $destination['image_name']; ?>"  class="img-circle" alt=""/>
                                                     <div class="more-reviews-item1">
@@ -439,7 +439,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 col-xs-8">
-                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
+                                                    <p><?php echo substr($destination['short_description'], 0, 65) . '...'; ?></p>
                                                 </div>
 
 
