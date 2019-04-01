@@ -23,7 +23,7 @@ if ($VISITOR->checkEmail($email)) {
         $todayis = date("l, F j, Y, g:i a");
 
         $subject = 'Visitor - Password Reset';
-        $from = 'info@galle.website'; // give from email address
+        $from = 'info@toursrilanka.travel'; // give from email address
 
 
         $headers = "From: " . $from . "\r\n";
@@ -45,7 +45,7 @@ if ($VISITOR->checkEmail($email)) {
 
         $html .= "</table>";
 
-        
+       
         
         if (mail($email, $subject, $html, $headers)) {
             header('Location: ../reset-password.php?message=12');

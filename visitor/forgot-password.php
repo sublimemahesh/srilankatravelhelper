@@ -86,13 +86,16 @@ if ($count1 == 0) {
                                     <div class="error-msg2 hidden">
                                         <div class="pull-left" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
-
                                     </div>
                                     <div class="error-msg hidden">
                                         <div class="pull-left" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
-
                                     </div>
+                                    <div class="error-msg3 hidden">
+                                        <div class="pull-left" id="message"><?php echo $message->description; ?></div>
+                                        <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
+                                    </div>
+
                                     <?php
                                 }
                                 ?>
@@ -138,9 +141,9 @@ if ($count1 == 0) {
             $(document).ready(function () {
                 var message = $('#msg').val();
 
-                if (message.length > 35) {
-                    $('.error-msg2').removeClass('hidden');
-                } else {
+                if (message.length >65) {
+                    $('.error-msg3').removeClass('hidden');
+                }  else {
                     $('.error-msg').removeClass('hidden');
                 }
             });
