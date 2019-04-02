@@ -24,7 +24,7 @@ $code = $DRIVER->GenarateCode($email);
         $todayis = date("l, F j, Y, g:i a");
 
         $subject = 'Driver - Password Reset';
-        $from = 'noreply@sublime.lk'; // give from email address
+        $from = 'info@toursrilanka.travel'; // give from email address
 
 
         $headers = "From: " . $from . "\r\n";
