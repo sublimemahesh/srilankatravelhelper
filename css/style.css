@@ -16886,3 +16886,16 @@ a .listing-item:hover {
 .other-dest li{
     line-height: 3;
 }
+.driver-item-box{
+    height: 110px;
+}
+.col-md-3.driver-item-box {
+    width: 31%;
+} /*
+
+.col-xs-12.driver-item-box {
+    width: 100%;
+} 
+.col-sm-6.driver-item-box {
+    width: 48%;
+} */

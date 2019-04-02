@@ -97,7 +97,7 @@ $(document).ready(function (e) {
                     }
 
                     html += '<a href="#">';
-                    html += '<div class="driver-item driver-item-' + driver.id + ' col-md-6 col-xs-12" onClick="selectItem(' + driver.id + ')">';
+                    html += '<div class="driver-item driver-item-box driver-item-' + driver.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.id + ')">';
                     html += '<div class="col-md-4 col-xs-12">';
                     html += img;
                     html += '</div>';
