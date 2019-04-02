@@ -51,10 +51,11 @@ if ($count1 == 0) {
                                 <img src="../images/logo/log-1.png" alt=""/>
                             </div>
                             <div class="description">
-                                <p>Lorem ipsum dolor</p>
-                                <p>sit amet, consectetuer adipiscing elit.</p>
-                                <p>Aenean commodo ligula eget dolor.</p>
-                                <p>Aenean massa.</p>
+                                <p> Tour Sri Lanka is a</p>
+                                <p>  place where can reach what </p>
+                                <p>you have dreamed.</p>
+                                <p> We arrange and organize your </p>
+                                <p>travel desire with beyond expectation.</p>
                             </div>
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>
@@ -84,6 +85,11 @@ if ($count1 == 0) {
                                     ?>
                                     <input type="hidden" id="msg" value="<?php echo $message->description; ?>" />
                                     <div class="error-msg2 hidden">
+                                        <div class="pull-left" id="message"><?php echo $message->description; ?></div>
+                                        <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
+
+                                    </div>
+                                    <div class="error-msg3 hidden">
                                         <div class="pull-left" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
 
@@ -141,8 +147,8 @@ if ($count1 == 0) {
             $(document).ready(function () {
                 var message = $('#msg').val();
 
-                if (message.length > 35) {
-                    $('.error-msg2').removeClass('hidden');
+                if (message.length > 65) {
+                    $('.error-msg3').removeClass('hidden');
                 } else {
                     $('.error-msg').removeClass('hidden');
                 }
