@@ -9744,17 +9744,17 @@ body .notification strong {
 .listing-item-container.list-layout span.like-icon {
     bottom: 65%;
     transform: translateY(50%);
-    background-color: #0067a3;
+    background-color: #ead814;
     color: #fff;
     right: 45px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.52);
 }
 
-.listing-item-container.list-layout span.like-icon.liked,
+/*.listing-item-container.list-layout span.like-icon.liked,
 .listing-item-container.list-layout span.like-icon:hover {
     background-color: #f3103c;
     color: #fff
-}
+}*/
 
 .listing-item-container.list-layout .listing-item-inner {
     position: absolute;
@@ -16645,7 +16645,7 @@ a .listing-item:hover {
     bottom: -50px;
 }
 .estimatetime{
-    margin-right: -40px;
+    margin-right: -28px;
     margin-top: 0px;
 }
 .desMap{

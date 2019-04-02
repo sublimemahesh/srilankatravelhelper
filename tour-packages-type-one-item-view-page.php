@@ -217,7 +217,7 @@ if ($divider1 == 0) {
                             $nights = $days - 1;
                             ?>
 
-                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>&type=<?php echo $id; ?>">
+                            <a href="tour-packages-type-one-item-view-page.php?id=<?php echo $tour_package['id']; ?>">
                                 <div class="other-tours col-md-12 other-tourspack">
                                     <h4 title="<?php echo $tour_package['name']; ?>">
                                         <?php

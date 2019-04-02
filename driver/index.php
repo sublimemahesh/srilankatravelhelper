@@ -140,7 +140,7 @@ if ($count1 == 0) {
                     <a href="../"><img src="../images/logo/log-1.png" alt=""/></a>
                 </div>
                 <div class="text-lines">
-                    <p>Copyright © 2018 | <a href="https://www.sublime.lk/">Sublime Holdings</a> | All rights reserved.</p>
+                    <p>Copyright © 2019 | <a href="https://www.sublime.lk/">Synotec Holdings(PVT),Ltd</a> | All rights reserved.</p>
                     <p> Terms| Privacy| Contact Us </p>
                 </div>
 

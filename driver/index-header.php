@@ -151,7 +151,7 @@ if ($count1 == 0) {
                     <!-- Main Navigation -->
                     <nav id="navigation" class="style-1">
                         <ul id="responsive">
-                            <li><a class="current" href="../">Home</a></li>
+                            <li><a href="../">Home</a></li>
                             <li><a href="../destination-type.php">Destinations</a></li>
                             <li><a href="../all-cities.php">Cities</a></li>
                             <li><a href="../tour-packages-type.php">Packages</a></li>
