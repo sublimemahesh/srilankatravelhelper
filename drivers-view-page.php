@@ -479,7 +479,7 @@ if ($REVIEWS['count'] == 0) {
                                         ?>
                                         <div  class="col-md-3 col-xs-12 more-items " style="margin-right:10px;">
                                             <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>">
-                                                <h5  class="headline" style="font-family: 'Courgette', cursive;"><?php echo $driver['name']; ?></h5>
+                                                <h5  class="headline" style="font-family: 'Oswald', sans-serif;"><?php echo $driver['name']; ?></h5>
                                                 <div class="col-md-5 col-xs-5 more-items-image">
                                                     <?php
                                                     if (empty($driver['profile_picture'])) {
@@ -532,7 +532,7 @@ if ($REVIEWS['count'] == 0) {
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 col-xs-7">
-                                                    <p  style="font-family: 'Courgette', cursive;" ><?php echo substr($driver['short_description'], 0, 65) . '...'; ?></p>
+                                                    <p><?php echo substr($driver['short_description'], 0, 65) . '...'; ?></p>
                                                 </div>
 
 

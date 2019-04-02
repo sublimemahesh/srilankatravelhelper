@@ -57,6 +57,12 @@ $now = date('Y-m-d H:i:s');
                 border-color: gray;
 
             }
+            .formrow-bottom{
+                margin-bottom: 15px;
+            }
+            .panel-heading{
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -100,7 +106,7 @@ $now = date('Y-m-d H:i:s');
                                                 <!--Full Name-->
                                                 <div class="col-md-12">
                                                     <div class="bottom-top">Name</div>
-                                                    <div class="formrow">
+                                                    <div class="formrow formrow-bottom">
                                                         <input type="text" readonly="true" name="first_name" id="first_name" class="form-control input-type-bottom" placeholder="Please Enter Your Full Name"  value="<?php echo $VISITOR->name; ?>" required="TRUE">
                                                     </div>
                                                 </div>
