@@ -52,10 +52,11 @@ if ($count1 == 0) {
                                 <img src="../images/logo/log-1.png" alt=""/>
                             </div>
                             <div class="description">
-                                <p>Lorem ipsum dolor</p>
-                                <p>sit amet, consectetuer adipiscing elit.</p>
-                                <p>Aenean commodo ligula eget dolor.</p>
-                                <p>Aenean massa.</p>
+                                <p> Tour Sri Lanka is a</p>
+                                <p>  place where can reach what </p>
+                                <p>you have dreamed.</p>
+                                <p> We arrange and organize your </p>
+                                <p>travel desire with beyond expectation.</p>
                             </div>
                             <div class="icon-box">
                                 <h3 class="topic">SIGN UP WITH</h3>
@@ -89,10 +90,14 @@ if ($count1 == 0) {
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
 
                                     </div>
+                                      <div class="error-msg3 hidden">
+                                        <div class="pull-left msg-display" id="message"><?php echo $message->description; ?></div>
+                                        <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
+
+                                    </div>
                                     <div class="error-msg hidden">
                                         <div class="pull-left" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
-
                                     </div>
                                     <?php
                                 }
@@ -143,8 +148,8 @@ if ($count1 == 0) {
             $(document).ready(function () {
                 var message = $('#msg').val();
 
-                if (message.length > 47) {
-                    $('.error-msg1').removeClass('hidden');
+                if (message.length > 40) {
+                    $('.error-msg3').removeClass('hidden');
                 } else {
                     $('.error-msg').removeClass('hidden');
                 }
