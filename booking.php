@@ -116,7 +116,7 @@ $VISITOR = new Visitor($_SESSION['id']);
             <section class="fullwidth  padding-top-70 padding-bottom-70" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+<!--                     <div class="col-md-3">
                             <div class="driver-profile-section <?php echo $tailormade; ?>" >
 
                                 <div class="listing-item">
@@ -167,8 +167,8 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-md-9">
+                        </div>-->
+                        <div class="col-md-12">
                             <div class="col-md-12 booking-section">
                                 <div class="tab col-md-8 col-md-offset-2">
                                     <div class="col-md-6 col-sm-6 col-xs-6 tab-nav">
@@ -189,13 +189,13 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     <div class="row">
                                         <h3>Select Driver</h3>
 
-                                        <div class="location col-md-10 col-xs-12 col-md-offset-1">
+                                        <div class="location col-md-12 col-xs-12">
                                             <div class="select-location col-md-12">
-                                                <label class="col-md-6">Driver Name</label>
-                                                <label class="col-md-6">City</label>
+                                                <label class="col-md-6 hidden-xs hidden-sm">Driver Name</label>
+                                                <label class="col-md-6 hidden-xs hidden-sm">City</label>
                                                 <!--<input type="text" name="name" id="myInput" onkeyup="myFunction()" placeholder="Search for location.." title="Type in a name" class="form-control" autocomplete="off"/>-->
-                                                <input type="text" id="drivername" class="form-control col-md-6" placeholder="Enter driver name" name="drivername" required="TRUE">
-                                                <input type="text" id="autocomplete" class="form-control col-md-6" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
+                                                <input type="text" id="drivername" class="form-control col-md-6 col-xs-12" placeholder="Enter driver name" name="drivername" required="TRUE">
+                                                <input type="text" id="autocomplete" class="form-control col-md-6 col-xs-12" placeholder="Enter city" onFocus="geolocate()" name="autocomplete" required="TRUE">
                                                 <input type="hidden" name="city" id="city"  value=""/>
                                                 <input type="hidden" name="cityname" id="cityname"  value=""/>
                                                 <div class="row booking-next text-center">
@@ -225,7 +225,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                         ?>
 
                                                         <a href="#">
-                                                            <div class="driver-item driver-item-<?php echo $DRIVER->id; ?> col-md-6 col-xs-12" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                            <div class="driver-item driver-item-box  driver-item-<?php echo $DRIVER->id; ?> col-md-4 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
                                                                 <div class="col-md-4 col-xs-12">
                                                                     <?php
                                                                     if (empty($DRIVER->profile_picture)) {
@@ -291,7 +291,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                         }
                                                         ?>
                                                         <a href="#">
-                                                            <div class="driver-item driver-item-<?php echo $DRIVER->id; ?> col-md-6 col-xs-12" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                            <div class="driver-item  driver-item-box driver-item-<?php echo $DRIVER->id; ?> col-md-3 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
                                                                 <div class="col-md-4 col-xs-12">
                                                                     <?php
                                                                     if (empty($DRIVER->profile_picture)) {
