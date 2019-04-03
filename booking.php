@@ -12,14 +12,14 @@ if (isset($_GET["tour"])) {
     $TOUR = new TourPackages($tour);
     $REVIEWS = Reviews::getTotalReviewsOfTour($tour);
     $divider = $REVIEWS['count'];
-    
+
     if ($divider == 0) {
-    $stars = 0;
-    $sum = 0;
-} else {
-    $sum = $REVIEWS['sum'];
-    $stars = $sum / $divider;
-}
+        $stars = 0;
+        $sum = 0;
+    } else {
+        $sum = $REVIEWS['sum'];
+        $stars = $sum / $divider;
+    }
 }
 
 if (isset($_GET['tailormade'])) {
@@ -116,58 +116,58 @@ $VISITOR = new Visitor($_SESSION['id']);
             <section class="fullwidth  padding-top-70 padding-bottom-70" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
-<!--                     <div class="col-md-3">
-                            <div class="driver-profile-section <?php echo $tailormade; ?>" >
-
-                                <div class="listing-item">
-                                    <img src="upload/tour-package/thumb/<?php echo $TOUR->image_name; ?>" alt="">
-                                </div> 
-                                <div class="profile-description ">
-                                    <h3><?php echo $TOUR->name; ?></h3>
-                                </div>
-                                <div class="driver-rating">
-                                    <div class="star-rating-driver text-right"> 
-                                        <?php
-                                        for ($i = 1; $i <= $stars; $i++) {
-                                            ?>
-                                            <i class="fa fa-star"></i>
-                                            <?php
-                                        }
-                                        for ($j = $i; $j <= 5; $j++) {
-                                            ?>
-                                            <i class="fa fa-star-o"></i>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div id="rating-counter">(<?php echo $divider; ?> reviews)
-                                    </div>
-                                </div>
-                                <div class="profile-description ">
-                                    <p><?php echo substr($TOUR->short_description, 0, 155) . '...'; ?></p>
-                                </div>
-
-                            </div> 
-                            <div class="boxed-widget opening-hours <?php
-                            if ($tailormade == '') {
-                                echo 'hidden';
-                            };
-                            ?>">
-
-                                <h3>Selected Destinations</h3>
-                                <ul>
-                                    <?php
-                                    foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
-                                        $DESTINATION = new Destination($cartitem);
-                                        ?>
-                                        <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
-                                        <?php
-                                    }
-                                    ?>
-
-                                </ul>
-                            </div>
-                        </div>-->
+                        <!--                     <div class="col-md-3">
+                                                    <div class="driver-profile-section <?php echo $tailormade; ?>" >
+                        
+                                                        <div class="listing-item">
+                                                            <img src="upload/tour-package/thumb/<?php echo $TOUR->image_name; ?>" alt="">
+                                                        </div> 
+                                                        <div class="profile-description ">
+                                                            <h3><?php echo $TOUR->name; ?></h3>
+                                                        </div>
+                                                        <div class="driver-rating">
+                                                            <div class="star-rating-driver text-right"> 
+                        <?php
+                        for ($i = 1; $i <= $stars; $i++) {
+                            ?>
+                                                                            <i class="fa fa-star"></i>
+                            <?php
+                        }
+                        for ($j = $i; $j <= 5; $j++) {
+                            ?>
+                                                                            <i class="fa fa-star-o"></i>
+                            <?php
+                        }
+                        ?>
+                                                            </div>
+                                                            <div id="rating-counter">(<?php echo $divider; ?> reviews)
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-description ">
+                                                            <p><?php echo substr($TOUR->short_description, 0, 155) . '...'; ?></p>
+                                                        </div>
+                        
+                                                    </div> 
+                                                    <div class="boxed-widget opening-hours <?php
+                        if ($tailormade == '') {
+                            echo 'hidden';
+                        };
+                        ?>">
+                        
+                                                        <h3>Selected Destinations</h3>
+                                                        <ul>
+                        <?php
+                        foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
+                            $DESTINATION = new Destination($cartitem);
+                            ?>
+                                                                        <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                            <?php
+                        }
+                        ?>
+                        
+                                                        </ul>
+                                                    </div>
+                                                </div>-->
                         <div class="col-md-12">
                             <div class="col-md-12 booking-section">
                                 <div class="tab col-md-8 col-md-offset-2">
@@ -225,8 +225,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                         ?>
 
                                                         <a href="#">
-                                                            <div class="driver-item driver-item-box  driver-item-<?php echo $DRIVER->id; ?> col-md-4 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
-                                                                <div class="col-md-4 col-xs-12">
+                                                            <div class="driver-item driver-item-box hidden-xs driver-item-<?php echo $DRIVER->id; ?> col-md-4 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                                <div class="col-md-4 booking-fb-profile col-xs-12">
                                                                     <?php
                                                                     if (empty($DRIVER->profile_picture)) {
                                                                         ?>
@@ -248,7 +248,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                 <div class="col-md-8 col-xs-12">
                                                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
                                                                         <div class="drivername">
-                                                                            <?php echo $DRIVER->name; ?>
+
+                                                                            <?php echo substr($DRIVER->name, 0, 6) . '...'; ?>
                                                                         </div>
                                                                     </a>
                                                                     <div class="star-rate">
@@ -265,9 +266,55 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <div class="drivercity">
                                                                         City: <?php echo $DRIVER->cityname; ?>
                                                                     </div>
-                                                                    <div class="drivercity">
-                                                                        Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                    <!--                                                                    <div class="drivercity">
+                                                                                                                                            Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                                                                                        </div>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="driver-item hidden-sm hidden-md hidden-lg driver-item-<?php echo $DRIVER->id; ?> col-md-4 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                                <div class="col-md-4 booking-fb-profile col-xs-12">
+                                                                    <?php
+                                                                    if (empty($DRIVER->profile_picture)) {
+                                                                        ?>
+                                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                                        <?php
+                                                                    } else {
+                                                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                                            ?>
+                                                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
+                                                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt=""/>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="col-md-8 col-xs-12">
+                                                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
+                                                                        <div class="drivername">
+
+                                                                            <?php echo substr($DRIVER->name, 0, 6) . '...'; ?>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="star-rate">
+                                                                        <?php
+                                                                        for ($i = 1; $i <= $stars1; $i++) {
+                                                                            echo '<i class="fa fa-star"></i>';
+                                                                        }
+                                                                        for ($j = $i; $j <= 5; $j++) {
+                                                                            echo '<i class="fa fa-star-o"></i>';
+                                                                        }
+                                                                        ?>
+                                                                        <span class="reviews"> (<?php echo $sum1; ?> Reviews)</span>
                                                                     </div>
+                                                                    <div class="drivercity">
+                                                                        City: <?php echo $DRIVER->cityname; ?>
+                                                                    </div>
+                                                                    <!--                                                                    <div class="drivercity">
+                                                                                                                                            Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                                                                                        </div>-->
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -291,7 +338,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                         }
                                                         ?>
                                                         <a href="#">
-                                                            <div class="driver-item  driver-item-box driver-item-<?php echo $DRIVER->id; ?> col-md-3 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                            <div class="driver-item  driver-item-box hidden-xs driver-item-<?php echo $DRIVER->id; ?> col-md-3 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
                                                                 <div class="col-md-4 col-xs-12">
                                                                     <?php
                                                                     if (empty($DRIVER->profile_picture)) {
@@ -314,7 +361,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                 <div class="col-md-8 col-xs-12">
                                                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
                                                                         <div class="drivername">
-                                                                            <?php echo $DRIVER->name; ?>
+                                                                            <?php echo substr($DRIVER->name, 0, 20) . '...'; ?>
                                                                         </div>
                                                                     </a>
                                                                     <div class="star-rate">
@@ -331,8 +378,58 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <div class="drivercity">
                                                                         City: <span class="cityname" id="cityname-<?php echo $DRIVER->id; ?>" cityid=""><?php echo $DRIVER->cityname; ?></span>
                                                                     </div>
+                                                                    <!--                                                                    <div class="drivercity">
+                                                                                                                                           </div>-->
+                                                                    <div class="driver-select hidden">
+                                                                        <img src="images/icons/icon-41-512.png" alt=""/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="driver-item hidden-sm hidden-lg hidden-md driver-item-<?php echo $DRIVER->id; ?> col-md-3 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
+                                                                <div class="col-md-4 col-xs-12">
+                                                                    <?php
+                                                                    if (empty($DRIVER->profile_picture)) {
+                                                                        ?>
+                                                                        <img src="upload/driver/driver.png" alt="Profile Picture"/>
+                                                                        <?php
+                                                                    } else {
+                                                                        if ($DRIVER->facebookID && substr($DRIVER->profile_picture, 0, 5) === "https") {
+                                                                            ?>
+                                                                            <img src="<?php echo $DRIVER->profile_picture; ?>"  alt="Profile Picture"/>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
+                                                                            <img src="upload/driver/<?php echo $DRIVER->profile_picture; ?>" alt=""/>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="col-md-8 col-xs-12">
+                                                                    <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" target="new" >
+                                                                        <div class="drivername">
+                                                                            <?php echo substr($DRIVER->name, 0, 20) . '...'; ?>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="star-rate">
+                                                                        <?php
+                                                                        for ($i = 1; $i <= $stars1; $i++) {
+                                                                            echo '<i class="fa fa-star"></i>';
+                                                                        }
+                                                                        for ($j = $i; $j <= 5; $j++) {
+                                                                            echo '<i class="fa fa-star-o"></i>';
+                                                                        }
+                                                                        ?>
+                                                                        <span class="reviews"> (<?php echo $sum1; ?> Reviews)</span>
+                                                                    </div>
                                                                     <div class="drivercity">
-                                                                        Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                        City: <span class="cityname" id="cityname-<?php echo $DRIVER->id; ?>" cityid=""><?php echo $DRIVER->cityname; ?></span>
+                                                                    </div>
+                                                                    <!--                                                                    <div class="drivercity">
+                                                                                                                                            Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
+                                                                                                                                        </div>-->
+                                                                    <div class="driver-select hidden">
+                                                                        <img src="images/icons/icon-41-512.png" alt=""/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -458,22 +555,26 @@ $VISITOR = new Visitor($_SESSION['id']);
     <script src="scripts/booking.js" type="text/javascript"></script>
 
     <script>
-                                                                $(function () {
-                                                                    $("#startdate").datepicker({
-                                                                        dateFormat: "yy-mm-dd",
-                                                                        minDate: 0
-                                                                    }).val();
-                                                                    $("#enddate").datepicker({
-                                                                        dateFormat: "yy-mm-dd",
-                                                                        minDate: 1
-                                                                    }).val()
-                                                                });
-                                                                function selectItem(id) {
-                                                                    $('.driver-item').removeClass('selected');
-                                                                    $('.driver-item-' + id).addClass('selected');
-
-                                                                    $('#selected-driver').val(id);
-                                                                }
+                                                                           $(function () {
+                                                                               $("#startdate").datepicker({
+                                                                                   dateFormat: "yy-mm-dd",
+                                                                                   minDate: 0
+                                                                               }).val();
+                                                                               $("#enddate").datepicker({
+                                                                                   dateFormat: "yy-mm-dd",
+                                                                                   minDate: 1
+                                                                               }).val()
+                                                                           });
+                                                                           function selectItem(id) {
+                                                                               $('.driver-item').removeClass('selected');
+                                                                               $('.driver-item-' + id).addClass('selected');
+                                                                               $('#selected-driver').val(id);
+                                                                                    $('.driver-select').addClass('hidden');
+                                                                               $('.driver-item-'+id+' .driver-select').removeClass('hidden');
+//                                                                          
+                                                                             
+                                                                              
+                                                                           }
     </script>
     <script>
         var placeSearch, autocomplete;

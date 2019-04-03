@@ -56,7 +56,8 @@ $(document).ready(function (e) {
                     }
 
                     html += '<a href="#">';
-                    html += '<div class="driver-item driver-item-' + driver.driverdetails.id + ' col-md-6 col-xs-12" onClick="selectItem(' + driver.driverdetails.id + ')">';
+
+                    html += '<div class="driver-item driver-item-box hidden-xs driver-item-' + driver.driverdetails.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.driverdetails.id + ')">';
                     html += '<div class="col-md-4 col-xs-12">';
                     html += img;
                     html += '</div>';
@@ -71,9 +72,31 @@ $(document).ready(function (e) {
                     html += '<div class="drivercity">';
                     html += 'City: ' + driver.driverdetails.cityname + '';
                     html += '</div>';
-                    html += '<div class="drivercity">';
-                    html += 'Driving Licence No: ' + driver.driverdetails.driving_licence_number + '';
+                    html += ' <div class="driver-select hidden">';
+                    html += '   <img src="images/icons/icon-41-512.png" alt=""/>';
+                    html += ' </div>';
                     html += '</div>';
+                    html += '</div>';
+
+
+                    html += '<div class="driver-item hidden-sm hidden-lg hidden-md driver-item-' + driver.driverdetails.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.driverdetails.id + ')">';
+                    html += '<div class="col-md-4 col-xs-12">';
+                    html += img;
+                    html += '</div>';
+                    html += '<div class="col-md-8 col-xs-12">';
+                    html += '<div class="drivername">';
+                    html += '<a href="drivers-view-page.php?id=' + driver.driverdetails.id + '" target="new" >' + driver.driverdetails.name + '</a>';
+                    html += '</div>';
+                    html += '<div class="star-rate">';
+                    html += html1;
+                    html += '<span class="reviews"> (' + sum + ' Reviews)</span>';
+                    html += '</div>';
+                    html += '<div class="drivercity">';
+                    html += 'City: ' + driver.driverdetails.cityname + '';
+                    html += '</div>';
+                    html += ' <div class="driver-select hidden">';
+                    html += '<img src="images/icons/icon-41-512.png" alt=""/>';
+                    html += ' </div>';
                     html += '</div>';
                     html += '</div>';
                     html += '</a>';
@@ -82,7 +105,7 @@ $(document).ready(function (e) {
                 $.each(drivers.driverswithoutreviews, function (key, driver) {
 
                     var html1 = '';
-                    var j,img = '';
+                    var j, img = '';
                     for (j = 1; j <= 5; j++) {
                         html1 += '<i class="fa fa-star-o"></i>';
                     }
@@ -97,7 +120,7 @@ $(document).ready(function (e) {
                     }
 
                     html += '<a href="#">';
-                    html += '<div class="driver-item driver-item-box driver-item-' + driver.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.id + ')">';
+                    html += '<div class="driver-item driver-item-box hidden-xs driver-item-' + driver.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.id + ')">';
                     html += '<div class="col-md-4 col-xs-12">';
                     html += img;
                     html += '</div>';
@@ -112,11 +135,38 @@ $(document).ready(function (e) {
                     html += '<div class="drivercity">';
                     html += 'City: ' + driver.cityname + '';
                     html += '</div>';
+                    html += ' <div class="driver-select hidden">';
+                    html += '   <img src="images/icons/icon-41-512.png" alt=""/>';
+                    html += ' </div>';
+                    html += '</div>';
+                    html += '</div>';
+
+
+                    html += '<div class="driver-item hidden-sm hidden-lg hidden-md driver-item-' + driver.id + ' col-md-3 col-xs-12" onClick="selectItem(' + driver.id + ')">';
+                    html += '<div class="col-md-4 col-xs-12">';
+                    html += img;
+                    html += '</div>';
+                    html += '<div class="col-md-8 col-xs-12">';
+                    html += '<div class="drivername">';
+                    html += '<a href="drivers-view-page.php?id=1" target="new" >' + driver.name + '</a>';
+                    html += '</div>';
+                    html += '<div class="star-rate">';
+                    html += html1;
+                    html += '<span class="reviews"> (0 Reviews)</span>';
+                    html += '</div>';
                     html += '<div class="drivercity">';
-                    html += 'Driving Licence No: ' + driver.driving_licence_number + '';
+                    html += 'City: ' + driver.cityname + '';
+                    html += '</div>';
+                    html += ' <div class="driver-select hidden">';
+                    html += '   <img src="images/icons/icon-41-512.png" alt=""/>';
+                    html += ' </div>';
+
+
+
+
                     html += '</div>';
                     html += '</div>';
-                    html += '</div>';
+
                     html += '</a>';
 
                 });
