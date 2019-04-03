@@ -269,6 +269,9 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <!--                                                                    <div class="drivercity">
                                                                                                                                             Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
                                                                                                                                         </div>-->
+                                                                     <div class="driver-select hidden">
+                                                                        <img src="images/icons/icon-41-512.png" alt=""/>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="driver-item hidden-sm hidden-md hidden-lg driver-item-<?php echo $DRIVER->id; ?> col-md-4 col-xs-12 col-sm-6" onClick="selectItem(<?php echo $DRIVER->id; ?>)">
@@ -315,6 +318,9 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <!--                                                                    <div class="drivercity">
                                                                                                                                             Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
                                                                                                                                         </div>-->
+                                                                     <div class="driver-select hidden">
+                                                                        <img src="images/icons/icon-41-512.png" alt=""/>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </a>
