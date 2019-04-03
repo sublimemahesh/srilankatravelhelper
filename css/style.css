@@ -16899,3 +16899,15 @@ a .listing-item:hover {
 .col-sm-6.driver-item-box {
     width: 48%;
 } */
+
+.driver-item-box.col-md-4 {
+    width: 31%;
+}
+.driver-select img{
+    height: 33px;
+    float: right;
+}
+
+.driver-item .reviews {
+    color:#000;
+}

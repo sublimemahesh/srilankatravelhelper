@@ -237,23 +237,23 @@
 .driver-item {
     height: auto;
     border: 1px solid #f5cf00;
-    background-color: #000;
+    background-color: #fff;
     margin: 0px 12px 10px 0px;
     width: 48%;
-    color: #fff;
+    color: #000;
 }
 .driver-item.col-md-6 {
     width: 48%;
 }
 .driver-item a {
-    color: #fff;
+    color: #000;
 }
 .driver-item:hover a {
     color: #000;
 }
 .driver-item:hover {
     height: auto;
-    border: 1px solid #f5cf00;
+    border: 1px solid #a3c73a;
     background-color: #fff;
     margin: 0px 12px 10px 0px;
     /*width: 48%;*/
@@ -261,11 +261,13 @@
 }
 .driver-item.selected {
     height: auto;
-    border: 1px solid #f5cf00;
+    border: 1px solid #47ae48;
     background-color: #fff;
     margin: 0px 12px 10px 0px;
-    width: 48%;
+/*    width: 48%;*/
     color: #000;
+    /*background-image: url(../images/icons/icon-41-512.png);*/
+    
 }
 .driver-item.selected a {
     color: #000;
