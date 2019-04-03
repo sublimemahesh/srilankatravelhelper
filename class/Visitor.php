@@ -207,8 +207,7 @@ class Visitor {
         unset($_SESSION["authToken"]);
         unset($_SESSION["lastLogin"]);
         unset($_SESSION["position"]);
-        unset($_SESSION["destination_cart"]);
-
+     
         return TRUE;
     }
 
