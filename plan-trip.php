@@ -85,25 +85,46 @@ foreach ($destinations as $des) {
             </div>
             <div class="container margin-top-70 margin-bottom-55">
                 <div class="row">
-                    <div class="col-sm-8">
-                        <div>
-                            <div class="row location-search-title" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
-                                Enter city to find destinations
-                            </div>
-                            <div id="plan-trip-input" class="main-search-input" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
-                                <div class="main-search-input-item location">
-                                    <div id="autocomplete-container">
-                                        <input  name="autocomplete" id="autocomplete" type="text" placeholder="Select a city">
-                                        <input type="hidden" name="city" id="city"  value=""/>
-                                        <input type="hidden" name="cityname" id="cityname"  value=""/>
-                                    </div>
-                                    <a href="#"><i class="fa fa-map-marker"></i></a>
+                    <div class="col-md-12">
+                        <div class="row location-search-title" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
+                        </div>
+                        <div id="plan-trip-input" class="main-search-input" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                            <div class="main-search-input-item location">
+                                <div id="autocomplete-container">
+                                    <input  name="autocomplete" id="autocomplete" type="text" placeholder="Select a city">
+                                    <input type="hidden" name="city" id="city"  value=""/>
+                                    <input type="hidden" name="cityname" id="cityname"  value=""/>
                                 </div>
-                                <button class="button" id="location-search-btn" >Search</button>
+                                <a href="#"><i class="fa fa-map-marker"></i></a>
                             </div>
+                            <div class="main-search-input-item">
+                                    <!--<select class="chosen-select" name="type" >-->
+<!--                                                          <select class="dropDes" name="type" >-->
+                                <select class="dropDes plandes" id="type" name="type" >
+                                    <option value=""> All Categories </option>
+                                    <?php
+                                    foreach (DestinationType::all() as $des) {
+                                        ?>
+                                        <option value="<?php echo $des['id']; ?>">
+                                            <?php echo $des['name']; ?></option>
+
+                                    <?php }
+                                    ?>
+
+                                </select>
+                            </div>
+
+                            <div class="main-search-input-item">
+                                <input type="text" placeholder="Keyword" name="keyword" id="keyword" value="" autocomplete="off">
+                            </div>
+                            <button class="button" id="location-search-btn" >Search</button>
                         </div>
 
+                    </div>
 
+
+
+                    <div class="col-sm-8">
                         <div class="row" id="search-content">
                         </div>
 

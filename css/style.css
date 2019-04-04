@@ -16683,6 +16683,7 @@ a .listing-item:hover {
     font-family: raleway, helveticaneue, helvetica neue, Helvetica, Arial, sans-serif;
     text-transform: none;
     color: gray;
+    border: 0px solid #fffdfd00;
 }
 
 .dropDes option{
@@ -16910,4 +16911,12 @@ a .listing-item:hover {
 
 .driver-item .reviews {
     color:#000;
+}
+.spendt input[type=text]{
+    border: 0px solid #f6f6f6;
+    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.06);
+}
+.plandes input[type=text]{
+    border: 0px solid #f6f6f6;
+    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.06);
 }
