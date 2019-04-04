@@ -4,8 +4,9 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if ($_POST['option'] === 'SEARCH') {
 
-    $DESTINATIONS = Destination::getDestinationsByCityID($_POST['city']);
-
+    
+    $DESTINATIONS = Destination::getDestinationsByCityID($_POST['city'],$_POST['keyword'],$_POST['type']);
+   
     if ($DESTINATIONS) {
         $result = $DESTINATIONS;
     } else {

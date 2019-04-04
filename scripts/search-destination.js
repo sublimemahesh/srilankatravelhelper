@@ -1,7 +1,9 @@
 $(document).ready(function (event) {
     $('#location-search-btn').click(function () {
         var cityid = $('#city').val();
-
+        var type= $('#type').val();
+        var keyword = $('#keyword').val();
+        
         if (!cityid || cityid.length === 0) {
             swal({
                 position: 'bottom-end',
@@ -20,6 +22,8 @@ $(document).ready(function (event) {
                 type: "POST",
                 data: {
                     city: cityid,
+                    keyword:keyword,
+                    type:type,
                     option: 'SEARCH'
                 },
                 success: function (destinations) {
@@ -245,7 +249,7 @@ $(document).ready(function (event) {
     });
 
     $('#search-content').on('click', '.add-to-cart', function () {
-    
+
 //        this.disabled = true;
 //      Spend time calculation
         var spend = $(this).attr('spend_time');
@@ -255,11 +259,11 @@ $(document).ready(function (event) {
         } else {
             allspend = $('.spendtime').val();
         }
-  
+
 //        alert(spend);
 //        alert(allspend);
 //        
-        var sum = parseInt(spend)/60 + parseInt(allspend);
+        var sum = parseInt(spend) / 60 + parseInt(allspend);
 //    $('.spendtime').val(sum);
         $('.spendtime').val(sum + ' h ');
 //      Create Location array
