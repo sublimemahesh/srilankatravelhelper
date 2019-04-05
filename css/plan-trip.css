@@ -136,7 +136,7 @@ body {
     background-image: none;
     color: #fff;
 }
-#search-content h1, #search-content1 h1 {
+#search-content h1, #search-content1 h1,#search-content2 h1  {
     text-align: center;
     font-size: 22px;
     color: #000;

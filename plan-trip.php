@@ -126,6 +126,70 @@ foreach ($destinations as $des) {
 
                     <div class="col-sm-8">
                         <div class="row" id="search-content">
+                            <?php
+                            foreach (Destination::all() as $key => $dess) {
+                                if ($key < 6) {
+                                    ?>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 search-destination-item">
+                                        <div class="listing-item col-md-5 col-sm-5 col-xs-5">
+                                            <img src="upload/destination/<?php echo $dess['image_name']; ?>" alt="">
+                                        </div>
+                                        <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
+                                            <div class="driver-name text-left" title=""> <?php echo $dess['name']; ?>  </div>
+
+                                            <div class="star-rating-fa">
+
+                                                <?php
+                                                $REVIEWS = Reviews::getTotalReviewsOfDestination($destination['id']);
+
+                                                $divider = $REVIEWS['count'];
+                                                $sum = $REVIEWS['sum'];
+
+
+                                                if ($divider == 0) {
+                                                    for ($j = 1; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                    $sum = 0;
+                                                } else {
+                                                    $stars = $sum / $divider;
+
+                                                    for ($i = 1; $i <= $stars; $i++) {
+                                                        ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                    }
+                                                    for ($j = $i; $j <= 5; $j++) {
+                                                        ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>                                                
+                                                <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br>
+                                            </div>
+
+
+                                            <div style="margin-top: 0px;padding-bottom: 7px;">
+                                                <p class="text-center " id="">
+
+
+                                                    <?php echo substr($dess['short_description'], 0, 55) . '...'; ?>
+                                                </p></div>
+                                            <div class="button-section">
+                                                <a href="destination-type-one-item-view-page.php?id=7" target="_blank">
+                                                    <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button></a>
+                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-7" destination-id="7" location="6.3897222,80.4992002" spend_time="480" back="cart" title="Add to Cart">
+                                                    <i class="glyphicon glyphicon-shopping-cart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>    
                         </div>
 
                     </div>
@@ -153,8 +217,42 @@ foreach ($destinations as $des) {
                     <h1>Other Nearby Destinations in <span id="city-name"></span> City</h1>
                     <hr />
                 </div>
-                <div class="   nearbydestinations-carousel testimonials">
-                    <div id="nearbycities" ></div>
+                
+                   <div class="row col-md-12 " id="search-content2">
+                    <h1>Most Popular Cities In Sri Lanka</h1>
+                    <hr />
+                </div>
+                
+                <div class="col-md-12 nearbydestinations-carousel testimonials">
+                    <?php
+                    foreach (Location::all() as $key => $loc) {
+                        if ($key < 6) {
+                            ?>
+                            <div id="nearbycities" >
+                                <div class="city-body">
+                                    <div class="package-location">
+                                        <img src="upload/location/<?php echo $loc['image_name']; ?>" alt="">
+                                    </div>
+                                    <div class="package-details"><div class="package-places">
+                                            <a href="destinations-by-city.php?city=<?php echo $loc['id']; ?>"><h4><?php echo $loc['name']; ?></h4></a>
+                                            <div class="location-details">
+                                                <span title="Bus"><i class="fa fa-bus" title="Bus"></i></span><br>
+                                                <span title="Train"><i class="fa fa-train" title="Train"></i></span><br>
+                                                <span title="Taxi"><i class="fa fa-car" title="Taxi"></i></span><br></div>
+                                            <div class="details">
+                                                <p>  <?php echo substr($loc['short_description'], 0, 95) . '...'; ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="package-ratings-review cities-view-btn">
+                                            <a href="destinations-by-city.php?city=<?php echo $loc['id']; ?>" class="btn btn-success"> <span>View</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
 
                 </div>
             </div>
