@@ -9,7 +9,7 @@ if ($_POST['option'] === 'ADDTOCART') {
     
 //unset($_SESSION["destination_cart"]);
     $cart = array();
-
+ 
     if (isset($_SESSION['destination_cart'])) {
         $cart = $_SESSION['destination_cart'];
          
