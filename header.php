@@ -146,9 +146,19 @@ if (isset($_SESSION['position'])) {
                                                 <?php
                                             }
                                             ?>
-                                            <ul>
-                                                <li><a href="visitor/profile.php">Login Now</a></li>
-                                                <li><a href="visitor/profile.php">Join Now</a></li>
+                                            <ul>   <?php 
+                                        if (isset($_SESSION['id']) && $position === 'visitor') {
+                                           
+                                                ?>
+                                                     <li><a href="visitor/post-and-get/logout.php">Login out</a></li>
+                                                    
+                                        <?php }   elseif (isset($_SESSION['id']) && $position === 'driver') { ?>
+                                                
+                                                       <li><a href="driver/post-and-get/logout.php">Login Out</a></li>
+                                        <?php }else{ ?>
+                                       <li><a href="visitor/profile.php">Join Now</a></li>
+                                                         <?php }?>   
+                               
                                                 <li><a href="driver/profile.php">Driver Login</a></li>
                                             </ul>
                                         </li> 
