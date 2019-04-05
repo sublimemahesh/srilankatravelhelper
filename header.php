@@ -76,6 +76,17 @@ if (isset($_SESSION['position'])) {
 
                     <div class="col-md-5"></div>
                     <div class="col-md-7">
+                            <div class="col-md-4">
+                            <div class="header-cart  plan-your-trip" >
+                                <a href="plan-trip.php">
+                                    <span class="icon lnr-cart">
+                                        <img src="images/icons/placeholder.png" alt=""/>
+                                    </span>
+                                    <div class="f-title"></div>
+                                    <span class="title title-border">Plan Your Trip</span>
+                                </a>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class=" header-cart shopping-cart" >
                                 <a href="my-cart.php">
@@ -95,17 +106,7 @@ if (isset($_SESSION['position'])) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="header-cart  plan-your-trip" >
-                                <a href="plan-trip.php">
-                                    <span class="icon lnr-cart">
-                                        <img src="images/icons/placeholder.png" alt=""/>
-                                    </span>
-                                    <div class="f-title"></div>
-                                    <span class="title title-border">Plan Your Trip</span>
-                                </a>
-                            </div>
-                        </div>
+                    
                         <div class="col-md-4 ">
 
 
