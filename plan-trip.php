@@ -180,9 +180,11 @@ foreach ($destinations as $des) {
                                                 </p></div>
                                             <div class="button-section">
                                                 <a href="destination-type-one-item-view-page.php?id=<?php echo $dess['id']; ?>" target="_blank">
-                                                    <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button></a>
-                                                      <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>" back="cart" title="Add to Cart">
-                                                    <i class="glyphicon glyphicon-shopping-cart"></i></button>
+                                                    <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button>
+                                                </a>
+                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>" back="cart" title="Add to Cart">
+                                                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -217,12 +219,12 @@ foreach ($destinations as $des) {
                     <h1>Other Nearby Destinations in <span id="city-name"></span> City</h1>
                     <hr />
                 </div>
-                
-                   <div class="row col-md-12 " id="search-content2">
+
+                <div class="row col-md-12 " id="search-content2">
                     <h1>Most Popular Cities In Sri Lanka</h1>
                     <hr />
                 </div>
-                
+
                 <div class="col-md-12 nearbydestinations-carousel testimonials">
                     <?php
                     foreach (Location::all() as $key => $loc) {
