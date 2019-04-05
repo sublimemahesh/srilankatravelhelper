@@ -128,7 +128,17 @@ if ($count1 == 0) {
                                             }
                                             ?>
                                             <ul>
-                                                <li><a href="profile.php">Login Now</a></li>
+                                                <?php
+                                                if (isset($_SESSION['id'])) {
+                                                    ?>
+                                                    <li><a href="post-and-get/logout.php">Login out</a></li>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <li><a href="profile.php">Login Now</a></li>
+                                                    <?php
+                                                }
+                                                ?>
                                                 <li><a href="profile.php">Join Now</a></li>
                                                 <li><a href="../driver/profile.php">Driver Login</a></li>
                                             </ul>
