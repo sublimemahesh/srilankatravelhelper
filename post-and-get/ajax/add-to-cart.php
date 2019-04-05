@@ -6,11 +6,13 @@ if ($_POST['option'] === 'ADDTOCART') {
         session_start();
     }
     $id = $_POST['id'];
+    
 //unset($_SESSION["destination_cart"]);
     $cart = array();
+
     if (isset($_SESSION['destination_cart'])) {
         $cart = $_SESSION['destination_cart'];
-        
+         
         if (in_array($id, $cart)) {
             $result = 'FALSE';
         } else {
