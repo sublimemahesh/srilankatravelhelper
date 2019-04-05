@@ -179,9 +179,9 @@ foreach ($destinations as $des) {
                                                     <?php echo substr($dess['short_description'], 0, 55) . '...'; ?>
                                                 </p></div>
                                             <div class="button-section">
-                                                <a href="destination-type-one-item-view-page.php?id=7" target="_blank">
+                                                <a href="destination-type-one-item-view-page.php?id=<?php echo $dess['id']; ?>" target="_blank">
                                                     <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button></a>
-                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-7" destination-id="7" location="6.3897222,80.4992002" spend_time="480" back="cart" title="Add to Cart">
+                                                      <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>" back="cart" title="Add to Cart">
                                                     <i class="glyphicon glyphicon-shopping-cart"></i></button>
                                             </div>
                                         </div>
