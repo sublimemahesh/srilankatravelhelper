@@ -73,6 +73,16 @@ if ($count1 == 0) {
                 <div class="nav-top hidden-xs">
                     <div class="col-md-5"></div>
                     <div class="col-md-7">
+                           <div class="col-md-4">
+                            <div class="header-cart " >
+                                <a href="../plan-trip.php">
+                                    <span class="icon lnr lnr-cart">
+                                        <img src="../images/icons/placeholder.png" alt=""/>
+                                    </span>
+                                    <span class="title title-border">Plan Your Trip</span>
+                                </a>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class=" header-cart shopping-cart" >
                                 <a href="../my-cart.php">
@@ -92,16 +102,7 @@ if ($count1 == 0) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="header-cart " >
-                                <a href="../plan-trip.php">
-                                    <span class="icon lnr lnr-cart">
-                                        <img src="../images/icons/placeholder.png" alt=""/>
-                                    </span>
-                                    <span class="title title-border">Plan Your Trip</span>
-                                </a>
-                            </div>
-                        </div>
+                     
                         <div class="col-md-4">
                             <div class="header-cart">
                                 <nav id="navigation1" class="style-1 hidden-xs">
