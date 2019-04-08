@@ -4,6 +4,7 @@ $(document).ready(function () {
         var id = $(this).attr('destination-id');
         var back = $(this).attr('back');
      
+          
    
         $.ajax({
             url: "post-and-get/ajax/add-to-cart.php",

@@ -76,7 +76,7 @@ if (isset($_SESSION['position'])) {
 
                     <div class="col-md-5"></div>
                     <div class="col-md-7">
-                            <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="header-cart  plan-your-trip" >
                                 <a href="plan-trip.php">
                                     <span class="icon lnr-cart">
@@ -106,14 +106,12 @@ if (isset($_SESSION['position'])) {
                                 </a>
                             </div>
                         </div>
-                    
+
                         <div class="col-md-4 ">
-
-
                             <div class="header-cart user-pro">
                                 <nav id="navigation1" class="style-1 hidden-xs">
                                     <ul id="responsive">
-                                        <?php 
+                                        <?php
                                         if (isset($_SESSION['id']) && $position === 'visitor') {
                                             $VIS = new Visitor($_SESSION['id']);
                                             if ($VIS->facebookID) {
@@ -146,19 +144,18 @@ if (isset($_SESSION['position'])) {
                                                 <?php
                                             }
                                             ?>
-                                            <ul>   <?php 
-                                        if (isset($_SESSION['id']) && $position === 'visitor') {
-                                           
-                                                ?>
-                                                     <li><a href="visitor/post-and-get/logout.php">Login out</a></li>
-                                                    
-                                        <?php }   elseif (isset($_SESSION['id']) && $position === 'driver') { ?>
-                                                
-                                                       <li><a href="driver/post-and-get/logout.php">Login Out</a></li>
-                                        <?php }else{ ?>
-                                       <li><a href="visitor/profile.php">Join Now</a></li>
-                                                         <?php }?>   
-                               
+                                            <ul>   <?php
+                                                if (isset($_SESSION['id']) && $position === 'visitor') {
+                                                    ?>
+                                                    <li><a href="visitor/post-and-get/logout.php">Login out</a></li>
+
+                                                <?php } elseif (isset($_SESSION['id']) && $position === 'driver') { ?>
+
+                                                    <li><a href="driver/post-and-get/logout.php">Login Out</a></li>
+                                                <?php } else { ?>
+                                                    <li><a href="visitor/profile.php">Join Now</a></li>
+                                                <?php } ?>   
+
                                                 <li><a href="driver/profile.php">Driver Login</a></li>
                                             </ul>
                                         </li> 
