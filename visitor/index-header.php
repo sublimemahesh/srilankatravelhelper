@@ -135,11 +135,11 @@ if ($count1 == 0) {
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <li><a href="profile.php">Login Now</a></li>
+                                              <li><a href="profile.php">Join Now</a></li>
                                                     <?php
                                                 }
                                                 ?>
-                                                <li><a href="profile.php">Join Now</a></li>
+                                             
                                                 <li><a href="../driver/profile.php">Driver Login</a></li>
                                             </ul>
                                         </li>

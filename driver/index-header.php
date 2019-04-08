@@ -73,7 +73,7 @@ if ($count1 == 0) {
                 <div class="nav-top hidden-xs">
                     <div class="col-md-5"></div>
                     <div class="col-md-7">
-                           <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="header-cart " >
                                 <a href="../plan-trip.php">
                                     <span class="icon lnr lnr-cart">
@@ -102,7 +102,7 @@ if ($count1 == 0) {
                                 </a>
                             </div>
                         </div>
-                     
+
                         <div class="col-md-4">
                             <div class="header-cart">
                                 <nav id="navigation1" class="style-1 hidden-xs">
@@ -126,15 +126,27 @@ if ($count1 == 0) {
                                                     </span>
 
                                                     <span class="title">My Profile </span></a>
-                                             
+
                                                 <?php
                                             }
                                             ?>
                                             <ul>
-                                                <li><a href="profile.php">Login Now</a></li>
-                                                <li><a href="profile.php">Join Now</a></li>
+                                                <?php
+                                                if (isset($_SESSION['id'])) {
+                                                    ?>
+                                                    <li><a href="post-and-get/logout.php">Login out</a></li>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <li><a href="profile.php">Join Now</a></li>
+                                                    <?php
+                                                }
+                                                ?>
+
                                                 <li><a href="../visitor/profile.php">Visitor Login</a></li>
                                             </ul>
+
+
                                         </li>
                                     </ul>
                                 </nav>
