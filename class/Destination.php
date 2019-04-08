@@ -562,5 +562,18 @@ class Destination {
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
+    public function getAllViews() {
+
+        $query = "SELECT * FROM `destination` ORDER BY `views` DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
 }

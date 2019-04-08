@@ -127,7 +127,7 @@ foreach ($destinations as $des) {
                     <div class="col-sm-8">
                         <div class="row" id="search-content">
                             <?php
-                            foreach (Destination::all() as $key => $dess) {
+                            foreach (Destination::getAllViews() as $key => $dess) {
                                 if ($key < 6) {
                                     ?>
                                     <div class="col-md-6 col-sm-6 col-xs-12 search-destination-item">
