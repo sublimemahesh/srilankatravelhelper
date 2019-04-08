@@ -14,12 +14,13 @@ class Location {
     public $description;
     public $imagename;
     public $nearbycities;
+    public $views;
     public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`place_id`,`short_description`,`description`,`image_name`,`near_by_cities`,`sort` FROM `location` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`place_id`,`short_description`,`description`,`image_name`,`near_by_cities`,`views`,`sort` FROM `location` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -32,6 +33,7 @@ class Location {
             $this->description = $result['description'];
             $this->imagename = $result['image_name'];
             $this->nearbycities = $result['near_by_cities'];
+            $this->views = $result['views'];
             $this->sort = $result['sort'];
 
             return $this;
@@ -71,10 +73,10 @@ class Location {
 
         return $array_res;
     }
-    
+
     public function getLocationsExceptThisLocation($id) {
 
-        $query = "SELECT * FROM `location` WHERE `id` <> ". $id ." ORDER BY sort ASC";
+        $query = "SELECT * FROM `location` WHERE `id` <> " . $id . " ORDER BY sort ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
@@ -119,12 +121,12 @@ class Location {
     }
 
     public function getLocationByPlaceID($placeid) {
-        $query = "SELECT * FROM `location` WHERE `place_id` LIKE '" . $placeid ."'";
+        $query = "SELECT * FROM `location` WHERE `place_id` LIKE '" . $placeid . "'";
 
         $db = new Database();
 
         $result = mysql_fetch_array($db->readQuery($query));
-        
+
         return $result;
     }
 
@@ -133,6 +135,22 @@ class Location {
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
+    }
+    
+    public function getLocationViewById($city) {
+               $query = "SELECT `id`,`views` FROM `location` WHERE `id`= $city ";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }    
+    public function updateViewByid($city, $view) {
+       
+        $query = "UPDATE  `location` SET "
+                . "`views` ='" . $view . "' "
+                . "WHERE `id` = '" . $city . "'";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
     }
 
 }

@@ -16,6 +16,17 @@ if (isset($_GET["page"])) {
 $setLimit = 10;
 
 $pageLimit = ($page * $setLimit) - $setLimit;
+
+///count views
+$desview =DestinationType::getDestinationTypeViewById($id);
+$view = (int) $desview['views'];
+if ($view == 0) {
+    $view = 1;
+    } else {
+    $view = $view + 1;
+}
+//echo "Total page views = " . $view;
+$updateview = DestinationType::updateViewByid($id, $view);
 ?>  
 <!DOCTYPE html>
 <html>
