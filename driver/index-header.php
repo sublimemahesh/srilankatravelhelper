@@ -134,7 +134,7 @@ if ($count1 == 0) {
                                                 <?php
                                                 if (isset($_SESSION['id'])) {
                                                     ?>
-                                                    <li><a href="post-and-get/logout.php">Login out</a></li>
+                                                    <li><a href="post-and-get/logout.php">Log out</a></li>
                                                     <?php
                                                 } else {
                                                     ?>

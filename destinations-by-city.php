@@ -108,8 +108,8 @@ $updateview = Location::updateViewByid($city, $view);
                                     <div class="driver-name text-left" title="<?php echo $destination['name']; ?>"> 
 
                                         <?php
-                                        if (strlen($destination['name']) > 14) {
-                                            echo substr($destination['name'], 0, 14) . '...';
+                                        if (strlen($destination['name']) > 18) {
+                                            echo substr($destination['name'], 0, 18) . '...';
                                         } else {
                                             echo $destination['name'];
                                         }

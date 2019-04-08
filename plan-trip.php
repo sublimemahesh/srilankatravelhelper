@@ -125,7 +125,7 @@ foreach ($destinations as $des) {
 
 
                     <div class="col-sm-8">
-                        <div class="row" id="search-content">
+                        <div class="row default-destination " id="">
                             <?php
                             foreach (Destination::getAllViews() as $key => $dess) {
                                 if ($key < 20) {
@@ -135,8 +135,7 @@ foreach ($destinations as $des) {
                                             <img src="upload/destination/<?php echo $dess['image_name']; ?>" alt="">
                                         </div>
                                         <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
-                                            <div class="driver-name text-left" title=""> <?php echo $dess['name']; ?>  </div>
-
+                                            <div class="driver-name text-left" title="<?php  echo $dess['name'];?>"> <?php  echo substr($dess['name'], 0, 20) . '...';?>  </div>
                                             <div class="star-rating-fa">
 
                                                 <?php
@@ -182,7 +181,7 @@ foreach ($destinations as $des) {
                                                 <a href="destination-type-one-item-view-page.php?id=<?php echo $dess['id']; ?>" target="_blank">
                                                     <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button>
                                                 </a>
-                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>" back="cart" title="Add to Cart">
+                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" back="cart" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>"  title="Add to Cart">
                                                     <i class="glyphicon glyphicon-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -192,6 +191,9 @@ foreach ($destinations as $des) {
                                 }
                             }
                             ?>    
+                        </div>
+                        <div class="row" id="search-content">
+                            
                         </div>
 
                     </div>

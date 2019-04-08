@@ -3,6 +3,9 @@ $(document).ready(function (event) {
         var cityid = $('#city').val();
         var type= $('#type').val();
         var keyword = $('#keyword').val();
+         $('.default-destination').addClass('hidden');
+//         $('#search-content').removeClass('hidden');
+       
         
         if (!cityid || cityid.length === 0) {
             swal({
