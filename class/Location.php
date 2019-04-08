@@ -152,5 +152,19 @@ class Location {
         $db = new Database();
         $result = $db->readQuery($query);
     }
+    
+       public function getAllViews() {
+
+        $query = "SELECT * FROM `location` ORDER BY `views` DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
 }

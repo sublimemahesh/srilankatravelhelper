@@ -14078,7 +14078,8 @@ screen and (max-height:300px) {
 }
 
 .slick-initialized .slick-slide {
-    display: block
+    display: block;
+    padding: 12px;
 }
 
 .slick-loading .slick-slide {

@@ -128,7 +128,7 @@ foreach ($destinations as $des) {
                         <div class="row" id="search-content">
                             <?php
                             foreach (Destination::getAllViews() as $key => $dess) {
-                                if ($key < 6) {
+                                if ($key < 20) {
                                     ?>
                                     <div class="col-md-6 col-sm-6 col-xs-12 search-destination-item">
                                         <div class="listing-item col-md-5 col-sm-5 col-xs-5">
@@ -227,8 +227,8 @@ foreach ($destinations as $des) {
 
                 <div class="col-md-12 nearbydestinations-carousel testimonials">
                     <?php
-                    foreach (Location::all() as $key => $loc) {
-                        if ($key < 6) {
+                    foreach (Location::getAllViews() as $key => $loc) {
+                        if ($key < 10) {
                             ?>
                             <div id="nearbycities" >
                                 <div class="city-body">
