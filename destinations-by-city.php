@@ -7,8 +7,17 @@ $city = '';
 if (isset($_GET['city'])) {
     $city = $_GET['city'];
 }
-
 $LOCATION = new Location($city);
+///count views
+$losview =Location::getLocationViewById($city);
+$view = (int) $losview['views'];
+if ($view == 0) {
+    $view = 1;
+} else {
+    $view = $view + 1;
+}
+//echo "Total page views = " . $view;
+$updateview = Location::updateViewByid($city, $view);
 ?>
 <!DOCTYPE html>
 <html>

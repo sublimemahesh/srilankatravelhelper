@@ -10,12 +10,13 @@ class DestinationType {
     public $id;
     public $name;
     public $image_name;
+    public $views;
     public $sort;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`image_name`,`sort` FROM `destination_type` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`views`,`image_name`,`sort` FROM `destination_type` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -24,6 +25,7 @@ class DestinationType {
             $this->id = $result['id'];
             $this->name = $result['name'];
             $this->image_name = $result['image_name'];
+            $this->views = $result['views'];
             $this->sort = $result['sort'];
 
             return $this;
@@ -86,7 +88,7 @@ class DestinationType {
     public function delete() {
 
         unlink(Helper::getSitePath() . "upload/destination-type/" . $this->image_name);
-      
+
         $query = 'DELETE FROM `destination_type` WHERE id="' . $this->id . '"';
 
         $db = new Database();
@@ -115,6 +117,22 @@ class DestinationType {
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
+    }
+    
+     public function getDestinationTypeViewById($id) {
+               $query = "SELECT `id`,`views` FROM `destination_type` WHERE `id`= $id ";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }    
+    public function updateViewByid($id, $view) {
+       
+        $query = "UPDATE  `destination_type` SET "
+                . "`views` ='" . $view . "' "
+                . "WHERE `id` = '" . $id . "'";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
     }
 
 }
