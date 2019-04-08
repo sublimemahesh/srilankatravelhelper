@@ -1,6 +1,8 @@
 <?php
 include_once '../class/include.php';
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 $destinations = '';
 $count1 = 0;
 $count = '';
