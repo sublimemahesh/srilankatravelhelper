@@ -184,7 +184,13 @@ if (isset($_GET['search'])) {
                                                             <?php
                                                         }
                                                     }
-                                                    echo '<br />(' . $divider . ' reviews)';
+                                                    if ($divider==0) {
+                                                       echo '<br />( No reviews)';
+                                                    } else {
+                                                       echo '<br />(' . $divider . ' reviews)';
+                                                    }                                                    
+                                                    
+                                                   
                                                     ?>
                                                 </div>
                                                 <div class="col-sm-12">

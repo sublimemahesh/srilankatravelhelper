@@ -251,7 +251,7 @@ if (!isset($_SESSION)) {
                                                                     ?>
                                                                     <div class="rating-counter-tour">(<?php
                                                                         if ($divider == 0) {
-                                                                            echo 'no';
+                                                                            echo 'No';
                                                                         } else {
                                                                             echo $divider;
                                                                         }
