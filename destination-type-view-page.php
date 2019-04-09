@@ -18,11 +18,11 @@ $setLimit = 10;
 $pageLimit = ($page * $setLimit) - $setLimit;
 
 ///count views
-$desview =DestinationType::getDestinationTypeViewById($id);
+$desview = DestinationType::getDestinationTypeViewById($id);
 $view = (int) $desview['views'];
 if ($view == 0) {
     $view = 1;
-    } else {
+} else {
     $view = $view + 1;
 }
 //echo "Total page views = " . $view;
@@ -82,64 +82,6 @@ $updateview = DestinationType::updateViewByid($id, $view);
             </div>
             <div class="container padding-top-45  padding-bottom-5">
                 <div class="row">
-                    <!-- Sidebar
-                  ================================================== -->
-                    <div class="col-lg-3 col-md-4 hidden-sm" data-aos="fade-right" data-aos-duration="3500">
-                        <div class="boxed-widget opening-hours">
-
-                            <h3><?php echo $DESTINATION_TYPE->name ?></h3>
-                            <ol class="other-dest">
-                                <?php
-                                $DESTINATIONS = Destination::getDestinationById($id);
-                                foreach ($DESTINATIONS as $key => $destination) {
-                                    ?>
-                                    <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><?php echo $destination["name"]; ?></a></li>
-                                    <?php
-                                }
-                                ?>
-
-                            </ol>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3 col-md-4 visible-sm" data-aos="fade-right" data-aos-duration="3500">
-                        <div class="boxed-widget opening-hours">
-
-                            <h3><?php echo $DESTINATION_TYPE->name ?></h3>
-                            <ul>
-                                <?php
-                                $DESTINATIONS = Destination::getDestinationById($id);
-                                $count = count($DESTINATIONS);
-                                ?>
-                                <div class="col-sm-6">
-                                    <?php
-                                    foreach ($DESTINATIONS as $key => $destination) {
-                                        if ($key < $count / 2) {
-                                            ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"><?php echo $destination["name"]; ?></a></li>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-
-                                </div>
-                                <div class="col-sm-6">
-                                    <?php
-                                    foreach ($DESTINATIONS as $key => $destination) {
-                                        if ($key >= $count / 2) {
-                                            ?>
-                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $destination["id"]; ?>"></i><?php echo $destination["name"]; ?></a></li>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-
-                                </div>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- Sidebar / End -->
                     <div class="col-lg-9 col-md-8 padding-right-30" >
                         <!-- Sorting / Layout Switcher -->
                         <div class="row margin-bottom-25">
@@ -226,6 +168,68 @@ $updateview = DestinationType::updateViewByid($id, $view);
                         <!-- Pagination / End -->
 
                     </div>
+                    <!-- Sidebar
+                  ================================================== -->
+                    <div class="col-md-3 col-sm-4 moredesti more-destination-type" >
+                        <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
+                            <h3 class="headline text-center" >More Categories</h3>
+                        </div> 
+                       <div class="row">
+                    <?php
+                    $DESTINATION_TYPES = DestinationType::all();
+                    foreach ($DESTINATION_TYPES as $destination_type) {
+                        ?>
+                        <div class="col-md-8 col-sm-6" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="300" >
+                            <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
+                                <div class="listing-item destinationType">
+                                    <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">
+                                    <div class="listing-item-content">
+                                     
+                                        <h3><?php echo $destination_type['name']; ?></h3>
+    <!--                                    <span><?php echo $destination_type['description']; ?></span>-->
+                                        <div class="star-rating" style="padding: 15px 0px !important;">
+                                            <?php
+                                            $REVIEWS = Reviews::getTotalReviewsOfDestinationType($destination_type['id']);
+
+                                            $divider = $REVIEWS['count'];
+                                            $sum = $REVIEWS['sum'];
+
+                                            if ($divider == 0) {
+                                                for ($j = 1; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                                $sum = 0;
+                                            } else {
+                                                $stars = $sum / $divider;
+
+                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    ?>
+                                                    <i class="fa fa-star"></i>
+                                                    <?php
+                                                }
+                                                for ($j = $i; $j <= 5; $j++) {
+                                                    ?>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+
+                                            <!--<div class="rating-counter">(<?php echo $divider; ?> reviews)</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                    </div>
+                    <!-- Sidebar / End -->
+
 
 
 
