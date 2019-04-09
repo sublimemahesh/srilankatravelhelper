@@ -81,7 +81,13 @@ if (!isset($_SESSION)) {
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="rating-counter-tour">(<?php echo $divider; ?> reviews)</div><br/>
+                                                        <div class="rating-counter-tour">(<?php
+                                                            if ($divider == 0) {
+                                                                echo 'No';
+                                                            } else {
+                                                                echo $divider;
+                                                            }
+                                                            ?> reviews)</div><br/>
                                                     </div></li>
                                             </ul>
                                             <h3><?php echo $tour_type['name']; ?></h3>
@@ -124,8 +130,8 @@ if (!isset($_SESSION)) {
         <script type="text/javascript" src="scripts/tooltips.min.js"></script>
         <script type="text/javascript" src="scripts/custom.js"></script>
         <script src="scripts/aos.js" type="text/javascript"></script>
-    <script>
-        AOS.init();
-    </script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>

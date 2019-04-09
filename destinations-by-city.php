@@ -145,7 +145,11 @@ $updateview = Location::updateViewByid($city, $view);
                                             }
                                         }
                                         ?>
-                                        <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br>
+                                        <div class="rating-counter">(<?php  if ($divider==0) {
+                                                        echo 'No';
+                                                    } else {
+                                                        echo $divider; 
+                                                    }?> reviews)</div><br>
                                     </div>
                                     <div style="margin-top: 0px;padding-bottom: 7px;">
                                         <p class="text-center " id="">

@@ -175,7 +175,7 @@ if ($divider1 == 0) {
                                 <div data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
                                     <hr>
                                     <h3 class="headline"><?php echo $tour_date['title']; ?></h3>
-                                    
+
                                     <p><?php echo $tour_date['description']; ?></p>
 
                                     <div class="image-row padding-bottom-120 packagepadding">
@@ -261,6 +261,11 @@ if ($divider1 == 0) {
                                                     <?php
                                                 }
                                             }
+                                            if ($divider == 0) {
+                                                $divider = 'No';
+                                            } else {
+                                                echo $divider;
+                                            }
                                             echo '<br />(' . $divider . ' reviews)';
                                             ?>
                                         </div>
@@ -305,26 +310,26 @@ if ($divider1 == 0) {
                     <hr>
                     <div class="col-md-4 col-sm-4 rating-breakdown">
                         <div class="row">
-                        <div class="col-md-12 rating-block ratingblock1">
+                            <div class="col-md-12 rating-block ratingblock1">
 
-                            <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
-                            <?php
-                            for ($i = 1; $i <= $stars1; $i++) {
-                                ?>
-                                <button type="button" class="btn btn-warning btn-sm starbtn" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
+                                <h2 class="bold padding-bottom-7"><?php echo $sum1; ?> <small>/ <?php echo 5 * $divider1; ?></small></h2>
                                 <?php
-                            }
-                            for ($j = $i; $j <= 5; $j++) {
+                                for ($i = 1; $i <= $stars1; $i++) {
+                                    ?>
+                                    <button type="button" class="btn btn-warning btn-sm starbtn" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <?php
+                                }
+                                for ($j = $i; $j <= 5; $j++) {
+                                    ?>
+                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                    </button>
+                                    <?php
+                                }
                                 ?>
-                                <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                </button>
-                                <?php
-                            }
-                            ?>
-                        </div>
+                            </div>
                         </div>
                     </div>	
                     <div class="col-md-8 col-sm-8">
@@ -447,8 +452,8 @@ if ($divider1 == 0) {
         AOS.init();
     </script>
     <script>
-        
 
-                </body>
-</html>
 
+    </body>
+    </html>
+    

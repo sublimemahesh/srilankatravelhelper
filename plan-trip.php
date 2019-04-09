@@ -125,7 +125,8 @@ foreach ($destinations as $des) {
 
 
                     <div class="col-sm-8">
-                        <div class="row default-destination " id="">
+                        <!--<div class="row default-destination " id="search-content">-->
+                             <div class="row default-destination " id="search-content">
                             <?php
                             foreach (Destination::getAllViews() as $key => $dess) {
                                 if ($key < 20) {
@@ -135,7 +136,19 @@ foreach ($destinations as $des) {
                                             <img src="upload/destination/<?php echo $dess['image_name']; ?>" alt="">
                                         </div>
                                         <div class="search-item-details col-md-7 col-sm-7 col-xs-7">
+
                                             <div class="driver-name text-left" title="<?php  echo $dess['name'];?>"> <?php  echo substr($dess['name'], 0, 20) . '...';?>  </div>
+
+                                            <div class="driver-name text-left" title="<?php echo $dess['name']; ?>"> 
+                                                <?php
+                                                if (strlen($dess['name']) > 20) {
+                                                    echo substr($dess['name'], 0, 20) . '...';
+                                                } else {
+                                                    echo $dess['name'];
+                                                }
+                                                ?>  
+                                            </div>
+ #442 Corrections
                                             <div class="star-rating-fa">
 
                                                 <?php
@@ -167,7 +180,11 @@ foreach ($destinations as $des) {
                                                     }
                                                 }
                                                 ?>                                                
-                                                <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br>
+                                                <div class="rating-counter">(<?php  if ($divider==0) {
+                                                        echo 'No';
+                                                    } else {
+                                                        echo $divider; 
+                                                    }  ?> reviews)</div><br>
                                             </div>
 
 
@@ -280,7 +297,7 @@ foreach ($destinations as $des) {
 <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
-<script src="scripts/add-to-cart.js" type="text/javascript"></script>
+<script src="scripts/add-to-cart_2.js" type="text/javascript"></script>
 <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
 <script src="scripts/search-destination.js" type="text/javascript"></script>
 <script src="scripts/near-by-destinations.js" type="text/javascript"></script>

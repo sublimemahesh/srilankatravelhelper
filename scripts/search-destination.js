@@ -224,7 +224,8 @@ $(document).ready(function (event) {
                                         html += '</div>';
                                         html += '<div class="star-rating-fa">';
                                         html += html1;
-                                        html += '<div class="rating-counter">(' + sum + ' reviews)</div><br>';
+                                        alert(sum);
+                                        html += '<div class="rating-counter">(' + sum + ' revieqws)</div><br>';
                                         html += '</div>';
                                         html += '<div style="margin-top: 0px;padding-bottom: 7px;">';
                                         html += '<p class="text-center " id="">';

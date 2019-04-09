@@ -300,7 +300,12 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                     ?>
                                                 </li>
                                                 <li>
-                                                    <p>(<?php echo $divider; ?> Reviews)</p>
+                                                    <p>(<?php
+                                                     if ($divider==0) {
+                                                        echo 'No';
+                                                    } else {
+                                                        echo $divider; 
+                                                    } ?> Reviews)</p>
                                                 </li>
                                             </ul>
                                         </div>
