@@ -93,7 +93,7 @@ foreach ($destinations as $des) {
                                         $stars1 = $sum1 / $divider1;
                                     }
                                     ?>
-                                                                                                                                                                                                                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
+                                                                                                                                                                                                                                                                                                                                    <!--<li class="list-group-item" id="li-<?php echo $key; ?>"><i class="fa fa-minus-circle remove-from-cart" title="remove" destination-id="<?php echo $destination; ?>" array-key="<?php echo $key; ?>"></i><?php echo $DESTINATION->name; ?></li>-->
 
 
 
@@ -122,7 +122,14 @@ foreach ($destinations as $des) {
                                                         echo '<i class="fa fa-star-o"></i>';
                                                     }
                                                     ?>
-                                                    <div class="rating-counter">(<?php echo $sum1; ?> reviews)</div><br>
+                                                    <div class="rating-counter">(<?php
+                                              
+                                                        if ($divider == 0) {
+                                                            echo 'No';
+                                                        } else {
+                                                            echo $divider;
+                                                        }
+                                                        ?> reviews)</div><br>
                                                 </div>
                                                 <div style="margin-top: 0px;padding-bottom: 7px;">
                                                     <p class="text-center " id="">

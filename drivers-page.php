@@ -62,7 +62,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
                                 if ($key == 0) {
                                     ?>
-                                                                                                                                                                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                                                                                                                                                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
                                     <?php
                                 }
                             }
@@ -73,16 +73,16 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             <?php
                             if (empty($driver['profile_picture'])) {
                                 ?>
-                                                                                                                                <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
                                 <?php
                             } else {
                                 if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
                                     ?>
-                                                                                                                                                                                            <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                                                                                                    <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 } else {
                                     ?>
-                                                                                                                                                                                            <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
+                                                                                                                                                                                                    <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
                                     <?php
                                 }
                             }
@@ -101,7 +101,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($divider == 0) {
                                 for ($j = 1; $j <= 5; $j++) {
                                     ?>
-                                                                                                                                                                                            <i class="fa fa-star-o"></i>
+                                                                                                                                                                                                    <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                                 $sum = 0;
@@ -110,12 +110,12 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                                 for ($i = 1; $i <= $stars; $i++) {
                                     ?>
-                                                                                                                                                                                            <i class="fa fa-star"></i>
+                                                                                                                                                                                                    <i class="fa fa-star"></i>
                                     <?php
                                 }
                                 for ($j = $i; $j <= 5; $j++) {
                                     ?>
-                                                                                                                                                                                            <i class="fa fa-star-o"></i>
+                                                                                                                                                                                                    <i class="fa fa-star-o"></i>
                                     <?php
                                 }
                             }
@@ -219,12 +219,18 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                 }
                                             }
                                             ?>
-                                            <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br/>
+                                            <div class="rating-counter">(<?php
+                                                if ($divider == 0) {
+                                                    echo 'No';
+                                                } else {
+                                                    echo $divider;
+                                                }
+                                                ?> reviews)</div><br/>
                                         </div>
 
                                         <div class="driver-p" style="">
                                             <p class="text-center " id="">
-                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+        <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
                                             </p>
                                         </div>
                                     </a>
@@ -312,12 +318,16 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                 }
                                             }
                                             ?>
-                                            <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br/>
+                                            <div class="rating-counter">(<?php if ($divider==0) {
+                                                        echo 'No';
+                                                    } else {
+                                                        echo $divider; 
+                                                    }  ?> reviews)</div><br/>
                                         </div>
 
                                         <div class="driver-p" style="">
                                             <p class="text-center " id="">
-                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+        <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
                                             </p>
                                         </div>
                                     </a>
@@ -336,14 +346,14 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="col-md-6 col-md-offset-3">
                             <!-- Pagination -->
                             <div class="pagination-container margin-top-20 margin-bottom-40">
-                                <?php // Drivers::showPaginationOfDrivers($setLimit, $page);    ?>
+<?php // Drivers::showPaginationOfDrivers($setLimit, $page);     ?>
                             </div>
                         </div>
                     </div>
                     <!-- Pagination / End -->
                 </div>
             </section>
-            <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts

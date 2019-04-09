@@ -139,7 +139,17 @@ $updateview = DestinationType::updateViewByid($id, $view);
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="rating-counter">(<?php echo $divider; ?> reviews)</div>
+                                                        <div class="rating-counter">(<?php
+                                                    if ($divider==0) {
+                                                        echo 'No';
+                                                    } else {
+                                                        echo $divider; 
+                                                    }
+                                                        
+                                                        
+                                                        
+                                                        ?> reviews)</div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

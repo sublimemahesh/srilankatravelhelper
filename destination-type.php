@@ -80,7 +80,14 @@ if (!isset($_SESSION)) {
                                             }
                                             ?>
 
-                                            <div class="rating-counter">(<?php echo $divider; ?> reviews)</div>
+                                            <div class="rating-counter">(<?php
+                                                if ($divider == 0) {
+                                                    echo 'No';
+                                                } else {
+                                                    echo $divider;
+                                                }
+                                                ?>                                                
+                                                reviews)</div>
                                         </div>
                                     </div>
                                 </div>
@@ -91,13 +98,13 @@ if (!isset($_SESSION)) {
                     ?>
                 </div>
                 <div class="row margin-bottom-40">
-                    
+
                     <div class="view-all-destination-button ">
                         <div class="edit-button">
-                        <a href="all-destinations.php" ><button id="view-all-reviews" class="btncolor3 button border with-icon submit">All Destinations</button></a>
+                            <a href="all-destinations.php" ><button id="view-all-reviews" class="btncolor3 button border with-icon submit">All Destinations</button></a>
                         </div>
                     </div>
-                       
+
                 </div>
 
             </div>
