@@ -140,16 +140,13 @@ $updateview = DestinationType::updateViewByid($id, $view);
                                                         }
                                                         ?>
                                                         <div class="rating-counter">(<?php
-                                                    if ($divider==0) {
-                                                        echo 'No';
-                                                    } else {
-                                                        echo $divider; 
-                                                    }
-                                                        
-                                                        
-                                                        
-                                                        ?> reviews)</div>
-                                                        
+                                                            if ($divider == 0) {
+                                                                echo 'No';
+                                                            } else {
+                                                                echo $divider;
+                                                            }
+                                                            ?> reviews)</div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,68 +178,90 @@ $updateview = DestinationType::updateViewByid($id, $view);
                     <!-- Sidebar
                   ================================================== -->
                     <div class="col-md-3 col-sm-4 moredesti more-destination-type" >
-                        <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
-                            <h3 class="headline text-center" >More Categories</h3>
-                        </div> 
-                       <div class="row">
-                    <?php
-                    $DESTINATION_TYPES = DestinationType::all();
-                    foreach ($DESTINATION_TYPES as $destination_type) {
-                        ?>
-                        <div class="col-md-8 col-sm-6" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="300" >
-                            <a href="destination-type-view-page.php?id=<?php echo $destination_type['id']; ?>" class="listing-item-container">
-                                <div class="listing-item destinationType">
-                                    <img src="upload/destination-type/<?php echo $destination_type['image_name']; ?>" alt="">
-                                    <div class="listing-item-content">
-                                     
-                                        <h3><?php echo $destination_type['name']; ?></h3>
-    <!--                                    <span><?php echo $destination_type['description']; ?></span>-->
-                                        <div class="star-rating" style="padding: 15px 0px !important;">
-                                            <?php
-                                            $REVIEWS = Reviews::getTotalReviewsOfDestinationType($destination_type['id']);
+                        <div class="boxed-widget opening-hours" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
-                                            $divider = $REVIEWS['count'];
-                                            $sum = $REVIEWS['sum'];
+                            <h3>Destination Types</h3>
+                            <ul>
+                                <?php
+                                $DESTINATIONTYPES = DestinationType::all();
+                                foreach ($DESTINATIONTYPES as $key => $type) {
+                                    if ($key < 6) {
+                                        $count = Destination::countTotalDestinationsOfType($type['id']);
+                                        ?>
+                                        <a href="destination-type-view-page.php?id=<?php echo $type["id"]; ?>" >
+                                            <div class="dest-type col-md-12" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+                                                <h4  title="<?php echo $type['name']; ?>">
 
-                                            if ($divider == 0) {
-                                                for ($j = 1; $j <= 5; $j++) {
-                                                    ?>
-                                                    <i class="fa fa-star-o"></i>
                                                     <?php
-                                                }
-                                                $sum = 0;
-                                            } else {
-                                                $stars = $sum / $divider;
-
-                                                for ($i = 1; $i <= $stars; $i++) {
+                                                    if (strlen($type['name']) > 18) {
+                                                        echo substr($type['name'], 0, 18) . '...';
+                                                    } else {
+                                                        echo $type['name'];
+                                                    }
                                                     ?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php
-                                                }
-                                                for ($j = $i; $j <= 5; $j++) {
-                                                    ?>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
 
-                                            <!--<div class="rating-counter">(<?php echo $divider; ?> reviews)</div>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                                                </h4>
+
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <img src="upload/destination-type/<?php echo $type["image_name"]; ?>" alt="">
+                                                </div>
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="col-sm-12">
+                                                        <?php
+                                                        $REVIEWS = Reviews::getTotalReviewsOfDestinationType($type['id']);
+
+                                                        $divider = $REVIEWS['count'];
+                                                        $sum = $REVIEWS['sum'];
+
+                                                        if ($divider == 0) {
+                                                            for ($j = 1; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                            $sum = 0;
+                                                        } else {
+                                                            $stars = $sum / $divider;
+
+                                                            for ($i = 1; $i <= $stars; $i++) {
+                                                                ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                            }
+                                                            for ($j = $i; $j <= 5; $j++) {
+                                                                ?>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        if ($divider == 0) {
+                                                            echo '<br />( No reviews)';
+                                                        } else {
+                                                            echo '<br />(' . $divider . ' reviews)';
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        Destinations - <?php
+                                                        if ($count['count'] < 10) {
+                                                            echo '0' . $count['count'];
+                                                        } else {
+                                                            echo $count['count'];
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                            </ul>
                         </div>
-                        <?php
-                    }
-                    ?>
-                </div>
                     </div>
                     <!-- Sidebar / End -->
-
-
-
-
                 </div>
             </div>
             <?php include './footer.php'; ?>
