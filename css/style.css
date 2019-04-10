@@ -16929,6 +16929,17 @@ a .listing-item:hover {
     border: 1px solid #0dce38;
 }
 #guideline.dark {
-    background: #222;
-    color: #aaa;
+    background: #cfcece4d;
+    color: #000;
+}
+#guideline {
+    padding: 37px 0 25px;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, .09);
+    font-size: 16px;
+}
+.guide-img {
+    width: 90px;
+    height: 90px;
+    margin: 15px auto 0;
 }

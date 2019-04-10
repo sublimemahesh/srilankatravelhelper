@@ -32,53 +32,53 @@ foreach ($destinationscart as $des) {
     <div class="container">
         <div class="row">
             <h3 class="headline centered margin-top-10 margin-bottom-10">
-                How To Work
+                How It Work - Tour Sri Lanka 
             </h3>
             <div class="row icons-container padding-bottom-30 popguide">
                 <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
                     <div class="work-process">
-                        <div class="process-img">
-                            <img src="images/icons/added-cart.jpg" class="img-responsive" alt="">
+                        <div class="guide-img">
+                            <img src="images/icons/added-cart.png" class="img-responsive" alt="">
                         </div>
-                        <h4> You have Choose Destinations</h4>
-                        <p><?php
+                        <h4> You Select<?php
                             if ($count == 1) {
-                                echo '1 ';
+                                echo ' 1 ';
                             } else {
                                 echo $count . ' ';
                             }
-                            ?></p>
+                            ?>Locations</h4>
+                        <p></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                     <div class="work-process">
-                        <div class="process-img">
-                            <img src="images/icons/spend-time.jpg" class="img-responsive" alt="">
+                        <div class="guide-img">
+                            <img src="images/icons/spend-time.png" class="img-responsive" alt="">
                         </div>
-                        <h4>Spend Time </h4>
-                        <p><?php echo $spendtime / 60 ?></p>
+                        <h4>You Spend <?php echo $spendtime / 60 ?> Hours </h4>
+                        <p></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                     <?php if ($spendtime == 0) {
                         ?>   
                         <div class="work-process ">
-                            <div class="process-img">
-                                <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            <div class="guide-img">
+                                <img src="images/icons/plan.png" class="img-responsive" alt="">
                             </div>
-                            <h4>Plan Your Trip</h4>
-                            <a href="plan-trip.php" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Plan Your Trip</button></a>
-                            <p></p>
+                            <div class="col-md-12">
+                                <a href="plan-trip.php" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Plan Your Trip</button></a>
+                            </div>
                         </div>
                     <?php } else { ?>
                         <div class="work-process ">
-                            <div class="process-img">
-                                <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            <div class="guide-img">
+                                <img src="images/icons/booknow.png" class="img-responsive" alt="">
                             </div>
-                            <h4>Book now</h4>
-                            <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Book Now</button></a>
-                            <p></p>
+                            <div class="col-md-12">
+                                <a href="booking.php?tailormade"><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Book Now</button></a>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>
