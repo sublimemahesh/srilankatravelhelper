@@ -23,6 +23,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
         $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($result->id);
         $sendadminemail = $BOOKING->sendBookingConfirmationEmailToAdmin($result->id);
         
+
         if($sendvisitoremail && $senddriveremail && $sendadminemail) {
             $res = 'TRUE';
         } else {

@@ -410,10 +410,10 @@ class TailorMadeTours {
                             </div>
                             
                             <table class="booking-details">
-//                                <tr>
-//                                    <td><strong>Booking Id.</strong></td>
-//                                    <td><strong>:  #' . $tailormade_tour_id . '</strong></td>
-//                                </tr>
+                                <tr>
+                                   <td><strong>Booking Id.</strong></td>
+                                  <td><strong>:  #' . $tailormade_tour_id . '</strong></td>
+                                </tr>
                                 <tr>
                                     <td><strong>Booking Date</strong></td>
                                     <td><strong>: ' . $TAILORMADETOURS->date_time_booked . '</strong></td>
@@ -470,18 +470,7 @@ class TailorMadeTours {
                                     <td>Driver name</td>
                                     <td>: ' . $DRIVER->name . '</td>
                                 </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $DRIVER->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $DRIVER->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Driving Licence Number</td>
-                                    <td>: ' . $DRIVER->driving_licence_number . '</td>
-                                </tr>
+                               
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -678,6 +667,26 @@ class TailorMadeTours {
                                     .footer-td2 {width: 50%;}
                                     .table-td1 {width: 20%;}
                                 }
+                                a.button {
+                                    background-color: #66676b;
+                                    top: 0;
+                                    padding: 9px 20px;
+                                    color: #fff;
+                                    position: relative;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    display: inline-block;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+                                    margin-right: 6px;
+                                    overflow: hidden;
+                                    border: 0;
+                                    border-radius: 50px;
+                                }
+                                a.button{
+                                background-color: #0dce38;
+                                color: #fff;
+                                }
                                 
                             </style>
                         </head>
@@ -713,18 +722,20 @@ class TailorMadeTours {
                                     <td>Visitor name</td>
                                     <td>: ' . $VISITOR->name . '</td>
                                 </tr>
+                                     <tr>
+                                    <td>Email</td>
+                                    <td>: ' . $VISITOR->email . '</td>
+                                </tr>
+                                     <tr>
+                                    <td>Contact Number</td>
+                                    <td>: ' . $VISITOR->contact_number . '</td>
+                                </tr>
                                 <tr>
                                     <td>Country</td>
                                     <td>: country</td>
                                 </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $VISITOR->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $VISITOR->contact_number . '</td>
-                                </tr>
+                              
+                              
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -761,17 +772,10 @@ class TailorMadeTours {
                                 </tr>
                                 ' . $specialrequest . '
                                 <tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+                                    <td colspan="2"><strong><u> Click here Set Your Price For Booking </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
-                                        </ul>
-                                    </td>
+                                    <a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a>
                                 </tr>
                             </table>
                             
@@ -822,10 +826,10 @@ class TailorMadeTours {
 
         $DRIVER = new Drivers($TAILORMADETOURS->driver);
         $VISITOR = new Visitor($TAILORMADETOURS->visitor);
-
+        $USER = new User(1);
 
         $visitor_email = $VISITOR->email;
-
+        $admin_email = $USER->email;
 
         if ($TAILORMADETOURS->message) {
             $specialrequest = ' <tr>
@@ -1091,7 +1095,7 @@ class TailorMadeTours {
                             </body>
                         </html>';
 
-        if (mail($visitor_email, $subject, $html, $headers)) {
+        if (mail($admin_email, $subject, $html, $headers)) {
             return TRUE;
         } else {
             return FALSE;
@@ -1350,21 +1354,20 @@ class TailorMadeTours {
             return FALSE;
         }
     }
-    
+
     public static function sendSetPriceMessageToVisitor($tailormade_tour_id) {
 
         $TAILORMADETOURS = new TailorMadeTours($tailormade_tour_id);
         $MESSAGE = new DriverAndVisitorMessages(NULL);
         $DRIVER = new Drivers($TAILORMADETOURS->driver);
-        
+
         $MESSAGE->driver = $TAILORMADETOURS->driver;
         $MESSAGE->visitor = $TAILORMADETOURS->visitor;
-        $MESSAGE->messages = $DRIVER->name.' has offer $ ' . $TAILORMADETOURS->price . ' for you booking (#' . $TAILORMADETOURS->id . ')';
+        $MESSAGE->messages = $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for you booking (#' . $TAILORMADETOURS->id . ')';
         $MESSAGE->sender = 'driver';
         $result = $MESSAGE->create();
 
         return $result;
-
     }
 
 }
