@@ -16921,3 +16921,10 @@ a .listing-item:hover {
     border: 0px solid #f6f6f6;
     box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.06);
 }
+
+.startJu a:hover{
+    color: #0dce38;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #0dce38;
+}
