@@ -1,3 +1,92 @@
+<?php
+$destinations = '';
+$count1 = 0;
+$count = '';
+if (isset($_SESSION['destination_cart'])) {
+    $destinationscart = $_SESSION['destination_cart'];
+    $count1 = count($destinationscart);
+}
+
+if ($count1 == 0) {
+    $count = '&nbsp;&nbsp;' . $count1;
+} else if ($count1 == 1) {
+    $count = '&nbsp;0' . $count1;
+} else if ($count1 < 9) {
+    $count = '0' . $count1;
+} else {
+    $count = $count1;
+}
+
+foreach ($destinationscart as $des) {
+    $destians = new Destination($des);
+//    $spentime .= "'" . $destians->spend_time. "',";
+    $spendtime += $destians->spend_time;
+}
+?>
+
+
+
+
+<div id="guideline" class="dark" >
+    <!-- Main -->
+    <div class="container">
+        <div class="row">
+            <h3 class="headline centered margin-top-10 margin-bottom-10">
+                How To Work
+            </h3>
+            <div class="row icons-container padding-bottom-30 popguide">
+                <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="images/icons/added-cart.jpg" class="img-responsive" alt="">
+                        </div>
+                        <h4> You have Choose Destinations</h4>
+                        <p><?php
+                            if ($count == 1) {
+                                echo '1 ';
+                            } else {
+                                echo $count . ' ';
+                            }
+                            ?></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+
+                    <div class="work-process">
+                        <div class="process-img">
+                            <img src="images/icons/spend-time.jpg" class="img-responsive" alt="">
+                        </div>
+                        <h4>Spend Time </h4>
+                        <p><?php echo $spendtime / 60 ?></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                    <?php if ($spendtime == 0) {
+                        ?>   
+                        <div class="work-process ">
+                            <div class="process-img">
+                                <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>Plan Your Trip</h4>
+                            <a href="plan-trip.php" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Plan Your Trip</button></a>
+                            <p></p>
+                        </div>
+                    <?php } else { ?>
+                        <div class="work-process ">
+                            <div class="process-img">
+                                <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>Book now</h4>
+                            <a href="booking.php?tailormade" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Book Now</button></a>
+                            <p></p>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer
 ================================================== -->
 <div id="footer" class="dark" >

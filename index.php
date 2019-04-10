@@ -129,16 +129,9 @@ if (!isset($_SESSION)) {
 
                     <div class="col-md-12 col-sm-12 " data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
                         <div class="work-process startJu ">
-                            <!--                            <div class="process-img">
-                                                            <img src="images/icons/tour-3.png" class="img-responsive" alt="">
-                                                            <span class="process-num">03</span>
-                                                             
-                                                        </div>-->
                             <a href="plan-trip.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Start Journey</a>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- Info Section / End -->
