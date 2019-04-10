@@ -698,14 +698,8 @@ class Booking {
                                     <td>Country</td>
                                     <td>: country</td>
                                 </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $VISITOR->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $VISITOR->contact_number . '</td>
-                                </tr>
+                         
+                                
                                 <tr>
                                     <td></td>
                                     <td></td>
