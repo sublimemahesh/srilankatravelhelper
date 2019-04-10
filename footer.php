@@ -32,7 +32,7 @@ foreach ($destinationscart as $des) {
     <div class="container">
         <div class="row">
             <h3 class="headline centered margin-top-10 margin-bottom-10">
-                How It Work - Tour Sri Lanka 
+               How Your Journey Go Through
             </h3>
             <div class="row icons-container padding-bottom-30 popguide">
                 <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
