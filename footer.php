@@ -32,57 +32,87 @@ foreach ($destinationscart as $des) {
     <div class="container">
         <div class="row">
             <h3 class="headline centered margin-top-10 margin-bottom-10">
-               How Your Journey Go Through
+                How Your Journey Go Through
             </h3>
-            <div class="row icons-container padding-bottom-30 popguide">
-                <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
-                    <div class="work-process">
-                        <div class="guide-img">
-                            <img src="images/icons/added-cart.png" class="img-responsive" alt="">
+            <?php if ($spendtime == 0) { ?>
+                <div class="row icons-container padding-bottom-30 popguide">
+                    <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
+                        <div class="work-process">
+                            <div class="guide-img">
+                                <img src="images/icons/tour-1.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>Select Your Location</h4>
+                            <!--<p>Choose places where you want to get an unforgettable experience that you dream of.</p>-->
                         </div>
-                        <h4> You Select<?php
-                            if ($count == 1) {
-                                echo ' 1 ';
-                            } else {
-                                echo $count . ' ';
-                            }
-                            ?>Locations</h4>
-                        <p></p>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+                    <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+                        <div class="work-process">
+                            <div class="guide-img">
+                                <img src="images/icons/tour-2.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>Select Your Driver</h4>
+                            <!--<p>Choose a person who can give more professional service with trustworthy and will guide you to reach the maximum thrilling experience.</p>-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                        <div class="work-process ">
+                            <div class="guide-img">
+                                <img src="images/icons/tour-3.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>Enjoy Your Vacation</h4>
+                            <!--<p>Enjoy your vacation with us and get unforgettable memories to your life.</p>-->
+                        </div>
+                    </div>
 
-                    <div class="work-process">
-                        <div class="guide-img">
-                            <img src="images/icons/spend-time.png" class="img-responsive" alt="">
+                    <div class="col-md-12 col-sm-12 " data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+                        <div class="work-process startJu ">
+                            <a href="plan-trip.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Plan Your Trip</a>
                         </div>
-                        <h4>You Spend <?php echo $spendtime / 60 ?> Hours </h4>
-                        <p></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
-                    <?php if ($spendtime == 0) {
-                        ?>   
-                        <div class="work-process ">
+
+            <?php } else { ?>
+
+                <div class="row icons-container padding-bottom-30 popguide">
+                    <div class="col-md-4 col-sm-4" data-aos="fade-right" data-aos-duration="3500" >
+                        <div class="work-process">
                             <div class="guide-img">
-                                <img src="images/icons/plan.png" class="img-responsive" alt="">
+                                <img src="images/icons/added-cart.png" class="img-responsive" alt="">
+                            </div>
+                            <h4> You Selected<?php
+                                if ($count == 1) {
+                                    echo ' 1 ';
+                                } else {
+                                    echo $count . ' ';
+                                }
+                                ?>Locations</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+
+                        <div class="work-process">
+                            <div class="guide-img">
+                                <img src="images/icons/spend-time.png" class="img-responsive" alt="">
+                            </div>
+                            <h4>You Spend <?php echo $spendtime / 60 ?> Hours </h4>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="3500" data-aos-delay="600">
+
+                        <div class="work-process ">
+                            <div class="dri-img">
+                                <img src="images/icons/tour-2.png" class="img-responsive" alt="">
                             </div>
                             <div class="col-md-12">
-                                <a href="plan-trip.php" ><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Plan Your Trip</button></a>
+                                <a href="booking.php?tailormade"><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Select Driver</button></a>
                             </div>
                         </div>
-                    <?php } else { ?>
-                        <div class="work-process ">
-                            <div class="guide-img">
-                                <img src="images/icons/booknow.png" class="img-responsive" alt="">
-                            </div>
-                            <div class="col-md-12">
-                                <a href="booking.php?tailormade"><button id="send-destinations" class="button border with-icon submit add-to-cart btncolor14 btn-res-top">Book Now</button></a>
-                            </div>
-                        </div>
-                    <?php } ?>
+
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

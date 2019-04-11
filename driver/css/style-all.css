@@ -418,6 +418,12 @@ a:hover {
     width: 346px;
     height: 503px;
 }
+.box-blue {
+    background: #30b7cd;
+}
+.box-blue:hover {
+    background: #1b849580;
+}
 
 
 
