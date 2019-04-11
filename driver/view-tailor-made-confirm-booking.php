@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$VISITOR = new Visitor($_SESSION['id']);
+$DRIVER = new Drivers($_SESSION['id']);
 $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -19,8 +19,9 @@ foreach ($places as $place) {
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>View Tailor Made Booking || Visitor DashBoard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>View Tailor Made Booking || Driver DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
@@ -61,17 +62,16 @@ foreach ($places as $place) {
                             <div class="panel-heading ">
                                 View Tailor Made Booking (#<?php echo $BOOKING->id; ?>)
                             </div>
-                            <div class ="panel-body">
-                                <div class ="col-lg-7 col-md-7 col-sm-12 ">
+                            <div class="panel-body">
+                                <div class ="col-lg-7 col-md-7">
                                     <table class="table table-bordered table-striped table-hover viewbookingtable">
-
                                         <tr>
-                                            <th>Booked At</th>
-                                            <td>  <?php echo $BOOKING->date_time_booked; ?> </td>
+                                            <th width="260">Booked At</th>
+                                            <td><?php echo $BOOKING->date_time_booked; ?></td>
                                         </tr>
                                         <tr>
-                                            <th>  Visitor </th>
-                                            <td> <?php echo $VISITOR->name; ?> </td>
+                                            <th>Visitor</th>
+                                            <td><?php echo $VISITOR->name; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Destinations</th>
@@ -87,62 +87,65 @@ foreach ($places as $place) {
                                         </tr>
                                         <tr>
                                             <th>Start Date</th>
-                                            <td> <?php echo $BOOKING->start_date; ?></td>
+                                            <td><?php echo $BOOKING->start_date; ?></td>
                                         </tr>
                                         <tr>
                                             <th>End Date</th>
-                                            <td> <?php echo $BOOKING->end_date; ?> </td>
+                                            <td><?php echo $BOOKING->end_date; ?></td>
                                         </tr>
                                         <tr>
                                             <th>No of Adults</th>
-                                            <td> <?php echo $BOOKING->no_of_adults; ?> </td>
+                                            <td><?php echo $BOOKING->no_of_adults; ?></td>
                                         </tr>
                                         <tr>
                                             <th>No of Children</th>
-                                            <td> <?php echo $BOOKING->no_of_children; ?></td>
+                                            <td><?php echo $BOOKING->no_of_children; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Price</th>
-                                            <td> <?php echo 'USD ' . $BOOKING->price; ?> </td>
+                                            <td><?php echo 'USD ' . $BOOKING->price; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Status</th>
-                                            <td> <?php echo ucwords($BOOKING->status); ?> </td>
+                                            <td><?php echo ucwords($BOOKING->status); ?></td>
                                         </tr>
                                         <tr>
                                             <th>Message</th>
-                                            <td> <?php echo $BOOKING->message; ?> </td>
+                                            <td><?php echo $BOOKING->message; ?></td>
                                         </tr>
                                     </table>
 
-                                    <div class="btn btn-list col-md-12 hidden-sm hidden-xs <?php
+                                    <div class="btn btn-list btn-tail col-md-12 hidden-xs hidden-sm <?php
                                     if ($BOOKING->status === 'canceled') {
                                         echo 'hidden';
                                     }
                                     ?>">
-                                        <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
-                                        <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
-                                        <a href="#" class="btn btn-success confirm-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Confirm Booking</a> 
+                                      
+                                    
                                     </div>
                                     <div class="btn btn-list col-md-12 <?php
                                     if ($BOOKING->status === 'active') {
                                         echo 'hidden';
                                     }
                                     ?>">
-                                 
+                                        <a href="manage-confirm-tailormade-bookings.php" class="btn btn-info">Back</a> 
                                     </div>
                                 </div>
-                                <div class ="col-lg-5 col-md-5 col-sm-12 ">
+
+                                <div class ="col-lg-5 col-md-5  ">
                                     <input type="hidden" class="dest" value="<?php echo $dest_str; ?>"/>
                                     <input type="hidden" class="lonti" value="<?php echo $count ?>"/>
+
+
+
                                     <div class="panel panel-default estimatetime">
                                         <div class="panel-body">
                                             <h4> Estimate Time</h4>
                                             <hr> 
-                                            <div class="col-md-4 col-xs-8 col-sm-8">
-                                                <label for="comment" class="">Total Estimate Time  </label>
+                                            <div class="col-md-6 col-xs-8 col-sm-4">
+                                                <label for="comment" class="estimateTime">Total Estimate Time  </label>
                                             </div>   
-                                            <div class="col-md-3 col-xs-4 col-sm-4 spendt" >
+                                            <div class="col-md-4 col-xs-4 col-sm-4 spendt" >
                                                 <input type="hidden" class="spendtime" value="<?php echo round($spentime / 60, 2); ?>"/>
                                                 <input type="text" class="spendtime"  disabled value="<?php echo round($spentime / 60, 2) ?> h" >
                                             </div>  
@@ -151,22 +154,17 @@ foreach ($places as $place) {
                                     <div id="map-canvas" class="desMap"></div>
                                 </div>
 
-
                             </div>
-
-                        </div>
-                        <div class="btn btn-list col-md-12  hidden-md  hidden-lg <?php
-                        if ($BOOKING->status === 'canceled') {
-                            echo 'hidden';
-                        }
-                        ?>">
-                            <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
-                            <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
                         </div>
                     </div>
-
+                    <div class="btn btn-list btn-tail col-md-12  hidden-md hidden-lg <?php
+                    if ($BOOKING->status === 'canceled') {
+                        echo 'hidden';
+                    }
+                    ?>">
+              
+                    </div>
                 </div>
-
             </div>
             <?php
             include './footer.php';
@@ -178,17 +176,15 @@ foreach ($places as $place) {
         <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/cancel-tailor-made-booking.js" type="text/javascript"></script>
-        <script src="js/confirm-tailor-made-booking.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&sensor=true" type="text/javascript"></script>
         <script>
+
             $(window).load(function () {
                 var width = $(window).width();
-
                 if (width > 576) {
-                    var contentheight = $(window).height() + 100;
-                    var navigationheight = $(window).height() + 25;
-
+                    var contentheight = $(window).height();
+                    var navigationheight = $(window).height() - 75;
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);
                 } else {
@@ -197,6 +193,7 @@ foreach ($places as $place) {
                 }
             });
         </script>
+
         <script>
             var map;
             var geocoder;
@@ -219,16 +216,16 @@ foreach ($places as $place) {
                 map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
                 // Get data from database. It should be like below format or you can alter it.
-//            alert($('.dest').val());
+  //            alert($('.dest').val());
 
-//            var convertedArray = stringToConvert.split();
-//            console.log(convertedArray);
+  //            var convertedArray = stringToConvert.split();
+  //            console.log(convertedArray);
 
                 var desti = $('.dest').val();
 
                 desti = desti.replace(/'/g, '"');
 
-//            desti = JSON.parse(desti);
+  //            desti = JSON.parse(desti);
                 var destinations = JSON.parse("[" + desti + "]");
                 var arr = '';
                 $.each(destinations, function (key, destination) {
@@ -268,7 +265,7 @@ foreach ($places as $place) {
                                 infowindow.open(map, this);
                             });
                         } else {
-//                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
+  //                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
                         }
                     });
                 } else {
@@ -288,11 +285,10 @@ foreach ($places as $place) {
                     google.maps.event.addListener(marker, 'mouseover', function (event) {
                         infowindow.setContent(this.html);
                         infowindow.setPosition(event.latLng);
-//                    infowindow.open(map, this);
+  //                    infowindow.open(map, this);
                     });
                 }
             }
         </script>
-
     </body>
 </html>

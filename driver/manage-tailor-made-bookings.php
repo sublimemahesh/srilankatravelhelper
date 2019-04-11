@@ -63,7 +63,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                         <div class="manage-circle box-blue">
                                             <i class="glyphicon glyphicon-list-alt"></i>
                                         </div>
-                                        <h3><a href="manage-canceled-tailormade-bookings.php" target="new">Confirmed Bookings</a></h3>
+                                        <h3><a href="manage-confirm-tailormade-bookings.php" target="new">Confirmed Bookings</a></h3>
                                     </div>
                                 </div>
                                  <div class="col-xs-12 col-md-4 text-center">

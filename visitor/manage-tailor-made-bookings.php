@@ -55,7 +55,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         <div class="manage-circle box-green">
                                             <i class="glyphicon glyphicon-check"></i>
                                         </div>
-                                        <h3><a href="manage-active-tailormade-bookings.php" target="new">Active Bookings</a></h3>
+                                        <h3><a href="manage-active-tailormade-bookings.php" target="new">Pending Bookings</a></h3>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-4 text-center">
