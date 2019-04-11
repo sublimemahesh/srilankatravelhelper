@@ -173,6 +173,21 @@ class TailorMadeTours {
         }
         return $array_res;
     }
+    
+     public function getConfirmedBookingsByDriver($driver) {
+
+        $query = "SELECT * FROM `tailormade_tours` WHERE `driver`= $driver AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
 
     public function getActiveBookingsByVisitor($visitor) {
 
