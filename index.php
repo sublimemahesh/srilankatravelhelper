@@ -185,7 +185,7 @@ if (!isset($_SESSION)) {
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-5 col-sm-12 welcometext " data-aos="fade-up" data-aos-duration="3500" data-aos-easing="ease-in-sine">
-                                <h2>Explore Sri Lanaka</h2>
+                                <h2>Explore Sri Lanka</h2>
                                 <p style="font-size: 14 px; font-weight: 200;line-height: 29px!important">Sri Lanka is an island with scenic beauty and ancient ruins, religious shrines (the Cultural Triangle), national parks and wildlife sanctuaries, charming traditional buildings, a pastoral way of life contrasting with the hubbub of the towns and cities, brilliant beaches and a salubrious climate.</p>
                                 <a href="#" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Plan Your Trip</a>
                             </div>
