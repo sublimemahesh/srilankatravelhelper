@@ -1,0 +1,39 @@
+$(document).ready(function () {
+    $('.confirm-tailor-made-booking').click(function () {
+    
+        var id = $(this).attr("data-id");
+
+        swal({
+            title: "Are you sure?",
+            text: "Are you want to Confirm this booking",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Confirm it!",
+            closeOnConfirm: false
+        }, function () {
+
+            $.ajax({
+                url: "post-and-get/ajax/confirm-tailor-made-booking.php",
+                type: "POST",
+                data: {id: id, option: 'confirm'},
+                dataType: "JSON",
+                success: function (jsonStr) {
+                    if (jsonStr.status) {
+
+                        swal({
+                            title: "Success!",
+                            text: "Your booking has been Confirmed.",
+                            type: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        $('#row_' + id).remove();
+
+                    }
+                }
+            });
+        });
+    });
+});
