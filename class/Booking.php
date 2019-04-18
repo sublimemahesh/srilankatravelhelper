@@ -535,7 +535,7 @@ class Booking {
         $from = 'info@galle.website';
         $reply = 'info@galle.website';
 
-        $subject = "Booking Confirmation | Tour Sri Lanka | " . $bookingid . "";
+        $subject = "Booking Confirmation To Driver | Tour Sri Lanka | " . $bookingid . "";
         $site = 'travelhelper.galle.website';
 
         // mandatory headers for email message, change if you need something different in your setting.
