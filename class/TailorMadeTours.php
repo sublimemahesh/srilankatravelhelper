@@ -1409,7 +1409,7 @@ class TailorMadeTours {
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
-        $subject = "Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
+        $subject = "Tailor-Made Tour Booking Driver Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.
