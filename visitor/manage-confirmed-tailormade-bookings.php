@@ -2,12 +2,12 @@
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
-$DRIVER = new Drivers($_SESSION['id']);
+$VISITOR = new Visitor($_SESSION['id']);
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Manage Confirm Tailor Made Bookings || Driver DashBoard</title>
+        <title>Manage Confirmed Tailor Made Bookings || Visitor DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
@@ -47,7 +47,7 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                                Manage Confirm Tailor Made Bookings
+                                Manage Confirmed Tailor Made Bookings
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -55,7 +55,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                             <tr>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
-                                                <th>Visitor</th>
+                                                <th>Driver</th>
                                                 <th>Price</th>
                                                 <th>Option</th>
                                             </tr>
@@ -64,7 +64,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                             <tr>
                                                 <th>Booking ID</th>
                                                 <th>Booked At</th>                               
-                                                <th>Visitor</th>
+                                                <th>Driver</th>
                                                 <th>Price</th>
                                                 <th>Option</th>
                                             </tr>
@@ -72,20 +72,19 @@ $DRIVER = new Drivers($_SESSION['id']);
                                         <tbody>
 
                                             <?php
-                                            $i = 0;
-                                            foreach (TailorMadeTours::getConfirmedBookingsByDriver($DRIVER->id) as $key => $booking) {
-                                                $VISITOR = new Visitor($booking['visitor']);
+                                            foreach (TailorMadeTours::getConfimedBookingsByVisitor($VISITOR->id) as $key => $booking) {
+                                                $DRIVER = new Drivers($booking['driver']);
                                                 
                                                 ?>
                                                 <tr id="row_<?php echo $booking['id']; ?>">
                                                     <td><?php echo $booking['id']; ?></td> 
                                                     <td><?php echo $booking['date_time_booked']; ?></td> 
                                                   
-                                                    <td><?php echo $VISITOR->name; ?></td>
-                                                    <td><?php echo 'USD '. $booking['price']; ?></td>
+                                                    <td><?php echo $DRIVER->name; ?></td> 
+                                                    <td><?php echo 'USD '. $booking['price']; ?></td> 
                                                     <td> 
-                                                        <a href="view-tailor-made-confirm-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> 
-                                                          
+                                                        <a href="view-tailor-made-confirmed-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  
+                                                        
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -128,8 +127,8 @@ $DRIVER = new Drivers($_SESSION['id']);
                 var width = $(window).width();
 
                 if (width > 576) {
-                    var contentheight = $(window).height();
-                    var navigationheight = $(window).height() - 75;
+                    var contentheight = $(window).height() + 100;
+                    var navigationheight = $(window).height() + 25;
 
                     $('.content').css('height', contentheight);
                     $('.navigation').css('height', navigationheight);

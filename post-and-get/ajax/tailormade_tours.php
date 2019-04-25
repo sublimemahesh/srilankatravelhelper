@@ -21,10 +21,11 @@ if ($_POST['option'] === 'ADDDETAILS') {
     if($result) {
         $sendvisitoremail = $TAILORMADETOURS->sendBookingConfirmationEmailToVisitor($result->id);
         $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($result->id);
-        $sendadminemail = $TAILORMADETOURS->sendBookingConfirmationEmailToAdmin($result->id);
+//        $sendadminemail = $TAILORMADETOURS->sendBookingConfirmationEmailToAdmin($result->id);
         
         unset($_SESSION["destination_cart"]);
-        if($sendvisitoremail && $senddriveremail && $sendadminemail) {
+//        if($sendvisitoremail && $senddriveremail && $sendadminemail) {
+               if($sendvisitoremail && $senddriveremail) {
             $res = 'TRUE';
         } else {
             $res = 'FALSE';

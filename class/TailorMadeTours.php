@@ -173,8 +173,8 @@ class TailorMadeTours {
         }
         return $array_res;
     }
-    
-     public function getConfirmedBookingsByDriver($driver) {
+
+    public function getConfirmedBookingsByDriver($driver) {
 
         $query = "SELECT * FROM `tailormade_tours` WHERE `driver`= $driver AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
 
@@ -207,6 +207,21 @@ class TailorMadeTours {
     public function getCanceledBookingsByVisitor($visitor) {
 
         $query = "SELECT * FROM `tailormade_tours` WHERE `visitor`= $visitor AND `status` = 'canceled' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
+    public function getConfimedBookingsByVisitor($visitor) {
+
+        $query = "SELECT * FROM `tailormade_tours` WHERE `visitor`= $visitor AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
 
         $db = new Database();
 
@@ -265,8 +280,8 @@ class TailorMadeTours {
             return FALSE;
         }
     }
-    
-        public function confirmBooking() {
+
+    public function confirmBooking() {
 
         $query = "UPDATE  `tailormade_tours` SET "
                 . "`status` ='confirmed' "
@@ -1401,9 +1416,9 @@ class TailorMadeTours {
 
         return $result;
     }
-    
+
     public static function sendBookingConfirmedEmailToDriver($tailormade_tour_id) {
- 
+
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
@@ -1602,4 +1617,5 @@ class TailorMadeTours {
             return FALSE;
         }
     }
+
 }
