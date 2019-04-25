@@ -94,6 +94,7 @@ class Location {
                 . "`name` ='" . $this->name . "', "
                 . "`place_id` ='" . $this->placeid . "', "
                 . "`short_description` ='" . $this->shortdescription . "', "
+                . "`views` ='" . $this->views . "', "
                 . "`description` ='" . $this->description . "', "
                 . "`image_name` ='" . $this->imagename . "', "
                 . "`near_by_cities` ='" . $this->nearbycities . "', "
@@ -136,15 +137,16 @@ class Location {
         $result = $db->readQuery($query);
         return $result;
     }
-    
+
     public function getLocationViewById($city) {
-               $query = "SELECT `id`,`views` FROM `location` WHERE `id`= $city ";
+        $query = "SELECT `id`,`views` FROM `location` WHERE `id`= $city ";
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
-    }    
+    }
+
     public function updateViewByid($city, $view) {
-       
+
         $query = "UPDATE  `location` SET "
                 . "`views` ='" . $view . "' "
                 . "WHERE `id` = '" . $city . "'";
@@ -152,8 +154,8 @@ class Location {
         $db = new Database();
         $result = $db->readQuery($query);
     }
-    
-       public function getAllViews() {
+
+    public function getAllViews() {
 
         $query = "SELECT * FROM `location` ORDER BY `views` DESC";
         $db = new Database();

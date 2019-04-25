@@ -8,9 +8,9 @@ if (isset($_POST['update'])) {
 
     $handle = new Upload($_FILES['picture_name']);
     $imgName = null;
-    
+
     $LOCATION = new Location($_POST['id']);
-   
+
     if ($_POST ["oldImageName"]) {
         $img = $_POST ["oldImageName"];
         if ($handle->uploaded) {
@@ -57,6 +57,7 @@ if (isset($_POST['update'])) {
     $LOCATION->name = $_POST['name'];
     $LOCATION->placeid = $_POST['placeid'];
     $LOCATION->shortdescription = $_POST['short_description'];
+    $LOCATION->views = $_POST['views'];
     $LOCATION->description = $_POST['description'];
     $LOCATION->nearbycities = serialize($_POST['nearbycities']);
 

@@ -89,6 +89,7 @@ if (isset($_POST['edit-tour-type'])) {
     $DESTINATION_TYPE = new DestinationType($_POST['id']);
     $DESTINATION_TYPE->id = $_POST['id'];
     $DESTINATION_TYPE->name = $_POST['name'];
+    $DESTINATION_TYPE->views = $_POST['views'];
     $DESTINATION_TYPE->picture_name = $_POST['oldImageName'];
     $DESTINATION_TYPE->sort = $_POST['sort'];
 

@@ -71,6 +71,7 @@ class DestinationType {
         $query = "UPDATE  `destination_type` SET "
                 . "`name` ='" . $this->name . "', "
                 . "`image_name` ='" . $this->image_name . "', "
+                . "`views` ='" . $this->views . "', "
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 
@@ -118,15 +119,16 @@ class DestinationType {
         $result = $db->readQuery($query);
         return $result;
     }
-    
-     public function getDestinationTypeViewById($id) {
-               $query = "SELECT `id`,`views` FROM `destination_type` WHERE `id`= $id ";
+
+    public function getDestinationTypeViewById($id) {
+        $query = "SELECT `id`,`views` FROM `destination_type` WHERE `id`= $id ";
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
-    }    
+    }
+
     public function updateViewByid($id, $view) {
-       
+
         $query = "UPDATE  `destination_type` SET "
                 . "`views` ='" . $view . "' "
                 . "WHERE `id` = '" . $id . "'";

@@ -6,7 +6,7 @@ $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
-$DESTINATION_TYPE = new DestinationType($id);
+$DESTINATION_VIEWS = new Destination($id);
 ?> 
 ﻿<!DOCTYPE html>
 <html> 
@@ -56,10 +56,10 @@ $DESTINATION_TYPE = new DestinationType($id);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Edit Destination Type</h2>
+                                <h2>Edit Destination Views </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-destination-type.php">
+                                        <a href="manage-destination-views.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -67,55 +67,28 @@ $DESTINATION_TYPE = new DestinationType($id);
 
                             </div>
                             <div class="body row">
-                                <form class="form-horizontal col-sm-9 col-md-9" method="post" action="post-and-get/destination-type.php" enctype="multipart/form-data"> 
+                                <form class="form-horizontal col-sm-9 col-md-9" method="post" action="post-and-get/view-destination.php" enctype="multipart/form-data"> 
 
                                     <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="name">Name</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="name" class="form-control" placeholder="Enter name" value="<?php echo $DESTINATION_TYPE->name; ?>"  name="name"  required="TRUE">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                      <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="name">Views</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" id="views" class="form-control" placeholder="Enter Destination Type Views" value="<?php echo $DESTINATION_TYPE->views; ?>"  name="views"  required="TRUE">
+                                                    <input type="text" id="views" class="form-control" placeholder="views" value="<?php echo $DESTINATION_VIEWS->viewer; ?>"  name="views"  required="TRUE">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="picture_name">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" value="<?php echo $DESTINATION_TYPE->image_name; ?>"  name="picture_name">
-                                                    <img src="../upload/destination-type/<?php echo $DESTINATION_TYPE->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="picture_name" alt="old image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                            <input type="hidden" id="id" value="<?php echo $DESTINATION_TYPE->id; ?>" name="id"/>
-                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>
-                                            <input type="hidden" id="oldImageName" value="<?php echo $DESTINATION_TYPE->image_name; ?>" name="oldImageName"/>
-                                            <input type="hidden" id="sort" value="<?php echo $DESTINATION_TYPE->sort; ?>" name="sort"/>
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="edit-tour-type" value="submit">Save Changes</button>
+                                            <input type="hidden" id="id" value="<?php echo $DESTINATION_VIEWS->id; ?>" name="id"/>
+                                          
+                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="edit-destination-views" value="submit">Update</button>
                                         </div>
                                     </div>
                                 </form>

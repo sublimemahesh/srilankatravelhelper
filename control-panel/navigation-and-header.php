@@ -339,6 +339,21 @@
                                 </li>
                             </ul>
                         </li>
+<!--                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">chevron_right</i>
+                                <span>Views</span>
+                            </a>
+                            <ul class="ml-menu">
+                                <li>
+                                    <a href="manage-destination-views.php">
+                                        <i class="material-icons">add</i>
+                                        <span>Manage View</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>-->
                     </ul>
                 </li>
                 <li>
