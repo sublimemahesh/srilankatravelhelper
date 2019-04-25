@@ -108,6 +108,7 @@ class Destination {
                 . "`spend_time` ='" . $this->spend_time . "', "
                 . "`location` ='" . $this->desLocation . "', "
                 . "`short_description` ='" . $this->short_description . "', "
+                . "`views` ='" . $this->viewer . "', "
                 . "`description` ='" . $this->description . "', "
                 . "`sort` ='" . $this->sort . "' "
                 . "WHERE `id` = '" . $this->id . "'";
@@ -173,25 +174,25 @@ class Destination {
 //        return $array_res;
 //    }
 
-     public function getDestinationsByCityID($city,$keyword,$type ) {
+    public function getDestinationsByCityID($city, $keyword, $type) {
 
-         $w = array();
+        $w = array();
         $where = '';
-  
+
         if (!empty($keyword)) {
             $w[] = "`name` LIKE '%" . $keyword . "%'";
         }
         if (!empty($city)) {
             $w[] = "`city` = '" . $city . "'";
         }
-         if (!empty($type)) {
+        if (!empty($type)) {
             $w[] = "`type` LIKE '" . $type . "'";
         }
         if (count($w)) {
             $where = 'WHERE ' . implode(' AND ', $w);
         }
 
-        $query = "SELECT * FROM `destination` " . $where . " ORDER BY `sort` ASC" ;
+        $query = "SELECT * FROM `destination` " . $where . " ORDER BY `sort` ASC";
 
         $db = new Database();
 
@@ -203,9 +204,7 @@ class Destination {
         }
         return $array_res;
     }
-    
-    
-    
+
     public function getDestinationByIdForPagination($id, $pageLimit, $setLimit) {
         $query = "SELECT * FROM `destination` WHERE `type`= $id LIMIT " . $pageLimit . " , " . $setLimit . "";
         $db = new Database();
@@ -423,7 +422,7 @@ class Destination {
         if (!empty($location)) {
             $w[] = "`city` = '" . $location . "'";
         }
-         if (!empty($type)) {
+        if (!empty($type)) {
             $w[] = "`type` LIKE '" . $type . "'";
         }
         if (count($w)) {
@@ -444,7 +443,7 @@ class Destination {
     }
 
     public function showPaginationOfSearchedDestinations($keyword, $location, $type, $per_page, $page) {
-        
+
         $page_url = "?";
 
         $w = array();
@@ -465,7 +464,7 @@ class Destination {
         }
 
         $query = "SELECT count(*) AS totalCount FROM `destination` " . $where . " ORDER BY `sort` ASC";
-     
+
         $rec = mysql_fetch_array(mysql_query($query));
 
         $total = $rec['totalCount'];
@@ -562,6 +561,7 @@ class Destination {
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
+
     public function getAllViews() {
 
         $query = "SELECT * FROM `destination` ORDER BY `views` DESC";
@@ -574,6 +574,23 @@ class Destination {
         }
 
         return $array_res;
+    }
+
+    public function updateViews() {
+
+        $query = "UPDATE  `destination` SET "
+                . "`views` ='" . $this->viewer . "' "
+                . "WHERE `id` = '" . $this->id . "'";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return $this->__construct($this->id);
+        } else {
+            return FALSE;
+        }
     }
 
 }

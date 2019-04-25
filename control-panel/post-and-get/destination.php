@@ -190,6 +190,7 @@ if (isset($_POST['update'])) {
     $DESTINATION->spend_time = $_POST['spend_time'];
     $DESTINATION->desLocation = $_POST['desLocation'];
     $DESTINATION->short_description = $_POST['short_description'];
+    $DESTINATION->viewer = $_POST['views'];
     $DESTINATION->description = $_POST['description'];
 
     $VALID = new Validator();
