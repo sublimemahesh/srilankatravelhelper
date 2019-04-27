@@ -8,8 +8,8 @@ if (!isset($_SESSION)) {
 }
 if (!Visitor::authenticate()) {
     if ($_GET['back'] === 'offerbooking') {
-//        $_SESSION["back_url"] = 'http://toursrilanka.travel/offer-booking.php?offer=' . $id;
-        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/offer-booking.php?offer=' . $id;
+        $_SESSION["back_url"] = 'http://toursrilanka.travel/offer-booking.php?offer=' . $id;
+//        $_SESSION["back_url"] = 'http://localhost/srilankatravelhelper/offer-booking.php?offer=' . $id;
     }
     redirect('visitor/index.php?message=24');
 }

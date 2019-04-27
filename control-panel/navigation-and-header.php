@@ -275,19 +275,41 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li class="qqq">
-                    <a href="create-slider.php" class="">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Slider</span>
-                    </a>
 
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">business_center</i>
+                        <span>Bookings</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="manage-active-bookings.php">
+                                <i class="material-icons">list</i>
+                                <span>Active Bookings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-canceled-bookings.php">
+                                <i class="material-icons">list</i>
+                                <span>Canceled Bookings</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="qqq">
-                    <a href="create-banner.php" class="">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Banner</span>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">directions_car</i>
+                        <span>Drivers</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="manage-drivers.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
 
+                    </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -339,47 +361,41 @@
                                 </li>
                             </ul>
                         </li>
-<!--                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">chevron_right</i>
-                                <span>Views</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="manage-destination-views.php">
-                                        <i class="material-icons">add</i>
-                                        <span>Manage View</span>
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </li>-->
+                        <!--                        <li>
+                                                    <a href="javascript:void(0);" class="menu-toggle">
+                                                        <i class="material-icons">chevron_right</i>
+                                                        <span>Views</span>
+                                                    </a>
+                                                    <ul class="ml-menu">
+                                                        <li>
+                                                            <a href="manage-destination-views.php">
+                                                                <i class="material-icons">add</i>
+                                                                <span>Manage View</span>
+                                                            </a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </li>-->
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
-                        <span>Location</span>
+                        <i class="material-icons">people</i>
+                        <span>Visitors</span>
                     </a>
                     <ul class="ml-menu">
-                        
                         <li>
-                            <a href="manage-locations.php">
+                            <a href="manage-visitors.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
                         </li>
-<!--                        <li>
-                            <a href="arrange-destination.php">
-                                <i class="material-icons">compare_arrows</i>
-                                <span>Arrange</span>
-                            </a>
-                        </li>-->
+
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
+                        <i class="material-icons">event_available</i>
                         <span>Tour Packages</span>
                     </a>
                     <ul class="ml-menu">
@@ -433,59 +449,28 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
-                        <span>Drivers</span>
+                        <i class="material-icons">add_location</i>
+                        <span>Location</span>
                     </a>
                     <ul class="ml-menu">
+
                         <li>
-                            <a href="manage-drivers.php">
+                            <a href="manage-locations.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
                         </li>
-                        
+                        <!--                        <li>
+                                                    <a href="arrange-destination.php">
+                                                        <i class="material-icons">compare_arrows</i>
+                                                        <span>Arrange</span>
+                                                    </a>
+                                                </li>-->
                     </ul>
-                </li>
+                </li>                             
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
-                        <span>Visitors</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="manage-visitors.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
-                        <span>Bookings</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="manage-active-bookings.php">
-                                <i class="material-icons">list</i>
-                                <span>Active Bookings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-canceled-bookings.php">
-                                <i class="material-icons">list</i>
-                                <span>Canceled Bookings</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">map</i>
+                        <i class="material-icons">sms</i>
                         <span>Comments</span>
                     </a>
                     <ul class="ml-menu">
@@ -508,6 +493,20 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="qqq">
+                    <a href="create-slider.php" class="">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Slider</span>
+                    </a>
+
+                </li>
+                <li class="qqq">
+                    <a href="create-banner.php" class="">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Banner</span>
+                    </a>
+
                 </li>
             </ul>
         </div>
