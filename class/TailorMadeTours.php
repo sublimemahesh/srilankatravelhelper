@@ -445,9 +445,6 @@ class TailorMadeTours {
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
                                 <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;font-size:13px">Contact</a></span><br/>
-                                <span style="font-size: 13px;">Email: info@toursrilanka.travel</span><br/>
-                                <span style="font-size: 13px;">Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
                             <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
@@ -497,7 +494,7 @@ class TailorMadeTours {
                                 </tr>
                                 <tr>
                                     <td>Selected Destinations</td>
-                                    <td>: <ul>' . $destination_list . '</ul></td>
+                                    <td><ul>' . $destination_list . '</ul></td>
                                 </tr>
                                 <tr>
                                     <td>Start Date</td>
@@ -1306,16 +1303,13 @@ class TailorMadeTours {
                         <body class="bor">
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo-1.png" alt="Tour Sri Lanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
+                                <img src=" http://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
+
                             </div>
                             <h2 class="topic">Tailor Made Tour Booking | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
-                                <p>' . $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for your booking (#' . $TAILORMADETOURS->id . ').</p>
-                                
+                                <h4>' . $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for your booking (#' . $TAILORMADETOURS->id . ').</h4>
                             </div>
                             
                             <table class="booking-details">

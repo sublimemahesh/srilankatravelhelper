@@ -381,10 +381,8 @@ class Booking {
                         <body class="bor">
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="travelhelper"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Address</a></span><br/>
-                                <span>Email: mail@travelhelper.lk</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
+                                <img src="http://' . $site . '../images/logo/logo.png" alt="Tour Sri lanka"/><br/>
+                              
                             </div>
                             <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
