@@ -1280,13 +1280,33 @@ class TailorMadeTours {
                                     .footer-td2 {width: 50%;}
                                     .table-td1 {width: 20%;}
                                 }
+                                a.button {
+                                    background-color: #66676b;
+                                    top: 0;
+                                    padding: 9px 20px;
+                                    color: #fff;
+                                    position: relative;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    display: inline-block;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+                                    margin-right: 6px;
+                                    overflow: hidden;
+                                    border: 0;
+                                    border-radius: 50px;
+                                }
+                                a.button{
+                                background-color: #0dce38;
+                                color: #fff;
+                                }
                                 
                             </style>
                         </head>
                         <body class="bor">
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo-1.png" alt="toursrilanka"/><br/>
+                                <img src="http://' . $site . '/images/logo/logo-1.png" alt="Tour Sri Lanka"/><br/>
                                 <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
                                 <span>Email: info@toursrilanka.travel</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
@@ -1294,7 +1314,7 @@ class TailorMadeTours {
                             <h2 class="topic">Tailor Made Tour Booking | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
-                                <p>' . $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for you booking (#' . $TAILORMADETOURS->id . ').</p>
+                                <p>' . $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for your booking (#' . $TAILORMADETOURS->id . ').</p>
                                 
                             </div>
                             
@@ -1317,7 +1337,7 @@ class TailorMadeTours {
                                 </tr>
                                 <tr>
                                     <td>Selected Destinations</td>
-                                    <td>:<ul>' . $destination_list . '</ul></td>
+                                    <td><ul>' . $destination_list . '</ul></td>
                                 </tr>
                                 <tr>
                                     <td>Start Date</td>
@@ -1359,19 +1379,11 @@ class TailorMadeTours {
                             
                             <br>
                             <table class="booking-details">
-                                
                                 <tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+                                    <td colspan="2"><strong><u> Click here Confirm Your booking </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
-                                        </ul>
-                                    </td>
+                                    <a href="https://www.toursrilanka.travel/visitor/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a>
                                 </tr>
                             </table>
                             
