@@ -164,7 +164,7 @@ if ($divider1 == 0) {
 
         <div class="container padding-bottom-45 padding-top-45" >
             <div class="row">
-                <div class="col-md-9 col-sm-9" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+                <div class="col-md-8 col-sm-9" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                     <div class="item1">
                         <div class="padding-top-10">
@@ -203,7 +203,11 @@ if ($divider1 == 0) {
                         <a href="booking.php?tour=<?php echo $id; ?>&back=booking" ><button id="view-all-reviews" class="button border with-icon submit btncolor15">Book Now</button></a>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
+                <div class="col-md-4 col-sm-3" data-aos="fade-down" data-aos-duration="3500" data-aos-delay="600">
+                    <div>
+                        <div id="map-canvas" class="ToudesMap"></div>
+                    </div>
+
                     <div class="moretourpack">
                         <h4 class="headline headline-more-items text-center " >More Tour Packages</h4>
                     </div>
@@ -448,11 +452,107 @@ if ($divider1 == 0) {
     <script src="lib/owl/owl.carousel.min.js" type="text/javascript"></script>
     <script src="scripts/lightbox.min.js" type="text/javascript"></script>
     <script src="scripts/aos.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjErF0IZ1O5pUQsSag23YgmvAo4OLngM&sensor=true" type="text/javascript"></script>
     <script>
         AOS.init();
     </script>
-    <script>
+   
+        <script>
+            var map;
+            var geocoder;
+            var marker;
+            var people = new Array();
+            var latlng;
+            var infowindow;
 
+            $(document).ready(function () {
+                ViewCustInGoogleMap();
+            });
+
+            function ViewCustInGoogleMap() {
+
+                var mapOptions = {
+                    center: new google.maps.LatLng(7.931062, 80.817732),
+                    zoom: 7,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+                // Get data from database. It should be like below format or you can alter it.
+//            alert($('.dest').val());
+
+//            var convertedArray = stringToConvert.split();
+//            console.log(convertedArray);
+
+                var desti = $('.dest').val();
+
+                desti = desti.replace(/'/g, '"');
+
+//            desti = JSON.parse(desti);
+                var destinations = JSON.parse("[" + desti + "]");
+                var arr = '';
+                $.each(destinations, function (key, destination) {
+                    arr += '{ "LatitudeLongitude": "' + destination + '" },';
+
+                });
+
+                de = arr.substring(0, arr.length - 1);
+
+                var data = '[' + de + ']';
+                people = JSON.parse(data);
+                for (var i = 0; i < people.length; i++) {
+                    setMarker(people[i]);
+                }
+
+            }
+
+            function setMarker(people) {
+                geocoder = new google.maps.Geocoder();
+                infowindow = new google.maps.InfoWindow();
+                if ((people["LatitudeLongitude"] == null) || (people["LatitudeLongitude"] == 'null') || (people["LatitudeLongitude"] == '')) {
+                    geocoder.geocode({'address': people["Address"]}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            latlng = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                            marker = new google.maps.Marker({
+                                position: latlng,
+                                map: map,
+                                draggable: false,
+                                html: people["DisplayText"],
+                                icon: "images/marker/" + people["MarkerId"] + ".png"
+                            });
+                            //marker.setPosition(latlng);
+                            //map.setCenter(latlng);
+                            google.maps.event.addListener(marker, 'click', function (event) {
+                                infowindow.setContent(this.html);
+                                infowindow.setPosition(event.latLng);
+                                infowindow.open(map, this);
+                            });
+                        } else {
+//                        alert(people["DisplayText"] + " -- " + people["Address"] + ". This address couldn't be found");
+                        }
+                    });
+                } else {
+                    var latlngStr = people["LatitudeLongitude"].split(",");
+                    var lat = parseFloat(latlngStr[0]);
+                    var lng = parseFloat(latlngStr[1]);
+                    latlng = new google.maps.LatLng(lat, lng);
+                    marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map,
+                        draggable: false, // cant drag it
+                        html: people["DisplayText"]    // Content display on marker click
+                                //icon: "images/marker.png"       // Give ur own image
+                    });
+                    //marker.setPosition(latlng);
+                    //map.setCenter(latlng);
+                    google.maps.event.addListener(marker, 'mouseover', function (event) {
+                        infowindow.setContent(this.html);
+                        infowindow.setPosition(event.latLng);
+//                    infowindow.open(map, this);
+                    });
+                }
+            }
+        </script>
 
     </body>
     </html>

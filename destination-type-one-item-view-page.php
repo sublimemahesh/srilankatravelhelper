@@ -518,8 +518,6 @@ $dest_str = substr($string, 0, strlen($string) - 1);
         <script src="scripts/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="scripts/galleria_1.5.3.min.js" type="text/javascript"></script>
         <script src="scripts/galleria_1.5.3_galleria.classic.min.js" type="text/javascript"></script>
-
-
         <script data-cfasync="false" src="../../cdn-cgi/scripts/f2bf09f8/cloudflare-static/email-decode.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
         <script src="css/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
