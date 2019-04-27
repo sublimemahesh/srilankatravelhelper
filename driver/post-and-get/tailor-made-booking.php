@@ -70,7 +70,7 @@ if (isset($_POST['set-price'])) {
                                                             </tr>
                                                             <tr>
                                                                 <td style="border-collapse:collapse" valign="middle" align="center">
-                                                                    <img alt="Logo" src="' . $site_link . '/images/logo/log-1.png" style="outline:none;text-decoration:none;border:none" class="CToWUd" height="55px" align="middle">
+                                                                    <img alt="Logo" src="' . $site_link . '/../../images/logo/logo.png" style="outline:none;text-decoration:none;border:none" class="CToWUd" height="55px" align="middle">
                                                                 </td>
                                                             </tr>           
                                                             <tr>
