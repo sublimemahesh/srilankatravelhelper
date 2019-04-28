@@ -13,12 +13,12 @@ if ($_POST['bookoffer']) {
     $OFFERBOOKING->message = $_POST['message'];
 
     $result = $OFFERBOOKING->create();
-
+   
     if ($result) {
         $sendvisitoremail = $OFFERBOOKING->sendOfferBookingConfirmationEmailToVisitor($result->id);
         $senddriveremail = $OFFERBOOKING->sendOfferBookingConfirmationEmailToDriver($result->id);
         $sendadminemail = $OFFERBOOKING->sendOfferBookingConfirmationEmailToAdmin($result->id);
-
+       
         if ($sendvisitoremail && $senddriveremail && $sendadminemail) {
             $VALID->addError("Offer Booking was completed successfully. Please check your email", 'success');
             $_SESSION['ERRORS'] = $VALID->errors();

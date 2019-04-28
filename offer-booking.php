@@ -114,7 +114,7 @@ $now = date('Y-m-d H:i:s');
                                                 <div class="col-md-6">
                                                     <div class="bottom-top">Email</div>
                                                     <div class="formrow">
-                                                        <input type="email" readonly="true" name="email" id="email" class="form-control input-type-bottom" placeholder="-" required="TRUE" value="<?php echo $VISITOR->email; ?>">
+                                                        <input type="email" readonly="true" name="email" id="email" class="form-control input-type-bottom" placeholder="-"  value="<?php echo $VISITOR->email; ?>">
                                                         <br>
                                                     </div>
                                                 </div>
