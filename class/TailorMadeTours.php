@@ -425,6 +425,17 @@ class TailorMadeTours {
                                 .footer-td2 {
                                     width: 35%;
                                 }
+                                .header{
+                                    width:100%;
+                                    margin-top: 20px;
+                                    background-color: #1eed3de6;
+                                    color: #fff;
+                                    padding-top:20px;
+                                    padding-bottom:30px;
+                                }
+                                  .header-td1 {
+                                    width: 150px;
+                                }
                                 @media (max-width: 480px) {
                                     ul { font-size: 14px; }
                                     td { font-size: 12px; }
@@ -442,11 +453,22 @@ class TailorMadeTours {
                             </style>
                         </head>
                         <body class="bor">
+                        <table class="header">
+                                <tr>
+                                    <td class="header-td1"></td>
+                                    <td colspan="2" style="font-size: 15px;"><strong>Tour Sri Lanka</strong></td>
+                                </tr>
+                                
+                                
+                                
+                            </table>
+
+
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
+                                   <img src="https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+                            <h2 class="topic">Tailor-Made Tour Booking Confirmations | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
                                 <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $tailormade_tour_id . '. Your booking is subject to the terms & conditions listed on the website. </p>
@@ -994,7 +1016,7 @@ class TailorMadeTours {
                         <body class="bor">
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
+                                <img src="https://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
                                 <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
                                 <span>Email: info@toursrilanka.travel</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
@@ -1303,7 +1325,7 @@ class TailorMadeTours {
                         <body class="bor">
                             <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src=" http://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
+                                <img src=" https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
 
                             </div>
                             <h2 class="topic">Tailor Made Tour Booking | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
