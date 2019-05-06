@@ -1,12 +1,12 @@
 $(document).ready(function (event) {
     $('#location-search-btn').click(function () {
         var cityid = $('#city').val();
-        var type= $('#type').val();
+        var type = $('#type').val();
         var keyword = $('#keyword').val();
         // $('.default-destination').addClass('hidden');
 //         $('#search-content').removeClass('hidden');
-       
-        
+
+
         if (!cityid || cityid.length === 0) {
             swal({
                 position: 'bottom-end',
@@ -25,8 +25,8 @@ $(document).ready(function (event) {
                 type: "POST",
                 data: {
                     city: cityid,
-                    keyword:keyword,
-                    type:type,
+                    keyword: keyword,
+                    type: type,
                     option: 'SEARCH'
                 },
                 success: function (destinations) {
@@ -95,6 +95,7 @@ $(document).ready(function (event) {
                                     } else {
                                         spend_time = destination.spend_time;
                                     }
+
 
                                     html += '<div class="col-md-6 col-sm-6 col-xs-12 search-destination-item">';
                                     html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
@@ -213,6 +214,16 @@ $(document).ready(function (event) {
                                         } else {
                                             name = destname;
                                         }
+
+//                                   convert cha to int  
+                                        var spend_time = destination.spend_time;
+                                        if (spend_time = null) {
+                                            spend_time = 0;
+
+                                        } else {
+                                            spend_time = destination.spend_time;
+                                        }
+
                                         html += '<div class="col-md-4 col-sm-6 col-xs-12 search-destination-item">';
                                         html += '<div class="col-md-12 col-sm-12 col-xs-12 search-destination-inner">';
                                         html += '<div class="listing-item col-md-5 col-sm-5 col-xs-5">';
@@ -224,7 +235,7 @@ $(document).ready(function (event) {
                                         html += '</div>';
                                         html += '<div class="star-rating-fa">';
                                         html += html1;
-                                        alert(sum);
+                                       
                                         html += '<div class="rating-counter">(' + sum + ' revieqws)</div><br>';
                                         html += '</div>';
                                         html += '<div style="margin-top: 0px;padding-bottom: 7px;">';
@@ -234,7 +245,8 @@ $(document).ready(function (event) {
                                         html += '</div>';
                                         html += '<div class="button-section">';
                                         html += '<a href="destination-type-one-item-view-page.php?id=' + destination.id + '" target="_blank"><button class="btn btn-view"><i class="glyphicon glyphicon-link" ></i></button></a>';
-                                        html += '<button class="btn btn-cart add-to-cart" id="add-to-cart-' + destination.id + '" destination-id="' + destination.id + '" back="cart" title="Add to Cart"><i class="glyphicon glyphicon-shopping-cart" ></i></button>';
+//                                        html += '<button class="btn btn-cart add-to-cart" id="add-to-cart-' + destination.id + '" destination-id="' + destination.id + '" back="cart" title="Add to Cart"><i class="glyphicon glyphicon-shopping-cart" ></i></button>';
+                                        html += '<button class="btn btn-cart add-to-cart" id="add-to-cart-' + destination.id + '" destination-id="' + destination.id + '" location="' + destination.location + '" spend_time="' + spend_time + '"   back="cart" title="Add to Cart"><i class="glyphicon glyphicon-shopping-cart" ></i></button>';
                                         html += '</div>';
                                         html += '</div>';
                                         html += '</div>';
