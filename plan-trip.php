@@ -198,7 +198,7 @@ foreach ($destinations as $des) {
                                                 <a href="destination-type-one-item-view-page.php?id=<?php echo $dess['id']; ?>" target="_blank">
                                                     <button class="btn btn-view"><i class="glyphicon glyphicon-link"></i></button>
                                                 </a>
-                                                <button class="btn btn-cart add-to-cart" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" back="cart" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>"  title="Add to Cart">
+                                                <button class="btn btn-cart add-to-cart1" id="add-to-cart-<?php echo $dess['id']; ?>" destination-id="<?php echo $dess['id']; ?>" back="cart" location="<?php echo $dess['location']; ?>" spend_time="<?php echo $dess['spend_time']; ?>"  title="Add to Cart">
                                                     <i class="glyphicon glyphicon-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -297,6 +297,7 @@ foreach ($destinations as $des) {
 <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
+<script src="scripts/add-to-cart.js" type="text/javascript"></script>
 <script src="scripts/add-to-cart_2.js" type="text/javascript"></script>
 <script src="lib/sweetalert/sweetalert.min.js" type="text/javascript"></script>
 <script src="scripts/search-destination.js" type="text/javascript"></script>
