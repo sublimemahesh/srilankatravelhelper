@@ -1,10 +1,11 @@
 <?php
+
 include_once(dirname(__FILE__) . '/../../class/include.php');
 
 if ($_POST['option'] === 'ADDDETAILS') {
-    
+
     $BOOKING = new Booking(NULL);
-    
+
     $BOOKING->visitor = $_POST['visitor'];
     $BOOKING->tour_package = $_POST['tour'];
     $BOOKING->driver = $_POST['driver'];
@@ -15,22 +16,23 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $BOOKING->message = $_POST['message'];
     $BOOKING->price = $_POST['price'];
 
-    
+
+
     $result = $BOOKING->create();
-    
-    if($result) {
+
+    if ($result) {
         $sendvisitoremail = $BOOKING->sendBookingConfirmationEmailToVisitor($result->id);
         $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($result->id);
         $sendadminemail = $BOOKING->sendBookingConfirmationEmailToAdmin($result->id);
-        
 
-        if($sendvisitoremail && $senddriveremail && $sendadminemail) {
+
+        if ($sendvisitoremail && $senddriveremail && $sendadminemail) {
             $res = 'TRUE';
         } else {
             $res = 'FALSE';
         }
     }
-    
+
 
 
     header('Content-type: application/json');

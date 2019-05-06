@@ -130,12 +130,12 @@ $VISITOR = new Visitor($_SESSION['id']);
                         <?php
                         for ($i = 1; $i <= $stars; $i++) {
                             ?>
-                                                                            <i class="fa fa-star"></i>
+                                                                                                                                                <i class="fa fa-star"></i>
                             <?php
                         }
                         for ($j = $i; $j <= 5; $j++) {
                             ?>
-                                                                            <i class="fa fa-star-o"></i>
+                                                                                                                                                <i class="fa fa-star-o"></i>
                             <?php
                         }
                         ?>
@@ -160,7 +160,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                         foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
                             $DESTINATION = new Destination($cartitem);
                             ?>
-                                                                        <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                                                                                                                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
                             <?php
                         }
                         ?>
@@ -269,7 +269,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <!--                                                                    <div class="drivercity">
                                                                                                                                             Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
                                                                                                                                         </div>-->
-                                                                     <div class="driver-select hidden">
+                                                                    <div class="driver-select hidden">
                                                                         <img src="images/icons/icon-41-512.png" alt=""/>
                                                                     </div>
                                                                 </div>
@@ -318,7 +318,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     <!--                                                                    <div class="drivercity">
                                                                                                                                             Driving Licence No: <?php echo $DRIVER->driving_licence_number; ?>
                                                                                                                                         </div>-->
-                                                                     <div class="driver-select hidden">
+                                                                    <div class="driver-select hidden">
                                                                         <img src="images/icons/icon-41-512.png" alt=""/>
                                                                     </div>
                                                                 </div>
@@ -512,7 +512,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             <input type="hidden" name="price" id="price" value="<?php echo $TOUR->price; ?>" />
                                             <input type="hidden" name="places" id="places" value='<?php echo $places; ?>' />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
-                                            <input type="hidden" name="selected-driver" id="selected-driver" value="" />
+                                            <input type="text" name="selected-driver" id="selected-driver" value="" />
                                             <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php
                                             if ($tailormade == 'hidden') {
                                                 echo 'tailormade';
@@ -561,26 +561,44 @@ $VISITOR = new Visitor($_SESSION['id']);
     <script src="scripts/booking.js" type="text/javascript"></script>
 
     <script>
-                                                                           $(function () {
-                                                                               $("#startdate").datepicker({
-                                                                                   dateFormat: "yy-mm-dd",
-                                                                                   minDate: 0
-                                                                               }).val();
-                                                                               $("#enddate").datepicker({
-                                                                                   dateFormat: "yy-mm-dd",
-                                                                                   minDate: 1
-                                                                               }).val()
-                                                                           });
-                                                                           function selectItem(id) {
-                                                                               $('.driver-item').removeClass('selected');
-                                                                               $('.driver-item-' + id).addClass('selected');
-                                                                               $('#selected-driver').val(id);
-                                                                                    $('.driver-select').addClass('hidden');
-                                                                               $('.driver-item-'+id+' .driver-select').removeClass('hidden');
-//                                                                          
-                                                                             
-                                                                              
-                                                                           }
+                                                                $(function () {
+                                                                    $("#startdate").datepicker({
+                                                                        dateFormat: "yy-mm-dd",
+                                                                        minDate: 0
+                                                                    }).val();
+                                                                    $("#enddate").datepicker({
+                                                                        dateFormat: "yy-mm-dd",
+                                                                        minDate: 1
+                                                                    }).val()
+                                                                });
+                                                                function selectItem(id) {
+
+                                                                    var new_ids = $('#selected-driver').val();
+                                                                    var array = new_ids.split(',');
+
+                                                                    var count = 0;
+                                                                    $.each(array, function () {
+                                                                        count++;
+                                                                    });
+                                                                    if (count == 4) {
+                                                                        swal({
+                                                                            title: "Error!",
+                                                                            text: "You have selected the maximum number of  driver for the booking",
+                                                                            type: 'error',
+                                                                            timer: 2000,
+                                                                            showConfirmButton: false
+                                                                        });
+                                                                    } else {
+                                                                        $('.driver-item-' + id).addClass('selected');
+                                                                        $('.driver-item-' + id + ' .driver-select').removeClass('hidden');
+
+                                                                        var currnt_ids = $('#selected-driver').val();
+
+                                                                        $('#selected-driver').val(id + ',' + currnt_ids);
+                                                                    }
+
+
+                                                                }
     </script>
     <script>
         var placeSearch, autocomplete;
