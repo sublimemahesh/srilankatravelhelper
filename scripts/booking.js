@@ -174,7 +174,9 @@ $(document).ready(function () {
                         message: message,
                         option: 'ADDDETAILS'
                     },
+                    
                     success: function (result) {
+                    
                         if (result === 'FALSE') {
                             swal({
                                 title: "Error!",

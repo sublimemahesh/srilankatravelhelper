@@ -25,6 +25,7 @@ if (isset($_GET["tour"])) {
 if (isset($_GET['tailormade'])) {
     $tailormade = 'hidden';
     $places = serialize($_SESSION["destination_cart"]);
+    
 }
 
 if (!Visitor::authenticate()) {
@@ -512,10 +513,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             <input type="hidden" name="price" id="price" value="<?php echo $TOUR->price; ?>" />
                                             <input type="hidden" name="places" id="places" value='<?php echo $places; ?>' />
                                             <input type="hidden" name="visitor" id="visitor" value="<?php echo $_SESSION['id']; ?>" />
-                                            <input type="text" name="selected-driver" id="selected-driver" value="" />
+                                            <input type="hidden" name="selected-driver" id="selected-driver" value="" />
                                             <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php
                                             if ($tailormade == 'hidden') {
                                                 echo 'tailormade';
+                                                
                                             } else {
                                                 echo 'tourpackge';
                                             }

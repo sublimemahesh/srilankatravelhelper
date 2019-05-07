@@ -58,13 +58,14 @@ class TailorMadeTours {
 
         $status = 'active';
 
-        $query = "INSERT INTO `tailormade_tours` (`date_time_booked`,`places`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`,`status`) VALUES  ('"
+//        $query = "INSERT INTO `tailormade_tours` (`date_time_booked`,`places`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`,`status`) VALUES  ('"
+        $query = "INSERT INTO `tailormade_tours` (`date_time_booked`,`places`,`visitor`,`no_of_adults`,`no_of_children`,`start_date`,`end_date`,`message`,`status`) VALUES  ('"
                 . $createdAt . "', '"
                 . $this->places . "', '"
                 . $this->visitor . "', '"
                 . $this->no_of_adults . "', '"
                 . $this->no_of_children . "', '"
-                . $this->driver . "', '"
+//                . $this->driver . "', '"
                 . $this->start_date . "', '"
                 . $this->end_date . "', '"
                 . $this->message . "', '"
@@ -81,6 +82,7 @@ class TailorMadeTours {
         } else {
             return FALSE;
         }
+        dd($result);
     }
 
     public function all() {
@@ -305,7 +307,7 @@ class TailorMadeTours {
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
-        $subject = "Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
+        $subject = "Tailor-Made New Booking Request | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.
@@ -602,7 +604,7 @@ class TailorMadeTours {
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
-        $subject = "Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
+        $subject = "Tailor-Made Tour New Price Offer | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.
