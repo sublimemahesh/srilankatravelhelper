@@ -3,11 +3,12 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $id = '';
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 $DRIVER = new Drivers($_SESSION['id']);
 $TBOOKING = new TailorMadeTours($id);
+$DBOOKING = new DriverBooking($id);
 ?>
 <html>
     <head>
@@ -50,13 +51,13 @@ $TBOOKING = new TailorMadeTours($id);
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                               Set price - #<?php echo $TBOOKING->id; ?>
+                                Set price - #<?php echo $TBOOKING->id; ?>
                             </div>
                             <div class="panel-body">
                                 <form method="post" action="post-and-get/tailor-made-booking.php" enctype="multipart/form-data">
                                     <div class="row form-data">
                                         <label>Price (USD)</label>
-                                        <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo $TBOOKING->price;?>" />
+                                        <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo $DBOOKING->price; ?>" />
                                     </div>
                                     <div class="row form-data">
                                         <input type="hidden" name="id" value="<?php echo $TBOOKING->id; ?>" />
