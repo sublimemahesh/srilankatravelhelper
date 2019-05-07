@@ -6,16 +6,20 @@ include_once(dirname(__FILE__) . '/../auth.php');
 if (isset($_POST['set-price'])) {
 
     $TBOOKING = new TailorMadeTours($_POST['id']);
+    $TSETPRICE = new DriverBooking($_POST['id']);
+
+
     $VALID = new Validator();
 
-    $TBOOKING->price = $_POST['price'];
-
-    $VALID->check($TBOOKING, [
+//    $TBOOKING->price = $_POST['price'];
+    $TSETPRICE->price = $_POST['price'];
+    $VALID->check($TSETPRICE, [
         'price' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {
-        $result = $TBOOKING->setPrice();
+//        $result = $TBOOKING->setPrice();
+        $result = $TSETPRICE->setPrice();
 
         if ($result) {
             $sendvisitoremail = $TBOOKING->sendSetPriceEmailToVisitor($result->id);

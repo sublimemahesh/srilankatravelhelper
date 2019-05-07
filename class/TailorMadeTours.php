@@ -148,10 +148,10 @@ class TailorMadeTours {
 
     public function getActiveBookingsByDriver($driver) {
 
-        $query = "SELECT * FROM `tailormade_tours` WHERE `driver`= $driver AND `status` like 'active' ORDER BY `date_time_booked` DESC";
-
+//        $query = "SELECT * FROM `tailormade_tours` WHERE `driver`= $driver AND `status` like 'active' ORDER BY `date_time_booked` DESC";
+        $query = " SELECT * FROM `tailormade_tours` WHERE `driver` In(SELECT `driver_id` FROM `driver_booking` where `driver_id`=$driver ORDER BY `date_time_booked` DESC)";
         $db = new Database();
-
+        dd($query);      
         $result = $db->readQuery($query);
         $array_res = array();
 
@@ -1177,7 +1177,7 @@ class TailorMadeTours {
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
-        $subject = "Tailor Made Tour Booking  | Tour Sri Lanka | " . $tailormade_tour_id . "";
+        $subject = "Tailor Made New Price Offer  | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.
