@@ -60,7 +60,7 @@ $DBOOKING = new DriverBooking($id);
                                         <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo $DBOOKING->price; ?>" />
                                     </div>
                                     <div class="row form-data">
-                                        <input type="hidden" name="id" value="<?php echo $TBOOKING->id; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $DBOOKING->id; ?>" />
                                         <input type="submit" name="set-price" id="update" class="btn btn-green" value="Save Price" />
                                     </div>
                                 </form>

@@ -1,8 +1,9 @@
 $(document).ready(function () {
     $('.confirm-tailor-made-booking').click(function () {
-    
+      
         var id = $(this).attr("data-id");
-
+        var bookingid = $(this).attr("data-booking-id");
+          
         swal({
             title: "Are you sure?",
             text: "Are you want to Confirm this booking",
@@ -16,7 +17,9 @@ $(document).ready(function () {
             $.ajax({
                 url: "post-and-get/ajax/confirm-tailor-made-booking.php",
                 type: "POST",
-                data: {id: id, option: 'confirm'},
+                data: {id: id,
+                    bookingid: bookingid,
+                    option: 'confirm'},
                 dataType: "JSON",
                 success: function (jsonStr) {
                     if (jsonStr.status) {

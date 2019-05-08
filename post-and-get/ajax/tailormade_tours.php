@@ -20,7 +20,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $result = $TAILORMADETOURS->create();
 
 
-
+ $visitor=$_POST['visitor'];
     $DBOOKING = new DriverBooking(NULL);
 
     $DBOOKING->booking_id = $result->id;
@@ -41,7 +41,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
         if ($cont == 4) {
 //            echo 'error';
         } else {
-            $result1 = $DBOOKING->create($driver_id, $booking_id);
+            $result1 = $DBOOKING->create($driver_id, $booking_id,$visitor);
             $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($result->id);
         }
     }
