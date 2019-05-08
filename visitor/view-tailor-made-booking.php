@@ -3,12 +3,16 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $VISITOR = new Visitor($_SESSION['id']);
+
 $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    
 }
 $BOOKING = new TailorMadeTours($id);
 $VISITOR = new Visitor($BOOKING->visitor);
+$Driver=new DriverBooking($id);
+
 $places = unserialize($BOOKING->places);
 foreach ($places as $place) {
     $DESTINATION = new Destination($place);
@@ -122,7 +126,7 @@ foreach ($places as $place) {
                                     ?>">
                                         <a href="manage-active-tailormade-bookings.php" class="btn btn-info">Back</a> 
                                         <a href="#" class="btn btn-danger cancel-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Cancel Booking</a> 
-                                        <a href="#" class="btn btn-success confirm-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Confirm Booking</a> 
+                                        <!--<a href="#" class="btn btn-success confirm-tailor-made-booking " data-id="<?php echo $BOOKING->id; ?>">Confirm Booking</a>--> 
                                     </div>
                                     <div class="btn btn-list col-md-12 <?php
                                     if ($BOOKING->status === 'active') {

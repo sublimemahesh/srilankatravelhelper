@@ -151,7 +151,7 @@ class TailorMadeTours {
 //        $query = "SELECT * FROM `tailormade_tours` WHERE `driver`= $driver AND `status` like 'active' ORDER BY `date_time_booked` DESC";
         $query = " SELECT * FROM `tailormade_tours` WHERE `driver` In(SELECT `driver_id` FROM `driver_booking` where `driver_id`=$driver ORDER BY `date_time_booked` DESC)";
         $db = new Database();
-        dd($query);      
+        dd($query);
         $result = $db->readQuery($query);
         $array_res = array();
 
@@ -283,12 +283,14 @@ class TailorMadeTours {
         }
     }
 
-    public function confirmBooking() {
-
+    public function confirmBooking($driverid,$price,$booking) {
+   
         $query = "UPDATE  `tailormade_tours` SET "
+                . "`driver` ='" .$driverid . "', "
+                . "`price` ='" .$price. "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-
+       
         $db = new Database();
 
         $result = $db->readQuery($query);

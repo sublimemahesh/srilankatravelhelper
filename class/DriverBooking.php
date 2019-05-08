@@ -17,13 +17,14 @@ class DriverBooking {
     public $date_time_booked;
     public $booking_id;
     public $driver_id;
+    public $visitor_id;
     public $price;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`, `date_time_booked`, `booking_id`, `driver_id`, `price` FROM `driver_booking` WHERE `id`=" . $id;
-
+            $query = "SELECT `id`, `date_time_booked`, `booking_id`, `driver_id`, `visitor_id` ,`price` FROM `driver_booking` WHERE `id`=" . $id;
+        
             $db = new Database();
 
             $result = mysql_fetch_array($db->readQuery($query));
@@ -32,20 +33,22 @@ class DriverBooking {
             $this->date_time_booked = $result['date_time_booked'];
             $this->booking_id = $result['booking_id'];
             $this->driver_id = $result['driver_id'];
+            $this->visitor_id = $result['visitor_id'];
             $this->price = $result['price'];
 
             return $this;
         }
     }
 
-    public function create($driver_id, $booking_id) {
+    public function create($driver_id, $booking_id, $visitor) {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
 
-        $query = "INSERT INTO `driver_booking`(`date_time_booked`,`booking_id`, `driver_id`, `price`) VALUES  ('"
+        $query = "INSERT INTO `driver_booking`(`date_time_booked`,`booking_id`, `driver_id`, `visitor_id`, `price`) VALUES  ('"
                 . $createdAt . "', '"
                 . $booking_id . "', '"
                 . $driver_id . "', '"
+                . $visitor . "', '"
                 . 0 . "')";
 
 
@@ -92,6 +95,61 @@ class DriverBooking {
         } else {
             return FALSE;
         }
+    }
+
+    public function getActiveBookingsByVisitor($visitor) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `visitor_id`= $visitor  ORDER BY `date_time_booked` DESC";
+
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
+    public function getActiveBookingsByBookingId($id) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `booking_id`= $id  ";
+
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
+    public function DeleteByBookingId($booking) {
+
+        $query = "DELETE FROM `driver_booking` WHERE `booking_id`= $booking";
+        
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+     
+        if ($result) {
+               return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getBookingByDriver($driver) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver ";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
     }
 
 }

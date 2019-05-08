@@ -96,11 +96,11 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                 <td><?php echo $VISITOR->name; ?></td> 
                                                 <td><?php echo 'USD ' . $drBooking->price; ?></td> 
                                                 <td> 
-                                                    <a href="view-tailor-made-booking.php?id=<?php echo $TBooking->id ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
-                                                    <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $TBooking->id; ?>"  title="Cancel Tailor-made Booking">
+                                                    <a href="view-tailor-made-booking.php?id=<?php echo $drBooking->booking_id;?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
+                                                    <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $drBooking->booking_id; ?>"  title="Cancel Tailor-made Booking">
                                                         <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
                                                     </a> |
-                                                    <a href="set-price-for-tailor-made-booking.php?id=<?php echo $TBooking->id; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
+                                                    <a href="set-price-for-tailor-made-booking.php?id=<?php echo $drBooking->id; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
 
                                                 </td>
                                             </tr>
