@@ -77,14 +77,10 @@ $DRIVER = new Drivers($_SESSION['id']);
                                         <?php
                                         $PRICE = new DriverBooking($DRIVER->id);
                                         $i = 0;
-//                                        foreach (TailorMadeTours::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
                                         foreach (DriverBooking::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
-
                                             $TBooking = new TailorMadeTours($DRIVER->id);
-                                            
                                             $VISITOR = new Visitor($TBooking->visitor);
                                             $drBooking = new DriverBooking($booking['id']);
-
 
                                             $i++;
                                             ?>
@@ -96,7 +92,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                                 <td><?php echo $VISITOR->name; ?></td> 
                                                 <td><?php echo 'USD ' . $drBooking->price; ?></td> 
                                                 <td> 
-                                                    <a href="view-tailor-made-booking.php?id=<?php echo $drBooking->booking_id;?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
+                                                    <a href="view-tailor-made-booking.php?id=<?php echo $drBooking->booking_id; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
                                                     <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $drBooking->booking_id; ?>"  title="Cancel Tailor-made Booking">
                                                         <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
                                                     </a> |

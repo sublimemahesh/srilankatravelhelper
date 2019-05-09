@@ -526,7 +526,7 @@ class Booking {
         }
     }
     
-    public static function sendBookingConfirmationEmailToDriver($bookingid) {
+    public static function sendBookingConfirmationEmailToDriver($bookingid,$driver_id, $visitor) {
 
         //----------------------Company Information---------------------
 
@@ -544,8 +544,8 @@ class Booking {
 
         $BOOKING = new Booking($bookingid);
         
-        $DRIVER = new Drivers($BOOKING->driver);
-        $VISITOR = new Visitor($BOOKING->visitor);
+        $DRIVER = new Drivers($driver_id);
+        $VISITOR = new Visitor($visitor);
         $TOUR = new TourPackages($BOOKING->tour_package);
         
         $driver_email = $DRIVER->email;
@@ -1072,13 +1072,13 @@ class Booking {
     }
     
     public static function sendSetPriceEmailToVisitor($bookingid) {
-
+        dd($bookingid);
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
-        $subject = "Tour Booking  | Tour Sri Lanka | " . $bookingid . "";
+        $subject = "Tour Booking | New price offer | Tour Sri Lanka | " . $bookingid . "";
         $site = 'toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.

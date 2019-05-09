@@ -6,21 +6,29 @@ include_once(dirname(__FILE__) . '/../auth.php');
 if (isset($_POST['set-price'])) {
 
     $BOOKING = new Booking($_POST['id']);
+    $TSETPRICE = new DriverBooking($_POST['id']);
+//    $TSETPRICE =  DriverBooking::getTourBookingPriceById($_SESSION['id'],$_POST['id']);
+
     $VALID = new Validator();
 
-    $BOOKING->price = $_POST['price'];
+//    $BOOKING->price = $_POST['price'];
+    $TSETPRICE->price = $_POST['price'];
 
-    $VALID->check($BOOKING, [
+    $VALID->check($TSETPRICE, [
         'price' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {
-        $result = $BOOKING->setPrice();
-
+        $result = $TSETPRICE->setPackagePrice($_SESSION['id'], $_POST['id']);
+       
+        $TSETPRICE =  DriverBooking::getTourBookingPriceById($_SESSION['id'],$result);
+        dd($TSETPRICE["id"]);
+   
         if ($result) {
             $sendvisitoremail = $BOOKING->sendSetPriceEmailToVisitor($result->id);
-            $sendmessage = $BOOKING->sendSetPriceMessageToVisitor($result->id);
             
+            $sendmessage = $BOOKING->sendSetPriceMessageToVisitor($result->id);
+
             if ($sendmessage) {
                 $VISITOR = new Visitor($sendmessage->visitor);
                 $DRIVER = new Drivers($sendmessage->driver);
@@ -49,8 +57,8 @@ if (isset($_POST['set-price'])) {
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-                if (empty($DRIVER->profile_picture)) { 
-                 $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="upload/driver/driver.png" alt="Profile Picture" class="CToWUd" width="60"/>';
+                if (empty($DRIVER->profile_picture)) {
+                    $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="upload/driver/driver.png" alt="Profile Picture" class="CToWUd" width="60"/>';
                 } else {
                     if ($DRIVER->facebookID) {
                         $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $driver_image_name . '" alt="Profile Picture" class="CToWUd" width="60"/>';
@@ -58,7 +66,7 @@ if (isset($_POST['set-price'])) {
                         $html1 = '<img style="outline:none;text-decoration:none;border:none;display:block;border-radius:12px" src="' . $site_link . '../upload/driver/' . $driver_image_name . '" class="CToWUd" width="60">';
                     }
                 }
-                
+
                 $html = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                         <html xmlns="http://www.w3.org/1999/xhtml">
                             <head>
@@ -244,9 +252,8 @@ if (isset($_POST['set-price'])) {
                                 </table>
                             </body>
                         </html>';
-                
+
                 mail($visitor_email, $subject, $html, $headers);
-                    
             }
             if (!isset($_SESSION)) {
                 session_start();

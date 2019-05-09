@@ -6,8 +6,13 @@ $id = '';
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
 }
+
 $DRIVER = new Drivers($_SESSION['id']);
 $BOOKING = new Booking($id);
+$DBOOKING = new DriverBooking('id');
+
+$price=DriverBooking::getTourBookingPriceById($_SESSION['id'],$id);
+
 ?>
 <html>
     <head>
@@ -56,10 +61,10 @@ $BOOKING = new Booking($id);
                                 <form method="post" action="post-and-get/booking.php" enctype="multipart/form-data">
                                     <div class="row form-data">
                                         <label>Price (USD)</label>
-                                        <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo $BOOKING->price;?>" />
+                                        <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" value="<?php echo $price['price'];?>" />
                                     </div>
                                     <div class="row form-data">
-                                        <input type="hidden" name="id" value="<?php echo $BOOKING->id; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $price['tour_booking_id']; ?>" />
                                         <input type="submit" name="set-price" id="update" class="btn btn-green" value="Save Price" />
                                     </div>
                                 </form>

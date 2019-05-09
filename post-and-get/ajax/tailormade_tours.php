@@ -20,13 +20,10 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $result = $TAILORMADETOURS->create();
 
 
- $visitor=$_POST['visitor'];
+    $visitor = $_POST['visitor'];
     $DBOOKING = new DriverBooking(NULL);
-
     $DBOOKING->booking_id = $result->id;
-
     $booking_id = $result->id;
-
     $drivers = $_POST['driver'];
 
     $explode = explode(',', $drivers);
@@ -34,15 +31,14 @@ if ($_POST['option'] === 'ADDDETAILS') {
 
     $count = 0;
     foreach ($explode as $driver_id) {
-////   $result1 = $DBOOKING->create($driver_id,$booking_id);
         $cont++;
         if ($cont == 4) {
-//            echo 'error';
+            
         } else {
-            $result1 = $DBOOKING->create($driver_id, $booking_id,$visitor);
-           
-            $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($booking_id,$driver_id,$visitor);
-        } 
+            $result1 = $DBOOKING->create($driver_id, $booking_id, $visitor);
+
+            $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($booking_id, $driver_id, $visitor);
+        }
     }
 
 
@@ -58,7 +54,6 @@ if ($_POST['option'] === 'ADDDETAILS') {
         } else {
             $res = 'FALSE';
         }
-       
     }
 
 
