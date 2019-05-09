@@ -90,7 +90,7 @@ $DRIVER = new Drivers($_SESSION['id']);
                                             ?>
                                             <tr id="row_<?php echo $drBooking->booking_id; ?>">
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $booking['id']; ?></td> 
+                                                <td><?php echo $booking['booking_id']; ?></td> 
                                                 <td><?php echo $booking['date_time_booked']; ?></td> 
 
                                                 <td><?php echo $VISITOR->name; ?></td> 

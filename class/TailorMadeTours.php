@@ -283,14 +283,14 @@ class TailorMadeTours {
         }
     }
 
-    public function confirmBooking($driverid,$price,$booking) {
-   
+    public function confirmBooking($driverid, $price, $booking) {
+     
         $query = "UPDATE  `tailormade_tours` SET "
-                . "`driver` ='" .$driverid . "', "
-                . "`price` ='" .$price. "', "
+                . "`driver` ='" . $driverid . "', "
+                . "`price` ='" . $price . "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-       
+             
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -472,7 +472,7 @@ class TailorMadeTours {
                                 <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
                                    <img src="https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour Booking Confirmations | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+                            <h2 class="topic">Tailor-Made New Booking Request  | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
                                 <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $tailormade_tour_id . '. Your booking is subject to the terms & conditions listed on the website. </p>
@@ -599,7 +599,7 @@ class TailorMadeTours {
         }
     }
 
-    public static function sendBookingConfirmationEmailToDriver($tailormade_tour_id) {
+    public static function sendBookingConfirmationEmailToDriver($tailormade_tour_id, $driver_id, $visitor) {
 
         //----------------------Company Information---------------------
 
@@ -617,8 +617,9 @@ class TailorMadeTours {
 
         $TAILORMADETOURS = new TailorMadeTours($tailormade_tour_id);
 
-        $DRIVER = new Drivers($TAILORMADETOURS->driver);
-        $VISITOR = new Visitor($TAILORMADETOURS->visitor);
+        $DRIVER = new Drivers($driver_id);
+
+        $VISITOR = new Visitor($visitor);
 
 
         $driver_email = $DRIVER->email;
@@ -643,7 +644,7 @@ class TailorMadeTours {
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
-                            <title>' . "Tour Sri Lanka - Tailor-Made Tour Booking Confirmation" . '</title>
+                            <title>' . "Tailor-Made Tour New Price Offer | Tour Sri Lanka " . '</title>
                             <style type="text/css">
                                 table {
                                     border: 1px solid #d0d0d0;
@@ -768,7 +769,7 @@ class TailorMadeTours {
                                 <span>Email: info@toursrilanka.travel</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+                            <h2 class="topic">Tailor-Made Tour New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
                             
                             
@@ -868,6 +869,7 @@ class TailorMadeTours {
                             </table>
                             </body>
                         </html>';
+
 
         if (mail($driver_email, $subject, $html, $headers)) {
             return TRUE;
@@ -1172,8 +1174,8 @@ class TailorMadeTours {
         }
     }
 
-    public static function sendSetPriceEmailToVisitor($tailormade_tour_id) {
-
+    public static function sendSetPriceEmailToVisitor($tailormade_tour_id, $driverid, $price) {
+        
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
@@ -1189,13 +1191,13 @@ class TailorMadeTours {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $TAILORMADETOURS = new TailorMadeTours($tailormade_tour_id);
-
-        $DRIVER = new Drivers($TAILORMADETOURS->driver);
+        $DRIVERBOOKING = new DriverBooking();
+        $DRIVER = new Drivers($driverid);
         $VISITOR = new Visitor($TAILORMADETOURS->visitor);
 
 
         $visitor_email = $VISITOR->email;
-
+       
 
         $destination_list = '';
         $places = unserialize($TAILORMADETOURS->places);
@@ -1332,10 +1334,10 @@ class TailorMadeTours {
                                 <img src=" https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
 
                             </div>
-                            <h2 class="topic">Tailor Made Tour Booking | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+                            <h2 class="topic">Tailor Made New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
-                                <h4>' . $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for your booking (#' . $TAILORMADETOURS->id . ').</h4>
+                                <h4>' . $DRIVER->name . ' has offer $ ' . $price . ' for your booking (#' . $TAILORMADETOURS->id . ').</h4>
                             </div>
                             
                             <table class="booking-details">
@@ -1434,15 +1436,15 @@ class TailorMadeTours {
         }
     }
 
-    public static function sendSetPriceMessageToVisitor($tailormade_tour_id) {
+    public static function sendSetPriceMessageToVisitor($tailormade_tour_id,$driverid, $price) {
 
         $TAILORMADETOURS = new TailorMadeTours($tailormade_tour_id);
         $MESSAGE = new DriverAndVisitorMessages(NULL);
-        $DRIVER = new Drivers($TAILORMADETOURS->driver);
+        $DRIVER = new Drivers($driverid);
 
         $MESSAGE->driver = $TAILORMADETOURS->driver;
         $MESSAGE->visitor = $TAILORMADETOURS->visitor;
-        $MESSAGE->messages = $DRIVER->name . ' has offer $ ' . $TAILORMADETOURS->price . ' for you booking (#' . $TAILORMADETOURS->id . ')';
+        $MESSAGE->messages = $DRIVER->name . ' has offer $ ' . $price . ' for you booking (#' . $TAILORMADETOURS->id . ')';
         $MESSAGE->sender = 'driver';
         $result = $MESSAGE->create();
 
