@@ -1071,8 +1071,8 @@ class Booking {
         }
     }
     
-    public static function sendSetPriceEmailToVisitor($bookingid) {
-        dd($bookingid);
+    public static function sendSetPriceEmailToVisitor($bookingid,$driverid,$tourid,$visitorid,$price) {
+      
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
@@ -1088,10 +1088,10 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $BOOKING = new Booking($bookingid);
-
-        $DRIVER = new Drivers($BOOKING->driver);
-        $VISITOR = new Visitor($BOOKING->visitor);
-        $TOUR = new TourPackages($BOOKING->tour_package);
+    
+        $DRIVER = new Drivers($driverid);
+        $VISITOR = new Visitor($visitorid);
+        $TOUR = new TourPackages($tourid);
 
 
         $visitor_email = $VISITOR->email;
@@ -1208,7 +1208,7 @@ class Booking {
                             <h2 class="topic">Tour Booking | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
-                                <p>' . $DRIVER->name . ' has offer USD ' . $BOOKING->price . ' for you booking (#' . $BOOKING->id . ').</p>
+                                <p>' . $DRIVER->name . ' has offer USD ' . $price . ' for you booking (#' . $BOOKING->id . ').</p>
                                 
                             </div>
                             
