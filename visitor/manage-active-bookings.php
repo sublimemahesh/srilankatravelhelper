@@ -61,7 +61,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                     <th>Booking ID</th>
                                                     <th>Booked At</th>                               
                                                     <th>Driver</th>
-                                                    <th>Tour Package </th>
+                                                    <!--<th>Tour Package </th>-->
                                                     <th>Price </th>
                                                     <th>Option</th>
                                                 </tr>
@@ -72,7 +72,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                     <th>Booking ID</th>
                                                     <th>Booked At</th>                               
                                                     <th>Driver</th>
-                                                    <th>Tour Package </th>
+                                                    <!--<th>Tour Package </th>-->
                                                     <th>Price</th>
                                                     <th>Option</th>
                                                 </tr>
@@ -88,7 +88,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                 foreach (DriverBooking::getActiveBookingsByTourBookingId($VISITOR->id) as $key => $booking) {
                                                     $DRIVER = new Drivers($booking['driver_id']);
                                                     $TOUR = new TourPackages($booking['tour_package_id']);
-
+                                                    
                                                     $i++;
                                                     ?>
                                                     <tr id="row_<?php echo $booking['id']; ?>">
@@ -96,15 +96,15 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                         <td><?php echo $booking['tour_booking_id']; ?></td> 
                                                         <td><?php echo $booking['date_time_booked']; ?></td> 
                                                         <td><?php echo $DRIVER->name; ?></td> 
-                                                        <td><?php echo $TOUR->name; ?></td> 
+                                                        <!--<td><?php // echo $TOUR->name; ?></td>--> 
                                                         <td><?php echo $booking['price']; ?></td> 
 
                                                         <td> 
                                                             <a href="view-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
                                                             <a href="edit-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                            <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
-                                                                <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
+                                                                                                                         
                                                             </a>  
+                                                             <a href="#" class="btn btn-success confirm-tailor-made-booking " data-id="<?php echo $DRIVER->id; ?>"  data-booking-id="<?php echo $booking['tour_booking_id']; ?>" >Confirm Booking</a> 
 
 
                                                         </td>
@@ -149,6 +149,7 @@ $VISITOR = new Visitor($_SESSION['id']);
         <script src="js/jquery-datatable.js" type="text/javascript"></script>
         <script src="plugins/datatables-responsive/dataTables.responsive.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
+        <script src="js/confirm-tour-package-booking.js" type="text/javascript"></script>
         <script>
             $(window).load(function () {
                 var width = $(window).width();

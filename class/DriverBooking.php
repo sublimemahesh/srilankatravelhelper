@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -150,7 +150,7 @@ class DriverBooking {
 
     public function getBookingByDriver($driver) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver ";
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND tour_booking_id =0" ;
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
@@ -158,7 +158,7 @@ class DriverBooking {
 
     public function getDetailsByBookingId($driver, $bookingid) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `booking_id`= $bookingid ";
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `booking_id`= $bookingid  AND tour_booking_id =0";
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
@@ -256,5 +256,22 @@ class DriverBooking {
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
+    
+     public function getPackageBookingByDriver($driver) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver " ;
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+      public function getTourDetailsByBookingId($driver, $bookingid) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `booking_id`= $bookingid";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+
+
 
 }
