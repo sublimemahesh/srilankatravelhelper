@@ -51,58 +51,59 @@ $DRIVER = new Drivers($_SESSION['id']);
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Booking ID</th>
-                                                <th>Booked At</th>                               
-                                                <th>Visitor</th>
-                                                <th>Tour Package</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Booking ID</th>
-                                                <th>Booked At</th>                               
-                                                <th>Visitor</th>
-                                                <th>Tour Package</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Booking ID</th>
+                                            <th>Booked At</th>                               
+                                            <th>Visitor</th>
+                                            <th>Tour Package</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Booking ID</th>
+                                            <th>Booked At</th>                               
+                                            <th>Visitor</th>
+                                            <th>Tour Package</th>
+                                            <th>Option</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
 
+                                        <?php
+                                        $i = 0;
+//                                            foreach (Booking::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
+                                        foreach (DriverBooking::getActiveTourBookingsByDriver($DRIVER->id) as $key => $booking) {
+                                            $VISITOR = new Visitor($booking['visitor_id']);
+                                            $TOUR = new TourPackages($booking['tour_package_id']);
+                                            $drBooking = new DriverBooking($booking['id']);
+
+                                            $i++;
+                                            ?>
+                                            <tr id="row_<?php echo $booking['id']; ?>">
+                                                <td><?php echo $i; ?></td> 
+                                                <td><?php echo $booking['tour_booking_id']; ?></td> 
+                                                <td><?php echo $booking['date_time_booked']; ?></td> 
+
+                                                <td><?php echo $VISITOR->name; ?></td> 
+                                                <td><?php echo $TOUR->name; ?></td> 
+                                                <td> 
+                                                    <a href="view-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
+                                                    <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['booking_id']; ?>"  title="Cancel Booking">
+                                                        <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
+                                                    </a>   |
+                                                    <a href="set-price-for-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
+
+                                                </td>
+                                            </tr>
                                             <?php
-                                            $i = 0;
-                                            foreach (Booking::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
-                                                $VISITOR = new Visitor($booking['visitor']);
-                                                $TOUR = new TourPackages($booking['tour_package']);
-                                                
-                                                $i++;
-                                                ?>
-                                                <tr id="row_<?php echo $booking['id']; ?>">
-                                                    <td><?php echo $i; ?></td> 
-                                                    <td><?php echo $booking['id']; ?></td> 
-                                                    <td><?php echo $booking['date_time_booked']; ?></td> 
-                                                  
-                                                    <td><?php echo $VISITOR->name; ?></td> 
-                                                    <td><?php echo $TOUR->name; ?></td> 
-                                                    <td> 
-                                                        <a href="view-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
-                                                        <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
-                                                            <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
-                                                        </a>   |
-                                                        <a href="set-price-for-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-warning" title="Set Price"><i class="glyphicon glyphicon-usd"></i></a>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                
-                                            }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        }
+                                        ?>   
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

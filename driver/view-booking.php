@@ -88,10 +88,7 @@ $TOUR = new TourPackages($BOOKING->tour_package);
                                             <th>  No of Children </th>
                                             <td> <?php echo $BOOKING->no_of_children; ?> </td>
                                         </tr>
-                                        <tr>
-                                            <th>  Price </th>
-                                            <td>  <?php echo 'USD ' . $BOOKING->price; ?> </td>
-                                        </tr>
+                                       
                                         <tr>
                                             <th>  Status </th>
                                             <td>  <?php echo ucwords($BOOKING->status); ?> </td>

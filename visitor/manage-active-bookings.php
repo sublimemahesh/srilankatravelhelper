@@ -53,7 +53,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                             </div>
                             <div class="panel-body">
                                 <div class="col-lg-12">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
                                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable bookingtable">
                                             <thead>
                                                 <tr>
@@ -61,7 +61,8 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                     <th>Booking ID</th>
                                                     <th>Booked At</th>                               
                                                     <th>Driver</th>
-                                                    <th>Tour Package</th>
+                                                    <th>Tour Package </th>
+                                                    <th>Price </th>
                                                     <th>Option</th>
                                                 </tr>
                                             </thead>
@@ -71,29 +72,36 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                     <th>Booking ID</th>
                                                     <th>Booked At</th>                               
                                                     <th>Driver</th>
-                                                    <th>Tour Package</th>
+                                                    <th>Tour Package </th>
+                                                    <th>Price</th>
                                                     <th>Option</th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
                                                 <?php
                                                 $i = 0;
-                                                foreach (Booking::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
-                                                    $DRIVER = new Drivers($booking['driver']);
-                                                    $TOUR = new TourPackages($booking['tour_package']);
+//                                                $tourid =  Booking::getActiveBookingsByVisitor($VISITOR->id);
+//                                                foreach (Booking::getActiveBookingsByVisitor($VISITOR->id) as $key => $booking) {
+
+                                                $bookingid = Booking::getActiveBookingsByVisitor($VISITOR->id);
+
+                                                foreach (DriverBooking::getActiveBookingsByTourBookingId($VISITOR->id) as $key => $booking) {
+                                                    $DRIVER = new Drivers($booking['driver_id']);
+                                                    $TOUR = new TourPackages($booking['tour_package_id']);
 
                                                     $i++;
                                                     ?>
                                                     <tr id="row_<?php echo $booking['id']; ?>">
                                                         <td><?php echo $i; ?></td> 
-                                                        <td><?php echo $booking['id']; ?></td> 
+                                                        <td><?php echo $booking['tour_booking_id']; ?></td> 
                                                         <td><?php echo $booking['date_time_booked']; ?></td> 
-
                                                         <td><?php echo $DRIVER->name; ?></td> 
                                                         <td><?php echo $TOUR->name; ?></td> 
+                                                        <td><?php echo $booking['price']; ?></td> 
+
                                                         <td> 
-                                                            <a href="view-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
-                                                            <a href="edit-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
+                                                            <a href="view-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a>  |  
+                                                            <a href="edit-booking.php?id=<?php echo $booking['tour_booking_id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
                                                             <a href="#" class="cancel-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Booking">
                                                                 <i class="waves-effect glyphicon glyphicon-remove-circle" data-type="cancel"></i>
                                                             </a>  
