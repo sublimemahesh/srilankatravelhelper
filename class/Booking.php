@@ -1331,4 +1331,23 @@ class Booking {
         return $result;
 
     }
+     public function confirmPackageBooking($driverid, $price, $booking) {
+     
+        $query = "UPDATE  `tailormade_tours` SET "
+                . "`driver` ='" . $driverid . "', "
+                . "`price` ='" . $price . "', "
+                . "`status` ='confirmed' "
+                . "WHERE `id` = '" . $this->id . "'";
+             
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return $this->__construct($this->id);
+        } else {
+            return FALSE;
+        }
+    }
+    
 }
