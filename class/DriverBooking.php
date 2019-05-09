@@ -89,7 +89,7 @@ class DriverBooking {
         $query = "UPDATE  `driver_booking` SET "
                 . "`price` ='" . $this->price . "' "
                 . "WHERE `booking_id` = '" . $this->tour_booking_id . "' AND `driver_id` = '" . $this->driver_id . "' ";
-        dd($query);
+       
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -235,7 +235,7 @@ class DriverBooking {
         $query = "UPDATE  `driver_booking` SET "
                 . "`price` ='" . $this->price . "' "
                 . "WHERE `tour_booking_id` = '" . $booking_id . "' AND `driver_id` = '" . $driverid . "' ";
-
+        
         $db = new Database();
  
         $result = $db->readQuery($query);
