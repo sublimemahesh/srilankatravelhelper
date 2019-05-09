@@ -31,19 +31,18 @@ if ($_POST['option'] === 'ADDDETAILS') {
 
     $explode = explode(',', $drivers);
 
-//
+
     $count = 0;
-//
     foreach ($explode as $driver_id) {
 ////   $result1 = $DBOOKING->create($driver_id,$booking_id);
-//
         $cont++;
         if ($cont == 4) {
 //            echo 'error';
         } else {
             $result1 = $DBOOKING->create($driver_id, $booking_id,$visitor);
-            $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($result->id);
-        }
+           
+            $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($booking_id,$driver_id,$visitor);
+        } 
     }
 
 

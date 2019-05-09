@@ -130,7 +130,7 @@ class DriverBooking {
     }
 
     public function DeleteByBookingId($booking) {
-
+     
         $query = "DELETE FROM `driver_booking` WHERE `booking_id`= $booking";
         
         $db = new Database();
@@ -147,6 +147,14 @@ class DriverBooking {
     public function getBookingByDriver($driver) {
 
         $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver ";
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+    
+     public function getDetailsByBookingId($driver,$bookingid) {
+
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `booking_id`= $bookingid " ;
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;

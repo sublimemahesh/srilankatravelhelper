@@ -20,10 +20,10 @@ if (isset($_POST['set-price'])) {
     if ($VALID->passed()) {
 //        $result = $TBOOKING->setPrice();
         $result = $TSETPRICE->setPrice();
-
+       
         if ($result) {
-            $sendvisitoremail = $TBOOKING->sendSetPriceEmailToVisitor($result->id);
-            $sendmessage = $TBOOKING->sendSetPriceMessageToVisitor($result->id);
+            $sendvisitoremail = $TBOOKING->sendSetPriceEmailToVisitor($result->booking_id,$result->driver_id,$result->price);
+            $sendmessage = $TBOOKING->sendSetPriceMessageToVisitor($result->booking_id,$result->driver_id,$result->price);
 
             if ($sendmessage) {
                 $VISITOR = new Visitor($sendmessage->visitor);
