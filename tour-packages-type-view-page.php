@@ -262,7 +262,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                     ?>
 
                                                 </a></h4>
-                                            <span> <i class="fa fa-dollar"></i><?php echo $tour_package['price']; ?></span>
+<!--                                            <span> <i class="fa fa-dollar"></i><?php // echo $tour_package['price']; ?></span>-->
                                             <div class="details">
                                                 <p><?php echo substr($tour_package['description'], 0, 100) . '...'; ?></p>
                                             </div>
