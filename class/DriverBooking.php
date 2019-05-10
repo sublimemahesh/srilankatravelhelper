@@ -70,7 +70,7 @@ class DriverBooking {
 
     public function getActiveBookingsByDriver($driver) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver  ORDER BY `date_time_booked` DESC";
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `tour_booking_id`=0 ORDER BY `date_time_booked` DESC";
 
         $db = new Database();
 
@@ -87,8 +87,8 @@ class DriverBooking {
 
         $query = "UPDATE  `driver_booking` SET "
                 . "`price` ='" . $this->price . "' "
-                . "WHERE `booking_id` = '" . $this->tour_booking_id . "' AND `driver_id` = '" . $this->driver_id . "' ";
-
+                . "WHERE `booking_id` = '" . $this->booking_id . "' AND `driver_id` = '" . $this->driver_id . "' ";
+      
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -249,7 +249,7 @@ class DriverBooking {
     public function getTourBookingPriceById($driverid, $tourid) {
 
         $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driverid AND `tour_booking_id`= $tourid ";
-
+ 
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;

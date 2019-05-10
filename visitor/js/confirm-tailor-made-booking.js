@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.confirm-tailor-made-booking').click(function () {
-      
+       
         var id = $(this).attr("data-id");
         var bookingid = $(this).attr("data-booking-id");
           

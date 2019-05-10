@@ -22,13 +22,13 @@ if (isset($_POST['set-price'])) {
         $result = $TSETPRICE->setPackagePrice($_SESSION['id'], $_POST['id']);
 
         $TSETPRICE = DriverBooking::getTourBookingPriceById($_SESSION['id'], $result);
-       
+    
         $tbooking = $TSETPRICE['tour_booking_id'];
         $driverid = $TSETPRICE['driver_id'];
         $tourid = $TSETPRICE['tour_package_id'];
-        $visitorid = $TSETPRICE['tour_package_id'];
+        $visitorid = $TSETPRICE['visitor_id'];
         $price = $TSETPRICE['price'];
- 
+   
         if ($result) {
             $sendvisitoremail = $BOOKING->sendSetPriceEmailToVisitor($tbooking,$driverid,$tourid,$visitorid,$price);
 

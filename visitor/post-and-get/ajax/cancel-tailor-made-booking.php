@@ -8,7 +8,8 @@ if ($_POST['option'] == 'cancel') {
     $BOOKING = new TailorMadeTours($_POST['id']);
 
     $result = $BOOKING->cancelBooking();
-
+  
+    $result = DriverBooking::DeleteByBookingId($result->id);
     if ($result) {
 
         $data = array("status" => TRUE);
