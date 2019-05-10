@@ -51,12 +51,20 @@ $VISITOR = new Visitor($_SESSION['id']);
                                 Manage Bookings
                             </div>
                             <div class="panel-body">
-                                <div class="col-xs-12 col-md-4 col-md-offset-2 text-center">
+                                <div class="col-xs-12 col-md-4  text-center">
                                     <div class="manage-box box-green">
                                         <div class="manage-circle box-green">
                                             <i class="glyphicon glyphicon-check"></i>
                                         </div>
                                         <h3><a href="manage-active-bookings.php" target="new">Active Bookings</a></h3>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4  text-center">
+                                    <div class="manage-box box-blue">
+                                        <div class="manage-circle box-blue">
+                                            <i class="glyphicon glyphicon-check"></i>
+                                        </div>
+                                        <h3><a href="manage-confirmed-tour-bookings.php" target="new">Confirmed Bookings</a></h3>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-4 text-center">

@@ -24,9 +24,9 @@ if ($_POST['option'] == 'confirm') {
 //    dd($result);
     if ($result) {
    
-        $sendvisitoremail = $BOOKING->sendBookingConfirmedEmailToDriver($result->id);
+        $sendvisitoremail = $BOOKING->sendTourBookingConfirmedEmailToDriver($result->id);
      
-        $result = DriverBooking::DeleteByBookingId($result->id);
+        $result = DriverBooking::DeleteByTourBookingId($result->id);
 
         $data = array("status" => TRUE);
         header('Content-type: application/json');
