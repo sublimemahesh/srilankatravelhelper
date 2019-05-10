@@ -8,7 +8,7 @@ if ($_POST['option'] == 'cancel') {
     $BOOKING = new Booking($_POST['id']);
 
     $result = $BOOKING->cancelBooking();
-
+    $result = DriverBooking::DeleteByTourBookingId($result->id);
 
     if ($result) {
 

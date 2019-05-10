@@ -11,13 +11,13 @@ if ($_POST['option'] == 'confirm') {
     $BOOKING = new Booking($_POST['bookingid']);
     $driver = DriverBooking::getBookingByDriver($driverbooking);
     $price = DriverBooking::getTourDetailsByBookingId($driverbooking, $bookingid);
-  
+   
 //    $dr = $driver->getActiveBookingsByDriver($driverbooking);
 
     $offrtprice = $price['price'];
-    $driverid = $driver['driver_id'];
-    $booking = $driver['booking_id'];
-
+    $driverid = $price['driver_id'];
+    $booking = $price['tour_booking_id'];
+    
     $result = $BOOKING->confirmPackageBooking($driverid, $offrtprice, $booking);
     
 //   

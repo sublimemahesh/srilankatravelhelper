@@ -75,7 +75,9 @@ $DRIVER = new Drivers($_SESSION['id']);
 
                                         <?php
                                         $i = 0;
-                                        foreach (Booking::getActiveBookingsByDriver($DRIVER->id) as $key => $booking) {
+                                       
+                                        foreach (Booking::getConfimedBookingsByDriver($DRIVER->id) as $key => $booking) {
+                                            
                                             $VISITOR = new Visitor($booking['visitor']);
                                             $TOUR = new TourPackages($booking['tour_package']);
 

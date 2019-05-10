@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Description of Booking
  *
  * @author WJKN
  */
 class Booking {
+
     public $id;
     public $date_time_booked;
     public $tour_package;
@@ -47,7 +49,7 @@ class Booking {
     public function create() {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
-        
+
         $status = 'active';
 
         $query = "INSERT INTO `booking` (`date_time_booked`,`tour_package`,`visitor`,`no_of_adults`,`no_of_children`,`driver`,`start_date`,`end_date`,`message`,`price`,`status`) VALUES  ('"
@@ -110,7 +112,7 @@ class Booking {
             return FALSE;
         }
     }
-    
+
     public function setPrice() {
 
         $query = "UPDATE  `booking` SET "
@@ -140,7 +142,7 @@ class Booking {
     public function getActiveBookingsByDriver($driver) {
 
         $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` like 'active' ORDER BY `date_time_booked` DESC";
-
+        dd($query);
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -151,7 +153,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function getCanceledBookingsByDriver($driver) {
 
         $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` = 'canceled' ORDER BY `date_time_booked` DESC";
@@ -166,7 +168,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function getActiveBookingsByVisitor($visitor) {
 
         $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor AND `status` like 'active' ORDER BY `date_time_booked` DESC";
@@ -181,7 +183,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function getCanceledBookingsByVisitor($visitor) {
 
         $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor AND `status` = 'canceled' ORDER BY `date_time_booked` DESC";
@@ -196,7 +198,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function getActiveBookings() {
 
         $query = "SELECT * FROM `booking` WHERE `status` like 'active' ORDER BY `date_time_booked` DESC";
@@ -211,7 +213,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function getCanceledBookings() {
 
         $query = "SELECT * FROM `booking` WHERE `status` = 'canceled' ORDER BY `date_time_booked` DESC";
@@ -226,7 +228,7 @@ class Booking {
         }
         return $array_res;
     }
-    
+
     public function cancelBooking() {
 
         $query = "UPDATE  `booking` SET "
@@ -243,13 +245,13 @@ class Booking {
             return FALSE;
         }
     }
-    
+
     public static function sendBookingConfirmationEmailToVisitor($bookingid) {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@galle.website';
-        $reply = 'info@galle.website';
+        $from = 'info@toursrilanka.travel';
+        $reply = 'info@toursrilanka.travel';
 
         $subject = "Booking Confirmation | Tour Sri Lanka | " . $bookingid . "";
         $site = 'travelhelper.galle.website';
@@ -261,11 +263,11 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $BOOKING = new Booking($bookingid);
-        
-        $DRIVER = new Drivers($BOOKING->driver);
+
+
         $VISITOR = new Visitor($BOOKING->visitor);
         $TOUR = new TourPackages($BOOKING->tour_package);
-        
+
         $visitor_email = $VISITOR->email;
 
 
@@ -434,46 +436,7 @@ class Booking {
                                     <td>Tour Package</td>
                                     <td>: ' . $TOUR->name . '</td>
                                 </tr>
-                                <tr>
-                                    <td>Price</td>
-                                    <td>: LKR ' . $TOUR->price . '</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Days</td>
-                                    <td>: 7</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Night</td>
-                                    <td>: 6</td>
-                                </tr><tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Driver Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Driver name</td>
-                                    <td>: ' . $DRIVER->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $DRIVER->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $DRIVER->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Driving Licence Number</td>
-                                    <td>: ' . $DRIVER->driving_licence_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                
-
+                               
                             </table>
                             
                             <br>
@@ -518,23 +481,24 @@ class Booking {
                             </table>
                             </body>
                         </html>';
-        
+        ;
+
         if (mail($visitor_email, $subject, $html, $headers)) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-    
-    public static function sendBookingConfirmationEmailToDriver($bookingid,$driver_id, $visitor) {
+
+    public static function sendBookingConfirmationEmailToDriver($driver_id,$bookingid,$visitor) {
 
         //----------------------Company Information---------------------
+      
+        $from = 'info@toursrilanka.travel';
+        $reply = 'info@toursrilanka.travel';
 
-        $from = 'info@galle.website';
-        $reply = 'info@galle.website';
-
-        $subject = "Booking Confirmation To Driver | Tour Sri Lanka | " . $bookingid . "";
-        $site = 'travelhelper.galle.website';
+        $subject = "Tour Package New Price Offer To Driver | Tour Sri Lanka | " . $bookingid . "";
+        $site = 'www.toursrilanka.travel';
 
         // mandatory headers for email message, change if you need something different in your setting.
         $headers = "From: " . $from . "\r\n";
@@ -543,13 +507,13 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $BOOKING = new Booking($bookingid);
-        
+
         $DRIVER = new Drivers($driver_id);
         $VISITOR = new Visitor($visitor);
         $TOUR = new TourPackages($BOOKING->tour_package);
-        
-        $driver_email = $DRIVER->email;
 
+        $driver_email = $DRIVER->email;
+      
 
         if ($BOOKING->message) {
             $specialrequest = ' <tr>
@@ -657,6 +621,26 @@ class Booking {
                                     .footer-td2 {width: 50%;}
                                     .table-td1 {width: 20%;}
                                 }
+                                 a.button {
+                                    background-color: #66676b;
+                                    top: 0;
+                                    padding: 9px 20px;
+                                    color: #fff;
+                                    position: relative;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    display: inline-block;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+                                    margin-right: 6px;
+                                    overflow: hidden;
+                                    border: 0;
+                                    border-radius: 50px;
+                                }
+                                a.button{
+                                background-color: #0dce38;
+                                color: #fff;
+                                }
                                 
                             </style>
                         </head>
@@ -668,7 +652,7 @@ class Booking {
                                 <span>Email: mail@travelhelper.lk</span><br/>
                                 <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
                             </div>
-                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
+                            <h2 class="topic">Tour Package New Price Offer To Driver | Tour Sri Lanka | #' . $bookingid . '</h2>
                             <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
                             
                             
@@ -709,22 +693,7 @@ class Booking {
                                     <td>Tour Package</td>
                                     <td>: ' . $TOUR->name . '</td>
                                 </tr>
-                                <tr>
-                                    <td>Price</td>
-                                    <td>: LKR ' . $TOUR->price . '</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Days</td>
-                                    <td>: 7</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Night</td>
-                                    <td>: 6</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                                            
                                 
 
                             </table>
@@ -738,6 +707,12 @@ class Booking {
                                 </tr>
                                 ' . $specialrequest . '
                                 <tr>
+                                 <tr>
+                                    <td colspan="2"><strong><u> Click here Set Your Price For Booking </u></strong></td>
+                                </tr>
+                                <tr>
+                                    <a href="https://www.toursrilanka.travel/driver/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a>
+                                </tr>
                                     <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
                                 </tr>
                                 <tr>
@@ -771,14 +746,14 @@ class Booking {
                             </table>
                             </body>
                         </html>';
-        
+
         if (mail($driver_email, $subject, $html, $headers)) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-    
+
     public static function sendBookingConfirmationEmailToAdmin($bookingid) {
 
         //----------------------Company Information---------------------
@@ -796,11 +771,11 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $BOOKING = new Booking($bookingid);
-        
+
         $DRIVER = new Drivers($BOOKING->driver);
         $VISITOR = new Visitor($BOOKING->visitor);
         $TOUR = new TourPackages($BOOKING->tour_package);
-        
+
         $visitor_email = $VISITOR->email;
 
 
@@ -1063,16 +1038,16 @@ class Booking {
                             </table>
                             </body>
                         </html>';
-        
+
         if (mail($visitor_email, $subject, $html, $headers)) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-    
-    public static function sendSetPriceEmailToVisitor($bookingid,$driverid,$tourid,$visitorid,$price) {
-      
+
+    public static function sendSetPriceEmailToVisitor($bookingid, $driverid, $tourid, $visitorid, $price) {
+
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
@@ -1088,15 +1063,15 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $BOOKING = new Booking($bookingid);
-    
+
         $DRIVER = new Drivers($driverid);
         $VISITOR = new Visitor($visitorid);
         $TOUR = new TourPackages($tourid);
 
 
         $visitor_email = $VISITOR->email;
-
-
+      
+       
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
@@ -1194,6 +1169,26 @@ class Booking {
                                     .footer-td2 {width: 50%;}
                                     .table-td1 {width: 20%;}
                                 }
+                                 a.button {
+                                    background-color: #66676b;
+                                    top: 0;
+                                    padding: 9px 20px;
+                                    color: #fff;
+                                    position: relative;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    display: inline-block;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+                                    margin-right: 6px;
+                                    overflow: hidden;
+                                    border: 0;
+                                    border-radius: 50px;
+                                }
+                                a.button{
+                                background-color: #0dce38;
+                                color: #fff;
+                                }
                                 
                             </style>
                         </head>
@@ -1272,20 +1267,13 @@ class Booking {
                             </table>
                             
                             <br>
+                          
                             <table class="booking-details">
-                                
                                 <tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+                                    <td colspan="2"><strong><u> Click here Confirm Your booking </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
-                                        </ul>
-                                    </td>
+                                    <a href="https://www.toursrilanka.travel/visitor/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a>
                                 </tr>
                             </table>
                             
@@ -1315,30 +1303,30 @@ class Booking {
             return FALSE;
         }
     }
-    
+
     public static function sendSetPriceMessageToVisitor($bookingid) {
 
         $BOOKING = new Booking($bookingid);
         $MESSAGE = new DriverAndVisitorMessages(NULL);
         $DRIVER = new Drivers($BOOKING->driver);
-        
+
         $MESSAGE->driver = $BOOKING->driver;
         $MESSAGE->visitor = $BOOKING->visitor;
-        $MESSAGE->messages = $DRIVER->name.' has offer USD ' . $BOOKING->price . ' for you booking (#' . $BOOKING->id . ')';
+        $MESSAGE->messages = $DRIVER->name . ' has offer USD ' . $BOOKING->price . ' for you booking (#' . $BOOKING->id . ')';
         $MESSAGE->sender = 'driver';
         $result = $MESSAGE->create();
 
         return $result;
-
     }
-     public function confirmPackageBooking($driverid, $price, $booking) {
-     
+
+    public function confirmPackageBooking($driverid, $price, $booking) {
+        
         $query = "UPDATE  `booking` SET "
                 . "`driver` ='" . $driverid . "', "
                 . "`price` ='" . $price . "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-        
+  
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -1349,7 +1337,8 @@ class Booking {
             return FALSE;
         }
     }
-     public static function sendTourBookingConfirmedEmailToDriver($tailormade_tour_id) {
+
+    public static function sendTourBookingConfirmedEmailToDriver($tailormade_tour_id) {
 
         //----------------------Company Information---------------------
 
@@ -1366,13 +1355,13 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $TAILORMADETOURS = new Booking($tailormade_tour_id);
-
+        
         $DRIVER = new Drivers($TAILORMADETOURS->driver);
         $VISITOR = new Visitor($TAILORMADETOURS->visitor);
 
 
         $driver_email = $DRIVER->email;
-
+      
         $html = '<!DOCTYPE html>
                     <html>
                         <head>
@@ -1549,7 +1538,8 @@ class Booking {
             return FALSE;
         }
     }
-     public function getConfimedBookingsByVisitor($visitor) {
+
+    public function getConfimedBookingsByVisitor($visitor) {
 
         $query = "SELECT * FROM `booking` WHERE `visitor`= $visitor AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
 
@@ -1564,4 +1554,19 @@ class Booking {
         return $array_res;
     }
     
+     public function getConfimedBookingsByDriver($driver) {
+
+        $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
 }

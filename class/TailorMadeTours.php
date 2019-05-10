@@ -284,13 +284,13 @@ class TailorMadeTours {
     }
 
     public function confirmBooking($driverid, $price, $booking) {
-     
+    
         $query = "UPDATE  `tailormade_tours` SET "
                 . "`driver` ='" . $driverid . "', "
                 . "`price` ='" . $price . "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-             
+               
         $db = new Database();
 
         $result = $db->readQuery($query);

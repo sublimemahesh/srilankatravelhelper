@@ -10,7 +10,7 @@ if (isset($_POST['set-price'])) {
 
 
     $VALID = new Validator();
-
+    
 //    $TBOOKING->price = $_POST['price'];
     $TSETPRICE->price = $_POST['price'];
     $VALID->check($TSETPRICE, [

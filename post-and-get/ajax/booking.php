@@ -27,7 +27,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
     $DBOOKING->tour_booking_id = $result->id;
     $tour_booking_id = $result->id;
     $drivers = $_POST['driver'];
-
+    
     $explode = explode(',', $drivers);
 
     $count = 0;
@@ -36,10 +36,11 @@ if ($_POST['option'] === 'ADDDETAILS') {
         if ($cont == 4) {
             
         } else {
+           
             $result1 = $DBOOKING->createTourBooking($driver_id, $tour_booking_id, $visitor,$tourpackId);
-
+ 
 //            $senddriveremail = $TAILORMADETOURS->sendBookingConfirmationEmailToDriver($booking_id, $driver_id, $visitor);
-            $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($driver_id, $booking_id, $visitor);
+            $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($driver_id, $tour_booking_id, $visitor);
         }
     }
 
@@ -50,6 +51,7 @@ if ($_POST['option'] === 'ADDDETAILS') {
 //        $senddriveremail = $BOOKING->sendBookingConfirmationEmailToDriver($result->id);
 //        $sendadminemail = $BOOKING->sendBookingConfirmationEmailToAdmin($result->id);
 //        if ($sendvisitoremail && $senddriveremail && $sendadminemail) {
+      
         if ($sendvisitoremail) {
             $res = 'TRUE';
         } else {

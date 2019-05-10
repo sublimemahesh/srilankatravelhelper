@@ -89,7 +89,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                 <td><?php echo $DRIVER->name ?></td> 
                                                 <td><?php echo 'USD ' . $booking['price']; ?></td> 
 
-                                                <td> dd
+                                                <td> 
                                                     <a href="view-tailor-made-booking.php?id=<?php echo $booking['booking_id']; ?>" class="op-link btn btn-sm btn-info" title="View Booking"><i class="glyphicon glyphicon-eye-open"></i></a> |  
                                                     <a href="edit-tailor-made-booking.php?id=<?php echo $booking['id']; ?>" class="op-link btn btn-sm btn-success" title="Edit Booking"><i class="glyphicon glyphicon-pencil"></i></a>  |  
 <!--                                                    <a href="#" class="cancel-tailor-made-booking btn btn-sm btn-danger" data-id="<?php echo $booking['id']; ?>"  title="Cancel Tailor-made Booking">
