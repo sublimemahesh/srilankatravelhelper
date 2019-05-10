@@ -1,5 +1,4 @@
 ﻿<?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -89,7 +88,7 @@ class DriverBooking {
         $query = "UPDATE  `driver_booking` SET "
                 . "`price` ='" . $this->price . "' "
                 . "WHERE `booking_id` = '" . $this->tour_booking_id . "' AND `driver_id` = '" . $this->driver_id . "' ";
-       
+
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -150,7 +149,7 @@ class DriverBooking {
 
     public function getBookingByDriver($driver) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND tour_booking_id =0" ;
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND tour_booking_id =0";
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
@@ -235,43 +234,57 @@ class DriverBooking {
         $query = "UPDATE  `driver_booking` SET "
                 . "`price` ='" . $this->price . "' "
                 . "WHERE `tour_booking_id` = '" . $booking_id . "' AND `driver_id` = '" . $driverid . "' ";
-        
+
         $db = new Database();
- 
+
         $result = $db->readQuery($query);
-        
+
         if ($result) {
             return $booking_id;
         } else {
             return FALSE;
         }
-       
     }
 
     public function getTourBookingPriceById($driverid, $tourid) {
-     
+
         $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driverid AND `tour_booking_id`= $tourid ";
 
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
-    
-     public function getPackageBookingByDriver($driver) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver " ;
-        $db = new Database();
-        $result = mysql_fetch_array($db->readQuery($query));
-        return $result;
-    }
-      public function getTourDetailsByBookingId($driver, $bookingid) {
+    public function getPackageBookingByDriver($driver) {
 
-        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `booking_id`= $bookingid";
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver ";
         $db = new Database();
         $result = mysql_fetch_array($db->readQuery($query));
         return $result;
     }
 
+    public function getTourDetailsByBookingId($driver, $bookingid) {
 
+        $query = "SELECT * FROM `driver_booking` WHERE `driver_id`= $driver AND `tour_booking_id`= $bookingid";
+
+        $db = new Database();
+        $result = mysql_fetch_array($db->readQuery($query));
+        return $result;
+    }
+
+    public function DeleteByTourBookingId($booking) {
+
+        $query = "DELETE FROM `driver_booking` WHERE `tour_booking_id`= $booking";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 
 }
