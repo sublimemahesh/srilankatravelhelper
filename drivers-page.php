@@ -60,7 +60,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($sortdriver != 0) {
                                 $DRIVER = new Drivers($sortdriver);
                                 ?>
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
 
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
@@ -161,7 +161,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if (!in_array($driverid, $SORTOFDRIVERS)) {
                                 $DRIVER = new Drivers($driverid);
                                 ?>
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-duration="3500">
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
                                         <div class="listing-item">
@@ -246,7 +246,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                                         <div class="driver-p" style="">
                                             <p class="text-center " id="">
-                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+        <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
                                             </p>
                                         </div>
                                     </a>
@@ -265,14 +265,14 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="col-md-6 col-md-offset-3">
                             <!-- Pagination -->
                             <div class="pagination-container margin-top-20 margin-bottom-40">
-                                <?php // Drivers::showPaginationOfDrivers($setLimit, $page);      ?>
+<?php // Drivers::showPaginationOfDrivers($setLimit, $page);      ?>
                             </div>
                         </div>
                     </div>
                     <!-- Pagination / End -->
                 </div>
             </section>
-            <?php include './footer.php'; ?>
+<?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts
