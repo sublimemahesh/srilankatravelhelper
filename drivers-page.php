@@ -50,90 +50,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
             <section class="fullwidth  padding-top-70 padding-bottom-0" data-background-color="#f8f8f8">
                 <div class="container">
                     <div class="row">
-                        <?php
-                        $DRIVERS = Drivers::getDriversForPagination($pageLimit, $setLimit);
-                        foreach ($DRIVERS as $key => $driver) {
-                            ?>
-                            <!--                            <div class="col-md-4">
-                                                            <a href="drivers-view-page.php?id=<?php echo $driver['id']; ?>" class="listing-item-container">
-                            
-                                                                <div class="listing-item">
-                            <?php
-                            foreach (DriverPhotos::getDriverPhotosByDriver($driver['id']) as $key => $photo) {
-                                if ($key == 0) {
-                                    ?>
-                                                                                                                                                                                                    <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                    <?php
-                                }
-                            }
-                            ?> 
-                                                                </div>
-                            
-                                                                <div class="img-pad">
-                            <?php
-                            if (empty($driver['profile_picture'])) {
-                                ?>
-                                                                                                                                    <img src="upload/driver/driver.png" alt="Profile Picture" class="img-circle driver-list"/>
-                                <?php
-                            } else {
-                                if ($driver['facebookID'] && substr($driver['profile_picture'], 0, 5) === "https") {
-                                    ?>
-                                                                                                                                                                                                    <img src="<?php echo $driver['profile_picture']; ?>"  alt="Profile Picture" class="img-circle driver-list"/>
-                                    <?php
-                                } else {
-                                    ?>
-                                                                                                                                                                                                    <img src="upload/driver/<?php echo $driver['profile_picture']; ?>" alt="Profile Picture" class="img-circle driver-list"/>
-                                    <?php
-                                }
-                            }
-                            ?>
-                                                                </div>
-                                                                <div class="driver-name text-left"> 
-                            <?php echo $driver['name']; ?>
-                                                                </div>
-                                                                <div class="star-rating-fa text-right"> 
-                            <?php
-                            $REVIEWS = Reviews::getTotalReviewsOfDriver($driver['id']);
 
-                            $divider = $REVIEWS['count'];
-                            $sum = $REVIEWS['sum'];
-
-                            if ($divider == 0) {
-                                for ($j = 1; $j <= 5; $j++) {
-                                    ?>
-                                                                                                                                                                                                    <i class="fa fa-star-o"></i>
-                                    <?php
-                                }
-                                $sum = 0;
-                            } else {
-                                $stars = $sum / $divider;
-
-                                for ($i = 1; $i <= $stars; $i++) {
-                                    ?>
-                                                                                                                                                                                                    <i class="fa fa-star"></i>
-                                    <?php
-                                }
-                                for ($j = $i; $j <= 5; $j++) {
-                                    ?>
-                                                                                                                                                                                                    <i class="fa fa-star-o"></i>
-                                    <?php
-                                }
-                            }
-                            ?>
-                                                                    <div class="rating-counter">(<?php echo $divider; ?> reviews)</div><br/>
-                                                                </div>
-                            
-                                                                <div class="driver-p" style="">
-                                                                    <p class="text-center " id="">
-                            <?php echo substr($driver['short_description'], 0, 155) . '...'; ?>
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                                                        </div>-->
-
-                            <?php
-                        }
-                        ?>
                         <?php
 //                        $SORTOFDRIVERS = Reviews::getDriversSortByReviews($pageLimit, $setLimit);
                         $SORTOFDRIVERS = Reviews::getDriversSortByReviews();
@@ -143,7 +60,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if ($sortdriver != 0) {
                                 $DRIVER = new Drivers($sortdriver);
                                 ?>
-                                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-duration="3500" data-aos-delay="300">
+                                <div class="col-md-4 col-sm-6">
 
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
@@ -230,7 +147,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
 
                                         <div class="driver-p" style="">
                                             <p class="text-center " id="">
-        <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
                                             </p>
                                         </div>
                                     </a>
@@ -244,7 +161,7 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                             if (!in_array($driverid, $SORTOFDRIVERS)) {
                                 $DRIVER = new Drivers($driverid);
                                 ?>
-                                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-duration="3500">
+                                <div class="col-md-4 col-sm-6">
                                     <a href="drivers-view-page.php?id=<?php echo $DRIVER->id; ?>" class="listing-item-container">
 
                                         <div class="listing-item">
@@ -318,16 +235,18 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                                                 }
                                             }
                                             ?>
-                                            <div class="rating-counter">(<?php if ($divider==0) {
-                                                        echo 'No';
-                                                    } else {
-                                                        echo $divider; 
-                                                    }  ?> reviews)</div><br/>
+                                            <div class="rating-counter">(<?php
+                                                if ($divider == 0) {
+                                                    echo 'No';
+                                                } else {
+                                                    echo $divider;
+                                                }
+                                                ?> reviews)</div><br/>
                                         </div>
 
                                         <div class="driver-p" style="">
                                             <p class="text-center " id="">
-        <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
+                                                <?php echo substr($DRIVER->short_description, 0, 140) . '...'; ?>
                                             </p>
                                         </div>
                                     </a>
@@ -346,14 +265,14 @@ $pageLimit = ($page * $setLimit) - $setLimit;
                         <div class="col-md-6 col-md-offset-3">
                             <!-- Pagination -->
                             <div class="pagination-container margin-top-20 margin-bottom-40">
-<?php // Drivers::showPaginationOfDrivers($setLimit, $page);     ?>
+                                <?php // Drivers::showPaginationOfDrivers($setLimit, $page);      ?>
                             </div>
                         </div>
                     </div>
                     <!-- Pagination / End -->
                 </div>
             </section>
-<?php include './footer.php'; ?>
+            <?php include './footer.php'; ?>
         </div>
     </body>
     <!-- Scripts
