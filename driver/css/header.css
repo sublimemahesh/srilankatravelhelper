@@ -1819,7 +1819,7 @@ em.mm-counter + a.mm-fullsubopen {
     background-color: #fcd119;
     border-radius: 15px;
     position: absolute;
-    margin-top: -2px;
+    margin-top: 4px;
     font-weight: 400;
 }
 .header-cart-small .cart-number{

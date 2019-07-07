@@ -1,5 +1,8 @@
 <?php
 include_once '../class/include.php';
+if (!isset($_SESSION)) {
+    session_start();
+}
 $destinations = '';
 $count1 = 0;
 $count = '';
@@ -9,9 +12,9 @@ if (isset($_SESSION['destination_cart'])) {
 }
 
 if ($count1 == 0) {
-    $count = '&nbsp;&nbsp;' . $count1;
+    $count = '' . $count1;
 } else if ($count1 == 1) {
-    $count = '&nbsp;0' . $count1;
+    $count = '0' . $count1;
 } else if ($count1 < 9) {
     $count = '0' . $count1;
 } else {
