@@ -153,7 +153,7 @@ $updateview = Location::updateViewByid($city, $view);
                                     </div>
                                     <div style="margin-top: 0px;padding-bottom: 7px;">
                                         <p class="text-center " id="">
-                                            <?php echo substr($destination['short_description'], 0, 55) . '...'; ?>
+                                            <?php echo substr($destination['short_description'], 0, 45) . '...'; ?>
                                         </p>
                                     </div>
                                     <div class="button-section">

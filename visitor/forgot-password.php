@@ -3,6 +3,9 @@ include_once '../class/include.php';
 $destinations = '';
 $count1 = 0;
 $count = '';
+if (!isset($_SESSION)) {
+    session_start();
+}
 if (isset($_SESSION['destination_cart'])) {
     $destinations = $_SESSION['destination_cart'];
     $count1 = count($destinations);
