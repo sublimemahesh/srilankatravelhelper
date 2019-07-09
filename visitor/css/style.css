@@ -171,6 +171,10 @@ a:hover {
     height: 40px;
     border: 1px solid red;
 }
+.error-msg3.green-box {
+    background: #00ff0c6e;
+    border: 1px solid #00ff0c;
+}
 .error-msg1 {
     padding: 10px;
     background: #ff000080;

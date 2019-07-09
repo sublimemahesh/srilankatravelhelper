@@ -281,207 +281,209 @@ class Booking {
         }
 
         $html = '<!DOCTYPE html>
-                    <html>
-                        <head>
-                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
-                            <style type="text/css">
-                                table {
-                                    border: 1px solid #d0d0d0;
-                                }
-                                th {
-                                    border-bottom: 1px solid #d0d0d0;
-                                    padding: 15px 10px 10px 25px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                td {
-                                    padding: 10px 10px 5px 10px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                ul {
-                                    list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
-                                }
-                                li {
-                                    padding: 5px;
-                                }
-                                img {
-                                    width: 120px;
-                                    margin: 0px auto;
-                                }
-                                .bdr {
-                                    border-left: 1px solid #d0d0d0;
-                                }
-                                .bdr-top {
-                                    border-top: 1px solid #d0d0d0;
-                                }
-                                .bb {
-                                    font-weight: bold;
-                                }
-                                .right {
-                                    text-align: right;
-                                }
-                                .table {
-                                    margin-left:150px;
-                                }
-                                .topic {
-                                    font-size:22px;
-                                    text-align:center;
-                                    color:#00a1ad;
-                                }
-                                .sal {
-                                    margin-left:100px;
-                                }
-                                .desc {
-                                    margin-left:150px;
-                                    text-align:justify;
-                                    margin-right:100px;
-                                }
-                                .bor {
-                                    border:1px solid #000;
-                                }
-                                .booking-details {
-                                    margin-left:150px;
-                                    border: none !important;
-                                    margin-right:100px;
-                                }
-                                .footer{
-                                    width:100%;
-                                    margin-top: 20px;
-                                    background-color:#00a1ad;
-                                    color: #fff;
-                                    padding-top:20px;
-                                    padding-bottom:30px;
-                                }
-                                .footer-tr {
-                                    font-size: 15px;
-                                    line-height: 2px;
-                                }
-                                .footer-td1 {
-                                    width: 150px;
-                                }
-                                .footer-td2 {
-                                    width: 35%;
-                                }
-                                @media (max-width: 480px) {
-                                    ul { font-size: 14px; }
-                                    td { font-size: 12px; }
-                                    .table {margin-left:0px;}
-                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
-                                    .sal {margin-left:10px;}
-                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
-                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
-                                    .footer-tr {font-size: 15px; line-height: 15px;}
-                                    .footer-td1 { width: 0px;}
-                                    .footer-td2 {width: 50%;}
-                                    .table-td1 {width: 20%;}
-                                }
-                                
-                            </style>
-                        </head>
-                        <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '../images/logo/logo.png" alt="Tour Sri lanka"/><br/>
-                              
-                            </div>
-                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
-                            <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
-                            <div class="desc">
-                                <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $bookingid . '. Your booking is subject to the terms & conditions listed on the website. </p>
-                                
-                            </div>
-                            
-                            <table class="booking-details">
-                                <tr>
-                                    <td><strong>Booking Id.</strong></td>
-                                    <td><strong>:  #' . $bookingid . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reservation Date</strong></td>
-                                    <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Visitor Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Visitor name</td>
-                                    <td>: ' . $VISITOR->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Country</td>
-                                    <td>: country</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $VISITOR->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $VISITOR->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Tour Package</td>
-                                    <td>: ' . $TOUR->name . '</td>
-                                </tr>
-                               
-                            </table>
-                            
-                            <br>
-                            <table class="booking-details">
-                                
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                ' . $specialrequest . '
-                                <tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to mail@travelhelper.lk</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <table class="footer">
-                                <tr>
-                                    <td class="footer-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
-                                    <td>Email: mail@travelhelper.lk</td>
-                                </tr>
-                                
-                            </table>
-                            </body>
-                        </html>';
-        ;
+<html>
+    <head>
+        <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
+        <style type="text/css">
+            table {
+                border: 1px solid #d0d0d0;
+            }
+            th {
+                border-bottom: 1px solid #d0d0d0;
+                padding: 15px 10px 10px 25px;
+                text-align: left;
+                margin: 0px;
+            }
+            td {
+                padding: 10px 10px 5px 10px;
+                text-align: left;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: square;
+                margin: 0px 20px 30px 0px;
+            }
+            li {
+                padding: 5px;
+            }
+            img {
+                
+                margin: 0px 100px;
+            }
+            .bdr {
+                border-left: 1px solid #d0d0d0;
+            }
+            .bdr-top {
+                border-top: 1px solid #d0d0d0;
+            }
+            .bb {
+                font-weight: bold;
+            }
+            .right {
+                text-align: right;
+            }
+            .table {
+                margin-left:150px;
+            }
+            .topic {
+                font-size:22px;
+                text-align:center;
+                color:#fff;
+            }
+            .sal {
+                margin-left:100px;
+            }
+            .desc {
+                margin-left:150px;
+                text-align:justify;
+                margin-right:100px;
+            }
+            .bor {
+                border:1px solid #000;
+            }
+            .booking-details {
+                margin-left:150px;
+                border: none !important;
+                margin-right:100px;
+            }
+            .footer{
+                width:100%;
+                margin-top: 20px;
+                background-color:#3a9b00;
+                color: #fff;
+                padding-top:20px;
+                padding-bottom:30px;
+            }
+            .footer-tr {
+                font-size: 15px;
+                line-height: 2px;
+            }
+            .footer-td1 {
+                width: 150px;
+            }
+            .footer-td2 {
+                width: 35%;
+            }
+            @media (max-width: 480px) {
+                ul { font-size: 14px; }
+                td { font-size: 12px; }
+                .table {margin-left:0px;}
+                .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                .sal {margin-left:10px;}
+                .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                .footer-tr {font-size: 15px; line-height: 15px;}
+                .footer-td1 { width: 0px;}
+                .footer-td2 {width: 50%;}
+                .table-td1 {width: 20%;}
+            }
+
+        </style>
+    </head>
+    <body class="bor">
+        <div class="top" style="background: #3a9b00; padding: 10px 0;">
+            <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+            </div>
+            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
+        </div>
+        <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
+        <div class="desc">
+            <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $bookingid . '. Your booking is subject to the terms & conditions listed on the website. </p>
+
+        </div>
+
+        <table class="booking-details">
+            <tr>
+                <td><strong>Booking Id.</strong></td>
+                <td><strong>:  #' . $bookingid . '</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reservation Date</strong></td>
+                <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Visitor Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Visitor name</td>
+                <td>: ' . $VISITOR->name . '</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>: country</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: ' . $VISITOR->email . '</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>: ' . $VISITOR->contact_number . '</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Tour Package</td>
+                <td>: ' . $TOUR->name . '</td>
+            </tr>
+
+        </table>
+
+        <br>
+        <table class="booking-details">
+
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            ' . $specialrequest . '
+            
+            <tr>
+                <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+            </tr>
+            <tr>
+                <td width="0"></td>
+                <td>
+                    <ul>
+                        <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
+                        <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td class="footer-td1"></td>
+                <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td class="footer-td2">Phone: +94 71 666 7557</td>
+                <td>Fax: +94 91 666 7557 </td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                <td>Email: info@toursrilanka.travel</td>
+            </tr>
+
+        </table>
+    </body>
+</html>';
+
 
         if (mail($visitor_email, $subject, $html, $headers)) {
             return TRUE;
@@ -490,10 +492,10 @@ class Booking {
         }
     }
 
-    public static function sendBookingConfirmationEmailToDriver($driver_id,$bookingid,$visitor) {
+    public static function sendBookingConfirmationEmailToDriver($driver_id, $bookingid, $visitor) {
 
         //----------------------Company Information---------------------
-      
+
         $from = 'info@toursrilanka.travel';
         $reply = 'info@toursrilanka.travel';
 
@@ -513,7 +515,7 @@ class Booking {
         $TOUR = new TourPackages($BOOKING->tour_package);
 
         $driver_email = $DRIVER->email;
-      
+
 
         if ($BOOKING->message) {
             $specialrequest = ' <tr>
@@ -525,227 +527,227 @@ class Booking {
         }
 
         $html = '<!DOCTYPE html>
-                    <html>
-                        <head>
-                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
-                            <style type="text/css">
-                                table {
-                                    border: 1px solid #d0d0d0;
-                                }
-                                th {
-                                    border-bottom: 1px solid #d0d0d0;
-                                    padding: 15px 10px 10px 25px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                td {
-                                    padding: 10px 10px 5px 10px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                ul {
-                                    list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
-                                }
-                                li {
-                                    padding: 5px;
-                                }
-                                img {
-                                    width: 120px;
-                                    margin: 0px auto;
-                                }
-                                .bdr {
-                                    border-left: 1px solid #d0d0d0;
-                                }
-                                .bdr-top {
-                                    border-top: 1px solid #d0d0d0;
-                                }
-                                .bb {
-                                    font-weight: bold;
-                                }
-                                .right {
-                                    text-align: right;
-                                }
-                                .table {
-                                    margin-left:150px;
-                                }
-                                .topic {
-                                    font-size:22px;
-                                    text-align:center;
-                                    color:#00a1ad;
-                                }
-                                .sal {
-                                    margin-left:100px;
-                                }
-                                .desc {
-                                    margin-left:150px;
-                                    text-align:justify;
-                                    margin-right:100px;
-                                }
-                                .bor {
-                                    border:1px solid #000;
-                                }
-                                .booking-details {
-                                    margin-left:150px;
-                                    border: none !important;
-                                    margin-right:100px;
-                                }
-                                .footer{
-                                    width:100%;
-                                    margin-top: 20px;
-                                    background-color:#00a1ad;
-                                    color: #fff;
-                                    padding-top:20px;
-                                    padding-bottom:30px;
-                                }
-                                .footer-tr {
-                                    font-size: 15px;
-                                    line-height: 2px;
-                                }
-                                .footer-td1 {
-                                    width: 150px;
-                                }
-                                .footer-td2 {
-                                    width: 35%;
-                                }
-                                @media (max-width: 480px) {
-                                    ul { font-size: 14px; }
-                                    td { font-size: 12px; }
-                                    .table {margin-left:0px;}
-                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
-                                    .sal {margin-left:10px;}
-                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
-                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
-                                    .footer-tr {font-size: 15px; line-height: 15px;}
-                                    .footer-td1 { width: 0px;}
-                                    .footer-td2 {width: 50%;}
-                                    .table-td1 {width: 20%;}
-                                }
-                                 a.button {
-                                    background-color: #66676b;
-                                    top: 0;
-                                    padding: 9px 20px;
-                                    color: #fff;
-                                    position: relative;
-                                    font-size: 15px;
-                                    font-weight: 600;
-                                    display: inline-block;
-                                    transition: all .2s ease-in-out;
-                                    cursor: pointer;
-                                    margin-right: 6px;
-                                    overflow: hidden;
-                                    border: 0;
-                                    border-radius: 50px;
-                                }
-                                a.button{
-                                background-color: #0dce38;
-                                color: #fff;
-                                }
-                                
-                            </style>
-                        </head>
-                        <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="travelhelper"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Address</a></span><br/>
-                                <span>Email: mail@travelhelper.lk</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
-                            </div>
-                            <h2 class="topic">Tour Package New Price Offer To Driver | Tour Sri Lanka | #' . $bookingid . '</h2>
-                            <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
-                            
-                            
-                            <table class="booking-details">
-                                <tr>
-                                    <td><strong>Booking Id.</strong></td>
-                                    <td><strong>:  #' . $bookingid . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reservation Date</strong></td>
-                                    <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Visitor Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Visitor name</td>
-                                    <td>: ' . $VISITOR->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Country</td>
-                                    <td>: country</td>
-                                </tr>
-                         
-                                
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Tour Package</td>
-                                    <td>: ' . $TOUR->name . '</td>
-                                </tr>
-                                                            
-                                
+<html>
+    <head>
+        <title>Tour Sri Lanka - Booking Confirmation</title>
+        <style type="text/css">
+            table {
+                border: 1px solid #d0d0d0;
+            }
+            th {
+                border-bottom: 1px solid #d0d0d0;
+                padding: 15px 10px 10px 25px;
+                text-align: left;
+                margin: 0px;
+            }
+            td {
+                padding: 10px 10px 5px 10px;
+                text-align: left;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: square;
+                margin: 0px 20px 30px 0px;
+            }
+            li {
+                padding: 5px;
+            }
+            img {
+                width: auto;
+                margin: 0px 100px;
+            }
+            .bdr {
+                border-left: 1px solid #d0d0d0;
+            }
+            .bdr-top {
+                border-top: 1px solid #d0d0d0;
+            }
+            .bb {
+                font-weight: bold;
+            }
+            .right {
+                text-align: right;
+            }
+            .table {
+                margin-left:150px;
+            }
+            .topic {
+                font-size:22px;
+                text-align:center;
+                color:#fff;
+            }
+            .sal {
+                margin-left:100px;
+            }
+            .desc {
+                margin-left:150px;
+                text-align:justify;
+                margin-right:100px;
+            }
+            .bor {
+                border:1px solid #000;
+            }
+            .booking-details {
+                margin-left:150px;
+                border: none !important;
+                margin-right:100px;
+            }
+            .footer{
+                width:100%;
+                margin-top: 20px;
+                background-color:#3a9b00;
+                color: #fff;
+                padding-top:20px;
+                padding-bottom:30px;
+            }
+            .footer-tr {
+                font-size: 15px;
+                line-height: 2px;
+            }
+            .footer-td1 {
+                width: 150px;
+            }
+            .footer-td2 {
+                width: 35%;
+            }
+            @media (max-width: 480px) {
+                ul { font-size: 14px; }
+                td { font-size: 12px; }
+                .table {margin-left:0px;}
+                .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                .sal {margin-left:10px;}
+                .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                .footer-tr {font-size: 15px; line-height: 15px;}
+                .footer-td1 { width: 0px;}
+                .footer-td2 {width: 50%;}
+                .table-td1 {width: 20%;}
+            }
+            a.button {
+                background-color: #66676b;
+                top: 0;
+                padding: 9px 20px;
+                color: #fff;
+                position: relative;
+                font-size: 15px;
+                font-weight: 600;
+                display: inline-block;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+                margin-right: 6px;
+                overflow: hidden;
+                border: 0;
+                border-radius: 50px;
+            }
+            a.button{
+                background-color: #0dce38;
+                color: #fff;
+            }
 
-                            </table>
-                            
-                            <br>
-                            <table class="booking-details">
-                                
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                ' . $specialrequest . '
-                                <tr>
-                                 <tr>
-                                    <td colspan="2"><strong><u> Click here Set Your Price For Booking </u></strong></td>
-                                </tr>
-                                <tr>
-                                    <a href="https://www.toursrilanka.travel/driver/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a>
-                                </tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to mail@travelhelper.lk</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <table class="footer">
-                                <tr>
-                                    <td class="footer-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
-                                    <td>Email: mail@travelhelper.lk</td>
-                                </tr>
-                                
-                            </table>
-                            </body>
-                        </html>';
+        </style>
+    </head>
+    <body class="bor">
+        <div class="top" style="background: #3a9b00; padding: 10px 0;">
+            <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+            </div>
+            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
+        </div>
+        <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
+
+
+        <table class="booking-details">
+            <tr>
+                <td><strong>Booking Id.</strong></td>
+                <td><strong>:  #' . $bookingid . '</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reservation Date</strong></td>
+                <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Visitor Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Visitor name</td>
+                <td>: ' . $VISITOR->name . '</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>: country</td>
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Tour Package</td>
+                <td>: ' . $TOUR->name . '</td>
+            </tr>
+
+
+
+        </table>
+
+        <br>
+        <table class="booking-details">
+
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            ' . $specialrequest . '
+            <tr>
+                <td colspan="2"><strong><u> Click here Set Your Price For Booking </u></strong></td>
+
+                <td>
+                    <a href="https://www.toursrilanka.travel/driver/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+            </tr>
+            <tr>
+                <td width="0"></td>
+                <td>
+                    <ul>
+                        <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
+                        <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>Booking cancellations should be notified via email to mail@travelhelper.lk</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td class="footer-td1"></td>
+                <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td class="footer-td2">Phone: +94 71 666 7557</td>
+                <td>Fax: +94 91 666 7557 </td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                <td>Email: info@toursrilanka.travel</td>
+            </tr>
+
+        </table>
+    </body>
+</html>';
 
         if (mail($driver_email, $subject, $html, $headers)) {
             return TRUE;
@@ -789,255 +791,255 @@ class Booking {
         }
 
         $html = '<!DOCTYPE html>
-                    <html>
-                        <head>
-                            <title>' . "Tour Sri Lanka - Booking Confirmation" . '</title>
-                            <style type="text/css">
-                                table {
-                                    border: 1px solid #d0d0d0;
-                                }
-                                th {
-                                    border-bottom: 1px solid #d0d0d0;
-                                    padding: 15px 10px 10px 25px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                td {
-                                    padding: 10px 10px 5px 10px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                ul {
-                                    list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
-                                }
-                                li {
-                                    padding: 5px;
-                                }
-                                img {
-                                    width: 120px;
-                                    margin: 0px auto;
-                                }
-                                .bdr {
-                                    border-left: 1px solid #d0d0d0;
-                                }
-                                .bdr-top {
-                                    border-top: 1px solid #d0d0d0;
-                                }
-                                .bb {
-                                    font-weight: bold;
-                                }
-                                .right {
-                                    text-align: right;
-                                }
-                                .table {
-                                    margin-left:150px;
-                                }
-                                .topic {
-                                    font-size:22px;
-                                    text-align:center;
-                                    color:#00a1ad;
-                                }
-                                .sal {
-                                    margin-left:100px;
-                                }
-                                .desc {
-                                    margin-left:150px;
-                                    text-align:justify;
-                                    margin-right:100px;
-                                }
-                                .bor {
-                                    border:1px solid #000;
-                                }
-                                .booking-details {
-                                    margin-left:150px;
-                                    border: none !important;
-                                    margin-right:100px;
-                                }
-                                .footer{
-                                    width:100%;
-                                    margin-top: 20px;
-                                    background-color:#00a1ad;
-                                    color: #fff;
-                                    padding-top:20px;
-                                    padding-bottom:30px;
-                                }
-                                .footer-tr {
-                                    font-size: 15px;
-                                    line-height: 2px;
-                                }
-                                .footer-td1 {
-                                    width: 150px;
-                                }
-                                .footer-td2 {
-                                    width: 35%;
-                                }
-                                @media (max-width: 480px) {
-                                    ul { font-size: 14px; }
-                                    td { font-size: 12px; }
-                                    .table {margin-left:0px;}
-                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
-                                    .sal {margin-left:10px;}
-                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
-                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
-                                    .footer-tr {font-size: 15px; line-height: 15px;}
-                                    .footer-td1 { width: 0px;}
-                                    .footer-td2 {width: 50%;}
-                                    .table-td1 {width: 20%;}
-                                }
-                                
-                            </style>
-                        </head>
-                        <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="travelhelper"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Address</a></span><br/>
-                                <span>Email: mail@travelhelper.lk</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
-                            </div>
-                            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
-                            <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
-                            
-                            <table class="booking-details">
-                                <tr>
-                                    <td><strong>Booking Id.</strong></td>
-                                    <td><strong>:  #' . $bookingid . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reservation Date</strong></td>
-                                    <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Visitor Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Visitor Id</td>
-                                    <td>: ' . $VISITOR->id . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Visitor name</td>
-                                    <td>: ' . $VISITOR->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Country</td>
-                                    <td>: country</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $VISITOR->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $VISITOR->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Tour Package Id</td>
-                                    <td>: ' . $TOUR->id . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Tour Package</td>
-                                    <td>: ' . $TOUR->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Price</td>
-                                    <td>: LKR ' . $TOUR->price . '</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Days</td>
-                                    <td>: 7</td>
-                                </tr>
-                                <tr>
-                                    <td>No of Night</td>
-                                    <td>: 6</td>
-                                </tr><tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Driver Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Drive Id</td>
-                                    <td>: ' . $DRIVER->id . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Drive name</td>
-                                    <td>: ' . $DRIVER->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $DRIVER->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $DRIVER->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Driving Licence Number</td>
-                                    <td>: ' . $DRIVER->driving_licence_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                
+<html>
+    <head>
+        <title>Tour Sri Lanka - Booking Confirmation</title>
+        <style type="text/css">
+            table {
+                border: 1px solid #d0d0d0;
+            }
+            th {
+                border-bottom: 1px solid #d0d0d0;
+                padding: 15px 10px 10px 25px;
+                text-align: left;
+                margin: 0px;
+            }
+            td {
+                padding: 10px 10px 5px 10px;
+                text-align: left;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: square;
+                margin: 0px 20px 30px 0px;
+            }
+            li {
+                padding: 5px;
+            }
+            img {
+                width: auto;
+                margin: 0px 100px;
+            }
+            .bdr {
+                border-left: 1px solid #d0d0d0;
+            }
+            .bdr-top {
+                border-top: 1px solid #d0d0d0;
+            }
+            .bb {
+                font-weight: bold;
+            }
+            .right {
+                text-align: right;
+            }
+            .table {
+                margin-left:150px;
+            }
+            .topic {
+                font-size:22px;
+                text-align:center;
+                color:#fff;
+            }
+            .sal {
+                margin-left:100px;
+            }
+            .desc {
+                margin-left:150px;
+                text-align:justify;
+                margin-right:100px;
+            }
+            .bor {
+                border:1px solid #000;
+            }
+            .booking-details {
+                margin-left:150px;
+                border: none !important;
+                margin-right:100px;
+            }
+            .footer{
+                width:100%;
+                margin-top: 20px;
+                background-color:#3a9b00;
+                color: #fff;
+                padding-top:20px;
+                padding-bottom:30px;
+            }
+            .footer-tr {
+                font-size: 15px;
+                line-height: 2px;
+            }
+            .footer-td1 {
+                width: 150px;
+            }
+            .footer-td2 {
+                width: 35%;
+            }
+            @media (max-width: 480px) {
+                ul { font-size: 14px; }
+                td { font-size: 12px; }
+                .table {margin-left:0px;}
+                .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                .sal {margin-left:10px;}
+                .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                .footer-tr {font-size: 15px; line-height: 15px;}
+                .footer-td1 { width: 0px;}
+                .footer-td2 {width: 50%;}
+                .table-td1 {width: 20%;}
+            }
 
-                            </table>
-                            
-                            <br>
-                            <table class="booking-details">
-                                
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                ' . $specialrequest . '
-                                <tr>
-                                    <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <ul>
-                                            <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
-                                            <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to mail@travelhelper.lk</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <table class="footer">
-                                <tr>
-                                    <td class="footer-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
-                                    <td>Email: mail@travelhelper.lk</td>
-                                </tr>
-                                
-                            </table>
-                            </body>
-                        </html>';
+        </style>
+    </head>
+    <body class="bor">
+        <div class="top" style="background: #3a9b00; padding: 10px 0;">
+            <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+            </div>
+            <h2 class="topic">Booking Confirmation | Tour Sri Lanka | #' . $bookingid . '</h2>
+        </div>
+        <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
+
+        <table class="booking-details">
+            <tr>
+                <td><strong>Booking Id.</strong></td>
+                <td><strong>:  #' . $bookingid . '</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reservation Date</strong></td>
+                <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Visitor Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Visitor Id</td>
+                <td>: ' . $VISITOR->id . '</td>
+            </tr>
+            <tr>
+                <td>Visitor name</td>
+                <td>: ' . $VISITOR->name . '</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>: country</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: ' . $VISITOR->email . '</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>: ' . $VISITOR->contact_number . '</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Tour Package Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Tour Package Id</td>
+                <td>: ' . $TOUR->id . '</td>
+            </tr>
+            <tr>
+                <td>Tour Package</td>
+                <td>: ' . $TOUR->name . '</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>: LKR ' . $TOUR->price . '</td>
+            </tr>
+            <tr>
+                <td>No of Days</td>
+                <td>: 7</td>
+            </tr>
+            <tr>
+                <td>No of Night</td>
+                <td>: 6</td>
+            </tr><tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Driver Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Drive Id</td>
+                <td>: ' . $DRIVER->id . '</td>
+            </tr>
+            <tr>
+                <td>Drive name</td>
+                <td>: ' . $DRIVER->name . '</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: ' . $DRIVER->email . '</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>: ' . $DRIVER->contact_number . '</td>
+            </tr>
+            <tr>
+                <td>Driving Licence Number</td>
+                <td>: ' . $DRIVER->driving_licence_number . '</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+        </table>
+
+        <br>
+        <table class="booking-details">
+
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            ' . $specialrequest . '
+            <tr>
+                <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
+            </tr>
+            <tr>
+                <td width="0">
+                </td>
+                <td>
+                    <ul>
+                        <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
+                        <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
+                        <li>Booking cancellations should be notified via email to mail@travelhelper.lk</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td class="footer-td1"></td>
+                <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td class="footer-td2">Phone: +94 71 666 7557</td>
+                <td>Fax: +94 91 666 7557 </td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                <td>Email: info@toursrilanka.travel</td>
+            </tr>
+
+        </table>
+    </body>
+</html>';
 
         if (mail($visitor_email, $subject, $html, $headers)) {
             return TRUE;
@@ -1070,232 +1072,229 @@ class Booking {
 
 
         $visitor_email = $VISITOR->email;
-      
-       
-        $html = '<!DOCTYPE html>
-                    <html>
-                        <head>
-                            <title>' . "Tour Sri Lanka - Tour Booking" . '</title>
-                            <style type="text/css">
-                                table {
-                                    border: 1px solid #d0d0d0;
-                                }
-                                th {
-                                    border-bottom: 1px solid #d0d0d0;
-                                    padding: 15px 10px 10px 25px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                td {
-                                    padding: 10px 10px 5px 10px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                ul {
-                                    list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
-                                }
-                                li {
-                                    padding: 5px;
-                                }
-                                img {
-                                    width: 120px;
-                                    margin: 0px auto;
-                                }
-                                .bdr {
-                                    border-left: 1px solid #d0d0d0;
-                                }
-                                .bdr-top {
-                                    border-top: 1px solid #d0d0d0;
-                                }
-                                .bb {
-                                    font-weight: bold;
-                                }
-                                .right {
-                                    text-align: right;
-                                }
-                                .table {
-                                    margin-left:150px;
-                                }
-                                .topic {
-                                    font-size:22px;
-                                    text-align:center;
-                                    color:#00a1ad;
-                                }
-                                .sal {
-                                    margin-left:100px;
-                                }
-                                .desc {
-                                    margin-left:150px;
-                                    text-align:justify;
-                                    margin-right:100px;
-                                }
-                                .bor {
-                                    border:1px solid #000;
-                                }
-                                .booking-details {
-                                    margin-left:150px;
-                                    border: none !important;
-                                    margin-right:100px;
-                                }
-                                .footer{
-                                    width:100%;
-                                    margin-top: 20px;
-                                    background-color:#00a1ad;
-                                    color: #fff;
-                                    padding-top:20px;
-                                    padding-bottom:30px;
-                                }
-                                .footer-tr {
-                                    font-size: 15px;
-                                    line-height: 2px;
-                                }
-                                .footer-td1 {
-                                    width: 150px;
-                                }
-                                .footer-td2 {
-                                    width: 35%;
-                                }
-                                @media (max-width: 480px) {
-                                    ul { font-size: 14px; }
-                                    td { font-size: 12px; }
-                                    .table {margin-left:0px;}
-                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
-                                    .sal {margin-left:10px;}
-                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
-                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
-                                    .footer-tr {font-size: 15px; line-height: 15px;}
-                                    .footer-td1 { width: 0px;}
-                                    .footer-td2 {width: 50%;}
-                                    .table-td1 {width: 20%;}
-                                }
-                                 a.button {
-                                    background-color: #66676b;
-                                    top: 0;
-                                    padding: 9px 20px;
-                                    color: #fff;
-                                    position: relative;
-                                    font-size: 15px;
-                                    font-weight: 600;
-                                    display: inline-block;
-                                    transition: all .2s ease-in-out;
-                                    cursor: pointer;
-                                    margin-right: 6px;
-                                    overflow: hidden;
-                                    border: 0;
-                                    border-radius: 50px;
-                                }
-                                a.button{
-                                background-color: #0dce38;
-                                color: #fff;
-                                }
-                                
-                            </style>
-                        </head>
-                        <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Address</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
-                            </div>
-                            <h2 class="topic">Tour Booking | Tour Sri Lanka | #' . $bookingid . '</h2>
-                            <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
-                            <div class="desc">
-                                <p>' . $DRIVER->name . ' has offer USD ' . $price . ' for you booking (#' . $BOOKING->id . ').</p>
-                                
-                            </div>
-                            
-                            <table class="booking-details">
-                                <tr>
-                                    <td><strong>Booking Id.</strong></td>
-                                    <td><strong>:  #' . $bookingid . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reservation Date</strong></td>
-                                    <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td colspan="2"><strong><u>Booking Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Tour Package</td>
-                                    <td>: ' . $TOUR->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Start Date</td>
-                                    <td>: ' . $BOOKING->start_date . '</td>
-                                </tr>
-                                <tr>
-                                    <td>End Date</td>
-                                    <td>: ' . $BOOKING->end_date . '</td>
-                                </tr><tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong><u>Driver Details</u></strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Driver name</td>
-                                    <td>: ' . $DRIVER->name . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>: ' . $DRIVER->email . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>: ' . $DRIVER->contact_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td>Driving Licence Number</td>
-                                    <td>: ' . $DRIVER->driving_licence_number . '</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                
 
-                            </table>
-                            
-                            <br>
-                          
-                            <table class="booking-details">
-                                <tr>
-                                    <td colspan="2"><strong><u> Click here Confirm Your booking </u></strong></td>
-                                </tr>
-                                <tr>
-                                    <a href="https://www.toursrilanka.travel/visitor/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a>
-                                </tr>
-                            </table>
-                            
-                            <table class="footer">
-                                <tr>
-                                    <td class="footer-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
-                                </tr>
-                                
-                            </table>
-                            </body>
-                        </html>';
+
+        $html = '<html>
+    <head>
+        <title>Tour Sri Lanka - Tour Booking</title>
+        <style type="text/css">
+            table {
+                border: 1px solid #d0d0d0;
+            }
+            th {
+                border-bottom: 1px solid #d0d0d0;
+                padding: 15px 10px 10px 25px;
+                text-align: left;
+                margin: 0px;
+            }
+            td {
+                padding: 10px 10px 5px 10px;
+                text-align: left;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: square;
+                margin: 0px 20px 30px 200px;
+            }
+            li {
+                padding: 5px;
+            }
+            img {
+                width: auto;
+                margin: 0px 100px;
+            }
+            .bdr {
+                border-left: 1px solid #d0d0d0;
+            }
+            .bdr-top {
+                border-top: 1px solid #d0d0d0;
+            }
+            .bb {
+                font-weight: bold;
+            }
+            .right {
+                text-align: right;
+            }
+            .table {
+                margin-left:150px;
+            }
+            .topic {
+                font-size:22px;
+                text-align:center;
+                color:#fff;
+            }
+            .sal {
+                margin-left:100px;
+            }
+            .desc {
+                margin-left:150px;
+                text-align:justify;
+                margin-right:100px;
+            }
+            .bor {
+                border:1px solid #000;
+            }
+            .booking-details {
+                margin-left:150px;
+                border: none !important;
+                margin-right:100px;
+            }
+            .footer{
+                width:100%;
+                margin-top: 20px;
+                background-color:#3a9b00;
+                color: #fff;
+                padding-top:20px;
+                padding-bottom:30px;
+            }
+            .footer-tr {
+                font-size: 15px;
+                line-height: 2px;
+            }
+            .footer-td1 {
+                width: 150px;
+            }
+            .footer-td2 {
+                width: 35%;
+            }
+            @media (max-width: 480px) {
+                ul { font-size: 14px; }
+                td { font-size: 12px; }
+                .table {margin-left:0px;}
+                .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                .sal {margin-left:10px;}
+                .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                .footer-tr {font-size: 15px; line-height: 15px;}
+                .footer-td1 { width: 0px;}
+                .footer-td2 {width: 50%;}
+                .table-td1 {width: 20%;}
+            }
+            a.button {
+                background-color: #66676b;
+                top: 0;
+                padding: 9px 20px;
+                color: #fff;
+                position: relative;
+                font-size: 15px;
+                font-weight: 600;
+                display: inline-block;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+                margin-right: 6px;
+                overflow: hidden;
+                border: 0;
+                border-radius: 50px;
+            }
+            a.button{
+                background-color: #0dce38;
+                color: #fff;
+            }
+
+        </style>
+    </head>
+    <body class="bor">
+        <div class="top" style="background: #3a9b00; padding: 10px 0;">
+            <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+            </div>
+            <h2 class="topic">Tour Booking | New price offer | Tour Sri Lanka | #' . $bookingid . '</h2>
+        </div>
+        <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
+        <div class="desc">
+            <p>' . $DRIVER->name . ' has offer USD ' . $price . ' for you booking (#' . $BOOKING->id . ').</p>
+
+        </div>
+
+        <table class="booking-details">
+            <tr>
+                <td><strong>Booking Id.</strong></td>
+                <td><strong>:  #' . $bookingid . '</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reservation Date</strong></td>
+                <td><strong>: ' . $BOOKING->date_time_booked . '</strong></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><strong><u>Booking Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Tour Package</td>
+                <td>: ' . $TOUR->name . '</td>
+            </tr>
+            <tr>
+                <td>Start Date</td>
+                <td>: ' . $BOOKING->start_date . '</td>
+            </tr>
+            <tr>
+                <td>End Date</td>
+                <td>: ' . $BOOKING->end_date . '</td>
+            </tr><tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong><u>Driver Details</u></strong></td>
+            </tr>
+            <tr>
+                <td>Driver name</td>
+                <td>: ' . $DRIVER->name . '</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: ' . $DRIVER->email . '</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>: ' . $DRIVER->contact_number . '</td>
+            </tr>
+            <tr>
+                <td>Driving Licence Number</td>
+                <td>: ' . $DRIVER->driving_licence_number . '</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+        </table>
+
+        <br>
+
+        <table class="booking-details">
+            <tr>
+                <td colspan="2"><strong><u> Click here Confirm Your booking </u></strong></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.toursrilanka.travel/visitor/manage-active-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a></td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td class="footer-td1"></td>
+                <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td class="footer-td2">Phone: +94 71 666 7557</td>
+                <td>Fax: +94 91 666 7557 </td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                <td>Email: info@toursrilanka.travel</td>
+            </tr>
+
+        </table>
+    </body>
+</html>';
 
         if (mail($visitor_email, $subject, $html, $headers)) {
             return TRUE;
@@ -1320,13 +1319,13 @@ class Booking {
     }
 
     public function confirmPackageBooking($driverid, $price, $booking) {
-        
+
         $query = "UPDATE  `booking` SET "
                 . "`driver` ='" . $driverid . "', "
                 . "`price` ='" . $price . "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-  
+
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -1355,182 +1354,181 @@ class Booking {
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         $TAILORMADETOURS = new Booking($tailormade_tour_id);
-        
+
         $DRIVER = new Drivers($TAILORMADETOURS->driver);
         $VISITOR = new Visitor($TAILORMADETOURS->visitor);
 
 
         $driver_email = $DRIVER->email;
-      
+
         $html = '<!DOCTYPE html>
-                    <html>
-                        <head>
-                            <title>' . "Tour Sri Lanka - Tailor-Made Tour Booking Confirmation" . '</title>
-                            <style type="text/css">
-                                table {
-                                    border: 1px solid #d0d0d0;
-                                }
-                                th {
-                                    border-bottom: 1px solid #d0d0d0;
-                                    padding: 15px 10px 10px 25px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                td {
-                                    padding: 10px 10px 5px 10px;
-                                    text-align: left;
-                                    margin: 0px;
-                                }
-                                ul {
-                                    list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
-                                }
-                                li {
-                                    padding: 5px;
-                                }
-                                img {
-                                    width: 120px;
-                                    margin: 0px auto;
-                                }
-                                .bdr {
-                                    border-left: 1px solid #d0d0d0;
-                                }
-                                .bdr-top {
-                                    border-top: 1px solid #d0d0d0;
-                                }
-                                .bb {
-                                    font-weight: bold;
-                                }
-                                .right {
-                                    text-align: right;
-                                }
-                                .table {
-                                    margin-left:150px;
-                                }
-                                .topic {
-                                    font-size:22px;
-                                    text-align:center;
-                                    color:#00a1ad;
-                                }
-                                .sal {
-                                    margin-left:100px;
-                                }
-                                .desc {
-                                    margin-left:150px;
-                                    text-align:justify;
-                                    margin-right:100px;
-                                }
-                                .bor {
-                                    border:1px solid #000;
-                                }
-                                .booking-details {
-                                    margin-left:150px;
-                                    border: none !important;
-                                    margin-right:100px;
-                                }
-                                .footer{
-                                    width:100%;
-                                    margin-top: 20px;
-                                    background-color:#00a1ad;
-                                    color: #fff;
-                                    padding-top:20px;
-                                    padding-bottom:30px;
-                                }
-                                .footer-tr {
-                                    font-size: 15px;
-                                    line-height: 2px;
-                                }
-                                .footer-td1 {
-                                    width: 150px;
-                                }
-                                .footer-td2 {
-                                    width: 35%;
-                                }
-                                @media (max-width: 480px) {
-                                    ul { font-size: 14px; }
-                                    td { font-size: 12px; }
-                                    .table {margin-left:0px;}
-                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
-                                    .sal {margin-left:10px;}
-                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
-                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
-                                    .footer-tr {font-size: 15px; line-height: 15px;}
-                                    .footer-td1 { width: 0px;}
-                                    .footer-td2 {width: 50%;}
-                                    .table-td1 {width: 20%;}
-                                }
-                                a.button {
-                                    background-color: #66676b;
-                                    top: 0;
-                                    padding: 9px 20px;
-                                    color: #fff;
-                                    position: relative;
-                                    font-size: 15px;
-                                    font-weight: 600;
-                                    display: inline-block;
-                                    transition: all .2s ease-in-out;
-                                    cursor: pointer;
-                                    margin-right: 6px;
-                                    overflow: hidden;
-                                    border: 0;
-                                    border-radius: 50px;
-                                }
-                                a.button{
-                                background-color: #0dce38;
-                                color: #fff;
-                                }
-                                
-                            </style>
-                        </head>
-                        <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
-                            </div>
-                            <h2 class="topic">Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
-                            <h4 class="sal"><strong>Dear ' . $DRIVER->name . ', </strong></h4>
-                            
-                            
-                            <table class="booking-details">
-                                <tr>
-                                    <td><strong>Your Booking Id #' . $tailormade_tour_id . ' Has Been Confirmed By ' . $VISITOR->name . ' </strong></td>
-                                  
-                                </tr>
-                                                               
-                            </table>
-                            
-                            <br>
-                            <table class="booking-details">
-                                <tr>
-                                    <td colspan="2"><strong><u> Click here View More Details </u></strong></td>
-                                </tr>
-                                <tr>
-                                    <a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">View More Details</a>
-                                </tr>
-                            </table>
-                            
-                            <table class="footer">
-                                <tr>
-                                    <td class="footer-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
-                                </tr>
-                                <tr class="footer-tr">
-                                    <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
-                                </tr>
-                                
-                            </table>
-                            </body>
-                        </html>';
+<html>
+    <head>
+        <title>' . "Tour Sri Lanka - Tailor-Made Tour Booking Confirmation" . '</title>
+        <style type="text/css">
+            table {
+                border: 1px solid #d0d0d0;
+            }
+            th {
+                border-bottom: 1px solid #d0d0d0;
+                padding: 15px 10px 10px 25px;
+                text-align: left;
+                margin: 0px;
+            }
+            td {
+                padding: 10px 10px 5px 10px;
+                text-align: left;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: square;
+                margin: 0px 20px 30px 0px;
+            }
+            li {
+                padding: 5px;
+            }
+            img {
+                width: auto;
+                margin: 0px 100px;
+            }
+            .bdr {
+                border-left: 1px solid #d0d0d0;
+            }
+            .bdr-top {
+                border-top: 1px solid #d0d0d0;
+            }
+            .bb {
+                font-weight: bold;
+            }
+            .right {
+                text-align: right;
+            }
+            .table {
+                margin-left:150px;
+            }
+            .topic {
+                font-size:22px;
+                text-align:center;
+                color:#fff;
+            }
+            .sal {
+                margin-left:100px;
+            }
+            .desc {
+                margin-left:150px;
+                text-align:justify;
+                margin-right:100px;
+            }
+            .bor {
+                border:1px solid #000;
+            }
+            .booking-details {
+                margin-left:150px;
+                border: none !important;
+                margin-right:100px;
+            }
+            .footer{
+                width:100%;
+                margin-top: 20px;
+                background-color:#3a9b00;
+                color: #fff;
+                padding-top:20px;
+                padding-bottom:30px;
+            }
+            .footer-tr {
+                font-size: 15px;
+                line-height: 2px;
+            }
+            .footer-td1 {
+                width: 150px;
+            }
+            .footer-td2 {
+                width: 35%;
+            }
+            @media (max-width: 480px) {
+                ul { font-size: 14px; }
+                td { font-size: 12px; }
+                .table {margin-left:0px;}
+                .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                .sal {margin-left:10px;}
+                .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                .footer-tr {font-size: 15px; line-height: 15px;}
+                .footer-td1 { width: 0px;}
+                .footer-td2 {width: 50%;}
+                .table-td1 {width: 20%;}
+            }
+            a.button {
+                background-color: #66676b;
+                top: 0;
+                padding: 9px 20px;
+                color: #fff;
+                position: relative;
+                font-size: 15px;
+                font-weight: 600;
+                display: inline-block;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+                margin-right: 6px;
+                overflow: hidden;
+                border: 0;
+                border-radius: 50px;
+            }
+            a.button{
+                background-color: #0dce38;
+                color: #fff;
+                text-decoration: none;
+            }
+
+        </style>
+    </head>
+    <body class="bor">
+        <div class="top" style="background: #3a9b00; padding: 10px 0;">
+            <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                <img src="images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+            </div>
+            <h2 class="topic">Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+        </div>
+        <h4 class="sal"><strong>Dear ' . $DRIVER->name . ', </strong></h4>
+
+
+        <table class="booking-details">
+            <tr>
+                <td><strong>Your booking Id #' . $tailormade_tour_id . ' has been confirmed by ' . $VISITOR->name . ' </strong></td>
+
+            </tr>
+
+        </table>
+
+        <br>
+        <table class="booking-details">
+            <tr>
+                <td colspan="2"><strong><u> Click here View More Details </u></strong></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">View More Details</a></td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td class="footer-td1"></td>
+                <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td class="footer-td2">Phone: +94 71 666 7557</td>
+                <td>Fax: +94 91 666 7557 </td>
+            </tr>
+            <tr class="footer-tr">
+                <td></td>
+                <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                <td>Email: info@toursrilanka.travel</td>
+            </tr>
+
+        </table>
+    </body>
+</html>';
 
         if (mail($driver_email, $subject, $html, $headers)) {
             return TRUE;
@@ -1553,8 +1551,8 @@ class Booking {
         }
         return $array_res;
     }
-    
-     public function getConfimedBookingsByDriver($driver) {
+
+    public function getConfimedBookingsByDriver($driver) {
 
         $query = "SELECT * FROM `booking` WHERE `driver`= $driver AND `status` = 'confirmed' ORDER BY `date_time_booked` DESC";
 

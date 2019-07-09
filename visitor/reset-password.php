@@ -84,13 +84,13 @@ if ($count1 == 0) {
                                 if (isset($_GET['message'])) {
                                     $message = new Message($_GET['message']);
                                     ?>
-                                    <input type="hidden" id="msg" value="<?php echo $message->description; ?>" />
+                                    <input type="hidden" id="msg" status="<?php echo $message->status; ?>" value="<?php echo $message->description; ?>" />
                                     <div class="error-msg1 hidden">
                                         <div class="pull-left msg-display" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
 
                                     </div>
-                                      <div class="error-msg3 hidden">
+                                    <div class="error-msg3 hidden">
                                         <div class="pull-left msg-display" id="message"><?php echo $message->description; ?></div>
                                         <!--<div class="alert alert-<?php echo $message->status; ?>"><?php echo $message->description; ?></div>-->
 
@@ -147,6 +147,7 @@ if ($count1 == 0) {
         <script>
             $(document).ready(function () {
                 var message = $('#msg').val();
+                var status = $('#msg').attr('status');
 
                 if (message.length > 40) {
                     $('.error-msg3').removeClass('hidden');
@@ -156,6 +157,16 @@ if ($count1 == 0) {
                 setTimeout(function () {
                     $('.msg-display').css('display', 'block');
                 }, 1000);
+
+                if (status == 'success') {
+                    $('.error-msg').addClass('green-box');
+                    $('.error-msg1').addClass('green-box');
+                    $('.error-msg3').addClass('green-box');
+                } else {
+                    $('.error-msg').removeClass('green-box');
+                    $('.error-msg1').removeClass('green-box');
+                    $('.error-msg3').removeClass('green-box');
+                }
 
             });
 

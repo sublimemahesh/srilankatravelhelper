@@ -1,197 +1,168 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>jQuery Read More/Less Toggle Example</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.15/slick.css" rel="stylesheet" type="text/css"/>
-  <style>
-      body, html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Helvetica', 'Arial', san-serif;
-}
+<!DOCTYPE html>
+                    <html>
+                        <head>
+                            <title>' . "Tour Sri Lanka - Tailor-Made Tour Booking Confirmation" . '</title>
+                            <style type="text/css">
+                                table {
+                                    border: 1px solid #d0d0d0;
+                                }
+                                th {
+                                    border-bottom: 1px solid #d0d0d0;
+                                    padding: 15px 10px 10px 25px;
+                                    text-align: left;
+                                    margin: 0px;
+                                }
+                                td {
+                                    padding: 10px 10px 5px 10px;
+                                    text-align: left;
+                                    margin: 0px;
+                                }
+                                ul {
+                                    list-style-type: square;
+                                    margin: 0px 20px 30px 0px;
+                                }
+                                li {
+                                    padding: 5px;
+                                }
+                                img {
+                                    width: auto;
+                                    margin: 0px 120px;
+                                }
+                                .bdr {
+                                    border-left: 1px solid #d0d0d0;
+                                }
+                                .bdr-top {
+                                    border-top: 1px solid #d0d0d0;
+                                }
+                                .bb {
+                                    font-weight: bold;
+                                }
+                                .right {
+                                    text-align: right;
+                                }
+                                .table {
+                                    margin-left:150px;
+                                }
+                                .topic {
+                                    font-size:22px;
+                                    text-align:center;
+                                    color:#fff;
+                                }
+                                .sal {
+                                    margin-left:100px;
+                                }
+                                .desc {
+                                    margin-left:150px;
+                                    text-align:justify;
+                                    margin-right:100px;
+                                }
+                                .bor {
+                                    border:1px solid #000;
+                                }
+                                .booking-details {
+                                    margin-left:150px;
+                                    border: none !important;
+                                    margin-right:100px;
+                                }
+                                .footer{
+                                    width:100%;
+                                    margin-top: 20px;
+                                    background-color:#3a9b00;
+                                    color: #fff;
+                                    padding-top:20px;
+                                    padding-bottom:30px;
+                                }
+                                .footer-tr {
+                                    font-size: 15px;
+                                    line-height: 2px;
+                                }
+                                .footer-td1 {
+                                    width: 150px;
+                                }
+                                .footer-td2 {
+                                    width: 35%;
+                                }
+                                @media (max-width: 480px) {
+                                    ul { font-size: 14px; }
+                                    td { font-size: 12px; }
+                                    .table {margin-left:0px;}
+                                    .desc {margin-left:20px; text-align:justify; margin-right:10px;}
+                                    .sal {margin-left:10px;}
+                                    .booking-details {margin-left:10px; border: none !important; margin-right:10px;}
+                                    ul {list-style-type: square; margin: 0px 20px 30px 10px;}
+                                    .footer-tr {font-size: 15px; line-height: 15px;}
+                                    .footer-td1 { width: 0px;}
+                                    .footer-td2 {width: 50%;}
+                                    .table-td1 {width: 20%;}
+                                }
+                                a.button {
+                                    background-color: #66676b;
+                                    top: 0;
+                                    padding: 9px 20px;
+                                    color: #fff;
+                                    position: relative;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    display: inline-block;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+                                    margin-right: 6px;
+                                    overflow: hidden;
+                                    border: 0;
+                                    border-radius: 50px;
+                                }
+                                a.button{
+                                background-color: #0dce38;
+                                color: #fff;
+                                text-decoration: none;
+                                }
+                                
+                            </style>
+                        </head>
+                        <body class="bor">
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
+                            </div>
+                            <h4 class="sal"><strong>Dear ' . $DRIVER->name . ', </strong></h4>
+                            
+                            
+                            <table class="booking-details">
+                                <tr>
+                                    <td><strong>Your Booking Id #' . $tailormade_tour_id . ' Has Been Confirmed By ' . $VISITOR->name . ' </strong></td>
+                                  
+                                </tr>
+                                                               
+                            </table>
+                            
+                            <br>
+                            <table class="booking-details">
+                                <tr>
+                                    <td colspan="2"><strong><u> Click here View More Details </u></strong></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">View More Details</a></td>
+                                </tr>
+                            </table>
+                            
+                            <table class="footer">
+                                <tr>
+                                    <td class="footer-td1"></td>
+                                    <td colspan="2" style="font-size: 15px;"><strong>Thank You !</strong></td>
+                                </tr>
+                                <tr class="footer-tr">
+                                    <td></td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
+                                </tr>
+                                <tr class="footer-tr">
+                                    <td></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
+                                    <td>Email: info@toursrilanka.travel</td>
+                                </tr>
 
-.slick-slide {
-  height: 80vh;
-  background: #2196f3;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  display: table !important;
-}
-
-.slick-slide div {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.slide-0 {
-  background: red;
-}
-
-.slide-1 {
-  background: orange;
-}
-
-.slide-2 {
-  background: green;
-}
-
-.slide-3{
-  background: black;
-}
-
-.hide {
-  display: none;
-}
-
-.footer1 {
-  height: 100px;
-  color: white;
-  background: blue;
-}
-
-.footer2 {
-  height: 100px;
-  color: white;
-  background: green;
-}
-
-.footer-container {
-  height: 100px;
-  position: relative;
-  text-align: center;
-  font-size: 20px;
-}
-
-.footer-container div {
-  padding: 2em;
-}
-
-.example-enter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}
-.example-leave {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
-}
-  </style>
-
-</head>
-
-<body>
-
-    <div id="root"></div>
-<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react-with-addons.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react-dom.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-slick/0.13.1/react-slick.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-slick/0.13.1/react-slick.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-    
-    <script>
-    const {
-        CSSTransitionGroup
-    } = React.addons;
-
-    class Parent extends React.Component {
-        constructor(props) {
-            super(props);
-
-            this.state = {
-                selectedFooter: 1
-            }
-
-            this.settings = {
-                dots: true,
-                infinite: true,
-                speed: 500,
-                arrows: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                beforeChange: (prevIndex, nextIndex) => {
-                    this.setState({
-                        selectedFooter: [0, 1, 2].indexOf(nextIndex) !== -1 ? 1 : 2
-                    });
-                }
-            };
-        }
-
-        render() {
-            console.log('render');
-
-            return (
-                    <div>
-  <SimpleSlider settings={this.settings} />
-<Footer selectedFooter={this.state.selectedFooter} />
-</div>
-                    );
-        }
-    }
-
-    class SimpleSlider extends React.Component {
-        shouldComponentUpdate(nextProps) {
-            // TODO: add proper implementation that compares objects
-            return false;
-        }
-
-        render() {
-            console.log('slider render');
-            return (
-                    <Slider {...this.props.settings}>
-  <div><div className="slide-0"><h3>Graph 1</h3></div></div>
-<div><div className="slide-1"><h3>Graph 2</h3></div></div>
-  <div><div className="slide-2"><h3>Graph 3</h3></div></div>
-    <div><div className="slide-3"><h3>Set Up</h3></div></div>
-</Slider>
-                    )
-        }
-    }
-
-    const Footer = ({selectedFooter}) => {
-        console.log('reander footer')
-        return (
-                <div className="footer-container">
-    <CSSTransitionGroup
-        transitionName="example"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}>
-        <div
-            key={selectedFooter}
-                className={`footer${selectedFooter}`}>
-                Footer {selectedFooter}
-        </div>
-                </CSSTransitionGroup>
-                </div>
-                )
-    }
-
-    ReactDOM.render(<Parent />, document.querySelector('#root'));
-
-
-  </script>
-
-
-</body>
-
-</html>
+                            </table>
+                            </body>
+                        </html>

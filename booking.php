@@ -25,7 +25,6 @@ if (isset($_GET["tour"])) {
 if (isset($_GET['tailormade'])) {
     $tailormade = 'hidden';
     $places = serialize($_SESSION["destination_cart"]);
-    
 }
 
 if (!Visitor::authenticate()) {
@@ -131,12 +130,12 @@ $VISITOR = new Visitor($_SESSION['id']);
                         <?php
                         for ($i = 1; $i <= $stars; $i++) {
                             ?>
-                                                                                                                                                <i class="fa fa-star"></i>
+                                                                                                                                                            <i class="fa fa-star"></i>
                             <?php
                         }
                         for ($j = $i; $j <= 5; $j++) {
                             ?>
-                                                                                                                                                <i class="fa fa-star-o"></i>
+                                                                                                                                                            <i class="fa fa-star-o"></i>
                             <?php
                         }
                         ?>
@@ -161,7 +160,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                         foreach ($_SESSION["destination_cart"] as $key => $cartitem) {
                             $DESTINATION = new Destination($cartitem);
                             ?>
-                                                                                                                                            <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
+                                                                                                                                                        <li><a href="destination-type-one-item-view-page.php?id=<?php echo $cartitem; ?>"><i class="fa fa-check"></i><?php echo $DESTINATION->name; ?></a></li>
                             <?php
                         }
                         ?>
@@ -517,7 +516,6 @@ $VISITOR = new Visitor($_SESSION['id']);
                                             <input type="hidden" name="tailormadetour" id="tailormadetour" value="<?php
                                             if ($tailormade == 'hidden') {
                                                 echo 'tailormade';
-                                                
                                             } else {
                                                 echo 'tourpackge';
                                             }
@@ -571,7 +569,25 @@ $VISITOR = new Visitor($_SESSION['id']);
                                                                     $("#enddate").datepicker({
                                                                         dateFormat: "yy-mm-dd",
                                                                         minDate: 1
-                                                                    }).val()
+                                                                    }).val();
+
+                                                                    $("#startdate").change(function () {
+
+                                                                        var new_date = new Date($('#startdate').val());
+
+                                                                        new_date.setDate(new_date.getDate() + 1);
+
+                                                                        var minDate = $(this).datepicker('getDate');
+                                                                        minDate.setDate(minDate.getDate() + 1); //add two days
+                                                                        $("#enddate").datepicker("option", "minDate", minDate);
+                                                                        
+                                                                        $("#enddate").datepicker({
+                                                                            dateFormat: "yy-mm-dd",
+                                                                            defaultDate: new_date
+                                                                        }).val();
+                                                                    })
+
+
                                                                 });
                                                                 function selectItem(id) {
 
