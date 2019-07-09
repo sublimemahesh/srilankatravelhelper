@@ -284,13 +284,13 @@ class TailorMadeTours {
     }
 
     public function confirmBooking($driverid, $price, $booking) {
-    
+
         $query = "UPDATE  `tailormade_tours` SET "
                 . "`driver` ='" . $driverid . "', "
                 . "`price` ='" . $price . "', "
                 . "`status` ='confirmed' "
                 . "WHERE `id` = '" . $this->id . "'";
-               
+
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -366,14 +366,14 @@ class TailorMadeTours {
                                 }
                                 ul {
                                     list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
+                                    margin: 0px 20px 30px 0px;
                                 }
                                 li {
                                     padding: 5px;
                                 }
                                 img {
-                                    width: 120px;
-                                    margin: 0px auto;
+                                    width: auto;
+                                    margin: 0px 100px;
                                 }
                                 .bdr {
                                     border-left: 1px solid #d0d0d0;
@@ -393,7 +393,7 @@ class TailorMadeTours {
                                 .topic {
                                     font-size:22px;
                                     text-align:center;
-                                    color:#00a1ad;
+                                    color:#fff;
                                 }
                                 .sal {
                                     margin-left:100px;
@@ -414,7 +414,7 @@ class TailorMadeTours {
                                 .footer{
                                     width:100%;
                                     margin-top: 20px;
-                                    background-color:#00a1ad;
+                                    background-color:#3a9b00;
                                     color: #fff;
                                     padding-top:20px;
                                     padding-bottom:30px;
@@ -457,22 +457,12 @@ class TailorMadeTours {
                             </style>
                         </head>
                         <body class="bor">
-                        <table class="header">
-                                <tr>
-                                    <td class="header-td1"></td>
-                                    <td colspan="2" style="font-size: 15px;"><strong>Tour Sri Lanka</strong></td>
-                                </tr>
-                                
-                                
-                                
-                            </table>
-
-
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                   <img src="https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor-Made New Booking Request  | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             </div>
-                            <h2 class="topic">Tailor-Made New Booking Request  | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
                                 <p>Thank you for making an online booking with Tour Sri Lanka. Your booking id is :  #' . $tailormade_tour_id . '. Your booking is subject to the terms & conditions listed on the website. </p>
@@ -561,7 +551,8 @@ class TailorMadeTours {
                                     <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td width="0"></td>
+                                    <td>
                                         <ul>
                                             <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
                                             <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
@@ -579,15 +570,15 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
                                     <td>Email: info@toursrilanka.travel</td>
                                 </tr>
-                                
+
                             </table>
                             </body>
                         </html>';
@@ -662,14 +653,14 @@ class TailorMadeTours {
                                 }
                                 ul {
                                     list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
+                                    margin: 0px 20px 30px 0px;
                                 }
                                 li {
                                     padding: 5px;
                                 }
                                 img {
-                                    width: 120px;
-                                    margin: 0px auto;
+                                    width: auto;
+                                    margin: 0px 100px;
                                 }
                                 .bdr {
                                     border-left: 1px solid #d0d0d0;
@@ -689,7 +680,7 @@ class TailorMadeTours {
                                 .topic {
                                     font-size:22px;
                                     text-align:center;
-                                    color:#00a1ad;
+                                    color:#fff;
                                 }
                                 .sal {
                                     margin-left:100px;
@@ -710,7 +701,7 @@ class TailorMadeTours {
                                 .footer{
                                     width:100%;
                                     margin-top: 20px;
-                                    background-color:#00a1ad;
+                                    background-color:#3a9b00;
                                     color: #fff;
                                     padding-top:20px;
                                     padding-bottom:30px;
@@ -755,21 +746,20 @@ class TailorMadeTours {
                                     border-radius: 50px;
                                 }
                                 a.button{
-                                background-color: #0dce38;
-                                color: #fff;
+                                    background-color: #0dce38;
+                                    color: #fff;
+                                    text-decoration: none;
                                 }
                                 
                             </style>
                         </head>
                         <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor-Made Tour New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $DRIVER->name . '</strong></h4>
                             
                             
@@ -846,7 +836,7 @@ class TailorMadeTours {
                                     <td colspan="2"><strong><u> Click here Set Your Price For Booking </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a>
+                                    <td><a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Set Your Price</a></td>
                                 </tr>
                             </table>
                             
@@ -857,15 +847,15 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
                                     <td>Email: info@toursrilanka.travel</td>
                                 </tr>
-                                
+
                             </table>
                             </body>
                         </html>';
@@ -940,14 +930,14 @@ class TailorMadeTours {
                                 }
                                 ul {
                                     list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
+                                    margin: 0px 20px 30px 0px;
                                 }
                                 li {
                                     padding: 5px;
                                 }
                                 img {
-                                    width: 120px;
-                                    margin: 0px auto;
+                                    width: auto;
+                                    margin: 0px 100px;
                                 }
                                 .bdr {
                                     border-left: 1px solid #d0d0d0;
@@ -967,7 +957,7 @@ class TailorMadeTours {
                                 .topic {
                                     font-size:22px;
                                     text-align:center;
-                                    color:#00a1ad;
+                                    color:#fff;
                                 }
                                 .sal {
                                     margin-left:100px;
@@ -988,7 +978,7 @@ class TailorMadeTours {
                                 .footer{
                                     width:100%;
                                     margin-top: 20px;
-                                    background-color:#00a1ad;
+                                    background-color:#3a9b00;
                                     color: #fff;
                                     padding-top:20px;
                                     padding-bottom:30px;
@@ -1020,14 +1010,12 @@ class TailorMadeTours {
                             </style>
                         </head>
                         <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="https://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             
                             <table class="booking-details">
@@ -1136,7 +1124,8 @@ class TailorMadeTours {
                                     <td colspan="2"><strong><u>Cancellation Policy</u></strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td width="0"></td>
+                                    <td>
                                         <ul>
                                             <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
                                             <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
@@ -1154,15 +1143,15 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
                                     <td>Email: info@toursrilanka.travel</td>
                                 </tr>
-                                
+
                             </table>
                             </body>
                         </html>';
@@ -1175,7 +1164,7 @@ class TailorMadeTours {
     }
 
     public static function sendSetPriceEmailToVisitor($tailormade_tour_id, $driverid, $price) {
-        
+
         //----------------------Company Information---------------------
 
         $from = 'info@toursrilanka.travel';
@@ -1197,7 +1186,7 @@ class TailorMadeTours {
 
 
         $visitor_email = $VISITOR->email;
-       
+
 
         $destination_list = '';
         $places = unserialize($TAILORMADETOURS->places);
@@ -1229,14 +1218,14 @@ class TailorMadeTours {
                                 }
                                 ul {
                                     list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
+                                    margin: 0px 20px 30px 0px;
                                 }
                                 li {
                                     padding: 5px;
                                 }
                                 img {
-                                    width: 120px;
-                                    margin: 0px auto;
+                                    width: auto;
+                                    margin: 0px 100px;
                                 }
                                 .bdr {
                                     border-left: 1px solid #d0d0d0;
@@ -1256,7 +1245,7 @@ class TailorMadeTours {
                                 .topic {
                                     font-size:22px;
                                     text-align:center;
-                                    color:#00a1ad;
+                                    color:#fff;
                                 }
                                 .sal {
                                     margin-left:100px;
@@ -1277,7 +1266,7 @@ class TailorMadeTours {
                                 .footer{
                                     width:100%;
                                     margin-top: 20px;
-                                    background-color:#00a1ad;
+                                    background-color:#3a9b00;
                                     color: #fff;
                                     padding-top:20px;
                                     padding-bottom:30px;
@@ -1324,17 +1313,18 @@ class TailorMadeTours {
                                 a.button{
                                 background-color: #0dce38;
                                 color: #fff;
+                                text-decoration: none;
                                 }
                                 
                             </style>
                         </head>
                         <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src=" https://' . $site . '/images/logo/logo.png" alt="Tour Sri Lanka"/><br/>
-
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor Made New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             </div>
-                            <h2 class="topic">Tailor Made New Price Offer | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $VISITOR->name . '</strong></h4>
                             <div class="desc">
                                 <h4>' . $DRIVER->name . ' has offer $ ' . $price . ' for your booking (#' . $TAILORMADETOURS->id . ').</h4>
@@ -1405,7 +1395,7 @@ class TailorMadeTours {
                                     <td colspan="2"><strong><u> Click here Confirm Your booking </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <a href="https://www.toursrilanka.travel/visitor/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a>
+                                    <td><a href="https://www.toursrilanka.travel/visitor/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">Confirm Your Booking</a></td>
                                 </tr>
                             </table>
                             
@@ -1416,15 +1406,15 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
                                     <td>Email: info@toursrilanka.travel</td>
                                 </tr>
-                                
+
                             </table>
                             </body>
                         </html>';
@@ -1436,7 +1426,7 @@ class TailorMadeTours {
         }
     }
 
-    public static function sendSetPriceMessageToVisitor($tailormade_tour_id,$driverid, $price) {
+    public static function sendSetPriceMessageToVisitor($tailormade_tour_id, $driverid, $price) {
 
         $TAILORMADETOURS = new TailorMadeTours($tailormade_tour_id);
         $MESSAGE = new DriverAndVisitorMessages(NULL);
@@ -1496,14 +1486,14 @@ class TailorMadeTours {
                                 }
                                 ul {
                                     list-style-type: square;
-                                    margin: 0px 20px 30px 200px;
+                                    margin: 0px 20px 30px 0px;
                                 }
                                 li {
                                     padding: 5px;
                                 }
                                 img {
-                                    width: 120px;
-                                    margin: 0px auto;
+                                    width: auto;
+                                    margin: 0px 120px;
                                 }
                                 .bdr {
                                     border-left: 1px solid #d0d0d0;
@@ -1523,7 +1513,7 @@ class TailorMadeTours {
                                 .topic {
                                     font-size:22px;
                                     text-align:center;
-                                    color:#00a1ad;
+                                    color:#fff;
                                 }
                                 .sal {
                                     margin-left:100px;
@@ -1544,7 +1534,7 @@ class TailorMadeTours {
                                 .footer{
                                     width:100%;
                                     margin-top: 20px;
-                                    background-color:#00a1ad;
+                                    background-color:#3a9b00;
                                     color: #fff;
                                     padding-top:20px;
                                     padding-bottom:30px;
@@ -1591,19 +1581,18 @@ class TailorMadeTours {
                                 a.button{
                                 background-color: #0dce38;
                                 color: #fff;
+                                text-decoration: none;
                                 }
                                 
                             </style>
                         </head>
                         <body class="bor">
-                            <div style="width: 100%; text-align: center; font-size: 20px; margin: 10px 0px 30px 0px;">
-                                <!--            <b style="font-size: 25px; text-decoration: underline;">Coral Sands Hotel</b><br/>-->
-                                <img src="http://' . $site . '/images/logo/logo.png" alt="toursrilanka"/><br/>
-                                <span><a href="" style="text-decoration:none;color: #000;">Contact</a></span><br/>
-                                <span>Email: info@toursrilanka.travel</span><br/>
-                                <span>Phone: +94 91 227 7513 / +94 91 227 7436</span>
+                            <div class="top" style="background: #3a9b00; padding: 10px 0;">
+                                <div style="width: 100%; text-align: center; font-size: 20px; margin: 0px 0px -22px 0px;">
+                                    <img src="http://' . $site . '/images/logo/logo-white.png" alt="Tour Sri lanka"/><br/>
+                                </div>
+                                <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             </div>
-                            <h2 class="topic">Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | #' . $tailormade_tour_id . '</h2>
                             <h4 class="sal"><strong>Dear ' . $DRIVER->name . ', </strong></h4>
                             
                             
@@ -1621,7 +1610,7 @@ class TailorMadeTours {
                                     <td colspan="2"><strong><u> Click here View More Details </u></strong></td>
                                 </tr>
                                 <tr>
-                                    <a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">View More Details</a>
+                                    <td><a href="https://www.toursrilanka.travel/driver/manage-active-tailormade-bookings.php" class="btncolor1 button margin-top-25 mt-xs-8 mb-xs-8 mt-sm-8 mb-sm-15 ">View More Details</a></td>
                                 </tr>
                             </table>
                             
@@ -1632,15 +1621,15 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Tour Sri Lanka</td>
-                                    <td>Phone: +94 91 227 7513</td>
+                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td><a href="" style="text-decoration:none;color: #fff;">No.326, Galle Rd, Hikkaduwa, Sri Lanka</a></td>
+                                    <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
                                     <td>Email: info@toursrilanka.travel</td>
                                 </tr>
-                                
+
                             </table>
                             </body>
                         </html>';

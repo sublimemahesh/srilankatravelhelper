@@ -16,16 +16,10 @@ class Database {
 //private $user = 'islapiiu_main';
 //private $password = 'Ue.t;FNgC?BG,Paf8V'; 
      
-//    private $host = 'localhost';
-//    private $name = 'tour_sri_lanka';
-//    private $user = 'root';
-//    private $password = '';
-    
-      private $host = 'localhost';
-    private $name = 'ts';
+    private $host = 'localhost';
+    private $name = 'tour_sri_lanka';
     private $user = 'root';
     private $password = '';
-    
 
     public function __construct() {
         mysql_connect($this->host, $this->user, $this->password) or die("Invalid host  or user details");
