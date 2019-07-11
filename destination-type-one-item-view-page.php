@@ -52,7 +52,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
     <head>
         <!-- Basic Page Needs
            ================================================== -->
-        <title><?php echo $DESTINATION->name; ?> || <?php echo $DESTINATION_TYPE->name; ?> || Destinations || Tour Sri Lanka</title>
+        <title><?php echo $DESTINATION->name; ?> || <?php echo $DESTINATION_TYPE->name; ?> || Things to Do || Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
@@ -221,7 +221,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                             <h2 class="tp"><?php echo $DESTINATION->name; ?></h2>
                             <ul>
                                 <li><a href="./">Home</a></li>
-                                <li><a href="destination-type.php">Destination</a></li>
+                                <li><a href="destination-type.php">Things to Do</a></li>
                                 <li><span class="active"><?php echo $DESTINATION_TYPE->name; ?></span></li>
                                 <li><span class="active"><?php echo $DESTINATION->name; ?></span></li>
                             </ul>
@@ -390,7 +390,7 @@ $dest_str = substr($string, 0, strlen($string) - 1);
                             </div>
 
                             <div data-aos="fade-down" data-aos-duration="3500" data-aos-delay="400">
-                                <h3 class="headline text-center" >More Destinations</h3>
+                                <h3 class="headline text-center" >More Things to Do</h3>
                             </div> 
                             <div class="row margin-left-4 moredest otherdestinaionmar">
 

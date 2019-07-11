@@ -222,11 +222,18 @@ if ($REVIEWS['count'] == 0) {
 
                             <div class="listing-item">
                                 <?php
-                                foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
-                                    if ($key == 0) {
-                                        ?>
-                                        <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
-                                        <?php
+                                $count = DriverPhotos::countDriverPhotosByDriver($DRIVER->id);
+                                if ($count['count'] == 0) {
+                                    ?>
+                                    <img src = "upload/driver/driver-photos/thumb/sample.jpg" alt = "">
+                                    <?php
+                                } else {
+                                    foreach (DriverPhotos::getDriverPhotosByDriver($DRIVER->id) as $key => $photo) {
+                                        if ($key == 0) {
+                                            ?>
+                                            <img src="upload/driver/driver-photos/thumb/<?php echo $photo['image_name']; ?>" alt="">
+                                            <?php
+                                        }
                                     }
                                 }
                                 ?> 
@@ -302,27 +309,47 @@ if ($REVIEWS['count'] == 0) {
                         <div class=" content">
                             <div id="galleria">
                                 <?php
-                                foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
+                                $count = DriverPhotos::countDriverPhotosByDriver($DRIVER->id);
+                                if ($count['count'] == 0) {
                                     ?>
-                                    <a href="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>">
-                                        <img 
-                                            src="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
-                                            data-big="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
-                                            data-title="Biandintz eta zaldiak"
-                                            data-description="Horses on Bianditz mountain, in Navarre, Spain."
-                                            >
-                                    </a>
-
+                                <a href="upload/driver/driver-photos/sample.jpg">
+                                            <img 
+                                                src="upload/driver/driver-photos/sample.jpg"
+                                                data-big="upload/driver/driver-photos/sample.jpg"
+                                                data-title="Biandintz eta zaldiak"
+                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                                >
+                                        </a>
                                     <?php
+                                } else {
+                                    foreach ($DRIVER_PHOTOS as $key => $driver_photos) {
+                                        ?>
+                                        <a href="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>">
+                                            <img 
+                                                src="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                                data-big="upload/driver/driver-photos/<?php echo $driver_photos['image_name']; ?>"
+                                                data-title="Biandintz eta zaldiak"
+                                                data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                                                >
+                                        </a>
+
+                                        <?php
+                                    }
                                 }
                                 ?>
                             </div>
                         </div>
                         <div class="padding-top-10" >
-                            <hr  >
+                            <hr>
                             <h3 class="headline"><?php echo $DRIVER->name; ?></h3>
-                            <hr  >
-                            <p><?php echo $DRIVER->description; ?></p>
+                            <hr>
+                            <p><?php
+                                if (empty($DRIVER->description)) {
+                                    echo $DRIVER->short_description;
+                                } else {
+                                    echo $DRIVER->description;
+                                }
+                                ?></p>
                         </div>
                         <div class="review-button">
                             <a href="visitor/visitor-message.php?id=<?php echo $id; ?>&back=visitormessage" target="new"><button id="view-all-reviews" class="btncolor9 button border with-icon submit">Message Now</button></a>
@@ -338,28 +365,28 @@ if ($REVIEWS['count'] == 0) {
                         <hr>
                         <h3 class="headline ">Reviews (<?php echo $sum; ?>)</h3>
                         <hr>
-                        
+
                         <div class="col-md-4 col-sm-5 rating-breakdown">
                             <div class="row">
-                            <div class="col-md-12 rating-block">
-                                <h2 class="bold padding-bottom-7"><?php echo $sum; ?> <small>/ <?php echo 5 * $divider; ?></small></h2>
-                                <?php
-                                for ($i = 1; $i <= $stars; $i++) {
-                                    ?>
-                                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
+                                <div class="col-md-12 rating-block">
+                                    <h2 class="bold padding-bottom-7"><?php echo $sum; ?> <small>/ <?php echo 5 * $divider; ?></small></h2>
                                     <?php
-                                }
-                                for ($j = $i; $j <= 5; $j++) {
+                                    for ($i = 1; $i <= $stars; $i++) {
+                                        ?>
+                                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                        </button>
+                                        <?php
+                                    }
+                                    for ($j = $i; $j <= 5; $j++) {
+                                        ?>
+                                        <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                                            <span class="fa fa-star" aria-hidden="true"></span>
+                                        </button>
+                                        <?php
+                                    }
                                     ?>
-                                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <?php
-                                }
-                                ?>
-                            </div>
+                                </div>
                             </div>
                         </div>	
                         <div class="col-md-8 col-sm-7 reviewrating ">

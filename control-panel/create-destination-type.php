@@ -8,7 +8,7 @@ include_once(dirname(__FILE__) . './auth.php');
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination Type - srilankatravelhelper</title>
+        <title>Add New Things to Do Type - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -51,7 +51,7 @@ include_once(dirname(__FILE__) . './auth.php');
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Add New Destination Type</h2>
+                                <h2>Add New Things to Do Type</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="manage-destination-type.php">
@@ -69,7 +69,7 @@ include_once(dirname(__FILE__) . './auth.php');
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" id="name" class="form-control" placeholder="Enter Tour Type" autocomplete="off" name="name" required="TRUE">
+                                                    <input type="text" id="name" class="form-control" placeholder="Enter Type" autocomplete="off" name="name" required="TRUE">
                                                 </div>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@ include_once(dirname(__FILE__) . './auth.php');
 
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add tour type"/>
+                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add type"/>
                                         </div>
                                     </div>
                                     <hr/>

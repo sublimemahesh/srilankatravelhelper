@@ -8204,3 +8204,7 @@ input[type="checkbox"] {
     opacity: 0;
 
 }
+#footer.dark.copyrights a:hover {
+    text-decoration: none;
+    color: #0dce38;
+}

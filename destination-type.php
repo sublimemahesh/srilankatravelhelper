@@ -9,7 +9,7 @@ if (!isset($_SESSION)) {
     <head>
         <!-- Basic Page Needs
            ================================================== -->
-        <title>Destinations || Tour Sri Lanka</title>
+        <title>Things to Do || Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
@@ -28,10 +28,10 @@ if (!isset($_SESSION)) {
             <div class="container-fluid about-bg" >
                 <div class="container">
                     <div class="rl-banner" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="3500" >
-                        <h2 class="tp">Destination</h2>
+                        <h2 class="tp">Things to Do</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><span class="active">Destination</span></li>
+                            <li><span class="active">Things to Do</span></li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ if (!isset($_SESSION)) {
 
                     <div class="view-all-destination-button ">
                         <div class="edit-button">
-                            <a href="all-destinations.php" ><button id="view-all-reviews" class="btncolor3 button border with-icon submit">All Destinations</button></a>
+                            <a href="all-destinations.php" ><button id="view-all-reviews" class="btncolor3 button border with-icon submit">All Things to Do</button></a>
                         </div>
                     </div>
 

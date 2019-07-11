@@ -12,7 +12,7 @@ $types = $DESTINATION_TYPE->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination - srilankatravelhelper</title>
+        <title>Add New Things to Do - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -48,7 +48,7 @@ $types = $DESTINATION_TYPE->all();
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Add New Destination</h2>
+                                <h2>Add New Things to Do</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="manage-destination.php">
@@ -61,7 +61,7 @@ $types = $DESTINATION_TYPE->all();
                                 <form class="form-horizontal"  method="post" action="post-and-get/destination.php" enctype="multipart/form-data"> 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="tourtype">Destination Type</label>
+                                            <label for="tourtype">Type</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group place-select">
@@ -180,7 +180,7 @@ $types = $DESTINATION_TYPE->all();
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                            <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="Add Destination"/>
+                                            <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="Add Things to Do"/>
                                         </div>
                                     </div>
                                     <hr/>

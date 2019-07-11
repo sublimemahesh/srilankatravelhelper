@@ -314,7 +314,7 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">map</i>
-                        <span>Destination</span>
+                        <span>Things to Do</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
@@ -329,16 +329,16 @@
                                 <span>Manage</span>
                             </a>
                         </li>
-                        <li>
+<!--                        <li>
                             <a href="arrange-destination.php">
                                 <i class="material-icons">compare_arrows</i>
                                 <span>Arrange</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="javascript:void(0);" class="menu-toggle">
                                 <i class="material-icons">chevron_right</i>
-                                <span>Destination Type</span>
+                                <span>Things to Do Type</span>
                             </a>
                             <ul class="ml-menu">
                                 <li>

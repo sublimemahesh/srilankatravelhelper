@@ -1,15 +1,18 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-
-$DESTINATION = new Destination(NULL);
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+$DESTINATION = new Destination($id);
+$destinationsbytype = Destination::getDestinationsByTypeId($DESTINATION->type)
 ?>
 <!DOCTYPE html>
 <html> 
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Arrange Destination-srilankatravelhelper</title>
+        <title>Arrange Things to Do- Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -35,7 +38,7 @@ $DESTINATION = new Destination(NULL);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Arrange Destination</h2>
+                                <h2>Arrange Things to Do</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="view-destination.php?id=<?php echo $DESTINATION->type; ?>">
@@ -51,8 +54,8 @@ $DESTINATION = new Destination(NULL);
                                             <div class="col-md-12 arrange-container">
                                                 <ul id="sortable">
                                                     <?php
-                                                    if (count($DESTINATION->all()) > 0) {
-                                                        foreach ($DESTINATION->all() as $key => $destination) {
+                                                    if (count($destinationsbytype) > 0) {
+                                                        foreach ($destinationsbytype as $key => $destination) {
                                                             ?>
                                                             <div class="col-md-3" style="list-style: none;">
                                                                 <li class="ui-state-default">
@@ -67,13 +70,13 @@ $DESTINATION = new Destination(NULL);
                                                         }
                                                     } else {
                                                         ?> 
-                                                        <b>No images in the database.</b> 
+                                                        <b>No things to do in the database.</b> 
                                                     <?php } ?> 
 
                                                 </ul>  
                                                 <div class="row">
                                                     <div class="col-sm-12 text-center" style="margin-top: 19px;">
-                                                        <input type="submit" class="btn btn-info" id="btn-submit" value="Save Images" name="save-data">
+                                                        <input type="submit" class="btn btn-info" id="btn-submit" value="Save Things to Do" name="save-data">
                                                     </div>
                                                 </div>
                                             </div>

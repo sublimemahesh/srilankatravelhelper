@@ -232,6 +232,20 @@ class Destination {
         }
         return $array_res;
     }
+    public function getDestinationsByTypeId($id) {
+
+        $query = "SELECT * FROM `destination` WHERE `type`= $id ORDER BY `sort` ASC";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
 
     public function countTotalDestinationsOfType($id) {
 

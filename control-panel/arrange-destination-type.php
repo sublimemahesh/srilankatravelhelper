@@ -9,7 +9,7 @@ $DESTINATION_TYPE = new DestinationType(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Arrange Destination Types -srilankatravelhelper</title>
+        <title>Arrange Things to Do Types - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -35,14 +35,8 @@ $DESTINATION_TYPE = new DestinationType(NULL);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Arrange Destination Type</h2>
-                                <ul class="header-dropdown">
-                                    <li class="">
-                                        <a href="#">
-                                            <i class="material-icons">list</i> 
-                                        </a>
-                                    </li>
-                                </ul>
+                                <h2>Arrange Things to Do Type</h2>
+                                
                             </div>
                             <div class="body">
                                 <form method="post" action="post-and-get/destination-type.php" class="form-horizontal" >
@@ -67,7 +61,7 @@ $DESTINATION_TYPE = new DestinationType(NULL);
                                                         }
                                                     } else {
                                                         ?> 
-                                                        <b>No images in the database.</b> 
+                                                        <b>No things to do in the database.</b> 
                                                     <?php } ?> 
 
                                                 </ul>  

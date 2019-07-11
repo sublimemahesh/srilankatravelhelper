@@ -23,7 +23,7 @@ $(document).ready(function () {
 
                         swal({
                             title: "Deleted!",
-                            text: "Tour type has been deleted.",
+                            text: "Things to do has been deleted.",
                             type: 'success',
                             timer: 2000,
                             showConfirmButton: false

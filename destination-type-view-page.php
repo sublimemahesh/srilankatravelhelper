@@ -34,7 +34,7 @@ $updateview = DestinationType::updateViewByid($id, $view);
     <head>
         <!-- Basic Page Needs
            ================================================== -->
-        <title><?php echo $DESTINATION_TYPE->name; ?> || Destinations || Tour Sri Lanka</title>
+        <title><?php echo $DESTINATION_TYPE->name; ?> || Things to Do || Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
@@ -74,7 +74,7 @@ $updateview = DestinationType::updateViewByid($id, $view);
                         <h2 class="tp"><?php echo $DESTINATION_TYPE->name; ?></h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><a href="destination-type.php">Destination</a></li>
+                            <li><a href="destination-type.php">Things to Do</a></li>
                             <li><span class="active"><?php echo $DESTINATION_TYPE->name; ?></span></li>
                         </ul>
                     </div>
@@ -180,7 +180,7 @@ $updateview = DestinationType::updateViewByid($id, $view);
                     <div class="col-md-3 col-sm-4 moredesti more-destination-type" >
                         <div class="boxed-widget opening-hours" data-aos="fade-right" data-aos-duration="3500" data-aos-delay="300">
 
-                            <h3>Destination Types</h3>
+                            <h3>Types</h3>
                             <ul>
                                 <?php
                                 $DESTINATIONTYPES = DestinationType::all();
@@ -242,7 +242,7 @@ $updateview = DestinationType::updateViewByid($id, $view);
                                                         ?>
                                                     </div>
                                                     <div class="col-sm-12">
-                                                        Destinations - <?php
+                                                        Things to Do - <?php
                                                         if ($count['count'] < 10) {
                                                             echo '0' . $count['count'];
                                                         } else {

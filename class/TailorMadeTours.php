@@ -306,8 +306,8 @@ class TailorMadeTours {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@toursrilanka.travel';
-        $reply = 'info@toursrilanka.travel';
+        $from = 'help@toursrilanka.travel';
+        $reply = 'help@toursrilanka.travel';
 
         $subject = "Tailor-Made New Booking Request | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
@@ -557,7 +557,7 @@ class TailorMadeTours {
                                             <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
                                             <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
                                             <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
+                                            <li>Booking cancellations should be notified via email to help@toursrilanka.travel</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -570,13 +570,13 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td class="footer-td2">Phone: +94 77 166 4553</td>
                                     <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
                                     <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
+                                    <td>Email: help@toursrilanka.travel</td>
                                 </tr>
 
                             </table>
@@ -594,8 +594,8 @@ class TailorMadeTours {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@toursrilanka.travel';
-        $reply = 'info@toursrilanka.travel';
+        $from = 'help@toursrilanka.travel';
+        $reply = 'help@toursrilanka.travel';
 
         $subject = "Tailor-Made Tour New Price Offer | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
@@ -847,13 +847,13 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td class="footer-td2">Phone: +94 77 166 4553</td>
                                     <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
                                     <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
+                                    <td>Email: help@toursrilanka.travel</td>
                                 </tr>
 
                             </table>
@@ -872,8 +872,8 @@ class TailorMadeTours {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@toursrilanka.travel';
-        $reply = 'info@toursrilanka.travel';
+        $from = 'help@toursrilanka.travel';
+        $reply = 'help@toursrilanka.travel';
 
         $subject = "Tailor-Made Tour Booking Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
@@ -1130,7 +1130,7 @@ class TailorMadeTours {
                                             <li>If cancelled 7 days prior to arrival date : 0% of the booking value will be charged as a Cancellation Fee.</li>
                                             <li>If cancelled within 1 to 6 days of the arrival date: 100 % of the booking value will be charged as Cancellation Fee.</li>
                                             <li>No Show : 100% of the booking value will be charged as a Cancellation Fee.</li>
-                                            <li>Booking cancellations should be notified via email to info@toursrilanka.travel</li>
+                                            <li>Booking cancellations should be notified via email to help@toursrilanka.travel</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -1143,13 +1143,13 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td class="footer-td2">Phone: +94 77 166 4553</td>
                                     <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
                                     <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
+                                    <td>Email: help@toursrilanka.travel</td>
                                 </tr>
 
                             </table>
@@ -1167,8 +1167,8 @@ class TailorMadeTours {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@toursrilanka.travel';
-        $reply = 'info@toursrilanka.travel';
+        $from = 'help@toursrilanka.travel';
+        $reply = 'help@toursrilanka.travel';
 
         $subject = "Tailor Made New Price Offer  | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
@@ -1406,13 +1406,13 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td class="footer-td2">Phone: +94 77 166 4553</td>
                                     <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
                                     <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
+                                    <td>Email: help@toursrilanka.travel</td>
                                 </tr>
 
                             </table>
@@ -1445,8 +1445,8 @@ class TailorMadeTours {
 
         //----------------------Company Information---------------------
 
-        $from = 'info@toursrilanka.travel';
-        $reply = 'info@toursrilanka.travel';
+        $from = 'help@toursrilanka.travel';
+        $reply = 'help@toursrilanka.travel';
 
         $subject = "Tailor-Made Tour Booking Driver Confirmation | Tour Sri Lanka | " . $tailormade_tour_id . "";
         $site = 'toursrilanka.travel';
@@ -1621,13 +1621,13 @@ class TailorMadeTours {
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
-                                    <td class="footer-td2">Phone: +94 71 666 7557</td>
+                                    <td class="footer-td2">Phone: +94 77 166 4553</td>
                                     <td>Fax: +94 91 666 7557 </td>
                                 </tr>
                                 <tr class="footer-tr">
                                     <td></td>
                                     <td><a href="" style="text-decoration:none;color: #fff;">Web: www.toursrilanka.travel</a></td>
-                                    <td>Email: info@toursrilanka.travel</td>
+                                    <td>Email: help@toursrilanka.travel</td>
                                 </tr>
 
                             </table>
