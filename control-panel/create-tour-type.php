@@ -8,7 +8,7 @@ include_once(dirname(__FILE__) . './auth.php');
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Tour Type - srilankatravelhelper</title>
+        <title>Add New Tour Type - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 

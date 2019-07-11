@@ -70,7 +70,7 @@
                     <i class="fa fa-star-half-full"></i>
                 </div>
                 <div class="icon-text icon-text1">
-                    Destination Reviews
+                    Things to Do Reviews
                 </div>
             </div>
         </a>

@@ -21,7 +21,7 @@ $types = $DESTINATION_TYPE->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination - srilankatravelhelper</title>
+        <title>Add New Things to Do - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -57,7 +57,7 @@ $types = $DESTINATION_TYPE->all();
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Add New Destination</h2>
+                                <h2>Add New Things to Do</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="manage-destination.php">

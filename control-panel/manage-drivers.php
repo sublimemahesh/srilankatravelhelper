@@ -16,7 +16,7 @@ $drivers = $DRIVER->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Drivers - srilankatravelhelper</title>
+        <title>Manage Drivers - Tours Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 

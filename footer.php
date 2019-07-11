@@ -140,7 +140,7 @@ foreach ($destinationscart as $des) {
                 <h4>Helpful Links</h4>
                 <ul class="footer-links">
                     <li><a href="./">Home</a></li>
-                    <li><a href="destination-type.php">Destinations</a></li>
+                    <li><a href="destination-type.php">Things to Do</a></li>
                     <li><a href="tour-packages-type.php">Packages</a></li>
                     <li><a href="drivers-page.php">Drivers</a></li>
                     <li><a href="about.php">About Us</a>
@@ -162,10 +162,10 @@ foreach ($destinationscart as $des) {
                 <div class="text-widget1">
                 </div>
                 <div class="text-widget1">
-                    Phone: <span> <a href="tel:+94 71 666 7557" style="text-decoration: none;color:#888;"> +94 71 666 7557 </a></span><br>
+                    Phone: <span> <a href="tel:+94 71 666 7557" style="text-decoration: none;color:#888;"> +94 77 166 4553 </a></span><br>
                 </div>
                 <div class="text-widge1t">
-                    E-Mail:<span> <a href="mailto:info@toursrilanka.travel" style="text-decoration: none;color:#888;"> info@toursrilanka.travel</a></span><br>
+                    E-Mail:<span> <a href="mailto:info@toursrilanka.travel" style="text-decoration: none;color:#888;"> help@toursrilanka.travel</a></span><br>
                 </div>
 
                 <ul class="social-icons margin-top-20">
@@ -182,7 +182,7 @@ foreach ($destinationscart as $des) {
         <!-- Copyright -->
         <div class="row">
             <div class="col-md-12 footerlast">
-                <div class="copyrights">© 2019 Tour Sri Lanka. All Rights Reserved.</div>
+                <div class="copyrights">© <?php echo date('Y'); ?> Tour Sri Lanka. All Rights Reserved. Designed by <a href="https://www.synotec.lk/" class="site-name">Synotec Holdings (pvt) Ltd.</a></div>
             </div>
         </div>
 

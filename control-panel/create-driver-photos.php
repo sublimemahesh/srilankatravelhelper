@@ -13,7 +13,7 @@ $DRIVER_PHOTOS_OBJ = new DriverPhotos(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Driver Photos - srilankatravelhelper</title>
+        <title>Add New Driver Photos - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 

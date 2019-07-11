@@ -7,7 +7,7 @@ include_once(dirname(__FILE__) . '/auth.php');
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Destination Views</title>
+        <title>Things to Do Views - Tour Sri Lanka</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -71,7 +71,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                     <td><?php echo $DesView['name']; ?></td> 
                                                     <td><?php echo $DesView['views']; ?></td>
                                                     <td> 
-                                                        <a href="edit-destination-views.php?id=<?php echo $DesView['id']; ?>" class="op-link btn btn-sm btn-info" title="Update Destination Views"><i class="glyphicon glyphicon-eye-open"></i></a>   
+                                                        <a href="edit-destination-views.php?id=<?php echo $DesView['id']; ?>" class="op-link btn btn-sm btn-info" title="Update Things to Do Views"><i class="glyphicon glyphicon-eye-open"></i></a>   
                                                     </td>
                                                 </tr>
                                                 <?php

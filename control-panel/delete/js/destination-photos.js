@@ -24,7 +24,7 @@ $(document).ready(function () {
 
                         swal({
                             title: "Deleted!",
-                            text: "Destination Photo has been deleted.",
+                            text: "Things to do photo has been deleted.",
                             type: 'success',
                             timer: 2000,
                             showConfirmButton: false

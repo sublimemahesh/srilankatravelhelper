@@ -14,7 +14,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Add New Destination Photos - srilankatravelhelper</title>
+        <title>Add New Things to Do Photos - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- Google Fonts -->
@@ -50,7 +50,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Add New Destination Photos</h2>
+                                <h2>Add New Things to Do Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
                                         <a href="view-destination.php?id=<?php echo $DESTINATION->type; ?>">
@@ -89,7 +89,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
                                             <input type="hidden" name="destination"  value="<?php echo $id; ?>"/>
-                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add destination photo"/>
+                                            <input type="submit" name="add-tour-type" class="btn btn-primary m-t-15 waves-effect" value="Add photo"/>
                                         </div>
                                     </div>
                                     <hr/>
@@ -118,7 +118,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                                             <?php
                                         } else {
                                             ?> 
-                                            <b style="padding-left: 15px;">No packages in the database.</b> 
+                                            <b style="padding-left: 15px;">No photos in the database.</b> 
                                             <?php
                                         }
                                     }

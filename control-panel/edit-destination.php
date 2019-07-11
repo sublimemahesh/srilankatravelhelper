@@ -17,7 +17,7 @@ $types = $DESTINATION_TYPE->all();
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Destination - srilankatravelhelper</title>
+        <title>Edit Things to Do - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@ $types = $DESTINATION_TYPE->all();
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Edit Destination
+                                    Edit Things to Do
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
@@ -61,7 +61,7 @@ $types = $DESTINATION_TYPE->all();
                                 <form class="form-horizontal" method="post" action="post-and-get/destination.php" enctype="multipart/form-data"> 
                                     <div class="row clearfix">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="tourtype">Destination Type</label>
+                                            <label for="tourtype">Type</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group place-select">
@@ -170,7 +170,7 @@ $types = $DESTINATION_TYPE->all();
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"> 
                                             <div class="form-group">
                                                 <div class="form-line"> 
-                                                    <input type="text" class="form-control" placeholder="Please enter Destination Views" autocomplete="off" name="views" value="<?php echo $DESTINATION->viewer ?>">
+                                                    <input type="text" class="form-control" placeholder="Please enter Things to Do Views" autocomplete="off" name="views" value="<?php echo $DESTINATION->viewer ?>">
                                                 </div>
                                             </div>
                                         </div>

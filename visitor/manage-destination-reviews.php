@@ -28,7 +28,7 @@ $VISITOR = new Visitor($_SESSION['id']);
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>Manage Destination Reviews || Visitor DashBoard</title>
+        <title>Manage Things to Do Reviews || Visitor DashBoard</title>
         <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style-all.css" rel="stylesheet" type="text/css"/>
@@ -87,7 +87,7 @@ $VISITOR = new Visitor($_SESSION['id']);
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
-                                Add Reviews for Destination
+                                Add Reviews for Things to Do
                             </div>
                             <div class="panel-body">
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for destination.." title="Type in a name">

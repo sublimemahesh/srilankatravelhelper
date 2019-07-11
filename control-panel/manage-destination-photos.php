@@ -14,7 +14,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Manage Destination - srilankatravelhelper</title>
+        <title>Manage Things to Do Photos - Tour Sri Lanka</title>
         <!-- Favicon-->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -58,7 +58,7 @@ $DESTINATION_PHOTOS_OBJ = new DestinationPhotos(NULL);
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Manage Destination
+                                    Manage Things to Do Photos
                                 </h2>
                                 <ul class="header-dropdown">
                                     <li>

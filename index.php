@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
 
         <!-- Basic Page Needs
         ================================================== -->
-        <title>toursrilanka.travel | Tour Sri Lanka</title>
+        <title>Tour Sri Lanka</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- CSS
@@ -141,7 +141,7 @@ if (!isset($_SESSION)) {
                 <div class="row">
                     <div class="col-md-12 ">
                         <h3 class="headline centered margin-top-45 margin-bottom-45 ">
-                            Popular Destinations of Sri Lanka
+                            Popular Things to Do in Sri Lanka
                         </h3>
                     </div>
                 </div>

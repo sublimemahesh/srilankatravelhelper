@@ -45,10 +45,10 @@ if (!isset($_SESSION)) {
                     <div class="sidebar-textbox">
                         <p>We are specialists by providing more professional service with trustworthy and will guide you to reach the maximum thrilling experience.</p>
                         <ul class="contact-details">
-                            <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>+94 71 666 7557 </span></li>
+                            <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>+94 77 166 4553 </span></li>
                             <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>+94 91 666 7557</span></li>
                             <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.toursrilanka.travel</a></span></li>
-                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">info@toursrilanka.travel</a></span></li>
+                            <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">help@toursrilanka.travel</a></span></li>
                         </ul>
                     </div>
                 </div>
