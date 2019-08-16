@@ -65,5 +65,8 @@
     margin-left: 25px;
 }
 .ratingblock1{
-  padding: 0% 0% 0% 0%;  
+    padding: 0% 0% 0% 0%;  
+}
+.rating-block {
+    padding: 4% 4% 4% 4%;
 }

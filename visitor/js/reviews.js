@@ -33,6 +33,7 @@ $(document).ready(function () {
         $('.driver-profile').empty();
         var id = $('#driverid').val();
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
 
         $.ajax({
             url: "post-and-get/ajax/review.php",
@@ -46,6 +47,8 @@ $(document).ready(function () {
             },
             success: function (review) {
                 $('.review-add-section').removeClass('hidden');
+                $('#reviewid').val('');
+                $('#message').text('');
                 if (!review) {
                     $('.visitor-review').text(0);
                     var i, star = '';
@@ -58,6 +61,7 @@ $(document).ready(function () {
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
                     $('#add-review').attr('review', review.reviews);
+                    $('#delete-review').removeClass('hidden');
 
 
                     var i, j, star_number, star = '';
@@ -184,6 +188,7 @@ $(document).ready(function () {
         $('.tour-profile').empty();
         var id = $('#tourid').val();
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
 
         $.ajax({
             url: "post-and-get/ajax/review.php",
@@ -198,6 +203,8 @@ $(document).ready(function () {
             success: function (review) {
 
                 $('.review-add-section').removeClass('hidden');
+                $('#reviewid').val('');
+                $('#message').text('');
                 if (!review) {
                     $('.visitor-review').text(0);
                     var i, star = '';
@@ -210,6 +217,7 @@ $(document).ready(function () {
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
                     $('#add-review').attr('review', review.reviews);
+                    $('#delete-review').removeClass('hidden');
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -325,6 +333,7 @@ $(document).ready(function () {
         $('.destination-profile').empty();
         var id = $('#destinationid').val();
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
 
         $.ajax({
             url: "post-and-get/ajax/review.php",
@@ -339,6 +348,8 @@ $(document).ready(function () {
             success: function (review) {
 
                 $('.review-add-section').removeClass('hidden');
+                $('#reviewid').val('');
+                $('#message').text('');
                 if (!review) {
                     $('.visitor-review').text(0);
                     var i, star = '';
@@ -351,6 +362,7 @@ $(document).ready(function () {
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
                     $('#add-review').attr('review', review.reviews);
+                    $('#delete-review').removeClass('hidden');
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -463,6 +475,7 @@ $(document).ready(function () {
     if (get_driver != '' || get_driver != 0) {
 
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
 
         $.ajax({
             url: "post-and-get/ajax/review.php",
@@ -475,32 +488,40 @@ $(document).ready(function () {
                 option: 'CHECK'
             },
             success: function (review) {
-                $('#review-add-section-driver').removeClass('hidden');
-                if (!review) {
-                    $('.visitor-review').text(0);
-                    var i, star = '';
 
-                    for (i = 1; i <= 5; i++) {
-                        star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                setTimeout(function () {
+                    $('#review-add-section-driver').removeClass('hidden');
+                    $('#message').text('');
+                    $('#reviewid').val('');
+                    if (!review) {
+                        $('.visitor-review').text(0);
+                        $('#delete-review').addClass('hidden');
+                        var i, star = '';
+
+                        for (i = 1; i <= 5; i++) {
+                            star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                        }
+                    } else {
+                        $('#reviewid').val(review.id);
+                        $('.visitor-review').text(review.reviews);
+                        $('#message').text(review.message);
+                        $('#add-review').attr('review', review.reviews);
+                        $('#delete-review').removeClass('hidden');
+
+                        var i, j, star_number, star = '';
+                        star_number = review.reviews;
+
+                        for (i = 1; i <= star_number; i++) {
+                            star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/yellow.png" alt=""/></a></div>';
+                        }
+                        for (j = i; j <= 5; j++) {
+                            star += '<div class="star" number="' + j + '" onClick="reviews(' + j + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
+                        }
                     }
-                } else {
-                    $('#reviewid').val(review.id);
-                    $('.visitor-review').text(review.reviews);
-                    $('#message').text(review.message);
 
-                    var i, j, star_number, star = '';
-                    star_number = review.reviews;
-
-                    for (i = 1; i <= star_number; i++) {
-                        star += '<div class="star" number="' + i + '" onClick="reviews(' + i + ')" ><a><img class="star1" src="images/yellow.png" alt=""/></a></div>';
-                    }
-                    for (j = i; j <= 5; j++) {
-                        star += '<div class="star" number="' + j + '" onClick="reviews(' + j + ')" ><a><img class="star1" src="images/black.png" alt=""/></a></div>';
-                    }
-                }
-
-                $('.review-black-star').empty();
-                $('.review-black-star').append(star);
+                    $('.review-black-star').empty();
+                    $('.review-black-star').append(star);
+                }, 1000);
             }
         });
     } else {
@@ -509,6 +530,7 @@ $(document).ready(function () {
 
     if (get_tour !== '' || get_tour != 0) {
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
 
         $.ajax({
             url: "post-and-get/ajax/review.php",
@@ -524,6 +546,7 @@ $(document).ready(function () {
                 $('#review-add-section-tour').removeClass('hidden');
                 if (!review) {
                     $('.visitor-review').text(0);
+                     $('#delete-review').addClass('hidden');
                     var i, star = '';
 
                     for (i = 1; i <= 5; i++) {
@@ -533,6 +556,8 @@ $(document).ready(function () {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
+                    $('#add-review').attr('review', review.reviews);
+                    $('#delete-review').removeClass('hidden');
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -557,6 +582,7 @@ $(document).ready(function () {
     if (get_destination != '' || get_destination != 0) {
 
         var visitor = $('#visitorid').val();
+        $('#delete-review').addClass('hidden');
         $.ajax({
             url: "post-and-get/ajax/review.php",
             cache: false,
@@ -571,6 +597,7 @@ $(document).ready(function () {
                 $('#review-add-section-destination').removeClass('hidden');
                 if (!review) {
                     $('.visitor-review').text(0);
+                     $('#delete-review').addClass('hidden');
                     var i, star = '';
 
                     for (i = 1; i <= 5; i++) {
@@ -580,6 +607,8 @@ $(document).ready(function () {
                     $('#reviewid').val(review.id);
                     $('.visitor-review').text(review.reviews);
                     $('#message').text(review.message);
+                    $('#add-review').attr('review', review.reviews);
+                    $('#delete-review').removeClass('hidden');
 
                     var i, j, star_number, star = '';
                     star_number = review.reviews;
@@ -596,7 +625,23 @@ $(document).ready(function () {
             }
         });
     } else {
-        alert(get_driver.length);
         $('.review-add-section').addClass('hidden');
     }
+
+    $("#delete-review").click(function () {
+        var id = $("#reviewid").val();
+        $.ajax({
+            url: "post-and-get/ajax/review.php",
+            cache: false,
+            dataType: "json",
+            type: "POST",
+            data: {
+                id: id,
+                option: 'DELETEREVIEW'
+            },
+            success: function (result) {
+                location.reload();
+            }
+        });
+    });
 });

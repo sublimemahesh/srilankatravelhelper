@@ -558,3 +558,20 @@ textarea.form-control {
 .box-blue:hover {
     background: #1b849580;
 }
+.driver-section .driver-list { 
+    margin-top: -62px;
+}
+.driver-section .driver-profile .driver-name {
+    margin-top: -77px;
+}
+.driver-section .star-rating-fa {
+    margin-top: -22px;
+    width: 100%;
+    padding-right: 15px;
+}
+.btn-red {
+    background: #ce1c1c;
+    border: 1px solid #ce1c1c;
+    color: #fff;
+    margin-top: 20px;
+}

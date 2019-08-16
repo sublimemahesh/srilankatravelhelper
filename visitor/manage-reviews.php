@@ -9,6 +9,7 @@ if (isset($_GET['driver'])) {
     $loop = 1;
     $Driver = new Drivers($id);
 }
+
 if (isset($_GET['l'])) {
     $loop = $_GET['l'];
 }
@@ -65,7 +66,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                         $vali->show_message();
                         ?>
                     </div>
-                    <div class="col-md-12 col-sm-8 col-xs-12">
+                    <div class="col-md-12 col-sm-8 col-xs-12 driver-section">
 
                         <div class="panel panel-green profile-panel">
                             <div class="panel-heading ">
@@ -98,12 +99,25 @@ $VISITOR = new Visitor($_SESSION['id']);
                                         ?>
                                         <div class="listing-item">
                                             <?php
-                                            foreach (DriverPhotos::getDriverPhotosByDriver($Driver->id) as $key => $photo) {
-                                                if ($key == 0) {
-                                                    ?>
-                                            <img src="../upload/driver/driver-photos/Cov/<?php echo $photo['image_name']; ?>" alt="">
-                                                    <?php
+                                            if (count(DriverPhotos::getDriverPhotosByDriver($Driver->id)) > 0) {
+                                                foreach (DriverPhotos::getDriverPhotosByDriver($Driver->id) as $key => $photo) {
+
+                                                    if ($key == 0) {
+                                                        if ($photo['image_name']) {
+                                                            ?>
+                                                            <img src="../upload/driver/driver-photos/Cov/<?php echo $photo['image_name']; ?>" alt="">
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <img src="../upload/driver/driver-photos/Cov/sample.jpg" alt="">
+                                                            <?php
+                                                        }
+                                                    }
                                                 }
+                                            } else {
+                                                ?>
+                                                <img src="../upload/driver/driver-photos/Cov/sample.jpg" alt="">
+                                                <?php
                                             }
                                             ?>
                                         </div>
@@ -196,6 +210,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     <input type="hidden" id="reviewid" value="" />
                                     <div class="row col-md-12 col-sm-12 col-xs-12 text-center">
                                         <button class="btn btn-green" id="add-review" review="">Send Review</button>
+                                        <button class="btn btn-red hidden" id="delete-review">Delete Review</button>
                                     </div>
                                 </div>
                             </div>
@@ -206,11 +221,11 @@ $VISITOR = new Visitor($_SESSION['id']);
                 <input type="hidden" id="get_driver" value="<?php echo $id; ?>" />
                 <input type="hidden" id="loop" value="<?php echo $loop; ?>" />
             </div>
-           
+
         </div>
-         <?php
-            include './footer.php';
-            ?>
+        <?php
+        include './footer.php';
+        ?>
 
         <script src="js/jquery_2.2.4.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>

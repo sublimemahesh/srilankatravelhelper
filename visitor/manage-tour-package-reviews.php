@@ -182,6 +182,7 @@ $VISITOR = new Visitor($_SESSION['id']);
                                     <input type="hidden" id="reviewid" value="" />
                                     <div class="row col-md-12 col-sm-12 col-xs-12 text-center">
                                         <button class="btn btn-green" id="add-review" review="">Send Review</button>
+                                        <button class="btn btn-red hidden" id="delete-review">Delete Review</button>
                                     </div>
                                 </div>
                             </div>
